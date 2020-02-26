@@ -1,7 +1,7 @@
 #import "./Fragments/ImageArchive.gql"
 
 query getArrangements {
-  arrangements(first: 3) {
+  arrangements(first: 100) {
     edges {
       node {
         id
@@ -11,11 +11,11 @@ query getArrangements {
         featuredImage {
           ...imageArchive
         }
-        prijzenArrangementen {
-          fieldGroupName
+        pricesGroup {
           priceFrom
         }
       }
     }
   }
 }
+

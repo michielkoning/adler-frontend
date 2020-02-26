@@ -1,7 +1,7 @@
 <template>
   <lazy-loading-image
     v-if="image"
-    class="image"
+    :class="$style.image"
     :src="image.heroMedium"
     :alt="image.altText"
     :srcset="
@@ -30,11 +30,13 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .image {
+  height: 30vw;
+  max-height: 20rem;
+  object-fit: cover;
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin-bottom: var(--spacing-m);
 }
 </style>

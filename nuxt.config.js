@@ -6,7 +6,7 @@ import manifest from './config/manifest'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
 import sitemap from './config/sitemap'
-import { apiUrl, siteUrl } from './config/siteDetails'
+import { apiUrl, siteUrl, siteTitle } from './config/siteDetails'
 
 export default {
   mode: 'universal',
@@ -28,11 +28,23 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, viewport-fit=cover',
       },
-      { hid: 'description', name: 'description', content: pkg.description },
       {
-        hid: 'og:description',
-        name: 'og:description',
-        content: pkg.description,
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes',
+      },
+      {
+        name: 'apple-mobile-web-app-status-bar-style',
+        content: 'black-translucent',
+      },
+      {
+        hid: 'og:locale',
+        name: 'og:locale',
+        content: 'en_US',
+      },
+      {
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: siteTitle,
       },
     ],
     link: [

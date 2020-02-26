@@ -1,41 +1,34 @@
 <template>
-  <div>
-    <page :page="page">
-      <teacher-list />
-    </page>
-    <services-wrapper />
-  </div>
+  <app-page :page="page">
+    <archive-list :items="arrangements.edges" />
+  </app-page>
 </template>
 
 <script>
-import pages from '@/config/pages'
-
-import getSeoMetaData from '@/helpers/seo'
-import TeacherList from '@/components/Teachers/TeacherList.vue'
-import Page from '@/components/Page.vue'
-import ServicesWrapper from '@/components/Services/ServicesWrapper.vue'
-import PageHomeQuery from '~/graphql/PageHome.gql'
+import ArrangementsQuery from '~/graphql/Arrangements.gql'
+import PageQuery from '~/graphql/Page.gql'
+import ArchiveList from '~/components/Shared/Archive/ArchiveList.vue'
+import AppPage from '~/components/Layout/AppPage.vue'
 
 export default {
   components: {
-    TeacherList,
-    Page,
-    ServicesWrapper,
+    ArchiveList,
+    AppPage,
   },
   async asyncData({ app, params }) {
+    const arrangements = await app.apolloProvider.defaultClient.query({
+      query: ArrangementsQuery,
+    })
     const page = await app.apolloProvider.defaultClient.query({
-      query: PageHomeQuery,
+      query: PageQuery,
       variables: {
-        pageId: pages.rooms,
+        pageId: 2450,
       },
     })
     return {
+      arrangements: arrangements.data.arrangements,
       page: page.data.page,
     }
-  },
-
-  head() {
-    return getSeoMetaData(this.page, this.$nuxt.$route)
   },
 }
 </script>

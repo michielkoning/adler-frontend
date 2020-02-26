@@ -1,13 +1,9 @@
 #import "./ImageHero.gql"
-#import "./Seo.gql"
 
 fragment pageContent on Page {
   title
   content
   featuredImage {
     ...imageHero
-  }
-  seo {
-    ...seo
   }
 }
