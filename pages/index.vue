@@ -10,11 +10,11 @@
 <script>
 import pages from '@/config/pages'
 
-import PageHomeQuery from '~/graphql/PageHome.gql'
 import getSeoMetaData from '@/helpers/seo'
 import TeacherList from '@/components/Teachers/TeacherList.vue'
 import Page from '@/components/Page.vue'
 import ServicesWrapper from '@/components/Services/ServicesWrapper.vue'
+import PageHomeQuery from '~/graphql/PageHome.gql'
 
 export default {
   components: {
