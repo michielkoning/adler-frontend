@@ -1,0 +1,18 @@
+#import "./Fragments/ImageArchive.gql"
+#import "./Fragments/Seo.gql"
+
+query GET_POST_BY_URI($uri: String) {
+  post: postBy(uri: $uri) {
+    featuredImage {
+      ...imageArchive
+    }
+    postId
+    content
+    title
+    date
+    slug
+    seo {
+      ...seo
+    }
+  }
+}

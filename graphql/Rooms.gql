@@ -1,0 +1,20 @@
+#import "./Fragments/ImageArchive.gql"
+
+query getRooms {
+  rooms(first: 100) {
+    edges {
+      node {
+        id
+        title
+        excerpt
+        slug
+        featuredImage {
+          ...imageArchive
+        }
+        prijzen {
+          priceFrom
+        }
+      }
+    }
+  }
+}

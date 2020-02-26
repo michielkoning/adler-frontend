@@ -1,0 +1,18 @@
+fragment seo on SEO {
+  focuskw
+  metaDesc
+  metaKeywords
+  metaRobotsNofollow
+  metaRobotsNoindex
+  opengraphDescription
+  opengraphImage {
+    archive: sourceUrl(size: ARCHIVE)
+  }
+  opengraphTitle
+  title
+  twitterDescription
+  twitterImage {
+    archive: sourceUrl(size: ARCHIVE)
+  }
+  twitterTitle
+}

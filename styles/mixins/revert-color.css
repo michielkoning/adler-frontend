@@ -1,0 +1,19 @@
+@define-mixin color-negative {
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  & a {
+    color: currentColor;
+    box-shadow: 0 1px 0 0 currentColor;
+
+    &:hover {
+      box-shadow: 0 2px 0 0 currentColor;
+    }
+
+  }
+
+  & ::selection {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
+}

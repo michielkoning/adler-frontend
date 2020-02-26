@@ -1,0 +1,21 @@
+#import "./Fragments/ImageArchive.gql"
+
+query getArrangements {
+  arrangements(first: 3) {
+    edges {
+      node {
+        id
+        title
+        excerpt
+        slug
+        featuredImage {
+          ...imageArchive
+        }
+        prijzenArrangementen {
+          fieldGroupName
+          priceFrom
+        }
+      }
+    }
+  }
+}
