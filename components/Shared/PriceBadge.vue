@@ -22,15 +22,11 @@ export default {
   background-color: var(--color-2);
   border-radius: 50%;
   color: var(--color-white);
-  height: 6em;
   line-height: 1.1;
   padding-top: 1em;
   text-align: center;
   width: 6em;
-}
-
-.label {
-  font-size: 1em;
+  height: 6em;
 }
 
 .value {

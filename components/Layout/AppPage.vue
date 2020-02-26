@@ -1,13 +1,15 @@
 <template>
-  <article :class="wrapper">
+  <div>
     <notch-wrapper>
-      <image-hero :image="page.featuredImage" class="image" />
-      <!-- eslint-disable-next-line -->
-      <h1 v-html="page.title" />
-      <the-intro v-if="page.content" :text="page.content" />
+      <article :class="$style.body">
+        <!-- eslint-disable-next-line -->
+        <h1 v-html="page.title" />
+        <the-intro v-if="page.content" :text="page.content" />
+        <image-hero :image="page.featuredImage" :class="$style.image" />
+      </article>
       <slot />
     </notch-wrapper>
-  </article>
+  </div>
 </template>
 
 <script>
@@ -31,7 +33,12 @@ export default {
 </script>
 
 <style lang="postcss" module>
-.wrapper {
-  @mixin center;
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  order: -1;
 }
 </style>
