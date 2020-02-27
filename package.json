@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "test": "jest",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "dev": "nuxt",
+    "dev": "nuxt --port 3333",
     "generate": "nuxt generate",
     "precommit": "npm run lint",
     "start": "nuxt start"

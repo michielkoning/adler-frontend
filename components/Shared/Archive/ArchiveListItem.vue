@@ -2,11 +2,12 @@
   <clickable-list-item :url="url" :class="$style['item']">
     <div :class="$style.content">
       <h2 :class="$style.title">
-        <!-- eslint-disable-next-line -->
-        <router-link :to="url" v-html="item.title" :class="$style.link" />
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <router-link :to="url" :class="$style.link" v-html="item.title" />
       </h2>
-      <!-- eslint-disable-next-line -->
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />
+      <read-more />
     </div>
     <image-archive :image="item.featuredImage" :class="$style.image" />
     <price-badge
@@ -18,15 +19,17 @@
 </template>
 
 <script>
-import ClickableListItem from '@/components/Shared/ClickableListItem.vue'
-import ImageArchive from '@/components/Images/ImageArchive.vue'
-import PriceBadge from '@/components/Shared/PriceBadge.vue'
+import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
+import ImageArchive from '~/components/Images/ImageArchive.vue'
+import PriceBadge from '~/components/Shared/PriceBadge.vue'
+import ReadMore from '~/components/Shared/ReadMore.vue'
 
 export default {
   components: {
     ClickableListItem,
     ImageArchive,
     PriceBadge,
+    ReadMore,
   },
   props: {
     item: {

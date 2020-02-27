@@ -2,7 +2,7 @@
   <div>
     <notch-wrapper>
       <article :class="$style.body">
-        <!-- eslint-disable-next-line -->
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <h1 v-html="page.title" />
         <the-intro v-if="page.content" :text="page.content" />
         <image-hero :image="page.featuredImage" :class="$style.image" />
