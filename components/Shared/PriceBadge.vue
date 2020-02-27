@@ -23,7 +23,7 @@ export default {
   border-radius: 50%;
   color: var(--color-white);
   line-height: 1.1;
-  padding-top: 1em;
+  padding-top: var(--spacing-m);
   text-align: center;
   width: 6em;
   height: 6em;

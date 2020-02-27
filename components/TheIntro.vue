@@ -1,6 +1,6 @@
 <template>
-  <!-- eslint-disable-next-line -->
-    <div class="intro" v-html="text" />
+  <!-- eslint-disable-next-line vue/no-v-html -->
+  <div class="intro" v-html="text" />
 </template>
 
 <script>
