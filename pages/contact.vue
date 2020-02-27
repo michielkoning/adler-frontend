@@ -1,6 +1,5 @@
 <template>
   <app-page :page="page">
-    <archive-list :items="arrangements.edges" />
     <template v-slot:sidebar>
       <p>Here's some contact info</p>
     </template>
@@ -8,29 +7,22 @@
 </template>
 
 <script>
-import ArrangementsQuery from '~/graphql/Arrangements.gql'
 import PageQuery from '~/graphql/Page.gql'
-import ArchiveList from '~/components/Shared/Archive/ArchiveList.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
-import { arrangementsPageId } from '~/config/pages'
+import { contactPageId } from '~/config/pages'
 
 export default {
   components: {
-    ArchiveList,
     AppPage,
   },
   async asyncData({ app, params }) {
-    const arrangements = await app.apolloProvider.defaultClient.query({
-      query: ArrangementsQuery,
-    })
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: arrangementsPageId,
+        pageId: contactPageId,
       },
     })
     return {
-      arrangements: arrangements.data.arrangements,
       page: page.data.page,
     }
   },

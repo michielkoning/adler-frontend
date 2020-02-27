@@ -1,6 +1,7 @@
 #import "./ImageHero.gql"
 
 fragment pageContent on Page {
+  id
   title
   content
   featuredImage {

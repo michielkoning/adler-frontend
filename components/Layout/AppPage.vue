@@ -1,13 +1,18 @@
 <template>
   <div>
     <notch-wrapper>
-      <article :class="$style.body">
-        <!-- eslint-disable-next-line -->
-        <h1 v-html="page.title" />
-        <the-intro v-if="page.content" :text="page.content" />
+      <div :class="$style.page">
+        <div>
+          <article :class="$style.body">
+            <!-- eslint-disable-next-line -->
+            <h1 v-html="page.title" />
+            <the-intro v-if="page.content" :text="page.content" />
+          </article>
+          <slot />
+        </div>
         <image-hero :image="page.featuredImage" :class="$style.image" />
-      </article>
-      <slot />
+        <slot name="sidebar" />
+      </div>
     </notch-wrapper>
   </div>
 </template>
@@ -33,12 +38,14 @@ export default {
 </script>
 
 <style lang="postcss" module>
-.body {
-  display: flex;
-  flex-direction: column;
+.page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1em;
 }
 
 .image {
-  order: -1;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
 }
 </style>
