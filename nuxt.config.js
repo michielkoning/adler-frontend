@@ -1,4 +1,3 @@
-import { createApolloFetch } from 'apollo-fetch'
 import pkg from './package'
 import splashscreens from './config/splashscreens'
 import googleAnalytics from './config/googleAnalytics'
@@ -124,54 +123,6 @@ export default {
           },
         },
       },
-    },
-  },
-  generate: {
-    fallback: true,
-    async routes() {
-      const uri = `${apiUrl}/graphql`
-
-      const query = `
-        query GET_SITEMAP {
-          pages(first: 100) {
-            edges {
-              node {
-                uri
-                childPages {
-                  edges {
-                    node {
-                      uri
-                    }
-                  }
-                }
-              }
-            }
-          }
-          posts(first:100) {
-            edges {
-              node {
-                uri
-              }
-            }
-          }
-        }
-      `
-
-      const apolloFetch = createApolloFetch({ uri })
-      const result = await apolloFetch({ query }) // all apolloFetch arguments are optional
-      const { pages, posts } = result.data
-
-      const sitemapPosts = posts.edges.map(item => {
-        return `/wie-zijn-wij/blog/${item.node.uri}`
-      })
-      const sitemapPages = pages.edges.map(item => {
-        const subItems = item.node.childPages.edges.map(subItem => {
-          return subItem.node.uri
-        })
-        return [item.node.uri, ...subItems]
-      })
-
-      return [...sitemapPosts, ...[].concat(...sitemapPages)]
     },
   },
 
