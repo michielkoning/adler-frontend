@@ -1,6 +1,8 @@
 <template>
   <app-page :page="arrangement">
-    {{ arrangement.pricesGroup.prices }}
+    <div v-for="(price, index) in arrangement.pricesGroup.prices" :key="index">
+      {{ price.label }} - {{ $n(price.value, 'currency') }}
+    </div>
     <template v-slot:sidebar>
       <p>Here's some contact info</p>
     </template>
