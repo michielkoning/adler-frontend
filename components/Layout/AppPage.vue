@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <notch-wrapper>
-      <div :class="$style.page">
-        <div>
-          <article :class="$style.body">
-            <!-- eslint-disable-next-line -->
+  <notch-wrapper>
+    <div :class="$style.page">
+      <div>
+        <article :class="$style.body">
+          <!-- eslint-disable-next-line -->
             <h1 v-html="page.title" />
-            <the-intro v-if="page.content" :text="page.content" />
-          </article>
-          <slot />
-        </div>
-        <image-hero :image="page.featuredImage" :class="$style.image" />
-        <slot name="sidebar" />
+          <the-intro v-if="page.content" :text="page.content" />
+        </article>
+        <slot />
       </div>
-    </notch-wrapper>
-  </div>
+      <image-hero :image="page.featuredImage" :class="$style.image" />
+      <slot name="sidebar" />
+    </div>
+  </notch-wrapper>
 </template>
 
 <script>

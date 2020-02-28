@@ -1,10 +1,13 @@
 <template>
-  <app-page :page="page">
-    <archive-list :items="arrangements.edges" />
-    <template v-slot:sidebar>
-      <p>Here's some contact info</p>
-    </template>
-  </app-page>
+  <div>
+    <app-page :page="page">
+      <archive-list :items="arrangements.edges" />
+      <template v-slot:sidebar>
+        <p>Here's some contact info</p>
+      </template>
+    </app-page>
+    <facilities-wrapper />
+  </div>
 </template>
 
 <script>
@@ -13,11 +16,12 @@ import PageQuery from '~/graphql/Page.gql'
 import ArchiveList from '~/components/Shared/Archive/ArchiveList.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { arrangementsPageId } from '~/config/pages'
-
+import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
 export default {
   components: {
     ArchiveList,
     AppPage,
+    FacilitiesWrapper,
   },
   async asyncData({ app, params }) {
     const arrangements = await app.apolloProvider.defaultClient.query({
