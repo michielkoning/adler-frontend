@@ -3,16 +3,7 @@
     <notch-wrapper>
       <div :class="$style.wrapper">
         <h1 :class="$style.title">Faciliteiten</h1>
-        <ul v-if="facilities.length">
-          <li v-for="(facility, index) in facilities" :key="index">
-            <h2>{{ facility.title }}</h2>
-            <ul v-if="facility.list.length">
-              <li v-for="(item, itemIndex) in facility.list" :key="itemIndex">
-                {{ item }}
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <facilities-groups :facilities="facilities" />
       </div>
     </notch-wrapper>
   </section>
@@ -20,11 +11,14 @@
 
 <script>
 import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import FacilitiesGroups from '~/components/Facilitites/FacilitiesGroups.vue'
+
 import facilities from '~/components/Facilitites/facilities.json'
 
 export default {
   components: {
     NotchWrapper,
+    FacilitiesGroups,
   },
   data() {
     return {

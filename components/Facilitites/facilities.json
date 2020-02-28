@@ -1,6 +1,7 @@
 [
   {
     "title": "Voor Kinderen",
+    "icon": "kids",
     "list": [
       "Speelplaats",
       "Kinderspeelkamer",
@@ -15,6 +16,7 @@
   },
   {
     "title": "Onze kamers",
+    "icon": "rooms",
     "list": [
       "Eenpersoonskamers",
       "Tweepersoonskamers",
@@ -23,6 +25,7 @@
   },
   {
     "title": "Extra's",
+    "icon": "extra",
     "list": [
       "Driedaagse Bregenzerwaldcard in mei tot en met oktober:",
       "Gratis bergbanen, bussen en buitenzwembaden",
@@ -33,6 +36,7 @@
   },
   {
     "title": "Omgeving",
+    "icon": "environment",
     "list": [
       "Diverse skigebieden",
       "8 kabelbanen in de zomer (met gratis kaart)",
