@@ -10,10 +10,9 @@
 </template>
 
 <script>
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import facilities from '~/data/facilities.json'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import FacilitiesGroups from '~/components/Facilitites/FacilitiesGroups.vue'
-
-import facilities from '~/components/Facilitites/facilities.json'
 
 export default {
   components: {

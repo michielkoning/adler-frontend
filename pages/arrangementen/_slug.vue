@@ -4,13 +4,15 @@
       {{ price.label }} - {{ $n(price.value, 'currency') }}
     </div>
     <template v-slot:sidebar>
-      <p>Here's some contact info</p>
+      {{ arrangements }}
     </template>
   </app-page>
 </template>
 
 <script>
 import ArrangementQuery from '~/graphql/Arrangement.gql'
+import ArrangementsQuery from '~/graphql/Arrangements.gql'
+
 import AppPage from '~/components/Layout/AppPage.vue'
 
 export default {
@@ -24,8 +26,13 @@ export default {
         uri: params.slug,
       },
     })
+    const arrangements = await app.apolloProvider.defaultClient.query({
+      query: ArrangementsQuery,
+      variables: {},
+    })
     return {
       arrangement: arrangement.data.arrangement,
+      arrangements: arrangements.data.arrangements,
     }
   },
 }

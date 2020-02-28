@@ -1,7 +1,7 @@
 #import "./Fragments/ImageArchive.gql"
 
-query getArrangements {
-  arrangements(first: 100) {
+query getArrangements($where: RootQueryToArrangementConnectionWher) {
+  arrangements(first: 100, where: $where) {
     edges {
       node {
         id
@@ -18,4 +18,3 @@ query getArrangements {
     }
   }
 }
-

@@ -6,8 +6,8 @@
 export default {
   props: {
     item: {
-      type: Object,
-      default: () => {},
+      type: String,
+      default: '',
     },
   },
 }
