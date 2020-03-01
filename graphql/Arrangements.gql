@@ -1,6 +1,6 @@
 #import "./Fragments/ImageArchive.gql"
 
-query getArrangements($where: RootQueryToArrangementConnectionWher) {
+query getArrangements($where: RootQueryToArrangementConnectionWhereArgs) {
   arrangements(first: 100, where: $where) {
     edges {
       node {

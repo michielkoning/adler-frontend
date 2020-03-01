@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import facilities from '~/data/facilities.json'
+import facilities from '~/data/facilities'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import FacilitiesGroups from '~/components/Facilitites/FacilitiesGroups.vue'
 
@@ -29,6 +29,8 @@ export default {
 
 <style lang="postcss" module>
 .facilities {
+  background: var(--color-4);
+  @mixin block-padding;
 }
 .wrapper {
 }
@@ -40,6 +42,7 @@ export default {
 }
 
 .title {
+  text-align: center;
 }
 
 .icon {

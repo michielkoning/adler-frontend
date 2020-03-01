@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="list.length">
+  <ul v-if="list.length" :class="$style.list">
     <facilities-list-item
       v-for="(item, index) in list"
       :key="index"
@@ -23,3 +23,9 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.list {
+  @mixin list-reset;
+}
+</style>

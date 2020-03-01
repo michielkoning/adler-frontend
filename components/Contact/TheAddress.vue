@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import address from '~/data/address.json'
+import address from '~/data/address'
 
 export default {
   data() {

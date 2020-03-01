@@ -1,32 +1,40 @@
 <template>
-  <div class="social">
-    <h2>Follow us on</h2>
-    <ul class="social__list">
-      <li class="social__list-item">
+  <div :class="$style.social">
+    <h2>{{ $t('followUsOn') }}</h2>
+    <ul :class="$style.list">
+      <li :class="$style['list-item']">
         <a
-          class="social__link"
-          :href="socialMedia.facebookUrl"
+          :class="$style.link"
+          :href="facebookUrl"
           rel="noopener"
           target="_blank"
-          title="Follow Adler on Facebook"
         >
-          <icon-facebook aria-hidden="true" width="24" height="24" />
+          <icon-facebook aria-hidden="true" width="36" height="36" />
           <span class="sr-only">
-            {{ $t('followOn', { title, network: 'Facebook' }) }}
+            {{
+              $t('followUsOnNetwork', {
+                title: title,
+                network: 'Facebook',
+              })
+            }}
           </span>
         </a>
       </li>
-      <li class="social__list-item">
+      <li :class="$style['list-item']">
         <a
-          class="social__link"
-          :href="socialMedia.twitterUrl"
+          :class="$style.link"
+          :href="twitterUrl"
           rel="noopener"
           target="_blank"
-          title="Follow Adler on"
         >
-          <icon-twitter aria-hidden="true" width="24" height="24" />
+          <icon-twitter aria-hidden="true" width="36" height="36" />
           <span class="sr-only">
-            {{ $t('followOn', { title, network: 'Twitter' }) }}
+            {{
+              $t('followUsOnNetwork', {
+                title: title,
+                network: 'Twitter',
+              })
+            }}
           </span>
         </a>
       </li>
@@ -37,7 +45,8 @@
 <script>
 import IconFacebook from '@/icons/facebook.svg'
 import IconTwitter from '@/icons/twitter.svg'
-import socialMedia from '~/data/socialMedia.json'
+import { facebookUrl, twitterUrl } from '~/data/socialMedia'
+import { title } from '~/data/siteDetails'
 
 export default {
   components: {
@@ -46,20 +55,31 @@ export default {
   },
   data() {
     return {
-      socialMedia,
+      facebookUrl,
+      twitterUrl,
+      title,
     }
   },
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .list {
   @mixin list-reset;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(2em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(2.5em, 1fr));
 }
 
 .link {
   @mixin link-reset;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "followUsOnNetwork": "Bekijk %{title} op %{network}",
+    "followUsOn": "Volg ons op"
+  }
+}
+</i18n>

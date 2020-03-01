@@ -3,7 +3,7 @@
     <app-page :page="page">
       <archive-list :items="arrangements.edges" />
       <template v-slot:sidebar>
-        <p>Here's some contact info</p>
+        <p>{{ page.pageId }}</p>
       </template>
     </app-page>
     <facilities-wrapper />

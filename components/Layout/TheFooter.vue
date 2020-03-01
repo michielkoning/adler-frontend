@@ -51,3 +51,26 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" scoped>
+.footer {
+  background: var(--color-3);
+  color: var(--color-white);
+  @mixin block-padding;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: var(--gutter);
+  align-items: start;
+  justify-items: start;
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--viewport-md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>

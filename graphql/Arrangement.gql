@@ -3,6 +3,7 @@
 query GET_ARRANGEMENT_BY_URI($uri: String) {
   arrangement: arrangementBy(uri: $uri) {
     id
+    arrangementId
     title
     content
     featuredImage {

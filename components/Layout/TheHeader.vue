@@ -6,12 +6,6 @@
         <mobile-navigation @toggleMenu="toggleMenu" />
         <nuxt-link class="logo-wrapper" to="/">
           <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
-          <icon-logo-small
-            class="logo-small"
-            height="50"
-            width="160"
-            aria-hidden="true"
-          />
           <span class="sr-only">Haarlm bijdeles</span>
         </nuxt-link>
 
@@ -39,7 +33,6 @@ import SkipLinks from '@/components/Layout/SkipLinks.vue'
 import MobileNavigation from '@/components/MobileNavigation.vue'
 import MainNavigation from '@/components/MainNavigation.vue'
 import IconLogo from '@/icons/logo.svg'
-import IconLogoSmall from '@/icons/logo-small.svg'
 import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
 
 const bodyScrollLock = require('body-scroll-lock')
@@ -49,7 +42,6 @@ export default {
     SkipLinks,
     MobileNavigation,
     IconLogo,
-    IconLogoSmall,
     MainNavigation,
     NotchWrapper,
   },

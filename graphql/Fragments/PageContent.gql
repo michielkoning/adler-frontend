@@ -2,6 +2,7 @@
 
 fragment pageContent on Page {
   id
+  pageId
   title
   content
   featuredImage {

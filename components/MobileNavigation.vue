@@ -3,12 +3,7 @@
     <notch-wrapper>
       <div class="buttons">
         <nuxt-link class="logo-wrapper" to="/">
-          <icon-logo-small
-            class="logo"
-            height="50"
-            width="160"
-            aria-hidden="true"
-          />
+          <icon-logo class="logo" height="50" width="160" aria-hidden="true" />
           <span class="sr-only">Turbo Solutions</span>
         </nuxt-link>
         <button
@@ -27,13 +22,13 @@
 <script>
 import IconBars from '@/icons/bars.svg'
 import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
-import IconLogoSmall from '@/icons/logo-small.svg'
+import IconLogo from '@/icons/logo.svg'
 
 export default {
   components: {
     IconBars,
     NotchWrapper,
-    IconLogoSmall,
+    IconLogo,
   },
   data() {
     return {

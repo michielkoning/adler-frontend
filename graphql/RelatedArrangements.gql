@@ -1,0 +1,11 @@
+query getArrangements($where: RootQueryToArrangementConnectionWhereArgs) {
+  relatedArrangements: arrangements(where: $where) {
+    edges {
+      node {
+        id
+        title
+        slug
+      }
+    }
+  }
+}
