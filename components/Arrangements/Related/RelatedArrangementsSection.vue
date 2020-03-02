@@ -1,5 +1,5 @@
 <template>
-  <sitebar-item-section id="related-arrangements" :title="title">
+  <sitebar-item-section id="related-arrangements" :title="$t('title')">
     <related-arrangements-container :not-in="notIn">
       <sitebar-item-list
         v-if="data"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import RelatedArrangementsContainer from '~/components/Arrangements/RelatedArrangements/RelatedArrangementsContainer.vue'
+import RelatedArrangementsContainer from '~/components/Arrangements/Related/RelatedArrangementsContainer.vue'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 import SitebarItemList from '~/components/Sidebar/SitebarItemList.vue'
 

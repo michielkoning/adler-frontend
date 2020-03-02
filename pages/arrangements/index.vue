@@ -1,6 +1,6 @@
 <template>
   <app-page :page="page">
-    <arrangements-section />
+    <arrangements-archive-section />
     <template v-slot:sidebar>
       <p>{{ page.pageId }}</p>
     </template>
@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import ArrangementsSection from '~/components/Arrangements/ArrangementsSection.vue'
+import ArrangementsArchiveSection from '~/components/Arrangements/Archive/ArrangementsSection.vue'
 import PageQuery from '~/graphql/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { arrangementsPageId } from '~/config/pages'
 
 export default {
   components: {
-    ArrangementsSection,
+    ArrangementsArchiveSection,
     AppPage,
   },
   async asyncData({ app, params }) {

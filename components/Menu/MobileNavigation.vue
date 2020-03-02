@@ -4,7 +4,7 @@
       <div class="buttons">
         <nuxt-link class="logo-wrapper" to="/">
           <icon-logo class="logo" height="50" width="160" aria-hidden="true" />
-          <span class="sr-only">Turbo Solutions</span>
+          <span class="sr-only">Adler Lingenau</span>
         </nuxt-link>
         <button
           :aria-expanded="menuIsExpanded"

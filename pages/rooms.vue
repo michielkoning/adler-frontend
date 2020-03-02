@@ -13,7 +13,7 @@
 <script>
 import ArrangementsQuery from '~/graphql/Arrangements.gql'
 import PageQuery from '~/graphql/Page.gql'
-import ArchiveList from '~/components/Shared/Archive/ArchiveList.vue'
+import ArchiveList from '~/components/Archive/ArchiveList.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { arrangementsPageId } from '~/config/pages'
 import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'

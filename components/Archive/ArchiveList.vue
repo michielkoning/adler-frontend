@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ArchiveListItem from '~/components/Shared/Archive/ArchiveListItem.vue'
+import ArchiveListItem from '~/components/Archive/ArchiveListItem.vue'
 
 export default {
   components: {

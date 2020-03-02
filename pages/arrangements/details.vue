@@ -12,7 +12,7 @@
 <script>
 import ArrangementQuery from '~/graphql/Arrangement.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import RelatedArrangementsSection from '~/components/Arrangements/RelatedArrangements/RelatedArrangementsSection.vue'
+import RelatedArrangementsSection from '~/components/Arrangements/Related/RelatedArrangementsSection.vue'
 
 export default {
   components: {

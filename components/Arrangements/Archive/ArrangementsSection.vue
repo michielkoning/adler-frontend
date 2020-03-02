@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import ArchiveList from '~/components/Shared/Archive/ArchiveList.vue'
-import ArrangementsContainer from '~/components/Arrangements/ArrangementsContainer.vue'
+import ArchiveList from '~/components/Archive/ArchiveList.vue'
+import ArrangementsContainer from '~/components/Arrangements/Archive/ArrangementsContainer.vue'
 
 export default {
   components: {

@@ -1,0 +1,4 @@
+fragment arrangement on Arrangement {
+  id
+  title
+}

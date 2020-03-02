@@ -1,9 +1,10 @@
-query getArrangements($where: RootQueryToArrangementConnectionWhereArgs) {
-  relatedArrangements: arrangements(where: $where) {
+#import "./Fragments/Arrangement.gql"
+
+query getArrangements($notIn: [ID]) {
+  relatedArrangements: arrangements(where: { notIn: $notIn }) {
     edges {
       node {
-        id
-        title
+        ...arrangement
         slug
       }
     }

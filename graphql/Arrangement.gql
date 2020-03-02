@@ -1,19 +1,19 @@
 #import "./Fragments/ImageHero.gql"
+#import "./Fragments/Arrangement.gql"
 
 query GET_ARRANGEMENT_BY_URI($uri: String) {
   arrangement: arrangementBy(uri: $uri) {
-    id
+    ...arrangement
     arrangementId
-    title
     content
     featuredImage {
       ...imageHero
     }
     pricesGroup {
- 			prices {
- 			  label
- 			  value
- 			}
+      prices {
+        label
+        value
+      }
     }
   }
 }

@@ -67,9 +67,9 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import axios from 'axios'
-import FormFieldset from '~/components/Forms/FormFieldset.vue'
-import FormInputText from '~/components/Forms/FormInputText.vue'
-import FormTextarea from '~/components/Forms/FormTextarea.vue'
+import FormFieldset from '~/components/Forms/Elements/FormFieldset.vue'
+import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
+import FormTextarea from '~/components/Forms/Elements/FormTextarea.vue'
 import AppButton from '~/components/Shared/AppButton.vue'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 
