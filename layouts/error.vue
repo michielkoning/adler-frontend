@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TheIntro from '@/components/TheIntro.vue'
+import TheIntro from '~/components/Shared/TheIntro.vue'
 
 export default {
   components: {

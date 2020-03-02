@@ -4,7 +4,7 @@
       {{ price.label }} - {{ $n(price.value, 'currency') }}
     </div>
     <template v-slot:sidebar>
-      <RelatedArrangements :not-in="arrangement.arrangementId" />
+      <related-arrangements-section :not-in="arrangement.arrangementId" />
     </template>
   </app-page>
 </template>
@@ -12,12 +12,12 @@
 <script>
 import ArrangementQuery from '~/graphql/Arrangement.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import RelatedArrangements from '~/components/RelatedArrangements/RelatedArrangements.vue'
+import RelatedArrangementsSection from '~/components/Arrangements/RelatedArrangements/RelatedArrangementsSection.vue'
 
 export default {
   components: {
     AppPage,
-    RelatedArrangements,
+    RelatedArrangementsSection,
   },
   async asyncData({ app, params }) {
     const arrangement = await app.apolloProvider.defaultClient.query({
@@ -29,6 +29,11 @@ export default {
     return {
       arrangement: arrangement.data.arrangement,
     }
+  },
+  nuxtI18n: {
+    paths: {
+      nl: '/arrangementen/:slug',
+    },
   },
 }
 </script>

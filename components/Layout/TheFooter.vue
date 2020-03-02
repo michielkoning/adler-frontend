@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
-import MenuItem from '@/components/MenuItem.vue'
-import SocialMediaLinks from '@/components/Contact/SocialMediaLinks.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import MenuItem from '~/components/MenuItem.vue'
+import SocialMediaLinks from '~/components/Contact/SocialMediaLinks.vue'
 import MenuQuery from '~/graphql/Menu.gql'
 import TheAddress from '~/components/Contact/TheAddress.vue'
 import OpeningHours from '~/components/Contact/OpeningHours.vue'

@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import IconBars from '@/icons/bars.svg'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
-import IconLogo from '@/icons/logo.svg'
+import IconBars from '~/icons/bars.svg'
+import IconLogo from '~/icons/logo.svg'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
   components: {

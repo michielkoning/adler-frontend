@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import SkipLinks from '@/components/Layout/SkipLinks.vue'
-import MobileNavigation from '@/components/MobileNavigation.vue'
-import MainNavigation from '@/components/MainNavigation.vue'
-import IconLogo from '@/icons/logo.svg'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
+import IconLogo from '~/icons/logo.svg'
+import SkipLinks from '~/components/Layout/SkipLinks.vue'
+import MobileNavigation from '~/components/MobileNavigation.vue'
+import MainNavigation from '~/components/MainNavigation.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 const bodyScrollLock = require('body-scroll-lock')
 

@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import TheIntro from '@/components/TheIntro.vue'
-import NotchWrapper from '@/components/Layout/NotchWrapper.vue'
-import ImageHero from '@/components/Images/ImageHero.vue'
+import TheIntro from '~/components/Shared/TheIntro.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import ImageHero from '~/components/Images/ImageHero.vue'
 
 export default {
   components: {

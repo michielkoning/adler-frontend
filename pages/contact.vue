@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SocialMediaLinks from '@/components/Contact/SocialMediaLinks.vue'
+import SocialMediaLinks from '~/components/Contact/SocialMediaLinks.vue'
 import FormContact from '~/components/Forms/FormContact.vue'
 import BlockMap from '~/components/Contact/BlockMap.vue'
 import PageQuery from '~/graphql/Page.gql'

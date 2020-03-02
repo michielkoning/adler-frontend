@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import MainNavigationItem from '@/components/Menu/MainNavigationItem.vue'
+import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
 import MenuQuery from '~/graphql/Menu.gql'
 
 export default {

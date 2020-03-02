@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <h2>Neem contact met ons op</h2>
-    <p v-if="submitted">
-      Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.
-    </p>
+  <sitebar-item-section id="contact" :title="$t('title')">
+    <p v-if="submitted">{{ $t('success') }}</p>
 
     <form
       v-else
@@ -14,10 +11,7 @@
       name="contact"
       @submit.prevent="submit"
     >
-      <p>
-        Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk
-        benaderen.
-      </p>
+      <p>{{ $t('intro') }}</p>
 
       <input type="hidden" name="form-name" value="contact" />
 
@@ -62,22 +56,26 @@
           name="bot-field"
         />
 
-        <app-button type="submit" :is-full-width="true">Verzenden</app-button>
+        <app-button type="submit" :is-full-width="true">
+          {{ $t('btnSend') }}
+        </app-button>
       </form-fieldset>
     </form>
-  </div>
+  </sitebar-item-section>
 </template>
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import axios from 'axios'
-import FormFieldset from '@/components/Forms/FormFieldset.vue'
-import FormInputText from '@/components/Forms/FormInputText.vue'
-import FormTextarea from '@/components/Forms/FormTextarea.vue'
-import AppButton from '@/components/Shared/AppButton.vue'
+import FormFieldset from '~/components/Forms/FormFieldset.vue'
+import FormInputText from '~/components/Forms/FormInputText.vue'
+import FormTextarea from '~/components/Forms/FormTextarea.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
+import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 
 export default {
   components: {
+    SitebarItemSection,
     FormFieldset,
     FormInputText,
     FormTextarea,
@@ -168,3 +166,14 @@ export default {
   display: none;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Neem contact met ons op",
+    "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen.",
+    "success": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
+    "btnSend": "Verzenden"
+  }
+}
+</i18n>
