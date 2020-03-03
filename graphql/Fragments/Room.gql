@@ -1,0 +1,5 @@
+fragment room on Room {
+  id
+  roomId
+  title
+}

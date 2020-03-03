@@ -32,6 +32,7 @@ export default {
   nuxtI18n: {
     paths: {
       nl: '/arrangementen',
+      en: '/arrangements',
     },
   },
 }

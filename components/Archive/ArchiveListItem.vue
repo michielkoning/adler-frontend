@@ -1,14 +1,17 @@
 <template>
-  <clickable-list-item :url="url" :class="$style['item']">
+  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
     <div :class="$style.content">
       <h2 :class="$style.title">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <router-link :to="item.link" :class="$style.link" v-html="item.title" />
+        <router-link
+          :to="item.relativeUrl"
+          :class="$style.link"
+          v-html="item.title"
+        />
       </h2>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />
       <read-more :class="$style['read-more']" />
-      {{ url }}
     </div>
     <image-archive :image="item.featuredImage" :class="$style.image" />
     <price-badge
@@ -24,7 +27,6 @@ import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
 import ImageArchive from '~/components/Images/ImageArchive.vue'
 import PriceBadge from '~/components/Shared/PriceBadge.vue'
 import ReadMore from '~/components/Shared/ReadMore.vue'
-import { url } from '~/data/siteDetails'
 
 export default {
   components: {
@@ -37,11 +39,6 @@ export default {
     item: {
       type: Object,
       default: () => {},
-    },
-  },
-  computed: {
-    url() {
-      return this.item.link.replace(url, '/')
     },
   },
 }

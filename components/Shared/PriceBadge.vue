@@ -1,7 +1,16 @@
 <template>
   <div v-if="price" :class="$style['price-badge']">
     <div :class="$style.label">{{ $t('from') }}</div>
-    <div :class="$style.value">{{ $n(price, 'currency') }}</div>
+    <div :class="$style.value">
+      <i18n-n :value="price" :format="{ key: 'currency' }">
+        <template v-slot:decimal="slotProps">
+          <span :class="$style.decimal">{{ slotProps.decimal }}</span>
+        </template>
+        <template v-slot:fraction="slotProps" styles="font-size: small">
+          <span :class="$style.fraction">{{ slotProps.fraction }}</span>
+        </template>
+      </i18n-n>
+    </div>
   </div>
 </template>
 
@@ -32,6 +41,11 @@ export default {
 .value {
   font-size: 2em;
   font-weight: var(--font-weight-bold);
+}
+
+.decimal,
+.fraction {
+  display: none;
 }
 </style>
 

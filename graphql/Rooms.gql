@@ -7,7 +7,7 @@ query getRooms($language: LanguageCodeFilterEnum,) {
         id
         title
         excerpt
-        link
+        relativeUrl
         slug
         featuredImage {
           ...imageArchive

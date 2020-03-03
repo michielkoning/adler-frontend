@@ -2,6 +2,8 @@
   <footer class="footer">
     <notch-wrapper>
       <div class="wrapper">
+        <the-address />
+        <opening-hours />
         <div class="quick-links">
           <nav v-if="menu" aria-label="footer-nav-heading" class="footer-menu">
             <h2 id="footer-nav-heading">{{ $t('usefulLinks') }}</h2>
@@ -16,8 +18,6 @@
             </ul>
           </nav>
         </div>
-        <the-address />
-        <opening-hours />
         <social-media-links />
       </div>
     </notch-wrapper>

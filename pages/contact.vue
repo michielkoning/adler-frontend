@@ -40,5 +40,10 @@ export default {
       page: page.data.page,
     }
   },
+  nuxtI18n: {
+    paths: {
+      nl: '/contact',
+    },
+  },
 }
 </script>

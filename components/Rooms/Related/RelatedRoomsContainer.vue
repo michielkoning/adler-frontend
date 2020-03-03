@@ -1,11 +1,11 @@
 <template>
   <apollo-query
-    :query="require('~/graphql/RelatedArrangements.gql')"
+    :query="require('~/graphql/RelatedRooms.gql')"
     :variables="{ notIn }"
   >
     <template slot-scope="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
-      <slot v-if="data" :relatedArrangements="data.relatedArrangements.edges" />
+      <slot v-if="data" :relatedRooms="data.relatedRooms.edges" />
     </template>
   </apollo-query>
 </template>

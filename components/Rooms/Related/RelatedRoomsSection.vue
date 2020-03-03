@@ -1,17 +1,17 @@
 <template>
-  <sitebar-item-section id="related-arrangements" :title="$t('title')">
-    <related-arrangements-container :not-in="notIn">
+  <sitebar-item-section id="related-rooms" :title="$t('title')">
+    <related-rooms-container :not-in="notIn">
       <sitebar-item-list
         v-if="data"
         slot-scope="data"
-        :items="data.relatedArrangements"
+        :items="data.relatedRooms"
       />
-    </related-arrangements-container>
+    </related-rooms-container>
   </sitebar-item-section>
 </template>
 
 <script>
-import RelatedArrangementsContainer from '~/components/Arrangements/Related/RelatedArrangementsContainer.vue'
+import RelatedRoomsContainer from '~/components/rooms/Related/RelatedRoomsContainer.vue'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 import SitebarItemList from '~/components/Sidebar/SitebarItemList.vue'
 
@@ -19,7 +19,7 @@ export default {
   components: {
     SitebarItemSection,
     SitebarItemList,
-    RelatedArrangementsContainer,
+    RelatedRoomsContainer,
   },
   props: {
     notIn: {
@@ -33,7 +33,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Meer aanbiedingen"
+    "title": "Bekijk onze andere kamers"
   }
 }
 </i18n>

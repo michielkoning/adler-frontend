@@ -5,7 +5,7 @@ query getArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
     edges {
       node {
         ...arrangement
-        slug
+        relativeUrl
       }
     }
   }

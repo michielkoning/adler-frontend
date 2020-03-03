@@ -1,0 +1,26 @@
+#import "./Fragments/ImageHero.gql"
+#import "./Fragments/Room.gql"
+
+query($uri: String) {
+  room: roomBy(uri: $uri) {
+    ...room
+    content
+    featuredImage {
+      ...imageHero
+    }
+    pricesGroup {
+      fullBoardHighSeason
+      fullBoardLowSeason
+      halfBoardHighSeason
+      halfBoardLowSeason
+    }
+    services {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+}

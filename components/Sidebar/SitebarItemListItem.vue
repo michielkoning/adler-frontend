@@ -1,6 +1,6 @@
 <template>
   <li>
-    <nuxt-link :to="`/arrangementen/${item.slug}`">
+    <nuxt-link :to="item.relativeUrl">
       {{ item.title }}
     </nuxt-link>
   </li>

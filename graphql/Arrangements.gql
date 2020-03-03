@@ -8,7 +8,7 @@ query getArrangements($language: LanguageCodeFilterEnum) {
         title
         excerpt
         link
-        slug
+        relativeUrl
         featuredImage {
           ...imageArchive
         }

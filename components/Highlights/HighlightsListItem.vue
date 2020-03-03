@@ -1,9 +1,13 @@
 <template>
-  <clickable-list-item :url="url" :class="$style['item']">
+  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
     <div :class="$style.content">
       <h2 :class="$style.title">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <router-link :to="url" :class="$style.link" v-html="item.title" />
+        <router-link
+          :to="item.relativeUrl"
+          :class="$style.link"
+          v-html="item.title"
+        />
       </h2>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />
@@ -35,11 +39,6 @@ export default {
     item: {
       type: Object,
       default: () => {},
-    },
-  },
-  computed: {
-    url() {
-      return `/arrangementen/${this.item.slug}/`
     },
   },
 }

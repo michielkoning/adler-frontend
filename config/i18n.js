@@ -11,6 +11,18 @@ export default {
       iso: 'nl-NL',
       file: 'nl.json',
     },
+    {
+      name: 'English',
+      code: 'en',
+      iso: 'en-GB',
+      file: 'en.json',
+    },
+    {
+      name: 'Deutscg',
+      code: 'de',
+      iso: 'de-DE',
+      file: 'de.json',
+    },
   ],
   vueI18nLoader: true,
   vueI18n: {
@@ -22,9 +34,53 @@ export default {
           currencyDisplay: 'symbol',
         },
       },
+      en: {
+        currency: {
+          style: 'currency',
+          currency: 'EUR',
+          currencyDisplay: 'symbol',
+        },
+      },
+      de: {
+        currency: {
+          style: 'currency',
+          currency: 'EUR',
+          currencyDisplay: 'symbol',
+        },
+      },
     },
     dateTimeFormats: {
       nl: {
+        short: {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        },
+        long: {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          weekday: 'short',
+          hour: 'numeric',
+          minute: 'numeric',
+        },
+      },
+      en: {
+        short: {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        },
+        long: {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          weekday: 'short',
+          hour: 'numeric',
+          minute: 'numeric',
+        },
+      },
+      de: {
         short: {
           year: 'numeric',
           month: 'long',
