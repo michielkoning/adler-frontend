@@ -1,6 +1,8 @@
 export default {
   defaultLocale: 'nl',
   lazy: true,
+  rootRedirect: 'nl',
+  strategy: 'prefix',
   langDir: 'locales/',
   locales: [
     {

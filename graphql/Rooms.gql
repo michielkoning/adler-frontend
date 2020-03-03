@@ -1,12 +1,13 @@
 #import "./Fragments/ImageArchive.gql"
 
-query getRooms {
-  rooms(first: 100) {
+query getRooms($language: LanguageCodeFilterEnum,) {
+  rooms(first: 100, where: { language: $language }) {
     edges {
       node {
         id
         title
         excerpt
+        link
         slug
         featuredImage {
           ...imageArchive

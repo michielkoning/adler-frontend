@@ -1,11 +1,11 @@
 <template>
-  <apollo-query
-    :query="require('~/graphql/Arrangements.gql')"
-    :variables="{ language: $i18n.locale.toUpperCase() }"
-  >
+  <apollo-query :query="require('~/graphql/ArrangementsHighlights.gql')">
     <template slot-scope="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
-      <slot v-if="data" :arrangements="data.arrangements.edges" />
+      <slot
+        v-if="data"
+        :arrangementsHighlights="data.arrangementsHighlights.edges"
+      />
     </template>
   </apollo-query>
 </template>

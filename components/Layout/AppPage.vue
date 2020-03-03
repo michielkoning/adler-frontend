@@ -10,7 +10,9 @@
         <slot />
       </div>
       <image-hero :image="page.featuredImage" :class="$style.image" />
-      <slot name="sidebar" />
+      <aside>
+        <slot name="sidebar" />
+      </aside>
     </div>
   </notch-wrapper>
 </template>
@@ -38,12 +40,16 @@ export default {
 <style lang="postcss" module>
 .page {
   display: grid;
-  grid-template-columns: 2fr 1fr;
   grid-gap: 1em;
+  @media (--viewport-sm) {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 .image {
-  grid-column: 1 / 3;
   grid-row: 1 / 2;
+  @media (--viewport-sm) {
+    grid-column: 1 / 3;
+  }
 }
 </style>

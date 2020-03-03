@@ -4,6 +4,8 @@
     <main>
       <nuxt />
     </main>
+    <ArrangementsHighlightsSection />
+
     <the-footer />
     <error-handler />
   </div>
@@ -13,12 +15,14 @@
 import TheHeader from '~/components/Layout/TheHeader.vue'
 import TheFooter from '~/components/Layout/TheFooter.vue'
 import ErrorHandler from '~/components/Layout/ErrorHandler.vue'
+import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
 
 export default {
   components: {
     TheHeader,
     TheFooter,
     ErrorHandler,
+    ArrangementsHighlightsSection,
   },
 }
 </script>

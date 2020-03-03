@@ -4,12 +4,16 @@
       {{ $t('mainNavigation') }}
     </h2>
 
-    <ul v-if="menu.edges.length" ref="menu" class="menu">
-      <main-navigation-item
-        v-for="item in menu.edges[0].node.menuItems.edges"
-        :key="item.node.label"
-        :item="item.node"
-      />
+    <ul ref="menu" class="menu">
+      <nuxt-link
+        v-for="item in pages"
+        :key="item.pageId"
+        class="menu-link"
+        :item="item"
+        :to="$t(`pages.${item.key}.slug`)"
+      >
+        {{ $t(`pages.${item.key}.title`) }}
+      </nuxt-link>
     </ul>
 
     <div
@@ -21,15 +25,16 @@
 </template>
 
 <script>
-import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
-import MenuQuery from '~/graphql/Menu.gql'
+// import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
+import pages from '~/data/pages'
 
 export default {
   components: {
-    MainNavigationItem,
+    // MainNavigationItem,
   },
   data() {
     return {
+      pages,
       arrowPosition: 0,
       arrowWidth: 0,
       mounted: false,
@@ -76,14 +81,6 @@ export default {
         return activeLink
       }
       return null
-    },
-  },
-  apollo: {
-    menu: {
-      query: MenuQuery,
-      variables: {
-        location: 'HEADER_MENU',
-      },
     },
   },
 }

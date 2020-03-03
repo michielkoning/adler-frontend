@@ -2,15 +2,20 @@
   @mixin link-reset;
 
   text-align: center;
+  width: auto;
   font-weight: var(--font-weight-bold);
   border-radius: 0.25em;
-  display: block;
+  display: inline-block;
   padding: var(--spacing-xs) var(--spacing-m);
   font-family: var(--font-family-headings);
   transition: background-color 0.2s ease-out;
-  max-width: 20em;
   font-family: var(--font-family-header);
   border: 2px solid transparent;
+}
+
+
+@define-mixin btn-small {
+  padding: 0 var(--spacing-s);
 }
 
 

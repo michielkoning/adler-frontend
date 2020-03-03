@@ -6,10 +6,12 @@
 
 <style lang="postcss" module>
 .read-more {
-  @mixin link;
+  @mixin btn;
+  @mixin btn-primary;
+  @mixin btn-small;
 
   &:hover {
-    @mixin link-hover;
+    @mixin btn-primary-hover;
   }
 }
 </style>

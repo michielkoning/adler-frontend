@@ -1,5 +1,5 @@
-query getArrangements($where: RootQueryToArrangementConnectionWhereArgs) {
-  relatedRooms: rooms(where: $where) {
+query getArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+  relatedRooms: rooms(where: { language: $language, notIn: $notIn }) {
     edges {
       node {
         id

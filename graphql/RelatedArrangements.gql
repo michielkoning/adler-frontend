@@ -1,7 +1,7 @@
 #import "./Fragments/Arrangement.gql"
 
-query getArrangements($notIn: [ID]) {
-  relatedArrangements: arrangements(where: { notIn: $notIn }) {
+query getArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+  relatedArrangements: arrangements(where: { language: $language, notIn: $notIn }) {
     edges {
       node {
         ...arrangement
