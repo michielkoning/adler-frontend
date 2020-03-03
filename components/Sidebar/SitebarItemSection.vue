@@ -1,5 +1,5 @@
 <template>
-  <section :aria-labelledby="id">
+  <section :aria-labelledby="id" :class="$style.item">
     <h1 :id="id">{{ title }}</h1>
     <slot />
   </section>
@@ -19,3 +19,10 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.item {
+  background: var(--color-4);
+  padding: var(--spacing-m);
+}
+</style>
