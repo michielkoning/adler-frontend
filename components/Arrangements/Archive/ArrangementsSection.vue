@@ -29,3 +29,11 @@ export default {
 .arrangements {
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Onze arrangementen"
+  }
+}
+</i18n>
