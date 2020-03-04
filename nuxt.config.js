@@ -6,6 +6,7 @@ import i18n from './config/i18n'
 import apollo from './config/apollo'
 import sitemap from './config/sitemap'
 import { apiUrl, siteUrl, siteTitle } from './config/siteDetails'
+import { twitterUrl } from './data/socialMedia'
 
 export default {
   mode: 'universal',
@@ -45,12 +46,30 @@ export default {
         name: 'og:site_name',
         content: siteTitle,
       },
+      // Twitter Card
+      {
+        name: 'twitter:card',
+        content: 'summary',
+      },
+      {
+        name: 'twitter:site',
+        content: `@${twitterUrl}`,
+      },
+      {
+        name: 'twitter:creator',
+        content: `@${twitterUrl}`,
+      },
     ],
     link: [
       ...splashscreens,
       {
         rel: 'dns-prefetch',
         href: apiUrl,
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
       },
     ],
   },

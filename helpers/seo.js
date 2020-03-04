@@ -1,36 +1,84 @@
-import { siteUrl } from '~/data/siteDetails'
+import { url } from '~/data/siteDetails'
 
-export default (title, description, path) => {
+const getMetaTitle = (page, key) => {
+  if (page.seo[key]) {
+    return page.seo[key]
+  } else if (page.seo.title) {
+    return page.seo.title
+  }
+
+  return page.title
+}
+
+const getMetaDescripion = (page, key) => {
+  if (page.seo[key]) {
+    return page.seo[key]
+  } else if (page.seo.metaDesc) {
+    return page.seo.metaDesc
+  }
+  return null
+}
+
+const getMetaImage = (page, key) => {
+  if (page.seo[key]) {
+    return page.seo[key]
+  } else if (page.featuredImage) {
+    if (page.featuredImage.heroSmall) {
+      return page.featuredImage.heroSmall
+    } else if (page.featuredImage.archive2x) {
+      return page.featuredImage.archive2x
+    }
+  }
+  return null
+}
+
+export default (page, path) => {
   return {
-    title,
+    title: page.seo.title,
     meta: [
       {
         name: 'description',
         hid: 'description',
-        content: description,
+        content: page.seo.metaDesc,
       },
-      // Open Graph
       {
         hid: 'og:title',
         name: 'og:title',
-        content: title,
+        content: page.seo.title,
+      },
+      {
+        hid: 'og:locale',
+        name: 'og:locale',
+        content: 'nl_NL',
       },
       {
         hid: 'og:description',
         name: 'og:description',
-        content: description,
+        content: getMetaDescripion(page, 'opengraphDescription'),
       },
       {
         name: 'og:url',
-        content: `${siteUrl}${path}`,
+        content: `${url}${path}`,
+      },
+      {
+        name: 'og:image',
+        content: getMetaImage(page, 'opengraphImage'),
       },
       {
         name: 'twitter:title',
-        content: title,
+        content: getMetaTitle(page, 'twitterTitle'),
       },
       {
         name: 'twitter:description',
-        content: description,
+        content: getMetaDescripion(page, 'twitterDescription'),
+      },
+      {
+        name: 'twitter:image',
+        content: getMetaImage(page, 'twitterImage'),
+      },
+      {
+        name: 'twitter:image:alt',
+        content: page.seo.title,
       },
     ],
   }

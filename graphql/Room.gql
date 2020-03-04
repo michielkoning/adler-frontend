@@ -8,6 +8,15 @@ query($uri: String) {
     featuredImage {
       ...imageHero
     }
+    gallery {
+      gallery {
+        id
+        altText
+        heroLarge: sourceUrl(size: HERO_LARGE)
+        heroMedium: sourceUrl(size: HERO_MEDIUM)
+        heroSmall: sourceUrl(size: HERO_SMALL)
+      }
+    }
     pricesGroup {
       fullBoardHighSeason
       fullBoardLowSeason
