@@ -8,8 +8,8 @@
       height="24"
       :class="$style.icon"
     />
-    <icon-utensils
-      v-if="facility.icon === 'utensils'"
+    <icon-ticket
+      v-if="facility.icon === 'ticket'"
       class="logo"
       aria-hidden="true"
       width="24"
@@ -41,7 +41,7 @@
 
 <script>
 import FacilitiesList from '~/components/Facilitites/FacilitiesList.vue'
-import IconUtensils from '~/icons/utensils.svg'
+import IconTicket from '~/icons/ticket.svg'
 import IconBed from '~/icons/bed.svg'
 import IconMountain from '~/icons/mountain.svg'
 import IconChild from '~/icons/child.svg'
@@ -49,7 +49,7 @@ import IconChild from '~/icons/child.svg'
 export default {
   components: {
     FacilitiesList,
-    IconUtensils,
+    IconTicket,
     IconBed,
     IconMountain,
     IconChild,

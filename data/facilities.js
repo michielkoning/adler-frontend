@@ -25,7 +25,7 @@ export default {
   },
   extras: {
     title: "Extra's",
-    icon: 'utensils',
+    icon: 'ticket',
     list: [
       'Driedaagse Bregenzerwaldcard in mei tot en met oktober:',
       'Gratis bergbanen, bussen en buitenzwembaden',

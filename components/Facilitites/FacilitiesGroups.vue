@@ -21,8 +21,8 @@ export default {
   },
   props: {
     facilities: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => {},
     },
   },
 }
@@ -31,7 +31,10 @@ export default {
 <style lang="postcss" module>
 .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
