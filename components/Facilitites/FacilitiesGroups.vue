@@ -1,12 +1,15 @@
 <template>
-  <ul v-if="facilities.length" :class="$style.groups">
+  <div :class="$style.row">
+    <facilities-group :facility="facilities.kids" :class="$style.group" />
+    <div>
+      <facilities-group :facility="facilities.rooms" :class="$style.group" />
+      <facilities-group :facility="facilities.extras" :class="$style.group" />
+    </div>
     <facilities-group
-      v-for="(facility, index) in facilities"
-      :key="index"
-      :facility="facility"
+      :facility="facilities.environment"
       :class="$style.group"
     />
-  </ul>
+  </div>
 </template>
 
 <script>
@@ -26,14 +29,9 @@ export default {
 </script>
 
 <style lang="postcss" module>
-.groups {
-  @mixin list-reset;
+.row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
-}
-
-.group:nth-child(4) {
-  grid-column: 2/3;
 }
 </style>

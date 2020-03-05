@@ -1,6 +1,7 @@
 <template>
   <app-page :page="room">
     <div>
+      {{ room.gallery }}
       {{ room.pricesGroup.fullBoardHighSeason }}
       {{ room.pricesGroup.fullBoardLowSeason }}
       {{ room.pricesGroup.halfBoardHighSeason }}

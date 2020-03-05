@@ -1,7 +1,7 @@
-export default [
-  {
+export default {
+  kids: {
     title: 'Voor Kinderen',
-    icon: 'kids',
+    icon: 'child',
     list: [
       'Speelplaats',
       'Kinderspeelkamer',
@@ -14,18 +14,18 @@ export default [
       'Wandelroutes voor kinderen',
     ],
   },
-  {
+  rooms: {
     title: 'Onze kamers',
-    icon: 'rooms',
+    icon: 'bed',
     list: [
       'Eenpersoonskamers',
       'Tweepersoonskamers',
       'Familiekamers met gescheiden ruimtes',
     ],
   },
-  {
+  extras: {
     title: "Extra's",
-    icon: 'extra',
+    icon: 'utensils',
     list: [
       'Driedaagse Bregenzerwaldcard in mei tot en met oktober:',
       'Gratis bergbanen, bussen en buitenzwembaden',
@@ -34,9 +34,9 @@ export default [
       'Baby- en peuterweken',
     ],
   },
-  {
+  environment: {
     title: 'Omgeving',
-    icon: 'environment',
+    icon: 'mountain',
     list: [
       'Diverse skigebieden',
       '8 kabelbanen in de zomer (met gratis kaart)',
@@ -45,4 +45,4 @@ export default [
       'Leuke zomer- en winterwandelpaden',
     ],
   },
-]
+}
