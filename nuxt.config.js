@@ -5,13 +5,13 @@ import manifest from './config/manifest'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
 import sitemap from './config/sitemap'
-import { apiUrl, siteUrl, siteTitle } from './config/siteDetails'
+import { apiUrl, baseUrl, title } from './data/siteDetails'
 import { twitterUrl } from './data/socialMedia'
 
 export default {
   mode: 'universal',
   env: {
-    baseUrl: siteUrl,
+    baseUrl,
   },
   /*
    ** Headers of the page
@@ -44,7 +44,7 @@ export default {
       {
         hid: 'og:site_name',
         name: 'og:site_name',
-        content: siteTitle,
+        content: title,
       },
       // Twitter Card
       {

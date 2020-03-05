@@ -1,5 +1,5 @@
-import { siteUrl } from './siteDetails'
+import { baseUrl } from './../data/siteDetails'
 
 export default {
-  hostname: siteUrl,
+  hostname: baseUrl,
 }

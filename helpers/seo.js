@@ -1,4 +1,4 @@
-import { url } from '~/data/siteDetails'
+import { baseUrl } from '~/data/siteDetails'
 
 const getMetaTitle = (page, key) => {
   if (page.seo[key]) {
@@ -58,7 +58,7 @@ export default (page, path) => {
       },
       {
         name: 'og:url',
-        content: `${url}${path}`,
+        content: `${baseUrl}${path}`,
       },
       {
         name: 'og:image',

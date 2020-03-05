@@ -1,4 +1,4 @@
-import { apiUrl } from './siteDetails'
+import { apiUrl } from './../data/siteDetails'
 
 export default {
   clientConfigs: {

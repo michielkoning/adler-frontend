@@ -2,12 +2,13 @@
   <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
     <div :class="$style.content">
       <h2 :class="$style.title">
-        <!-- eslint-disable-next-line vue/no-v-html -->
+        <!-- eslint-disable vue/no-v-html -->
         <router-link
           :to="item.relativeUrl"
           :class="$style.link"
           v-html="item.title"
         />
+        <!-- eslint-enable vue/no-v-html -->
       </h2>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />

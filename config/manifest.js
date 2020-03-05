@@ -1,8 +1,8 @@
-import { siteTitle, themeColor } from './siteDetails'
+import { title, themeColor } from './../data/siteDetails'
 
 export default {
-  name: siteTitle,
+  name: title,
   background_color: themeColor,
   theme_color: themeColor,
-  short_name: siteTitle,
+  short_name: title,
 }

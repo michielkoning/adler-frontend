@@ -1,9 +1,5 @@
 fragment seo on SEO {
-  focuskw
   metaDesc
-  metaKeywords
-  metaRobotsNofollow
-  metaRobotsNoindex
   opengraphDescription
   opengraphImage {
     archive: sourceUrl(size: ARCHIVE)
