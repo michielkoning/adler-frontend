@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import RelatedRoomsContainer from '~/components/rooms/Related/RelatedRoomsContainer.vue'
+import RelatedRoomsContainer from '~/components/Rooms/Related/RelatedRoomsContainer.vue'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 import SitebarItemList from '~/components/Sidebar/SitebarItemList.vue'
 

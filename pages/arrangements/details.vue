@@ -32,6 +32,8 @@ export default {
   },
   nuxtI18n: {
     paths: {
+      de: '/arrangementen/:slug',
+      en: '/arrangements/:slug',
       nl: '/arrangementen/:slug',
     },
   },

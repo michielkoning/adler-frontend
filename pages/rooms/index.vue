@@ -31,6 +31,8 @@ export default {
   },
   nuxtI18n: {
     paths: {
+      de: '/zimmer',
+      en: '/rooms',
       nl: '/kamers',
     },
   },

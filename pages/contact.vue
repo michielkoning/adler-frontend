@@ -42,6 +42,8 @@ export default {
   },
   nuxtI18n: {
     paths: {
+      de: '/contact',
+      en: '/contact',
       nl: '/contact',
     },
   },

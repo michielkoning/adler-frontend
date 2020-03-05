@@ -94,10 +94,10 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap',
     '@nuxtjs/apollo',
-    'nuxt-svg-loader',
     'nuxt-i18n',
+    'nuxt-svg-loader',
+    '@nuxtjs/sitemap',
   ],
   buildModules: ['@nuxtjs/google-analytics'],
   googleAnalytics,

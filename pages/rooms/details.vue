@@ -42,6 +42,8 @@ export default {
   },
   nuxtI18n: {
     paths: {
+      de: '/zimmer/:slug',
+      en: '/rooms/:slug',
       nl: '/kamers/:slug',
     },
   },
