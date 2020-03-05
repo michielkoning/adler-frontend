@@ -55,11 +55,10 @@
           :class="$style['bot-field']"
           name="bot-field"
         />
-
-        <app-button type="submit" :is-full-width="true">
-          {{ $t('btnSend') }}
-        </app-button>
       </form-fieldset>
+      <app-button type="submit" :is-full-width="true">
+        {{ $t('btnSend') }}
+      </app-button>
     </form>
   </sitebar-item-section>
 </template>
