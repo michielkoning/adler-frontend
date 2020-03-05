@@ -29,6 +29,9 @@ export default {
   @mixin list-reset;
   display: grid;
   grid-gap: var(--spacing-l);
-  grid-template-columns: repeat(3, 1fr);
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
