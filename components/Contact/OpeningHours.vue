@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>{{ $t('openingsHours') }}</h2>
     <dl :class="$style.list">
       <dt :class="$style.label">ma</dt>
       <dd :class="$style.value">
@@ -59,3 +60,11 @@ export default {
   margin: 0;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "openingsHours": "Openingstijden"
+  }
+}
+</i18n>

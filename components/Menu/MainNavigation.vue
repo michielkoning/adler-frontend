@@ -5,15 +5,33 @@
     </h2>
 
     <ul ref="menu" class="menu">
-      <nuxt-link
-        v-for="item in pages"
-        :key="item.pageId"
-        class="menu-link"
-        :item="item"
-        :to="$t(`pages.${item.key}.slug`)"
-      >
-        {{ $t(`pages.${item.key}.title`) }}
-      </nuxt-link>
+      <li>
+        <nuxt-link
+          class="menu-link"
+          :item="item"
+          :to="localePath({ name: 'arrangements' })"
+        >
+          {{ $t(`arrangements`) }}
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
+          class="menu-link"
+          :item="item"
+          :to="localePath({ name: 'rooms' })"
+        >
+          {{ $t(`rooms`) }}
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
+          class="menu-link"
+          :item="item"
+          :to="localePath({ name: 'contact' })"
+        >
+          {{ $t(`contact`) }}
+        </nuxt-link>
+      </li>
     </ul>
 
     <div
@@ -26,7 +44,6 @@
 
 <script>
 // import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
-import pages from '~/data/pages'
 
 export default {
   components: {
@@ -34,7 +51,6 @@ export default {
   },
   data() {
     return {
-      pages,
       arrowPosition: 0,
       arrowWidth: 0,
       mounted: false,

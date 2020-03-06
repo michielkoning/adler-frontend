@@ -1,9 +1,11 @@
 <template>
   <app-page :page="page">
     <block-map />
-    <the-address />
-    <opening-hours />
-    <social-media-links />
+    <div :class="$style.wrapper">
+      <the-address />
+      <opening-hours />
+      <social-media-links />
+    </div>
     <template v-slot:sidebar>
       <form-contact />
     </template>
@@ -16,7 +18,7 @@ import FormContact from '~/components/Forms/FormContact.vue'
 import BlockMap from '~/components/Contact/BlockMap.vue'
 import PageQuery from '~/graphql/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import { contactPageId } from '~/config/pages'
+import { contactPageId } from '~/data/pages'
 import TheAddress from '~/components/Contact/TheAddress.vue'
 import OpeningHours from '~/components/Contact/OpeningHours.vue'
 
@@ -49,3 +51,14 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.wrapper {
+  display: grid;
+  grid-gap: var(--gutter);
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  }
+}
+</style>

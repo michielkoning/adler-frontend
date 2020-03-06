@@ -41,6 +41,8 @@ export default {
 .page {
   display: grid;
   grid-gap: 1em;
+  margin-bottom: var(--spacing-xl);
+
   @media (--viewport-sm) {
     grid-template-columns: 2fr 1fr;
   }

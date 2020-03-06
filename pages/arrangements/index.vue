@@ -11,7 +11,7 @@
 import ArrangementsArchiveSection from '~/components/Arrangements/Archive/ArrangementsSection.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Page.gql'
-import { arrangements } from '~/data/pages'
+import { arrangementsPageId } from '~/data/pages'
 
 export default {
   components: {
@@ -22,7 +22,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: arrangements.pageId,
+        pageId: arrangementsPageId,
       },
     })
     return {
