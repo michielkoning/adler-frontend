@@ -4,7 +4,7 @@
     <main>
       <nuxt />
     </main>
-    <ArrangementsHighlightsSection />
+    <arrangements-highlights-section />
 
     <the-footer />
     <error-handler />

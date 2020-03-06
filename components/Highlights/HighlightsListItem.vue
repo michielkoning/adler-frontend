@@ -1,5 +1,5 @@
 <template>
-  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
+  <clickable-list-item :url="item.relativeUrl" :class="$style.item">
     <div :class="$style.content">
       <h2 :class="$style.title">
         <!-- eslint-disable vue/no-v-html -->
@@ -50,6 +50,12 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
+  border: 2px solid transparent;
+
+  &:focus-within,
+  &:hover {
+    border-color: var(--color-primary);
+  }
 }
 
 .content {

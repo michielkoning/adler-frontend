@@ -1,9 +1,7 @@
 <template>
   <app-page :page="page">
     <rooms-archive-section />
-    <template v-slot:sidebar>
-      <p>{{ page.pageId }}</p>
-    </template>
+    <template v-slot:sidebar> </template>
   </app-page>
 </template>
 

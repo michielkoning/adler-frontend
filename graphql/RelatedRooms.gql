@@ -1,9 +1,10 @@
-query getArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+#import "./Fragments/Room.gql"
+
+query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedRooms: rooms(where: { language: $language, notIn: $notIn }) {
     edges {
       node {
-        id
-        title
+        ...room
         relativeUrl
       }
     }

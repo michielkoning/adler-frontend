@@ -14,7 +14,7 @@
       </ul>
     </div>
     <template v-slot:sidebar>
-      <related-rooms-section :not-in="room.arrangementId" />
+      <related-rooms-section :not-in="room.roomId" />
     </template>
   </app-page>
 </template>
