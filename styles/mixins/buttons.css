@@ -13,11 +13,9 @@
   border: 2px solid transparent;
 }
 
-
 @define-mixin btn-small {
   padding: 0 var(--spacing-s);
 }
-
 
 @define-mixin btn-primary {
   background: var(--color-primary);
@@ -28,23 +26,13 @@
   background: var(--color-primary-dark);
 }
 
-
-@define-mixin btn-action {
-  color: #f9f9f9;
-  background-color: #06b226;
-}
-
-@define-mixin btn-action-hover {
-  background-color: #059921;
-}
-
 @define-mixin btn-ghost {
   background: var(--color-white);
-  color: var(--color-text);
-  border-color: var(--color-text);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 @define-mixin btn-ghost-hover {
-  background: var(--color-text);
+  background: var(--color-primary);
   color: var(--color-white);
 }

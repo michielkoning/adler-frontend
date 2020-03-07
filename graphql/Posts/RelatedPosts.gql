@@ -1,0 +1,12 @@
+#import "./Fragments/Post.gql"
+
+query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+  relatedPosts: posts(where: { language: $language, notIn: $notIn }) {
+    edges {
+      node {
+        ...post
+        relativeUrl
+      }
+    }
+  }
+}

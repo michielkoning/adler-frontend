@@ -15,7 +15,10 @@
         />
       </arrangements-highlights-container>
       <div :class="$style['button-wrapper']">
-        <app-button :to="localePath({ name: 'arrangements' })">
+        <app-button
+          :to="localePath({ name: 'arrangements' })"
+          button-style="ghost"
+        >
           {{ $t('btnTitle') }}
         </app-button>
       </div>

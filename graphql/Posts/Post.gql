@@ -1,0 +1,13 @@
+#import "./../Fragments/ImageHero.gql"
+#import "./Fragments/Post.gql"
+
+query GET_POST_BY_URI($uri: String) {
+  post: postBy(uri: $uri) {
+    ...post
+    date
+    content
+    featuredImage {
+      ...imageHero
+    }
+  }
+}

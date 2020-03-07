@@ -1,0 +1,24 @@
+#import "./../Fragments/ImageArchive.gql"
+#import "./Fragments/Post.gql"
+
+query GET_POSTS($after: String, $language: LanguageCodeFilterEnum) {
+  posts(after: $after, where: { language: $language }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+      hasPreviousPage
+      startCursor
+    }
+    edges {
+      node {
+        ...post
+        date
+        excerpt
+        relativeUrl
+        featuredImage {
+          ...imageArchive
+        }
+      }
+    }
+  }
+}

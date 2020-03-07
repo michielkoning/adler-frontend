@@ -10,13 +10,14 @@
         />
         <!-- eslint-enable vue/no-v-html -->
       </h2>
+      <post-date v-if="item.date" :date="item.date" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />
       <read-more :class="$style['read-more']" />
     </div>
     <image-archive :image="item.featuredImage" :class="$style.image" />
     <price-badge
-      v-if="item.pricesGroup.priceFrom"
+      v-if="item.pricesGroup && item.pricesGroup.priceFrom"
       :price="item.pricesGroup.priceFrom"
       :class="$style['price-badge']"
     />
@@ -24,6 +25,7 @@
 </template>
 
 <script>
+import PostDate from '@/components/Shared/PostDate.vue'
 import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
 import ImageArchive from '~/components/Images/ImageArchive.vue'
 import PriceBadge from '~/components/Shared/PriceBadge.vue'
@@ -35,6 +37,7 @@ export default {
     ImageArchive,
     PriceBadge,
     ReadMore,
+    PostDate,
   },
   props: {
     item: {

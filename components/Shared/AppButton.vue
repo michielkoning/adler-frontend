@@ -33,7 +33,7 @@ export default {
       type: String,
       default: 'primary',
       validator(value) {
-        return ['primary', 'ghost', 'action'].includes(value)
+        return ['primary', 'ghost'].includes(value)
       },
     },
     isLarge: {
@@ -101,15 +101,6 @@ export default {
   &.active,
   &:hover {
     @mixin btn-primary-hover;
-  }
-}
-
-.btn-action {
-  @mixin btn-action;
-
-  &.active,
-  &:hover {
-    @mixin btn-action-hover;
   }
 }
 

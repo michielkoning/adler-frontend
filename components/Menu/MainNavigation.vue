@@ -18,6 +18,15 @@
         <nuxt-link
           class="menu-link"
           :item="item"
+          :to="localePath({ name: 'blog' })"
+        >
+          {{ $t(`blog`) }}
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
+          class="menu-link"
+          :item="item"
           :to="localePath({ name: 'rooms' })"
         >
           {{ $t(`rooms`) }}

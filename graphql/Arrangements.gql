@@ -5,9 +5,9 @@ query getArrangements($language: LanguageCodeFilterEnum) {
     edges {
       node {
         id
+        arrangementId
         title
         excerpt
-        link
         relativeUrl
         featuredImage {
           ...imageArchive
