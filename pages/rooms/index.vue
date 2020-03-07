@@ -1,7 +1,6 @@
 <template>
   <app-page :page="page">
     <rooms-archive-section />
-    <template v-slot:sidebar></template>
   </app-page>
 </template>
 

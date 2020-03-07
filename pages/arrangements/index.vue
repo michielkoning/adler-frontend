@@ -1,9 +1,6 @@
 <template>
   <app-page :page="page">
     <arrangements-archive-section />
-    <template v-slot:sidebar>
-      <p>{{ page.pageId }}</p>
-    </template>
   </app-page>
 </template>
 

@@ -1,18 +1,10 @@
 {
-  "pages": {
-    "arrangements": {
-      "slug": "/nl/arrangementen",
-      "title": "Arrangementen"
-    },
-    "rooms": {
-      "slug": "/nl//kamers",
-      "title": "Kamers"
-    },
-    "contact": {
-      "slug": "/nl/contact",
-      "title": "Contact"
-    }
-  },
+  "home": "Home",
+  "arrangements": "Arrangementen",
+  "rooms": "Kamers",
+  "blog": "Blog",
+  "contact": "Contact",
+
   "usefulLinks": "Nuttige links",
 
   "ourRatings": "Onze waarderingen",
@@ -22,9 +14,7 @@
   "on": "op",
   "albums": "Albums",
   "biography": "Biography",
-  "contact": "Contact",
   "close": "Close",
-  "home": "Home",
   "latestPosts": "Latest posts",
   "loadMore": "Load more",
   "loading": "Loading…",

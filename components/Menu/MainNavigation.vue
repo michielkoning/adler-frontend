@@ -9,6 +9,15 @@
         <nuxt-link
           class="menu-link"
           :item="item"
+          :to="localePath({ name: 'index' })"
+        >
+          {{ $t(`home`) }}
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link
+          class="menu-link"
+          :item="item"
           :to="localePath({ name: 'arrangements' })"
         >
           {{ $t(`arrangements`) }}
@@ -18,18 +27,18 @@
         <nuxt-link
           class="menu-link"
           :item="item"
-          :to="localePath({ name: 'blog' })"
+          :to="localePath({ name: 'rooms' })"
         >
-          {{ $t(`blog`) }}
+          {{ $t(`rooms`) }}
         </nuxt-link>
       </li>
       <li>
         <nuxt-link
           class="menu-link"
           :item="item"
-          :to="localePath({ name: 'rooms' })"
+          :to="localePath({ name: 'blog' })"
         >
-          {{ $t(`rooms`) }}
+          {{ $t(`blog`) }}
         </nuxt-link>
       </li>
       <li>

@@ -32,8 +32,11 @@ export default {
   border-radius: 50%;
   color: var(--color-white);
   line-height: 1.1;
-  padding-top: var(--spacing-m);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 6em;
   height: 6em;
 }
