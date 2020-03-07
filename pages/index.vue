@@ -13,11 +13,8 @@
         <h2>in Lingenau, Bregenzerwald</h2>
       </div>
     </div>
+    <resmio-widget />
     <arrangements-highlights-section />
-
-    <div class="banner">
-      <div id="resmio-familienhotel-gasthof-adler"></div>
-    </div>
     <facilities-wrapper />
   </div>
 </template>
@@ -29,6 +26,7 @@ import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
 import ImageHero from '~/components/Images/ImageHero.vue'
 import IconLogoHero from '~/icons/logo-hero.svg'
 import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
+import ResmioWidget from '~/components/Shared/Resmio.vue'
 
 export default {
   components: {
@@ -36,6 +34,7 @@ export default {
     ImageHero,
     IconLogoHero,
     ArrangementsHighlightsSection,
+    ResmioWidget,
   },
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
@@ -51,9 +50,9 @@ export default {
 
   nuxtI18n: {
     paths: {
-      de: '/arrangementen',
-      en: '/arrangements',
-      nl: '/arrangementen',
+      de: '/',
+      en: '/',
+      nl: '/',
     },
   },
 }

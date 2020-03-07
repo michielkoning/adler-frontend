@@ -10,8 +10,9 @@
         <slot />
       </div>
       <image-hero :image="page.featuredImage" :class="$style.image" />
-      <aside>
+      <aside :class="$style.sidebar">
         <slot name="sidebar" />
+        <resmio-widget />
       </aside>
     </div>
   </notch-wrapper>
@@ -21,12 +22,14 @@
 import TheIntro from '~/components/Shared/TheIntro.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import ImageHero from '~/components/Images/ImageHero.vue'
+import ResmioWidget from '~/components/Shared/Resmio.vue'
 
 export default {
   components: {
     ImageHero,
     TheIntro,
     NotchWrapper,
+    ResmioWidget,
   },
   props: {
     page: {
@@ -40,6 +43,7 @@ export default {
 <style lang="postcss" module>
 .page {
   display: grid;
+  align-items: start;
   grid-gap: 1em;
   margin-bottom: var(--spacing-xl);
 
@@ -53,5 +57,10 @@ export default {
   @media (--viewport-sm) {
     grid-column: 1 / 3;
   }
+}
+
+.sidebar {
+  display: grid;
+  grid-gap: 1em;
 }
 </style>

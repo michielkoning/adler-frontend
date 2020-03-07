@@ -144,6 +144,9 @@ export default {
       },
     },
   },
+  generate: {
+    fallback: true,
+  },
 
   apollo,
   sitemap,

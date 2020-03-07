@@ -51,6 +51,7 @@ export default {
   display: flex;
   flex-direction: column;
   border: 2px solid transparent;
+  border-radius: var(--spacing-xs);
 
   &:focus-within,
   &:hover {
@@ -59,6 +60,7 @@ export default {
 }
 
 .content {
+  border-radius: 0 0 var(--spacing-xs) var(--spacing-xs);
   background: var(--color-white);
   padding: var(--spacing-m);
   flex: 1 0 auto;
@@ -71,6 +73,7 @@ export default {
 }
 
 .image {
+  border-radius: var(--spacing-xs) var(--spacing-xs) 0 0;
   display: block;
   object-fit: cover;
   width: 100%;
