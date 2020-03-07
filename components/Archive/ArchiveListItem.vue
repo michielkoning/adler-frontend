@@ -49,7 +49,7 @@ export default {
 .item {
   display: grid;
   grid-gap: var(--spacing-s);
-  margin-bottom: var(--spacing-m);
+  margin-bottom: var(--spacing-l);
   position: relative;
   grid-row: 1 / 2;
 
@@ -91,5 +91,9 @@ export default {
 
 .read-more {
   flex: 0 0 auto;
+}
+
+.link {
+  @mixin link-reset;
 }
 </style>

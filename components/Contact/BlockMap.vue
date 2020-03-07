@@ -88,6 +88,7 @@ export default {
 .map {
   width: 100%;
   height: 20em;
+  margin-bottom: var(--gutter);
 }
 
 strong {

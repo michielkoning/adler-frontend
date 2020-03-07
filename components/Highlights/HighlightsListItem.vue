@@ -72,6 +72,10 @@ export default {
   text-align: center;
 }
 
+.link {
+  @mixin link-reset;
+}
+
 .image {
   border-radius: var(--spacing-xs) var(--spacing-xs) 0 0;
   display: block;

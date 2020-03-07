@@ -40,6 +40,12 @@ export default {
     })
     return {
       page: page.data.page,
+      link: [
+        {
+          rel: 'dns-prefetch',
+          href: '//maps.googleapis.com',
+        },
+      ],
     }
   },
   nuxtI18n: {

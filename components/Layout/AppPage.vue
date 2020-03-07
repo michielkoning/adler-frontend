@@ -44,7 +44,7 @@ export default {
 .page {
   display: grid;
   align-items: start;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
   margin-bottom: var(--spacing-xl);
 
   @media (--viewport-md) {
@@ -61,7 +61,7 @@ export default {
 
 .sidebar {
   display: grid;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
 
   @media (--viewport-sm) {
     grid-template-columns: repeat(2, 1fr);

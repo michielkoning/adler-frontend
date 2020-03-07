@@ -31,7 +31,7 @@ export default {
 <style lang="postcss" module>
 .row {
   display: grid;
-  grid-gap: 1em;
+  grid-gap: var(--gutter);
 
   @media (--viewport-sm) {
     grid-template-columns: repeat(3, 1fr);
