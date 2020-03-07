@@ -47,14 +47,14 @@ export default {
   grid-gap: 1em;
   margin-bottom: var(--spacing-xl);
 
-  @media (--viewport-sm) {
+  @media (--viewport-md) {
     grid-template-columns: 2fr 1fr;
   }
 }
 
 .image {
   grid-row: 1 / 2;
-  @media (--viewport-sm) {
+  @media (--viewport-md) {
     grid-column: 1 / 3;
   }
 }
@@ -62,5 +62,12 @@ export default {
 .sidebar {
   display: grid;
   grid-gap: 1em;
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (--viewport-md) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

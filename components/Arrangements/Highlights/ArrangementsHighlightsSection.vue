@@ -58,7 +58,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Onze arrangementen",
+    "title": "Onze uitgelichte arrangementen",
     "btnTitle": "Bekijk al onze arrangementen"
   }
 }

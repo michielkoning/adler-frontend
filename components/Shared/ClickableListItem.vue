@@ -1,5 +1,9 @@
 <template>
-  <li class="list-item" @mousedown.left="mouseDown" @mouseup.left="mouseUp">
+  <li
+    :class="$style['list-item']"
+    @mousedown.left="mouseDown"
+    @mouseup.left="mouseUp"
+  >
     <slot />
   </li>
 </template>
@@ -34,18 +38,8 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .list-item {
   cursor: pointer;
-  &:focus-within,
-  &:hover {
-    & >>> .read-more {
-      @mixin link-hover;
-    }
-  }
-}
-
-a {
-  @mixin link-reset;
 }
 </style>
