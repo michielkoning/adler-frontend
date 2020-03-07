@@ -1,16 +1,12 @@
 <template>
-  <app-page :title="title">
-    <the-intro :text="error.message" />
-  </app-page>
+  <app-page :page="page" />
 </template>
 
 <script>
-import TheIntro from '~/components/Shared/TheIntro.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 
 export default {
   components: {
-    TheIntro,
     AppPage,
   },
   props: {
@@ -21,11 +17,17 @@ export default {
   },
 
   computed: {
+    page() {
+      return {
+        title: this.title,
+        content: this.error.message,
+      }
+    },
     title() {
       if (this.error.statusCode === 404) {
-        return 'Pagina niet gevonden'
+        return this.$t('title404')
       }
-      return 'An error occurred'
+      return this.$t('title500')
     },
   },
   head() {
@@ -35,3 +37,12 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "title404": "Pagina niet gevonden",
+    "title500": "Er is een fout opgetreden"
+  }
+}
+</i18n>

@@ -14,6 +14,11 @@
           :items="data.arrangementsHighlights"
         />
       </arrangements-highlights-container>
+      <div :class="$style['button-wrapper']">
+        <app-button :to="localePath({ name: 'arrangements' })">
+          {{ $t('btnTitle') }}
+        </app-button>
+      </div>
     </notch-wrapper>
   </section>
 </template>
@@ -21,6 +26,7 @@
 <script>
 import ArrangementsHighlightsContainer from '~/components/Arrangements/Highlights/ArrangementsHighlightsContainer.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import AppButton from '~/components/Shared/AppButton.vue'
 import HighlightsList from '~/components/Highlights/HighlightsList.vue'
 
 export default {
@@ -28,6 +34,7 @@ export default {
     ArrangementsHighlightsContainer,
     NotchWrapper,
     HighlightsList,
+    AppButton,
   },
 }
 </script>
@@ -41,12 +48,18 @@ export default {
 .title {
   text-align: center;
 }
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
 </style>
 
 <i18n>
 {
   "nl": {
-    "title": "Onze arrangementen"
+    "title": "Onze arrangementen",
+    "btnTitle": "Bekijk al onze arrangementen"
   }
 }
 </i18n>
