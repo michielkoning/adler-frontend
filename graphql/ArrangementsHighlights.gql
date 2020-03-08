@@ -1,7 +1,7 @@
 #import "./Fragments/ImageArchive.gql"
 
-query getArrangements($language: LanguageCodeFilterEnum) {
-  arrangementsHighlights: arrangements(first: 3, where: { language: $language }) {
+query getArrangements($first: Int, $language: LanguageCodeFilterEnum) {
+  arrangementsHighlights: arrangements(first: $first, where: { language: $language }) {
     edges {
       node {
         id

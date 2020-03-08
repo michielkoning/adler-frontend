@@ -1,49 +1,61 @@
 <template>
-  <div :class="$style.hero">
-    <image-hero :image="page.featuredImage" :class="$style.image" />
-    <div :class="$style.content">
-      <icon-logo-hero
-        aria-hidden="true"
-        width="36"
-        height="36"
-        :class="$style.icon"
-      />
-      <h1 class="sr-only">Familiehotel &amp; Gasthof ADler</h1>
-      <h2>in Lingenau, Bregenzerwald</h2>
-    </div>
+  <div :class="$style.wrapper">
+    <notch-wrapper>
+      <arrangements-highlights-container :first="2">
+        <div v-if="data" slot-scope="data" :class="$style.content">
+          <highlights-item
+            v-for="item in data.arrangementsHighlights"
+            :key="item.node.id"
+            tag="div"
+            :item="item.node"
+            :class="$style.highlight"
+          />
+          <related-posts-section />
+          <resmio-widget />
+        </div>
+      </arrangements-highlights-container>
+    </notch-wrapper>
   </div>
 </template>
 
-<style lang="postcss" module>
-.hero {
-  height: 30rem;
-  position: relative;
-  color: var(--color-white);
-  -webkit-text-stroke: 1px #666;
-  -webkit-text-fill-color: white;
-}
+<script>
+import ResmioWidget from '~/components/Shared/Resmio.vue'
+import RelatedPostsSection from '~/components/Posts/Related/RelatedPostsSection.vue'
+import HighlightsItem from '~/components/Highlights/HighlightsItem.vue'
+import ArrangementsHighlightsContainer from '~/components/Arrangements/Highlights/ArrangementsHighlightsContainer.vue'
+import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
-.image {
-  height: 100%;
-  max-height: none;
+export default {
+  components: {
+    ResmioWidget,
+    RelatedPostsSection,
+    HighlightsItem,
+    ArrangementsHighlightsContainer,
+    NotchWrapper,
+  },
+}
+</script>
+
+<style lang="postcss" module>
+.wrapper {
+  @mixin block-padding;
 }
 
 .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  grid-gap: var(--spacing-l);
+  display: grid;
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (--viewport-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.icon {
-  width: 50rem;
-  height: 6rem;
-  stroke: #666;
+.highlight {
+  @media (--viewport-md) {
+    grid-row: 1 / 3;
+  }
 }
 </style>

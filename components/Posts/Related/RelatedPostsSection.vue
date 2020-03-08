@@ -1,5 +1,5 @@
 <template>
-  <sitebar-item-section id="related-posts" :title="$t('title')">
+  <sitebar-item-section id="related-posts" :title="title">
     <related-posts-container :not-in="notIn">
       <sitebar-item-list
         v-if="data"
@@ -27,13 +27,22 @@ export default {
       default: 0,
     },
   },
+  computed: {
+    title() {
+      if (this.notIn) {
+        return this.$t('othertPosts')
+      }
+      return this.$t('latestPosts')
+    },
+  },
 }
 </script>
 
 <i18n>
 {
   "nl": {
-    "title": "Meer berichten"
+    "latestPosts": "Laatste berichten",
+    "othertPosts": "Meer berichten"
   }
 }
 </i18n>

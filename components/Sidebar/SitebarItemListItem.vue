@@ -1,13 +1,25 @@
 <template>
-  <li>
-    <nuxt-link :to="item.relativeUrl">
-      {{ item.title }}
-    </nuxt-link>
-  </li>
+  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
+    <div :class="$style['link-wrapper']">
+      <nuxt-link :to="item.relativeUrl" :class="$style.title">
+        {{ item.title }}
+      </nuxt-link>
+    </div>
+    <img
+      src="https://www.adler-lingenau.com/nl/wp-content/uploads/sites/2/2017/11/serveimage-140x0-c-default@1x.jpg"
+      :class="$style.image"
+      alt=""
+    />
+  </clickable-list-item>
 </template>
 
 <script>
+import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
+
 export default {
+  components: {
+    ClickableListItem,
+  },
   props: {
     item: {
       type: Object,
@@ -16,3 +28,36 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.item {
+  margin-bottom: var(--spacing-xs);
+  display: grid;
+  grid-template-columns: 6em auto;
+  grid-gap: var(--spacing-s);
+  align-items: center;
+
+  &:focus-within,
+  &:hover {
+    & .title {
+      box-shadow: 0 2px 0 0 var(--color-primary);
+    }
+  }
+}
+
+.image {
+  grid-row: 1 / 2;
+}
+
+.link-wrapper {
+  grid-column: 2 / 3;
+}
+
+.title {
+  @mixin link-reset;
+  font-family: var(--font-family-header);
+  &:hover {
+    box-shadow: 0 2px 0 0 var(--color-primary);
+  }
+}
+</style>

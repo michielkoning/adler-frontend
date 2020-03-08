@@ -1,11 +1,12 @@
 <template>
-  <li
+  <component
+    :is="tag"
     :class="$style['list-item']"
     @mousedown.left="mouseDown"
     @mouseup.left="mouseUp"
   >
     <slot />
-  </li>
+  </component>
 </template>
 
 <script>
@@ -14,6 +15,11 @@ export default {
     url: {
       type: String,
       required: true,
+    },
+
+    tag: {
+      type: String,
+      default: 'li',
     },
   },
   data() {

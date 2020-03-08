@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="items.length">
+  <ul v-if="items.length" :class="$style.list">
     <sidebar-item-list-item
       v-for="item in items"
       :key="item.node.id"

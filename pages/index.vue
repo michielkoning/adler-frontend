@@ -1,8 +1,9 @@
 <template>
   <div>
     <home-hero :page="page" />
-    <resmio-widget />
-    <arrangements-highlights-section />
+    <home-content />
+    <related-posts-section />
+
     <facilities-wrapper />
   </div>
 </template>
@@ -12,17 +13,13 @@ import PageQuery from '~/graphql/Page.gql'
 import { homePageId } from '~/data/pages'
 import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
 import HomeHero from '~/components/Home/HomeHero.vue'
-
-import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
-import ResmioWidget from '~/components/Shared/Resmio.vue'
+import HomeContent from '~/components/Home/HomeContent.vue'
 
 export default {
   components: {
     FacilitiesWrapper,
-
     HomeHero,
-    ArrangementsHighlightsSection,
-    ResmioWidget,
+    HomeContent,
   },
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({

@@ -1,6 +1,6 @@
 <template>
   <sitebar-item-section id="related-arrangements" :title="$t('title')">
-    <iframe loading="lazy" width="400" height="400" :src="resmioUrl"></iframe>
+    <iframe loading="lazy" width="400" height="300" :src="resmioUrl"></iframe>
   </sitebar-item-section>
 </template>
 
@@ -23,7 +23,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Reserveer voor ons restaurant"
+    "title": "Ons restaurant"
   }
 }
 </i18n>

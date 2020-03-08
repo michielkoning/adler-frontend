@@ -1,5 +1,5 @@
 <template>
-  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
+  <clickable-list-item :url="item.relativeUrl" :class="$style.item" :tag="tag">
     <div :class="$style.content">
       <h2 :class="$style.title">
         <!-- eslint-disable vue/no-v-html -->
@@ -10,39 +10,40 @@
         />
         <!-- eslint-enable vue/no-v-html -->
       </h2>
-      <post-date v-if="item.date" :date="item.date" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />
       <read-more :class="$style['read-more']" />
     </div>
-    <image-archive :image="item.featuredImage" :class="$style.image" />
     <price-badge
-      v-if="item.pricesGroup && item.pricesGroup.priceFrom"
+      v-if="item.pricesGroup.priceFrom"
       :price="item.pricesGroup.priceFrom"
       :class="$style['price-badge']"
     />
+    <image-archive :image="item.featuredImage" :class="$style.image" />
   </clickable-list-item>
 </template>
 
 <script>
-import PostDate from '@/components/Shared/PostDate.vue'
 import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
 import ImageArchive from '~/components/Images/ImageArchive.vue'
-import PriceBadge from '~/components/Shared/PriceBadge.vue'
 import ReadMore from '~/components/Shared/ReadMore.vue'
+import PriceBadge from '~/components/Shared/PriceBadge.vue'
 
 export default {
   components: {
     ClickableListItem,
     ImageArchive,
-    PriceBadge,
     ReadMore,
-    PostDate,
+    PriceBadge,
   },
   props: {
     item: {
       type: Object,
       default: () => {},
+    },
+    tag: {
+      type: String,
+      default: 'li',
     },
   },
 }
@@ -50,53 +51,49 @@ export default {
 
 <style lang="postcss" module>
 .item {
-  display: grid;
-  grid-gap: var(--spacing-s);
-  margin-bottom: var(--spacing-l);
   position: relative;
-  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
 
-  @media (--viewport-sm) {
-    grid-template-columns: 15em auto;
+  &:focus-within,
+  &:hover {
+    border-color: var(--color-primary);
   }
 }
 
 .content {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
+  background: var(--color-white);
+  padding: var(--spacing-m);
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* grid-row: 2 / 3; */
+.title {
+  text-align: center;
+}
+
+.link {
+  @mixin link-reset;
 }
 
 .image {
   display: block;
   object-fit: cover;
   width: 100%;
-  height: 8em;
-
-  @media (--viewport-sm) {
-    margin-top: var(--spacing-xs);
-    height: auto;
-  }
-}
-
-.price-badge {
-  top: -0.5em;
-  right: -0.5em;
-  position: absolute;
-
-  @media (--viewport-sm) {
-    top: 0;
-    right: auto;
-    left: -0.5em;
-  }
+  height: 14em;
+  order: -1;
 }
 
 .read-more {
-  flex: 0 0 auto;
+  margin-top: auto;
+  align-self: center;
 }
 
-.link {
-  @mixin link-reset;
+.price-badge {
+  position: absolute;
+  top: 3em;
+  right: -1em;
 }
 </style>

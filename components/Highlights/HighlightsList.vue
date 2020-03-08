@@ -1,6 +1,6 @@
 <template>
   <ul v-if="items.length" :class="$style.list">
-    <highlights-list-item
+    <highlights-item
       v-for="item in items"
       :key="item.node.id"
       :item="item.node"
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import HighlightsListItem from '~/components/Highlights/HighlightsListItem.vue'
+import HighlightsItem from '~/components/Highlights/HighlightsItem.vue'
 
 export default {
   components: {
-    HighlightsListItem,
+    HighlightsItem,
   },
   props: {
     items: {
