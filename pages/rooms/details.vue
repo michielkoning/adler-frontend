@@ -1,22 +1,23 @@
 <template>
-  <app-page :page="room">
-    <div>
-      {{ room.gallery }}
-      {{ room.pricesGroup.fullBoardHighSeason }}
-      {{ room.pricesGroup.fullBoardLowSeason }}
-      {{ room.pricesGroup.halfBoardHighSeason }}
-      {{ room.pricesGroup.halfBoardLowSeason }}
-      <h2>Kamer is voorzien van:</h2>
-      <ul v-if="room.services.edges.length" :class="$style.list">
-        <li v-for="service in room.services.edges" :key="service.node.id">
-          {{ service.node.name }}
-        </li>
-      </ul>
-    </div>
-    <template v-slot:sidebar>
-      <related-rooms-section :not-in="room.roomId" />
-    </template>
-  </app-page>
+  <div>
+    <app-page :page="room">
+      <div>
+        {{ room.pricesGroup.fullBoardHighSeason }}
+        {{ room.pricesGroup.fullBoardLowSeason }}
+        {{ room.pricesGroup.halfBoardHighSeason }}
+        {{ room.pricesGroup.halfBoardLowSeason }}
+        <h2>Kamer is voorzien van:</h2>
+        <ul v-if="room.services.edges.length" :class="$style.list">
+          <li v-for="service in room.services.edges" :key="service.node.id">
+            {{ service.node.name }}
+          </li>
+        </ul>
+      </div>
+      <template v-slot:sidebar>
+        <related-rooms-section :not-in="room.roomId" />
+      </template>
+    </app-page>
+  </div>
 </template>
 
 <script>

@@ -4,7 +4,7 @@
       loading="lazy"
       width="400"
       height="300"
-      :title="title"
+      :title="$t('iframeTitle')"
       :src="resmioUrl"
     ></iframe>
   </sitebar-item-section>
@@ -29,7 +29,8 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Ons restaurant"
+    "title": "Ons restaurant",
+    "iframeTitle": "Reserveer voor ons restaurant"
   }
 }
 </i18n>

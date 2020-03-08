@@ -11,7 +11,12 @@
         </article>
         <slot />
       </div>
-      <image-hero :image="page.featuredImage" :class="$style.image" />
+      <gallery-list
+        v-if="page.galleryGroup"
+        :class="$style.gallery"
+        :gallery="page.galleryGroup.gallery"
+      />
+      <image-hero v-else :image="page.featuredImage" :class="$style.image" />
       <aside :class="$style.sidebar">
         <slot name="sidebar" />
         <resmio-widget />
@@ -26,6 +31,7 @@ import TheIntro from '~/components/Shared/TheIntro.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import ImageHero from '~/components/Images/ImageHero.vue'
 import ResmioWidget from '~/components/Shared/Resmio.vue'
+import GalleryList from '~/components/Gallery/GalleryList.vue'
 
 export default {
   components: {
@@ -34,6 +40,7 @@ export default {
     TheIntro,
     NotchWrapper,
     ResmioWidget,
+    GalleryList,
   },
   props: {
     page: {
@@ -56,6 +63,7 @@ export default {
   }
 }
 
+.gallery,
 .image {
   grid-row: 1 / 2;
   @media (--viewport-md) {
