@@ -1,6 +1,12 @@
 <template>
   <sitebar-item-section id="related-arrangements" :title="$t('title')">
-    <iframe loading="lazy" width="400" height="300" :src="resmioUrl"></iframe>
+    <iframe
+      loading="lazy"
+      width="400"
+      height="300"
+      :title="title"
+      :src="resmioUrl"
+    ></iframe>
   </sitebar-item-section>
 </template>
 
