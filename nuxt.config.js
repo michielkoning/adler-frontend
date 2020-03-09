@@ -1,6 +1,6 @@
 import pkg from './package'
 import splashscreens from './config/splashscreens'
-import googleAnalytics from './config/googleAnalytics'
+// import googleAnalytics from './config/googleAnalytics'
 import manifest from './config/manifest'
 import i18n from './config/i18n'
 import apollo from './config/apollo'

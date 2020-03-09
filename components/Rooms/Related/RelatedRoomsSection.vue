@@ -33,7 +33,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Bekijk onze andere kamers"
+    "title": "Onze andere kamers"
   }
 }
 </i18n>

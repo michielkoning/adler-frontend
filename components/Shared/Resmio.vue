@@ -1,6 +1,7 @@
 <template>
   <sitebar-item-section id="related-arrangements" :title="$t('title')">
     <iframe
+      :class="$style.resmio"
       loading="lazy"
       width="400"
       height="300"
@@ -25,6 +26,13 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.resmio {
+  min-height: 24em;
+  height: calc(100% - 3em);
+}
+</style>
 
 <i18n>
 {

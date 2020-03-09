@@ -1,5 +1,6 @@
 <template>
   <div>
+    <GalleryCarousel :gallery="gallery" />
     <ul :class="$style.list">
       <li v-for="item in gallery" :key="item.id" :class="$style.item">
         <img :src="item.heroLarge" alt="" />
@@ -9,7 +10,11 @@
 </template>
 
 <script>
+import GalleryCarousel from '~/components/Gallery/GalleryCarousel.vue'
 export default {
+  components: {
+    GalleryCarousel,
+  },
   props: {
     gallery: {
       type: Array,
