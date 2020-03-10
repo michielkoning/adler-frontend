@@ -74,10 +74,11 @@ export default {
 }
 
 .content {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-
-  /* grid-row: 2 / 3; */
+  grid-row: 2 / 3;
+  @media (--viewport-sm) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
 }
 
 .image {
@@ -99,7 +100,6 @@ export default {
 
   @media (--viewport-sm) {
     top: 0;
-    right: auto;
     left: -0.5em;
   }
 }

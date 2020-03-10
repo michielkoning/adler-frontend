@@ -1,11 +1,9 @@
 <template>
   <sitebar-item-section id="related-rooms" :title="$t('title')">
     <related-rooms-container :not-in="notIn">
-      <sitebar-item-list
-        v-if="data"
-        slot-scope="data"
-        :items="data.relatedRooms"
-      />
+      <template v-slot="data">
+        <sitebar-item-list v-if="data" :items="data.relatedRooms" />
+      </template>
     </related-rooms-container>
   </sitebar-item-section>
 </template>

@@ -3,7 +3,9 @@
     <div :class="$style.wrapper">
       <h1 id="posts-title">{{ $t('title') }}</h1>
       <posts-archive-container>
-        <archive-list v-if="data" slot-scope="data" :items="data.posts" />
+        <template v-slot="data">
+          <archive-list v-if="data" :items="data.posts" />
+        </template>
       </posts-archive-container>
     </div>
   </section>

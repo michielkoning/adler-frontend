@@ -3,7 +3,7 @@
     :query="require('~/graphql/ArrangementsHighlights.gql')"
     :variables="{ language: $i18n.locale.toUpperCase(), first }"
   >
-    <template slot-scope="{ result: { data }, isLoading }">
+    <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot
         v-if="data"

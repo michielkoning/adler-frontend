@@ -1,11 +1,9 @@
 <template>
   <sitebar-item-section id="related-posts" :title="title">
     <related-posts-container :not-in="notIn">
-      <sitebar-item-list
-        v-if="data"
-        slot-scope="data"
-        :items="data.relatedPosts"
-      />
+      <template v-slot="data">
+        <sitebar-item-list v-if="data" :items="data.relatedPosts" />
+      </template>
     </related-posts-container>
   </sitebar-item-section>
 </template>

@@ -3,7 +3,7 @@
     :query="require('~/graphql/RelatedArrangements.gql')"
     :variables="{ notIn, language: $i18n.locale.toUpperCase() }"
   >
-    <template slot-scope="{ result: { data }, isLoading }">
+    <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot v-if="data" :relatedArrangements="data.relatedArrangements.edges" />
     </template>

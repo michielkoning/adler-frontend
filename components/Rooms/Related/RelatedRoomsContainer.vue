@@ -3,7 +3,7 @@
     :query="require('~/graphql/RelatedRooms.gql')"
     :variables="{ notIn }"
   >
-    <template slot-scope="{ result: { data }, isLoading }">
+    <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot v-if="data" :relatedRooms="data.relatedRooms.edges" />
     </template>

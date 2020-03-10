@@ -123,6 +123,8 @@ export default {
 <style lang="postcss" scoped>
 .nav {
   position: relative;
+  font-family: var(--font-family-header);
+  font-size: 1.2em;
 }
 
 .menu {

@@ -1,18 +1,13 @@
 <template>
   <div>
     <app-page :page="room">
-      <div>
-        {{ room.pricesGroup.fullBoardHighSeason }}
-        {{ room.pricesGroup.fullBoardLowSeason }}
-        {{ room.pricesGroup.halfBoardHighSeason }}
-        {{ room.pricesGroup.halfBoardLowSeason }}
-        <h2>Kamer is voorzien van:</h2>
-        <ul v-if="room.services.edges.length" :class="$style.list">
-          <li v-for="service in room.services.edges" :key="service.node.id">
-            {{ service.node.name }}
-          </li>
-        </ul>
-      </div>
+      <room-prices-group :prices="room.pricesGroup" />
+      <h2>Kamer is voorzien van:</h2>
+      <ul v-if="room.services.edges.length" :class="$style.list">
+        <li v-for="service in room.services.edges" :key="service.node.id">
+          {{ service.node.name }}
+        </li>
+      </ul>
       <template v-slot:sidebar>
         <related-rooms-section :not-in="room.roomId" />
       </template>
@@ -24,11 +19,13 @@
 import RoomQuery from '~/graphql/Room.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedRoomsSection from '~/components/Rooms/Related/RelatedRoomsSection.vue'
+import RoomPricesGroup from '~/components/Rooms/Prices/RoomPricesGroup.vue'
 
 export default {
   components: {
     AppPage,
     RelatedRoomsSection,
+    RoomPricesGroup,
   },
   async asyncData({ app, params }) {
     const room = await app.apolloProvider.defaultClient.query({

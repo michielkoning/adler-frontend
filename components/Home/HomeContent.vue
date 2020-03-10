@@ -2,17 +2,19 @@
   <div :class="$style.wrapper">
     <notch-wrapper>
       <arrangements-highlights-container :first="2">
-        <div v-if="data" slot-scope="data" :class="$style.content">
-          <highlights-item
-            v-for="item in data.arrangementsHighlights"
-            :key="item.node.id"
-            tag="div"
-            :item="item.node"
-            :class="$style.highlight"
-          />
-          <related-posts-section />
-          <resmio-widget />
-        </div>
+        <template v-slot="data">
+          <div v-if="data" :class="$style.content">
+            <highlights-item
+              v-for="item in data.arrangementsHighlights"
+              :key="item.node.id"
+              tag="div"
+              :item="item.node"
+              :class="$style.highlight"
+            />
+            <related-posts-section />
+            <resmio-widget />
+          </div>
+        </template>
       </arrangements-highlights-container>
     </notch-wrapper>
   </div>

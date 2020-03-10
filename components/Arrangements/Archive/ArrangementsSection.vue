@@ -3,11 +3,9 @@
     <div :class="$style.wrapper">
       <h1 id="arrangements-title">{{ $t('title') }}</h1>
       <arrangements-container>
-        <archive-list
-          v-if="data"
-          slot-scope="data"
-          :items="data.arrangements"
-        />
+        <template v-slot="data">
+          <archive-list v-if="data" :items="data.arrangements" />
+        </template>
       </arrangements-container>
     </div>
   </section>

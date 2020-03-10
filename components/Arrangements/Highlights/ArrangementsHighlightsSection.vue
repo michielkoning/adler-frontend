@@ -8,11 +8,9 @@
         {{ $t('title') }}
       </h1>
       <arrangements-highlights-container>
-        <highlights-list
-          v-if="data"
-          slot-scope="data"
-          :items="data.arrangementsHighlights"
-        />
+        <template v-slot="data">
+          <highlights-list v-if="data" :items="data.arrangementsHighlights" />
+        </template>
       </arrangements-highlights-container>
       <div :class="$style['button-wrapper']">
         <app-button
