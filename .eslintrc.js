@@ -17,5 +17,6 @@ module.exports = {
   // add your custom rules here
   rules: {
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/no-deprecated-slot-scope-attribute': 1,
   },
 }

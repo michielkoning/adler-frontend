@@ -126,7 +126,9 @@ export default {
       }
     },
     transpile: [/^vue2-google-maps($|\/)/],
-
+    babel: {
+      plugins: ['@babel/plugin-proposal-optional-chaining'],
+    },
     postcss: {
       plugins: {
         'postcss-mixins': {

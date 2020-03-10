@@ -1,6 +1,6 @@
 <template>
   <header>
-    <NotchWrapper>
+    <notch-wrapper>
       <div class="header-wrapper">
         <skip-links />
         <mobile-navigation @toggleMenu="toggleMenu" />
@@ -24,7 +24,7 @@
           </div>
         </transition>
       </div>
-    </NotchWrapper>
+    </notch-wrapper>
   </header>
 </template>
 

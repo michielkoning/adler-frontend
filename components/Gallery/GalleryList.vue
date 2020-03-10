@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GalleryCarousel :gallery="gallery" />
+    <gallery-carousel :gallery="gallery" />
     <ul :class="$style.list">
       <li v-for="item in gallery" :key="item.id" :class="$style.item">
         <img :src="item.heroLarge" alt="" />
