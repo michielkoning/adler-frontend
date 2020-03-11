@@ -39,11 +39,11 @@ export default {
   color: var(--color-white);
   -webkit-text-stroke: 1px #666;
   -webkit-text-fill-color: white;
-}
 
-.image {
-  height: 100%;
-  max-height: none;
+  & .image {
+    height: 100%;
+    max-height: none;
+  }
 }
 
 .content {

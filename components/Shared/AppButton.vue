@@ -90,7 +90,7 @@ export default {
 }
 
 .btn-small {
-  font-size: 1em;
+  font-size: 0.9em;
   padding: var(--spacing-xxs) var(--spacing-xs);
   font-weight: var(--font-weight-normal);
 }

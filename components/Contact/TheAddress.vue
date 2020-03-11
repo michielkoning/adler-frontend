@@ -25,12 +25,12 @@
     <a href="mailto:info@adler-lingenau.com" itemprop="email">
       {{ address.emailAddress }} </a
     ><br /><br />
-    <a
+    <app-button
+      :is-large="false"
       :href="directionsUrl"
       target="_blank"
       rel="noopener"
-      class="btn-primary btn-small"
-      >Routebeschrijving</a
+      >Routebeschrijving</app-button
     >
   </address>
 </template>
@@ -46,8 +46,17 @@ import {
   emailAddress,
   directionsUrl,
 } from '~/data/address'
+import AppButton from '~/components/Shared/AppButton.vue'
 
 export default {
+  components: {
+    AppButton,
+  },
+  filters: {
+    encodeURIComponent(value) {
+      return encodeURIComponent(value)
+    },
+  },
   data() {
     return {
       directionsUrl,

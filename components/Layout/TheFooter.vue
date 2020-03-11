@@ -61,7 +61,7 @@ export default {
 
 .wrapper {
   display: grid;
-  grid-gap: var(--gutter);
+  grid-gap: var(--spacing-l) var(--gutter);
   align-items: start;
   justify-items: start;
 
