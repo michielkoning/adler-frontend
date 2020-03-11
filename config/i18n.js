@@ -1,7 +1,7 @@
 export default {
   defaultLocale: 'nl',
   lazy: true,
-  rootRedirect: 'nl',
+  rootRedirect: 'de',
   strategy: 'prefix',
   langDir: 'locales/',
   locales: [
@@ -26,6 +26,7 @@ export default {
   ],
   vueI18nLoader: true,
   vueI18n: {
+    fallbackLocale: 'de',
     numberFormats: {
       nl: {
         currency: {

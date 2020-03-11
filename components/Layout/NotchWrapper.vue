@@ -1,17 +1,17 @@
 <template>
-  <div class="notch-wrapper">
-    <div class="layout-wrapper">
+  <div :class="$style.notch">
+    <div :class="$style.wrapper">
       <slot />
     </div>
   </div>
 </template>
 
-<style lang="postcss" scoped>
-.notch-wrapper {
+<style lang="postcss" module>
+.notch {
   padding: var(--notch);
 }
 
-.layout-wrapper {
+.wrapper {
   max-width: var(--container-width-xlg);
   width: 100%;
   padding-left: var(--gutter);

@@ -129,6 +129,14 @@ export default {
     babel: {
       plugins: ['@babel/plugin-proposal-optional-chaining'],
     },
+    loaders: {
+      cssModules: {
+        modules: {
+          // this is where you can alter the generated class names:
+          localIdentName: '[local]-[hash:base64:4]',
+        },
+      },
+    },
     postcss: {
       plugins: {
         'postcss-mixins': {
