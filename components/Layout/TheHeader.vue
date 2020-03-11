@@ -4,7 +4,7 @@
       <div class="header-wrapper">
         <skip-links />
         <mobile-navigation @toggleMenu="toggleMenu" />
-        <nuxt-link class="logo-wrapper" to="/">
+        <nuxt-link class="logo-wrapper" :to="localePath({ name: 'index' })">
           <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
           <span class="sr-only">Haarlm bijdeles</span>
         </nuxt-link>

@@ -36,18 +36,31 @@
 </template>
 
 <script>
-import address from '~/data/address'
+import {
+  street,
+  postalCode,
+  city,
+  country,
+  region,
+  phoneNumber,
+  emailAddress,
+  directionsUrl,
+} from '~/data/address'
 
 export default {
   data() {
     return {
-      address,
+      directionsUrl,
+      address: {
+        street,
+        postalCode,
+        city,
+        country,
+        region,
+        phoneNumber,
+        emailAddress,
+      },
     }
-  },
-  computed: {
-    directionsUrl() {
-      return 'https://www.google.com/maps?daddr=Hof%2043%20Lingenau'
-    },
   },
 }
 </script>

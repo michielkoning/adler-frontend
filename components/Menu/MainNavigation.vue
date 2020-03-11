@@ -6,47 +6,27 @@
 
     <ul ref="menu" class="menu">
       <li>
-        <nuxt-link
-          class="menu-link"
-          :item="item"
-          :to="localePath({ name: 'index' })"
-        >
+        <nuxt-link class="menu-link" :to="localePath({ name: 'index' })">
           {{ $t(`home`) }}
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          class="menu-link"
-          :item="item"
-          :to="localePath({ name: 'arrangements' })"
-        >
+        <nuxt-link class="menu-link" :to="localePath({ name: 'arrangements' })">
           {{ $t(`arrangements`) }}
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          class="menu-link"
-          :item="item"
-          :to="localePath({ name: 'rooms' })"
-        >
+        <nuxt-link class="menu-link" :to="localePath({ name: 'rooms' })">
           {{ $t(`rooms`) }}
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          class="menu-link"
-          :item="item"
-          :to="localePath({ name: 'blog' })"
-        >
+        <nuxt-link class="menu-link" :to="localePath({ name: 'blog' })">
           {{ $t(`blog`) }}
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          class="menu-link"
-          :item="item"
-          :to="localePath({ name: 'contact' })"
-        >
+        <nuxt-link class="menu-link" :to="localePath({ name: 'contact' })">
           {{ $t(`contact`) }}
         </nuxt-link>
       </li>

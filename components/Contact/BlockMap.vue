@@ -1,14 +1,14 @@
 <template>
-  <gmap-map ref="refMap" :center="center" :zoom="15" class="map">
+  <gmap-map :center="center" :zoom="15" :class="$style.map">
     <gmap-marker
       :icon="icon"
-      :position="getPosition(office)"
+      :position="center"
       :clickable="true"
-      @click="toggleInfoWindow(office, index)"
+      @click="toggleInfoWindow()"
     />
     <gmap-info-window
       :options="infoOptions"
-      :position="infoWindowPos"
+      :position="center"
       :opened="infoWinOpen"
       @closeclick="infoWinOpen = false"
     />
@@ -16,18 +16,21 @@
 </template>
 
 <script>
+import { street, postalCode, city, longitude, latitude } from '~/data/address'
+import marker from '~/assets/marker@2x.png'
 export default {
   data() {
     return {
-      office: {},
+      center: {
+        lat: longitude,
+        lng: latitude,
+      },
       icon: {
-        url: '/images/marker@2x.png',
+        url: marker,
         size: { width: 30, height: 30 },
         scaledSize: { width: 30, height: 30 },
       },
-      infoWindowPos: null,
       infoWinOpen: false,
-      currentID: null,
       infoOptions: {
         content: '',
         // optional: offset infowindow so it visually sits nicely on top of our marker
@@ -38,60 +41,20 @@ export default {
       },
     }
   },
-  computed: {
-    center() {
-      return this.getPosition(this.office)
-    },
-  },
-  mounted() {
-    this.boundMap()
-  },
+
   methods: {
-    getPosition(office) {
-      return {
-        lat: office.latitude,
-        lng: office.longitude,
-      }
-    },
-    boundMap() {
-      this.$refs.refMap.$mapPromise.then(map => {
-        const bounds = new window.google.maps.LatLngBounds()
-        this.offices.forEach(location => {
-          const position = new window.google.maps.LatLng(
-            location.latitude,
-            location.longitude,
-          )
-          bounds.extend(position)
-        })
-
-        map.fitBounds(bounds)
-      })
-    },
-    toggleInfoWindow(marker, ID) {
-      this.infoWindowPos = this.getPosition(marker)
-      this.infoOptions.content = `<strong>${marker.street}</strong><br>${marker.zipcode}, ${marker.city}`
-
-      // check if its the same marker that was selected if yes toggle
-      if (this.currentID === ID) {
-        this.infoWinOpen = !this.infoWinOpen
-      } else {
-        // if different marker set infowindow to open and reset current marker index
-        this.infoWinOpen = true
-        this.currentID = ID
-      }
+    toggleInfoWindow() {
+      this.infoOptions.content = `<strong>${street}</strong><br>${postalCode}, ${city}`
+      this.infoWinOpen = !this.infoWinOpen
     },
   },
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .map {
   width: 100%;
   height: 20em;
   margin-bottom: var(--gutter);
-}
-
-strong {
-  display: none;
 }
 </style>
