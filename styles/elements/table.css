@@ -22,10 +22,10 @@ td {
   &:not(:last-child) {
     border-right: 2px solid var(--color-bg-page);
   }
-}
 
-thead th {
-  vertical-align: bottom;
+  @nest thead & {
+    vertical-align: bottom;
+  }
 }
 
 tbody tr:nth-child(2n + 1) {
