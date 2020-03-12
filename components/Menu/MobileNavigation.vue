@@ -7,7 +7,7 @@
           <span class="sr-only">Adler Lingenau</span>
         </nuxt-link>
         <button
-          :aria-expanded="menuIsExpanded"
+          :aria-expanded="menuIsExpanded ? 'true' : 'false'"
           class="btn"
           @click="toggleMenu(!menuIsExpanded)"
         >

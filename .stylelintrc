@@ -5,7 +5,8 @@
       true,
       {
         "ignoreAtRules": [
-          "mixin"
+          "mixin",
+          "define-mixin"
         ]
       }
     ]

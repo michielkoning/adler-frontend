@@ -8,12 +8,11 @@
     <menu-item
       :item="item"
       :aria-haspopup="item.childItems.edges.length > 0"
-      :aria-expanded="isOpen"
       class="menu-link"
     />
     <button
       v-if="item.childItems.edges.length"
-      :aria-expanded="isOpen"
+      :aria-expanded="isOpen ? 'true' : 'false'"
       class="btn-show-submenu"
       @click="toggleMenu"
     >
