@@ -50,6 +50,7 @@ export default {
   @media (--viewport-sm) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media (--viewport-md) {
     grid-template-columns: repeat(3, 1fr);
   }

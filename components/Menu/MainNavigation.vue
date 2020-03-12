@@ -109,6 +109,7 @@ export default {
 
 .menu {
   @mixin list-reset;
+
   border-bottom: 1px solid var(--color-black);
 
   @media (--navigation-md) {
@@ -130,6 +131,7 @@ export default {
   @media (--navigation-md) {
     display: block;
   }
+
   &.active {
     transition: all 0.2s ease-out;
   }

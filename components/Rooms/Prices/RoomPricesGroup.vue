@@ -50,6 +50,7 @@ export default {
   display: grid;
   grid-gap: var(--gutter);
   margin-bottom: var(--spacing-l);
+
   @media (--viewport-sm) {
     grid-template-columns: repeat(2, 1fr);
   }

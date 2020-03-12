@@ -66,6 +66,7 @@ export default {
 .gallery,
 .image {
   grid-row: 1 / 2;
+
   @media (--viewport-md) {
     grid-column: 1 / 3;
   }
@@ -78,6 +79,7 @@ export default {
   @media (--viewport-sm) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media (--viewport-md) {
     grid-template-columns: 1fr;
   }

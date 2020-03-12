@@ -61,6 +61,7 @@ export default {
   background: var(--color-primary);
   z-index: var(--z-mobile-navigation);
   border-bottom: 1px solid var(--color-white);
+
   @media (--navigation-md) {
     display: none;
   }

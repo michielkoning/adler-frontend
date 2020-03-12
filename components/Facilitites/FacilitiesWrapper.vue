@@ -29,28 +29,12 @@ export default {
 
 <style lang="postcss" module>
 .facilities {
-  background: var(--color-4);
   @mixin block-padding;
-}
-.wrapper {
-}
 
-.overview {
-}
-
-.column {
+  background: var(--color-4);
 }
 
 .title {
   text-align: center;
-}
-
-.icon {
-}
-
-.list {
-}
-
-.item {
 }
 </style>

@@ -27,6 +27,7 @@ export default {
 <style lang="postcss" module>
 .list {
   @mixin list-reset;
+
   margin-bottom: var(--spacing-l);
 }
 </style>

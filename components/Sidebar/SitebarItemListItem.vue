@@ -30,6 +30,16 @@ export default {
 </script>
 
 <style lang="postcss" module>
+.title {
+  @mixin link-reset;
+
+  font-family: var(--font-family-header);
+
+  &:hover {
+    box-shadow: 0 2px 0 0 var(--color-primary);
+  }
+}
+
 .item {
   margin-bottom: var(--spacing-xs);
   display: grid;
@@ -51,13 +61,5 @@ export default {
 
 .link-wrapper {
   grid-column: 2 / 3;
-}
-
-.title {
-  @mixin link-reset;
-  font-family: var(--font-family-header);
-  &:hover {
-    box-shadow: 0 2px 0 0 var(--color-primary);
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section :class="$style['rooms']" aria-labelledby="rooms-title">
+  <section aria-labelledby="rooms-title">
     <div :class="$style.wrapper">
       <h1 id="rooms-title">{{ $t('title') }}</h1>
       <rooms-container>
@@ -22,8 +22,3 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" module>
-.rooms {
-}
-</style>

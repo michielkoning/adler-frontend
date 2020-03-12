@@ -99,7 +99,10 @@ export default {
     'nuxt-svg-loader',
     '@nuxtjs/sitemap',
   ],
-  // buildModules: ['@nuxtjs/google-analytics'],
+  buildModules: [
+    // '@nuxtjs/google-analytics',
+    '@nuxtjs/stylelint-module',
+  ],
   // googleAnalytics,
   manifest,
   i18n,

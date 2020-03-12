@@ -80,6 +80,7 @@ export default {
 <style lang="postcss" module>
 .list {
   @mixin list-reset;
+
   display: flex;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -104,6 +105,7 @@ export default {
 
 .paging {
   @mixin list-reset;
+
   display: flex;
 
   & li {

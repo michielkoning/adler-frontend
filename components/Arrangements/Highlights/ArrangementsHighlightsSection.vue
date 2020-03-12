@@ -43,6 +43,7 @@ export default {
 <style lang="postcss" module>
 .highlights {
   @mixin block-padding;
+
   background: var(--color-4);
 }
 

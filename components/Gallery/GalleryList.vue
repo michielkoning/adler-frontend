@@ -27,6 +27,7 @@ export default {
 <style lang="postcss" module>
 .list {
   @mixin list-reset;
+
   display: grid;
   grid-column-gap: var(--gutter);
   grid-template-columns: repeat(6, 1fr);
@@ -38,6 +39,7 @@ export default {
     grid-column: 1 / 5;
     grid-row: 1 / 5;
   }
+
   &:nth-child(2) {
     grid-column: 5 / 7;
     grid-row: 1 / 3;

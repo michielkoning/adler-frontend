@@ -76,13 +76,15 @@ header {
   background: var(--color-primary);
   margin-bottom: 4em;
 
+  /* prettier-ignore */
   @media (--navigation-md) {
-    background: linear-gradient(
-      var(--color-primary) 0,
-      var(--color-primary) 4em,
-      transparent 4em,
-      transparent 100%
-    );
+    background:
+      linear-gradient(
+        var(--color-primary) 0,
+        var(--color-primary) 4em,
+        transparent 4em,
+        transparent 100%
+      );
     margin-bottom: 0;
   }
 
@@ -99,6 +101,7 @@ header {
     padding-left: 0;
     padding-right: 0;
   }
+
   @media (--navigation-lg) {
     flex-direction: row;
   }
@@ -129,10 +132,13 @@ header {
 
 .logo-wrapper {
   @mixin link-reset;
+
+  align-self: center;
   flex: 1 0 auto;
   position: relative;
   z-index: var(--z-header);
   width: 100%;
+
   @media (--navigation-lg) {
     width: auto;
     flex: 0 0 auto;
@@ -183,10 +189,6 @@ header {
   transform: translateY(-100vh);
 }
 
-.logo-wrapper {
-  align-self: center;
-}
-
 .logo,
 .logo-small {
   fill: var(--color-primary);
@@ -201,9 +203,11 @@ header {
 
 .logo-small {
   margin: var(--spacing-xs) auto;
+
   @media (--navigation-md) {
     display: block;
   }
+
   @media (--navigation-lg) {
     display: none;
   }

@@ -84,6 +84,7 @@ export default {
 <style lang="postcss" scoped>
 .submenu {
   @mixin list-reset;
+
   margin-left: var(--spacing-m);
 
   @media (--navigation-md) {
@@ -103,6 +104,7 @@ export default {
 
 .menu-item {
   position: relative;
+
   @media (--navigation-md) {
     display: flex;
   }
@@ -160,10 +162,12 @@ export default {
 
   &:hover {
     text-decoration: none;
+
     & .title {
       box-shadow: 0 2px 0 0 currentColor;
     }
   }
+
   @media (--navigation-md) {
     border-top: 0;
   }
@@ -171,6 +175,7 @@ export default {
 
 .btn-show-submenu {
   display: none;
+
   @media (--navigation-md) {
     display: block;
     transform: translate(-0.25em, 0.25em);

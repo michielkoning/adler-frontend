@@ -42,6 +42,7 @@ export default {
 <style scoped>
 .field {
   @mixin form-field;
+
   resize: vertical;
 }
 </style>

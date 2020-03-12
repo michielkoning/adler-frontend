@@ -56,6 +56,7 @@ export default {
 .footer {
   background: var(--color-3);
   color: var(--color-white);
+
   @mixin block-padding;
 }
 
