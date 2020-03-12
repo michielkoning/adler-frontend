@@ -1,13 +1,11 @@
 <template>
   <section aria-labelledby="rooms-title">
-    <div :class="$style.wrapper">
-      <h1 id="rooms-title">{{ $t('title') }}</h1>
-      <rooms-container>
-        <template v-slot="data">
-          <archive-list v-if="data" :items="data.rooms" />
-        </template>
-      </rooms-container>
-    </div>
+    <h1 id="rooms-title">{{ $t('title') }}</h1>
+    <rooms-container>
+      <template v-slot="data">
+        <archive-list v-if="data" :items="data.rooms" />
+      </template>
+    </rooms-container>
   </section>
 </template>
 
