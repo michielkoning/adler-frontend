@@ -2,14 +2,14 @@
   <p v-if="submitted">{{ successMessage }}</p>
   <form
     v-else
-    action
+    :action="urlAction"
     data-netlify="true"
     netlify-honeypot="bot-field"
     method="post"
-    :name="name"
     @submit.prevent="submit"
   >
     <p v-if="intro">{{ intro }}</p>
+    <input type="hidden" name="form-name" :value="name" />
     <slot />
     <form-input-text
       id="bot-field"
@@ -65,6 +65,7 @@ export default {
   },
   data() {
     return {
+      urlAction: '/',
       errorMessage: '',
       botField: '',
       submitted: false,
@@ -100,7 +101,7 @@ export default {
       })
 
       try {
-        await axios.post('/', encodeFormData, axiosConfig)
+        await axios.post(this.urlAction, encodeFormData, axiosConfig)
         this.submitted = true
       } finally {
         this.loading = false
