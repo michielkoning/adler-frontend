@@ -1,3 +1,15 @@
+const currency = {
+  style: 'currency',
+  currency: 'EUR',
+  currencyDisplay: 'symbol',
+}
+
+const dateTimeFormatShort = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}
+
 export default {
   defaultLocale: 'nl',
   lazy: true,
@@ -26,75 +38,28 @@ export default {
   ],
   vueI18nLoader: true,
   vueI18n: {
+    silentFallbackWarn: true,
     fallbackLocale: 'de',
     numberFormats: {
       nl: {
-        currency: {
-          style: 'currency',
-          currency: 'EUR',
-          currencyDisplay: 'symbol',
-        },
+        currency,
       },
       en: {
-        currency: {
-          style: 'currency',
-          currency: 'EUR',
-          currencyDisplay: 'symbol',
-        },
+        currency,
       },
       de: {
-        currency: {
-          style: 'currency',
-          currency: 'EUR',
-          currencyDisplay: 'symbol',
-        },
+        currency,
       },
     },
     dateTimeFormats: {
       nl: {
-        short: {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        },
-        long: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          weekday: 'short',
-          hour: 'numeric',
-          minute: 'numeric',
-        },
+        short: dateTimeFormatShort,
       },
       en: {
-        short: {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        },
-        long: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          weekday: 'short',
-          hour: 'numeric',
-          minute: 'numeric',
-        },
+        short: dateTimeFormatShort,
       },
       de: {
-        short: {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        },
-        long: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          weekday: 'short',
-          hour: 'numeric',
-          minute: 'numeric',
-        },
+        short: dateTimeFormatShort,
       },
     },
   },

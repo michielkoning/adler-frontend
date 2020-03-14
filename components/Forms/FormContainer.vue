@@ -1,22 +1,17 @@
 <template>
   <div>
-    <template v-slot="data">
-      <slot v-if="data" :data="data" />
-    </template>
+    <slot :submit="submit" :submitted="submitted" :loading="loading" />
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  props: {
-    form: {
-      type: Number,
-      default: 0,
-    },
-  },
   data() {
     return {
       submitted: false,
+      loading: false,
     }
   },
   methods: {
@@ -27,25 +22,21 @@ export default {
         )
         .join('&')
     },
-    validate() {
-      this.$v.$touch()
-      return !this.$v.$invalid
-    },
-    async submit() {
-      this.errorMessageForm = ''
-      if (this.validate()) {
-        const axiosConfig = {
-          header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        }
-        await axios.post(
-          '/',
-          this.encodeFormData({
-            'form-name': 'contact',
-            ...this.form,
-          }),
-          axiosConfig,
-        )
+    async submit(formName, formData) {
+      this.loading = true
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      }
+      const encodeFormData = this.encodeFormData({
+        'form-name': formName,
+        formData,
+      })
+
+      try {
+        await axios.post('/', encodeFormData, axiosConfig)
         this.submitted = true
+      } finally {
+        this.loading = false
       }
     },
   },

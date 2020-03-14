@@ -1,24 +1,18 @@
 <template>
   <sitebar-item-section id="contact" :title="$t('title')">
-    <p v-if="submitted">{{ $t('success') }}</p>
-
-    <form
-      v-else
-      action
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      method="post"
+    <form-wrapper
+      :intro="$t('intro')"
+      :btn-text="$t('btnText')"
+      :form-data="formData"
       name="contact"
-      @submit.prevent="submit"
+      :success-message="$t('successMessage')"
+      :valid="!$v.$invalid"
+      @validate="validate"
     >
-      <p>{{ $t('intro') }}</p>
-
-      <input type="hidden" name="form-name" value="contact" />
-
-      <form-fieldset title="Contactformulier">
+      <form-fieldset :title="$t('title')">
         <form-input-text
           id="name"
-          v-model.trim.lazy="$v.form.name.$model"
+          v-model.trim.lazy="$v.formData.name.$model"
           :error-message="errorMessageName"
           :title="$t('form.name')"
           type="text"
@@ -26,7 +20,7 @@
         />
         <form-input-text
           id="email"
-          v-model.trim.lazy="$v.form.email.$model"
+          v-model.trim.lazy="$v.formData.email.$model"
           :error-message="errorMessageEmail"
           :title="$t('form.email')"
           name="email"
@@ -34,42 +28,30 @@
         />
         <form-input-text
           id="phone"
-          v-model="form.phonenumber"
+          v-model="formData.phonenumber"
           :title="$t('form.phoneNumber')"
           type="tel"
           name="phone"
         />
         <form-textarea
           id="message"
-          v-model.trim="form.message"
+          v-model.trim="formData.message"
           :title="$t('form.message')"
           name="message"
           rows="4"
           type="message"
         />
-        <form-input-text
-          id="bot-field"
-          v-model="form.botField"
-          :title="$t('form.botField')"
-          type="text"
-          :class="$style['bot-field']"
-          name="bot-field"
-        />
       </form-fieldset>
-      <app-button type="submit" :is-full-width="true">
-        {{ $t('btnSend') }}
-      </app-button>
-    </form>
+    </form-wrapper>
   </sitebar-item-section>
 </template>
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import axios from 'axios'
 import FormFieldset from '~/components/Forms/Elements/FormFieldset.vue'
 import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
 import FormTextarea from '~/components/Forms/Elements/FormTextarea.vue'
-import AppButton from '~/components/Shared/AppButton.vue'
+import FormWrapper from '~/components/Forms/FormWrapper.vue'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 
 export default {
@@ -78,22 +60,20 @@ export default {
     FormFieldset,
     FormInputText,
     FormTextarea,
-    AppButton,
+    FormWrapper,
   },
   data() {
     return {
-      submitted: false,
-      form: {
+      formData: {
         name: '',
         email: '',
         message: '',
         phonenumber: '',
-        botField: '',
       },
     }
   },
   validations: {
-    form: {
+    formData: {
       name: {
         required,
       },
@@ -105,8 +85,8 @@ export default {
   },
   computed: {
     errorMessageName() {
-      if (this.$v.form.name.$anyError) {
-        if (!this.$v.form.name.required) {
+      if (this.$v.formData.name.$anyError) {
+        if (!this.$v.formData.name.required) {
           return this.$t('form.error.general.required', {
             field: this.$t('form.name').toLowerCase(),
           })
@@ -115,46 +95,23 @@ export default {
       return null
     },
     errorMessageEmail() {
-      if (this.$v.form.email.$anyError) {
-        if (!this.$v.form.email.required) {
+      if (this.$v.formData.email.$anyError) {
+        if (!this.$v.formData.email.required) {
           return this.$t('form.error.general.required', {
             field: this.$t('form.email').toLowerCase(),
           })
         }
 
-        if (!this.$v.form.email.email) return this.$t('form.error.email.email')
+        if (!this.$v.formData.email.email)
+          return this.$t('form.error.email.email')
       }
       return null
     },
   },
+
   methods: {
-    encodeFormData(data) {
-      return Object.keys(data)
-        .map(
-          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
-        )
-        .join('&')
-    },
     validate() {
       this.$v.$touch()
-      return !this.$v.$invalid
-    },
-    async submit() {
-      this.errorMessageForm = ''
-      if (this.validate()) {
-        const axiosConfig = {
-          header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        }
-        await axios.post(
-          '/',
-          this.encodeFormData({
-            'form-name': 'contact',
-            ...this.form,
-          }),
-          axiosConfig,
-        )
-        this.submitted = true
-      }
     },
   },
 }
@@ -171,8 +128,8 @@ export default {
   "nl": {
     "title": "Neem contact met ons op",
     "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen.",
-    "success": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
-    "btnSend": "Verzenden"
+    "successMessage": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
+    "btnText": "Verzenden"
   }
 }
 </i18n>
