@@ -28,7 +28,7 @@
         />
         <form-input-text
           id="phone"
-          v-model="formData.aphone"
+          v-model="formData.phone"
           :title="$t('form.phoneNumber')"
           type="tel"
           name="phone"
@@ -67,8 +67,8 @@ export default {
       formData: {
         name: 'michiel',
         email: 'mail@michielkoning.nl',
+        phone: '06328484',
         message: 'bericht',
-        aphone: '06328484',
       },
     }
   },
