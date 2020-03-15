@@ -28,7 +28,7 @@
         />
         <form-input-text
           id="phone"
-          v-model="formData.phonenumber"
+          v-model="formData.aphone"
           :title="$t('form.phoneNumber')"
           type="tel"
           name="phone"
