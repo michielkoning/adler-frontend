@@ -5,7 +5,7 @@
     :action="urlAction"
     data-netlify="true"
     netlify-honeypot="bot-field"
-    method="post"
+    method="POST"
     :name="name"
     @submit.prevent="submit"
   >
@@ -66,12 +66,16 @@ export default {
   },
   data() {
     return {
-      urlAction: '/',
       errorMessage: '',
       botField: '',
       submitted: false,
       loading: false,
     }
+  },
+  computed: {
+    urlAction() {
+      return this.$route.fullPath
+    },
   },
   methods: {
     submit() {

@@ -29,7 +29,7 @@ export default {
       }
       const encodeFormData = this.encodeFormData({
         'form-name': formName,
-        formData,
+        ...formData,
       })
 
       try {
