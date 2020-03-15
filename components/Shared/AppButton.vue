@@ -12,7 +12,12 @@
 </template>
 
 <script>
+import AppLoader from '~/components/Shared/AppLoader.vue'
+
 export default {
+  components: {
+    AppLoader,
+  },
   props: {
     to: {
       type: String,
@@ -87,6 +92,7 @@ export default {
 
 .btn-full {
   max-width: none;
+  width: 100%;
 }
 
 .btn-small {

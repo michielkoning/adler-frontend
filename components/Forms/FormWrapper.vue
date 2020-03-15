@@ -21,8 +21,8 @@
       name="bot-field"
     />
     <p>{{ errorMessage }}</p>
-
-    <app-button v-if="!loading" type="submit" :is-full-width="true">
+    <app-loader v-if="loading" />
+    <app-button v-else type="submit" :is-full-width="true" :class="$style.btn">
       {{ btnText }}
     </app-button>
   </form>
@@ -32,9 +32,11 @@
 import axios from 'axios'
 import AppButton from '~/components/Shared/AppButton.vue'
 import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
+import AppLoader from '~/components/Shared/AppLoader.vue'
 
 export default {
   components: {
+    AppLoader,
     AppButton,
     FormInputText,
   },
@@ -121,6 +123,10 @@ export default {
 <style lang="postcss" module>
 .bot-field {
   display: none;
+}
+
+.btn {
+  margin-top: var(--spacing-m);
 }
 </style>
 

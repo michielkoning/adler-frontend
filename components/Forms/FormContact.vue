@@ -87,7 +87,7 @@ export default {
     errorMessageName() {
       if (this.$v.formData.name.$anyError) {
         if (!this.$v.formData.name.required) {
-          return this.$t('form.error.general.required', {
+          return this.$t('form.error.required', {
             field: this.$t('form.name').toLowerCase(),
           })
         }
@@ -97,13 +97,13 @@ export default {
     errorMessageEmail() {
       if (this.$v.formData.email.$anyError) {
         if (!this.$v.formData.email.required) {
-          return this.$t('form.error.general.required', {
+          return this.$t('form.error.required', {
             field: this.$t('form.email').toLowerCase(),
           })
         }
 
         if (!this.$v.formData.email.email)
-          return this.$t('form.error.email.email')
+          return this.$t('form.error.email.incorrect')
       }
       return null
     },
