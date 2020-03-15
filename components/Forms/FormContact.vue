@@ -31,7 +31,7 @@
           v-model="formData.phonenumber"
           :title="$t('form.phoneNumber')"
           type="tel"
-          name="aphone"
+          name="phone"
         />
         <form-textarea
           id="message"
@@ -68,7 +68,7 @@ export default {
         name: 'michiel',
         email: 'mail@michielkoning.nl',
         message: 'bericht',
-        phonenumber: '06328484',
+        aphone: '06328484',
       },
     }
   },
