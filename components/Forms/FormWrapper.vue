@@ -6,6 +6,7 @@
     data-netlify="true"
     netlify-honeypot="bot-field"
     method="post"
+    :name="name"
     @submit.prevent="submit"
   >
     <p v-if="intro">{{ intro }}</p>
