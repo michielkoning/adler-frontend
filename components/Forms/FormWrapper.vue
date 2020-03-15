@@ -97,7 +97,9 @@ export default {
     async postForm() {
       this.loading = true
       const axiosConfig = {
-        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       }
       const encodeFormData = this.encodeFormData({
         'form-name': this.name,

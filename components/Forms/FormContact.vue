@@ -30,7 +30,6 @@
           id="phone"
           v-model="formData.phonenumber"
           :title="$t('form.phoneNumber')"
-          type="tel"
           name="phone"
         />
         <form-textarea
