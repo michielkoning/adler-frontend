@@ -17,7 +17,7 @@
 
 <script>
 import { street, postalCode, city, longitude, latitude } from '~/data/address'
-import marker from '~/assets/marker@2x.png'
+import marker from '~/assets/images/marker@2x.png'
 export default {
   data() {
     return {

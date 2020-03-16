@@ -1,22 +1,11 @@
-const street = 'Hof 43'
-const postalCode = '6951'
-const city = 'Lingenau'
-const country = 'austria'
-const region = 'Vorarlberg'
-const phoneNumber = '+43-(0)5513-63670'
-const emailAddress = 'info@adler-lingenau.com'
-const longitude = 47.450565
-const latitude = 9.922004
-const directionsUrl = 'https://www.google.com/maps?daddr=Hof%2043%20Lingenau'
-export {
-  street,
-  postalCode,
-  city,
-  country,
-  region,
-  phoneNumber,
-  emailAddress,
-  longitude,
-  latitude,
-  directionsUrl,
-}
+export const street = 'Hof 43'
+export const postalCode = '6951'
+export const city = 'Lingenau'
+export const country = 'austria'
+export const region = 'Vorarlberg'
+export const phoneNumber = '+43-(0)5513-63670'
+export const emailAddress = 'info@adler-lingenau.com'
+export const longitude = 47.450565
+export const latitude = 9.922004
+export const directionsUrl =
+  'https://www.google.com/maps?daddr=Hof%2043%20Lingenau'
