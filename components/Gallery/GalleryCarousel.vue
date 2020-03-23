@@ -33,10 +33,10 @@ export default {
     }
   },
   mounted() {
-    document.addEventListener('keydown', event => this.scrollByKeys(event))
+    document.addEventListener('keydown', (event) => this.scrollByKeys(event))
   },
   destroyed() {
-    document.removeEventListener('keydown', event => this.scrollByKeys(event))
+    document.removeEventListener('keydown', (event) => this.scrollByKeys(event))
   },
 
   methods: {
@@ -58,7 +58,7 @@ export default {
       window.clearTimeout(this.isScrolling)
 
       // Set a timeout to run after scrolling ends
-      this.isScrolling = setTimeout(function() {
+      this.isScrolling = setTimeout(function () {
         // Run the callback
         this.scrollEnd = true
       }, 66)

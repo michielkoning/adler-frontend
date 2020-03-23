@@ -108,7 +108,7 @@ export default {
       variables: {
         language: 'NL',
       },
-      update: data => {
+      update: (data) => {
         return {
           rooms: data.rooms,
           arrangements: data.arrangements,
