@@ -1,0 +1,23 @@
+#import "./../Fragments/ImageArchive.gql"
+#import "./Fragments/Page.gql"
+
+query($after: String, $parent: String, $language: LanguageCodeFilterEnum) {
+  pages(after: $after, where: { parent: $parent, language: $language }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+      hasPreviousPage
+      startCursor
+    }
+    edges {
+      node {
+        ...page
+        excerpt
+        relativeUrl
+        featuredImage {
+          ...imageArchive
+        }
+      }
+    }
+  }
+}

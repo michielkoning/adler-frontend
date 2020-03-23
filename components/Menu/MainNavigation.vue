@@ -11,14 +11,18 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link class="menu-link" :to="localePath({ name: 'arrangements' })">
-          {{ $t(`arrangements`) }}
-        </nuxt-link>
+        <main-navigation-item
+          :title="$t(`arrangements`)"
+          :url="localePath({ name: 'arrangements' })"
+          :children="menu.arrangements"
+        />
       </li>
       <li>
-        <nuxt-link class="menu-link" :to="localePath({ name: 'rooms' })">
-          {{ $t(`rooms`) }}
-        </nuxt-link>
+        <main-navigation-item
+          :title="$t(`rooms`)"
+          :url="localePath({ name: 'rooms' })"
+          :children="menu.rooms"
+        />
       </li>
       <li>
         <nuxt-link class="menu-link" :to="localePath({ name: 'blog' })">
@@ -41,11 +45,12 @@
 </template>
 
 <script>
-// import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
+import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
+import MenuQuery from '~/graphql/Menu.gql'
 
 export default {
   components: {
-    // MainNavigationItem,
+    MainNavigationItem,
   },
   data() {
     return {
@@ -97,6 +102,20 @@ export default {
       return null
     },
   },
+  apollo: {
+    menu: {
+      query: MenuQuery,
+      variables: {
+        language: 'NL',
+      },
+      update: data => {
+        return {
+          rooms: data.rooms,
+          arrangements: data.arrangements,
+        }
+      },
+    },
+  },
 }
 </script>
 
@@ -104,7 +123,6 @@ export default {
 .nav {
   position: relative;
   font-family: var(--font-family-header);
-  font-size: 1.2em;
 }
 
 .menu {

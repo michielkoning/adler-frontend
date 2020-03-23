@@ -1,12 +1,16 @@
 <template>
-  <nuxt-link :to="item.relativeUrl">{{ item.label }}</nuxt-link>
+  <nuxt-link :to="url">{{ title }}</nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
-    item: {
-      type: Object,
+    url: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
       required: true,
     },
   },

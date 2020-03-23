@@ -1,0 +1,13 @@
+#import "./../Fragments/ImageHero.gql"
+#import "./Fragments/Page.gql"
+
+query($uri: String) {
+  page: pageBy(uri: $uri) {
+    ...page
+    date
+    content
+    featuredImage {
+      ...imageHero
+    }
+  }
+}

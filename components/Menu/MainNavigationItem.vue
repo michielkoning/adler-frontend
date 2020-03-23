@@ -1,38 +1,43 @@
 <template>
   <li
-    :class="{ 'has-popup': item.childItems.edges.length > 0 }"
+    :class="{ 'has-popup': children.edges.length > 0 }"
     class="menu-item"
     @mouseover="mouseover"
     @mouseout="mouseout"
   >
     <menu-item
-      :item="item"
-      :aria-haspopup="item.childItems.edges.length > 0"
+      :title="title"
+      :url="url"
+      :aria-haspopup="children.edges.length > 0"
       class="menu-link"
     />
     <button
-      v-if="item.childItems.edges.length"
+      v-if="children.edges.length"
       :aria-expanded="isOpen ? 'true' : 'false'"
       class="btn-show-submenu"
       @click="toggleMenu"
     >
       <icon-chevron-down
         aria-hidden="true"
-        width="20"
-        height="20"
+        width="16"
+        height="16"
         class="icon-chevron-down"
       />
-      <span class="sr-only">Toon submenu voor {{ item.label }}</span>
+      <span class="sr-only">Toon submenu voor {{ title }}</span>
     </button>
-    <template v-if="item.childItems.edges.length">
+    <template v-if="children.edges.length">
       <animation-slide-in>
         <ul class="submenu" :class="{ 'is-open': isOpen }">
           <li
-            v-for="subItem in item.childItems.edges"
-            :key="subItem.node.label"
+            v-for="subItem in children.edges"
+            :key="subItem.node.id"
             class="menu-item"
           >
-            <menu-item :item="subItem.node" class="submenu-link" />
+            <menu-item
+              :title="subItem.node.title"
+              :url="subItem.node.relativeUrl"
+              class="submenu-link"
+            />
           </li>
         </ul>
       </animation-slide-in>
@@ -52,7 +57,15 @@ export default {
     AnimationSlideIn,
   },
   props: {
-    item: {
+    url: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    children: {
       type: Object,
       required: true,
     },
@@ -124,7 +137,7 @@ export default {
   }
 
   @media (--navigation-md) {
-    padding: var(--spacing-s) var(--spacing-xs);
+    padding: 0;
     border-bottom: 0;
   }
 
