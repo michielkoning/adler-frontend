@@ -1,9 +1,8 @@
 <template>
   <app-page :page="arrangement">
-    <div v-for="(price, index) in arrangement.pricesGroup.prices" :key="index">
-      {{ price.label }} - {{ $n(price.value, 'currency') }}
-    </div>
+    <arrangement-prices :prices="arrangement.pricesGroup.prices" />
     <template v-slot:sidebar>
+      <book-arrangement :title="arrangement.title" />
       <related-arrangements-section :not-in="arrangement.arrangementId" />
     </template>
   </app-page>
@@ -13,11 +12,15 @@
 import ArrangementQuery from '~/graphql/Arrangement.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedArrangementsSection from '~/components/Arrangements/Related/RelatedArrangementsSection.vue'
+import ArrangementPrices from '~/components/Arrangements/Prices/ArrangementPrices.vue'
+import BookArrangement from '~/components/Arrangements/Details/BookArrangement.vue'
 
 export default {
   components: {
     AppPage,
     RelatedArrangementsSection,
+    ArrangementPrices,
+    BookArrangement,
   },
   async asyncData({ app, params }) {
     const arrangement = await app.apolloProvider.defaultClient.query({

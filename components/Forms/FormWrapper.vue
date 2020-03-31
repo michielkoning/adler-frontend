@@ -1,5 +1,5 @@
 <template>
-  <p v-if="submitted">{{ successMessage }}</p>
+  <p v-if="submitted">{{ $t('success') }}</p>
   <form
     v-else
     :action="urlAction"
@@ -48,10 +48,6 @@ export default {
     name: {
       type: String,
       required: true,
-    },
-    successMessage: {
-      type: String,
-      default: null,
     },
     formData: {
       type: Object,

@@ -5,7 +5,6 @@
       :btn-text="$t('btnText')"
       :form-data="formData"
       name="contact"
-      :success-message="$t('successMessage')"
       :valid="!$v.$invalid"
       @validate="validate"
     >
@@ -116,12 +115,6 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" module>
-.bot-field {
-  display: none;
-}
-</style>
 
 <i18n>
 {

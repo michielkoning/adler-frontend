@@ -9,6 +9,7 @@
         </li>
       </ul>
       <template v-slot:sidebar>
+        <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
         <related-rooms-section :not-in="room.roomId" />
       </template>
     </app-page>
@@ -20,12 +21,14 @@ import RoomQuery from '~/graphql/Room.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedRoomsSection from '~/components/Rooms/Related/RelatedRoomsSection.vue'
 import RoomPricesGroup from '~/components/Rooms/Prices/RoomPricesGroup.vue'
+import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
 
 export default {
   components: {
     AppPage,
     RelatedRoomsSection,
     RoomPricesGroup,
+    BookRoom,
   },
   async asyncData({ app, params }) {
     const room = await app.apolloProvider.defaultClient.query({

@@ -5,6 +5,8 @@
     :to="to"
     :class="cssClass"
     class="btn"
+    :href="href"
+    v-bind="$attrs"
     @click="$emit('click', $event)"
   >
     <slot />
@@ -34,6 +36,10 @@ export default {
       type: String,
       default: 'button',
     },
+    href: {
+      type: String,
+      default: null,
+    },
     buttonStyle: {
       type: String,
       default: 'primary',
@@ -59,6 +65,9 @@ export default {
       return cssClass
     },
     tag() {
+      if (this.href) {
+        return 'a'
+      }
       if (this.to) {
         return 'nuxt-link'
       }

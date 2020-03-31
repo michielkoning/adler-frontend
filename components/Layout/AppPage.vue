@@ -6,8 +6,8 @@
           <!-- eslint-disable-next-line -->
           <h1 v-html="page.title" />
           <post-date v-if="page.date" :date="page.date" />
-
-          <the-intro v-if="page.content" :text="page.content" />
+          <!-- eslint-disable-next-line -->
+          <div v-html="page.content" />
         </article>
         <slot />
       </div>
@@ -27,7 +27,6 @@
 
 <script>
 import PostDate from '@/components/Shared/PostDate.vue'
-import TheIntro from '~/components/Shared/TheIntro.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import ImageHero from '~/components/Images/ImageHero.vue'
 import ResmioWidget from '~/components/Shared/Resmio.vue'
@@ -37,7 +36,6 @@ export default {
   components: {
     PostDate,
     ImageHero,
-    TheIntro,
     NotchWrapper,
     ResmioWidget,
     GalleryList,

@@ -8,6 +8,9 @@ query($uri: String) {
     featuredImage {
       ...imageHero
     }
+    bookUrlGroup {
+      bookUrl
+    }
     galleryGroup {
       gallery {
         id

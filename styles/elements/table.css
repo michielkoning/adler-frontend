@@ -1,6 +1,6 @@
 table {
-  width: calc(100% + var(--gutter));
-  margin: 0 calc(var(--gutter) / -2) var(--spacing-m);
+  width: 100%;
+  margin: 0 0 var(--spacing-m);
   border-collapse: collapse;
   margin-bottom: 1rem;
 }
@@ -15,13 +15,8 @@ td {
 
 th,
 td {
-  background: var(--color-bg-page);
   padding: var(--spacing-xs);
   text-align: left;
-
-  &:not(:last-child) {
-    border-right: 2px solid var(--color-bg-page);
-  }
 
   @nest thead & {
     vertical-align: bottom;

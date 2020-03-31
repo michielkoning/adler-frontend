@@ -1,7 +1,7 @@
 <template>
-  <fieldset class="fieldset">
+  <fieldset class="fieldset" :class="$style.fieldset">
     <legend class="sr-only">{{ title }}</legend>
-    <div class="fields">
+    <div class="fields" :class="$style.fields">
       <slot />
     </div>
   </fieldset>
@@ -18,12 +18,18 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .fieldset {
   border: 0;
   padding: 0;
   margin: 0;
   min-width: 0;
+}
+
+.fieldset + .fieldset {
+  border-top: 1px solid var(--color-gray);
+  margin-top: var(--spacing-m);
+  padding-top: var(--spacing-m);
 }
 
 .fields {
