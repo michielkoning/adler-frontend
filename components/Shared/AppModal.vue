@@ -28,12 +28,17 @@ export default {
       type: String,
       required: true,
     },
+    show: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       nodes: null,
     }
   },
+
   mounted() {
     document.body.style.overflow = 'hidden'
 

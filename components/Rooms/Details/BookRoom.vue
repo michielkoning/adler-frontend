@@ -1,9 +1,9 @@
 <template>
   <div>
-    <app-button type="submit" :is-full-width="true">
-      {{ $t('bookNow') }}
+    <app-button type="submit" :is-full-width="true" @click="toggleModal">
+      {{ $t('bookNow') }} {{ showModal }}
     </app-button>
-    <app-modal :title="title">
+    <app-modal v-if="showModal" :title="title">
       <iframe height="600" :src="bookUrl"></iframe>
     </app-modal>
   </div>
@@ -26,6 +26,16 @@ export default {
     bookUrl: {
       type: String,
       required: true,
+    },
+  },
+  data() {
+    return {
+      showModal: false,
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
     },
   },
 }
