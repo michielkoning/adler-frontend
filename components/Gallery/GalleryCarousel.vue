@@ -1,39 +1,65 @@
 <template>
   <div :class="$style.wrapper">
-    {{ scrollEnd }}
-    <ul ref="list" :class="$style.list" @scroll.passive="onScroll">
-      <li v-for="item in gallery" :key="item.id" :class="$style.item">
+    <ul ref="list" :class="$style.list" @scroll.passive="test">
+      <li
+        v-for="item in gallery"
+        ref="item"
+        :key="item.id"
+        :class="$style.item"
+      >
         <img :src="item.heroLarge" alt="" />
       </li>
     </ul>
     <div :class="$style['button-wrapper']">
-      <button :class="$style.btn" @click="scrollToPreviousPage">Vorige</button>
-      <button :class="$style.btn" @click="scrollToNextPage">Volgende</button>
+      <button
+        :class="[$style.btn, $style['btn-previous']]"
+        :disabled="currentSlide === 0"
+        @click="goToPreviousSlide"
+      >
+        <span class="sr-only">{{ $t('previousSlide') }}</span>
+        <icon-chevron-left aria-hidden="true" width="48" height="48" />
+      </button>
+      <button
+        :class="[$style.btn, $style['btn-next']]"
+        :disabled="currentSlide === gallery.length - 1"
+        @click="goToNextSlide"
+      >
+        <span class="sr-only">{{ $t('nextSlide') }}</span>
+        <icon-chevron-right aria-hidden="true" width="48" height="48" />
+      </button>
     </div>
-    <ul :class="$style.paging">
-      <li v-for="(item, index) in gallery" :key="item.id">
-        {{ index }}
-      </li>
-    </ul>
   </div>
 </template>
 
 <script>
+import IconChevronLeft from '~/icons/chevron-left.svg'
+import IconChevronRight from '~/icons/chevron-right.svg'
+
 export default {
+  components: {
+    IconChevronLeft,
+    IconChevronRight,
+  },
   props: {
     gallery: {
       type: Array,
       default: () => [],
     },
+    page: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
-      isScrolling: false,
-      scrollEnd: true,
+      currentSlide: 0,
+      scrolling: null,
     }
   },
   mounted() {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
+    this.currentSlide = this.page
+    this.slide()
   },
   destroyed() {
     document.removeEventListener('keydown', (event) => this.scrollByKeys(event))
@@ -41,37 +67,35 @@ export default {
 
   methods: {
     scrollByKeys(event) {
-      const key = event.key // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+      const { key } = event
       if (key === 'ArrowRight') {
-        this.scrollToNextPage()
+        this.goToNextSlide()
       }
       if (key === 'ArrowLeft') {
-        this.scrollToPreviousPage()
+        this.goToPreviousSlide()
       }
-    },
-    onScroll() {
-      window.console.log('test')
     },
     test() {
       // Clear our timeout throughout the scroll
-      this.scrollEnd = false
-      window.clearTimeout(this.isScrolling)
+      window.clearTimeout(this.scrolling)
 
       // Set a timeout to run after scrolling ends
-      this.isScrolling = setTimeout(function () {
+      this.scrolling = setTimeout(function () {
         // Run the callback
-        this.scrollEnd = true
+        window.console.log('test')
       }, 66)
     },
-    scrollToNextPage() {
-      const { list } = this.$refs
-      const size = list.clientWidth
-      list.scrollBy(size, 0)
+    slide() {
+      const { list, item } = this.$refs
+      list.scrollLeft = item[this.currentSlide].offsetLeft
     },
-    scrollToPreviousPage() {
-      const { list } = this.$refs
-      const size = list.clientWidth
-      list.scrollBy(-size, 0)
+    goToNextSlide() {
+      this.currentSlide = this.currentSlide + 1
+      this.slide()
+    },
+    goToPreviousSlide() {
+      this.currentSlide = this.currentSlide - 1
+      this.slide()
     },
   },
 }
@@ -94,22 +118,35 @@ export default {
   width: 100%;
 }
 
+.wrapper {
+  position: relative;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
 .btn {
-  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
 }
 
-.paging {
-  @mixin list-reset;
+.btn-previous {
+  left: 0;
+}
 
-  display: flex;
-
-  & li {
-    padding: 1em;
-  }
+.btn-next {
+  right: 0;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "previousSlide": "Vorige afbeelding",
+    "nextSlide": "Volgende afbeelding"
+  }
+}
+</i18n>

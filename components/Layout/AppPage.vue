@@ -13,6 +13,7 @@
       </div>
       <gallery-list
         v-if="page.galleryGroup"
+        :title="page.title"
         :class="$style.gallery"
         :gallery="page.galleryGroup.gallery"
       />
