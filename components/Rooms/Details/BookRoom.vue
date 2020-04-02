@@ -1,10 +1,15 @@
 <template>
   <div>
-    <app-button type="submit" :is-full-width="true" @click="toggleModal">
-      {{ $t('bookNow') }} {{ showModal }}
+    <app-button :is-full-width="true" @click="toggleModal">
+      {{ $t('bookNow') }}
     </app-button>
-    <app-modal v-if="showModal" :title="title">
-      <iframe height="600" :src="bookUrl"></iframe>
+    <app-modal
+      :show="showModal"
+      :large="true"
+      :title="title"
+      @close="toggleModal"
+    >
+      <iframe height="600" width="1000" loading="lazy" :src="bookUrl"></iframe>
     </app-modal>
   </div>
 </template>

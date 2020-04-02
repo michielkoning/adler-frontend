@@ -59,7 +59,7 @@
       />
       <form-input-text
         id="email"
-        v-model="formData.phone"
+        v-model="formData.email"
         :class="$style.email"
         :title="$t('form.email')"
         type="email"
@@ -233,11 +233,45 @@ export default {
       }
       return null
     },
+    errorMessageAddress() {
+      return null
+    },
+    errorMessageZipcode() {
+      return null
+    },
+    errorMessageCity() {
+      return null
+    },
+    errorMessageCountry() {
+      return null
+    },
+    errorMessageTotalRooms() {
+      return null
+    },
+    errorMessageTotalAdults() {
+      return null
+    },
+    errorMessageTotalChildren() {
+      return null
+    },
+    errorMessageDateArrival() {
+      return null
+    },
+    errorMessageDateDeparture() {
+      return null
+    },
   },
 
   methods: {
     validate() {
       this.$v.$touch()
+    },
+    requiredMessage(field, name) {
+      if (!this.$v[field].required) {
+        return this.$t('form.error.required', {
+          field: this.$t(`form.${name}`).toLowerCase(),
+        })
+      }
     },
   },
 }

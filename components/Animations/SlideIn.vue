@@ -1,8 +1,25 @@
 <template>
-  <transition name="slide-in">
+  <transition
+    name="slide-in"
+    @after-enter="afterEnter"
+    @before-leave="beforeLeave"
+  >
     <slot />
   </transition>
 </template>
+
+<script>
+export default {
+  methods: {
+    afterEnter(el) {
+      this.$emit('after-enter', el)
+    },
+    beforeLeave(el) {
+      this.$emit('before-leave', el)
+    },
+  },
+}
+</script>
 
 <style lang="postcss" scoped>
 .slide-in-enter-active,

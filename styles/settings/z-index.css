@@ -1,4 +1,5 @@
 :root {
+  --z-modal: 6;
   --z-header: 5;
   --z-skip-links: 4;
   --z-error-handler: 3;

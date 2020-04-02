@@ -1,9 +1,9 @@
 <template>
   <div>
-    <app-button type="submit" :is-full-width="true">
+    <app-button :is-full-width="true" @click="toggleModal">
       {{ $t('bookNow') }}
     </app-button>
-    <app-modal :title="title">
+    <app-modal :show="showModal" :title="title" @close="toggleModal">
       <form-arrangement :title="title" />
     </app-modal>
   </div>
@@ -24,6 +24,16 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+  },
+  data() {
+    return {
+      showModal: false,
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
     },
   },
 }
