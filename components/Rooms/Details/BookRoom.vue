@@ -9,7 +9,7 @@
       :title="title"
       @close="toggleModal"
     >
-      <iframe height="600" :src="bookUrl"></iframe>
+      <iframe height="600" width="1000" loading="lazy" :src="bookUrl"></iframe>
     </app-modal>
   </div>
 </template>
