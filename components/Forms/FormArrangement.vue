@@ -130,7 +130,7 @@
 </template>
 
 <script>
-import { required, email } from 'vuelidate/lib/validators'
+import { required, email, numeric } from 'vuelidate/lib/validators'
 import FormFieldset from '~/components/Forms/Elements/FormFieldset.vue'
 import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
 import FormTextarea from '~/components/Forms/Elements/FormTextarea.vue'
@@ -187,12 +187,15 @@ export default {
       },
       totalRooms: {
         required,
+        numeric,
       },
       totalAdults: {
         required,
+        numeric,
       },
       totalChildren: {
         required,
+        numeric,
       },
       dateArrival: {
         required,
