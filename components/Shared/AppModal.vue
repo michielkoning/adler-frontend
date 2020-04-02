@@ -1,28 +1,53 @@
 <template>
-  <transition name="fade">
-    <div
-      ref="modal"
-      :aria-label="title"
-      data-qa="modal"
-      role="dialog"
-      class="modal"
-    >
-      <article ref="wrapper" tabindex="0" class="wrapper" role="document">
-        <header>
-          <h2 id="modal" class="title" data-qa="modal-title">
-            {{ title }}
-          </h2>
-        </header>
-        <div class="content" data-qa="modal-content">
-          <slot />
-        </div>
-      </article>
-    </div>
-  </transition>
+  <div>
+    <animation-fade-in>
+      <div v-if="show" :class="$style.backdrop" />
+    </animation-fade-in>
+    <animation-slide-in @after-enter="afterEnter" @before-leave="beforeLeave">
+      <div
+        v-show="show"
+        ref="modal"
+        :aria-label="title"
+        :class="$style.modal"
+        role="dialog"
+        @click.stop="closeByBackgroundClick"
+        @keydown.esc="close"
+      >
+        <article
+          ref="wrapper"
+          :class="[$style.wrapper, large ? $style.large : '']"
+          tabindex="-1"
+          role="document"
+        >
+          <header :class="$style.header">
+            <h2 :class="$style.title">
+              {{ title }}
+            </h2>
+            <button :class="$style.close" type="button" @click.stop="close">
+              <span class="sr-only">{{ $t('close') }}</span>
+              <icon-close aria-hidden="true" width="24" height="24" />
+            </button>
+          </header>
+          <div :class="$style.content">
+            <slot />
+          </div>
+        </article>
+      </div>
+    </animation-slide-in>
+  </div>
 </template>
 
 <script>
+import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
+import AnimationFadeIn from '~/components/Animations/FadeIn.vue'
+import IconClose from '~/icons/close.svg'
+
 export default {
+  components: {
+    AnimationSlideIn,
+    AnimationFadeIn,
+    IconClose,
+  },
   props: {
     title: {
       type: String,
@@ -32,32 +57,38 @@ export default {
       type: Boolean,
       default: false,
     },
+    large: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       nodes: null,
+      lastFocus: null,
     }
   },
-
-  mounted() {
-    document.body.style.overflow = 'hidden'
-
-    this.nodes = Array.from(document.querySelectorAll('*'))
-    this.nodes.forEach((node) => {
-      node.addEventListener('focus', this.restrictFocusOfNodesToModal)
-    })
-
-    // set the focus in the modal as soon as its visible
-    this.$refs.modal.addEventListener('transitionend', this.setFocusOnModal)
-  },
-  beforeDestroy() {
-    document.body.style.overflow = null
-    this.nodes.forEach((node) => {
-      node.removeEventListener('focus', this.restrictFocusOfNodesToModal)
-    })
-    this.$refs.modal.removeEventListener('transitionend', this.setFocusOnModal)
-  },
   methods: {
+    afterEnter() {
+      this.applyBodyStyling(true)
+
+      this.lastFocus = document.activeElement
+      this.$refs.wrapper.focus()
+
+      this.nodes = Array.from(document.querySelectorAll('*'))
+      this.nodes.forEach((node) => {
+        node.addEventListener('focus', this.restrictFocusOfNodesToModal)
+      })
+    },
+    beforeLeave() {
+      this.applyBodyStyling(false)
+      this.nodes.forEach((node) => {
+        node.removeEventListener('focus', this.restrictFocusOfNodesToModal)
+      })
+
+      // restore the focus to the last focusedbutton
+      this.lastFocus.focus()
+    },
     // keep the focus inside the modal
     restrictFocusOfNodesToModal(event) {
       const { wrapper } = this.$refs
@@ -66,18 +97,39 @@ export default {
         wrapper.focus()
       }
     },
-    setFocusOnModal(event) {
-      if (event.propertyName === 'opacity') {
-        this.$refs.wrapper.focus()
+    closeByBackgroundClick(event) {
+      if (event.target === this.$refs.modal) {
+        this.close()
       }
+    },
+    close() {
+      this.$emit('close')
+    },
+    applyBodyStyling(modalIsOpen) {
+      document.body.classList.toggle('modal-is-open', modalIsOpen)
     },
   },
 }
 </script>
 
-<style scoped lang="postcss">
+<style lang="postcss">
+.modal-is-open {
+  overflow: hidden;
+}
+</style>
+
+<style lang="postcss" module>
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-modal);
+}
+
 .modal {
-  text-align: left;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -86,72 +138,47 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 19;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: var(--gutter);
-  color: var(--black);
+  padding: var(--spacing-xs);
+  z-index: var(--z-modal);
 }
 
 .wrapper {
-  /* max-width: var(--container-width-md); */
-  max-width: var(--container-width-lg);
-  position: relative;
-  transition: transform 0.2s ease-out;
-  background: var(--color-white);
+  max-width: var(--container-width-md);
   margin: 3em auto 1em;
 }
 
-header {
-  background: #424242;
-  color: var(--color-white);
+.large {
+  max-width: var(--container-width-lg);
+}
+
+.header {
   display: flex;
   align-items: self-start;
-  padding: 1em;
+  border-bottom: 1px solid var(--color-gray);
+  padding: var(--spacing-xs) var(--spacing-s);
+  background: var(--color-white);
+}
+
+.close {
+  margin-top: 0.1em;
+}
+
+.content {
+  background: var(--color-white);
+  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s);
 }
 
 .title {
   flex: 1 1 auto;
   padding-right: 0.25em;
-  margin: 0;
+  margin-bottom: 0;
 }
-
-.content {
-  padding: 1em;
-}
-
-.close {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-white);
-  border-radius: 50%;
-  width: 2em;
-  height: 2em;
-  flex: 0 0 auto;
-  color: var(--text-color);
-
-  &:hover {
-    background: var(--gray-lighter);
-  }
-}
-
-/* stylelint-disable */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-
-  & .wrapper {
-    transform: translateY(0);
-  }
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-
-  & .wrapper {
-    transform: translateY(-3em);
-  }
-}
-/* stylelint-enable */
 </style>
+
+<i18n>
+{
+  "nl": {
+    "close": "Sluiten"
+  }
+}
+</i18n>
