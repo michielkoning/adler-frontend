@@ -12,12 +12,12 @@
       <li
         v-for="(item, index) in galleryCapped"
         :key="item.id"
-        :class="$style.item"
+        :class="[$style.item, $style[`item-${index}`]]"
         @click="openModalWithImage(index)"
       >
-        <img :src="imageSrc(item, index)" alt="" />
+        <img :src="imageSrc(item, index)" alt="" :class="$style.image" />
       </li>
-      <li>
+      <li :class="$style['item-btn']">
         <button :class="$style.btn" @click="toggleModal">
           <span :class="$style['btn-title']"> Bekijk alle foto's</span>
         </button>
@@ -82,24 +82,90 @@ export default {
 .list {
   @mixin list-reset;
 
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 36vw 24vw auto;
   display: grid;
-  grid-column-gap: var(--gutter);
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-gap: var(--gutter);
 }
 
 .item {
   cursor: pointer;
+}
 
-  &:nth-child(1) {
-    grid-column: 1 / 5;
-    grid-row: 1 / 5;
+.item-0 {
+  grid-column: span 2;
+}
+
+.item-3,
+.item-4 {
+  display: none;
+}
+
+.item-btn {
+  grid-column: span 2;
+}
+
+@media (--viewport-sm) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 36vw 12vw auto;
   }
 
-  &:nth-child(2) {
-    grid-column: 5 / 7;
-    grid-row: 1 / 3;
+  .item-0 {
+    grid-column: span 4;
   }
+
+  .item-3 {
+    display: block;
+  }
+
+  .item-btn {
+    grid-column: span 1;
+  }
+}
+
+@media (--viewport-md) {
+  .list {
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .item-0 {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+
+  .item-3 {
+    display: none;
+  }
+}
+
+@media (--viewport-lg) {
+  .list {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .item-0 {
+    grid-column: span 4;
+    grid-row: span 4;
+  }
+
+  .item-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .item-3,
+  .item-4 {
+    display: block;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .btn {
@@ -108,8 +174,11 @@ export default {
   text-align: center;
   padding: var(--spacing-s) var(--spacing-xs);
   font-family: var(--font-family-header);
-  font-size: 1.25em;
   width: 100%;
   height: 100%;
+
+  @media (--viewport-sm) {
+    font-size: 1.25em;
+  }
 }
 </style>

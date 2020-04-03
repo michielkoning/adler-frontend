@@ -20,9 +20,9 @@
           role="document"
         >
           <header :class="$style.header">
-            <h2 :class="$style.title">
+            <h1 :class="$style.title">
               {{ title }}
-            </h2>
+            </h1>
             <button :class="$style.close" type="button" @click.stop="close">
               <span class="sr-only">{{ $t('close') }}</span>
               <icon-close aria-hidden="true" width="24" height="24" />
@@ -160,7 +160,7 @@ export default {
 }
 
 .close {
-  margin-top: 0.1em;
+  margin-top: var(--spacing-xxs);
 }
 
 .content {
