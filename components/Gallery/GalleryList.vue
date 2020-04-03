@@ -10,12 +10,17 @@
     </app-modal>
     <ul :class="$style.list">
       <li
-        v-for="(item, index) in gallery"
+        v-for="(item, index) in galleryCapped"
         :key="item.id"
         :class="$style.item"
         @click="openModalWithImage(index)"
       >
-        <img :src="item.heroLarge" alt="" />
+        <img :src="imageSrc(item, index)" alt="" />
+      </li>
+      <li>
+        <button :class="$style.btn" @click="toggleModal">
+          <span :class="$style['btn-title']"> Bekijk alle foto's</span>
+        </button>
       </li>
     </ul>
   </div>
@@ -46,7 +51,21 @@ export default {
       slide: 0,
     }
   },
+  computed: {
+    galleryCapped() {
+      return this.gallery.slice(0, 5)
+    },
+  },
   methods: {
+    imageSrc(item, index) {
+      if (index === 0) {
+        return item.heroLarge
+      }
+      if (index === 1) {
+        return item.heroMedium
+      }
+      return item.heroSmall
+    },
     openModalWithImage(index) {
       this.slide = index
       this.showModal = true
@@ -81,5 +100,16 @@ export default {
     grid-column: 5 / 7;
     grid-row: 1 / 3;
   }
+}
+
+.btn {
+  background: var(--color-gray);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--spacing-s) var(--spacing-xs);
+  font-family: var(--font-family-header);
+  font-size: 1.25em;
+  width: 100%;
+  height: 100%;
 }
 </style>

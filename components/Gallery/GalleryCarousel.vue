@@ -7,7 +7,7 @@
         :key="item.id"
         :class="$style.item"
       >
-        <img :src="item.heroLarge" alt="" />
+        <img :src="item.heroLarge" alt="" :class="$style.image" />
       </li>
     </ul>
     <div :class="$style['button-wrapper']">
@@ -75,14 +75,17 @@ export default {
         this.goToPreviousSlide()
       }
     },
-    test() {
+    test(element) {
       // Clear our timeout throughout the scroll
       window.clearTimeout(this.scrolling)
 
       // Set a timeout to run after scrolling ends
-      this.scrolling = setTimeout(function () {
+      this.scrolling = setTimeout(() => {
         // Run the callback
-        window.console.log('test')
+        this.currentSlide = parseInt(
+          element.target.scrollLeft / element.target.offsetWidth,
+          10,
+        )
       }, 66)
     },
     slide() {
@@ -118,13 +121,13 @@ export default {
   width: 100%;
 }
 
-.wrapper {
-  position: relative;
+.image {
+  width: 100%;
+  display: block;
 }
 
-.button-wrapper {
-  display: flex;
-  justify-content: space-between;
+.wrapper {
+  position: relative;
 }
 
 .btn {
