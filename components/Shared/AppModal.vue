@@ -13,25 +13,27 @@
         @click.stop="closeByBackgroundClick"
         @keydown.esc="close"
       >
-        <article
-          ref="wrapper"
-          :class="[$style.wrapper, large ? $style.large : '']"
-          tabindex="-1"
-          role="document"
-        >
-          <header :class="$style.header">
-            <h1 :class="$style.title">
-              {{ title }}
-            </h1>
-            <button :class="$style.close" type="button" @click.stop="close">
-              <span class="sr-only">{{ $t('close') }}</span>
-              <icon-close aria-hidden="true" width="24" height="24" />
-            </button>
-          </header>
-          <div :class="$style.content">
-            <slot />
-          </div>
-        </article>
+        <div :class="$style.notch">
+          <article
+            ref="wrapper"
+            :class="[$style.wrapper, large ? $style.large : '']"
+            tabindex="-1"
+            role="document"
+          >
+            <header :class="$style.header">
+              <h1 :class="$style.title">
+                {{ title }}
+              </h1>
+              <button :class="$style.close" type="button" @click.stop="close">
+                <span class="sr-only">{{ $t('close') }}</span>
+                <icon-close aria-hidden="true" width="24" height="24" />
+              </button>
+            </header>
+            <div :class="$style.content">
+              <slot />
+            </div>
+          </article>
+        </div>
       </div>
     </animation-slide-in>
   </div>
@@ -140,6 +142,10 @@ export default {
   left: 0;
   padding: var(--spacing-xs);
   z-index: var(--z-modal);
+}
+
+.notch {
+  padding: var(--notch);
 }
 
 .wrapper {

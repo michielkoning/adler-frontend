@@ -139,6 +139,7 @@ export default {
 }
 
 .btn {
+  touch-action: manipulation;
   position: absolute;
   top: 50%;
   margin-top: -2em;
