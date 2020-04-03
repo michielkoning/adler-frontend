@@ -1,6 +1,10 @@
 <template>
   <div :class="$style.wrapper">
-    <ul ref="list" :class="$style.list" @scroll.passive="test">
+    <ul
+      ref="list"
+      :class="$style.list"
+      @scroll.passive="setSelectedSlideAfterScroll"
+    >
       <li
         v-for="item in gallery"
         ref="item"
@@ -45,7 +49,7 @@ export default {
       type: Array,
       default: () => [],
     },
-    page: {
+    slide: {
       type: Number,
       default: 0,
     },
@@ -58,8 +62,8 @@ export default {
   },
   mounted() {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
-    this.currentSlide = this.page
-    this.slide()
+    this.currentSlide = this.slide
+    this.goToSelectedSlide()
   },
   destroyed() {
     document.removeEventListener('keydown', (event) => this.scrollByKeys(event))
@@ -75,7 +79,7 @@ export default {
         this.goToPreviousSlide()
       }
     },
-    test(element) {
+    setSelectedSlideAfterScroll(element) {
       // Clear our timeout throughout the scroll
       window.clearTimeout(this.scrolling)
 
@@ -88,17 +92,17 @@ export default {
         )
       }, 66)
     },
-    slide() {
+    goToSelectedSlide() {
       const { list, item } = this.$refs
       list.scrollLeft = item[this.currentSlide].offsetLeft
     },
     goToNextSlide() {
       this.currentSlide = this.currentSlide + 1
-      this.slide()
+      this.goToSelectedSlide()
     },
     goToPreviousSlide() {
       this.currentSlide = this.currentSlide - 1
-      this.slide()
+      this.goToSelectedSlide()
     },
   },
 }

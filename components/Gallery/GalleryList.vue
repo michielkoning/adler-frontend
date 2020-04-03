@@ -6,7 +6,7 @@
       :title="title"
       @close="toggleModal"
     >
-      <gallery-carousel v-if="showModal" :gallery="gallery" :page="slide" />
+      <gallery-carousel v-if="showModal" :gallery="gallery" :slide="slide" />
     </app-modal>
     <ul :class="$style.list">
       <li
