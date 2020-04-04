@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       currentSlide: 0,
-      scrolling: null,
+      allowSliding: true,
     }
   },
   mounted() {
@@ -81,10 +81,10 @@ export default {
     },
     setSelectedSlideAfterScroll(element) {
       // Clear our timeout throughout the scroll
-      window.clearTimeout(this.scrolling)
+      window.clearTimeout(this.allowSliding)
 
-      // Set a timeout to run after scrolling ends
-      this.scrolling = setTimeout(() => {
+      // Set a timeout to run after sliding ends
+      this.allowSliding = setTimeout(() => {
         // Run the callback
         this.currentSlide = parseInt(
           element.target.scrollLeft / element.target.offsetWidth,
@@ -97,10 +97,12 @@ export default {
       list.scrollLeft = item[this.currentSlide].offsetLeft
     },
     goToNextSlide() {
+      if (!this.allowSliding) return
       this.currentSlide = this.currentSlide + 1
       this.goToSelectedSlide()
     },
     goToPreviousSlide() {
+      if (!this.allowSliding) return
       this.currentSlide = this.currentSlide - 1
       this.goToSelectedSlide()
     },
@@ -127,6 +129,8 @@ export default {
 
 .image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -135,6 +139,7 @@ export default {
 }
 
 .btn {
+  touch-action: manipulation;
   position: absolute;
   top: 50%;
   margin-top: -2em;
