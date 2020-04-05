@@ -278,12 +278,14 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.addresses /deep/ .fields {
-  grid-template-columns: repeat(4, 1fr);
-}
+@media (--viewport-xs) {
+  .addresses /deep/ .fields {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.totals /deep/ .fields {
-  grid-template-columns: repeat(3, 1fr);
+  .totals /deep/ .fields {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .dates /deep/ .fields {
@@ -292,23 +294,31 @@ export default {
 </style>
 
 <style lang="postcss" module>
+.email,
+.zipcode,
+.address,
+.phone-number,
+.city,
+.country,
 .name {
   grid-column: span 4;
 }
 
-.address {
-  grid-column: span 3;
-}
+@media (--viewport-xs) {
+  .address {
+    grid-column: span 3;
+  }
 
-.zipcode {
-  grid-column: span 1;
-}
+  .zipcode {
+    grid-column: span 1;
+  }
 
-.email,
-.phone-number,
-.city,
-.country {
-  grid-column: span 2;
+  .email,
+  .phone-number,
+  .city,
+  .country {
+    grid-column: span 2;
+  }
 }
 </style>
 
