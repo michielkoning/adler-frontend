@@ -13,7 +13,7 @@
         @click.stop="closeByBackgroundClick"
         @keydown.esc="close"
       >
-        <div :class="$style.notch">
+        <div ref="notch" :class="$style.notch">
           <article
             ref="wrapper"
             :class="[$style.wrapper, large ? $style.large : '']"
@@ -100,7 +100,8 @@ export default {
       }
     },
     closeByBackgroundClick(event) {
-      if (event.target === this.$refs.modal) {
+      const { modal, notch } = this.$refs
+      if (event.target === modal || event.target === notch) {
         this.close()
       }
     },

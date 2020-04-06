@@ -19,7 +19,7 @@
       </li>
       <li :class="$style['item-btn']">
         <button :class="$style.btn" @click="toggleModal">
-          <span :class="$style['btn-title']"> Bekijk alle foto's</span>
+          {{ $t('viewAllPhotos') }}
         </button>
       </li>
     </ul>
@@ -182,3 +182,11 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "viewAllPhotos": "Bekijk alle foto's"
+  }
+}
+</i18n>
