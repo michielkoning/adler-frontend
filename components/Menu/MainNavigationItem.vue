@@ -1,6 +1,6 @@
 <template>
   <li
-    :class="{ 'has-popup': children.edges.length > 0 }"
+    :class="{ 'has-popup': hasChildren }"
     class="menu-item"
     @mouseover="mouseover"
     @mouseout="mouseout"
@@ -8,11 +8,11 @@
     <menu-item
       :title="title"
       :url="url"
-      :aria-haspopup="children.edges.length > 0"
+      :aria-haspopup="hasChildren"
       class="menu-link"
     />
     <button
-      v-if="children.edges.length"
+      v-if="hasChildren"
       :aria-expanded="isOpen ? 'true' : 'false'"
       class="btn-show-submenu"
       @click="toggleMenu"
@@ -25,7 +25,7 @@
       />
       <span class="sr-only">Toon submenu voor {{ title }}</span>
     </button>
-    <template v-if="children.edges.length">
+    <template v-if="hasChildren">
       <animation-slide-in>
         <ul class="submenu" :class="{ 'is-open': isOpen }">
           <li
@@ -67,7 +67,7 @@ export default {
     },
     children: {
       type: Object,
-      required: true,
+      default: () => {},
     },
   },
   data() {
@@ -75,6 +75,11 @@ export default {
       isOpen: false,
       timer: null,
     }
+  },
+  computed: {
+    hasChildren() {
+      return this.children?.edges?.length
+    },
   },
   methods: {
     toggleMenu() {

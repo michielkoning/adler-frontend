@@ -6,9 +6,10 @@
 
     <ul ref="menu" class="menu">
       <li>
-        <nuxt-link class="menu-link" :to="localePath({ name: 'index' })">
-          {{ $t(`home`) }}
-        </nuxt-link>
+        <main-navigation-item
+          :title="$t(`home`)"
+          :url="localePath({ name: 'index' })"
+        />
       </li>
       <li>
         <main-navigation-item
@@ -25,14 +26,16 @@
         />
       </li>
       <li>
-        <nuxt-link class="menu-link" :to="localePath({ name: 'blog' })">
-          {{ $t(`blog`) }}
-        </nuxt-link>
+        <main-navigation-item
+          :title="$t(`blog`)"
+          :url="localePath({ name: 'blog' })"
+        />
       </li>
       <li>
-        <nuxt-link class="menu-link" :to="localePath({ name: 'contact' })">
-          {{ $t(`contact`) }}
-        </nuxt-link>
+        <main-navigation-item
+          :title="$t(`contact`)"
+          :url="localePath({ name: 'contact' })"
+        />
       </li>
     </ul>
 
