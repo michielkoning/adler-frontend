@@ -6,7 +6,7 @@
       :value="value"
       :type="type"
       :maxlength="maxlength"
-      class="field"
+      :class="$style.field"
       @input="$emit('input', $event.target.value)"
     />
   </form-field>
@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" module>
 .field {
   @mixin form-field;
 }

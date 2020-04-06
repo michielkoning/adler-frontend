@@ -4,7 +4,7 @@
       :id="id"
       v-bind="$attrs"
       :value="value"
-      class="field"
+      :class="$style.field"
       @input="$emit('input', $event.target.value)"
     />
   </form-field>
@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" module>
 .field {
   @mixin form-field;
 
