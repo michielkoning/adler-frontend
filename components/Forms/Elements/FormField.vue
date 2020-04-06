@@ -1,6 +1,6 @@
 <template>
-  <div class="form-item">
-    <label :for="id" class="label">{{ title }}</label>
+  <div>
+    <label :for="id" :class="$style.label">{{ title }}</label>
     <slot />
     <error-message :error-message="errorMessage" />
   </div>
@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" module>
 .label {
   display: block;
   margin-bottom: var(--spacing-xxs);

@@ -1,5 +1,5 @@
 query($language: LanguageCodeFilterEnum) {
-  rooms(where: {language: $language}) {
+  rooms(where: { language: $language }) {
     edges {
       node {
         id
@@ -8,7 +8,7 @@ query($language: LanguageCodeFilterEnum) {
       }
     }
   }
-  arrangements(where: {language: $language}) {
+  arrangements(where: { language: $language }) {
     edges {
       node {
         id

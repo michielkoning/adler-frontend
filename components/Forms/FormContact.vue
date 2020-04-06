@@ -14,7 +14,6 @@
           v-model.trim.lazy="$v.formData.name.$model"
           :error-message="errorMessageName"
           :title="$t('form.name')"
-          type="text"
           name="name"
         />
         <form-input-text

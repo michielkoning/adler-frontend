@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="prices.length">
     <h2>{{ $t('prices') }}</h2>
     <table>
       <tbody>
@@ -23,8 +23,8 @@
 export default {
   props: {
     prices: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   },
 }
