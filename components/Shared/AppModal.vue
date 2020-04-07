@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
 import AnimationFadeIn from '~/components/Animations/FadeIn.vue'
 import IconClose from '~/icons/close.svg'
@@ -66,13 +67,13 @@ export default {
   },
   data() {
     return {
-      nodes: null,
+      nodes: [],
       lastFocus: null,
     }
   },
   methods: {
     afterEnter() {
-      this.applyBodyStyling(true)
+      this.lockBodyScoll(true)
 
       this.lastFocus = document.activeElement
       this.$refs.wrapper.focus()
@@ -83,13 +84,15 @@ export default {
       })
     },
     beforeLeave() {
-      this.applyBodyStyling(false)
+      this.lockBodyScoll(false)
       this.nodes.forEach((node) => {
         node.removeEventListener('focus', this.restrictFocusOfNodesToModal)
       })
 
       // restore the focus to the last focusedbutton
-      this.lastFocus.focus()
+      if (this.lastFocus) {
+        this.lastFocus.focus()
+      }
     },
     // keep the focus inside the modal
     restrictFocusOfNodesToModal(event) {
@@ -108,18 +111,17 @@ export default {
     close() {
       this.$emit('close')
     },
-    applyBodyStyling(modalIsOpen) {
-      document.body.classList.toggle('modal-is-open', modalIsOpen)
+    lockBodyScoll(isOpen) {
+      const { modal } = this.$refs
+      if (isOpen) {
+        disableBodyScroll(modal)
+      } else {
+        enableBodyScroll(modal)
+      }
     },
   },
 }
 </script>
-
-<style lang="postcss">
-.modal-is-open {
-  overflow: hidden;
-}
-</style>
 
 <style lang="postcss" module>
 .backdrop {

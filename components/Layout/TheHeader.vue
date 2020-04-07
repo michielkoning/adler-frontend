@@ -29,13 +29,12 @@
 </template>
 
 <script>
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import IconLogo from '~/icons/logo.svg'
 import SkipLinks from '~/components/Layout/SkipLinks.vue'
 import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
 import MainNavigation from '~/components/Menu/MainNavigation.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
-
-const bodyScrollLock = require('body-scroll-lock')
 
 export default {
   components: {
@@ -50,22 +49,27 @@ export default {
       showMenu: false,
     }
   },
-
   methods: {
     toggleMenu(status) {
       this.showMenu = status
     },
     afterEnter() {
-      const bg = this.$refs.bg
-      bodyScrollLock.disableBodyScroll(bg)
+      this.lockBodyScoll(true)
     },
     beforeLeave() {
       const bg = this.$refs.bg
       bg.scrollTop = 0
     },
     afterLeave() {
-      const bg = this.$refs.bg
-      bodyScrollLock.enableBodyScroll(bg)
+      this.lockBodyScoll(false)
+    },
+    lockBodyScoll(isOpen) {
+      const { bg } = this.$refs
+      if (isOpen) {
+        disableBodyScroll(bg)
+      } else {
+        enableBodyScroll(bg)
+      }
     },
   },
 }
