@@ -153,7 +153,7 @@ export default {
 
 .wrapper {
   max-width: var(--container-width-md);
-  margin: 3em auto 1em;
+  margin: 3em auto 8em;
 }
 
 .large {
