@@ -170,6 +170,11 @@ export default {
 
 .close {
   margin-top: var(--spacing-xxs);
+
+  &:hover,
+  &:focus {
+    background: var(--color-gray-light);
+  }
 }
 
 .content {

@@ -2,8 +2,6 @@
   <div>
     <home-hero :page="page" />
     <home-content />
-    <related-posts-section />
-
     <facilities-wrapper />
   </div>
 </template>

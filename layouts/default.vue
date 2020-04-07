@@ -8,6 +8,7 @@
 
     <the-footer />
     <error-handler />
+    <cookie-wall />
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import TheHeader from '~/components/Layout/TheHeader.vue'
 import TheFooter from '~/components/Layout/TheFooter.vue'
 import ErrorHandler from '~/components/Layout/ErrorHandler.vue'
+import CookieWall from '~/components/Layout/CookieWall.vue'
 import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
 
 export default {
@@ -22,6 +24,7 @@ export default {
     TheHeader,
     TheFooter,
     ErrorHandler,
+    CookieWall,
     ArrangementsHighlightsSection,
   },
 }
