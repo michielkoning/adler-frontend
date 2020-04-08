@@ -1,6 +1,6 @@
 <template>
   <app-page :page="page">
-    <pages-archive-section :parent="page.pageId" />
+    <pages-archive-section :parent="page.databaseId" />
     <template v-slot:sidebar>
       <related-pages-section
         v-if="page.parent"

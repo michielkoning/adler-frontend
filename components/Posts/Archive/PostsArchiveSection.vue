@@ -1,6 +1,6 @@
 <template>
   <section aria-labelledby="posts-title">
-    <h1 id="posts-title">{{ $t('title') }}</h1>
+    <h1 id="posts-title" class="sr-only">{{ $t('title') }}</h1>
     <posts-archive-container>
       <template v-slot="data">
         <archive-list v-if="data" :items="data.posts" />

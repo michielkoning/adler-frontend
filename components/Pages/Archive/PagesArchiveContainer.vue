@@ -1,7 +1,10 @@
 <template>
   <apollo-query
     :query="require('~/graphql/Pages/Pages.gql')"
-    :variables="{ parent, language: $i18n.locale.toUpperCase() }"
+    :variables="{
+      parent: parent.toString(),
+      language: $i18n.locale.toUpperCase(),
+    }"
   >
     <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />

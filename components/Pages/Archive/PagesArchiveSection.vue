@@ -2,7 +2,7 @@
   <pages-archive-container :parent="parent">
     <template v-slot="data">
       <section v-if="data.pages.length" aria-labelledby="posts-title">
-        <h1 id="posts-title">{{ $t('title') }}</h1>
+        <h1 id="posts-title" class="sr-only">{{ $t('title') }}</h1>
         <archive-list :items="data.pages" />
       </section>
     </template>
@@ -30,7 +30,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Laatste berichten"
+    "title": "Gerelateerde pagina's"
   }
 }
 </i18n>
