@@ -1,5 +1,5 @@
 #import "./../Fragments/Images/ImageHero.gql"
-#import "@/graphql/Fragments/Arrangement.gql"
+#import "./Fragments/Arrangement.gql"
 
 query($uri: String) {
   arrangement: arrangementBy(uri: $uri) {
