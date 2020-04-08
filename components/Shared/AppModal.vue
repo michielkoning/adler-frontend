@@ -164,7 +164,7 @@ export default {
   display: flex;
   align-items: self-start;
   border-bottom: 1px solid var(--color-gray);
-  padding: var(--spacing-xs) var(--spacing-s);
+  padding: var(--spacing-s) var(--gutter);
   background: var(--color-white);
 }
 
@@ -179,7 +179,7 @@ export default {
 
 .content {
   background: var(--color-white);
-  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s);
+  padding: var(--spacing-s) var(--gutter) var(--gutter);
 }
 
 .title {
