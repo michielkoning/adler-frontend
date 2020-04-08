@@ -13,6 +13,13 @@
       </li>
       <li>
         <main-navigation-item
+          :title="$t(`hotel`)"
+          :url="localePath('/kinderhotel-bregenzerwald')"
+          :children="menu.hotel"
+        />
+      </li>
+      <li>
+        <main-navigation-item
           :title="$t(`arrangements`)"
           :url="localePath({ name: 'arrangements' })"
           :children="menu.arrangements"
@@ -113,6 +120,7 @@ export default {
       },
       update: (data) => {
         return {
+          hotel: data.hotel,
           rooms: data.rooms,
           arrangements: data.arrangements,
         }

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PageQuery from '~/graphql/Page.gql'
+import PageQuery from '~/graphql/Pages/Page.gql'
 import { homePageId } from '~/data/pages'
 import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
 import HomeHero from '~/components/Home/HomeHero.vue'

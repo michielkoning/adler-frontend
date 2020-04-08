@@ -6,7 +6,7 @@
 
 <script>
 import RoomsArchiveSection from '~/components/Rooms/Archive/RoomsSection.vue'
-import PageQuery from '~/graphql/Page.gql'
+import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { roomsPageId } from '~/data/pages'
 

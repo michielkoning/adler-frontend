@@ -1,7 +1,9 @@
-#import "./Fragments/Post.gql"
+#import "./Fragments/Page.gql"
 
-query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
-  relatedPages: pages(where: { language: $language, notIn: $notIn }) {
+query($notIn: [ID], $parentPageId: String, $language: LanguageCodeFilterEnum) {
+  relatedPages: pages(
+    where: { notIn: $notIn, parent: $parentPageId, language: $language }
+  ) {
     edges {
       node {
         ...page

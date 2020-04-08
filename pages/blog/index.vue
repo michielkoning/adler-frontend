@@ -7,7 +7,7 @@
 <script>
 import PostsArchiveSection from '~/components/Posts/Archive/PostsArchiveSection.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
-import PageQuery from '~/graphql/Page.gql'
+import PageQuery from '~/graphql/Pages/Page.gql'
 import { blogPageId } from '~/data/pages'
 
 export default {

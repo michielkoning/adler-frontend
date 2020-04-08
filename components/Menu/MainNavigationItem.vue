@@ -27,7 +27,7 @@
     </button>
     <template v-if="hasChildren">
       <animation-slide-in>
-        <ul class="submenu" :class="{ 'is-open': isOpen }">
+        <ul v-show="isOpen" class="submenu">
           <li
             v-for="subItem in children.edges"
             :key="subItem.node.id"
@@ -105,17 +105,12 @@ export default {
   margin-left: var(--spacing-m);
 
   @media (--navigation-md) {
-    display: none;
     background: var(--color-bg-page);
     position: absolute;
     top: 100%;
     margin-left: 0;
     padding: 0 var(--spacing-xs);
     white-space: nowrap;
-
-    &.is-open {
-      display: block;
-    }
   }
 }
 

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PageQuery from '~/graphql/Page.gql'
+import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { privacyPageId } from '~/data/pages'
 

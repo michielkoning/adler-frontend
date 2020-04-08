@@ -1,11 +1,15 @@
 <template>
   <apollo-query
-    :query="require('~/graphql/Posts/RelatedPosts.gql')"
-    :variables="{ notIn, language: $i18n.locale.toUpperCase() }"
+    :query="require('~/graphql/Pages/RelatedPages.gql')"
+    :variables="{
+      language: $i18n.locale.toUpperCase(),
+      notIn,
+      parentPageId: parentPageId.toString(),
+    }"
   >
     <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
-      <slot v-if="data" :relatedPosts="data.relatedPosts.edges" />
+      <slot v-if="data" :relatedPages="data.relatedPages.edges" />
     </template>
   </apollo-query>
 </template>
@@ -19,6 +23,10 @@ export default {
   },
   props: {
     notIn: {
+      type: Number,
+      default: 0,
+    },
+    parentPageId: {
       type: Number,
       default: 0,
     },
