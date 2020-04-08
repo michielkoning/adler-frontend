@@ -31,13 +31,5 @@ export default {
     }
   },
   layout: 'home',
-
-  nuxtI18n: {
-    paths: {
-      de: '/',
-      en: '/',
-      nl: '/',
-    },
-  },
 }
 </script>

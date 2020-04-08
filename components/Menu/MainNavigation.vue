@@ -5,38 +5,29 @@
     </h2>
 
     <ul ref="menu" class="menu">
-      <li>
-        <main-navigation-item
-          :title="$t(`home`)"
-          :url="localePath({ name: 'index' })"
-        />
-      </li>
-      <li>
-        <main-navigation-item
-          :title="$t(`arrangements`)"
-          :url="localePath({ name: 'arrangements' })"
-          :children="menu.arrangements"
-        />
-      </li>
-      <li>
-        <main-navigation-item
-          :title="$t(`rooms`)"
-          :url="localePath({ name: 'rooms' })"
-          :children="menu.rooms"
-        />
-      </li>
-      <li>
-        <main-navigation-item
-          :title="$t(`blog`)"
-          :url="localePath({ name: 'blog' })"
-        />
-      </li>
-      <li>
-        <main-navigation-item
-          :title="$t(`contact`)"
-          :url="localePath({ name: 'contact' })"
-        />
-      </li>
+      <main-navigation-item :title="$t(`home`)" :url="localePath('/')" />
+
+      <main-navigation-item
+        :title="$t(`arrangements`)"
+        :url="localePath({ name: 'arrangements' })"
+        :children="menu.arrangements"
+      />
+
+      <main-navigation-item
+        :title="$t(`rooms`)"
+        :url="localePath({ name: 'rooms' })"
+        :children="menu.rooms"
+      />
+
+      <main-navigation-item
+        :title="$t(`blog`)"
+        :url="localePath({ name: 'blog' })"
+      />
+
+      <main-navigation-item
+        :title="$t(`contact`)"
+        :url="localePath({ name: 'contact' })"
+      />
     </ul>
 
     <div
