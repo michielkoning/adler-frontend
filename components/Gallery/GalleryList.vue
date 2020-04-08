@@ -125,7 +125,7 @@ export default {
   }
 }
 
-@media (--viewport-md) {
+@media (--viewport-lg) {
   .list {
     grid-template-rows: repeat(3, 1fr);
   }
@@ -140,7 +140,7 @@ export default {
   }
 }
 
-@media (--viewport-lg) {
+@media (--viewport-xlg) {
   .list {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 1fr);

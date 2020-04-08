@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$style.wrapper">
     <app-button :is-full-width="true" @click="toggleModal">
       {{ $t('bookNow') }}
     </app-button>
@@ -45,3 +45,15 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.wrapper {
+  @media (--viewport-sm) {
+    grid-column: span 2;
+  }
+
+  @media (--viewport-lg) {
+    grid-column: span 1;
+  }
+}
+</style>

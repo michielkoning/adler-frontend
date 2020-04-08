@@ -51,13 +51,13 @@ export default {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (--viewport-md) {
+  @media (--viewport-lg) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .highlight {
-  @media (--viewport-md) {
+  @media (--viewport-lg) {
     grid-row: 1 / 3;
   }
 }

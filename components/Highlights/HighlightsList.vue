@@ -32,7 +32,7 @@ export default {
   display: grid;
   grid-gap: var(--spacing-l);
 
-  @media (--viewport-sm) {
+  @media (--viewport-md) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

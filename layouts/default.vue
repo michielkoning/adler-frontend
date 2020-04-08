@@ -4,7 +4,6 @@
     <main>
       <nuxt />
     </main>
-    <arrangements-highlights-section />
 
     <the-footer />
     <error-handler />
@@ -17,7 +16,6 @@ import TheHeader from '~/components/Layout/TheHeader.vue'
 import TheFooter from '~/components/Layout/TheFooter.vue'
 import ErrorHandler from '~/components/Layout/ErrorHandler.vue'
 import CookieWall from '~/components/Layout/CookieWall.vue'
-import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
 
 export default {
   components: {
@@ -25,7 +23,6 @@ export default {
     TheFooter,
     ErrorHandler,
     CookieWall,
-    ArrangementsHighlightsSection,
   },
 }
 </script>

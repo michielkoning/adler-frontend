@@ -30,6 +30,5 @@ export default {
       page: page.data.page,
     }
   },
-  layout: 'home',
 }
 </script>

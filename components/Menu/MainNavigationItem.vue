@@ -107,6 +107,7 @@ export default {
   @media (--navigation-md) {
     background: var(--color-bg-page);
     position: absolute;
+    left: calc(-1 * var(--spacing-xs));
     top: 100%;
     margin-left: 0;
     padding: 0 var(--spacing-xs);
@@ -190,7 +191,7 @@ export default {
 
   @media (--navigation-md) {
     display: block;
-    transform: translate(-0.25em, 0.25em);
+    margin: var(--spacing-xxs) 0 0 var(--spacing-xxs);
   }
 }
 </style>
