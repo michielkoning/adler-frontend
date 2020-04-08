@@ -8,10 +8,6 @@
       <main-navigation-item :title="$t(`home`)" :url="localePath('/')" />
 
       <main-navigation-item
-        :title="$t(`home`)"
-        :url="localePath({ name: 'index' })"
-      />
-      <main-navigation-item
         :title="$t(`hotel`)"
         :url="localePath('/kinderhotel-bregenzerwald')"
         :children="menu.hotel"
