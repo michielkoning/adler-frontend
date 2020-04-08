@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="gallery.length">
     <app-modal
       :show="showModal"
       :large="true"
@@ -86,6 +86,7 @@ export default {
   grid-template-rows: 36vw 24vw auto;
   display: grid;
   grid-gap: var(--gutter);
+  max-height: 36em;
 }
 
 .item {

@@ -1,6 +1,6 @@
 <template>
   <apollo-query
-    :query="require('~/graphql/ArrangementsHighlights.gql')"
+    :query="require('~/graphql/Arrangements/ArrangementsHighlights.gql')"
     :variables="{ language: $i18n.locale.toUpperCase(), first }"
   >
     <template v-slot="{ result: { data }, isLoading }">

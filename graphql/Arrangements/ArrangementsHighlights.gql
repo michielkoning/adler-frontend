@@ -1,0 +1,23 @@
+#import "./../Fragments/Images/ImageArchive.gql"
+#import "./Fragments/Arrangement.gql"
+
+query($first: Int, $language: LanguageCodeFilterEnum) {
+  arrangementsHighlights: arrangements(
+    first: $first
+    where: { language: $language }
+  ) {
+    edges {
+      node {
+        ...arrangement
+        excerpt
+        relativeUrl
+        featuredImage {
+          ...imageArchive
+        }
+        pricesGroup {
+          priceFrom
+        }
+      }
+    }
+  }
+}

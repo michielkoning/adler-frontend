@@ -1,7 +1,7 @@
-#import "./../Fragments/ImageHero.gql"
+#import "./../Fragments/Images/ImageHero.gql"
 #import "./Fragments/Post.gql"
 
-query GET_POST_BY_URI($uri: String) {
+query($uri: String) {
   post: postBy(uri: $uri) {
     ...post
     date

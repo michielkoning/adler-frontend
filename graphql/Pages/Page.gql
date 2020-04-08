@@ -1,4 +1,5 @@
-#import "./../Fragments/ImageHero.gql"
+#import "./../Fragments/Images/ImageHero.gql"
+#import "./../Fragments/Images/Gallery.gql"
 #import "./Fragments/Page.gql"
 
 query($uri: String, $pageId: Int) {
@@ -7,6 +8,11 @@ query($uri: String, $pageId: Int) {
     content
     featuredImage {
       ...imageHero
+    }
+    galleryGroup {
+      gallery {
+        ...gallery
+      }
     }
     parent {
       ... on Page {

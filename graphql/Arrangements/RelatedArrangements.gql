@@ -1,0 +1,14 @@
+#import "./Fragments/Arrangement.gql"
+
+query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+  relatedArrangements: arrangements(
+    where: { language: $language, notIn: $notIn }
+  ) {
+    edges {
+      node {
+        ...arrangement
+        relativeUrl
+      }
+    }
+  }
+}

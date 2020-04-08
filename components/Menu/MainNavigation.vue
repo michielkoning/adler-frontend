@@ -56,7 +56,7 @@
 
 <script>
 import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
-import MenuQuery from '~/graphql/Menu.gql'
+import MenuQuery from '~/graphql/Menu/Menu.gql'
 
 export default {
   components: {
