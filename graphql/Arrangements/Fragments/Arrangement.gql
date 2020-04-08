@@ -1,5 +1,5 @@
 fragment arrangement on Arrangement {
   id
-  arrangementId
+  databaseId
   title
 }

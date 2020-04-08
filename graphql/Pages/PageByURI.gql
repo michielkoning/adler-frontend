@@ -2,8 +2,8 @@
 #import "./../Fragments/Images/Gallery.gql"
 #import "./Fragments/Page.gql"
 
-query($pageId: ID!) {
-  page(id: $pageId, idType: DATABASE_ID) {
+query($uri: ID!) {
+  page(id: $uri, idType: URI) {
     ...page
     content
     featuredImage {
@@ -16,7 +16,7 @@ query($pageId: ID!) {
     }
     parent {
       ... on Page {
-        databaseId
+        pageId
       }
     }
   }

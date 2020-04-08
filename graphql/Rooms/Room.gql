@@ -2,8 +2,8 @@
 #import "./../Fragments/Images/Gallery.gql"
 #import "./Fragments/Room.gql"
 
-query($uri: String) {
-  room: roomBy(uri: $uri) {
+query($uri: ID!) {
+  room(id: $uri, idType: URI) {
     ...room
     content
     featuredImage {

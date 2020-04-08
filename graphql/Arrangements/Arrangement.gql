@@ -1,8 +1,8 @@
 #import "./../Fragments/Images/ImageHero.gql"
 #import "./Fragments/Arrangement.gql"
 
-query($uri: String) {
-  arrangement: arrangementBy(uri: $uri) {
+query($uri: ID!) {
+  arrangement(id: $uri, idType: URI) {
     ...arrangement
     content
     featuredImage {

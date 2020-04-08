@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import PageQuery from '~/graphql/Pages/Page.gql'
+import PageByURIQuery from '~/graphql/Pages/PageByURI.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PagesArchiveSection from '~/components/Pages/Archive/PagesArchiveSection.vue'
 import RelatedPagesSection from '~/components/Pages/Related/RelatedPagesSection.vue'
@@ -25,7 +25,7 @@ export default {
   },
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
-      query: PageQuery,
+      query: PageByURIQuery,
       variables: {
         uri: params.pathMatch,
       },

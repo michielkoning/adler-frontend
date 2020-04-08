@@ -1,5 +1,5 @@
 fragment room on Room {
   id
-  roomId
+  databaseId
   title
 }
