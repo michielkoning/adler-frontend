@@ -1,13 +1,23 @@
-#import "./../Fragments/ImageHero.gql"
+#import "./../Fragments/Images/ImageHero.gql"
+#import "./../Fragments/Images/Gallery.gql"
 #import "./Fragments/Page.gql"
 
-query($uri: String) {
-  page: pageBy(uri: $uri) {
+query($uri: String, $pageId: Int) {
+  page: pageBy(uri: $uri, pageId: $pageId) {
     ...page
-    date
     content
     featuredImage {
       ...imageHero
+    }
+    galleryGroup {
+      gallery {
+        ...gallery
+      }
+    }
+    parent {
+      ... on Page {
+        pageId
+      }
     }
   }
 }

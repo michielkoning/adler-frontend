@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import RoomQuery from '~/graphql/Room.gql'
+import RoomQuery from '~/graphql/Rooms/Room.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedRoomsSection from '~/components/Rooms/Related/RelatedRoomsSection.vue'
 import RoomPricesGroup from '~/components/Rooms/Prices/RoomPricesGroup.vue'

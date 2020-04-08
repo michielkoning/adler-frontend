@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ArrangementQuery from '~/graphql/Arrangement.gql'
+import ArrangementQuery from '~/graphql/Arrangements/Arrangement.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedArrangementsSection from '~/components/Arrangements/Related/RelatedArrangementsSection.vue'
 import ArrangementPrices from '~/components/Arrangements/Prices/ArrangementPrices.vue'

@@ -1,15 +1,15 @@
 <template>
-  <sitebar-item-section id="related-posts" :title="title">
-    <related-posts-container :not-in="notIn">
+  <sitebar-item-section id="related-pages" :title="$t('title')">
+    <related-pages-container :not-in="notIn" :parent-page-id="parentPageId">
       <template v-slot="data">
-        <sitebar-item-list v-if="data" :items="data.relatedPosts" />
+        <sitebar-item-list v-if="data" :items="data.relatedPages" />
       </template>
-    </related-posts-container>
+    </related-pages-container>
   </sitebar-item-section>
 </template>
 
 <script>
-import RelatedPostsContainer from '~/components/Posts/Related/RelatedPostsContainer.vue'
+import RelatedPagesContainer from '~/components/Pages/Related/RelatedPagesContainer.vue'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 import SitebarItemList from '~/components/Sidebar/SitebarItemList.vue'
 
@@ -17,20 +17,16 @@ export default {
   components: {
     SitebarItemSection,
     SitebarItemList,
-    RelatedPostsContainer,
+    RelatedPagesContainer,
   },
   props: {
     notIn: {
       type: Number,
       default: 0,
     },
-  },
-  computed: {
-    title() {
-      if (this.notIn) {
-        return this.$t('othertPosts')
-      }
-      return this.$t('latestPosts')
+    parentPageId: {
+      type: Number,
+      default: 0,
     },
   },
 }
@@ -39,8 +35,7 @@ export default {
 <i18n>
 {
   "nl": {
-    "latestPosts": "Laatste berichten",
-    "othertPosts": "Meer berichten"
+    "title": "Bekijk ook"
   }
 }
 </i18n>

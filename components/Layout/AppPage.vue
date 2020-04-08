@@ -12,7 +12,7 @@
         <slot />
       </div>
       <gallery-list
-        v-if="page.galleryGroup"
+        v-if="page.galleryGroup && page.galleryGroup.gallery"
         :title="page.title"
         :class="$style.gallery"
         :gallery="page.galleryGroup.gallery"

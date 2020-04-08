@@ -8,22 +8,28 @@
       <main-navigation-item :title="$t(`home`)" :url="localePath('/')" />
 
       <main-navigation-item
+        :title="$t(`home`)"
+        :url="localePath({ name: 'index' })"
+      />
+      <main-navigation-item
+        :title="$t(`hotel`)"
+        :url="localePath('/kinderhotel-bregenzerwald')"
+        :children="menu.hotel"
+      />
+      <main-navigation-item
         :title="$t(`arrangements`)"
         :url="localePath({ name: 'arrangements' })"
         :children="menu.arrangements"
       />
-
       <main-navigation-item
         :title="$t(`rooms`)"
         :url="localePath({ name: 'rooms' })"
         :children="menu.rooms"
       />
-
       <main-navigation-item
         :title="$t(`blog`)"
         :url="localePath({ name: 'blog' })"
       />
-
       <main-navigation-item
         :title="$t(`contact`)"
         :url="localePath({ name: 'contact' })"
@@ -40,7 +46,7 @@
 
 <script>
 import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
-import MenuQuery from '~/graphql/Menu.gql'
+import MenuQuery from '~/graphql/Menu/Menu.gql'
 
 export default {
   components: {
@@ -104,6 +110,7 @@ export default {
       },
       update: (data) => {
         return {
+          hotel: data.hotel,
           rooms: data.rooms,
           arrangements: data.arrangements,
         }

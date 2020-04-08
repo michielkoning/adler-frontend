@@ -1,12 +1,11 @@
-#import "./Fragments/ImageArchive.gql"
+#import "./../Fragments/Images/ImageArchive.gql"
+#import "./Fragments/Arrangement.gql"
 
-query getArrangements($language: LanguageCodeFilterEnum) {
+query($language: LanguageCodeFilterEnum) {
   arrangements(first: 100, where: { language: $language }) {
     edges {
       node {
-        id
-        arrangementId
-        title
+        ...arrangement
         excerpt
         relativeUrl
         featuredImage {

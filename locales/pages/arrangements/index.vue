@@ -7,7 +7,7 @@
 <script>
 import ArrangementsArchiveSection from '~/components/Arrangements/Archive/ArrangementsSection.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
-import PageQuery from '~/graphql/Page.gql'
+import PageQuery from '~/graphql/Pages/Page.gql'
 import { arrangementsPageId } from '~/data/pages'
 
 export default {

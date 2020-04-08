@@ -1,4 +1,5 @@
-#import "./Fragments/ImageHero.gql"
+#import "./../Fragments/Images/ImageHero.gql"
+#import "./../Fragments/Images/Gallery.gql"
 #import "./Fragments/Room.gql"
 
 query($uri: String) {
@@ -13,11 +14,7 @@ query($uri: String) {
     }
     galleryGroup {
       gallery {
-        id
-        altText
-        heroLarge: sourceUrl(size: HERO_LARGE)
-        heroMedium: sourceUrl(size: HERO_MEDIUM)
-        heroSmall: sourceUrl(size: HERO_SMALL)
+        ...gallery
       }
     }
     pricesGroup {

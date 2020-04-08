@@ -1,12 +1,12 @@
 <template>
-  <section aria-labelledby="posts-title">
-    <h1 id="posts-title">{{ $t('title') }}</h1>
-    <pages-archive-container :parent="parent">
-      <template v-slot="data">
-        <archive-list v-if="data" :items="data.pages" />
-      </template>
-    </pages-archive-container>
-  </section>
+  <pages-archive-container :parent="parent">
+    <template v-slot="data">
+      <section v-if="data.pages.length" aria-labelledby="posts-title">
+        <h1 id="posts-title">{{ $t('title') }}</h1>
+        <archive-list :items="data.pages" />
+      </section>
+    </template>
+  </pages-archive-container>
 </template>
 
 <script>

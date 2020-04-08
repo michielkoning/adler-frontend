@@ -1,37 +1,36 @@
 <template>
-  <app-page :page="page" />
+  <app-page :page="page">
+    <rooms-archive-section />
+  </app-page>
 </template>
 
 <script>
-import PageQuery from '~/graphql/Page.gql'
+import RoomsArchiveSection from '~/components/Rooms/Archive/RoomsSection.vue'
+import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import { privacyPageId } from '~/data/pages'
+import { roomsPageId } from '~/data/pages'
 
 export default {
   components: {
+    RoomsArchiveSection,
     AppPage,
   },
   async asyncData({ app, params }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: privacyPageId,
+        pageId: roomsPageId,
       },
     })
     return {
       page: page.data.page,
     }
   },
-  data() {
-    return {
-      privacyPageId,
-    }
-  },
   nuxtI18n: {
     paths: {
-      de: '/privacy-policy',
-      en: '/privacy-policy',
-      nl: '/privacy-policy',
+      de: '/zimmer',
+      en: '/rooms',
+      nl: '/kamers',
     },
   },
 }

@@ -1,13 +1,13 @@
 {
   "home": "Home",
   "arrangements": "Arrangementen",
+  "hotel": "Hotel",
   "rooms": "Kamers",
   "blog": "Blog",
   "contact": "Contact",
   "usefulLinks": "Nuttige links",
   "prices": "Prijzen",
   "bookNow": "Boek nu",
-
   "ourRatings": "Onze waarderingen",
   "followOn": "Bekijk %{title} op %{network}",
   "addresses": "Adressen",
@@ -32,10 +32,10 @@
     "phoneNumber": "Telefoonnummer",
     "email": "E-mailadres",
     "message": "Bericht",
-    "address" : "Adres",
-    "zipcode" : "Postcode",
-    "city" : "Plaats",
-    "country" : "Land",
+    "address": "Adres",
+    "zipcode": "Postcode",
+    "city": "Plaats",
+    "country": "Land",
     "remarks": "Opmerkingen",
     "totalRooms": "Aantal kamers",
     "totalAdults": "Aantal volwassenen",
@@ -51,4 +51,3 @@
     }
   }
 }
-

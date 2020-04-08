@@ -1,6 +1,6 @@
 <template>
   <apollo-query
-    :query="require('~/graphql/RelatedRooms.gql')"
+    :query="require('~/graphql/Rooms/RelatedRooms.gql')"
     :variables="{ notIn }"
   >
     <template v-slot="{ result: { data }, isLoading }">
