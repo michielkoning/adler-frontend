@@ -10,7 +10,7 @@
       </ul>
       <template v-slot:sidebar>
         <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
-        <related-rooms-section :not-in="room.roomId" />
+        <related-rooms-section :not-in="room.databaseId" />
       </template>
     </app-page>
   </div>

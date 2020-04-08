@@ -1,7 +1,10 @@
 <template>
   <pages-archive-container :parent="parent">
     <template v-slot="data">
-      <section v-if="data.pages.length" aria-labelledby="posts-title">
+      <section
+        v-if="data.pages && data.pages.length"
+        aria-labelledby="posts-title"
+      >
         <h1 id="posts-title" class="sr-only">{{ $t('title') }}</h1>
         <archive-list :items="data.pages" />
       </section>

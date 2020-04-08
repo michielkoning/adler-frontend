@@ -3,7 +3,7 @@
     <arrangement-prices :prices="arrangement.pricesGroup.prices" />
     <template v-slot:sidebar>
       <book-arrangement :title="arrangement.title" />
-      <related-arrangements-section :not-in="arrangement.arrangementId" />
+      <related-arrangements-section :not-in="arrangement.databaseId" />
     </template>
   </app-page>
 </template>

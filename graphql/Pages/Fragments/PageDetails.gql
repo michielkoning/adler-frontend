@@ -1,0 +1,21 @@
+#import "./../../Fragments/Images/ImageHero.gql"
+#import "./../../Fragments/Images/Gallery.gql"
+#import "./Page.gql"
+
+fragment pageDetails on Page {
+  ...page
+  content
+  featuredImage {
+    ...imageHero
+  }
+  galleryGroup {
+    gallery {
+      ...gallery
+    }
+  }
+  parent {
+    ... on Page {
+      databaseId
+    }
+  }
+}

@@ -1,23 +1,7 @@
-#import "./../Fragments/Images/ImageHero.gql"
-#import "./../Fragments/Images/Gallery.gql"
-#import "./Fragments/Page.gql"
+#import "./Fragments/PageDetails.gql"
 
 query($uri: ID!) {
   page(id: $uri, idType: URI) {
-    ...page
-    content
-    featuredImage {
-      ...imageHero
-    }
-    galleryGroup {
-      gallery {
-        ...gallery
-      }
-    }
-    parent {
-      ... on Page {
-        pageId
-      }
-    }
+    ...pageDetails
   }
 }

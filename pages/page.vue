@@ -4,8 +4,8 @@
     <template v-slot:sidebar>
       <related-pages-section
         v-if="page.parent"
-        :not-in="page.pageId"
-        :parent-page-id="page.parent.pageId"
+        :not-in="page.databaseId"
+        :parent-page-id="page.parent.databaseId"
       />
     </template>
   </app-page>

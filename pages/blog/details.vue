@@ -1,7 +1,7 @@
 <template>
   <app-page :page="post">
     <template v-slot:sidebar>
-      <related-posts-section :not-in="post.postId" />
+      <related-posts-section :not-in="post.databaseId" />
     </template>
   </app-page>
 </template>
