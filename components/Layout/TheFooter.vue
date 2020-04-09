@@ -4,6 +4,7 @@
       <div :class="$style.wrapper">
         <the-address :class="$style.address" />
         <opening-hours />
+        <quick-links :class="$style['quick-links']" />
         <social-media-links />
       </div>
     </notch-wrapper>
@@ -14,6 +15,7 @@
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import SocialMediaLinks from '~/components/Contact/SocialMediaLinks.vue'
 import TheAddress from '~/components/Contact/TheAddress.vue'
+import QuickLinks from '~/components/Menu/QuickLinks.vue'
 import OpeningHours from '~/components/Contact/OpeningHours.vue'
 
 export default {
@@ -22,6 +24,7 @@ export default {
     SocialMediaLinks,
     TheAddress,
     OpeningHours,
+    QuickLinks,
   },
 }
 </script>
@@ -49,12 +52,15 @@ export default {
   }
 }
 
-.address a {
-  box-shadow: 0 2px 0 0 currentColor;
+.quick-links,
+.address {
+  & a {
+    box-shadow: 0 1px 0 0 currentColor;
 
-  &:hover,
-  &:focus {
-    box-shadow: 0 3px 0 0 currentColor;
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 0 currentColor;
+    }
   }
 }
 </style>
