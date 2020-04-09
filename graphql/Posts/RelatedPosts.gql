@@ -1,5 +1,5 @@
 #import "./Fragments/Post.gql"
-#import "./../Fragments/Images/ImageRelated.gql"
+#import "./../Fragments/Images/ImageSidebar.gql"
 
 query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedPosts: posts(where: { language: $language, notIn: $notIn }) {
@@ -8,7 +8,7 @@ query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
         ...post
         relativeUrl
         featuredImage {
-          ...imageRelated
+          ...imageSidebar
         }
       }
     }

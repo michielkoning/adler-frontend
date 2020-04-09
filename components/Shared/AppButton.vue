@@ -114,7 +114,8 @@ export default {
   @mixin btn-primary;
 
   &.active,
-  &:hover {
+  &:hover,
+  &:focus {
     @mixin btn-primary-hover;
   }
 }
@@ -123,7 +124,8 @@ export default {
   @mixin btn-ghost;
 
   &.active,
-  &:hover {
+  &:hover,
+  &:focus {
     @mixin btn-ghost-hover;
   }
 }

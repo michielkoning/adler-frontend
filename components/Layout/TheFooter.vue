@@ -1,7 +1,7 @@
 <template>
-  <footer class="footer">
+  <footer :class="$style.footer">
     <notch-wrapper>
-      <div class="wrapper">
+      <div :class="$style.wrapper">
         <the-address />
         <opening-hours />
         <social-media-links />
@@ -26,11 +26,9 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .footer {
-  background: var(--color-3);
-  color: var(--color-white);
-
+  @mixin color-negative;
   @mixin block-padding;
 }
 

@@ -1,4 +1,4 @@
-fragment imageRelated on MediaItem {
+fragment imageSidebar on MediaItem {
   altText
   related: sourceUrl(size: ARCHIVE)
   related2x: sourceUrl(size: ARCHIVE_2X)

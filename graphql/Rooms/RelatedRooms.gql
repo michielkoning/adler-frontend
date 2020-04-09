@@ -1,5 +1,5 @@
 #import "./Fragments/Room.gql"
-#import "./../Fragments/Images/ImageRelated.gql"
+#import "./../Fragments/Images/ImageSidebar.gql"
 
 query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedRooms: rooms(where: { language: $language, notIn: $notIn }) {
@@ -8,7 +8,7 @@ query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
         ...room
         relativeUrl
         featuredImage {
-          ...imageRelated
+          ...imageSidebar
         }
       }
     }

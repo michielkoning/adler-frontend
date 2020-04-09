@@ -5,18 +5,18 @@
         {{ item.title }}
       </nuxt-link>
     </div>
-    <image-related :image="item.featuredImage" :class="$style.image" />
+    <image-sidebar :image="item.featuredImage" :class="$style.image" />
   </clickable-list-item>
 </template>
 
 <script>
 import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
-import ImageRelated from '~/components/Images/ImageRelated.vue'
+import ImageSidebar from '~/components/Images/ImageSidebar.vue'
 
 export default {
   components: {
     ClickableListItem,
-    ImageRelated,
+    ImageSidebar,
   },
   props: {
     item: {
@@ -39,9 +39,8 @@ export default {
 }
 
 .item {
-  margin-bottom: var(--spacing-xs);
   display: grid;
-  grid-template-columns: 6em auto;
+  grid-template-columns: 5em auto;
   grid-gap: var(--spacing-s);
   align-items: center;
 
@@ -54,10 +53,12 @@ export default {
 }
 
 .image {
-  grid-row: 1 / 2;
+  grid-row-start: 1;
+  height: 3em;
+  object-fit: cover;
 }
 
 .link-wrapper {
-  grid-column: 2 / 3;
+  grid-column-start: 2;
 }
 </style>

@@ -78,11 +78,11 @@ export default {
 }
 
 .content {
-  grid-row: 2 / 3;
+  grid-row-start: 2;
 
   @media (--viewport-sm) {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+    grid-column-start: 2;
+    grid-row-start: 1;
   }
 }
 

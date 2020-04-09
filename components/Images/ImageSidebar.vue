@@ -1,7 +1,7 @@
 <template>
   <lazy-loading-image
     v-if="image"
-    :src="image.archive"
+    :src="image.related"
     :alt="image.altText"
     :srcset="`${image.related} 1x, ${image.related2x} 2x`"
     class="image"

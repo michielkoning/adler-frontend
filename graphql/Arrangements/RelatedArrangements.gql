@@ -1,5 +1,5 @@
 #import "./Fragments/Arrangement.gql"
-#import "./../Fragments/Images/ImageRelated.gql"
+#import "./../Fragments/Images/ImageSidebar.gql"
 
 query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedArrangements: arrangements(
@@ -10,7 +10,7 @@ query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
         ...arrangement
         relativeUrl
         featuredImage {
-          ...imageRelated
+          ...imageSidebar
         }
       }
     }
