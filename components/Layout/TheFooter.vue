@@ -2,7 +2,7 @@
   <footer :class="$style.footer">
     <notch-wrapper>
       <div :class="$style.wrapper">
-        <the-address />
+        <the-address :class="$style.address" />
         <opening-hours />
         <social-media-links />
       </div>
@@ -28,8 +28,10 @@ export default {
 
 <style lang="postcss" module>
 .footer {
-  @mixin color-negative;
   @mixin block-padding;
+
+  background: var(--color-3);
+  color: var(--color-white);
 }
 
 .wrapper {
@@ -44,6 +46,15 @@ export default {
 
   @media (--viewport-lg) {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.address a {
+  box-shadow: 0 2px 0 0 currentColor;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 3px 0 0 currentColor;
   }
 }
 </style>
