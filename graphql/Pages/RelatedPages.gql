@@ -1,4 +1,5 @@
 #import "./Fragments/Page.gql"
+#import "./../Fragments/Images/ImageRelated.gql"
 
 query($notIn: [ID], $parentPageId: String, $language: LanguageCodeFilterEnum) {
   relatedPages: pages(
@@ -8,6 +9,9 @@ query($notIn: [ID], $parentPageId: String, $language: LanguageCodeFilterEnum) {
       node {
         ...page
         relativeUrl
+        featuredImage {
+          ...imageRelated
+        }
       }
     }
   }

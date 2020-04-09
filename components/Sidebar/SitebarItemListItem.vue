@@ -5,20 +5,18 @@
         {{ item.title }}
       </nuxt-link>
     </div>
-    <img
-      src="https://www.adler-lingenau.com/nl/wp-content/uploads/sites/2/2017/11/serveimage-140x0-c-default@1x.jpg"
-      :class="$style.image"
-      alt=""
-    />
+    <image-related :image="item.featuredImage" :class="$style.image" />
   </clickable-list-item>
 </template>
 
 <script>
 import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
+import ImageRelated from '~/components/Images/ImageRelated.vue'
 
 export default {
   components: {
     ClickableListItem,
+    ImageRelated,
   },
   props: {
     item: {

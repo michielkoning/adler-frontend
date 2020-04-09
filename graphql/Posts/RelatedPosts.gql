@@ -1,4 +1,5 @@
 #import "./Fragments/Post.gql"
+#import "./../Fragments/Images/ImageRelated.gql"
 
 query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedPosts: posts(where: { language: $language, notIn: $notIn }) {
@@ -6,6 +7,9 @@ query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
       node {
         ...post
         relativeUrl
+        featuredImage {
+          ...imageRelated
+        }
       }
     }
   }
