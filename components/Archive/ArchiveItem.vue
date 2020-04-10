@@ -13,6 +13,7 @@
       <post-date v-if="item.date" :date="item.date" />
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="item.excerpt" />
+      <!-- eslint-enable vue/no-v-html -->
       <read-more :class="$style['read-more']" />
     </div>
     <image-archive :image="item.featuredImage" :class="$style.image" />

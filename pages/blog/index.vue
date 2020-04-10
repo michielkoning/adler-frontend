@@ -8,7 +8,7 @@
 import PostsArchiveSection from '~/components/Posts/Archive/PostsArchiveSection.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
-import pages from '~/data/pages'
+import { blogPageId } from '~/data/pages'
 
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: pages.blog[language],
+        pageId: blogPageId[language],
       },
     })
     return {

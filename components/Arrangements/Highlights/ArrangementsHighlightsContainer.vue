@@ -6,7 +6,7 @@
     <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot
-        v-if="data"
+        v-if="data && data.arrangementsHighlights.edges"
         :arrangementsHighlights="data.arrangementsHighlights.edges"
       />
     </template>

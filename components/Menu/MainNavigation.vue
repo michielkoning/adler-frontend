@@ -8,10 +8,11 @@
       <main-navigation-item :title="$t(`home`)" :url="localePath('/')" />
 
       <main-navigation-item
-        :title="$t(`hotel`)"
-        :url="localePath('/kinderhotel-bregenzerwald')"
-        :children="menu.hotel"
+        :title="menu.hotel.title"
+        :url="menu.hotel.relativeUrl"
+        :children="menu.hotel.childPages"
       />
+
       <main-navigation-item
         :title="$t(`arrangements`)"
         :url="localePath({ name: 'arrangements' })"
@@ -43,6 +44,7 @@
 <script>
 import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
 import MenuQuery from '~/graphql/Menu/Menu.gql'
+import { hotelPageId } from '~/data/pages'
 
 export default {
   components: {
@@ -101,8 +103,11 @@ export default {
   apollo: {
     menu: {
       query: MenuQuery,
-      variables: {
-        language: 'NL',
+      variables() {
+        return {
+          language: this.$i18n.locale.toUpperCase(),
+          hotelPageId: hotelPageId[this.$i18n.locale],
+        }
       },
       update: (data) => {
         return {

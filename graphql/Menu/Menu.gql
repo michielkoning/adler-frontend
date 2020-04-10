@@ -1,10 +1,14 @@
-query($language: LanguageCodeFilterEnum, $hotelPageId: String = "10") {
-  hotel: pages(where: { parent: $hotelPageId }) {
-    edges {
-      node {
-        id
-        relativeUrl
-        title
+query($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
+  hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
+    title
+    relativeUrl
+    childPages {
+      edges {
+        node {
+          id
+          relativeUrl
+          title
+        }
       }
     }
   }

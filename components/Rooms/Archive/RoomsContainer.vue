@@ -5,7 +5,7 @@
   >
     <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
-      <slot v-if="data" :rooms="data.rooms.edges" />
+      <slot v-if="data && data.rooms.edges" :rooms="data.rooms.edges" />
     </template>
   </apollo-query>
 </template>

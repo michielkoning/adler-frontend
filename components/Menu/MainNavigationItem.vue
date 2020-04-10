@@ -5,9 +5,15 @@
     @mouseover="mouseover"
     @mouseout="mouseout"
   >
-    <nuxt-link :to="url" :aria-haspopup="hasChildren" class="menu-link">
-      {{ title }}
-    </nuxt-link>
+    <!-- eslint-disable vue/no-v-html -->
+    <nuxt-link
+      :to="url"
+      :aria-haspopup="hasChildren"
+      class="menu-link"
+      v-html="title"
+    />
+    <!-- eslint-enable vue/no-v-html -->
+
     <button
       v-if="hasChildren"
       :aria-expanded="isOpen ? 'true' : 'false'"
@@ -30,9 +36,13 @@
             :key="subItem.node.id"
             class="menu-item"
           >
-            <nuxt-link :to="subItem.node.relativeUrl" class="submenu-link">
-              {{ subItem.node.title }}
-            </nuxt-link>
+            <!-- eslint-disable vue/no-v-html -->
+            <nuxt-link
+              :to="subItem.node.relativeUrl"
+              class="submenu-link"
+              v-html="subItem.node.title"
+            />
+            <!-- eslint-enable vue/no-v-html -->
           </li>
         </ul>
       </animation-slide-in>

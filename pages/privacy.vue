@@ -5,7 +5,7 @@
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import pages from '~/data/pages'
+import { privacyPageId } from '~/data/pages'
 
 export default {
   components: {
@@ -16,7 +16,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: pages.privacy[language],
+        pageId: privacyPageId[language],
       },
     })
     return {

@@ -8,7 +8,7 @@
 
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
-import pages from '~/data/pages'
+import { homePageId } from '~/data/pages'
 import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
 import HomeHero from '~/components/Home/HomeHero.vue'
 import HomeContent from '~/components/Home/HomeContent.vue'
@@ -24,7 +24,7 @@ export default {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: pages.home[language],
+        pageId: homePageId[language],
       },
     })
     return {
