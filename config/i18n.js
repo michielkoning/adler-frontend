@@ -13,7 +13,7 @@ const dateTimeFormatShort = {
 export default {
   defaultLocale: 'nl',
   lazy: true,
-  rootRedirect: 'de',
+  rootRedirect: 'nl',
   strategy: 'prefix',
   langDir: 'locales/',
   locales: [
@@ -30,7 +30,7 @@ export default {
       file: 'en.json',
     },
     {
-      name: 'Deutscg',
+      name: 'Deutsch',
       code: 'de',
       iso: 'de-DE',
       file: 'de.json',
@@ -39,7 +39,7 @@ export default {
   vueI18nLoader: true,
   vueI18n: {
     silentFallbackWarn: true,
-    fallbackLocale: 'de',
+    fallbackLocale: 'nl',
     numberFormats: {
       nl: {
         currency,

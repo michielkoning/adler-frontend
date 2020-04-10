@@ -1,49 +1,47 @@
 <template>
   <div>
-    <h2>Handige links</h2>
+    <h2>{{ $t('title') }}</h2>
 
     <ul :class="$style.list">
       <li :class="$style['list-item']">
-        <menu-item :title="$t(`home`)" :url="localePath('/')" />
+        <nuxt-link :to="localePath('/')">
+          {{ $t(`home`) }}
+        </nuxt-link>
       </li>
 
       <li :class="$style['list-item']">
-        <menu-item
-          :title="$t(`hotel`)"
-          :url="localePath('/kinderhotel-bregenzerwald')"
-        />
+        <nuxt-link :to="localePath('/kinderhotel-bregenzerwald')">
+          {{ $t(`hotel`) }}
+        </nuxt-link>
       </li>
       <li :class="$style['list-item']">
-        <menu-item
-          :title="$t(`arrangements`)"
-          :url="localePath({ name: 'arrangements' })"
-        />
+        <nuxt-link :to="localePath({ name: 'arrangements' })">
+          {{ $t(`arrangements`) }}
+        </nuxt-link>
       </li>
       <li :class="$style['list-item']">
-        <menu-item :title="$t(`rooms`)" :url="localePath({ name: 'rooms' })" />
+        <nuxt-link :to="localePath({ name: 'rooms' })">
+          {{ $t(`rooms`) }}
+        </nuxt-link>
       </li>
       <li :class="$style['list-item']">
-        <menu-item :title="$t(`blog`)" :url="localePath({ name: 'blog' })" />
+        <nuxt-link :to="localePath({ name: 'blog' })">
+          {{ $t(`blog`) }}
+        </nuxt-link>
       </li>
       <li :class="$style['list-item']">
-        <menu-item
-          :title="$t(`contact`)"
-          :url="localePath({ name: 'contact' })"
-        />
+        <nuxt-link :to="localePath({ name: 'contact' })">
+          {{ $t(`contact`) }}
+        </nuxt-link>
+      </li>
+      <li :class="$style['list-item']">
+        <nuxt-link :to="localePath({ name: 'privacy' })">
+          {{ $t(`privacy`) }}
+        </nuxt-link>
       </li>
     </ul>
   </div>
 </template>
-
-<script>
-import MenuItem from '~/components/Menu/MenuItem.vue'
-
-export default {
-  components: {
-    MenuItem,
-  },
-}
-</script>
 
 <style lang="postcss" module>
 .list {
@@ -54,3 +52,11 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Handige links"
+  }
+}
+</i18n>

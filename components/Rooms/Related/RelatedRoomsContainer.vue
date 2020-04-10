@@ -1,7 +1,7 @@
 <template>
   <apollo-query
     :query="require('~/graphql/Rooms/RelatedRooms.gql')"
-    :variables="{ notIn }"
+    :variables="{ notIn, language: $i18n.locale.toUpperCase() }"
   >
     <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />

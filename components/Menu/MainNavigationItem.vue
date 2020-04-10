@@ -5,12 +5,9 @@
     @mouseover="mouseover"
     @mouseout="mouseout"
   >
-    <menu-item
-      :title="title"
-      :url="url"
-      :aria-haspopup="hasChildren"
-      class="menu-link"
-    />
+    <nuxt-link :to="url" :aria-haspopup="hasChildren" class="menu-link">
+      {{ title }}
+    </nuxt-link>
     <button
       v-if="hasChildren"
       :aria-expanded="isOpen ? 'true' : 'false'"
@@ -33,11 +30,9 @@
             :key="subItem.node.id"
             class="menu-item"
           >
-            <menu-item
-              :title="subItem.node.title"
-              :url="subItem.node.relativeUrl"
-              class="submenu-link"
-            />
+            <nuxt-link :to="subItem.node.relativeUrl" class="submenu-link">
+              {{ subItem.node.title }}
+            </nuxt-link>
           </li>
         </ul>
       </animation-slide-in>
@@ -47,12 +42,10 @@
 
 <script>
 import IconChevronDown from '~/icons/chevron-down.svg'
-import MenuItem from '~/components/Menu/MenuItem.vue'
 import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
 
 export default {
   components: {
-    MenuItem,
     IconChevronDown,
     AnimationSlideIn,
   },
@@ -105,10 +98,11 @@ export default {
   margin-left: var(--spacing-m);
 
   @media (--navigation-md) {
+    filter: drop-shadow(0 0 0.1em rgba(0, 0, 0, 0.2));
     background: var(--color-bg-page);
     position: absolute;
     left: calc(-1 * var(--spacing-xs));
-    top: 100%;
+    top: calc(100% + 0.1em);
     margin-left: 0;
     padding: 0 var(--spacing-xs);
     white-space: nowrap;

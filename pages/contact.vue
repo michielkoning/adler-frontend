@@ -18,7 +18,7 @@ import FormContact from '~/components/Forms/FormContact.vue'
 import BlockMap from '~/components/Contact/BlockMap.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import { contactPageId } from '~/data/pages'
+import pages from '~/data/pages'
 import TheAddress from '~/components/Contact/TheAddress.vue'
 import OpeningHours from '~/components/Contact/OpeningHours.vue'
 
@@ -32,10 +32,11 @@ export default {
     OpeningHours,
   },
   async asyncData({ app, params }) {
+    const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: contactPageId,
+        pageId: pages.contact[language],
       },
     })
     return {

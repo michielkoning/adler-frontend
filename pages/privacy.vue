@@ -5,26 +5,22 @@
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import { privacyPageId } from '~/data/pages'
+import pages from '~/data/pages'
 
 export default {
   components: {
     AppPage,
   },
   async asyncData({ app, params }) {
+    const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: privacyPageId,
+        pageId: pages.privacy[language],
       },
     })
     return {
       page: page.data.page,
-    }
-  },
-  data() {
-    return {
-      privacyPageId,
     }
   },
   nuxtI18n: {

@@ -18,6 +18,7 @@
           <div v-show="showMenu" class="bg">
             <transition name="fade">
               <div v-show="showMenu" ref="bg" class="content">
+                <meta-navigation />
                 <main-navigation />
               </div>
             </transition>
@@ -34,6 +35,7 @@ import IconLogo from '~/icons/logo.svg'
 import SkipLinks from '~/components/Layout/SkipLinks.vue'
 import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
 import MainNavigation from '~/components/Menu/MainNavigation.vue'
+import MetaNavigation from '~/components/Menu/MetaNavigation.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 
 export default {
@@ -42,6 +44,7 @@ export default {
     MobileNavigation,
     IconLogo,
     MainNavigation,
+    MetaNavigation,
     NotchWrapper,
   },
   data() {

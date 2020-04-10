@@ -8,7 +8,7 @@
 import RoomsArchiveSection from '~/components/Rooms/Archive/RoomsSection.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import { roomsPageId } from '~/data/pages'
+import pages from '~/data/pages'
 
 export default {
   components: {
@@ -16,10 +16,11 @@ export default {
     AppPage,
   },
   async asyncData({ app, params }) {
+    const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
       variables: {
-        pageId: roomsPageId,
+        pageId: pages.rooms[language],
       },
     })
     return {
