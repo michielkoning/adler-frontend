@@ -62,6 +62,11 @@ export default {
   "nl": {
     "title": "Onze uitgelichte arrangementen",
     "btnTitle": "Bekijk al onze arrangementen"
+  },
+  "en": {
+    "title": "Our highlighted arrangements",
+    "btnTitle": "View all our arrangements"
   }
+
 }
 </i18n>

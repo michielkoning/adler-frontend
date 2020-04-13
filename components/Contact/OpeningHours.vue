@@ -65,6 +65,9 @@ export default {
 {
   "nl": {
     "openingsHours": "Openingstijden"
+  },
+  "en": {
+    "openingsHours": "Opening hours"
   }
 }
 </i18n>

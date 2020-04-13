@@ -32,6 +32,9 @@ export default {
 {
   "nl": {
     "title": "Meer aanbiedingen"
+  },
+  "en": {
+    "title": "More offers"
   }
 }
 </i18n>

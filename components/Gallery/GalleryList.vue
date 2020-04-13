@@ -188,6 +188,9 @@ export default {
 {
   "nl": {
     "viewAllPhotos": "Bekijk alle foto's"
+  },
+  "en": {
+    "viewAllPhotos": "View all photos"
   }
 }
 </i18n>

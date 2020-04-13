@@ -81,6 +81,10 @@ export default {
   "nl": {
     "followUsOnNetwork": "Bekijk %{title} op %{network}",
     "followUsOn": "Volg ons op"
+  },
+  "en": {
+    "followUsOnNetwork": "View %{title} on %{network}",
+    "followUsOn": "Follow us on"
   }
 }
 </i18n>

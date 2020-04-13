@@ -41,6 +41,10 @@ export default {
 <i18n>
 {
   "nl": {
-    "disclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, inclusief toeristenbelasting."  }
+    "disclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, inclusief toeristenbelasting."
+  },
+  "en": {
+    "disclaimer": "Displayed prices are pices of the total package, including tourist tax."
+  }
 }
 </i18n>

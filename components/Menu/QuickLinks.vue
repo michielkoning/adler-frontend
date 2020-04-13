@@ -57,6 +57,9 @@
 {
   "nl": {
     "title": "Handige links"
+  },
+  "en": {
+    "title": "Useful links"
   }
 }
 </i18n>

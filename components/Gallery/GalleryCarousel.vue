@@ -159,6 +159,10 @@ export default {
   "nl": {
     "previousSlide": "Vorige afbeelding",
     "nextSlide": "Volgende afbeelding"
+  },
+  "en": {
+    "previousSlide": "Previous image",
+    "nextSlide": "Next image"
   }
 }
 </i18n>

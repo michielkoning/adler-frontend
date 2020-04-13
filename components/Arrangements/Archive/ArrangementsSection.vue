@@ -25,6 +25,9 @@ export default {
 {
   "nl": {
     "title": "Onze arrangementen"
+  },
+  "en": {
+    "title": "Our arrangements"
   }
 }
 </i18n>
