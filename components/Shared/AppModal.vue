@@ -193,6 +193,12 @@ export default {
 {
   "nl": {
     "close": "Sluiten"
+  },
+  "de": {
+    "close": "Schließen"
+  },
+  "en": {
+    "close": "Close"
   }
 }
 </i18n>

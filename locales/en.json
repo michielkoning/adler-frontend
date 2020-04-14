@@ -1,20 +1,14 @@
 {
   "pages": {
-    "arrangements": {
-      "slug": "/nl/arrangementen",
-      "title": "Arrangementen"
-    },
-    "rooms": {
-      "slug": "/nl//kamers",
-      "title": "Kamers"
-    },
-    "contact": {
-      "slug": "/nl/contact",
-      "title": "Contact"
-    }
+    "home": "Home",
+    "arrangements": "Arrangements",
+    "hotel": "Hotel",
+    "rooms": "Rooms",
+    "blog": "Blog",
+    "contact": "Contact",
+    "privacy": "Privacy policy"
   },
   "usefulLinks": "Nuttige links",
-
   "ourRatings": "Onze waarderingen",
   "followOn": "Bekijk %{title} op %{network}",
   "addresses": "Adressen",

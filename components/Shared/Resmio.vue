@@ -39,6 +39,14 @@ export default {
   "nl": {
     "title": "Ons restaurant",
     "iframeTitle": "Reserveer voor ons restaurant"
+  },
+  "de": {
+    "title": "PLACEHOLDER",
+    "iframeTitle": "PLACEHOLDER"
+  },
+  "en": {
+    "title": "Our restaurant",
+    "iframeTitle": "Make a reservation in our restaurant"
   }
 }
 </i18n>

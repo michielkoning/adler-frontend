@@ -56,6 +56,12 @@ export default {
 {
   "nl": {
     "from": "Vanaf"
+  },
+  "de": {
+    "from": "PLACEHOLDER"
+  },
+  "en": {
+    "from": "From"
   }
 }
 </i18n>

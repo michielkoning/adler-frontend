@@ -14,9 +14,9 @@
             {{
               $t('followUsOnNetwork', {
                 title: title,
-                network: 'Facebook',
               })
             }}
+            <span lang="en">Facebook</span>
           </span>
         </a>
       </li>
@@ -32,9 +32,9 @@
             {{
               $t('followUsOnNetwork', {
                 title: title,
-                network: 'Twitter',
               })
             }}
+            <span lang="en">Twitter</span>
           </span>
         </a>
       </li>
@@ -79,11 +79,15 @@ export default {
 <i18n>
 {
   "nl": {
-    "followUsOnNetwork": "Bekijk %{title} op %{network}",
+    "followUsOnNetwork": "Bekijk %{title} op",
     "followUsOn": "Volg ons op"
   },
+  "de": {
+    "followUsOnNetwork": "Folgen Sie %{title} auf",
+    "followUsOn": "PLACEHOLDER"
+  },
   "en": {
-    "followUsOnNetwork": "View %{title} on %{network}",
+    "followUsOnNetwork": "View %{title} on",
     "followUsOn": "Follow us on"
   }
 }

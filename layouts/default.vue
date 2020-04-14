@@ -24,6 +24,9 @@ export default {
     ErrorHandler,
     CookieWall,
   },
+  head() {
+    return this.$nuxtI18nSeo()
+  },
 }
 </script>
 

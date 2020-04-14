@@ -5,7 +5,7 @@
     </h2>
 
     <ul ref="menu" class="menu">
-      <main-navigation-item :title="$t(`home`)" :url="localePath('/')" />
+      <main-navigation-item :title="$t(`pages.home`)" :url="localePath('/')" />
 
       <main-navigation-item
         :title="menu.hotel.title"
@@ -14,21 +14,21 @@
       />
 
       <main-navigation-item
-        :title="$t(`arrangements`)"
+        :title="$t(`pages.arrangements`)"
         :url="localePath({ name: 'arrangements' })"
         :children="menu.arrangements"
       />
       <main-navigation-item
-        :title="$t(`rooms`)"
+        :title="$t(`pages.rooms`)"
         :url="localePath({ name: 'rooms' })"
         :children="menu.rooms"
       />
       <main-navigation-item
-        :title="$t(`blog`)"
+        :title="$t(`pages.blog`)"
         :url="localePath({ name: 'blog' })"
       />
       <main-navigation-item
-        :title="$t(`contact`)"
+        :title="$t(`pages.contact`)"
         :url="localePath({ name: 'contact' })"
       />
     </ul>

@@ -63,10 +63,13 @@ export default {
     "title": "Onze uitgelichte arrangementen",
     "btnTitle": "Bekijk al onze arrangementen"
   },
+  "de": {
+    "title": "PLACEHOLDER",
+    "btnTitle": "PLACEHOLDER"
+  },
   "en": {
     "title": "Our highlighted arrangements",
     "btnTitle": "View all our arrangements"
   }
-
 }
 </i18n>

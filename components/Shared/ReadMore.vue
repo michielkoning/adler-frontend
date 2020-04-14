@@ -20,6 +20,12 @@
 {
   "nl": {
     "readMore": "Lees verder"
+  },
+  "de": {
+    "from": "PLACEHOLDER"
+  },
+  "en": {
+    "readMore": "Read more"
   }
 }
 </i18n>

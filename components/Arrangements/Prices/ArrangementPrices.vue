@@ -43,6 +43,9 @@ export default {
   "nl": {
     "disclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, inclusief toeristenbelasting."
   },
+  "de": {
+    "disclaimer": "PLACEHOLDER"
+  },
   "en": {
     "disclaimer": "Displayed prices are pices of the total package, including tourist tax."
   }

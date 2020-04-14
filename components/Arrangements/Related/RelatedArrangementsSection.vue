@@ -33,6 +33,9 @@ export default {
   "nl": {
     "title": "Meer aanbiedingen"
   },
+  "de": {
+    "title": "PLACEHOLDER"
+  },
   "en": {
     "title": "More offers"
   }

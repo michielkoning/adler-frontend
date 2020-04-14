@@ -26,6 +26,9 @@ export default {
   "nl": {
     "title": "Onze arrangementen"
   },
+  "de": {
+    "title": "PLACEHOLDER"
+  },
   "en": {
     "title": "Our arrangements"
   }

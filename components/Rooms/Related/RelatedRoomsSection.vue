@@ -32,6 +32,12 @@ export default {
 {
   "nl": {
     "title": "Onze andere kamers"
+  },
+  "de": {
+    "title": "PLACEHOLDER"
+  },
+  "en": {
+    "title": "Our other rooms"
   }
 }
 </i18n>

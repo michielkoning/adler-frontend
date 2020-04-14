@@ -17,9 +17,6 @@ export default {
    ** Headers of the page
    */
   head: {
-    htmlAttrs: {
-      lang: 'nl',
-    },
     title: pkg.name,
     titleTemplate: '%s',
     meta: [

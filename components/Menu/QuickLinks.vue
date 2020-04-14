@@ -5,38 +5,38 @@
     <ul :class="$style.list">
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath('/')">
-          {{ $t(`home`) }}
+          {{ $t(`pages.home`) }}
         </nuxt-link>
       </li>
 
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath('/kinderhotel-bregenzerwald')">
-          {{ $t(`hotel`) }}
+          {{ $t(`pages.hotel`) }}
         </nuxt-link>
       </li>
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath({ name: 'arrangements' })">
-          {{ $t(`arrangements`) }}
+          {{ $t(`pages.arrangements`) }}
         </nuxt-link>
       </li>
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath({ name: 'rooms' })">
-          {{ $t(`rooms`) }}
+          {{ $t(`pages.rooms`) }}
         </nuxt-link>
       </li>
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath({ name: 'blog' })">
-          {{ $t(`blog`) }}
+          {{ $t(`pages.blog`) }}
         </nuxt-link>
       </li>
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath({ name: 'contact' })">
-          {{ $t(`contact`) }}
+          {{ $t(`pages.contact`) }}
         </nuxt-link>
       </li>
       <li :class="$style['list-item']">
         <nuxt-link :to="localePath({ name: 'privacy' })">
-          {{ $t(`privacy`) }}
+          {{ $t(`pages.privacy`) }}
         </nuxt-link>
       </li>
     </ul>
@@ -57,6 +57,9 @@
 {
   "nl": {
     "title": "Handige links"
+  },
+  "de": {
+    "title": "PLACEHOLDER"
   },
   "en": {
     "title": "Useful links"

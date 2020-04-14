@@ -1,6 +1,6 @@
 <template>
   <address itemscope itemtype="http://schema.org/Organization" class="">
-    <h2>Adres</h2>
+    <h2>{{ $t('title') }}</h2>
     Hotel Gasthof Adler
     <div
       itemprop="address"
@@ -73,3 +73,20 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "title": "Adres",
+    "followUsOn": "PLACEHOLDER"
+  },
+  "de": {
+    "title": "Adresse",
+    "followUsOn": "PLACEHOLDER"
+  },
+  "en": {
+    "title": "Address",
+    "followUsOn": "PLACEHOLDER"
+  }
+}
+</i18n>

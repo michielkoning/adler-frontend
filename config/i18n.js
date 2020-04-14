@@ -1,3 +1,5 @@
+import { baseUrl } from './../data/siteDetails'
+
 const currency = {
   style: 'currency',
   currency: 'EUR',
@@ -12,6 +14,7 @@ const dateTimeFormatShort = {
 
 export default {
   defaultLocale: 'nl',
+  baseUrl,
   lazy: true,
   rootRedirect: 'nl',
   strategy: 'prefix',
