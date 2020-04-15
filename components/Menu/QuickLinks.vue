@@ -59,7 +59,7 @@
     "title": "Handige links"
   },
   "de": {
-    "title": "PLACEHOLDER"
+    "title": "Nützliche Links"
   },
   "en": {
     "title": "Useful links"

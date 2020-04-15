@@ -84,7 +84,7 @@ export default {
   },
   "de": {
     "followUsOnNetwork": "Folgen Sie %{title} auf",
-    "followUsOn": "PLACEHOLDER"
+    "followUsOn": "Folgen Sie uns auf"
   },
   "en": {
     "followUsOnNetwork": "View %{title} on",

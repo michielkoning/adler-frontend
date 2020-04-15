@@ -1,7 +1,7 @@
 #import "./../Fragments/Images/ImageHero.gql"
 #import "./Fragments/Arrangement.gql"
 
-query($uri: ID!) {
+query Arrangement($uri: ID!) {
   arrangement(id: $uri, idType: URI) {
     ...arrangement
     content

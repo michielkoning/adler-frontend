@@ -1,7 +1,7 @@
 #import "./../Fragments/Images/ImageArchive.gql"
 #import "./Fragments/Arrangement.gql"
 
-query($language: LanguageCodeFilterEnum) {
+query Arrangements($language: LanguageCodeFilterEnum) {
   arrangements(
     first: 100
     where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }

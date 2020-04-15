@@ -62,6 +62,9 @@ export default {
   "nl": {
     "title": "Openingstijden"
   },
+  "de": {
+    "title": "Öffnungszeiten"
+  },
   "en": {
     "title": "Opening hours"
   }

@@ -2,7 +2,7 @@
 #import "./../Fragments/Images/Gallery.gql"
 #import "./Fragments/Room.gql"
 
-query($uri: ID!) {
+query Room($uri: ID!) {
   room(id: $uri, idType: URI) {
     ...room
     content

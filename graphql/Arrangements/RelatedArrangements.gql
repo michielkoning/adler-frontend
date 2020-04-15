@@ -1,7 +1,7 @@
 #import "./Fragments/Arrangement.gql"
 #import "./../Fragments/Images/ImageSidebar.gql"
 
-query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+query RelatedArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedArrangements: arrangements(
     where: {
       language: $language

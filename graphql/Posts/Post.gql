@@ -1,7 +1,7 @@
 #import "./../Fragments/Images/ImageHero.gql"
 #import "./Fragments/Post.gql"
 
-query($uri: ID!) {
+query Post($uri: ID!) {
   post(id: $uri, idType: URI) {
     ...post
     date

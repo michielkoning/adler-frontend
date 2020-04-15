@@ -1,7 +1,7 @@
 #import "./Fragments/Room.gql"
 #import "./../Fragments/Images/ImageSidebar.gql"
 
-query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+query RelatedRooms($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedRooms: rooms(
     where: {
       language: $language

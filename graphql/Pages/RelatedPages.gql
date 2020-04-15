@@ -1,7 +1,11 @@
 #import "./Fragments/Page.gql"
 #import "./../Fragments/Images/ImageSidebar.gql"
 
-query($notIn: [ID], $parentPageId: String, $language: LanguageCodeFilterEnum) {
+query RelatedPages(
+  $notIn: [ID]
+  $parentPageId: String
+  $language: LanguageCodeFilterEnum
+) {
   relatedPages: pages(
     where: {
       notIn: $notIn

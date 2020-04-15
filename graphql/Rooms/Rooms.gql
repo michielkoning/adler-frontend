@@ -1,7 +1,7 @@
 #import "./../Fragments/Images/ImageArchive.gql"
 #import "./Fragments/Room.gql"
 
-query($language: LanguageCodeFilterEnum) {
+query Rooms($language: LanguageCodeFilterEnum) {
   rooms(
     first: 100
     where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }

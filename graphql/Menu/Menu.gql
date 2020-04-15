@@ -1,4 +1,4 @@
-query($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
+query Menu($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
     title
     relativeUrl

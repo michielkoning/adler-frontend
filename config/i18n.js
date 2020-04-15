@@ -1,19 +1,22 @@
 import { baseUrl } from './../data/siteDetails'
 
-const currency = {
-  style: 'currency',
-  currency: 'EUR',
-  currencyDisplay: 'symbol',
+const numberFormats = {
+  currency: {
+    style: 'currency',
+    currency: 'EUR',
+    currencyDisplay: 'symbol',
+  },
 }
 
-const dateTimeFormatShort = {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
-
-const dateTimeFormatDays = {
-  weekday: 'short',
+const dateTimeFormats = {
+  short: {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  },
+  day: {
+    weekday: 'short',
+  },
 }
 
 export default {
@@ -49,27 +52,27 @@ export default {
     fallbackLocale: 'nl',
     numberFormats: {
       nl: {
-        currency,
+        currency: numberFormats.currency,
       },
       en: {
-        currency,
+        currency: numberFormats.currency,
       },
       de: {
-        currency,
+        currency: numberFormats.currency,
       },
     },
     dateTimeFormats: {
       nl: {
-        short: dateTimeFormatShort,
-        day: dateTimeFormatDays,
+        short: dateTimeFormats.short,
+        day: dateTimeFormats.day,
       },
       en: {
-        short: dateTimeFormatShort,
-        day: dateTimeFormatDays,
+        short: dateTimeFormats.short,
+        day: dateTimeFormats.day,
       },
       de: {
-        short: dateTimeFormatShort,
-        day: dateTimeFormatDays,
+        short: dateTimeFormats.short,
+        day: dateTimeFormats.day,
       },
     },
   },

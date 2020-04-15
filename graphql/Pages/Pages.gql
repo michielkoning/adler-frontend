@@ -1,7 +1,11 @@
 #import "./../Fragments/Images/ImageArchive.gql"
 #import "./Fragments/Page.gql"
 
-query($after: String, $parent: String, $language: LanguageCodeFilterEnum) {
+query Pages(
+  $after: String
+  $parent: String
+  $language: LanguageCodeFilterEnum
+) {
   pages(
     after: $after
     where: {

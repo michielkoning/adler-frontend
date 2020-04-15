@@ -1,7 +1,7 @@
 #import "./Fragments/Post.gql"
 #import "./../Fragments/Images/ImageSidebar.gql"
 
-query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+query RelatedPosts($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedPosts: posts(where: { language: $language, notIn: $notIn }) {
     edges {
       node {

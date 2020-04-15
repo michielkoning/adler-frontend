@@ -1,7 +1,7 @@
 #import "./../Fragments/Images/ImageArchive.gql"
 #import "./Fragments/Post.gql"
 
-query($after: String, $language: LanguageCodeFilterEnum) {
+query Posts($after: String, $language: LanguageCodeFilterEnum) {
   posts(after: $after, where: { language: $language }) {
     pageInfo {
       hasNextPage

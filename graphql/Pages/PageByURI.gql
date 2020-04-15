@@ -1,6 +1,6 @@
 #import "./Fragments/PageDetails.gql"
 
-query($uri: ID!) {
+query PageByURI($uri: ID!) {
   page(id: $uri, idType: URI) {
     ...pageDetails
   }
