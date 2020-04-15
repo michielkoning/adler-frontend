@@ -1,6 +1,7 @@
 export default [
   {
-    day: 'ma',
+    // monday
+    day: 0,
     hours: [
       {
         from: '8:00',
@@ -9,7 +10,8 @@ export default [
     ],
   },
   {
-    day: 'di',
+    // tuesday
+    day: 1,
     hours: [
       {
         from: '9:00',
@@ -22,7 +24,8 @@ export default [
     ],
   },
   {
-    day: 'wo',
+    // wednesday
+    day: 2,
     hours: [
       {
         from: '9:00',
@@ -35,7 +38,8 @@ export default [
     ],
   },
   {
-    day: 'do',
+    // thursday
+    day: 3,
     hours: [
       {
         from: '9:00',
@@ -48,7 +52,8 @@ export default [
     ],
   },
   {
-    day: 'vr',
+    // friday
+    day: 4,
     hours: [
       {
         from: '9:00',
@@ -61,7 +66,8 @@ export default [
     ],
   },
   {
-    day: 'za',
+    // saturday
+    day: 5,
     hours: [
       {
         from: '9:00',
@@ -70,7 +76,8 @@ export default [
     ],
   },
   {
-    day: 'zo',
+    // sunday
+    day: 6,
     hours: [
       {
         from: '8:00',

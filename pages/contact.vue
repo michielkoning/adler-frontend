@@ -3,7 +3,7 @@
     <block-map />
     <div :class="$style.wrapper">
       <the-address />
-      <opening-hours />
+      <opening-times />
       <social-media-links />
     </div>
     <template v-slot:sidebar>
@@ -20,7 +20,7 @@ import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { contactPageId } from '~/data/pages'
 import TheAddress from '~/components/Contact/TheAddress.vue'
-import OpeningHours from '~/components/Contact/OpeningHours.vue'
+import OpeningTimes from '~/components/Contact/OpeningTimes.vue'
 
 export default {
   components: {
@@ -29,7 +29,7 @@ export default {
     BlockMap,
     SocialMediaLinks,
     TheAddress,
-    OpeningHours,
+    OpeningTimes,
   },
   async asyncData({ app, params }) {
     const language = app.i18n.locale

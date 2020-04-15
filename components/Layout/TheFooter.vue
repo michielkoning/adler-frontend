@@ -3,7 +3,7 @@
     <notch-wrapper>
       <div :class="$style.wrapper">
         <the-address :class="$style.address" />
-        <opening-hours />
+        <opening-times />
         <quick-links :class="$style['quick-links']" />
         <social-media-links />
       </div>
@@ -16,14 +16,14 @@ import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import SocialMediaLinks from '~/components/Contact/SocialMediaLinks.vue'
 import TheAddress from '~/components/Contact/TheAddress.vue'
 import QuickLinks from '~/components/Menu/QuickLinks.vue'
-import OpeningHours from '~/components/Contact/OpeningHours.vue'
+import OpeningTimes from '~/components/Contact/OpeningTimes.vue'
 
 export default {
   components: {
     NotchWrapper,
     SocialMediaLinks,
     TheAddress,
-    OpeningHours,
+    OpeningTimes,
     QuickLinks,
   },
 }

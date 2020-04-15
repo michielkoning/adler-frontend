@@ -12,6 +12,10 @@ const dateTimeFormatShort = {
   day: 'numeric',
 }
 
+const dateTimeFormatDays = {
+  weekday: 'short',
+}
+
 export default {
   defaultLocale: 'nl',
   baseUrl,
@@ -57,12 +61,15 @@ export default {
     dateTimeFormats: {
       nl: {
         short: dateTimeFormatShort,
+        day: dateTimeFormatDays,
       },
       en: {
         short: dateTimeFormatShort,
+        day: dateTimeFormatDays,
       },
       de: {
         short: dateTimeFormatShort,
+        day: dateTimeFormatDays,
       },
     },
   },
