@@ -2,7 +2,14 @@
 #import "./Fragments/Page.gql"
 
 query($after: String, $parent: String, $language: LanguageCodeFilterEnum) {
-  pages(after: $after, where: { parent: $parent, language: $language }) {
+  pages(
+    after: $after
+    where: {
+      parent: $parent
+      language: $language
+      orderby: { field: MENU_ORDER, order: ASC }
+    }
+  ) {
     edges {
       node {
         ...page

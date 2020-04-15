@@ -2,7 +2,13 @@
 #import "./../Fragments/Images/ImageSidebar.gql"
 
 query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
-  relatedRooms: rooms(where: { language: $language, notIn: $notIn }) {
+  relatedRooms: rooms(
+    where: {
+      language: $language
+      notIn: $notIn
+      orderby: { field: MENU_ORDER, order: ASC }
+    }
+  ) {
     edges {
       node {
         ...room

@@ -3,7 +3,11 @@
 
 query($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedArrangements: arrangements(
-    where: { language: $language, notIn: $notIn }
+    where: {
+      language: $language
+      notIn: $notIn
+      orderby: { field: MENU_ORDER, order: ASC }
+    }
   ) {
     edges {
       node {

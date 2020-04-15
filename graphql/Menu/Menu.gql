@@ -2,7 +2,7 @@ query($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
     title
     relativeUrl
-    childPages {
+    childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       edges {
         node {
           id
@@ -12,7 +12,9 @@ query($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
       }
     }
   }
-  rooms(where: { language: $language }) {
+  rooms(
+    where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }
+  ) {
     edges {
       node {
         id
@@ -21,7 +23,9 @@ query($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
       }
     }
   }
-  arrangements(where: { language: $language }) {
+  arrangements(
+    where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }
+  ) {
     edges {
       node {
         id

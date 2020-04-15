@@ -2,7 +2,10 @@
 #import "./Fragments/Arrangement.gql"
 
 query($language: LanguageCodeFilterEnum) {
-  arrangements(first: 100, where: { language: $language }) {
+  arrangements(
+    first: 100
+    where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }
+  ) {
     edges {
       node {
         ...arrangement

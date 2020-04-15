@@ -3,7 +3,12 @@
 
 query($notIn: [ID], $parentPageId: String, $language: LanguageCodeFilterEnum) {
   relatedPages: pages(
-    where: { notIn: $notIn, parent: $parentPageId, language: $language }
+    where: {
+      notIn: $notIn
+      parent: $parentPageId
+      language: $language
+      orderby: { field: MENU_ORDER, order: ASC }
+    }
   ) {
     edges {
       node {
