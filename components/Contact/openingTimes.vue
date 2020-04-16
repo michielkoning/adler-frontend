@@ -3,16 +3,16 @@
     <h2>{{ $t('title') }}</h2>
     <dl :class="$style.list">
       <template v-for="openingDay in openingTimes">
-        <dt :key="openingDay.day" :class="$style.label">
+        <dt :key="`day-${openingDay.day}`" :class="$style.label">
           {{ getDayOfWeek(openingDay.day) }}
         </dt>
-        <dd :key="openingDay.day" :class="$style.value">
+        <dd :key="`hours-${openingDay.day}`" :class="$style.value">
           <template v-for="hours in openingDay.hours">
-            <span :key="`${openingDay.day}-${hours.from}`">
+            <span :key="`from-${openingDay.day}-${hours.from}`">
               {{ hours.from }}
             </span>
             –
-            <span :key="`${openingDay.day}-${hours.until}`">
+            <span :key="`until-${openingDay.day}-${hours.until}`">
               {{ hours.until }}
             </span>
           </template>

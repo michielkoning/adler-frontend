@@ -21,6 +21,7 @@ const dateTimeFormats = {
 
 export default {
   defaultLocale: 'nl',
+  fallbackLocale: 'nl',
   baseUrl,
   lazy: true,
   rootRedirect: 'nl',
@@ -49,7 +50,6 @@ export default {
   vueI18nLoader: true,
   vueI18n: {
     silentFallbackWarn: true,
-    fallbackLocale: 'nl',
     numberFormats: {
       nl: {
         currency: numberFormats.currency,

@@ -34,7 +34,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import IconLogo from '~/icons/logo.svg'
 import SkipLinks from '~/components/Layout/SkipLinks.vue'
 import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
-import MainNavigation from '~/components/Menu/MainNavigation.vue'
+import MainNavigation from '~/components/Menu/MainNavigation/MainNavigation.vue'
 import MetaNavigation from '~/components/Menu/MetaNavigation.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 

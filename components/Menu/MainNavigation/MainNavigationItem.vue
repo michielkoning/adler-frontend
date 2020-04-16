@@ -1,6 +1,6 @@
 <template>
   <li
-    :class="{ 'has-popup': hasChildren }"
+    :class="[$style['menu-item'], { 'has-popup': hasChildren }]"
     class="menu-item"
     @mouseover="mouseover"
     @mouseout="mouseout"
@@ -9,6 +9,7 @@
     <nuxt-link
       :to="url"
       :aria-haspopup="hasChildren"
+      :class="$style['menu-link']"
       class="menu-link"
       v-html="title"
     />
@@ -17,28 +18,36 @@
     <button
       v-if="hasChildren"
       :aria-expanded="isOpen ? 'true' : 'false'"
-      class="btn-show-submenu"
+      :class="$style['btn-show-submenu']"
       @click="toggleMenu"
     >
       <icon-chevron-down
         aria-hidden="true"
         width="16"
         height="16"
-        class="icon-chevron-down"
+        :class="$style['icon-chevron-down']"
       />
-      <span class="sr-only">Toon submenu voor {{ title }}</span>
+      <span class="sr-only">
+        {{
+          $t('showSubmenuFor', {
+            title: title,
+          })
+        }}
+      </span>
     </button>
     <template v-if="hasChildren">
       <animation-slide-in>
-        <ul v-show="isOpen" class="submenu">
+        <ul v-show="isOpen" :class="$style.submenu">
           <li
             v-for="subItem in children.edges"
             :key="subItem.node.id"
+            :class="$style['menu-item']"
             class="menu-item"
           >
             <!-- eslint-disable vue/no-v-html -->
             <nuxt-link
               :to="subItem.node.relativeUrl"
+              :class="$style['submenu-link']"
               class="submenu-link"
               v-html="subItem.node.title"
             />
@@ -101,7 +110,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .submenu {
   @mixin list-reset;
 
@@ -199,3 +208,17 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "showSubmenuFor": "Toon submenu voor %{title}"
+  },
+  "de": {
+    "showSubmenuFor": "Untermenü anzeigen für %{title}"
+  },
+  "en": {
+    "showSubmenuFor": "Show submenu for %{title}"
+  }
+}
+</i18n>

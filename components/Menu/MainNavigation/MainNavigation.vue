@@ -1,54 +1,58 @@
 <template>
-  <nav aria-labelledby="menu-title" class="nav">
+  <nav aria-labelledby="menu-title" :class="$style.nav">
     <h2 id="menu-title" class="sr-only" tabindex="-1">
-      {{ $t('mainNavigation') }}
+      {{ $t('title') }}
     </h2>
 
-    <ul ref="menu" class="menu">
-      <main-navigation-item :title="$t(`pages.home`)" :url="localePath('/')" />
+    <main-navigation-container>
+      <template v-slot="data">
+        <ul ref="menu" :class="$style.menu">
+          <main-navigation-item
+            :title="$t(`pages.home`)"
+            :url="localePath('/')"
+          />
+          <main-navigation-item
+            :title="data.hotel.title"
+            :url="data.hotel.relativeUrl"
+            :children="data.hotel.childPages"
+          />
+          <main-navigation-item
+            :title="$t(`pages.arrangements`)"
+            :url="localePath({ name: 'arrangements' })"
+            :children="data.arrangements"
+          />
+          <main-navigation-item
+            :title="$t(`pages.rooms`)"
+            :url="localePath({ name: 'rooms' })"
+            :children="data.rooms"
+          />
+          <main-navigation-item
+            :title="$t(`pages.blog`)"
+            :url="localePath({ name: 'blog' })"
+          />
+          <main-navigation-item
+            :title="$t(`pages.contact`)"
+            :url="localePath({ name: 'contact' })"
+          />
+        </ul>
 
-      <main-navigation-item
-        :title="menu.hotel.title"
-        :url="menu.hotel.relativeUrl"
-        :children="menu.hotel.childPages"
-      />
-
-      <main-navigation-item
-        :title="$t(`pages.arrangements`)"
-        :url="localePath({ name: 'arrangements' })"
-        :children="menu.arrangements"
-      />
-      <main-navigation-item
-        :title="$t(`pages.rooms`)"
-        :url="localePath({ name: 'rooms' })"
-        :children="menu.rooms"
-      />
-      <main-navigation-item
-        :title="$t(`pages.blog`)"
-        :url="localePath({ name: 'blog' })"
-      />
-      <main-navigation-item
-        :title="$t(`pages.contact`)"
-        :url="localePath({ name: 'contact' })"
-      />
-    </ul>
-
-    <div
-      :class="{ active: mounted }"
-      :style="{ transform: arrowPosition, width: arrowWidth }"
-      class="arrow"
-    />
+        <div
+          :class="[$style.arrow, { [$style.active]: mounted }]"
+          :style="{ transform: arrowPosition, width: arrowWidth }"
+        />
+      </template>
+    </main-navigation-container>
   </nav>
 </template>
 
 <script>
-import MainNavigationItem from '~/components/Menu/MainNavigationItem.vue'
-import MenuQuery from '~/graphql/Menu/Menu.gql'
-import { hotelPageId } from '~/data/pages'
+import MainNavigationItem from '~/components/Menu/MainNavigation/MainNavigationItem.vue'
+import MainNavigationContainer from '~/components/Menu/MainNavigation/MainNavigationContainer.vue'
 
 export default {
   components: {
     MainNavigationItem,
+    MainNavigationContainer,
   },
   data() {
     return {
@@ -100,28 +104,10 @@ export default {
       return null
     },
   },
-  apollo: {
-    menu: {
-      query: MenuQuery,
-      variables() {
-        return {
-          language: this.$i18n.locale.toUpperCase(),
-          hotelPageId: hotelPageId[this.$i18n.locale],
-        }
-      },
-      update: (data) => {
-        return {
-          hotel: data.hotel,
-          rooms: data.rooms,
-          arrangements: data.arrangements,
-        }
-      },
-    },
-  },
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .nav {
   position: relative;
   font-family: var(--font-family-header);
@@ -157,3 +143,17 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Hoofdmenu"
+  },
+  "de": {
+    "title": "Hauptmenü"
+  },
+  "en": {
+    "title": "Main menu"
+  }
+}
+</i18n>
