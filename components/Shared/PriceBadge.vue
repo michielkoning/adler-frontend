@@ -6,7 +6,7 @@
         <template v-slot:decimal="slotProps">
           <span :class="$style.decimal">{{ slotProps.decimal }}</span>
         </template>
-        <template v-slot:fraction="slotProps" styles="font-size: small">
+        <template v-slot:fraction="slotProps">
           <span :class="$style.fraction">{{ slotProps.fraction }}</span>
         </template>
       </i18n-n>
@@ -42,7 +42,7 @@ export default {
 }
 
 .value {
-  font-size: 2em;
+  font-size: 1.75em;
   font-weight: var(--font-weight-bold);
 }
 
@@ -58,7 +58,7 @@ export default {
     "from": "Vanaf"
   },
   "de": {
-    "from": "PLACEHOLDER"
+    "from": "Von"
   },
   "en": {
     "from": "From"

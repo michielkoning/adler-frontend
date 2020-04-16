@@ -19,26 +19,8 @@
     </div>
 
     <div :class="$style.contact">
-      <div :class="$style['contact-item']">
-        <div :class="$style.icon">
-          <icon-phone aria-hidden="true" width="16" height="16" />
-        </div>
-        <div :class="$style.link">
-          <a href="tel:%2B43-%280%295513-63670" itemprop="telephone">
-            {{ phoneNumber }}
-          </a>
-        </div>
-      </div>
-      <div :class="$style['contact-item']">
-        <div :class="$style.icon">
-          <icon-mail aria-hidden="true" width="16" height="16" />
-        </div>
-        <div :class="$style.link">
-          <a href="mailto:info@adler-lingenau.com" itemprop="email">
-            {{ emailAddress }}
-          </a>
-        </div>
-      </div>
+      <contact-phone-number itemprop="telephone" />
+      <contact-emailaddress itemprop="email" />
     </div>
 
     <app-button
@@ -59,27 +41,20 @@ import {
   city,
   country,
   region,
-  phoneNumber,
-  emailAddress,
   directionsUrl,
 } from '~/data/address'
 import { title } from '~/data/siteDetails'
-import IconMail from '~/icons/envelope.svg'
-import IconPhone from '~/icons/phone.svg'
-
+import ContactEmailaddress from '~/components/Contact/ContactEmailaddress.vue'
+import ContactPhoneNumber from '~/components/Contact/ContactPhoneNumber.vue'
 import AppButton from '~/components/Shared/AppButton.vue'
 
 export default {
   components: {
     AppButton,
-    IconMail,
-    IconPhone,
+    ContactEmailaddress,
+    ContactPhoneNumber,
   },
-  filters: {
-    encodeURIComponent(value) {
-      return encodeURIComponent(value)
-    },
-  },
+
   data() {
     return {
       directionsUrl,
@@ -89,8 +64,6 @@ export default {
       city,
       country,
       region,
-      phoneNumber,
-      emailAddress,
     }
   },
   computed: {
@@ -108,20 +81,6 @@ export default {
 
 .contact {
   margin-bottom: var(--spacing-m);
-}
-
-.contact-item {
-  display: flex;
-  margin-bottom: var(--spacing-xxs);
-}
-
-.icon {
-  flex: 0 0 1.25em;
-  transform: translateY(0.15em);
-}
-
-.link {
-  flex: 0 0 auto;
 }
 </style>
 
