@@ -188,17 +188,3 @@ export default {
   margin-bottom: 0;
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "close": "Sluiten"
-  },
-  "de": {
-    "close": "Schließen"
-  },
-  "en": {
-    "close": "Close"
-  }
-}
-</i18n>

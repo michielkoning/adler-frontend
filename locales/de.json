@@ -1,4 +1,7 @@
 {
+  "prices": "Preise",
+  "bookNow": "Jetzt buchen",
+  "close": "Schließen",
   "pages": {
     "home": "Home",
     "arrangements": "Arrangementen",
@@ -17,7 +20,6 @@
   "albums": "Albums",
   "biography": "Biography",
   "contact": "Contact",
-  "close": "Close",
   "home": "Home",
   "latestPosts": "Latest posts",
   "loadMore": "Load more",

@@ -1,4 +1,7 @@
 {
+  "prices": "Prijzen",
+  "bookNow": "Nu boeken",
+  "close": "Sluiten",
   "pages": {
     "home": "Home",
     "arrangements": "Arrangementen",
@@ -8,14 +11,11 @@
     "contact": "Contact",
     "privacy": "Privacybeleid"
   },
-  "prices": "Prijzen",
-  "bookNow": "Boek nu",
   "ourRatings": "Onze waarderingen",
   "followOn": "Bekijk %{title} op %{network}",
   "addresses": "Adressen",
   "direction": "Routebeschrijving",
   "on": "op",
-  "close": "Close",
   "latestPosts": "Latest posts",
   "loadMore": "Load more",
   "loading": "Loading…",
