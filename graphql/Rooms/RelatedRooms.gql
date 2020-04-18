@@ -1,5 +1,5 @@
 #import "./Fragments/Room.gql"
-#import "./../Fragments/Images/ImageSidebar.gql"
+#import "./../Fragments/Images/ImageRelated.gql"
 
 query RelatedRooms($language: LanguageCodeFilterEnum, $notIn: [ID]) {
   relatedRooms: rooms(

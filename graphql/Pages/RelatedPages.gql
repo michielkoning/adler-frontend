@@ -1,5 +1,5 @@
 #import "./Fragments/Page.gql"
-#import "./../Fragments/Images/ImageSidebar.gql"
+#import "./../Fragments/Images/ImageRelated.gql"
 
 query RelatedPages(
   $notIn: [ID]
