@@ -8,7 +8,9 @@
         height="36"
         :class="$style.icon"
       />
-      <h1 class="sr-only">Familiehotel &amp; Gasthof ADler</h1>
+      <h1 id="content" class="sr-only" tabindex="-1">
+        Familiehotel &amp; Gasthof ADler
+      </h1>
       <h2>in Lingenau, Bregenzerwald</h2>
     </div>
   </div>

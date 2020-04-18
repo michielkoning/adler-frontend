@@ -9,7 +9,7 @@
     <template v-slot="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot
-        v-if="data"
+        v-else-if="data"
         :hotel="data.hotel"
         :arrangements="data.arrangements"
         :rooms="data.rooms"

@@ -1,47 +1,49 @@
 <template>
-  <nav aria-labelledby="menu-title" :class="$style.nav">
-    <h2 id="menu-title" class="sr-only" tabindex="-1">
+  <nav aria-labelledby="menu" :class="$style.nav">
+    <h2 id="menu" class="sr-only" tabindex="-1">
       {{ $t('title') }}
     </h2>
 
-    <main-navigation-container>
-      <template v-slot="data">
-        <ul ref="menu" :class="$style.menu">
-          <main-navigation-item
-            :title="$t(`pages.home`)"
-            :url="localePath('/')"
-          />
-          <main-navigation-item
-            :title="data.hotel.title"
-            :url="data.hotel.relativeUrl"
-            :children="data.hotel.childPages"
-          />
-          <main-navigation-item
-            :title="$t(`pages.arrangements`)"
-            :url="localePath({ name: 'arrangements' })"
-            :children="data.arrangements"
-          />
-          <main-navigation-item
-            :title="$t(`pages.rooms`)"
-            :url="localePath({ name: 'rooms' })"
-            :children="data.rooms"
-          />
-          <main-navigation-item
-            :title="$t(`pages.blog`)"
-            :url="localePath({ name: 'blog' })"
-          />
-          <main-navigation-item
-            :title="$t(`pages.contact`)"
-            :url="localePath({ name: 'contact' })"
-          />
-        </ul>
+    <div ref="menu">
+      <main-navigation-container>
+        <template v-slot="data">
+          <ul :class="$style.menu">
+            <main-navigation-item
+              :title="$t(`pages.home`)"
+              :url="localePath('/')"
+            />
+            <main-navigation-item
+              :title="data.hotel.title"
+              :url="data.hotel.relativeUrl"
+              :children="data.hotel.childPages"
+            />
+            <main-navigation-item
+              :title="$t(`pages.arrangements`)"
+              :url="localePath({ name: 'arrangements' })"
+              :children="data.arrangements"
+            />
+            <main-navigation-item
+              :title="$t(`pages.rooms`)"
+              :url="localePath({ name: 'rooms' })"
+              :children="data.rooms"
+            />
+            <main-navigation-item
+              :title="$t(`pages.blog`)"
+              :url="localePath({ name: 'blog' })"
+            />
+            <main-navigation-item
+              :title="$t(`pages.contact`)"
+              :url="localePath({ name: 'contact' })"
+            />
+          </ul>
 
-        <div
-          :class="[$style.arrow, { [$style.active]: mounted }]"
-          :style="{ transform: arrowPosition, width: arrowWidth }"
-        />
-      </template>
-    </main-navigation-container>
+          <div
+            :class="[$style.arrow, { [$style.active]: mounted }]"
+            :style="{ transform: arrowPosition, width: arrowWidth }"
+          />
+        </template>
+      </main-navigation-container>
+    </div>
   </nav>
 </template>
 

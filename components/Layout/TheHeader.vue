@@ -1,12 +1,20 @@
 <template>
-  <header>
+  <header :class="$style.header">
     <notch-wrapper>
-      <div class="header-wrapper">
+      <div :class="$style.wrapper">
         <skip-links />
         <mobile-navigation @toggleMenu="toggleMenu" />
-        <nuxt-link class="logo-wrapper" :to="localePath({ name: 'index' })">
-          <icon-logo class="logo" aria-hidden="true" width="150" height="150" />
-          <span class="sr-only">Haarlm bijdeles</span>
+        <nuxt-link
+          :class="$style['logo-wrapper']"
+          :to="localePath({ name: 'index' })"
+        >
+          <icon-logo
+            :class="$style.logo"
+            aria-hidden="true"
+            width="120"
+            height="120"
+          />
+          <span class="sr-only">{{ title }}</span>
         </nuxt-link>
 
         <transition
@@ -15,11 +23,11 @@
           @after-leave="afterLeave"
           @before-leave="beforeLeave"
         >
-          <div v-show="showMenu" class="bg">
+          <div v-show="showMenu" :class="$style.bg">
             <transition name="fade">
-              <div v-show="showMenu" ref="bg" class="content">
+              <div v-show="showMenu" ref="bg" :class="$style.content">
                 <meta-navigation />
-                <main-navigation />
+                <main-navigation :class="$style['main-navigation']" />
               </div>
             </transition>
           </div>
@@ -37,6 +45,7 @@ import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
 import MainNavigation from '~/components/Menu/MainNavigation/MainNavigation.vue'
 import MetaNavigation from '~/components/Menu/MetaNavigation.vue'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import { title } from '~/data/siteDetails'
 
 export default {
   components: {
@@ -50,6 +59,7 @@ export default {
   data() {
     return {
       showMenu: false,
+      title,
     }
   },
   methods: {
@@ -78,8 +88,8 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-header {
+<style lang="postcss" module>
+.header {
   background: var(--color-primary);
   margin-bottom: 4em;
 
@@ -100,7 +110,7 @@ header {
   }
 }
 
-.header-wrapper {
+.wrapper {
   display: flex;
 
   @media (--navigation-md) {
@@ -124,15 +134,15 @@ header {
     padding: 0;
     flex-direction: column;
     overflow: visible;
-    transform: translateY(0);
+    transform: none;
     display: flex !important;
+    align-items: flex-end;
     max-height: none;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex: 1 0 auto;
   }
 
   @media (--navigation-lg) {
-    padding-top: var(--spacing-m);
     padding-left: 0;
   }
 }
@@ -149,8 +159,11 @@ header {
   @media (--navigation-lg) {
     width: auto;
     flex: 0 0 auto;
-    margin-bottom: calc(var(--spacing-l) / -1);
   }
+}
+
+.main-navigation {
+  width: 100%;
 }
 
 .bg {

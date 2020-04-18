@@ -5,7 +5,7 @@
         <div>
           <article :class="$style.body">
             <!-- eslint-disable-next-line -->
-          <h1 v-html="page.title" />
+          <h1 v-html="page.title" id="content" tabindex="-1" />
             <post-date v-if="page.date" :date="page.date" />
             <!-- eslint-disable-next-line -->
           <div v-html="page.content" />

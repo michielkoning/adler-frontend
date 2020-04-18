@@ -36,6 +36,12 @@ export default {
 {
   "nl": {
     "title": "Bekijk ook"
+  },
+  "de":  {
+    "title": "PLACEHOLDER"
+  },
+  "en": {
+    "title": "See also"
   }
 }
 </i18n>

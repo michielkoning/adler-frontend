@@ -20,11 +20,11 @@ const dateTimeFormats = {
 }
 
 export default {
-  defaultLocale: 'nl',
-  fallbackLocale: 'nl',
+  defaultLocale: 'de',
+  fallbackLocale: 'de',
+  rootRedirect: 'de',
   baseUrl,
   lazy: true,
-  rootRedirect: 'nl',
   strategy: 'prefix',
   langDir: 'locales/',
   locales: [
