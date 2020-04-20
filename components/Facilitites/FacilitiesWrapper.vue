@@ -2,7 +2,7 @@
   <section :class="$style.facilities">
     <notch-wrapper>
       <div :class="$style.wrapper">
-        <h1 :class="$style.title">Faciliteiten</h1>
+        <h1 :class="$style.title">{{ $t('title') }}</h1>
         <facilities-groups :facilities="facilities" />
       </div>
     </notch-wrapper>
@@ -38,3 +38,17 @@ export default {
   text-align: center;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Onze faciliteiten"
+  },
+  "de": {
+    "title": "Einrichtungen"
+  },
+  "en": {
+    "title": "Our facilities"
+  }
+}
+</i18n>

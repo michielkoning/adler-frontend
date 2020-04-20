@@ -33,7 +33,7 @@
       :class="$style.icon"
     />
     <div>
-      <h2>{{ facility.title }}</h2>
+      <h2>{{ $t(facility.title) }}</h2>
       <facilities-list :list="facility.list" />
     </div>
   </div>
@@ -73,3 +73,26 @@ export default {
   flex: 0 0 3em;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "forKids": "Voor Kinderen",
+    "ourRooms": "Onze kamers",
+    "extras": "Extra's",
+    "environment": "Omgeving"
+  },
+  "de": {
+    "forKids": "Für Kinder",
+    "ourRooms": "Unsere Zimmer",
+    "extras": "Extra Zuckerl",
+    "environment": "Die Umgebung"
+  },
+  "en": {
+    "forKids": "For kids",
+    "ourRooms": "Our rooms",
+    "extras": "Extras",
+    "environment": "The environment"
+  }
+}
+</i18n>
