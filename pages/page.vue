@@ -16,6 +16,7 @@ import PageByURIQuery from '~/graphql/Pages/PageByURI.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PagesArchiveSection from '~/components/Pages/Archive/PagesArchiveSection.vue'
 import RelatedPagesSection from '~/components/Pages/Related/RelatedPagesSection.vue'
+import getTranslations from '~/helpers/i18n'
 
 export default {
   components: {
@@ -23,13 +24,23 @@ export default {
     PagesArchiveSection,
     RelatedPagesSection,
   },
-  async asyncData({ app, params }) {
+  async asyncData({ app, params, store }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageByURIQuery,
       variables: {
         uri: params.pathMatch,
       },
     })
+
+    const translations = getTranslations(
+      app.i18n,
+      page.data.page.translations,
+      'pathMatch',
+      'relativeUrl',
+    )
+
+    await store.dispatch('i18n/setRouteParams', translations)
+
     return {
       page: page.data.page,
     }

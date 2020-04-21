@@ -31,5 +31,15 @@ query Room($uri: ID!) {
         }
       }
     }
+    translations {
+      relativeUrl
+      link
+      uri
+      slug
+      language {
+        code
+        slug
+      }
+    }
   }
 }
