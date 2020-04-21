@@ -189,6 +189,9 @@ export default {
   "nl": {
     "viewAllPhotos": "Bekijk alle foto's"
   },
+  "de": {
+    "viewAllPhotos": "Mehr Fotos"
+  },
   "en": {
     "viewAllPhotos": "View all photos"
   }

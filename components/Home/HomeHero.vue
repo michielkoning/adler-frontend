@@ -9,7 +9,7 @@
         :class="$style.icon"
       />
       <h1 id="content" class="sr-only" tabindex="-1">
-        Familiehotel &amp; Gasthof ADler
+        {{ title }}
       </h1>
       <h2>in Lingenau, Bregenzerwald</h2>
     </div>
@@ -19,6 +19,7 @@
 <script>
 import ImageHero from '~/components/Images/ImageHero.vue'
 import IconLogoHero from '~/icons/logo-hero.svg'
+import { title } from '~/data/siteDetails'
 
 export default {
   components: {
@@ -30,6 +31,11 @@ export default {
       type: Object,
       default: () => {},
     },
+  },
+  data() {
+    return {
+      title,
+    }
   },
 }
 </script>

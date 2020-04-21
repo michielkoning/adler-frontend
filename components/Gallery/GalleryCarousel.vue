@@ -160,6 +160,10 @@ export default {
     "previousSlide": "Vorige afbeelding",
     "nextSlide": "Volgende afbeelding"
   },
+  "de": {
+    "previousSlide": "Vorheriges Bild",
+    "nextSlide": "Nächstes Bild"
+  },
   "en": {
     "previousSlide": "Previous image",
     "nextSlide": "Next image"

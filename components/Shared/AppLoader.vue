@@ -5,7 +5,7 @@
     <div class="dot dot-3"></div>
     <div class="dot dot-4"></div>
     <span class="sr-only" aria-live="polite" role="region">
-      {{ $t('loading') }}
+      {{ $t('title') }}
     </span>
   </div>
 </template>
@@ -78,3 +78,17 @@
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Aan het laden"
+  },
+  "de": {
+    "title": "Laden"
+  },
+  "en": {
+    "title": "Loading"
+  }
+}
+</i18n>

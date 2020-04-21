@@ -43,6 +43,14 @@ export default {
   "nl": {
     "title404": "Pagina niet gevonden",
     "title500": "Er is een fout opgetreden"
+  },
+  "de": {
+    "title404": "Seite nicht gefunden",
+    "title500": "Ein Fehler ist aufgetreten"
+  },
+  "en": {
+    "title404": "Page not found",
+    "title500": "An error occured"
   }
 }
 </i18n>

@@ -20,3 +20,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "title": "Onze kamers"
+  },
+  "de": {
+    "title": "Unsere Zimmer"
+  },
+  "en": {
+    "title": "Our rooms"
+  }
+}
+</i18n>

@@ -23,14 +23,6 @@ export default {
 }
 </script>
 
-<i18n>
-{
-  "nl": {
-    "suffix": "per pers & nacht"
-  }
-}
-</i18n>
-
 <style lang="postcss" module>
 .price {
   background: var(--color-gray);
@@ -57,3 +49,17 @@ export default {
   line-height: 1.3;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "suffix": "per pers & nacht"
+  },
+  "de": {
+    "suffix": "pro Pers. & Nacht"
+  },
+  "en": {
+    "suffix": "per person & nicht"
+  }
+}
+</i18n>

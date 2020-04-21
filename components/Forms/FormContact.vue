@@ -34,6 +34,7 @@
         <form-textarea
           id="message"
           v-model.trim="formData.message"
+          :error-message="errorMessageMessage"
           :title="$t('form.message')"
           name="message"
           rows="4"
@@ -79,15 +80,16 @@ export default {
         required,
         email,
       },
+      message: {
+        required,
+      },
     },
   },
   computed: {
     errorMessageName() {
       if (this.$v.formData.name.$anyError) {
         if (!this.$v.formData.name.required) {
-          return this.$t('form.error.required', {
-            field: this.$t('form.name').toLowerCase(),
-          })
+          return this.$t('form.error.required')
         }
       }
       return null
@@ -95,13 +97,19 @@ export default {
     errorMessageEmail() {
       if (this.$v.formData.email.$anyError) {
         if (!this.$v.formData.email.required) {
-          return this.$t('form.error.required', {
-            field: this.$t('form.email').toLowerCase(),
-          })
+          return this.$t('form.error.required')
         }
 
         if (!this.$v.formData.email.email)
           return this.$t('form.error.email.incorrect')
+      }
+      return null
+    },
+    errorMessageMessage() {
+      if (this.$v.formData.message.$anyError) {
+        if (!this.$v.formData.message.required) {
+          return this.$t('form.error.required')
+        }
       }
       return null
     },
@@ -122,6 +130,18 @@ export default {
     "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen.",
     "successMessage": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
     "btnText": "Verzenden"
+  },
+  "de": {
+    "title": "PLACEHOLDER",
+    "intro": "PLACEHOLDER",
+    "successMessage": "PLACEHOLDER",
+    "btnText": "Senden"
+  },
+  "en": {
+    "title": "Contact us",
+    "intro": "PLACEHOLDER",
+    "successMessage": "PLACEHOLDER",
+    "btnText": "Send"
   }
 }
 </i18n>

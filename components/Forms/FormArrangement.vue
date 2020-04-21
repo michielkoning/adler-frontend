@@ -8,10 +8,10 @@
     @validate="validate"
   >
     <input type="hidden" name="arrangement" :value="title" />
-    <form-fieldset :title="$t('title')" class="addresses">
+    <form-fieldset :title="$t('addressData')" class="addresses">
       <form-input-text
         id="name"
-        v-model.trim.lazy="$v.formData.name.$model"
+        v-model.trim.lazy="$v.formData.$model.name"
         :class="$style.name"
         :error-message="errorMessageName"
         :title="$t('form.name')"
@@ -61,12 +61,13 @@
         id="email"
         v-model="formData.email"
         :class="$style.email"
+        :error-message="errorMessageEmail"
         :title="$t('form.email')"
         type="email"
         name="email"
       />
     </form-fieldset>
-    <form-fieldset :title="$t('title')" class="totals">
+    <form-fieldset :title="$t('familyData')" class="totals">
       <form-input-text
         id="totalRooms"
         v-model.trim.lazy="$v.formData.totalRooms.$model"
@@ -96,10 +97,10 @@
       />
     </form-fieldset>
 
-    <form-fieldset :title="$t('title')" class="dates">
+    <form-fieldset :title="$t('dates')" class="dates">
       <form-input-text
         id="dateArrival"
-        v-model.trim.lazy="$v.formData.name.$model"
+        v-model.trim.lazy="$v.formData.$model"
         :class="$style.date"
         :error-message="errorMessageDateArrival"
         :title="$t('form.dateArrival')"
@@ -116,7 +117,7 @@
         type="date"
       />
     </form-fieldset>
-    <form-fieldset :title="$t('title')">
+    <form-fieldset :title="$t('remarks')">
       <form-textarea
         id="remarks"
         v-model.trim="formData.remarks"
@@ -213,9 +214,7 @@ export default {
     errorMessageName() {
       if (this.$v.formData.name.$anyError) {
         if (!this.$v.formData.name.required) {
-          return this.$t('form.error.required', {
-            field: this.$t('form.name').toLowerCase(),
-          })
+          return this.$t('form.error.required')
         }
       }
       return null
@@ -223,9 +222,7 @@ export default {
     errorMessageEmail() {
       if (this.$v.formData.email.$anyError) {
         if (!this.$v.formData.email.required) {
-          return this.$t('form.error.required', {
-            field: this.$t('form.email').toLowerCase(),
-          })
+          return this.$t('form.error.required')
         }
 
         if (!this.$v.formData.email.email)
@@ -234,30 +231,75 @@ export default {
       return null
     },
     errorMessageAddress() {
+      if (this.$v.formData.address.$anyError) {
+        if (!this.$v.formData.address.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageZipcode() {
+      if (this.$v.formData.zipcode.$anyError) {
+        if (!this.$v.formData.zipcode.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageCity() {
+      if (this.$v.formData.city.$anyError) {
+        if (!this.$v.formData.city.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageCountry() {
+      if (this.$v.formData.country.$anyError) {
+        if (!this.$v.formData.country.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageTotalRooms() {
+      if (this.$v.formData.totalRooms.$anyError) {
+        if (!this.$v.formData.totalRooms.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageTotalAdults() {
+      if (this.$v.formData.totalAdults.$anyError) {
+        if (!this.$v.formData.totalAdults.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageTotalChildren() {
+      if (this.$v.formData.totalChildren.$anyError) {
+        if (!this.$v.formData.totalChildren.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageDateArrival() {
+      if (this.$v.formData.dateArrival.$anyError) {
+        if (!this.$v.formData.dateArrival.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
     errorMessageDateDeparture() {
+      if (this.$v.formData.dateDeparture.$anyError) {
+        if (!this.$v.formData.dateDeparture.required) {
+          return this.$t('form.error.required')
+        }
+      }
       return null
     },
   },
@@ -268,9 +310,7 @@ export default {
     },
     requiredMessage(field, name) {
       if (!this.$v[field].required) {
-        return this.$t('form.error.required', {
-          field: this.$t(`form.${name}`).toLowerCase(),
-        })
+        return this.$t('form.error.required')
       }
     },
   },
@@ -326,7 +366,27 @@ export default {
 {
   "nl": {
     "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen.",
-    "btnText": "Boeken"
+    "btnText": "Boeken",
+    "addressData": "Adresgegevens",
+    "familyData": "Bezoekerssamenstelling",
+    "dates": "Data",
+    "remarks": "Opmerkingen"
+  },
+  "de": {
+    "intro": "PLACEHOLDER",
+    "btnText": "Buchen",
+    "addressData": "Adressinformationen",
+    "familyData": "Besucherkomposition",
+    "dates": "Daten",
+    "remarks": "Bemerkungen"
+  },
+  "en": {
+    "intro": "PLACEHOLDER",
+    "btnText": "Book",
+    "addressData": "Address data",
+    "familyData": "Visitor composition",
+    "dates": "Dates",
+    "remarks": "Remarkt"
   }
 }
 </i18n>

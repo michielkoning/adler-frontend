@@ -6,9 +6,8 @@
           <div :class="$style.text">
             {{ $t('info.part1') }}
             <nuxt-link :to="localePath({ name: 'privacy' })">
-              {{ $t('info.part2') }}
-            </nuxt-link>
-            {{ $t('info.part3') }}
+              {{ $t('info.part2') }} </nuxt-link
+            >.
           </div>
           <app-button :is-large="false" @click="confirm">{{
             $t('confirm')
@@ -85,8 +84,21 @@ export default {
     "confirm": "Akkoord",
     "info": {
       "part1": "Door deze website verder te bezoeken, gaat u akkoord met het plaatsen van cookies. Bekijk voor meer informatie onze",
-      "part2": "privacybeleid",
-      "part3": "."
+      "part2": "privacybeleid"
+    }
+  },
+  "de": {
+    "confirm": "Akzeptieren",
+    "info": {
+      "part1": "Durch die Verwendung dieser Seite erklären Sie sich einverstanden, dass diese Website Cookies verwendet. Mehr Info dazu in unserer",
+      "part2": "Datenschutzerklärung"
+    }
+  },
+  "en": {
+    "confirm": "Accept",
+    "info": {
+      "part1": "By continuing to visit this website, you agree to the placement of cookies. For more information, see our",
+      "part2": "privacy policy"
     }
   }
 }

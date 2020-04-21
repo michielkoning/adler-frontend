@@ -40,7 +40,15 @@ export default {
 {
   "nl": {
     "latestPosts": "Laatste berichten",
-    "othertPosts": "Meer berichten"
+    "otherPosts": "Meer berichten"
+  },
+  "de": {
+    "latestPosts": "PLACEHOLDER",
+    "otherPosts": "PLACEHOLDER"
+  },
+  "en": {
+    "latestPosts": "Latest posts",
+    "otherPosts": "More posts"
   }
 }
 </i18n>

@@ -11,24 +11,6 @@
     "contact": "Contact",
     "privacy": "Privacybeleid"
   },
-  "ourRatings": "Onze waarderingen",
-  "followOn": "Bekijk %{title} op %{network}",
-  "addresses": "Adressen",
-  "direction": "Routebeschrijving",
-  "on": "op",
-  "latestPosts": "Latest posts",
-  "loadMore": "Load more",
-  "loading": "Loading…",
-  "next": "Next",
-  "readMore": "Lees verder",
-  "socialMediaLinks": "Follow us on",
-  "mainNavigation": "Main navigation",
-  "menu": "Menu",
-  "gallery": "Gallery",
-  "getToKnowUs": "Get to know us",
-  "whatWeDo": "What we do",
-  "reviews": "Reviews",
-  "mobileWorkshop": "Mobile workshop",
   "form": {
     "name": "Naam",
     "phoneNumber": "Telefoonnummer",
@@ -46,7 +28,7 @@
     "dateDeparture": "Vertrekdatum",
     "success": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
     "error": {
-      "required": "Vul uw {field} in.",
+      "required": "Dit is een verplicht veld.",
       "email": {
         "incorrect": "Vul een geldige e-mailadres in."
       }

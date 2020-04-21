@@ -4,7 +4,7 @@
       <div class="buttons">
         <nuxt-link class="logo-wrapper" to="/">
           <icon-logo class="logo" height="50" width="160" aria-hidden="true" />
-          <span class="sr-only">Adler Lingenau</span>
+          <span class="sr-only">{{ title }}</span>
         </nuxt-link>
         <button
           :aria-expanded="menuIsExpanded ? 'true' : 'false'"
@@ -12,7 +12,7 @@
           @click="toggleMenu(!menuIsExpanded)"
         >
           <icon-bars aria-hidden="true" width="24" height="24" class="bars" />
-          {{ $t('menu') }}
+          {{ $t('title') }}
         </button>
       </div>
     </notch-wrapper>
@@ -23,6 +23,7 @@
 import IconBars from '~/icons/bars.svg'
 import IconLogo from '~/icons/logo.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import { title } from '~/data/siteDetails'
 
 export default {
   components: {
@@ -33,6 +34,7 @@ export default {
   data() {
     return {
       menuIsExpanded: false,
+      title,
     }
   },
 
@@ -98,3 +100,17 @@ export default {
   fill: currentColor;
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "title": "Menu"
+  },
+  "de": {
+    "title": "Menu"
+  },
+  "en": {
+    "title": "Menu"
+  }
+}
+</i18n>

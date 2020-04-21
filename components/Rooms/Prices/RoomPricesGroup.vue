@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.prices">
     <div :class="$style.group">
-      <h2 :class="$style.title">{{ $t('HighSeason') }}</h2>
+      <h2 :class="$style.title">{{ $t('highSeason') }}</h2>
       <room-price
         :class="$style.price"
         :title="$t('fullBoard')"
@@ -14,7 +14,7 @@
       />
     </div>
     <div :class="$style.group">
-      <h2 :class="$style.title">{{ $t('LowSeason') }}</h2>
+      <h2 :class="$style.title">{{ $t('lowSeason') }}</h2>
       <room-price
         :class="$style.price"
         :title="$t('fullBoard')"
@@ -73,10 +73,22 @@ export default {
 <i18n>
 {
   "nl": {
-    "HighSeason": "Hoogseizoen",
-    "LowSeason": "Tussenseizoen",
+    "highSeason": "Hoogseizoen",
+    "lowSeason": "Tussenseizoen",
     "fullBoard": "Inclusief ontbijt",
     "halfBoard": "Halfpension"
+  },
+  "de": {
+    "highSeason": "Hochsaison",
+    "lowSeason": "Nebensaison",
+    "fullBoard": "Frühstücksbuffet",
+    "halfBoard": "Halbpension"
+  },
+  "en": {
+    "highSeason": "High season",
+    "lowSeason": "Low season",
+    "fullBoard": "Full board",
+    "halfBoard": "Half Board"
   }
 }
 </i18n>

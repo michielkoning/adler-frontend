@@ -25,6 +25,12 @@ export default {
 {
   "nl": {
     "title": "Laatste berichten"
+  },
+  "de": {
+    "title": "PLACEHOLDER"
+  },
+  "en": {
+    "title": "Latest posts"
   }
 }
 </i18n>

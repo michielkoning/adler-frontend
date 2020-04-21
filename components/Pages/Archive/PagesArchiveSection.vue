@@ -34,6 +34,12 @@ export default {
 {
   "nl": {
     "title": "Gerelateerde pagina's"
+  },
+  "de": {
+    "title": "Verwandte Seiten"
+  },
+  "en": {
+    "title": "Related pages"
   }
 }
 </i18n>

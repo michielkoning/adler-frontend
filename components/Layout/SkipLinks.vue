@@ -40,6 +40,14 @@ export default {
   "nl": {
     "content": "Naar hoofdinhoud",
     "menu": "Naar hoofdnavigatie"
+  },
+  "de": {
+    "content": "Zum Hauptinhalt",
+    "menu": "Zur Hauptnavigation"
+  },
+  "en": {
+    "content": "To main content",
+    "menu": "To main navigation"
   }
 }
 </i18n>

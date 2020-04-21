@@ -7,6 +7,7 @@
     netlify-honeypot="bot-field"
     method="POST"
     :name="name"
+    novalidate
     @submit.prevent="submit"
   >
     <p v-if="intro">{{ intro }}</p>
@@ -20,7 +21,7 @@
       :class="$style['bot-field']"
       name="bot-field"
     />
-    <p>{{ errorMessage }}</p>
+    <div>{{ errorMessage }}</div>
     <app-loader v-if="loading" />
     <app-button v-else type="submit" :is-full-width="true" :class="$style.btn">
       {{ btnText }}
@@ -132,6 +133,14 @@ export default {
   "nl": {
     "botField": "Vul dit niet in als je mens bent",
     "errorMessage": "Niet alle velden zijn correct ingevuld."
+  },
+  "de": {
+    "botField": "Geben Sie dies nicht ein, wenn Sie ein Mensch sind",
+    "errorMessage": "Nicht alle Felder sind korrekt ausgefüllt."
+  },
+  "en": {
+    "botField": "Don’t fill this out if you're human",
+    "errorMessage": "Not all fields are filled in correctly."
   }
 }
 </i18n>
