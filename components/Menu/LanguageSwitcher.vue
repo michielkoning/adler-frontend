@@ -4,7 +4,7 @@
       v-for="locale in availableLocales"
       :key="locale.code"
       :class="$style.link"
-      :to="switchLocalePath(locale.code)"
+      :to="localePath('/', locale.code)"
     >
       <icon-flag-nl
         v-if="locale.code === 'nl'"

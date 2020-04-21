@@ -17,7 +17,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title,
     titleTemplate: '%s',
     meta: [
       { charset: 'utf-8' },
@@ -32,11 +32,6 @@ export default {
       {
         name: 'apple-mobile-web-app-status-bar-style',
         content: 'black-translucent',
-      },
-      {
-        hid: 'og:locale',
-        name: 'og:locale',
-        content: 'en_US',
       },
       {
         hid: 'og:site_name',

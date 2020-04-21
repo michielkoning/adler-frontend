@@ -12,6 +12,7 @@ import { homePageId } from '~/data/pages'
 import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
 import HomeHero from '~/components/Home/HomeHero.vue'
 import HomeContent from '~/components/Home/HomeContent.vue'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
@@ -32,9 +33,7 @@ export default {
     }
   },
   head() {
-    return {
-      title: this.page.title,
-    }
+    return getSeoMetaData(this.page)
   },
 }
 </script>

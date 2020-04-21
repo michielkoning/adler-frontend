@@ -21,6 +21,7 @@ import AppPage from '~/components/Layout/AppPage.vue'
 import { contactPageId } from '~/data/pages'
 import TheAddress from '~/components/Contact/TheAddress.vue'
 import OpeningTimes from '~/components/Contact/OpeningTimes.vue'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
@@ -51,10 +52,13 @@ export default {
   },
   nuxtI18n: {
     paths: {
-      de: '/Kontakt',
+      de: '/kontakt',
       en: '/contact',
       nl: '/contact',
     },
+  },
+  head() {
+    return getSeoMetaData(this.page)
   },
 }
 </script>
