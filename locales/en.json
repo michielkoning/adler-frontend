@@ -26,7 +26,7 @@
     "totalChildren": "TNumber of kids",
     "dateArrival": "Date of arrival",
     "dateDeparture": "Date of departure",
-    "success": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
+    "success": "PLACEHOLDER",
     "error": {
       "required": "This is a required field",
       "email": {

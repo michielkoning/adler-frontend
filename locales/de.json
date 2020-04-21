@@ -26,11 +26,11 @@
     "totalChildren": "Anzahl Kinder",
     "dateArrival": "Datum Ankunft",
     "dateDeparture": "Datum Abflug",
-    "success": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
+    "success": "PLACEHOLDER",
     "error": {
-      "required": "Vul uw {field} in.",
+      "required": "PLACEHOLDER",
       "email": {
-        "incorrect": "Vul een geldige e-mailadres in."
+        "incorrect": "PLACEHOLDER"
       }
     }
   }

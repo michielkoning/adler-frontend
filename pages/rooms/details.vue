@@ -2,12 +2,7 @@
   <div>
     <app-page :page="room">
       <room-prices-group :prices="room.pricesGroup" />
-      <h2>Kamer is voorzien van:</h2>
-      <ul v-if="room.services.edges.length" :class="$style.list">
-        <li v-for="service in room.services.edges" :key="service.node.id">
-          {{ service.node.name }}
-        </li>
-      </ul>
+      <room-services :services="room.services" />
       <template v-slot:sidebar>
         <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
         <related-rooms-section :not-in="room.databaseId" />
@@ -22,6 +17,7 @@ import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedRoomsSection from '~/components/Rooms/Related/RelatedRoomsSection.vue'
 import RoomPricesGroup from '~/components/Rooms/Prices/RoomPricesGroup.vue'
 import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
+import RoomServices from '~/components/Rooms/Details/RoomServices.vue'
 
 export default {
   components: {
@@ -29,6 +25,7 @@ export default {
     RelatedRoomsSection,
     RoomPricesGroup,
     BookRoom,
+    RoomServices,
   },
   async asyncData({ app, params }) {
     const room = await app.apolloProvider.defaultClient.query({
@@ -50,11 +47,3 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" module>
-.list {
-  display: grid;
-  grid-column-gap: var(--gutter);
-  grid-template-columns: repeat(2, 1fr);
-}
-</style>
