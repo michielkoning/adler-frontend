@@ -19,7 +19,7 @@
       :title="$t('bookNow')"
       @close="toggleModal"
     >
-      <!-- <iframe height="600" width="1000" loading="lazy" :src="easyBookingUrl" /> -->
+      <iframe height="600" width="1000" loading="lazy" :src="easyBookingUrl" />
     </app-modal>
   </nav>
 </template>

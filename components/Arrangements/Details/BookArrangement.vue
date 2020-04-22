@@ -1,22 +1,19 @@
 <template>
-  <div :class="$style.wrapper">
-    <app-button :is-full-width="true" @click="toggleModal">
-      {{ $t('bookNow') }}
-    </app-button>
+  <book-now @trigger="toggleModal">
     <app-modal :show="showModal" :title="title" @close="toggleModal">
       <form-arrangement :title="title" />
     </app-modal>
-  </div>
+  </book-now>
 </template>
 
 <script>
-import AppButton from '~/components/Shared/AppButton.vue'
+import BookNow from '~/components/Shared/BookNow.vue'
 import AppModal from '~/components/Shared/AppModal.vue'
 import FormArrangement from '~/components/Forms/FormArrangement.vue'
 
 export default {
   components: {
-    AppButton,
+    BookNow,
     AppModal,
     FormArrangement,
   },
@@ -38,15 +35,3 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" module>
-.wrapper {
-  @media (--viewport-sm) {
-    grid-column: span 2;
-  }
-
-  @media (--viewport-lg) {
-    grid-column: span 1;
-  }
-}
-</style>
