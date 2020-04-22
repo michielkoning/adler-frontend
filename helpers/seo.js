@@ -1,5 +1,3 @@
-import { baseUrl } from '~/data/siteDetails'
-
 const getMetaTitle = (page, key) => {
   if (page.seo[key]) {
     return page.seo[key]
@@ -32,7 +30,7 @@ const getMetaImage = (page, key) => {
   return null
 }
 
-export default (page, path) => {
+export default (page) => {
   return {
     title: page.seo.title,
     meta: [
@@ -41,15 +39,11 @@ export default (page, path) => {
         hid: 'description',
         content: page.seo.metaDesc,
       },
+      // Open Graph
       {
         hid: 'og:title',
         name: 'og:title',
         content: page.seo.title,
-      },
-      {
-        hid: 'og:locale',
-        name: 'og:locale',
-        content: 'nl_NL',
       },
       {
         hid: 'og:description',
@@ -58,28 +52,22 @@ export default (page, path) => {
       },
       {
         name: 'og:url',
-        content: `${baseUrl}${path}`,
+        content: page.link,
       },
-      {
-        name: 'og:image',
-        content: getMetaImage(page, 'opengraphImage'),
-      },
+      { name: 'og:image', content: getMetaImage(page, 'opengraphImage') },
+      // Twitter Card
+      { name: 'twitter:card', content: 'summary' },
+
       {
         name: 'twitter:title',
         content: getMetaTitle(page, 'twitterTitle'),
       },
       {
         name: 'twitter:description',
-        content: getMetaDescripion(page, 'twitterDescription'),
+        content: page.seo.metaDesc,
       },
-      {
-        name: 'twitter:image',
-        content: getMetaImage(page, 'twitterImage'),
-      },
-      {
-        name: 'twitter:image:alt',
-        content: page.seo.title,
-      },
+      { name: 'twitter:image', content: getMetaImage(page, 'twitterImage') },
+      { name: 'twitter:image:alt', content: page.seo.title },
     ],
   }
 }

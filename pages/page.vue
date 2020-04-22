@@ -17,6 +17,7 @@ import AppPage from '~/components/Layout/AppPage.vue'
 import PagesArchiveSection from '~/components/Pages/Archive/PagesArchiveSection.vue'
 import RelatedPagesSection from '~/components/Pages/Related/RelatedPagesSection.vue'
 import getTranslations from '~/helpers/i18n'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
@@ -51,6 +52,9 @@ export default {
       en: '/*',
       nl: '/*',
     },
+  },
+  head() {
+    return getSeoMetaData(this.page)
   },
 }
 </script>
