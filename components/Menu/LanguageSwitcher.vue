@@ -50,9 +50,9 @@ export default {
   },
   methods: {
     generateLocalePath(code) {
-      // if (this.switchLocalePath(code)) {
-      //   return this.switchLocalePath(code).replace(replacePlaceholder, '')
-      // }
+      if (this.switchLocalePath(code)) {
+        return this.switchLocalePath(code).replace(replacePlaceholder, '')
+      }
       return this.localePath('/', code)
     },
   },

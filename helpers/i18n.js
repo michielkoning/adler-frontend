@@ -1,8 +1,6 @@
 export const replacePlaceholder = 'REDIRECT_LOCALE_PATH'
 
 export default (i18n, translations, paramKey, keyToReplace) => {
-  if (!translations.length) return
-
   const translatedPages = {}
   const currentLocale = i18n.locale
   i18n.locales.forEach((locale) => {
@@ -27,5 +25,5 @@ export default (i18n, translations, paramKey, keyToReplace) => {
       [paramKey]: translatedPageUrl,
     }
   })
-  return null
+  return translatedPages
 }

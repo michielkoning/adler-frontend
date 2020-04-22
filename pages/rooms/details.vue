@@ -37,16 +37,14 @@ export default {
 
     if (!room.data.room) redirect(301, app.localePath('rooms'))
 
-    if (room.data.room.translations.length) {
-      const translations = getTranslations(
-        app.i18n,
-        room.data.room.translations,
-        'slug',
-        'slug',
-      )
+    const translations = getTranslations(
+      app.i18n,
+      room.data.room.translations,
+      'slug',
+      'slug',
+    )
 
-      await store.dispatch('i18n/setRouteParams', translations)
-    }
+    await store.dispatch('i18n/setRouteParams', translations)
 
     return {
       room: room.data.room,
