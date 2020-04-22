@@ -25,13 +25,15 @@ export default {
     PagesArchiveSection,
     RelatedPagesSection,
   },
-  async asyncData({ app, params, store }) {
+  async asyncData({ app, params, store, redirect }) {
     const page = await app.apolloProvider.defaultClient.query({
       query: PageByURIQuery,
       variables: {
         uri: params.pathMatch,
       },
     })
+
+    if (!page.data.page) redirect(301, app.localePath('/'))
 
     const translations = getTranslations(
       app.i18n,

@@ -4,9 +4,6 @@ query PageByURI($uri: ID!) {
   page(id: $uri, idType: URI) {
     ...pageDetails
     translations {
-      link
-      uri
-      slug
       relativeUrl
       language {
         code

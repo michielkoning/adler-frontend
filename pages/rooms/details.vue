@@ -1,6 +1,5 @@
 <template>
   <app-page :page="room">
-    {{ translations }}
     <room-prices-group :prices="room.pricesGroup" />
     <room-services :services="room.services" />
     <template v-slot:sidebar>
@@ -27,7 +26,7 @@ export default {
     BookRoom,
     RoomServices,
   },
-  async asyncData({ app, params, store }) {
+  async asyncData({ app, params, store, redirect }) {
     const room = await app.apolloProvider.defaultClient.query({
       query: RoomQuery,
       variables: {
@@ -35,18 +34,19 @@ export default {
       },
     })
 
+    if (!room.data.room) redirect(301, app.localePath('rooms'))
+
     const translations = getTranslations(
       app.i18n,
       room.data.room.translations,
       'slug',
-      'uri',
+      'slug',
     )
 
     await store.dispatch('i18n/setRouteParams', translations)
 
     return {
       room: room.data.room,
-      translations,
     }
   },
   nuxtI18n: {

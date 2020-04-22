@@ -1,4 +1,4 @@
-export default (i18n, translations, key, keyToReplace) => {
+export default (i18n, translations, paramKey, keyToReplace) => {
   const translatedPages = {}
   const currentLocale = i18n.locale
   i18n.locales.forEach((locale) => {
@@ -9,13 +9,8 @@ export default (i18n, translations, key, keyToReplace) => {
       return
     }
 
-    let translatedPageUrl = ''
+    let translatedPageUrl = '-'
     if (translatedPage) {
-      // translatedPageUrl = translatedPage.relativeUrl.replace(
-      //   `/${locale.code}/`,
-      //   '',
-      // )
-
       translatedPageUrl = translatedPage[keyToReplace].replace(
         `/${locale.code}/`,
         '',
@@ -23,7 +18,7 @@ export default (i18n, translations, key, keyToReplace) => {
     }
 
     translatedPages[locale.code] = {
-      [key]: translatedPageUrl,
+      [paramKey]: translatedPageUrl,
     }
   })
   return translatedPages

@@ -9,5 +9,12 @@ query Post($uri: ID!) {
     featuredImage {
       ...imageHero
     }
+    translations {
+      slug
+      language {
+        code
+        slug
+      }
+    }
   }
 }

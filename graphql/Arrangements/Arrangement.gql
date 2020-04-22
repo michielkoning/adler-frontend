@@ -14,5 +14,12 @@ query Arrangement($uri: ID!) {
         value
       }
     }
+    translations {
+      slug
+      language {
+        code
+        slug
+      }
+    }
   }
 }
