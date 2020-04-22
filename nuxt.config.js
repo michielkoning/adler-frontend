@@ -3,7 +3,7 @@ import googleAnalytics from './config/googleAnalytics'
 import facebookPixel from './config/facebookPixel'
 import googleTagManager from './config/googleTagManager'
 import manifest from './config/manifest'
-// import generate from './config/generate'
+import generate from './config/generate'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
 import sitemap from './config/sitemap'
@@ -155,9 +155,7 @@ export default {
       },
     },
   },
-  generate: {
-    fallback: true,
-  },
+  generate,
   apollo,
   sitemap,
 }
