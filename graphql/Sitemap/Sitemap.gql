@@ -1,0 +1,31 @@
+query Sitemap($notIn: [ID]) {
+  pages(first: 99, where: { notIn: $notIn }) {
+    edges {
+      node {
+        uri
+        databaseId
+      }
+    }
+  }
+  posts(first: 99) {
+    edges {
+      node {
+        uri
+      }
+    }
+  }
+  rooms(first: 99) {
+    edges {
+      node {
+        uri
+      }
+    }
+  }
+  arrangements(first: 99) {
+    edges {
+      node {
+        uri
+      }
+    }
+  }
+}

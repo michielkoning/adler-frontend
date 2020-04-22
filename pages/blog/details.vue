@@ -10,7 +10,7 @@
 import PostQuery from '~/graphql/Posts/Post.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedPostsSection from '~/components/Posts/Related/RelatedPostsSection.vue'
-import getTranslations from '~/helpers/i18n'
+// import getTrans\lations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
@@ -26,16 +26,16 @@ export default {
       },
     })
 
-    if (!post.data.post) redirect(301, app.localePath('blog'))
+    // if (!post.data.post) redirect(301, app.localePath('blog'))
 
-    const translations = getTranslations(
-      app.i18n,
-      post.data.post.translations,
-      'slug',
-      'slug',
-    )
+    // const translations = getTranslations(
+    //   app.i18n,
+    //   post.data.post.translations,
+    //   'slug',
+    //   'slug',
+    // )
 
-    await store.dispatch('i18n/setRouteParams', translations)
+    // await store.dispatch('i18n/setRouteParams', translations)
 
     return {
       post: post.data.post,
