@@ -100,7 +100,7 @@
     <form-fieldset :title="$t('dates')" class="dates">
       <form-input-text
         id="dateArrival"
-        v-model.trim.lazy="$v.formData.$model"
+        v-model.trim.lazy="$v.formData.dateArrival.$model"
         :class="$style.date"
         :error-message="errorMessageDateArrival"
         :title="$t('form.dateArrival')"

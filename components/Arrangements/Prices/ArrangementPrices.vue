@@ -5,7 +5,9 @@
       <tbody>
         <tr v-for="(price, index) in prices" :key="index">
           <td>{{ price.label }}</td>
-          <td :class="$style.price">{{ $n(price.value, 'currency') }}</td>
+          <td :class="$style.price">
+            {{ $n(price.value, 'currency') | currency }}
+          </td>
         </tr>
       </tbody>
       <tfoot>

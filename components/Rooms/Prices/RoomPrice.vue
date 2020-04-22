@@ -2,7 +2,7 @@
   <div :class="$style.price">
     <div :class="$style.label">{{ title }}</div>
     <div :class="$style.value">
-      {{ $n(price, 'currency') }}
+      {{ $n(price, 'currency') | currency }}
     </div>
     <div :class="$style.suffix">{{ $t('suffix') }}</div>
   </div>

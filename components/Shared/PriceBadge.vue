@@ -2,14 +2,7 @@
   <div v-if="price" :class="$style['price-badge']">
     <div :class="$style.label">{{ $t('from') }}</div>
     <div :class="$style.value">
-      <i18n-n :value="price" :format="{ key: 'currency' }">
-        <template v-slot:decimal="slotProps">
-          <span :class="$style.decimal">{{ slotProps.decimal }}</span>
-        </template>
-        <template v-slot:fraction="slotProps">
-          <span :class="$style.fraction">{{ slotProps.fraction }}</span>
-        </template>
-      </i18n-n>
+      {{ $n(price, 'currency') | currency }}
     </div>
   </div>
 </template>
