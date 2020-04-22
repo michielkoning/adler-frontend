@@ -4,9 +4,10 @@ import * as excludePages from './../data/pages'
 
 const getExcludesPages = () => {
   const excludePageIDS = []
-  return Object.values(excludePages).forEach((page) => {
+  Object.values(excludePages).forEach((page) => {
     excludePageIDS.push(...Object.values(page))
   })
+  return excludePageIDS
 }
 
 export default {
