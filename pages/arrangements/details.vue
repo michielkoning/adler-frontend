@@ -14,7 +14,7 @@ import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedArrangementsSection from '~/components/Arrangements/Related/RelatedArrangementsSection.vue'
 import ArrangementPrices from '~/components/Arrangements/Prices/ArrangementPrices.vue'
 import BookArrangement from '~/components/Arrangements/Details/BookArrangement.vue'
-// import getTranslations from '~/helpers/i18n'
+import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
@@ -32,17 +32,17 @@ export default {
       },
     })
 
-    // if (!arrangement.data.arrangement)
-    //   redirect(301, app.localePath('arrangements'))
+    if (!arrangement.data.arrangement)
+      redirect(301, app.localePath('arrangements'))
 
-    // const translations = getTranslations(
-    //   app.i18n,
-    //   arrangement.data.arrangement.translations,
-    //   'slug',
-    //   'slug',
-    // )
+    const translations = getTranslations(
+      app.i18n,
+      arrangement.data.arrangement.translations,
+      'slug',
+      'slug',
+    )
 
-    // await store.dispatch('i18n/setRouteParams', translations)
+    await store.dispatch('i18n/setRouteParams', translations)
 
     return {
       arrangement: arrangement.data.arrangement,
