@@ -31,6 +31,7 @@ export default {
         uri: params.slug,
       },
     })
+
     if (!arrangement.data.arrangement)
       redirect(301, app.localePath('arrangements'))
 
