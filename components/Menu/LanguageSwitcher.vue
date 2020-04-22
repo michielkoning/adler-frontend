@@ -4,7 +4,7 @@
       v-for="locale in availableLocales"
       :key="locale.code"
       :class="$style.link"
-      :to="switchLocalePath(locale.code)"
+      :to="generateLocalePath(locale.code)"
     >
       <icon-flag-nl
         v-if="locale.code === 'nl'"
@@ -35,6 +35,7 @@
 import IconFlagNl from '~/icons/flag-nl.svg'
 import IconFlagDe from '~/icons/flag-de.svg'
 import IconFlagEn from '~/icons/flag-en.svg'
+import { replacePlaceholder } from '~/helpers/i18n'
 
 export default {
   components: {
@@ -45,6 +46,11 @@ export default {
   computed: {
     availableLocales() {
       return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
+    },
+  },
+  methods: {
+    generateLocalePath(code) {
+      return this.switchLocalePath(code).replace(replacePlaceholder, '')
     },
   },
 }
