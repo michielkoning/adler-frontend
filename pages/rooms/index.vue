@@ -8,6 +8,7 @@
 import RoomsArchiveSection from '~/components/Rooms/Archive/RoomsSection.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
+import getSeoMetaData from '~/helpers/seo'
 import { roomsPageId } from '~/data/pages'
 
 export default {
@@ -33,6 +34,9 @@ export default {
       en: '/rooms',
       nl: '/kamers',
     },
+  },
+  head() {
+    return getSeoMetaData(this.page)
   },
 }
 </script>

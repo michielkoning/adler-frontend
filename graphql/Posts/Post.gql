@@ -1,4 +1,5 @@
 #import "./../Fragments/Images/ImageHero.gql"
+#import "./../Fragments/Seo.gql"
 #import "./Fragments/Post.gql"
 
 query Post($uri: ID!) {
@@ -15,6 +16,9 @@ query Post($uri: ID!) {
         code
         slug
       }
+    }
+    seo {
+      ...seo
     }
   }
 }

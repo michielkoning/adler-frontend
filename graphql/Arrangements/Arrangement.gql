@@ -1,4 +1,5 @@
 #import "./../Fragments/Images/ImageHero.gql"
+#import "./../Fragments/Seo.gql"
 #import "./Fragments/Arrangement.gql"
 
 query Arrangement($uri: ID!) {
@@ -20,6 +21,9 @@ query Arrangement($uri: ID!) {
         code
         slug
       }
+    }
+    seo {
+      ...seo
     }
   }
 }

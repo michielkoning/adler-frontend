@@ -8,6 +8,7 @@
 import ArrangementsArchiveSection from '~/components/Arrangements/Archive/ArrangementsSection.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
+import getSeoMetaData from '~/helpers/seo'
 import { arrangementsPageId } from '~/data/pages'
 
 export default {
@@ -33,6 +34,9 @@ export default {
       en: '/arrangements',
       nl: '/arrangementen',
     },
+  },
+  head() {
+    return getSeoMetaData(this.page)
   },
 }
 </script>

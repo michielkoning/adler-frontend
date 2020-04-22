@@ -5,6 +5,7 @@
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
+import getSeoMetaData from '~/helpers/seo'
 import { privacyPageId } from '~/data/pages'
 
 export default {
@@ -29,6 +30,9 @@ export default {
       en: '/privacy-policy',
       nl: '/privacy-policy',
     },
+  },
+  head() {
+    return getSeoMetaData(this.page)
   },
 }
 </script>

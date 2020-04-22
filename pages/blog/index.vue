@@ -8,6 +8,7 @@
 import PostsArchiveSection from '~/components/Posts/Archive/PostsArchiveSection.vue'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
+import getSeoMetaData from '~/helpers/seo'
 import { blogPageId } from '~/data/pages'
 
 export default {
@@ -33,6 +34,9 @@ export default {
       en: '/blog',
       nl: '/blog',
     },
+  },
+  head() {
+    return getSeoMetaData(this.page)
   },
 }
 </script>

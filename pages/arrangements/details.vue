@@ -15,6 +15,7 @@ import RelatedArrangementsSection from '~/components/Arrangements/Related/Relate
 import ArrangementPrices from '~/components/Arrangements/Prices/ArrangementPrices.vue'
 import BookArrangement from '~/components/Arrangements/Details/BookArrangement.vue'
 import getTranslations from '~/helpers/i18n'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
@@ -52,6 +53,9 @@ export default {
       en: '/arrangements/:slug',
       nl: '/arrangementen/:slug',
     },
+  },
+  head() {
+    return getSeoMetaData(this.arrangement)
   },
 }
 </script>

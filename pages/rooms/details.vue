@@ -17,6 +17,7 @@ import RoomPricesGroup from '~/components/Rooms/Prices/RoomPricesGroup.vue'
 import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
 import RoomServices from '~/components/Rooms/Details/RoomServices.vue'
 import getTranslations from '~/helpers/i18n'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
@@ -55,6 +56,9 @@ export default {
       en: '/rooms/:slug',
       nl: '/kamers/:slug',
     },
+  },
+  head() {
+    return getSeoMetaData(this.room)
   },
 }
 </script>

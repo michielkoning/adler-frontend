@@ -1,5 +1,6 @@
 #import "./../Fragments/Images/ImageHero.gql"
 #import "./../Fragments/Images/Gallery.gql"
+#import "./../Fragments/Seo.gql"
 #import "./Fragments/Room.gql"
 
 query Room($uri: ID!) {
@@ -37,6 +38,9 @@ query Room($uri: ID!) {
         code
         slug
       }
+    }
+    seo {
+      ...seo
     }
   }
 }

@@ -11,6 +11,7 @@ import PostQuery from '~/graphql/Posts/Post.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedPostsSection from '~/components/Posts/Related/RelatedPostsSection.vue'
 import getTranslations from '~/helpers/i18n'
+import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
@@ -46,6 +47,9 @@ export default {
       en: '/blog/:slug',
       nl: '/blog/:slug',
     },
+  },
+  head() {
+    return getSeoMetaData(this.post)
   },
 }
 </script>
