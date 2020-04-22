@@ -31,19 +31,19 @@ export default {
     {
       name: 'Nederlands',
       code: 'nl',
-      iso: 'nl-NL',
+      iso: 'nl_NL',
       file: 'nl.json',
     },
     {
       name: 'English',
       code: 'en',
-      iso: 'en-GB',
+      iso: 'en_GB',
       file: 'en.json',
     },
     {
       name: 'Deutsch',
       code: 'de',
-      iso: 'de-DE',
+      iso: 'de_DE',
       file: 'de.json',
     },
   ],
