@@ -1,4 +1,3 @@
-import pkg from './package'
 import splashscreens from './config/splashscreens'
 // import googleAnalytics from './config/googleAnalytics'
 import manifest from './config/manifest'
