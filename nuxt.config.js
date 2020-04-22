@@ -1,5 +1,7 @@
 import splashscreens from './config/splashscreens'
-// import googleAnalytics from './config/googleAnalytics'
+import googleAnalytics from './config/googleAnalytics'
+import facebookPixel from './config/facebookPixel'
+import googleTagManager from './config/googleTagManager'
 import manifest from './config/manifest'
 import i18n from './config/i18n'
 import apollo from './config/apollo'
@@ -91,10 +93,14 @@ export default {
     '@nuxtjs/sitemap',
   ],
   buildModules: [
-    // '@nuxtjs/google-analytics',
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/gtm',
     '@nuxtjs/stylelint-module',
+    'nuxt-facebook-pixel-module',
   ],
-  // googleAnalytics,
+  googleAnalytics,
+  facebook: facebookPixel,
+  gtm: googleTagManager,
   manifest,
   i18n,
   /*
