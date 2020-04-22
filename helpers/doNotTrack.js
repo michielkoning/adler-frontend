@@ -1,4 +1,4 @@
-const doNotTrack = () => {
+export default () => {
   const doNotTrack =
     window.navigator.doNotTrack ||
     window.doNotTrack ||
@@ -8,5 +8,3 @@ const doNotTrack = () => {
   }
   return false
 }
-
-export default doNotTrack()
