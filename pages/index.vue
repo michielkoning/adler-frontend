@@ -32,6 +32,7 @@ export default {
       page: page.data.page,
     }
   },
+
   head() {
     return getSeoMetaData(this.page)
   },
