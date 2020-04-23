@@ -1,6 +1,7 @@
 @define-mixin btn {
   @mixin link-reset;
 
+  cursor: pointer;
   text-align: center;
   width: auto;
   font-weight: var(--font-weight-bold);
