@@ -21,7 +21,6 @@
           name="fade2"
           @after-enter="afterEnter"
           @after-leave="afterLeave"
-          @before-leave="beforeLeave"
         >
           <div v-show="showMenu" :class="$style.bg">
             <transition name="fade">
@@ -69,10 +68,6 @@ export default {
     afterEnter() {
       this.lockBodyScoll(true)
     },
-    beforeLeave() {
-      const bg = this.$refs.bg
-      bg.scrollTop = 0
-    },
     afterLeave() {
       this.lockBodyScoll(false)
     },
@@ -87,6 +82,29 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s 0.2s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  transform: translateY(-2em);
+  opacity: 0;
+}
+
+.fade2-enter-active,
+.fade2-leave-active {
+  transition: transform 0.3s;
+}
+
+.fade2-enter,
+.fade2-leave-to {
+  transform: translateY(-100vh);
+}
+</style>
 
 <style lang="postcss" module>
 .header {
@@ -186,27 +204,6 @@ export default {
     overflow: visible;
     display: flex !important;
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.3s 0.2s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  transform: translateY(-2em);
-  opacity: 0;
-}
-
-.fade2-enter-active,
-.fade2-leave-active {
-  transition: transform 0.3s;
-}
-
-.fade2-enter,
-.fade2-leave-to {
-  transform: translateY(-100vh);
 }
 
 .logo,

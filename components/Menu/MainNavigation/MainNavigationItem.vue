@@ -98,10 +98,12 @@ export default {
       this.isOpen = !this.isOpen
     },
     mouseover() {
+      if (window.screen.width < 768) return
       this.isOpen = true
       clearTimeout(this.timer)
     },
     mouseout() {
+      if (window.screen.width < 768) return
       this.timer = setTimeout(() => {
         this.isOpen = false
       }, 250)
@@ -130,10 +132,7 @@ export default {
 
 .menu-item {
   position: relative;
-
-  @media (--navigation-md) {
-    display: flex;
-  }
+  display: flex;
 }
 
 .title {
@@ -144,6 +143,7 @@ export default {
 .menu-link {
   font-size: 1.2em;
   border-bottom: 3px solid transparent;
+  flex: 1 1 auto;
 
   &.nuxt-link-active[aria-haspopup='true'],
   &.nuxt-link-exact-active {
@@ -200,10 +200,9 @@ export default {
 }
 
 .btn-show-submenu {
-  display: none;
+  display: block;
 
   @media (--navigation-md) {
-    display: block;
     margin: var(--spacing-xxs) 0 0 var(--spacing-xxs);
   }
 }
