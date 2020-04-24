@@ -10,7 +10,6 @@
   display: none;
 }
 
-/* stylelint-disable-next-line media-feature-name-no-unknown */
 @media screen and (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -18,7 +17,6 @@
   }
 }
 
-/* stylelint-disable-next-line media-feature-name-no-unknown */
 @media screen and (inverted-colors: inverted) {
   img {
     filter: invert(100%);

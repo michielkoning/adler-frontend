@@ -24,7 +24,7 @@
         height="24"
         aria-hidden="true"
       />
-      <span class="sr-only">
+      <span :class="$style['title']">
         {{ locale.name }}
       </span>
     </nuxt-link>
@@ -59,5 +59,17 @@ export default {
 <style lang="postcss" module>
 .link {
   @mixin link-reset;
+
+  display: block;
+
+  @media (--navigation-md) {
+    display: inline;
+  }
+}
+
+.title {
+  @media (--navigation-md) {
+    @mixin sr-only;
+  }
 }
 </style>

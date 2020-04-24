@@ -26,7 +26,10 @@
             <transition name="fade">
               <div v-show="showMenu" ref="bg" :class="$style.content">
                 <meta-navigation />
-                <main-navigation :class="$style['main-navigation']" />
+                <main-navigation
+                  :class="$style['main-navigation']"
+                  :menu-is-open="showMenu"
+                />
               </div>
             </transition>
           </div>

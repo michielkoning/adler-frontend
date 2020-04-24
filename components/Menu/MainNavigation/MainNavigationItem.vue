@@ -7,8 +7,9 @@
   >
     <!-- eslint-disable vue/no-v-html -->
     <nuxt-link
+      ref="link"
       :to="url"
-      :aria-haspopup="hasChildren"
+      :aria-haspopup="hasChildren ? 'true' : 'false'"
       :class="$style['menu-link']"
       class="menu-link"
       v-html="title"
@@ -81,6 +82,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    resetSubmenu: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -90,29 +95,117 @@ export default {
   },
   computed: {
     hasChildren() {
-      return this.children?.edges?.length
+      return this.children?.edges?.length > 0
+    },
+  },
+  watch: {
+    resetSubmenu(value) {
+      if (value) {
+        this.setActiveSubmenu()
+      }
     },
   },
   methods: {
     toggleMenu() {
       this.isOpen = !this.isOpen
     },
+    setActiveSubmenu() {
+      if (!this.isSmallScreen) return
+      const { link } = this.$refs
+      this.isOpen = link.$el.classList.contains('nuxt-link-active')
+    },
     mouseover() {
-      if (window.screen.width < 768) return
+      if (this.isSmallScreen()) return
       this.isOpen = true
       clearTimeout(this.timer)
     },
     mouseout() {
-      if (window.screen.width < 768) return
+      if (this.isSmallScreen()) return
       this.timer = setTimeout(() => {
         this.isOpen = false
       }, 250)
+    },
+    isSmallScreen() {
+      return window.screen.width < 768
     },
   },
 }
 </script>
 
 <style lang="postcss" module>
+.menu-item {
+  position: relative;
+  font-family: var(--font-family-header);
+}
+
+.submenu-link,
+.menu-link {
+  @mixin link-reset;
+
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-black);
+  display: block;
+  line-height: 1.1;
+  padding: var(--spacing-xs) 0;
+}
+
+/* stylelint-disable */
+.menu-link {
+  font-size: 1.2em;
+  border-bottom-width: 2px;
+
+  @nest .menu-item:first-child & {
+    border-top: 2px solid var(--color-black);
+
+    @media (--navigation-md) {
+      border-top: 0;
+    }
+  }
+
+  &:global(.nuxt-link-active[aria-haspopup='true']),
+  &:global(.nuxt-link-exact-active) {
+    border-bottom-color: var(--color-primary);
+  }
+
+  &[aria-haspopup='true'] {
+    padding-right: var(--spacing-m);
+  }
+
+  @media (--navigation-md) {
+    &,
+    &:global(.nuxt-link-active[aria-haspopup='true']),
+    &:global(.nuxt-link-exact-active) {
+      border-bottom: 3px solid transparent;
+    }
+  }
+}
+
+.submenu-link {
+  font-size: 1.1em;
+  border-bottom-width: 1px;
+
+  &:global(.nuxt-link-exact-active) {
+    border-bottom-color: var(--color-primary);
+  }
+
+  @media (--navigation-md) {
+    padding: var(--spacing-xs) var(--spacing-xs);
+    border-bottom-color: var(--color-gray);
+  }
+}
+
+.btn-show-submenu {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: var(--spacing-s);
+  transition: transform 0.2s ease-out;
+
+  &[aria-expanded='true'] {
+    transform: rotate(180deg);
+  }
+}
+
 .submenu {
   @mixin list-reset;
 
@@ -125,85 +218,7 @@ export default {
     left: calc(-1 * var(--spacing-xs));
     top: calc(100% + 0.1em);
     margin-left: 0;
-    padding: 0 var(--spacing-xs);
     white-space: nowrap;
-  }
-}
-
-.menu-item {
-  position: relative;
-  display: flex;
-}
-
-.title {
-  transition: box-shadow 0.1s ease-out;
-  padding: var(--spacing-xxs) 0;
-}
-
-.menu-link {
-  font-size: 1.2em;
-  border-bottom: 3px solid transparent;
-  flex: 1 1 auto;
-
-  &.nuxt-link-active[aria-haspopup='true'],
-  &.nuxt-link-exact-active {
-    border-bottom-color: var(--color-black);
-  }
-
-  @media (--navigation-md) {
-    padding: 0;
-    border-bottom: 0;
-  }
-
-  &[aria-haspopup='true'] {
-    padding-right: var(--spacing-xxs);
-  }
-}
-
-.submenu-link {
-  font-size: 1.1em;
-  border-bottom: 2px solid transparent;
-
-  &.nuxt-link-exact-active {
-    border-bottom-color: var(--color-black);
-  }
-
-  @media (--navigation-md) {
-    padding: var(--spacing-xxs) 0;
-    border-bottom: 0;
-  }
-}
-
-.submenu-link,
-.menu-link {
-  @mixin link-reset;
-
-  align-items: center;
-  display: flex;
-  position: relative;
-  text-decoration: none;
-  line-height: 1.1;
-  padding: var(--spacing-xs) 0;
-  border-top: 1px solid var(--color-black);
-
-  &:hover {
-    text-decoration: none;
-
-    & .title {
-      box-shadow: 0 2px 0 0 currentColor;
-    }
-  }
-
-  @media (--navigation-md) {
-    border-top: 0;
-  }
-}
-
-.btn-show-submenu {
-  display: block;
-
-  @media (--navigation-md) {
-    margin: var(--spacing-xxs) 0 0 var(--spacing-xxs);
   }
 }
 </style>

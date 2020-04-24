@@ -1,10 +1,10 @@
 <template>
   <component
     :is="tag"
+    class="btn"
     :type="generatedType"
     :to="to"
-    :class="cssClass"
-    class="btn"
+    :class="cssClasses"
     :href="href"
     v-bind="$attrs"
     @click="$emit('click', $event)"
@@ -57,12 +57,12 @@ export default {
     },
   },
   computed: {
-    cssClass() {
-      let cssClass = ''
-      cssClass += `btn-${this.buttonStyle}`
-      cssClass += !this.isLarge ? ' btn-small' : ''
-      cssClass += this.isFullWidth ? ' btn-full' : ''
-      return cssClass
+    cssClasses() {
+      const classes = [this.$style.btn]
+      classes.push(this.$style[`btn-${this.buttonStyle}`])
+      if (!this.isLarge) classes.push(this.$style['btn-small'])
+      if (this.isFullWidth) classes.push(this.$style['btn-full'])
+      return classes
     },
     tag() {
       if (this.href) {
@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .btn {
   @mixin btn;
 

@@ -16,16 +16,19 @@
               :title="data.hotel.title"
               :url="data.hotel.relativeUrl"
               :children="data.hotel.childPages"
+              :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
               :title="$t(`pages.arrangements`)"
               :url="localePath({ name: 'arrangements' })"
               :children="data.arrangements"
+              :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
               :title="$t(`pages.rooms`)"
               :url="localePath({ name: 'rooms' })"
               :children="data.rooms"
+              :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
               :title="$t(`pages.blog`)"
@@ -56,6 +59,12 @@ export default {
     MainNavigationItem,
     MainNavigationContainer,
   },
+  props: {
+    menuIsOpen: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       arrowPosition: 0,
@@ -63,7 +72,6 @@ export default {
       mounted: false,
     }
   },
-
   watch: {
     $route() {
       this.$nextTick(() => {
@@ -112,17 +120,14 @@ export default {
 <style lang="postcss" module>
 .nav {
   position: relative;
-  font-family: var(--font-family-header);
 }
 
 .menu {
   @mixin list-reset;
 
-  border-bottom: 1px solid var(--color-black);
-
   @media (--navigation-md) {
     display: flex;
-    border-bottom: 0;
+    border-top: 0;
     justify-content: space-between;
   }
 

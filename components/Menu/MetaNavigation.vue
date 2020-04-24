@@ -9,7 +9,11 @@
 
     <language-switcher :class="$style['language-switcher']" />
 
-    <app-button :is-large="false" @click="toggleModal">
+    <app-button
+      :is-large="false"
+      :class="$style['btn-book-now']"
+      @click="toggleModal"
+    >
       {{ $t('bookNow') }}
     </app-button>
 
@@ -56,16 +60,29 @@ export default {
 
 <style lang="postcss" module>
 .nav {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 0.5em 1em;
-  background: var(--color-4);
+  @media (--navigation-md) {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 1em;
+    background: var(--color-4);
+  }
 }
 
 .language-switcher {
-  margin: 0 2em 0 1em;
   transform: translateY(0.15em);
+
+  @media (--navigation-md) {
+    margin: 0 2em 0 1em;
+  }
+}
+
+.btn-book-now {
+  display: none;
+
+  @media (--navigation-md) {
+    display: block;
+  }
 }
 
 .contact-item {

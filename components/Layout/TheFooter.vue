@@ -54,7 +54,7 @@ export default {
 
 .quick-links,
 .address {
-  & a {
+  & a:not(:global(.btn)) {
     box-shadow: 0 1px 0 0 currentColor;
 
     &:hover,
