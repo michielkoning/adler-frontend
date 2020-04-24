@@ -10,7 +10,7 @@
     novalidate
     @submit.prevent="submit"
   >
-    <p v-if="intro">{{ intro }}</p>
+    <p>{{ $t('intro') }}</p>
     <input type="hidden" name="form-name" :value="name" />
     <slot />
     <form-input-text
@@ -42,10 +42,6 @@ export default {
     FormInputText,
   },
   props: {
-    intro: {
-      type: String,
-      default: null,
-    },
     name: {
       type: String,
       required: true,
@@ -132,15 +128,21 @@ export default {
 {
   "nl": {
     "botField": "Vul dit niet in als je mens bent",
-    "errorMessage": "Niet alle velden zijn correct ingevuld."
+    "errorMessage": "Niet alle velden zijn correct ingevuld.",
+    "success": "Hartelijk dank voor uw reactie. Wij nemen zo snel mogelijk contact met u op.",
+    "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen."
   },
   "de": {
     "botField": "Geben Sie dies nicht ein, wenn Sie ein Mensch sind",
-    "errorMessage": "Nicht alle Felder sind korrekt ausgefüllt."
+    "errorMessage": "Nicht alle Felder sind korrekt ausgefüllt.",
+    "success": "Vielen Dank für ihre Antwort. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.",
+    "intro": "PLACEHOLDER"
   },
   "en": {
     "botField": "Don’t fill this out if you're human",
-    "errorMessage": "Not all fields are filled in correctly."
+    "errorMessage": "Not all fields are filled in correctly.",
+    "success": "Thank you for your response. We will contact you as soon as possible.",
+    "intro": "Fill in the form with your details. We will approach you as soon as possible."
   }
 }
 </i18n>

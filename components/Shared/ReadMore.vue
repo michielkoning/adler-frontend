@@ -22,7 +22,7 @@
     "readMore": "Lees verder"
   },
   "de": {
-    "from": "PLACEHOLDER"
+    "readMore": "PLACEHOLDER"
   },
   "en": {
     "readMore": "Read more"

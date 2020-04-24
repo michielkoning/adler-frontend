@@ -26,11 +26,10 @@
     "totalChildren": "TNumber of kids",
     "dateArrival": "Date of arrival",
     "dateDeparture": "Date of departure",
-    "success": "PLACEHOLDER",
     "error": {
       "required": "This is a required field",
       "email": {
-        "incorrect": "The e-mail address is nog correct"
+        "incorrect": "The e-mail address is not correct"
       }
     }
   }

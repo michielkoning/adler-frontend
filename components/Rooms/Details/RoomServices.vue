@@ -34,10 +34,10 @@ export default {
     "title": "Kamer is voorzien van"
   },
   "de": {
-    "title": "PLACEHOLDER"
+    "title": "Jedes Zimmer ist ausgestattet mit"
   },
   "en": {
-    "title": "PLACEHOLDER"
+    "title": "Room is equipped with"
   }
 }
 </i18n>

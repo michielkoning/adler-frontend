@@ -26,7 +26,6 @@
     "totalChildren": "Anzahl Kinder",
     "dateArrival": "Datum Ankunft",
     "dateDeparture": "Datum Abflug",
-    "success": "PLACEHOLDER",
     "error": {
       "required": "PLACEHOLDER",
       "email": {

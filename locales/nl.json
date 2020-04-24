@@ -26,7 +26,6 @@
     "totalChildren": "Aantal kinderen",
     "dateArrival": "Aankomstdatum",
     "dateDeparture": "Vertrekdatum",
-    "success": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
     "error": {
       "required": "Dit is een verplicht veld.",
       "email": {

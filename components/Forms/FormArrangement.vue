@@ -1,6 +1,5 @@
 <template>
   <form-wrapper
-    :intro="$t('intro')"
     :btn-text="$t('btnText')"
     :form-data="formData"
     name="arrangement"
@@ -365,7 +364,6 @@ export default {
 <i18n>
 {
   "nl": {
-    "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen.",
     "btnText": "Boeken",
     "addressData": "Adresgegevens",
     "familyData": "Bezoekerssamenstelling",
@@ -373,7 +371,6 @@ export default {
     "remarks": "Opmerkingen"
   },
   "de": {
-    "intro": "PLACEHOLDER",
     "btnText": "Buchen",
     "addressData": "Adressinformationen",
     "familyData": "Besucherkomposition",
@@ -381,7 +378,6 @@ export default {
     "remarks": "Bemerkungen"
   },
   "en": {
-    "intro": "PLACEHOLDER",
     "btnText": "Book",
     "addressData": "Address data",
     "familyData": "Visitor composition",

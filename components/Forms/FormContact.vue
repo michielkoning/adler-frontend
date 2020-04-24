@@ -1,7 +1,6 @@
 <template>
   <sitebar-item-section id="contact" :title="$t('title')">
     <form-wrapper
-      :intro="$t('intro')"
       :btn-text="$t('btnText')"
       :form-data="formData"
       name="contact"
@@ -127,20 +126,14 @@ export default {
 {
   "nl": {
     "title": "Neem contact met ons op",
-    "intro": "Vul het formulier in met uw gegevens. Wij zullen u zo spoedig mogelijk benaderen.",
-    "successMessage": "Het formulier is verzonden. We nemen zo spoedig mogelijk contact met u op.",
     "btnText": "Verzenden"
   },
   "de": {
     "title": "PLACEHOLDER",
-    "intro": "PLACEHOLDER",
-    "successMessage": "PLACEHOLDER",
     "btnText": "Senden"
   },
   "en": {
     "title": "Contact us",
-    "intro": "PLACEHOLDER",
-    "successMessage": "PLACEHOLDER",
     "btnText": "Send"
   }
 }
