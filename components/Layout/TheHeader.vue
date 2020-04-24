@@ -22,9 +22,9 @@
           @after-enter="afterEnter"
           @after-leave="afterLeave"
         >
-          <div v-show="showMenu" :class="$style.bg">
+          <div v-show="showMenu" :class="$style.background">
             <transition name="fade">
-              <div v-show="showMenu" ref="bg" :class="$style.content">
+              <div v-show="showMenu" ref="content" :class="$style.content">
                 <meta-navigation />
                 <main-navigation
                   :class="$style['main-navigation']"
@@ -75,11 +75,11 @@ export default {
       this.lockBodyScoll(false)
     },
     lockBodyScoll(isOpen) {
-      const { bg } = this.$refs
+      const { content } = this.$refs
       if (isOpen) {
-        disableBodyScroll(bg)
+        disableBodyScroll(content)
       } else {
-        enableBodyScroll(bg)
+        enableBodyScroll(content)
       }
     },
   },
@@ -132,9 +132,8 @@ export default {
 }
 
 .wrapper {
-  display: flex;
-
   @media (--navigation-md) {
+    display: flex;
     flex-direction: column;
     padding-left: 0;
     padding-right: 0;
@@ -150,6 +149,8 @@ export default {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   max-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   @media (--navigation-md) {
     padding: 0;
@@ -185,10 +186,14 @@ export default {
 
 .main-navigation {
   width: 100%;
+  order: -1;
+
+  @media (--navigation-lg) {
+    order: 1;
+  }
 }
 
-.bg {
-  flex: 1 1 auto;
+.background {
   position: fixed;
   top: 0;
   left: 0;
@@ -201,6 +206,7 @@ export default {
   background: var(--color-bg-page);
 
   @media (--navigation-md) {
+    flex: 1 1 auto;
     height: auto;
     position: static;
     padding: 0;
