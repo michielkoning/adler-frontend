@@ -24,6 +24,7 @@ import IconBars from '~/icons/bars.svg'
 import IconLogo from '~/icons/logo.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import { title } from '~/data/siteDetails'
+import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
   components: {
@@ -31,19 +32,21 @@ export default {
     NotchWrapper,
     IconLogo,
   },
+  props: {
+    showMenu: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       menuIsExpanded: false,
       title,
     }
   },
-
-  watch: {
-    $route() {
-      this.toggleMenu(false)
-    },
+  mounted() {
+    EventBusUtil.$on('header-close-mobile-menu', () => this.toggleMenu(false))
   },
-
   methods: {
     toggleMenu(status) {
       this.menuIsExpanded = status

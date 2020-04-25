@@ -12,6 +12,7 @@
       :aria-haspopup="hasChildren ? 'true' : 'false'"
       :class="$style['menu-link']"
       class="menu-link"
+      @click.native="changePage"
       v-html="title"
     />
     <!-- eslint-enable vue/no-v-html -->
@@ -26,7 +27,7 @@
         aria-hidden="true"
         width="16"
         height="16"
-        :class="$style['icon-chevron-down']"
+        :class="$style['icon']"
       />
       <span class="sr-only">
         {{
@@ -50,6 +51,7 @@
               :to="subItem.node.relativeUrl"
               :class="$style['submenu-link']"
               class="submenu-link"
+              @click.native="changePage"
               v-html="subItem.node.title"
             />
             <!-- eslint-enable vue/no-v-html -->
@@ -63,6 +65,7 @@
 <script>
 import IconChevronDown from '~/icons/chevron-down.svg'
 import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
+import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
   components: {
@@ -109,6 +112,7 @@ export default {
     toggleMenu() {
       this.isOpen = !this.isOpen
     },
+
     setActiveSubmenu() {
       if (!this.isSmallScreen) return
       const { link } = this.$refs
@@ -125,8 +129,12 @@ export default {
         this.isOpen = false
       }, 250)
     },
+    changePage() {
+      if (!this.isSmallScreen) return
+      EventBusUtil.$emit('header-close-mobile-menu')
+    },
     isSmallScreen() {
-      return window.screen.width < 768
+      return window.innerWidth < 768
     },
   },
 }
@@ -197,12 +205,21 @@ export default {
 .btn-show-submenu {
   display: block;
   position: absolute;
-  right: 0;
-  top: var(--spacing-s);
-  transition: transform 0.2s ease-out;
+  width: 2em;
+  height: 2em;
 
-  &[aria-expanded='true'] {
+  right: -0.5em;
+  top: 0.4em;
+}
+
+.icon {
+  transition: transform 0.2s ease-out;
+  @nest [aria-expanded='true'] & {
     transform: rotate(180deg);
+
+    @media (--navigation-md) {
+      transform: rotate(0deg);
+    }
   }
 }
 

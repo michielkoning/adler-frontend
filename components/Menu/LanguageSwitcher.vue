@@ -5,6 +5,7 @@
       :key="locale.code"
       :class="$style.link"
       :to="generateLocalePath(locale.code)"
+      @click.native="changePage"
     >
       <icon-flag-nl
         v-if="locale.code === 'nl'"
@@ -36,6 +37,7 @@ import IconFlagNl from '~/icons/flag-nl.svg'
 import IconFlagDe from '~/icons/flag-de.svg'
 import IconFlagEn from '~/icons/flag-en.svg'
 import { replacePlaceholder } from '~/helpers/i18n'
+import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
   components: {
@@ -51,6 +53,13 @@ export default {
   methods: {
     generateLocalePath(code) {
       return this.switchLocalePath(code).replace(replacePlaceholder, '')
+    },
+    changePage() {
+      if (!this.isSmallScreen) return
+      EventBusUtil.$emit('header-close-mobile-menu')
+    },
+    isSmallScreen() {
+      return window.innerWidth < 768
     },
   },
 }

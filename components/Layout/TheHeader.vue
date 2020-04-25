@@ -188,7 +188,7 @@ export default {
   width: 100%;
   order: -1;
 
-  @media (--navigation-lg) {
+  @media (--navigation-md) {
     order: 1;
   }
 }
