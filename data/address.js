@@ -3,6 +3,7 @@ export const postalCode = '6951'
 export const city = 'Lingenau'
 export const country = 'austria'
 export const region = 'Vorarlberg'
+export const province = 'Bregenzerwald'
 export const phoneNumber = '+43-(0)5513-63670'
 export const emailAddress = 'info@adler-lingenau.com'
 export const longitude = 47.450565

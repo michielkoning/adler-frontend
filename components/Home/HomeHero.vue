@@ -4,14 +4,16 @@
     <div :class="$style.content">
       <icon-logo-hero
         aria-hidden="true"
-        width="36"
-        height="36"
+        width="800"
+        height="96"
         :class="$style.icon"
       />
       <h1 id="content" class="sr-only" tabindex="-1">
         {{ title }}
       </h1>
-      <h2>in Lingenau, Bregenzerwald</h2>
+      <h2>
+        {{ $t('subtitle', { province, city }) }}
+      </h2>
     </div>
   </div>
 </template>
@@ -20,6 +22,7 @@
 import ImageHero from '~/components/Images/ImageHero.vue'
 import IconLogoHero from '~/icons/logo-hero.svg'
 import { title } from '~/data/siteDetails'
+import { city, province } from '~/data/address'
 
 export default {
   components: {
@@ -35,6 +38,8 @@ export default {
   data() {
     return {
       title,
+      city,
+      province,
     }
   },
 }
@@ -46,7 +51,8 @@ export default {
   position: relative;
   color: var(--color-white);
   -webkit-text-stroke: 1px #666;
-  -webkit-text-fill-color: white;
+  -webkit-text-fill-color: var(--color-white);
+  max-height: 40vw;
 
   & .image {
     height: 100%;
@@ -68,8 +74,27 @@ export default {
 }
 
 .icon {
-  width: 50rem;
-  height: 6rem;
+  height: 10vw;
+  width: 100%;
   stroke: #666;
+
+  @media (--viewport-lg) {
+    width: 50rem;
+    height: 6rem;
+  }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "subtitle": "in {city}, {province}"
+  },
+  "de": {
+    "subtitle": "in {city} im {province}"
+  },
+  "en": {
+    "subtitle": "in {city}, {province}"
+  }
+}
+</i18n>
