@@ -61,6 +61,11 @@ export default {
   align-items: start;
   grid-gap: var(--gutter);
   margin-bottom: var(--spacing-xl);
+  padding-top: 1em;
+
+  @media (--viewport-lg) {
+    padding-top: 0;
+  }
 
   @media (--viewport-lg) {
     grid-template-columns: 2fr 1fr;

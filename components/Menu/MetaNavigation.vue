@@ -60,6 +60,8 @@ export default {
 
 <style lang="postcss" module>
 .nav {
+  padding-bottom: 8em;
+
   @media (--navigation-md) {
     flex: 0 0 auto;
     display: flex;
