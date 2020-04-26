@@ -2,7 +2,7 @@
   <div :class="$style.wrapper">
     <ul
       ref="list"
-      :class="$style.list"
+      :class="[$style.list, { [$style.active]: active }]"
       @scroll.passive="setSelectedSlideAfterScroll"
     >
       <li
@@ -58,6 +58,7 @@ export default {
     return {
       currentSlide: 0,
       allowSliding: true,
+      active: false,
     }
   },
   computed: {
@@ -72,6 +73,7 @@ export default {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
     this.currentSlide = this.slide
     this.goToSelectedSlide()
+    this.active = true
   },
   destroyed() {
     document.removeEventListener('keydown', (event) => this.scrollByKeys(event))
@@ -128,10 +130,14 @@ export default {
   @mixin list-reset;
 
   display: flex;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
+  overflow: hidden;
+
+  &.active {
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+  }
 }
 
 .item {
