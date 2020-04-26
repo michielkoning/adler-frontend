@@ -30,6 +30,12 @@ export default {
   langDir: 'locales/',
   locales: [
     {
+      name: 'Deutsch',
+      code: 'de',
+      iso: 'de',
+      file: 'de.json',
+    },
+    {
       name: 'Nederlands',
       code: 'nl',
       iso: 'nl',
@@ -40,12 +46,6 @@ export default {
       code: 'en',
       iso: 'en',
       file: 'en.json',
-    },
-    {
-      name: 'Deutsch',
-      code: 'de',
-      iso: 'de',
-      file: 'de.json',
     },
   ],
   vueI18nLoader: true,
