@@ -52,7 +52,7 @@ export default {
   color: var(--color-white);
   -webkit-text-stroke: 1px #666;
   -webkit-text-fill-color: var(--color-white);
-  max-height: 40vw;
+  max-height: 60vw;
 
   & .image {
     height: 100%;
