@@ -1,6 +1,5 @@
 <template>
   <div v-if="gallery.length">
-    <gallery-carousel :gallery="gallery" />
     <app-modal
       :show="showModal"
       :large="true"
@@ -87,7 +86,6 @@ export default {
   grid-template-rows: 36vw 24vw auto;
   display: grid;
   grid-gap: var(--gutter);
-  max-height: 36em;
 }
 
 .item {
@@ -128,11 +126,12 @@ export default {
 
 @media (--viewport-lg) {
   .list {
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 2fr 2fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .item-0 {
-    grid-column: span 3;
+    grid-column: span 2;
     grid-row: span 3;
   }
 
