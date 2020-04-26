@@ -23,7 +23,7 @@
       :title="$t('bookNow')"
       @close="toggleModal"
     >
-      <iframe height="600" width="1000" loading="lazy" :src="easyBookingUrl" />
+      <easy-booking-frame />
     </app-modal>
   </nav>
 </template>
@@ -31,7 +31,7 @@
 <script>
 import AppButton from '~/components/Shared/AppButton.vue'
 import AppModal from '~/components/Shared/AppModal.vue'
-import { easyBookingUrl } from '~/data/siteDetails'
+import EasyBookingFrame from '~/components/Shared/EasyBookingFrame.vue'
 
 import LanguageSwitcher from '~/components/Menu/LanguageSwitcher.vue'
 import ContactEmailaddress from '~/components/Contact/ContactEmailaddress.vue'
@@ -43,11 +43,11 @@ export default {
     LanguageSwitcher,
     AppButton,
     AppModal,
+    EasyBookingFrame,
   },
   data() {
     return {
       showModal: false,
-      easyBookingUrl,
     }
   },
   methods: {

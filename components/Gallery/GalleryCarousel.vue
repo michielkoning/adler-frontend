@@ -17,7 +17,7 @@
     <div :class="$style['button-wrapper']">
       <button
         :class="[$style.btn, $style['btn-previous']]"
-        :disabled="currentSlide === 0"
+        :disabled="!slidePreviousEnabled"
         @click="goToPreviousSlide"
       >
         <span class="sr-only">{{ $t('previousSlide') }}</span>
@@ -25,7 +25,7 @@
       </button>
       <button
         :class="[$style.btn, $style['btn-next']]"
-        :disabled="currentSlide === gallery.length - 1"
+        :disabled="!slideNextEnabled"
         @click="goToNextSlide"
       >
         <span class="sr-only">{{ $t('nextSlide') }}</span>
@@ -59,6 +59,14 @@ export default {
       currentSlide: 0,
       allowSliding: true,
     }
+  },
+  computed: {
+    slideNextEnabled() {
+      return this.currentSlide < this.gallery.length - 1
+    },
+    slidePreviousEnabled() {
+      return this.currentSlide > 0
+    },
   },
   mounted() {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
@@ -94,14 +102,19 @@ export default {
     },
     goToSelectedSlide() {
       const { list, item } = this.$refs
+      // window.console.log(this.currentSlide)
+      // window.console.log(list, item)
       list.scrollLeft = item[this.currentSlide].offsetLeft
     },
     goToNextSlide() {
+      if (!this.slideNextEnabled) return
       if (!this.allowSliding) return
       this.currentSlide = this.currentSlide + 1
       this.goToSelectedSlide()
     },
+
     goToPreviousSlide() {
+      if (!this.slidePreviousEnabled) return
       if (!this.allowSliding) return
       this.currentSlide = this.currentSlide - 1
       this.goToSelectedSlide()

@@ -6,7 +6,7 @@
       :title="title"
       @close="toggleModal"
     >
-      <iframe height="600" width="1000" loading="lazy" :src="bookUrl"></iframe>
+      <easy-booking-frame :url="bookUrl" />
     </app-modal>
   </book-now>
 </template>
@@ -14,11 +14,13 @@
 <script>
 import AppModal from '~/components/Shared/AppModal.vue'
 import BookNow from '~/components/Shared/BookNow.vue'
+import EasyBookingFrame from '~/components/Shared/EasyBookingFrame.vue'
 
 export default {
   components: {
     AppModal,
     BookNow,
+    EasyBookingFrame,
   },
   props: {
     title: {

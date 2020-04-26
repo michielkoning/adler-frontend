@@ -1,5 +1,6 @@
 <template>
   <div v-if="gallery.length">
+    <gallery-carousel :gallery="gallery" />
     <app-modal
       :show="showModal"
       :large="true"
