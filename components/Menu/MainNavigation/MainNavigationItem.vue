@@ -146,6 +146,7 @@ export default {
   font-family: var(--font-family-header);
 }
 
+/* stylelint-disable */
 .submenu-link,
 .menu-link {
   @mixin link-reset;
@@ -155,9 +156,17 @@ export default {
   display: block;
   line-height: 1.1;
   padding: var(--spacing-xs) 0;
+
+  &:global(.nuxt-link-active[aria-haspopup='true']),
+  &:global(.nuxt-link-exact-active) {
+    color: var(--color-primary);
+
+    @media (--navigation-md) {
+      color: currentColor;
+    }
+  }
 }
 
-/* stylelint-disable */
 .menu-link {
   font-size: 1.2em;
   border-bottom-width: 2px;
@@ -168,11 +177,6 @@ export default {
     @media (--navigation-md) {
       border-top: 0;
     }
-  }
-
-  &:global(.nuxt-link-active[aria-haspopup='true']),
-  &:global(.nuxt-link-exact-active) {
-    border-bottom-color: var(--color-primary);
   }
 
   &[aria-haspopup='true'] {
@@ -192,13 +196,17 @@ export default {
   font-size: 1.1em;
   border-bottom-width: 1px;
 
-  &:global(.nuxt-link-exact-active) {
-    border-bottom-color: var(--color-primary);
-  }
-
   @media (--navigation-md) {
     padding: var(--spacing-xs) var(--spacing-xs);
     border-bottom-color: var(--color-gray);
+
+    &:global(.nuxt-link-exact-active) {
+      border-bottom-color: var(--color-black);
+    }
+  }
+
+  @nest .menu-item:last-child & {
+    border-bottom-width: 0;
   }
 }
 
@@ -226,15 +234,17 @@ export default {
 .submenu {
   @mixin list-reset;
 
-  margin-left: var(--spacing-m);
+  padding-left: var(--spacing-m);
+  border-bottom: 2px solid var(--color-black);
 
   @media (--navigation-md) {
+    border-bottom: 0;
+    padding-left: 0;
     filter: drop-shadow(0 0 0.1em rgba(0, 0, 0, 0.2));
     background: var(--color-bg-page);
     position: absolute;
     left: calc(-1 * var(--spacing-xs));
     top: calc(100% + 0.1em);
-    margin-left: 0;
     white-space: nowrap;
   }
 }

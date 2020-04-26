@@ -120,6 +120,11 @@ export default {
 <style lang="postcss" module>
 .nav {
   position: relative;
+  margin-bottom: var(--spacing-m);
+
+  @media (--navigation-md) {
+    margin-bottom: 0;
+  }
 }
 
 .menu {
