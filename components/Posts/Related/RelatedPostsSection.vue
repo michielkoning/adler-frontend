@@ -28,7 +28,7 @@ export default {
   computed: {
     title() {
       if (this.notIn) {
-        return this.$t('othertPosts')
+        return this.$t('otherPosts')
       }
       return this.$t('latestPosts')
     },
