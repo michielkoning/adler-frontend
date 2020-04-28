@@ -1,5 +1,5 @@
 <template>
-  <iframe height="600" width="1000" loading="lazy" :src="easyBookingUrlI18n" />
+  <iframe height="600" width="1000" :src="easyBookingUrlI18n" />
 </template>
 
 <script>
