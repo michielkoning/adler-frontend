@@ -100,12 +100,12 @@ export default {
 
 .price-badge {
   top: -0.5em;
-  right: -0.5em;
+  right: -0.25em;
   position: absolute;
 
   @media (--viewport-sm) {
     top: 0;
-    left: -0.5em;
+    left: -0.25em;
   }
 }
 
