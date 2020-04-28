@@ -114,20 +114,9 @@ export default {
   background: var(--color-primary);
   margin-bottom: 4em;
 
-  /* prettier-ignore */
   @media (--navigation-md) {
-    background:
-      linear-gradient(
-        var(--color-primary) 0,
-        var(--color-primary) 4em,
-        transparent 4em,
-        transparent 100%
-      );
-    margin-bottom: 0;
-  }
-
-  @media (--navigation-lg) {
     background: transparent;
+    margin: 0;
   }
 }
 
@@ -215,27 +204,11 @@ export default {
   }
 }
 
-.logo,
-.logo-small {
-  fill: var(--color-primary);
-  display: none;
-}
-
 .logo {
-  @media (--navigation-lg) {
-    display: block;
-  }
-}
-
-.logo-small {
-  margin: var(--spacing-xs) auto;
+  display: none;
 
   @media (--navigation-md) {
     display: block;
-  }
-
-  @media (--navigation-lg) {
-    display: none;
   }
 }
 </style>

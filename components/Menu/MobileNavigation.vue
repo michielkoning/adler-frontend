@@ -3,7 +3,7 @@
     <notch-wrapper>
       <div class="buttons">
         <nuxt-link class="logo-wrapper" to="/">
-          <icon-logo class="logo" height="50" width="160" aria-hidden="true" />
+          <icon-logo class="logo" height="50" width="166" aria-hidden="true" />
           <span class="sr-only">{{ title }}</span>
         </nuxt-link>
         <button
