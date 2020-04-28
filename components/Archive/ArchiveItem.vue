@@ -57,9 +57,10 @@ export default {
 .item {
   display: grid;
   grid-gap: var(--spacing-s);
-  padding: var(--spacing-m) 0;
   position: relative;
   grid-row: 1 / 2;
+  padding: calc(var(--gutter) / 2);
+  margin-bottom: var(--spacing-s);
 
   @media (--viewport-sm) {
     grid-template-columns: 15em auto;
@@ -74,7 +75,6 @@ export default {
 
   &:nth-child(2n) {
     background: var(--color-gray-light);
-    padding-right: var(--spacing-m);
   }
 }
 
@@ -94,7 +94,6 @@ export default {
   height: 8em;
 
   @media (--viewport-sm) {
-    margin-top: var(--spacing-xs);
     height: auto;
   }
 }

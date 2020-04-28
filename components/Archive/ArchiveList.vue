@@ -23,5 +23,11 @@ export default {
 <style lang="postcss" module>
 .list {
   @mixin list-reset;
+
+  margin: 0 calc(var(--gutter) / -2);
+
+  & > li {
+    margin-bottom: var(--spacing-s);
+  }
 }
 </style>
