@@ -1,3 +1,10 @@
-/                                               /nl     302!  Country=nl,be
-/                                               /de     302!
-https://adler-lingenau.netlify.com/*            https://adler-lingenau.michielkoning.nl/:splat 301!
+/                                               /nl/                      302!  Country=nl,be
+/                                               /de/                      302!
+/de/pauschalen/                                 /de/arrangementen/        301!
+/de/arrangements/*                              /de/arrangementen/:splat  301!
+/de/contact-en-route/                           /de/contact/              301!
+/nl/contact-en-route/                           /nl/contact/              301!
+/en/contact-en-route/                           /en/contact/              301!
+/wp-admin/*                                     https://api.adler.michielkoning.nl/wp-admin/:splat  301!
+/wp-login/*                                     https://api.adler.michielkoning.nl/wp-login/:splat  301!
+https://adler-lingenau.netlify.com/*            https://adler-lingenau.michielkoning.nl/:splat      301!
