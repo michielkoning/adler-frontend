@@ -151,7 +151,7 @@ export default {
 .menu-link {
   @mixin link-reset;
 
-  transition: border 0.2s ease-out;
+  transition: border var(--animation);
   border-bottom-style: solid;
   border-bottom-color: var(--color-black);
   display: block;
@@ -171,7 +171,6 @@ export default {
 .menu-link {
   font-size: var(--font-size-l);
   border-bottom-width: 2px;
-  transition: border-bottom 0.2s ease-out;
 
   @nest .menu-item:first-child & {
     border-top: 2px solid var(--color-black);
@@ -231,7 +230,7 @@ export default {
 }
 
 .icon {
-  transition: transform 0.2s ease-out;
+  transition: transform var(--animation);
   @nest [aria-expanded='true'] & {
     transform: rotate(180deg);
 

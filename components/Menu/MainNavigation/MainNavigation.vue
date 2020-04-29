@@ -153,7 +153,7 @@ export default {
   }
 
   &.active {
-    transition: all 0.2s ease-out;
+    transition: all var(--animation);
   }
 }
 </style>
