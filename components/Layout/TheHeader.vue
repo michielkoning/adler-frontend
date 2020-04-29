@@ -1,40 +1,38 @@
 <template>
   <header :class="$style.header">
     <notch-wrapper>
-      <div :class="$style.wrapper">
-        <skip-links />
-        <mobile-navigation @toggleMenu="toggleMenu" />
-        <nuxt-link
-          :class="$style['logo-wrapper']"
-          :to="localePath({ name: 'index' })"
-        >
-          <icon-logo
-            :class="$style.logo"
-            aria-hidden="true"
-            width="120"
-            height="120"
-          />
-          <span class="sr-only">{{ title }}</span>
-        </nuxt-link>
+      <skip-links />
+      <mobile-navigation @toggleMenu="toggleMenu" />
 
-        <transition
-          name="fade2"
-          @after-enter="afterEnter"
-          @after-leave="afterLeave"
-        >
-          <div v-show="showMenu" :class="$style.background">
-            <transition name="fade">
-              <div v-show="showMenu" ref="content" :class="$style.content">
-                <meta-navigation />
-                <main-navigation
-                  :class="$style['main-navigation']"
-                  :menu-is-open="showMenu"
+      <transition
+        name="slide"
+        @after-enter="afterEnter"
+        @after-leave="afterLeave"
+      >
+        <div v-show="showMenu" :class="$style.background">
+          <transition name="fade">
+            <div v-show="showMenu" ref="content" :class="$style.content">
+              <nuxt-link
+                :class="$style['logo-wrapper']"
+                :to="localePath({ name: 'index' })"
+              >
+                <icon-logo
+                  :class="$style.logo"
+                  aria-hidden="true"
+                  width="497"
+                  height="424"
                 />
-              </div>
-            </transition>
-          </div>
-        </transition>
-      </div>
+                <span class="sr-only">{{ title }}</span>
+              </nuxt-link>
+              <meta-navigation :class="$style['meta-navigation']" />
+              <main-navigation
+                :class="$style['main-navigation']"
+                :menu-is-open="showMenu"
+              />
+            </div>
+          </transition>
+        </div>
+      </transition>
     </notch-wrapper>
   </header>
 </template>
@@ -98,13 +96,13 @@ export default {
   opacity: 0;
 }
 
-.fade2-enter-active,
-.fade2-leave-active {
+.slide-enter-active,
+.slide-leave-active {
   transition: transform 0.3s;
 }
 
-.fade2-enter,
-.fade2-leave-to {
+.slide-enter,
+.slide-leave-to {
   transform: translateY(-100vh);
 }
 </style>
@@ -117,68 +115,6 @@ export default {
   @media (--navigation-md) {
     background: transparent;
     margin: 0;
-  }
-}
-
-.wrapper {
-  @media (--navigation-md) {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  @media (--navigation-lg) {
-    flex-direction: row;
-  }
-}
-
-.content {
-  padding: 5em var(--gutter) var(--gutter);
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  @media (--navigation-md) {
-    padding: 0;
-    flex-direction: column;
-    overflow: visible;
-    transform: none;
-    display: flex !important;
-    align-items: flex-end;
-    max-height: none;
-    justify-content: space-between;
-    flex: 1 0 auto;
-  }
-
-  @media (--navigation-lg) {
-    padding-left: 0;
-  }
-}
-
-.logo-wrapper {
-  @mixin link-reset;
-
-  align-self: center;
-  flex: 1 0 auto;
-  position: relative;
-  z-index: var(--z-header);
-  width: 100%;
-
-  @media (--navigation-lg) {
-    width: auto;
-    flex: 0 0 auto;
-  }
-}
-
-.main-navigation {
-  width: 100%;
-  order: -1;
-
-  @media (--navigation-md) {
-    order: 1;
   }
 }
 
@@ -195,20 +131,76 @@ export default {
   background: var(--color-bg-page);
 
   @media (--navigation-md) {
-    flex: 1 1 auto;
     height: auto;
     position: static;
     padding: 0;
     overflow: visible;
-    display: flex !important;
+    display: block !important;
   }
 }
 
-.logo {
+.content {
+  padding: 5em var(--gutter) var(--gutter);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @media (--navigation-md) {
+    padding: 0;
+    overflow: visible;
+    transform: none;
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: var(--gutter);
+    max-height: none;
+    align-items: end;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+.logo-wrapper {
+  @mixin link-reset;
+
   display: none;
 
   @media (--navigation-md) {
     display: block;
+    margin-top: 0.5em;
+    width: 5em;
   }
+
+  @media (--navigation-lg) {
+    grid-row: span 2;
+    margin-bottom: 0.75em;
+    width: 7em;
+  }
+}
+
+.meta-navigation {
+  align-self: start;
+  justify-self: end;
+}
+
+.main-navigation {
+  order: -1;
+
+  @media (--navigation-md) {
+    grid-column: span 2;
+    order: 1;
+    align-self: end;
+  }
+
+  @media (--navigation-lg) {
+    grid-column: span 1;
+  }
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 </style>

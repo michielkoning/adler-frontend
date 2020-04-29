@@ -9,18 +9,21 @@
     >
       <icon-flag-nl
         v-if="locale.code === 'nl'"
+        :class="$style['icon']"
         width="32"
         height="24"
         aria-hidden="true"
       />
       <icon-flag-de
         v-if="locale.code === 'de'"
+        :class="$style['icon']"
         width="32"
         height="24"
         aria-hidden="true"
       />
       <icon-flag-en
         v-if="locale.code === 'en'"
+        :class="$style['icon']"
         width="32"
         height="24"
         aria-hidden="true"
@@ -69,14 +72,24 @@ export default {
 .link {
   @mixin link-reset;
 
-  display: block;
+  margin-bottom: var(--spacing-xxs);
+  display: flex;
+  align-items: center;
 
   @media (--navigation-md) {
     display: inline;
+    margin-bottom: 0;
   }
 }
 
 .title {
+  box-shadow: 0 1px 0 0 currentColor;
+  margin-left: var(--spacing-xs);
+
+  @nest .link:hover &, .link:focus & {
+    box-shadow: 0 2px 0 0 currentColor;
+  }
+
   @media (--navigation-md) {
     @mixin sr-only;
   }

@@ -151,6 +151,7 @@ export default {
 .menu-link {
   @mixin link-reset;
 
+  transition: border 0.2s ease-out;
   border-bottom-style: solid;
   border-bottom-color: var(--color-black);
   display: block;
@@ -170,6 +171,7 @@ export default {
 .menu-link {
   font-size: 1.2em;
   border-bottom-width: 2px;
+  transition: border-bottom 0.2s ease-out;
 
   @nest .menu-item:first-child & {
     border-top: 2px solid var(--color-black);
@@ -187,7 +189,12 @@ export default {
     &,
     &:global(.nuxt-link-active[aria-haspopup='true']),
     &:global(.nuxt-link-exact-active) {
-      border-bottom: 3px solid transparent;
+      border-bottom: 2px solid transparent;
+    }
+
+    &:hover,
+    &:focus {
+      border-bottom-color: currentColor;
     }
   }
 }
@@ -199,14 +206,13 @@ export default {
   @media (--navigation-md) {
     padding: var(--spacing-xs) var(--spacing-xs);
     border-bottom-color: var(--color-gray);
+    border-left: 2px solid transparent;
 
-    &:global(.nuxt-link-exact-active) {
-      border-bottom-color: var(--color-black);
+    &:global(.nuxt-link-exact-active),
+    &:hover,
+    &:focus {
+      border-left-color: currentColor;
     }
-  }
-
-  @nest .menu-item:last-child & {
-    border-bottom-width: 0;
   }
 }
 

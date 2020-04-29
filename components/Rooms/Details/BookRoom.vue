@@ -6,7 +6,7 @@
       :title="title"
       @close="toggleModal"
     >
-      <easy-booking-frame :url="bookUrl" />
+      <easy-booking-frame v-if="showModal" :url="bookUrl" />
     </app-modal>
   </book-now>
 </template>
