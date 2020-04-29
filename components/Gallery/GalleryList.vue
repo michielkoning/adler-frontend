@@ -15,7 +15,17 @@
         :class="[$style.item, $style[`item-${index}`]]"
         @click="openModalWithImage(index)"
       >
-        <img :src="imageSrc(item, index)" alt="" :class="$style.image" />
+        <gallery-image-large
+          v-if="index === 1"
+          :image="item"
+          :class="$style.image"
+        />
+        <gallery-image-medium
+          v-else-if="index === 2"
+          :image="item"
+          :class="$style.image"
+        />
+        <gallery-image-small v-else :image="item" :class="$style.image" />
       </li>
       <li :class="$style['item-btn']">
         <button :class="$style.btn" @click="toggleModal">
@@ -28,12 +38,18 @@
 
 <script>
 import GalleryCarousel from '~/components/Gallery/GalleryCarousel.vue'
+import GalleryImageLarge from '~/components/Gallery/Images/GalleryImageLarge.vue'
+import GalleryImageMedium from '~/components/Gallery/Images/GalleryImageMedium.vue'
+import GalleryImageSmall from '~/components/Gallery/Images/GalleryImageSmall.vue'
 import AppModal from '~/components/Shared/AppModal.vue'
 
 export default {
   components: {
     GalleryCarousel,
     AppModal,
+    GalleryImageLarge,
+    GalleryImageMedium,
+    GalleryImageSmall,
   },
   props: {
     gallery: {
@@ -57,15 +73,6 @@ export default {
     },
   },
   methods: {
-    imageSrc(item, index) {
-      if (index === 0) {
-        return item.heroLarge
-      }
-      if (index === 1) {
-        return item.heroMedium
-      }
-      return item.heroSmall
-    },
     openModalWithImage(index) {
       this.slide = index
       this.showModal = true

@@ -1,7 +1,7 @@
 fragment gallery on MediaItem {
   id
   altText
-  heroLarge: sourceUrl(size: HERO_LARGE)
-  heroMedium: sourceUrl(size: HERO_MEDIUM)
-  heroSmall: sourceUrl(size: HERO_SMALL)
+  galleryLarge: sourceUrl(size: HERO_LARGE)
+  galleryMedium: sourceUrl(size: HERO_MEDIUM)
+  gallerySmall: sourceUrl(size: HERO_SMALL)
 }

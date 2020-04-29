@@ -75,7 +75,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: 'var(--color-primary)', height: '2px' },
+  loading: { color: 'var(--nuxt-loader-color)', height: '2px' },
 
   /*
    ** Global CSS

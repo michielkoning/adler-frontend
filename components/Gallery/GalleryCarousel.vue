@@ -11,7 +11,7 @@
         :key="item.id"
         :class="$style.item"
       >
-        <img :src="item.heroLarge" alt="" :class="$style.image" />
+        <gallery-image-large :image="item" :class="$style.image" />
       </li>
     </ul>
     <div :class="$style['button-wrapper']">
@@ -38,11 +38,13 @@
 <script>
 import IconChevronLeft from '~/icons/chevron-left.svg'
 import IconChevronRight from '~/icons/chevron-right.svg'
+import GalleryImageLarge from '~/components/Gallery/Images/GalleryImageLarge.vue'
 
 export default {
   components: {
     IconChevronLeft,
     IconChevronRight,
+    GalleryImageLarge,
   },
   props: {
     gallery: {

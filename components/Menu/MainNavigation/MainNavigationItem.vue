@@ -214,6 +214,10 @@ export default {
       border-left-color: currentColor;
     }
   }
+
+  @nest .menu-item:last-child & {
+    border-bottom-width: 0;
+  }
 }
 
 .btn-show-submenu {
