@@ -110,7 +110,7 @@ export default {
 <style lang="postcss" module>
 .header {
   background: var(--color-primary);
-  margin-bottom: 4em;
+  margin-bottom: var(--menu-height);
 
   @media (--navigation-md) {
     background: transparent;
