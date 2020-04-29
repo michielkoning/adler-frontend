@@ -73,7 +73,7 @@ export default {
     display: flex;
     align-items: center;
     padding: var(--spacing-s) var(--spacing-m);
-    background: var(--color-4);
+    background: var(--color-background-alternative);
   }
 }
 
@@ -88,7 +88,7 @@ export default {
 
 .btn-book-now {
   display: none;
-  margin-left: 2em;
+  margin-left: var(--spacing-l);
 
   @media (--navigation-lg) {
     display: block;
@@ -97,7 +97,7 @@ export default {
 
 .contact-item-emailaddress {
   @media (--navigation-md) {
-    margin-left: 1em;
+    margin-left: var(--spacing-m);
   }
 }
 

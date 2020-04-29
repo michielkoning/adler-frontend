@@ -184,7 +184,7 @@ export default {
 
 .title {
   flex: 1 1 auto;
-  padding-right: 0.25em;
+  padding-right: var(--spacing-xxs);
   margin-bottom: 0;
 }
 </style>

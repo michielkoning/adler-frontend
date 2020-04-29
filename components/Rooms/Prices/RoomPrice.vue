@@ -45,7 +45,7 @@ export default {
 }
 
 .value {
-  font-size: 2em;
+  font-size: var(--font-size-xxl);
   line-height: 1.3;
 }
 </style>

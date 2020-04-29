@@ -186,7 +186,7 @@ export default {
   height: 100%;
 
   @media (--viewport-sm) {
-    font-size: 1.25em;
+    font-size: var(--font-size-l);
   }
 }
 </style>

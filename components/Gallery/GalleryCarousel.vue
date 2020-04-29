@@ -163,7 +163,7 @@ export default {
   touch-action: manipulation;
   position: absolute;
   top: 50%;
-  margin-top: -2em;
+  margin-top: calc(var(--spacing-l) * -1);
 }
 
 .btn-previous {

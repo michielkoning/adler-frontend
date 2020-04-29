@@ -22,7 +22,7 @@ export default {
 
 <style lang="postcss" module>
 .item {
-  background: var(--color-4);
+  background: var(--color-background-alternative);
   padding: var(--spacing-m);
 }
 </style>

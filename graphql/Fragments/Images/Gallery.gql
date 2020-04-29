@@ -4,4 +4,5 @@ fragment gallery on MediaItem {
   galleryLarge: sourceUrl(size: HERO_LARGE)
   galleryMedium: sourceUrl(size: HERO_MEDIUM)
   gallerySmall: sourceUrl(size: HERO_SMALL)
+  galleryExtraSmall: sourceUrl(size: ARCHIVE)
 }

@@ -87,7 +87,7 @@ export default {
   @mixin btn;
 
   color: var(--color-white);
-  font-size: 0.8em;
+  font-size: var(--font-size-xs);
   border-color: var(--color-white);
   display: flex;
   align-items: center;

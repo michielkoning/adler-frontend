@@ -61,7 +61,7 @@ export default {
   align-items: start;
   grid-gap: var(--gutter);
   margin-bottom: var(--spacing-xl);
-  padding-top: 1em;
+  padding-top: var(--spacing-m);
 
   @media (--viewport-md) {
     padding-top: 0;

@@ -44,7 +44,7 @@ export default {
 .highlights {
   @mixin block-padding;
 
-  background: var(--color-4);
+  background: var(--color-background-alternative);
 }
 
 .title {

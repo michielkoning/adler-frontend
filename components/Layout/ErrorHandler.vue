@@ -49,12 +49,12 @@ export default {
   &.active {
     position: fixed;
     bottom: 0;
-    font-size: 1.25em;
+    font-size: var(--font-size-l);
     left: 0;
     right: 0;
     z-index: var(--z-error-handler);
     padding: var(--spacing-xs) var(--spacing-xxs);
-    background: var(--color-bg-page);
+    background: var(--color-background);
     border-top: 2px solid var(--color-white);
   }
 }

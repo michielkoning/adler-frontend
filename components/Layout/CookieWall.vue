@@ -58,7 +58,7 @@ export default {
 <style lang="postcss" module>
 .cookie-wall {
   color: var(--color-white);
-  background: var(--color-3);
+  background: var(--color-gray-dark);
   position: fixed;
   bottom: 0;
   left: 0;

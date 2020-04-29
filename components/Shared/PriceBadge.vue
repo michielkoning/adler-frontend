@@ -21,7 +21,7 @@ export default {
 <style lang="postcss" module>
 .price-badge {
   font-family: var(--font-family-header);
-  background-color: var(--color-2);
+  background-color: var(--color-gray-darker);
   border-radius: 50%;
   color: var(--color-white);
   line-height: 1.1;
@@ -35,7 +35,7 @@ export default {
 }
 
 .value {
-  font-size: 1.75em;
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
 }
 

@@ -1,0 +1,16 @@
+sidebar           80
+sidebar_2x        160
+
+archive           250
+archive_2x        500
+
+highlight         400
+highlight_2x      800
+
+
+gallery_small
+gallery_medium
+gallery_large
+gallery_extra_large
+
+hero            max 1248

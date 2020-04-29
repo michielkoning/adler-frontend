@@ -1,10 +1,13 @@
 <template>
   <lazy-loading-image
     v-if="image"
-    :src="image.galleryLarge"
+    :src="image.galleryMedium"
     :alt="image.altText"
-    :srcset="`${image.galleryMedium} 1x, ${image.galleryLarge} 2x`"
-    class="image"
+    :srcset="`
+        ${image.galleryLarge} 1140w,
+        ${image.galleryMedium} 800w,
+        ${image.gallerySmall} 640w`"
+    sizes="(min-width: 1140px) 1140px, 100vw"
   />
 </template>
 

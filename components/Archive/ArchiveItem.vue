@@ -99,13 +99,13 @@ export default {
 }
 
 .price-badge {
-  top: -0.5em;
-  right: -0.25em;
+  top: calc(var(--spacing-xs) * -1);
+  right: calc(var(--spacing-xxs) * -1);
   position: absolute;
 
   @media (--viewport-sm) {
     top: 0;
-    left: -0.25em;
+    left: calc(var(--spacing-xxs) * -1);
   }
 }
 

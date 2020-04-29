@@ -94,6 +94,6 @@ export default {
 .price-badge {
   position: absolute;
   top: 3em;
-  right: -0.75em;
+  right: calc(var(--spacing-s) * -1);
 }
 </style>

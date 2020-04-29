@@ -33,7 +33,7 @@ export default {
 .footer {
   @mixin block-padding;
 
-  background: var(--color-3);
+  background: var(--color-gray-dark);
   color: var(--color-white);
 }
 

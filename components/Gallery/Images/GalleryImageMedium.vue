@@ -3,8 +3,10 @@
     v-if="image"
     :src="image.galleryMedium"
     :alt="image.altText"
-    :srcset="`${image.galleryMedium} 1x, ${image.galleryLarge} 2x`"
-    class="image"
+    :srcset="`
+        ${image.galleryMedium} 600w,
+        ${image.galleryExtraSmall} 300w`"
+    sizes="(min-width: 1140px) 600px, (min-width: 540px) 300px, 50vw"
   />
 </template>
 

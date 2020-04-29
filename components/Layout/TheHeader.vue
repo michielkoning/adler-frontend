@@ -128,7 +128,7 @@ export default {
   overflow: hidden;
   z-index: var(--z-main-navigation);
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
-  background: var(--color-bg-page);
+  background: var(--color-background);
 
   @media (--navigation-md) {
     height: auto;
@@ -168,13 +168,13 @@ export default {
 
   @media (--navigation-md) {
     display: block;
-    margin-top: 0.5em;
+    margin-top: var(--spacing-xs);
     width: 5em;
   }
 
   @media (--navigation-lg) {
     grid-row: span 2;
-    margin-bottom: 0.75em;
+    margin-bottom: var(--spacing-s);
     width: 7em;
   }
 }

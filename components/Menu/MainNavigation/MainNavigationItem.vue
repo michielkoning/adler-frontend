@@ -169,7 +169,7 @@ export default {
 }
 
 .menu-link {
-  font-size: 1.2em;
+  font-size: var(--font-size-l);
   border-bottom-width: 2px;
   transition: border-bottom 0.2s ease-out;
 
@@ -223,10 +223,10 @@ export default {
 .btn-show-submenu {
   display: block;
   position: absolute;
-  width: 2em;
-  height: 2em;
+  width: var(--spacing-l);
+  height: var(--spacing-l);
 
-  right: -0.5em;
+  right: calc(var(--spacing-xs) * -1);
   top: 0.4em;
 }
 
@@ -251,10 +251,10 @@ export default {
     border-bottom: 0;
     padding-left: 0;
     filter: drop-shadow(0 0 0.1em rgba(0, 0, 0, 0.2));
-    background: var(--color-bg-page);
+    background: var(--color-background);
     position: absolute;
     left: calc(-1 * var(--spacing-xs));
-    top: calc(100% + 0.1em);
+    top: 100%;
     white-space: nowrap;
   }
 }

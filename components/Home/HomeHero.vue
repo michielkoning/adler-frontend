@@ -50,7 +50,7 @@ export default {
   height: 30rem;
   position: relative;
   color: var(--color-white);
-  -webkit-text-stroke: 1px #666;
+  -webkit-text-stroke: 1px var(--color-gray-darker);
   -webkit-text-fill-color: var(--color-white);
   max-height: 60vw;
 
@@ -76,7 +76,7 @@ export default {
 .icon {
   height: 10vw;
   width: 100%;
-  stroke: #666;
+  stroke: var(--color-gray-darker);
 
   @media (--viewport-lg) {
     width: 50rem;
