@@ -63,7 +63,7 @@ export default {
   margin-bottom: var(--spacing-xl);
   padding-top: 1em;
 
-  @media (--viewport-lg) {
+  @media (--viewport-md) {
     padding-top: 0;
   }
 

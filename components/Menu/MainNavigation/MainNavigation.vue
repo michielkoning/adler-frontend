@@ -145,6 +145,8 @@ export default {
   height: 3px;
   background: currentColor;
   display: none;
+  position: absolute;
+  bottom: 0;
 
   @media (--navigation-md) {
     display: block;

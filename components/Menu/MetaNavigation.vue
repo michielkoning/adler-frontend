@@ -1,11 +1,18 @@
 <template>
-  <nav aria-labelledby="secondary-menu-title" :class="$style.nav">
+  <nav
+    aria-labelledby="secondary-menu-title"
+    :class="$style['meta-navigation']"
+  >
     <h2 id="secondary-menu-title" class="sr-only">
       {{ $t('title') }}
     </h2>
 
-    <contact-phone-number :class="$style['contact-item']" />
-    <contact-emailaddress :class="$style['contact-item']" />
+    <contact-phone-number
+      :class="[$style['contact-item'], $style['contact-item-phone-number']]"
+    />
+    <contact-emailaddress
+      :class="[$style['contact-item'], $style['contact-item-emailaddress']]"
+    />
 
     <language-switcher :class="$style['language-switcher']" />
 
@@ -59,37 +66,45 @@ export default {
 </script>
 
 <style lang="postcss" module>
-.nav {
+.meta-navigation {
   padding-bottom: 8em;
 
   @media (--navigation-md) {
-    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    padding: 0.5em 1em;
+    padding: var(--spacing-s) var(--spacing-m);
     background: var(--color-4);
   }
 }
 
 .language-switcher {
-  transform: translateY(0.15em);
+  margin-top: var(--spacing-m);
 
   @media (--navigation-md) {
-    margin: 0 2em 0 1em;
+    transform: translateY(0.15em);
+    margin: 0 0 0 var(--spacing-l);
   }
 }
 
 .btn-book-now {
   display: none;
+  margin-left: 2em;
 
-  @media (--navigation-md) {
+  @media (--navigation-lg) {
     display: block;
   }
 }
 
+.contact-item-emailaddress {
+  @media (--navigation-md) {
+    margin-left: 1em;
+  }
+}
+
 .contact-item {
-  margin-right: 1em;
-  transform: translateY(0.15em);
+  @media (--navigation-md) {
+    transform: translateY(0.15em);
+  }
 
   & a {
     box-shadow: 0 1px 0 0 currentColor;
