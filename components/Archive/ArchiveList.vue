@@ -26,6 +26,10 @@ export default {
 
   margin: 0 calc(var(--gutter) / -2);
 
+  @media (--viewport-md) {
+    margin-right: 0;
+  }
+
   & > li {
     margin-bottom: var(--spacing-s);
   }

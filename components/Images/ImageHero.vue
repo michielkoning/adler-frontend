@@ -35,6 +35,5 @@ export default {
   object-fit: cover;
   display: block;
   width: 100%;
-  margin-bottom: var(--spacing-m);
 }
 </style>
