@@ -9,6 +9,5 @@ export default {
     start_url: `${baseUrl}${lang}/`,
     theme_color: themeColor,
     background_color: '#f9f9f9',
-    display: 'browser',
   },
 }
