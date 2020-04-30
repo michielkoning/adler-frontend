@@ -127,7 +127,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   z-index: var(--z-main-navigation);
-  padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  padding: var(--notch);
   background: var(--color-background);
 
   @media (--navigation-md) {
