@@ -1,17 +1,27 @@
 <template>
-  <div class="wrapper">
+  <div :class="$style.wrapper">
     <notch-wrapper>
-      <div class="buttons">
-        <nuxt-link class="logo-wrapper" to="/">
-          <icon-logo class="logo" height="50" width="166" aria-hidden="true" />
+      <div :class="$style.buttons">
+        <nuxt-link :class="$style['logo-wrapper']" to="/">
+          <icon-logo-small
+            :class="$style.logo"
+            height="50"
+            width="166"
+            aria-hidden="true"
+          />
           <span class="sr-only">{{ title }}</span>
         </nuxt-link>
         <button
           :aria-expanded="menuIsExpanded ? 'true' : 'false'"
-          class="btn"
+          :class="$style.btn"
           @click="toggleMenu(!menuIsExpanded)"
         >
-          <icon-bars aria-hidden="true" width="24" height="24" class="bars" />
+          <icon-bars
+            aria-hidden="true"
+            width="24"
+            height="24"
+            :class="$style.bars"
+          />
           {{ $t('title') }}
         </button>
       </div>
@@ -21,7 +31,7 @@
 
 <script>
 import IconBars from '~/icons/bars.svg'
-import IconLogo from '~/icons/logo.svg'
+import IconLogoSmall from '~/icons/logo-sm.svg'
 import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
 import { title } from '~/data/siteDetails'
 import EventBusUtil from '~/utils/eventBusUtil'
@@ -30,7 +40,7 @@ export default {
   components: {
     IconBars,
     NotchWrapper,
-    IconLogo,
+    IconLogoSmall,
   },
   props: {
     showMenu: {
@@ -56,7 +66,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .wrapper {
   position: fixed;
   padding: var(--spacing-xs) 0;
@@ -81,6 +91,10 @@ export default {
 .logo-wrapper {
   display: flex;
   align-items: center;
+}
+
+.logo {
+  fill: var(--color-white);
 }
 
 .btn {
