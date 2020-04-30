@@ -38,7 +38,7 @@ export default {
     "title": "Bekijk ook"
   },
   "de":  {
-    "title": "PLACEHOLDER"
+    "title": "Auch interessant"
   },
   "en": {
     "title": "See also"

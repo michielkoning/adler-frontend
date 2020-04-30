@@ -34,7 +34,7 @@ export default {
     "title": "Meer aanbiedingen"
   },
   "de": {
-    "title": "PLACEHOLDER"
+    "title": "Meer aanbiedingen"
   },
   "en": {
     "title": "More offers"

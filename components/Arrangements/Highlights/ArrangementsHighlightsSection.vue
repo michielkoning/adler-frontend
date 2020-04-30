@@ -64,8 +64,8 @@ export default {
     "btnTitle": "Bekijk al onze arrangementen"
   },
   "de": {
-    "title": "PLACEHOLDER",
-    "btnTitle": "PLACEHOLDER"
+    "title": "Unseren Arrangements",
+    "btnTitle": "Unseren Arrangements"
   },
   "en": {
     "title": "Our highlighted arrangements",

@@ -136,7 +136,7 @@ export default {
     "botField": "Geben Sie dies nicht ein, wenn Sie ein Mensch sind",
     "errorMessage": "Nicht alle Felder sind korrekt ausgefüllt.",
     "success": "Vielen Dank für ihre Antwort. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.",
-    "intro": "PLACEHOLDER"
+    "intro": "Bitte senden Sie uns das Formular mit Ihren Daten. Sie bekommen innerhalb 1 Tages Antwort von uns."
   },
   "en": {
     "botField": "Don’t fill this out if you're human",

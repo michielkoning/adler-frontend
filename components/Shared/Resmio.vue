@@ -40,8 +40,8 @@ export default {
     "iframeTitle": "Reserveer voor ons restaurant"
   },
   "de": {
-    "title": "PLACEHOLDER",
-    "iframeTitle": "PLACEHOLDER"
+    "title": "Unser Restaurant",
+    "iframeTitle": "Reservieren Sie in unserem Restaurant"
   },
   "en": {
     "title": "Our restaurant",

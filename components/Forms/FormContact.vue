@@ -129,7 +129,7 @@ export default {
     "btnText": "Verzenden"
   },
   "de": {
-    "title": "PLACEHOLDER",
+    "title": "Nehmen Sie Kontakt mit uns auf",
     "btnText": "Senden"
   },
   "en": {

@@ -43,8 +43,8 @@ export default {
     "otherPosts": "Meer berichten"
   },
   "de": {
-    "latestPosts": "PLACEHOLDER",
-    "otherPosts": "PLACEHOLDER"
+    "latestPosts": "Neueste Beiträge",
+    "otherPosts": "Mehr Berichte"
   },
   "en": {
     "latestPosts": "Latest posts",

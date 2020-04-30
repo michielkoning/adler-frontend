@@ -27,9 +27,9 @@
     "dateArrival": "Datum Ankunft",
     "dateDeparture": "Datum Abflug",
     "error": {
-      "required": "PLACEHOLDER",
+      "required": "Dieses Feld ist verpflichtend einzufüllen",
       "email": {
-        "incorrect": "PLACEHOLDER"
+        "incorrect": "Bitte benutzen Sie eine gültige Email-Adresse"
       }
     }
   }

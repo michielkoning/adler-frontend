@@ -2,9 +2,9 @@ import splashscreens from './config/splashscreens'
 import googleAnalytics from './config/googleAnalytics'
 import facebookPixel from './config/facebookPixel'
 import googleTagManager from './config/googleTagManager'
-import manifest from './config/manifest'
 import generate from './config/generate'
 import i18n from './config/i18n'
+import pwa from './config/pwa'
 import apollo from './config/apollo'
 import sitemap from './config/sitemap'
 import { apiUrl, baseUrl, title } from './data/siteDetails'
@@ -111,7 +111,7 @@ export default {
   googleAnalytics,
   facebook: facebookPixel,
   gtm: googleTagManager,
-  manifest,
+  pwa,
   i18n,
   /*
    ** Axios module configuration

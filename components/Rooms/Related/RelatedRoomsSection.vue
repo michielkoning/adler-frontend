@@ -34,7 +34,7 @@ export default {
     "title": "Onze andere kamers"
   },
   "de": {
-    "title": "PLACEHOLDER"
+    "title": "Andere Zimmerarten"
   },
   "en": {
     "title": "Our other rooms"
