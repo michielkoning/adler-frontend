@@ -38,7 +38,7 @@
 <script>
 import AppButton from '~/components/Shared/AppButton.vue'
 import AppModal from '~/components/Shared/AppModal.vue'
-// import EasyBookingFrame from '~/components/Shared/EasyBookingFrame.vue'
+import EasyBookingFrame from '~/components/Shared/EasyBookingFrame.vue'
 
 import LanguageSwitcher from '~/components/Menu/LanguageSwitcher.vue'
 import ContactEmailaddress from '~/components/Contact/ContactEmailaddress.vue'
@@ -50,7 +50,7 @@ export default {
     LanguageSwitcher,
     AppButton,
     AppModal,
-    // EasyBookingFrame,
+    EasyBookingFrame,
   },
   data() {
     return {

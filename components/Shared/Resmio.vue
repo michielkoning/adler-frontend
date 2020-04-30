@@ -1,11 +1,11 @@
 <template>
   <sitebar-item-section id="related-arrangements" :title="$t('title')">
     <iframe
+      ref="frame"
       :class="$style.resmio"
       width="400"
       height="300"
       :title="$t('iframeTitle')"
-      :src="resmioUrl"
     />
   </sitebar-item-section>
 </template>
@@ -13,6 +13,7 @@
 <script>
 import { resmioUrl } from '~/data/siteDetails'
 import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
+import lazyLoadFrame from '~/helpers/lazyLoadFrame'
 
 export default {
   components: {
@@ -22,6 +23,10 @@ export default {
     return {
       resmioUrl,
     }
+  },
+  mounted() {
+    const { frame } = this.$refs
+    lazyLoadFrame(frame, resmioUrl)
   },
 }
 </script>
