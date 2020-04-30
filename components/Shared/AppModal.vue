@@ -40,7 +40,7 @@
 </template>
 
 <script>
-// import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import AnimationSlideIn from '~/components/Animations/SlideIn.vue'
 import AnimationFadeIn from '~/components/Animations/FadeIn.vue'
 import IconClose from '~/icons/close.svg'
@@ -112,12 +112,12 @@ export default {
       this.$emit('close')
     },
     lockBodyScoll(isOpen) {
-      // const { modal } = this.$refs
-      // if (isOpen) {
-      //   disableBodyScroll(modal)
-      // } else {
-      //   enableBodyScroll(modal)
-      // }
+      const { modal } = this.$refs
+      if (isOpen) {
+        disableBodyScroll(modal)
+      } else {
+        enableBodyScroll(modal)
+      }
     },
   },
 }
