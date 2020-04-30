@@ -3,7 +3,7 @@
     aria-labelledby="arrangements-highlights-title"
     :class="$style.highlights"
   >
-    <notch-wrapper>
+    <center-wrapper>
       <h1 id="arrangements-highlights-title" :class="$style.title">
         {{ $t('title') }}
       </h1>
@@ -20,20 +20,20 @@
           {{ $t('btnTitle') }}
         </app-button>
       </div>
-    </notch-wrapper>
+    </center-wrapper>
   </section>
 </template>
 
 <script>
 import ArrangementsHighlightsContainer from '~/components/Arrangements/Highlights/ArrangementsHighlightsContainer.vue'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import AppButton from '~/components/Shared/AppButton.vue'
 import HighlightsList from '~/components/Highlights/HighlightsList.vue'
 
 export default {
   components: {
     ArrangementsHighlightsContainer,
-    NotchWrapper,
+    CenterWrapper,
     HighlightsList,
     AppButton,
   },

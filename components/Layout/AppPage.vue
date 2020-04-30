@@ -1,6 +1,6 @@
 <template>
   <div>
-    <notch-wrapper>
+    <center-wrapper>
       <div :class="$style.page">
         <div>
           <article :class="$style.body">
@@ -24,14 +24,14 @@
           <resmio-widget />
         </aside>
       </div>
-    </notch-wrapper>
+    </center-wrapper>
     <arrangements-highlights-section />
   </div>
 </template>
 
 <script>
 import PostDate from '@/components/Shared/PostDate.vue'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import ImageHero from '~/components/Images/ImageHero.vue'
 import ResmioWidget from '~/components/Shared/Resmio.vue'
 import GalleryList from '~/components/Gallery/GalleryList.vue'
@@ -41,7 +41,7 @@ export default {
   components: {
     PostDate,
     ImageHero,
-    NotchWrapper,
+    CenterWrapper,
     ResmioWidget,
     GalleryList,
     ArrangementsHighlightsSection,

@@ -4,8 +4,8 @@ const lang = 'de'
 
 export default {
   manifest: {
-    name: 'Adler',
-    short_name: title,
+    name: title,
+    short_name: 'Adler',
     description: 'Familienhotel & Gasthof Adler, in Lingenau im Bregenzerwald',
     lang,
     start_url: `${baseUrl}${lang}/`,

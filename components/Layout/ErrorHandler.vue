@@ -1,6 +1,6 @@
 <template>
   <div :class="{ active: message.length }" class="alert">
-    <notch-wrapper>
+    <center-wrapper>
       <div class="content">
         <span class="text" aria-live="polite" role="region">{{ message }}</span>
 
@@ -9,19 +9,19 @@
           <span class="sr-only">{{ $t('close') }}</span>
         </button>
       </div>
-    </notch-wrapper>
+    </center-wrapper>
   </div>
 </template>
 
 <script>
 import EventBusUtil from '~/utils/eventBusUtil'
 import IconClose from '~/icons/close.svg'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 
 export default {
   components: {
     IconClose,
-    NotchWrapper,
+    CenterWrapper,
   },
   data() {
     return {

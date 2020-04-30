@@ -1,18 +1,18 @@
 <template>
   <footer :class="$style.footer">
-    <notch-wrapper>
+    <center-wrapper>
       <div :class="$style.wrapper">
         <the-address :class="$style.address" />
         <opening-times />
         <quick-links :class="$style['quick-links']" />
         <social-media-links />
       </div>
-    </notch-wrapper>
+    </center-wrapper>
   </footer>
 </template>
 
 <script>
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import SocialMediaLinks from '~/components/Contact/SocialMediaLinks.vue'
 import TheAddress from '~/components/Contact/TheAddress.vue'
 import QuickLinks from '~/components/Menu/QuickLinks.vue'
@@ -20,7 +20,7 @@ import OpeningTimes from '~/components/Contact/OpeningTimes.vue'
 
 export default {
   components: {
-    NotchWrapper,
+    CenterWrapper,
     SocialMediaLinks,
     TheAddress,
     OpeningTimes,

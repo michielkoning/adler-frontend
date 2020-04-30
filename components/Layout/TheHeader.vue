@@ -1,6 +1,6 @@
 <template>
   <header :class="$style.header">
-    <notch-wrapper>
+    <center-wrapper :top="true">
       <skip-links />
       <mobile-navigation @toggleMenu="toggleMenu" />
 
@@ -33,7 +33,7 @@
           </transition>
         </div>
       </transition>
-    </notch-wrapper>
+    </center-wrapper>
   </header>
 </template>
 
@@ -44,7 +44,7 @@ import SkipLinks from '~/components/Layout/SkipLinks.vue'
 import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
 import MainNavigation from '~/components/Menu/MainNavigation/MainNavigation.vue'
 import MetaNavigation from '~/components/Menu/MetaNavigation.vue'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import { title } from '~/data/siteDetails'
 
 export default {
@@ -54,7 +54,7 @@ export default {
     IconLogo,
     MainNavigation,
     MetaNavigation,
-    NotchWrapper,
+    CenterWrapper,
   },
   data() {
     return {
@@ -127,7 +127,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   z-index: var(--z-main-navigation);
-  padding: var(--notch);
+  padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
   background: var(--color-background);
 
   @media (--navigation-md) {

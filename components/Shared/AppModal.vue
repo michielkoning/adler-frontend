@@ -148,7 +148,7 @@ export default {
 }
 
 .notch {
-  padding: var(--notch);
+  padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
 }
 
 .wrapper {

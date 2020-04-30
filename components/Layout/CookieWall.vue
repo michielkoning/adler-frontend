@@ -1,7 +1,7 @@
 <template>
   <animation-fade-in>
     <div v-if="!accepted" :class="$style['cookie-wall']">
-      <notch-wrapper>
+      <center-wrapper>
         <div :class="$style.wrapper">
           <div :class="$style.text">
             {{ $t('info.part1') }}
@@ -13,19 +13,19 @@
             $t('confirm')
           }}</app-button>
         </div>
-      </notch-wrapper>
+      </center-wrapper>
     </div>
   </animation-fade-in>
 </template>
 
 <script>
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import AppButton from '~/components/Shared/AppButton.vue'
 import AnimationFadeIn from '~/components/Animations/FadeIn.vue'
 
 export default {
   components: {
-    NotchWrapper,
+    CenterWrapper,
     AppButton,
     AnimationFadeIn,
   },

@@ -1,22 +1,22 @@
 <template>
   <section :class="$style.facilities">
-    <notch-wrapper>
+    <center-wrapper>
       <div :class="$style.wrapper">
         <h1 :class="$style.title">{{ $t('title') }}</h1>
         <facilities-groups :facilities="facilities" />
       </div>
-    </notch-wrapper>
+    </center-wrapper>
   </section>
 </template>
 
 <script>
 import facilities from '~/data/facilities'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import FacilitiesGroups from '~/components/Facilitites/FacilitiesGroups.vue'
 
 export default {
   components: {
-    NotchWrapper,
+    CenterWrapper,
     FacilitiesGroups,
   },
   data() {

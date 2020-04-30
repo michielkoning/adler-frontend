@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <notch-wrapper>
+    <center-wrapper>
       <arrangements-highlights-container :first="2">
         <template v-slot="data">
           <div v-if="data" :class="$style.content">
@@ -16,7 +16,7 @@
           </div>
         </template>
       </arrangements-highlights-container>
-    </notch-wrapper>
+    </center-wrapper>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ import ResmioWidget from '~/components/Shared/Resmio.vue'
 import RelatedPostsSection from '~/components/Posts/Related/RelatedPostsSection.vue'
 import HighlightsItem from '~/components/Highlights/HighlightsItem.vue'
 import ArrangementsHighlightsContainer from '~/components/Arrangements/Highlights/ArrangementsHighlightsContainer.vue'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 
 export default {
   components: {
@@ -33,7 +33,7 @@ export default {
     RelatedPostsSection,
     HighlightsItem,
     ArrangementsHighlightsContainer,
-    NotchWrapper,
+    CenterWrapper,
   },
 }
 </script>

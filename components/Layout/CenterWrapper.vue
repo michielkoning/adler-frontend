@@ -1,14 +1,30 @@
 <template>
-  <div :class="$style.notch">
+  <div :class="[$style.notch, { [$style.top]: top }]">
     <div :class="$style.wrapper">
       <slot />
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  props: {
+    top: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+</script>
+
 <style lang="postcss" module>
 .notch {
-  padding: var(--notch);
+  padding-left: var(--notch-left);
+  padding-right: var(--notch-right);
+
+  &.top {
+    padding-top: var(--notch-top);
+  }
 }
 
 .wrapper {

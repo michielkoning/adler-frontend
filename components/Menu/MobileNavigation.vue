@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <notch-wrapper>
+    <center-wrapper>
       <div :class="$style.buttons">
         <nuxt-link :class="$style['logo-wrapper']" to="/">
           <icon-logo-small
@@ -25,21 +25,21 @@
           {{ $t('title') }}
         </button>
       </div>
-    </notch-wrapper>
+    </center-wrapper>
   </div>
 </template>
 
 <script>
 import IconBars from '~/icons/bars.svg'
 import IconLogoSmall from '~/icons/logo-sm.svg'
-import NotchWrapper from '~/components/Layout/NotchWrapper.vue'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import { title } from '~/data/siteDetails'
 import EventBusUtil from '~/utils/eventBusUtil'
 
 export default {
   components: {
     IconBars,
-    NotchWrapper,
+    CenterWrapper,
     IconLogoSmall,
   },
   props: {
