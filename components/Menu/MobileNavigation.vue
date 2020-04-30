@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <header :class="$style.header">
+    <center-wrapper :top="true">
       <div :class="$style.buttons">
         <nuxt-link :class="$style['logo-wrapper']" to="/">
           <icon-logo-small
