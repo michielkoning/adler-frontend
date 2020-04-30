@@ -155,7 +155,7 @@ export default {
   border-bottom-style: solid;
   border-bottom-color: var(--color-black);
   display: block;
-  line-height: 1.1;
+  line-height: var(--line-height-headings);
   padding: var(--spacing-xs) 0;
 
   &:global(.nuxt-link-active[aria-haspopup='true']),
@@ -232,7 +232,7 @@ export default {
 .icon {
   transition: transform var(--animation);
   @nest [aria-expanded='true'] & {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
 
     @media (--navigation-md) {
       transform: rotate(0deg);

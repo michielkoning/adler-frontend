@@ -84,6 +84,9 @@ export default {
 .sidebar {
   display: grid;
   grid-gap: var(--gutter);
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  }
 }
 </style>

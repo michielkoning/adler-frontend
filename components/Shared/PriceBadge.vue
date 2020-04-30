@@ -24,7 +24,7 @@ export default {
   background-color: var(--color-gray-darker);
   border-radius: 50%;
   color: var(--color-white);
-  line-height: 1.1;
+  line-height: var(--line-height-headings);
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -7,7 +7,7 @@ button {
   background: transparent;
   color: inherit;
   font: inherit;
-  line-height: normal;
+  line-height: var(--line-height-headings);
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;

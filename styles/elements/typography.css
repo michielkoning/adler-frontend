@@ -50,7 +50,7 @@ h5 {
 h1,
 h2,
 h3 {
-  line-height: 1.2;
+  line-height: var(--line-height-headings);
   font-weight: var(--font-weight-bold);
 }
 

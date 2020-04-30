@@ -24,7 +24,10 @@ export default {
 .list {
   display: grid;
   grid-column-gap: var(--gutter);
-  grid-template-columns: repeat(2, 1fr);
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>
 

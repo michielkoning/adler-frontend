@@ -77,8 +77,8 @@ export default {
   align-items: center;
 
   @media (--navigation-md) {
-    display: inline;
-    margin-bottom: 0;
+    display: inline-block;
+    margin: 0 var(--spacing-xxs);
   }
 }
 

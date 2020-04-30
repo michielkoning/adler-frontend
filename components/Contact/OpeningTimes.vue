@@ -49,7 +49,7 @@ export default {
 }
 
 .label {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .value {
