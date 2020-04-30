@@ -1,16 +1,25 @@
 sidebar           80
 sidebar_2x        160
-
+gallery_small     200
 archive           250
-archive_2x        500
-
+gallery_medium    400
 highlight         400
+archive_2x        500
 highlight_2x      800
+gallery_large     800
+gallery_full      max 990
+hero              max 1248
 
 
-gallery_small
-gallery_medium
-gallery_large
-gallery_extra_large
+sidebar           80  - 160
+gallery_small     200 - 400
+archive           250 - 500
+highlight         400 - 800
+gallery_large     800 - 1600
+gallery_full      990 - 1980
+hero              1248 = 2500
 
-hero            max 1248
+
+image-80
+image-250
+image-500
