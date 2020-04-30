@@ -74,8 +74,10 @@ export default {
   mounted() {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
     this.currentSlide = this.slide
-    this.goToSelectedSlide()
     this.active = true
+    this.$nextTick(() => {
+      this.goToSelectedSlide()
+    })
   },
   destroyed() {
     document.removeEventListener('keydown', (event) => this.scrollByKeys(event))

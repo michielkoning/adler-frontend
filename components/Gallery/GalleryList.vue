@@ -16,12 +16,12 @@
         @click="openModalWithImage(index)"
       >
         <gallery-image-large
-          v-if="index === 1"
+          v-if="index === 0"
           :image="item"
           :class="$style.image"
         />
         <gallery-image-medium
-          v-else-if="index === 2"
+          v-else-if="index === 1"
           :image="item"
           :class="$style.image"
         />

@@ -32,6 +32,7 @@ export default {
   padding: var(--spacing-s) var(--spacing-xs);
   display: flex;
   flex-direction: column;
+  margin-bottom: var(--spacing-xs);
 }
 
 .label {
