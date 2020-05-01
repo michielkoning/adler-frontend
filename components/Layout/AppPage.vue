@@ -21,7 +21,7 @@
         <image-hero v-else :image="page.featuredImage" :class="$style.image" />
         <aside :class="$style.sidebar">
           <slot name="sidebar" />
-          <resmio-widget />
+          <resmio-widget v-if="showResmio" />
         </aside>
       </div>
     </center-wrapper>
@@ -47,6 +47,10 @@ export default {
     ArrangementsHighlightsSection,
   },
   props: {
+    showResmio: {
+      type: Boolean,
+      default: true,
+    },
     page: {
       type: Object,
       default: () => {},

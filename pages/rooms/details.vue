@@ -1,5 +1,5 @@
 <template>
-  <app-page :page="room">
+  <app-page :page="room" :show-resmio="false">
     <room-prices-group :prices="room.pricesGroup" />
     <room-services :services="room.services" />
     <template v-slot:sidebar>
