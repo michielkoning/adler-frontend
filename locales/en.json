@@ -24,6 +24,7 @@
     "totalRooms": "Number of rooms",
     "totalAdults": "Number of adults",
     "totalChildren": "TNumber of kids",
+    "ageChildren": "Age of kids",
     "dateArrival": "Date of arrival",
     "dateDeparture": "Date of departure",
     "error": {

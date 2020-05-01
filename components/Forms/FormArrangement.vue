@@ -58,7 +58,7 @@
       />
       <form-input-text
         id="email"
-        v-model="formData.email"
+        v-model.trim.lazy="$v.formData.email.$model"
         :class="$style.email"
         :error-message="errorMessageEmail"
         :title="$t('form.email')"
@@ -70,7 +70,6 @@
       <form-input-text
         id="totalRooms"
         v-model.trim.lazy="$v.formData.totalRooms.$model"
-        :class="$style.field"
         :error-message="errorMessageTotalRooms"
         :title="$t('form.totalRooms')"
         type="number"
@@ -79,7 +78,6 @@
       <form-input-text
         id="totalAdults"
         v-model.trim.lazy="$v.formData.totalAdults.$model"
-        :class="$style.field"
         :error-message="errorMessageTotalAdults"
         :title="$t('form.totalAdults')"
         type="number"
@@ -88,11 +86,16 @@
       <form-input-text
         id="totalChildren"
         v-model.trim.lazy="$v.formData.totalChildren.$model"
-        :class="$style.field"
         :error-message="errorMessageTotalChildren"
         :title="$t('form.totalChildren')"
         type="number"
         name="totalChildren"
+      />
+      <form-input-text
+        id="ageChildren"
+        v-model="formData.ageChildren"
+        :title="$t('form.ageChildren')"
+        name="ageChildren"
       />
     </form-fieldset>
 
@@ -105,6 +108,7 @@
         :title="$t('form.dateArrival')"
         type="date"
         name="dateArrival"
+        :min="minDate"
       />
       <form-input-text
         id="dateDeparture"
@@ -114,12 +118,13 @@
         :title="$t('form.dateDeparture')"
         name="dateDeparture"
         type="date"
+        :min="minDate"
       />
     </form-fieldset>
     <form-fieldset :title="$t('remarks')">
       <form-textarea
         id="remarks"
-        v-model.trim="formData.remarks"
+        v-model="formData.remarks"
         :title="$t('form.remarks')"
         name="remarks"
         rows="4"
@@ -130,7 +135,7 @@
 </template>
 
 <script>
-import { required, email, numeric } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 import FormFieldset from '~/components/Forms/Elements/FormFieldset.vue'
 import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
 import FormTextarea from '~/components/Forms/Elements/FormTextarea.vue'
@@ -162,12 +167,14 @@ export default {
         totalRooms: '',
         totalAdults: '',
         totalChildren: '',
+        ageChildren: '',
         dateArrival: '',
         dateDeparture: '',
         remarks: '',
       },
     }
   },
+
   validations: {
     formData: {
       name: {
@@ -187,15 +194,12 @@ export default {
       },
       totalRooms: {
         required,
-        numeric,
       },
       totalAdults: {
         required,
-        numeric,
       },
       totalChildren: {
         required,
-        numeric,
       },
       dateArrival: {
         required,
@@ -210,6 +214,13 @@ export default {
     },
   },
   computed: {
+    minDate() {
+      const date = new Date(Date.now())
+      const year = date.getFullYear()
+      const month = this.addLeadingZero(date.getMonth() + 1)
+      const day = this.addLeadingZero(date.getDate())
+      return `${year}-${month}-${day}`
+    },
     errorMessageName() {
       if (this.$v.formData.name.$anyError) {
         if (!this.$v.formData.name.required) {
@@ -312,6 +323,12 @@ export default {
         return this.$t('form.error.required')
       }
     },
+    addLeadingZero(value) {
+      if (value < 10) {
+        return '0' + value
+      }
+      return value
+    },
   },
 }
 </script>
@@ -323,7 +340,7 @@ export default {
   }
 
   .totals /deep/ .fields {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

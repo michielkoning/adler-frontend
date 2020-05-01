@@ -1,6 +1,9 @@
 <template>
   <app-page :page="page" :show-resmio="false">
     <rooms-archive-section />
+    <template v-slot:sidebar>
+      <book-room :title="$t('bookNow')" />
+    </template>
   </app-page>
 </template>
 
@@ -10,11 +13,13 @@ import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import getSeoMetaData from '~/helpers/seo'
 import { roomsPageId } from '~/data/pages'
+import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
 
 export default {
   components: {
     RoomsArchiveSection,
     AppPage,
+    BookRoom,
   },
   async asyncData({ app, params }) {
     const language = app.i18n.locale

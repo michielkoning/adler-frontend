@@ -21,9 +21,9 @@
             role="document"
           >
             <header :class="$style.header">
-              <h1 :class="$style.title">
-                {{ title }}
-              </h1>
+              <!-- eslint-disable-next-line vue/no-v-html -->
+              <h1 :class="$style.title" v-html="title" />
+              <!-- eslint-enable vue/no-v-html -->
               <button :class="$style.close" type="button" @click.stop="close">
                 <span class="sr-only">{{ $t('close') }}</span>
                 <icon-close aria-hidden="true" width="24" height="24" />

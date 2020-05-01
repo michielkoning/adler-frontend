@@ -14,7 +14,7 @@
   "form": {
     "name": "Name",
     "phoneNumber": "Telefon",
-    "email": "E-mailaddress",
+    "email": "Email",
     "message": "Bericht",
     "address": "Adresse",
     "zipcode": "PLZ",
@@ -24,8 +24,9 @@
     "totalRooms": "Zimmeranzahl",
     "totalAdults": "Anzahl Erwachsene",
     "totalChildren": "Anzahl Kinder",
+    "ageChildren": "Alter der Kinder",
     "dateArrival": "Datum Ankunft",
-    "dateDeparture": "Datum Abflug",
+    "dateDeparture": "Datum Abreise",
     "error": {
       "required": "Dieses Feld ist verpflichtend einzufüllen",
       "email": {

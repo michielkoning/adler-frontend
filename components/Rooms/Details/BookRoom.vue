@@ -29,7 +29,7 @@ export default {
     },
     bookUrl: {
       type: String,
-      required: true,
+      default: null,
     },
   },
   data() {

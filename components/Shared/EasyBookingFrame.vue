@@ -23,7 +23,7 @@ export default {
   props: {
     url: {
       type: String,
-      default: easyBookingUrl,
+      default: null,
     },
   },
   data() {
@@ -34,7 +34,8 @@ export default {
   computed: {
     easyBookingUrlI18n() {
       const langId = this.getLangId()
-      return this.url
+      const url = this.url || easyBookingUrl
+      return url
         .replace(/\d\/category/, `${langId}/category`)
         .replace(/\d\/stepOne/, `${langId}/stepOne`)
     },

@@ -24,6 +24,7 @@
     "totalRooms": "Aantal kamers",
     "totalAdults": "Aantal volwassenen",
     "totalChildren": "Aantal kinderen",
+    "ageChildren": "Leeftijd kinderen",
     "dateArrival": "Aankomstdatum",
     "dateDeparture": "Vertrekdatum",
     "error": {
