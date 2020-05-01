@@ -5,13 +5,16 @@
         <div :class="$style.wrapper">
           <div :class="$style.text">
             {{ $t('info.part1') }}
-            <nuxt-link :to="localePath({ name: 'privacy' })">
-              {{ $t('info.part2') }} </nuxt-link
+            <nuxt-link
+              :to="localePath({ name: 'privacy' })"
+              :class="$style.link"
+            >
+              {{ $t('info.part2') }}</nuxt-link
             >.
           </div>
-          <app-button :is-large="false" @click="confirm">{{
-            $t('confirm')
-          }}</app-button>
+          <app-button :is-large="false" @click="confirm">
+            {{ $t('confirm') }}
+          </app-button>
         </div>
       </center-wrapper>
     </div>
@@ -35,21 +38,15 @@ export default {
       key: 'cookieWall',
     }
   },
-  watch: {
-    $route() {
-      this.accepted = true
-    },
-  },
-  created() {
-    if (process.client) {
-      this.accepted = localStorage.getItem(this.key)
-      localStorage.setItem(this.key, true)
-    }
+
+  mounted() {
+    this.accepted = window.localStorage.getItem(this.key)
+    window.localStorage.setItem(this.key, true)
   },
   methods: {
     confirm() {
       this.accepted = true
-      localStorage.setItem(this.key, true)
+      window.localStorage.setItem(this.key, true)
     },
   },
 }
@@ -72,9 +69,13 @@ export default {
   padding: var(--spacing-xs) 0 var(--spacing-l);
 }
 
+.link {
+  @mixin link-sm;
+}
+
 .text {
   flex: 1 1 auto;
-  padding: var(--spacing-xxs) var(--spacing-xxs) 0 0;
+  padding: 0 var(--spacing-xxs) 0 0;
 }
 </style>
 

@@ -55,12 +55,7 @@ export default {
 .quick-links,
 .address {
   & a:not(:global(.btn)) {
-    box-shadow: 0 1px 0 0 currentColor;
-
-    &:hover,
-    &:focus {
-      box-shadow: 0 2px 0 0 currentColor;
-    }
+    @mixin link-sm;
   }
 }
 </style>
