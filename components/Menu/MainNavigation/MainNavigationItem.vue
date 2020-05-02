@@ -108,6 +108,9 @@ export default {
       }
     },
   },
+  mounted() {
+    EventBusUtil.$on('change-page', () => (this.isOpen = false))
+  },
   methods: {
     toggleMenu() {
       this.isOpen = !this.isOpen
@@ -130,8 +133,7 @@ export default {
       }, 250)
     },
     changePage() {
-      if (!this.isSmallScreen) return
-      EventBusUtil.$emit('header-close-mobile-menu')
+      EventBusUtil.$emit('change-page')
     },
     isSmallScreen() {
       return window.innerWidth < 768

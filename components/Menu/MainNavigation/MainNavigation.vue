@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import { debounce } from 'throttle-debounce'
 import MainNavigationItem from '~/components/Menu/MainNavigation/MainNavigationItem.vue'
 import MainNavigationContainer from '~/components/Menu/MainNavigation/MainNavigationContainer.vue'
 
@@ -84,8 +85,15 @@ export default {
     setTimeout(() => {
       this.mounted = true
     }, 0)
+    window.addEventListener('resize', this.updateArrowAfterResize)
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.updateArrowAfterResize)
   },
   methods: {
+    updateArrowAfterResize() {
+      debounce(500, this.setArrowPosition())
+    },
     setArrowPosition() {
       const activeLink = this.getMainLink()
 

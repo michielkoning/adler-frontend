@@ -55,7 +55,7 @@ export default {
     }
   },
   mounted() {
-    EventBusUtil.$on('header-close-mobile-menu', () => this.toggleMenu(false))
+    EventBusUtil.$on('change-page', () => this.toggleMenu(false))
   },
   methods: {
     toggleMenu(status) {

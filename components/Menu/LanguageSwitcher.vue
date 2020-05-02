@@ -59,7 +59,7 @@ export default {
     },
     changePage() {
       if (!this.isSmallScreen) return
-      EventBusUtil.$emit('header-close-mobile-menu')
+      EventBusUtil.$emit('change-page')
     },
     isSmallScreen() {
       return window.innerWidth < 768
