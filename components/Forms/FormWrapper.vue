@@ -2,7 +2,9 @@
   <p v-if="submitted">{{ $t('success') }}</p>
   <form
     v-else
+    :action="urlAction"
     data-netlify="true"
+    netlify-honeypot="bot-field"
     method="POST"
     :name="name"
     novalidate
