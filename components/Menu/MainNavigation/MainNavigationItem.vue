@@ -161,6 +161,7 @@ export default {
   padding: var(--spacing-xs) 0;
 
   &:hover,
+  &:focus,
   &:global(.nuxt-link-active[aria-haspopup='true']),
   &:global(.nuxt-link-exact-active) {
     color: var(--color-primary);
