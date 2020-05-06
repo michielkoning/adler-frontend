@@ -1,5 +1,5 @@
 <template>
-  <app-page :page="arrangement">
+  <app-page :page="arrangement" :show-resmio="false">
     <arrangement-prices :prices="arrangement.pricesGroup.prices" />
     <template v-slot:sidebar>
       <book-arrangement :title="arrangement.title" />

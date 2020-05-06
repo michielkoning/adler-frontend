@@ -1,5 +1,5 @@
 <template>
-  <app-page :page="page">
+  <app-page :page="page" :show-resmio="false">
     <arrangements-archive-section />
   </app-page>
 </template>
