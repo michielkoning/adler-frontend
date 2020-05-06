@@ -104,7 +104,7 @@ export default {
       })
 
       try {
-        await axios.post('/', encodeFormData, axiosConfig)
+        await axios.post(this.urlAction, encodeFormData, axiosConfig)
         this.submitted = true
       } finally {
         this.loading = false
