@@ -104,8 +104,8 @@ export default {
       const encodeFormData = this.encodeFormData({
         'form-name': this.name,
         'bot-field': this.botField,
-        page: this.currentPage,
         ...this.formData,
+        page: this.currentPage,
       })
 
       try {

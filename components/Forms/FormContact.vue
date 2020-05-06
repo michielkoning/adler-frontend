@@ -59,10 +59,10 @@ export default {
   data() {
     return {
       formData: {
-        name: 'Michiel',
-        phone: '0638037756',
-        email: 'mail@michielkoning.nl',
-        message: 'Testbericht',
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
       },
     }
   },
