@@ -15,17 +15,11 @@
         :class="[$style.item, $style[`item-${index}`]]"
         @click="openModalWithImage(index)"
       >
-        <gallery-image-large
-          v-if="index === 0"
+        <tag
+          :is="imageSizeComponent(index)"
           :image="item"
           :class="$style.image"
         />
-        <gallery-image-medium
-          v-else-if="index === 1"
-          :image="item"
-          :class="$style.image"
-        />
-        <gallery-image-small v-else :image="item" :class="$style.image" />
       </li>
       <li :class="$style['item-btn']">
         <button :class="$style.btn" @click="toggleModal">
@@ -80,6 +74,14 @@ export default {
     toggleModal(index) {
       this.slide = 0
       this.showModal = !this.showModal
+    },
+    imageSizeComponent(index) {
+      if (index === 0) {
+        return 'gallery-image-large'
+      } else if (index === 1) {
+        return 'gallery-image-medium'
+      }
+      return 'gallery-image-small'
     },
   },
 }
