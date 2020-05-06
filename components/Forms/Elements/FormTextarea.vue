@@ -2,6 +2,7 @@
   <form-field :id="id" :error-message="errorMessage" :title="title">
     <textarea
       :id="id"
+      :name="name || id"
       v-bind="$attrs"
       :value="value"
       :class="$style.field"
@@ -26,6 +27,10 @@ export default {
     id: {
       type: String,
       required: true,
+    },
+    name: {
+      type: String,
+      default: null,
     },
     value: {
       type: String,
