@@ -1,5 +1,5 @@
 <template>
-  <book-now @trigger="toggleModal">
+  <book-now :title="$t('btn')" @trigger="toggleModal">
     <app-modal :show="showModal" :title="title" @close="toggleModal">
       <form-arrangement :title="title" />
     </app-modal>
@@ -35,3 +35,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "btn": "Nu aanvragen"
+  },
+  "de": {
+    "btn": "Jetzt anfragen"
+  },
+  "en": {
+    "btn": "Book now"
+  }
+}
+</i18n>

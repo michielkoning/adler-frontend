@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.wrapper">
     <app-button :is-full-width="true" size="large" @click="$emit('trigger')">
-      {{ $t('bookNow') }}
+      {{ titleWithFallback }}
     </app-button>
     <slot />
   </div>
@@ -13,6 +13,20 @@ import AppButton from '~/components/Shared/AppButton.vue'
 export default {
   components: {
     AppButton,
+  },
+  props: {
+    title: {
+      type: String,
+      default: null,
+    },
+  },
+  computed: {
+    titleWithFallback() {
+      if (this.title) {
+        return this.title
+      }
+      return this.$t('bookNow')
+    },
   },
 }
 </script>

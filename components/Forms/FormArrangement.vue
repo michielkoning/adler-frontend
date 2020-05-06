@@ -381,14 +381,14 @@ export default {
 <i18n>
 {
   "nl": {
-    "btnText": "Boeken",
+    "btnText": "Aanvragen",
     "addressData": "Adresgegevens",
     "familyData": "Bezoekerssamenstelling",
     "dates": "Data",
     "remarks": "Opmerkingen"
   },
   "de": {
-    "btnText": "Buchen",
+    "btnText": "Anfragen",
     "addressData": "Adressinformationen",
     "familyData": "Besucherkomposition",
     "dates": "Daten",

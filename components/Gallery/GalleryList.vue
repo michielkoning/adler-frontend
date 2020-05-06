@@ -92,7 +92,7 @@ export default {
   @mixin list-reset;
 
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 36vw 24vw auto;
+  grid-template-rows: 36vw 24vw;
   display: grid;
   grid-gap: var(--gutter);
 }
@@ -117,7 +117,7 @@ export default {
 @media (--viewport-sm) {
   .list {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 36vw 12vw auto;
+    grid-template-rows: 36vw 12vw;
   }
 
   .item-0 {
@@ -135,7 +135,7 @@ export default {
 
 @media (--viewport-lg) {
   .list {
-    grid-template-rows: 2fr 2fr 1fr;
+    grid-template-rows: 12em 12em 4em;
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -152,7 +152,7 @@ export default {
 @media (--viewport-xlg) {
   .list {
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 9em);
   }
 
   .item-0 {
@@ -179,13 +179,18 @@ export default {
 }
 
 .btn {
+  @mixin btn;
+
   background: var(--color-gray);
+  border-radius: 0;
   color: var(--color-white);
-  text-align: center;
-  padding: var(--spacing-s) var(--spacing-xs);
-  font-family: var(--font-family-header);
   width: 100%;
   height: 100%;
+
+  &:hover,
+  &:focus {
+    background: var(--color-gray-dark);
+  }
 
   @media (--viewport-sm) {
     font-size: var(--font-size-l);
