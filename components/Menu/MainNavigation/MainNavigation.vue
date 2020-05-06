@@ -151,7 +151,7 @@ export default {
 
 .arrow {
   height: 3px;
-  background: currentColor;
+  background: var(--color-primary);
   display: none;
   position: absolute;
   bottom: 0;

@@ -24,7 +24,7 @@
     </div>
 
     <app-button
-      :is-large="false"
+      size="small"
       :href="directionsUrl"
       target="_blank"
       rel="noopener"

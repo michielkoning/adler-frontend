@@ -17,7 +17,7 @@
     <language-switcher :class="$style['language-switcher']" />
 
     <app-button
-      :is-large="false"
+      size="small"
       :class="$style['btn-book-now']"
       @click="toggleModal"
     >

@@ -47,9 +47,12 @@ export default {
         return ['primary', 'ghost'].includes(value)
       },
     },
-    isLarge: {
-      type: Boolean,
-      default: true,
+    size: {
+      type: String,
+      default: 'medium',
+      validator(value) {
+        return ['small', 'medium', 'large'].includes(value)
+      },
     },
     isFullWidth: {
       type: Boolean,
@@ -60,8 +63,9 @@ export default {
     cssClasses() {
       const classes = [this.$style.btn]
       classes.push(this.$style[`btn-${this.buttonStyle}`])
-      if (!this.isLarge) classes.push(this.$style['btn-small'])
       if (this.isFullWidth) classes.push(this.$style['btn-full'])
+      if (this.size === 'small') classes.push(this.$style[`btn-small`])
+      if (this.size === 'large') classes.push(this.$style[`btn-large`])
       return classes
     },
     tag() {
@@ -108,6 +112,10 @@ export default {
   font-size: var(--font-size-sm);
   padding: var(--spacing-xxs) var(--spacing-xs);
   font-weight: var(--font-weight-normal);
+}
+
+.btn-large {
+  font-size: var(--font-size-l);
 }
 
 .btn-primary {

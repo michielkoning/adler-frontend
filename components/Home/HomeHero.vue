@@ -1,19 +1,22 @@
 <template>
   <div :class="$style.hero">
     <image-hero :image="page.featuredImage" :class="$style.image" />
+
     <div :class="$style.content">
-      <icon-logo-hero
-        aria-hidden="true"
-        width="800"
-        height="96"
-        :class="$style.icon"
-      />
-      <h1 id="content" class="sr-only" tabindex="-1">
-        {{ title }}
-      </h1>
-      <h2>
-        {{ $t('subtitle', { province, city }) }}
-      </h2>
+      <center-wrapper>
+        <icon-logo-hero
+          aria-hidden="true"
+          width="800"
+          height="96"
+          :class="$style.icon"
+        />
+        <h1 id="content" class="sr-only" tabindex="-1">
+          {{ title }}
+        </h1>
+        <h2>
+          {{ $t('subtitle', { province, city }) }}
+        </h2>
+      </center-wrapper>
     </div>
   </div>
 </template>
@@ -23,11 +26,13 @@ import ImageHero from '~/components/Images/ImageHero.vue'
 import IconLogoHero from '~/icons/logo-hero.svg'
 import { title } from '~/data/siteDetails'
 import { city, province } from '~/data/address'
+import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 
 export default {
   components: {
     ImageHero,
     IconLogoHero,
+    CenterWrapper,
   },
   props: {
     page: {
@@ -74,14 +79,10 @@ export default {
 }
 
 .icon {
-  height: 10vw;
+  height: auto;
   width: 100%;
+  max-width: 50rem;
   stroke: var(--color-gray-darker);
-
-  @media (--viewport-lg) {
-    width: 50rem;
-    height: 6rem;
-  }
 }
 </style>
 

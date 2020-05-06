@@ -160,12 +160,13 @@ export default {
   line-height: var(--line-height-headings);
   padding: var(--spacing-xs) 0;
 
+  &:hover,
   &:global(.nuxt-link-active[aria-haspopup='true']),
   &:global(.nuxt-link-exact-active) {
     color: var(--color-primary);
 
-    @media (--navigation-md) {
-      color: currentColor;
+    & + .btn-show-submenu {
+      color: var(--color-primary);
     }
   }
 }

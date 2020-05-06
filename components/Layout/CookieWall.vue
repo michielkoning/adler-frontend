@@ -12,7 +12,7 @@
               {{ $t('info.part2') }}</nuxt-link
             >.
           </div>
-          <app-button :is-large="false" @click="confirm">
+          <app-button size="small" @click="confirm">
             {{ $t('confirm') }}
           </app-button>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.wrapper">
-    <app-button :is-full-width="true" @click="$emit('trigger')">
+    <app-button :is-full-width="true" size="large" @click="$emit('trigger')">
       {{ $t('bookNow') }}
     </app-button>
     <slot />
