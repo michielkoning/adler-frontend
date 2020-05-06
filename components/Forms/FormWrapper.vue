@@ -12,14 +12,13 @@
   >
     <p>{{ $t('intro') }}</p>
     <input type="hidden" name="form-name" :value="name" />
+    <input type="hidden" name="page" :value="currentPage" />
     <slot />
     <form-input-text
       id="bot-field"
       v-model="botField"
       :title="$t('botField')"
-      type="text"
       :class="$style['bot-field']"
-      name="bot-field"
     />
     <div>{{ errorMessage }}</div>
     <app-loader v-if="loading" />
@@ -34,6 +33,7 @@ import axios from 'axios'
 import AppButton from '~/components/Shared/AppButton.vue'
 import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
 import AppLoader from '~/components/Shared/AppLoader.vue'
+import { baseUrl } from '~/data/siteDetails'
 
 export default {
   components: {
@@ -71,6 +71,10 @@ export default {
     urlAction() {
       return this.$route.fullPath
     },
+    currentPage() {
+      const cleanBaseUrl = baseUrl.slice(0, -1)
+      return `${cleanBaseUrl}${this.$route.path}`
+    },
   },
   methods: {
     submit() {
@@ -100,6 +104,7 @@ export default {
       const encodeFormData = this.encodeFormData({
         'form-name': this.name,
         'bot-field': this.botField,
+        page: this.currentPage,
         ...this.formData,
       })
 

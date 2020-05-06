@@ -6,7 +6,7 @@
     :valid="!$v.$invalid"
     @validate="validate"
   >
-    <input type="hidden" name="arrangement" :value="title" />
+    <input v-model="formData.arrangement" type="hidden" name="arrangement" />
     <form-fieldset :title="$t('addressData')" class="addresses">
       <form-input-text
         id="name"
@@ -157,47 +157,9 @@ export default {
         dateArrival: '2020-10-10',
         dateDeparture: '2020-11-11',
         remarks: 'Geen',
+        arrangement: null,
       },
     }
-  },
-
-  validations: {
-    formData: {
-      name: {
-        required,
-      },
-      address: {
-        required,
-      },
-      zipcode: {
-        required,
-      },
-      city: {
-        required,
-      },
-      country: {
-        required,
-      },
-      totalRooms: {
-        required,
-      },
-      totalAdults: {
-        required,
-      },
-      totalChildren: {
-        required,
-      },
-      dateArrival: {
-        required,
-      },
-      dateDeparture: {
-        required,
-      },
-      email: {
-        required,
-        email,
-      },
-    },
   },
   computed: {
     minDate() {
@@ -297,6 +259,48 @@ export default {
         }
       }
       return null
+    },
+  },
+  mounted() {
+    this.formData.arrangement = this.title
+  },
+
+  validations: {
+    formData: {
+      name: {
+        required,
+      },
+      address: {
+        required,
+      },
+      zipcode: {
+        required,
+      },
+      city: {
+        required,
+      },
+      country: {
+        required,
+      },
+      totalRooms: {
+        required,
+      },
+      totalAdults: {
+        required,
+      },
+      totalChildren: {
+        required,
+      },
+      dateArrival: {
+        required,
+      },
+      dateDeparture: {
+        required,
+      },
+      email: {
+        required,
+        email,
+      },
     },
   },
 
