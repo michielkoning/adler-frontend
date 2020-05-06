@@ -9,7 +9,7 @@
     <nuxt-link
       ref="link"
       :to="url"
-      :aria-haspopup="hasChildren ? 'true' : 'false'"
+      :aria-haspopup="hasChildren"
       :class="$style['menu-link']"
       class="menu-link"
       @click.native="changePage"
