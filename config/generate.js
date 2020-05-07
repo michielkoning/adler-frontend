@@ -1,10 +1,22 @@
 import { createApolloFetch } from 'apollo-fetch'
 import { apiUrl } from './../data/siteDetails'
-import * as excludePages from './../data/pages'
+import {
+  homePageId,
+  arrangementsPageId,
+  roomsPageId,
+  blogPageId,
+  contactPageId,
+} from './../data/pages'
 
 const getExcludesPages = () => {
   const excludePageIDS = []
-  Object.values(excludePages).forEach((page) => {
+  Object.values([
+    homePageId,
+    arrangementsPageId,
+    roomsPageId,
+    blogPageId,
+    contactPageId,
+  ]).forEach((page) => {
     excludePageIDS.push(...Object.values(page))
   })
   return excludePageIDS
