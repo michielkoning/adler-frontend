@@ -65,6 +65,14 @@ export default {
         href: apiUrl,
       },
       {
+        rel: 'dns-prefetch',
+        href: 'https://connect.facebook.net',
+      },
+      {
+        rel: 'dns-prefetch',
+        href: 'https://www.google-analytics.com/analytics.js',
+      },
+      {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico',
