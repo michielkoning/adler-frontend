@@ -12,13 +12,19 @@
           </article>
           <slot />
         </div>
-        <gallery-list
-          v-if="page.galleryGroup && page.galleryGroup.gallery"
-          :title="page.title"
-          :class="$style.gallery"
-          :gallery="page.galleryGroup.gallery"
-        />
-        <image-hero v-else :image="page.featuredImage" :class="$style.image" />
+        <lazy-hydrate when-idle>
+          <gallery-list
+            v-if="page.galleryGroup && page.galleryGroup.gallery"
+            :title="page.title"
+            :class="$style.gallery"
+            :gallery="page.galleryGroup.gallery"
+          />
+          <image-hero
+            v-else
+            :image="page.featuredImage"
+            :class="$style.image"
+          />
+        </lazy-hydrate>
         <aside :class="$style.sidebar">
           <slot name="sidebar" />
           <resmio-widget v-if="showResmio" />
@@ -31,20 +37,20 @@
 
 <script>
 import PostDate from '@/components/Shared/PostDate.vue'
+import LazyHydrate from 'vue-lazy-hydration'
 import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
-import ImageHero from '~/components/Images/ImageHero.vue'
 import ResmioWidget from '~/components/Shared/Resmio.vue'
-import GalleryList from '~/components/Gallery/GalleryList.vue'
 import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
 
 export default {
   components: {
+    LazyHydrate,
     PostDate,
-    ImageHero,
     CenterWrapper,
     ResmioWidget,
-    GalleryList,
     ArrangementsHighlightsSection,
+    ImageHero: () => import('~/components/Images/ImageHero.vue'),
+    GalleryList: () => import('~/components/Gallery/GalleryList.vue'),
   },
   props: {
     showResmio: {

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <lazy-hydrate ssr-only>
+    <lazy-hydrate when-idle>
       <home-hero :page="page" />
     </lazy-hydrate>
-    <lazy-hydrate :on-interaction="['click', 'touchstart']">
+    <lazy-hydrate when-visible>
       <home-content />
     </lazy-hydrate>
     <lazy-hydrate ssr-only>

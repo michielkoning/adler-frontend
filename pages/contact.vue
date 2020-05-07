@@ -1,36 +1,39 @@
 <template>
   <app-page :page="page">
-    <block-map />
-    <div :class="$style.wrapper">
-      <the-address />
-      <opening-times />
-      <social-media-links />
-    </div>
+    <lazy-hydrate when-idle>
+      <block-map />
+    </lazy-hydrate>
+    <lazy-hydrate ssr-only>
+      <div :class="$style.wrapper">
+        <the-address />
+        <opening-times />
+        <social-media-links />
+      </div>
+    </lazy-hydrate>
     <template v-slot:sidebar>
-      <form-contact />
+      <lazy-hydrate when-visible>
+        <form-contact />
+      </lazy-hydrate>
     </template>
   </app-page>
 </template>
 
 <script>
-import SocialMediaLinks from '~/components/Contact/SocialMediaLinks.vue'
-import FormContact from '~/components/Forms/FormContact.vue'
-import BlockMap from '~/components/Contact/BlockMap.vue'
+import LazyHydrate from 'vue-lazy-hydration'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import { contactPageId } from '~/data/pages'
-import TheAddress from '~/components/Contact/TheAddress.vue'
-import OpeningTimes from '~/components/Contact/OpeningTimes.vue'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
+    LazyHydrate,
     AppPage,
-    FormContact,
-    BlockMap,
-    SocialMediaLinks,
-    TheAddress,
-    OpeningTimes,
+    FormContact: () => import('~/components/Forms/FormContact.vue'),
+    BlockMap: () => import('~/components/Contact/BlockMap.vue'),
+    SocialMediaLinks: () => import('~/components/Contact/SocialMediaLinks.vue'),
+    TheAddress: () => import('~/components/Contact/TheAddress.vue'),
+    OpeningTimes: () => import('~/components/Contact/OpeningTimes.vue'),
   },
   async asyncData({ app, params }) {
     const language = app.i18n.locale
