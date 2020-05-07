@@ -37,10 +37,6 @@
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
-              :title="$t('pages.blog')"
-              :url="localePath({ name: 'blog' })"
-            />
-            <main-navigation-item
               :title="$t('pages.contact')"
               :url="localePath({ name: 'contact' })"
             />
