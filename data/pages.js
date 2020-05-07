@@ -34,6 +34,12 @@ export const contactPageId = {
   en: 2927,
 }
 
+export const environmentPageId = {
+  de: 2003,
+  nl: 2994,
+  en: 2996,
+}
+
 export const privacyPageId = {
   de: 2900,
   nl: 2930,

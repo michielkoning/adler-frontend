@@ -1,5 +1,22 @@
-query Menu($language: LanguageCodeFilterEnum, $hotelPageId: ID!) {
+query Menu(
+  $language: LanguageCodeFilterEnum
+  $hotelPageId: ID!
+  $environmentPageId: ID!
+) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
+    title
+    relativeUrl
+    childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      edges {
+        node {
+          id
+          relativeUrl
+          title
+        }
+      }
+    }
+  }
+  environment: page(id: $environmentPageId, idType: DATABASE_ID) {
     title
     relativeUrl
     childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {

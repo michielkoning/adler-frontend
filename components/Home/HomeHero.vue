@@ -79,10 +79,11 @@ export default {
 }
 
 .icon {
-  height: auto;
+  stroke: var(--color-gray-darker);
   width: 100%;
   max-width: 50rem;
-  stroke: var(--color-gray-darker);
+  height: 11vw;
+  max-height: 6em;
 }
 </style>
 

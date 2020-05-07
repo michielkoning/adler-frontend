@@ -3,6 +3,7 @@
     :query="require('~/graphql/Menu/Menu.gql')"
     :variables="{
       hotelPageId: hotelPageId[this.$i18n.locale],
+      environmentPageId: environmentPageId[this.$i18n.locale],
       language: $i18n.locale.toUpperCase(),
     }"
   >
@@ -11,6 +12,7 @@
       <slot
         v-else-if="data"
         :hotel="data.hotel"
+        :environment="data.environment"
         :arrangements="data.arrangements"
         :rooms="data.rooms"
       />
@@ -20,7 +22,7 @@
 
 <script>
 import AppLoader from '~/components/Shared/AppLoader.vue'
-import { hotelPageId } from '~/data/pages'
+import { hotelPageId, environmentPageId } from '~/data/pages'
 
 export default {
   components: {
@@ -29,6 +31,7 @@ export default {
   data() {
     return {
       hotelPageId,
+      environmentPageId,
     }
   },
 }

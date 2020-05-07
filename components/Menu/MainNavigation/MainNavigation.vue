@@ -9,7 +9,7 @@
         <template v-slot="data">
           <ul :class="$style.menu">
             <main-navigation-item
-              :title="$t(`pages.home`)"
+              :title="$t('pages.home')"
               :url="localePath('/')"
             />
             <main-navigation-item
@@ -19,23 +19,29 @@
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
-              :title="$t(`pages.arrangements`)"
+              :title="data.environment.title"
+              :url="data.environment.relativeUrl"
+              :children="data.environment.childPages"
+              :reset-submenu="menuIsOpen"
+            />
+            <main-navigation-item
+              :title="$t('pages.arrangements')"
               :url="localePath({ name: 'arrangements' })"
               :children="data.arrangements"
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
-              :title="$t(`pages.rooms`)"
+              :title="$t('pages.rooms')"
               :url="localePath({ name: 'rooms' })"
               :children="data.rooms"
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
-              :title="$t(`pages.blog`)"
+              :title="$t('pages.blog')"
               :url="localePath({ name: 'blog' })"
             />
             <main-navigation-item
-              :title="$t(`pages.contact`)"
+              :title="$t('pages.contact')"
               :url="localePath({ name: 'contact' })"
             />
           </ul>
