@@ -1,6 +1,8 @@
 <template>
   <app-page :page="page">
-    <pages-archive-section :parent="page.databaseId" />
+    <lazy-hydrate when-visible>
+      <pages-archive-section :parent="page.databaseId" />
+    </lazy-hydrate>
     <template v-slot:sidebar>
       <related-pages-section
         v-if="page.parent"
@@ -12,17 +14,19 @@
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 import PageByURIQuery from '~/graphql/Pages/PageByURI.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
-import PagesArchiveSection from '~/components/Pages/Archive/PagesArchiveSection.vue'
 import RelatedPagesSection from '~/components/Pages/Related/RelatedPagesSection.vue'
 import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
   components: {
+    LazyHydrate,
+    PagesArchiveSection: () =>
+      import('~/components/Pages/Archive/PagesArchiveSection.vue'),
     AppPage,
-    PagesArchiveSection,
     RelatedPagesSection,
   },
   async asyncData({ app, params, store, redirect }) {

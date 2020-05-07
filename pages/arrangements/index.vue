@@ -1,11 +1,13 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <arrangements-archive-section />
+    <lazy-hydrate when-visible>
+      <arrangements-archive-section />
+    </lazy-hydrate>
   </app-page>
 </template>
 
 <script>
-import ArrangementsArchiveSection from '~/components/Arrangements/Archive/ArrangementsSection.vue'
+import LazyHydrate from 'vue-lazy-hydration'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import getSeoMetaData from '~/helpers/seo'
@@ -13,7 +15,9 @@ import { arrangementsPageId } from '~/data/pages'
 
 export default {
   components: {
-    ArrangementsArchiveSection,
+    LazyHydrate,
+    ArrangementsArchiveSection: () =>
+      import('~/components/Arrangements/Archive/ArrangementsSection.vue'),
     AppPage,
   },
   async asyncData({ app, params }) {

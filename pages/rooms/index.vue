@@ -1,6 +1,8 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <rooms-archive-section />
+    <lazy-hydrate when-visible>
+      <rooms-archive-section />
+    </lazy-hydrate>
     <template v-slot:sidebar>
       <book-room :title="$t('bookNow')" />
     </template>
@@ -8,7 +10,7 @@
 </template>
 
 <script>
-import RoomsArchiveSection from '~/components/Rooms/Archive/RoomsSection.vue'
+import LazyHydrate from 'vue-lazy-hydration'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import getSeoMetaData from '~/helpers/seo'
@@ -17,7 +19,9 @@ import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
 
 export default {
   components: {
-    RoomsArchiveSection,
+    LazyHydrate,
+    RoomsArchiveSection: () =>
+      import('~/components/Rooms/Archive/RoomsSection.vue'),
     AppPage,
     BookRoom,
   },

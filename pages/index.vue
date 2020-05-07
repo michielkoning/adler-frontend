@@ -1,6 +1,6 @@
 <template>
   <div>
-    <lazy-hydrate when-idle>
+    <lazy-hydrate ssr-only>
       <home-hero :page="page" />
     </lazy-hydrate>
     <lazy-hydrate when-visible>
