@@ -1,24 +1,30 @@
 <template>
   <div>
-    <home-hero :page="page" />
-    <home-content />
-    <facilities-wrapper />
+    <lazy-hydrate ssr-only>
+      <home-hero :page="page" />
+    </lazy-hydrate>
+    <lazy-hydrate ssr-only>
+      <home-content />
+    </lazy-hydrate>
+    <lazy-hydrate ssr-only>
+      <facilities-wrapper />
+    </lazy-hydrate>
   </div>
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import { homePageId } from '~/data/pages'
-import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
-import HomeHero from '~/components/Home/HomeHero.vue'
-import HomeContent from '~/components/Home/HomeContent.vue'
 import getSeoMetaData from '~/helpers/seo'
-
 export default {
   components: {
-    FacilitiesWrapper,
-    HomeHero,
-    HomeContent,
+    LazyHydrate,
+
+    FacilitiesWrapper: () =>
+      import('~/components/Facilitites/FacilitiesWrapper.vue'),
+    HomeHero: () => import('~/components/Home/HomeHero.vue'),
+    HomeContent: () => import('~/components/Home/HomeContent.vue'),
   },
   async asyncData({ app, params }) {
     const language = app.i18n.locale
