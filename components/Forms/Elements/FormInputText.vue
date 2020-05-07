@@ -2,6 +2,7 @@
   <form-field :id="id" :error-message="errorMessage" :title="title">
     <input
       :id="id"
+      :name="name || id"
       v-bind="$attrs"
       :value="value"
       :type="type"
@@ -25,13 +26,13 @@ export default {
       type: String,
       required: true,
     },
-    name: {
-      type: String,
-      required: true,
-    },
     id: {
       type: String,
       required: true,
+    },
+    name: {
+      type: String,
+      default: null,
     },
     type: {
       type: String,

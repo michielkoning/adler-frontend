@@ -6,7 +6,7 @@
     :valid="!$v.$invalid"
     @validate="validate"
   >
-    <input type="hidden" name="arrangement" :value="title" />
+    <input v-model="formData.arrangement" type="hidden" name="arrangement" />
     <form-fieldset :title="$t('addressData')" class="addresses">
       <form-input-text
         id="name"
@@ -14,7 +14,6 @@
         :class="$style.name"
         :error-message="errorMessageName"
         :title="$t('form.name')"
-        name="name"
       />
       <form-input-text
         id="address"
@@ -22,7 +21,6 @@
         :class="$style.address"
         :error-message="errorMessageAddress"
         :title="$t('form.address')"
-        name="address"
       />
       <form-input-text
         id="zipcode"
@@ -30,7 +28,6 @@
         :class="$style.zipcode"
         :error-message="errorMessageZipcode"
         :title="$t('form.zipcode')"
-        name="zipcode"
       />
       <form-input-text
         id="city"
@@ -38,7 +35,6 @@
         :class="$style.city"
         :error-message="errorMessageCity"
         :title="$t('form.city')"
-        name="city"
       />
       <form-input-text
         id="country"
@@ -46,7 +42,6 @@
         :class="$style.country"
         :error-message="errorMessageCountry"
         :title="$t('form.country')"
-        name="country"
       />
       <form-input-text
         id="phone"
@@ -54,7 +49,6 @@
         :class="$style['phone-number']"
         :title="$t('form.phoneNumber')"
         type="tel"
-        name="phone"
       />
       <form-input-text
         id="email"
@@ -63,7 +57,6 @@
         :error-message="errorMessageEmail"
         :title="$t('form.email')"
         type="email"
-        name="email"
       />
     </form-fieldset>
     <form-fieldset :title="$t('familyData')" class="totals">
@@ -73,7 +66,6 @@
         :error-message="errorMessageTotalRooms"
         :title="$t('form.totalRooms')"
         type="number"
-        name="totalRooms"
       />
       <form-input-text
         id="totalAdults"
@@ -81,7 +73,6 @@
         :error-message="errorMessageTotalAdults"
         :title="$t('form.totalAdults')"
         type="number"
-        name="totalAdults"
       />
       <form-input-text
         id="totalChildren"
@@ -89,13 +80,11 @@
         :error-message="errorMessageTotalChildren"
         :title="$t('form.totalChildren')"
         type="number"
-        name="totalChildren"
       />
       <form-input-text
         id="ageChildren"
         v-model="formData.ageChildren"
         :title="$t('form.ageChildren')"
-        name="ageChildren"
       />
     </form-fieldset>
 
@@ -107,7 +96,6 @@
         :error-message="errorMessageDateArrival"
         :title="$t('form.dateArrival')"
         type="date"
-        name="dateArrival"
         :min="minDate"
       />
       <form-input-text
@@ -116,7 +104,6 @@
         :class="$style.date"
         :error-message="errorMessageDateDeparture"
         :title="$t('form.dateDeparture')"
-        name="dateDeparture"
         type="date"
         :min="minDate"
       />
@@ -126,7 +113,6 @@
         id="remarks"
         v-model="formData.remarks"
         :title="$t('form.remarks')"
-        name="remarks"
         rows="4"
         type="remarks"
       />
@@ -171,47 +157,9 @@ export default {
         dateArrival: '',
         dateDeparture: '',
         remarks: '',
+        arrangement: null,
       },
     }
-  },
-
-  validations: {
-    formData: {
-      name: {
-        required,
-      },
-      address: {
-        required,
-      },
-      zipcode: {
-        required,
-      },
-      city: {
-        required,
-      },
-      country: {
-        required,
-      },
-      totalRooms: {
-        required,
-      },
-      totalAdults: {
-        required,
-      },
-      totalChildren: {
-        required,
-      },
-      dateArrival: {
-        required,
-      },
-      dateDeparture: {
-        required,
-      },
-      email: {
-        required,
-        email,
-      },
-    },
   },
   computed: {
     minDate() {
@@ -311,6 +259,48 @@ export default {
         }
       }
       return null
+    },
+  },
+  mounted() {
+    this.formData.arrangement = this.title
+  },
+
+  validations: {
+    formData: {
+      name: {
+        required,
+      },
+      address: {
+        required,
+      },
+      zipcode: {
+        required,
+      },
+      city: {
+        required,
+      },
+      country: {
+        required,
+      },
+      totalRooms: {
+        required,
+      },
+      totalAdults: {
+        required,
+      },
+      totalChildren: {
+        required,
+      },
+      dateArrival: {
+        required,
+      },
+      dateDeparture: {
+        required,
+      },
+      email: {
+        required,
+        email,
+      },
     },
   },
 

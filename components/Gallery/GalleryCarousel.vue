@@ -135,6 +135,8 @@ export default {
 
   display: flex;
   overflow: hidden;
+  max-height: 40em;
+  height: 60vw;
 
   &.active {
     scroll-behavior: smooth;

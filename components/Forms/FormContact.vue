@@ -13,14 +13,12 @@
           v-model.trim.lazy="$v.formData.name.$model"
           :error-message="errorMessageName"
           :title="$t('form.name')"
-          name="name"
         />
         <form-input-text
           id="email"
           v-model.trim.lazy="$v.formData.email.$model"
           :error-message="errorMessageEmail"
           :title="$t('form.email')"
-          name="email"
           type="email"
         />
         <form-input-text
@@ -28,14 +26,12 @@
           v-model="formData.phone"
           :title="$t('form.phoneNumber')"
           type="tel"
-          name="phone"
         />
         <form-textarea
           id="message"
           v-model.trim="formData.message"
           :error-message="errorMessageMessage"
           :title="$t('form.message')"
-          name="message"
           rows="4"
           type="message"
         />
@@ -64,8 +60,8 @@ export default {
     return {
       formData: {
         name: '',
-        email: '',
         phone: '',
+        email: '',
         message: '',
       },
     }
