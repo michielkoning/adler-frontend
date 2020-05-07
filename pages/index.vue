@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <lazy-hydrate ssr-only>
+  <lazy-hydrate ssr-only>
+    <div>
       <home-hero :page="page" />
-    </lazy-hydrate>
-    <lazy-hydrate ssr-only>
       <home-content />
-    </lazy-hydrate>
-    <lazy-hydrate ssr-only>
       <facilities-wrapper />
-    </lazy-hydrate>
-  </div>
+    </div>
+  </lazy-hydrate>
 </template>
 
 <script>
