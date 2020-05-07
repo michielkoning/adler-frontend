@@ -1,11 +1,15 @@
 <template>
-  <lazy-hydrate ssr-only>
-    <div>
+  <div>
+    <lazy-hydrate ssr-only>
       <home-hero :page="page" />
+    </lazy-hydrate>
+    <lazy-hydrate :on-interaction="['click', 'touchstart']">
       <home-content />
+    </lazy-hydrate>
+    <lazy-hydrate ssr-only>
       <facilities-wrapper />
-    </div>
-  </lazy-hydrate>
+    </lazy-hydrate>
+  </div>
 </template>
 
 <script>
