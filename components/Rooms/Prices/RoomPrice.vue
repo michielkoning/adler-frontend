@@ -41,8 +41,8 @@ export default {
 
 .suffix,
 .value {
-  font-family: var(--font-family-header);
-  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
 }
 
 .value {

@@ -20,7 +20,8 @@ export default {
 
 <style lang="postcss" module>
 .price-badge {
-  font-family: var(--font-family-header);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
   background-color: var(--color-gray-darker);
   border-radius: 50%;
   color: var(--color-white);

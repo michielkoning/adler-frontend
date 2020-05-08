@@ -145,7 +145,8 @@ export default {
 <style lang="postcss" module>
 .menu-item {
   position: relative;
-  font-family: var(--font-family-header);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
 }
 
 /* stylelint-disable */

@@ -35,7 +35,8 @@ export default {
 .title {
   @mixin link-reset;
 
-  font-family: var(--font-family-header);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
 
   &:hover {
     box-shadow: 0 2px 0 0 var(--color-primary);
