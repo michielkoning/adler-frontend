@@ -90,31 +90,18 @@ export default {
 <style lang="postcss" module>
 .btn {
   @mixin btn;
-
-  &:disabled {
-    background: transparent;
-    color: var(--color-white);
-    border: 2px dashed var(--color-white);
-
-    &.active,
-    &:hover {
-      background: transparent;
-    }
-  }
-}
-
-.btn-full {
-  max-width: none;
-  width: 100%;
 }
 
 .btn-small {
-  font-size: var(--font-size-sm);
-  padding: var(--spacing-xxs) var(--spacing-xs);
+  @mixin btn-small;
 }
 
 .btn-large {
-  font-size: var(--font-size-l);
+  @mixin btn-large;
+}
+
+.btn-full {
+  @mixin btn-full;
 }
 
 .btn-primary {

@@ -231,7 +231,11 @@ export default {
   height: var(--spacing-l);
 
   right: calc(var(--spacing-xs) * -1);
-  top: 0.75em;
+  top: var(--spacing-xs);
+
+  @media (--navigation-md) {
+    top: var(--spacing-s);
+  }
 }
 
 .icon {

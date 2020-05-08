@@ -10,6 +10,9 @@
   @mixin btn-primary;
   @mixin btn-small;
 
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+
   &:hover {
     @mixin btn-primary-hover;
   }

@@ -33,6 +33,13 @@ export default {
           edges {
             node {
               relativeUrl
+              childPages {
+                edges {
+                  node {
+                    relativeUrl
+                  }
+                }
+              }
             }
           }
         }
@@ -67,8 +74,19 @@ export default {
     const apolloFetch = createApolloFetch({ uri })
     const result = await apolloFetch({ query, variables }) // all apolloFetch arguments are optional
     const { pages, posts, rooms, arrangements } = result.data
+
+    const pagesToGenerate = []
+    pages.edges.forEach((page) => {
+      pagesToGenerate.push(page)
+      if (page.node.childPages.edges) {
+        page.node.childPages.edges.forEach((childPage) => {
+          pagesToGenerate.push(childPage)
+        })
+      }
+    })
+
     const urls = [
-      ...pages.edges,
+      ...pagesToGenerate,
       ...posts.edges,
       ...rooms.edges,
       ...arrangements.edges,
