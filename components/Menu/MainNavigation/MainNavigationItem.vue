@@ -174,7 +174,7 @@ export default {
 }
 
 .menu-link {
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-xl);
   border-bottom-width: 2px;
 
   @nest .menu-item:first-child & {
@@ -204,7 +204,7 @@ export default {
 }
 
 .submenu-link {
-  font-size: 1.1em;
+  font-size: var(--font-size-l);
   border-bottom-width: 1px;
 
   @media (--navigation-md) {
@@ -231,7 +231,7 @@ export default {
   height: var(--spacing-l);
 
   right: calc(var(--spacing-xs) * -1);
-  top: 0.4em;
+  top: 0.75em;
 }
 
 .icon {

@@ -1,6 +1,6 @@
 <template>
   <section :aria-labelledby="id" :class="$style.item">
-    <h1 :id="id">{{ title }}</h1>
+    <h2 :id="id">{{ title }}</h2>
     <slot />
   </section>
 </template>

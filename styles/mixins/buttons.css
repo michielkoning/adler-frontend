@@ -8,7 +8,7 @@
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-m);
   font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-buttons);
   transition: background-color var(--animation);
   border: 2px solid transparent;
 }

@@ -37,6 +37,7 @@ export default {
 
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
+  font-size: var(--font-size-l);
 
   &:hover {
     box-shadow: 0 2px 0 0 var(--color-primary);

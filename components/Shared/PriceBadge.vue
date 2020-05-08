@@ -36,7 +36,7 @@ export default {
 }
 
 .value {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xxl);
   font-weight: var(--font-weight-bold);
 }
 

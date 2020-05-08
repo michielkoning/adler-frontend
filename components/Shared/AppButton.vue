@@ -111,7 +111,6 @@ export default {
 .btn-small {
   font-size: var(--font-size-sm);
   padding: var(--spacing-xxs) var(--spacing-xs);
-  font-weight: var(--font-weight-normal);
 }
 
 .btn-large {

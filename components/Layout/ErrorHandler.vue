@@ -49,7 +49,7 @@ export default {
   &.active {
     position: fixed;
     bottom: 0;
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-xl);
     left: 0;
     right: 0;
     z-index: var(--z-error-handler);

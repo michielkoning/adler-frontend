@@ -193,7 +193,7 @@ export default {
   }
 
   @media (--viewport-sm) {
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-xl);
   }
 }
 </style>
