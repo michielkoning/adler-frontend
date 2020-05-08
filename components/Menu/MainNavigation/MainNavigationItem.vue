@@ -264,6 +264,7 @@ export default {
     left: calc(-1 * var(--spacing-xs));
     top: 100%;
     white-space: nowrap;
+    z-index: var(--z-main-navigation);
   }
 }
 </style>
