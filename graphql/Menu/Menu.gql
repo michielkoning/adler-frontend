@@ -5,7 +5,7 @@ query Menu(
 ) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
     title
-    url: uri
+    url: relativeUrl
     childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       edges {
         node {
@@ -18,7 +18,7 @@ query Menu(
   }
   environment: page(id: $environmentPageId, idType: DATABASE_ID) {
     title
-    url: uri
+    url: relativeUrl
     childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       edges {
         node {
