@@ -74,7 +74,9 @@ export default {
   mounted() {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
     this.currentSlide = this.slide
-    this.active = true
+    setTimeout(() => {
+      this.active = true
+    })
     this.$nextTick(() => {
       this.goToSelectedSlide()
     })
