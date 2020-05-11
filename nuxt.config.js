@@ -73,11 +73,6 @@ export default {
         href: 'https://www.google-analytics.com/analytics.js',
       },
       {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&display=swap',
-      },
-      {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico',
