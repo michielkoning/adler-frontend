@@ -175,4 +175,7 @@ export default {
   generate,
   apollo,
   sitemap,
+  render: {
+    resourceHints: false,
+  },
 }
