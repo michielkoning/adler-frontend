@@ -14,13 +14,13 @@
             />
             <main-navigation-item
               :title="data.hotel.title"
-              :url="data.hotel.relativeUrl"
+              :url="data.hotel.url"
               :children="data.hotel.childPages"
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
               :title="data.environment.title"
-              :url="data.environment.relativeUrl"
+              :url="data.environment.url"
               :children="data.environment.childPages"
               :reset-submenu="menuIsOpen"
             />
@@ -40,8 +40,15 @@
               :title="$t('pages.contact')"
               :url="localePath({ name: 'contact' })"
             />
+            <template v-if="data.menuItems.edges">
+              <main-navigation-item
+                v-for="menuItem in data.menuItems.edges"
+                :key="menuItem.node.id"
+                :title="menuItem.node.title"
+                :url="menuItem.node.url"
+              />
+            </template>
           </ul>
-
           <div
             :class="[$style.arrow, { [$style.active]: mounted }]"
             :style="{ transform: arrowPosition, width: arrowWidth }"

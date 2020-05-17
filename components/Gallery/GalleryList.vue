@@ -91,7 +91,7 @@ export default {
 .list {
   @mixin list-reset;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: 36vw 24vw;
   display: grid;
   grid-gap: var(--gutter);
@@ -116,7 +116,7 @@ export default {
 
 @media (--viewport-sm) {
   .list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: 36vw 12vw;
   }
 
@@ -136,7 +136,7 @@ export default {
 @media (--viewport-lg) {
   .list {
     grid-template-rows: 12em 12em 4em;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .item-0 {
@@ -151,7 +151,7 @@ export default {
 
 @media (--viewport-xlg) {
   .list {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: repeat(4, 9em);
   }
 

@@ -15,6 +15,7 @@
         :environment="data.environment"
         :arrangements="data.arrangements"
         :rooms="data.rooms"
+        :menuItems="data.menuItems"
       />
     </template>
   </apollo-query>

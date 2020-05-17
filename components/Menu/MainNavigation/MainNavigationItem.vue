@@ -48,7 +48,7 @@
           >
             <!-- eslint-disable vue/no-v-html -->
             <nuxt-link
-              :to="subItem.node.relativeUrl"
+              :to="subItem.node.url"
               :class="$style['submenu-link']"
               class="submenu-link"
               @click.native="changePage"

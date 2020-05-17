@@ -1,6 +1,6 @@
 :root {
   --font-size-base: 16px;
-  --font-family-base: arial, helvetica, sans-serif;
+  --font-family-base: 'Arial', 'Helvetica', sans-serif;
   --font-family-headings: 'Dosis', var(--font-family-base);
   --line-height-base: 1.5;
   --line-height-headings: 1.1;

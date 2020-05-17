@@ -82,7 +82,7 @@ export default {
   }
 
   @media (--viewport-lg) {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   }
 }
 

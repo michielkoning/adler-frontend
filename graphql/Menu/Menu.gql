@@ -5,12 +5,12 @@ query Menu(
 ) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
     title
-    relativeUrl
+    url: relativeUrl
     childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       edges {
         node {
           id
-          relativeUrl
+          url: relativeUrl
           title
         }
       }
@@ -18,12 +18,12 @@ query Menu(
   }
   environment: page(id: $environmentPageId, idType: DATABASE_ID) {
     title
-    relativeUrl
+    url: relativeUrl
     childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       edges {
         node {
           id
-          relativeUrl
+          url: relativeUrl
           title
         }
       }
@@ -35,7 +35,7 @@ query Menu(
     edges {
       node {
         id
-        relativeUrl
+        url: relativeUrl
         title
       }
     }
@@ -46,8 +46,25 @@ query Menu(
     edges {
       node {
         id
-        relativeUrl
+        url: relativeUrl
         title
+      }
+    }
+  }
+  menuItems(where: { location: HEADER, language: $language }) {
+    edges {
+      node {
+        id
+        title: label
+        url: relativeUrl
+        childItems {
+          edges {
+            node {
+              title: label
+              url: relativeUrl
+            }
+          }
+        }
       }
     }
   }

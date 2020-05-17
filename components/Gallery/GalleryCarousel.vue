@@ -74,15 +74,14 @@ export default {
   mounted() {
     document.addEventListener('keydown', (event) => this.scrollByKeys(event))
     this.currentSlide = this.slide
+    this.active = true
     this.$nextTick(() => {
-      this.active = true
       this.goToSelectedSlide()
     })
   },
   destroyed() {
     document.removeEventListener('keydown', (event) => this.scrollByKeys(event))
   },
-
   methods: {
     scrollByKeys(event) {
       const { key } = event
@@ -108,8 +107,6 @@ export default {
     },
     goToSelectedSlide() {
       const { list, item } = this.$refs
-      // window.console.log(this.currentSlide)
-      // window.console.log(list, item)
       list.scrollLeft = item[this.currentSlide].offsetLeft
     },
     goToNextSlide() {
