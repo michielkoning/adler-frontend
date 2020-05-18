@@ -97,6 +97,7 @@ export default {
     '~/plugins/google-maps',
     '~/plugins/vuelidate',
     '~/plugins/filters/currency',
+    { src: '~/plugins/instant.page', mode: 'client' },
   ],
   /*
    ** Nuxt.js modules
