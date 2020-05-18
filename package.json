@@ -29,7 +29,6 @@
     "nuxt-i18n": "^6.11.1",
     "throttle-debounce": "^2.1.0",
     "vue": "^2.6.11",
-    "vue-lazy-hydration": "^1.0.0-beta.12",
     "vue2-google-maps": "^0.10.7",
     "vuelidate": "^0.7.5",
     "vuex": "^3.4.0"

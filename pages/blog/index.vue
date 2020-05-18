@@ -1,13 +1,10 @@
 <template>
   <app-page :page="page">
-    <lazy-hydrate when-visible>
-      <posts-archive-section />
-    </lazy-hydrate>
+    <posts-archive-section />
   </app-page>
 </template>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import getSeoMetaData from '~/helpers/seo'
@@ -15,7 +12,6 @@ import { blogPageId } from '~/data/pages'
 
 export default {
   components: {
-    LazyHydrate,
     PostsArchiveSection: () =>
       import('~/components/Posts/Archive/PostsArchiveSection.vue'),
     AppPage,
