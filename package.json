@@ -36,10 +36,10 @@
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@nuxtjs/eslint-config": "^3.0.0",
-    "@nuxtjs/google-analytics": "^2.2.3",
+    "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^4.0.2",
@@ -55,7 +55,7 @@
     "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
-    "stylelint": "^13.4.1",
+    "stylelint": "^13.5.0",
     "stylelint-config-standard": "^20.0.0"
   }
 }
