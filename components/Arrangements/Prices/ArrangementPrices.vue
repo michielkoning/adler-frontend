@@ -1,5 +1,5 @@
 <template>
-  <div v-if="prices.length">
+  <div v-if="prices && prices.length">
     <h2>{{ $t('prices') }}</h2>
     <table>
       <tbody>
