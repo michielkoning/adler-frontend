@@ -4,7 +4,8 @@
     <table>
       <tbody>
         <tr v-for="(price, index) in prices" :key="index">
-          <td>{{ price.label }}</td>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <td v-html="price.label" />
           <td :class="$style.price">
             {{ $n(price.value, 'currency') | currency }}
           </td>
