@@ -61,7 +61,6 @@ export default {
 .image {
   grid-row-start: 1;
   height: 3em;
-  object-fit: cover;
 }
 
 .link-wrapper {

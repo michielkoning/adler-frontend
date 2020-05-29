@@ -88,9 +88,6 @@ export default {
 }
 
 .image {
-  display: block;
-  object-fit: cover;
-  width: 100%;
   height: 8em;
 
   @media (--viewport-sm) {

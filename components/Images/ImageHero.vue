@@ -1,15 +1,28 @@
 <template>
-  <lazy-loading-image
-    v-if="image"
-    :class="$style.image"
-    :src="image.heroMedium"
-    :alt="image.altText"
-    :srcset="`
+  <picture v-if="image" :class="$style.picture">
+    <source
+      v-if="image.heroLargeWebP"
+      :srcset="`
+        ${image.heroLargeWebP} 1140w,
+        ${image.heroMediumWebP} 800w,
+        ${image.heroSmallWebP} 640w`"
+      type="image/webp"
+      sizes="(min-width: 1140px) 1140px, 100vw"
+    />
+    <source
+      :srcset="`
         ${image.heroLarge} 1140w,
         ${image.heroMedium} 800w,
         ${image.heroSmall} 640w`"
-    sizes="(min-width: 1140px) 1140px, 100vw"
-  />
+      type="image/jpeg"
+      sizes="(min-width: 1140px) 1140px, 100vw"
+    />
+    <lazy-loading-image
+      :class="$style.image"
+      :src="image.heroMedium"
+      :alt="image.altText"
+    />
+  </picture>
 </template>
 
 <script>
@@ -29,11 +42,12 @@ export default {
 </script>
 
 <style lang="postcss" module>
-.image {
+.picture {
   height: 30vw;
   max-height: 20rem;
-  object-fit: cover;
-  display: block;
-  width: 100%;
+}
+
+.image {
+  @mixin object-fit;
 }
 </style>

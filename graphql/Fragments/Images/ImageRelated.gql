@@ -2,4 +2,6 @@ fragment imageSidebar on MediaItem {
   altText
   related: sourceUrl(size: RELATED)
   related2x: sourceUrl(size: RELATED_2X)
+  relatedWebP: sourceUrlWebP(size: RELATED)
+  relatedWebP2x: sourceUrlWebP(size: RELATED_2X)
 }
