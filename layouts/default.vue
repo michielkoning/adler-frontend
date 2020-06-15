@@ -32,6 +32,7 @@ export default {
 
 <style lang="postcss" scoped>
 .page {
+  background: var(--color-background);
   display: flex;
   min-height: 100vh;
   flex-direction: column;

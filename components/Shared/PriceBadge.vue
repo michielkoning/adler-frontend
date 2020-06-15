@@ -52,7 +52,7 @@ export default {
     "from": "Vanaf"
   },
   "de": {
-    "from": "Von"
+    "from": "Ab"
   },
   "en": {
     "from": "From"

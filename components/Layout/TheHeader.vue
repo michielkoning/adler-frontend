@@ -1,9 +1,8 @@
 <template>
   <header :class="$style.header">
+    <skip-links />
+    <mobile-navigation @toggleMenu="toggleMenu" />
     <center-wrapper :top="true">
-      <skip-links />
-      <mobile-navigation @toggleMenu="toggleMenu" />
-
       <transition
         name="slide"
         @after-enter="afterEnter"

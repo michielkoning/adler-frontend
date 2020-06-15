@@ -10,10 +10,10 @@
           height="96"
           :class="$style.icon"
         />
-        <h1 id="content" class="sr-only" tabindex="-1">
+        <h1 id="content" tabindex="-1" class="sr-only">
           {{ title }}
         </h1>
-        <h2>
+        <h2 :class="$style.subtitle">
           {{ $t('subtitle', { province, city }) }}
         </h2>
       </center-wrapper>
@@ -67,7 +67,7 @@ export default {
 
 .content {
   position: absolute;
-  top: 0;
+  top: 3em;
   left: 0;
   right: 0;
   bottom: 0;
@@ -76,6 +76,10 @@ export default {
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  @media (--viewport-sm) {
+    top: 5em;
+  }
 }
 
 .icon {
@@ -84,6 +88,14 @@ export default {
   max-width: 50rem;
   height: 11vw;
   max-height: 6em;
+}
+
+.subtitle {
+  font-size: var(--font-size-xl);
+
+  @media (--viewport-sm) {
+    font-size: var(--font-size-xxl);
+  }
 }
 </style>
 
