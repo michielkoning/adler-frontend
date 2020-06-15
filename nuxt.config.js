@@ -1,7 +1,6 @@
 import splashscreens from './config/splashscreens'
 import googleAnalytics from './config/googleAnalytics'
 import facebookPixel from './config/facebookPixel'
-import googleTagManager from './config/googleTagManager'
 import generate from './config/generate'
 import i18n from './config/i18n'
 import pwa from './config/pwa'
@@ -118,7 +117,6 @@ export default {
   ],
   googleAnalytics,
   facebook: facebookPixel,
-  gtm: googleTagManager,
   pwa,
   i18n,
   /*
