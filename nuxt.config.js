@@ -111,7 +111,6 @@ export default {
   ],
   buildModules: [
     '@nuxtjs/google-analytics',
-    '@nuxtjs/gtm',
     '@nuxtjs/stylelint-module',
     'nuxt-facebook-pixel-module',
   ],

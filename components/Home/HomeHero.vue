@@ -67,13 +67,11 @@ export default {
 
 .content {
   position: absolute;
-  top: 3em;
+  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  bottom: var(--spacing-l);
+  justify-content: flex-end;
   display: flex;
   flex-direction: column;
 
@@ -91,6 +89,7 @@ export default {
 }
 
 .subtitle {
+  transform: translateY(calc(var(--spacing-xxs) * -1));
   font-size: var(--font-size-xl);
 
   @media (--viewport-sm) {
