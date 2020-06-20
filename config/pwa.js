@@ -8,7 +8,6 @@ export default {
     short_name: 'Adler',
     description: 'Familienhotel & Gasthof Adler, in Lingenau im Bregenzerwald',
     lang,
-    // start_url: `${baseUrl}${lang}/`,
     theme_color: themeColor,
     background_color: themeColor,
   },
