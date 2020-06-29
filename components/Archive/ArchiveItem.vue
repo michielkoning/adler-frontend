@@ -89,10 +89,6 @@ export default {
 
 .image {
   height: 8em;
-
-  @media (--viewport-sm) {
-    height: auto;
-  }
 }
 
 .price-badge {
