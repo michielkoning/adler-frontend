@@ -37,5 +37,7 @@ export default {
 <style lang="postcss" module>
 .image {
   @mixin object-fit;
+
+  height: 3em;
 }
 </style>
