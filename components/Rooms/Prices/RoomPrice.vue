@@ -60,7 +60,7 @@ export default {
     "suffix": "pro Pers. & Nacht"
   },
   "en": {
-    "suffix": "per person & nicht"
+    "suffix": "per person & night"
   }
 }
 </i18n>
