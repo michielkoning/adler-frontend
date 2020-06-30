@@ -3,13 +3,11 @@
     <h2>{{ $t('prices') }}</h2>
     <table>
       <tbody>
-        <tr v-for="(price, index) in prices" :key="index">
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <td v-html="price.label" />
-          <td :class="$style.price">
-            {{ $n(price.value, 'currency') | currency }}
-          </td>
-        </tr>
+        <arrangement-price
+          v-for="(price, index) in prices"
+          :key="index"
+          :price="price"
+        />
       </tbody>
       <tfoot>
         <tr>
@@ -23,7 +21,12 @@
 </template>
 
 <script>
+import ArrangementPrice from '~/components/Arrangements/Prices/ArrangementPrice.vue'
+
 export default {
+  components: {
+    ArrangementPrice,
+  },
   props: {
     prices: {
       type: Array,
@@ -32,14 +35,6 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" module>
-.price {
-  font-weight: var(--font-weight-bold);
-  text-align: right;
-  width: 5em;
-}
-</style>
 
 <i18n>
 {

@@ -28,11 +28,11 @@
     "vue": "^2.6.11",
     "vue2-google-maps": "^0.10.7",
     "vuelidate": "^0.7.5",
-    "vuex": "^3.4.0"
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
