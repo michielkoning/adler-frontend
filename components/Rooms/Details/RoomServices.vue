@@ -34,13 +34,13 @@ export default {
 <i18n>
 {
   "nl": {
-    "title": "Kamer is voorzien van"
+    "title": "Deze kamer is voorzien van"
   },
   "de": {
-    "title": "Jedes Zimmer ist ausgestattet mit"
+    "title": "Dieses Zimmer ist ausgestattet mit"
   },
   "en": {
-    "title": "Room is equipped with"
+    "title": "This room is equipped with"
   }
 }
 </i18n>
