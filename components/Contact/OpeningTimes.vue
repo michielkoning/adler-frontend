@@ -2,7 +2,7 @@
   <div>
     <h2>{{ $t('title') }}</h2>
     <dl :class="$style.list">
-      <template v-for="openingDay in openingTimes">
+      <template v-for="openingDay in openingTimes.days">
         <dt :key="`day-${openingDay.day}`" :class="$style.label">
           {{ getDayOfWeek(openingDay.day) }}
         </dt>
@@ -18,6 +18,18 @@
           </template>
         </dd>
       </template>
+      <dt :class="[$style.label, $style.holidays]">{{ $t('holidays') }}:</dt>
+      <dd :class="$style.holidays">
+        <template v-for="hours in openingTimes.holidays.hours">
+          <span :key="`holiday-from-${hours.from}`">
+            {{ hours.from }}
+          </span>
+          –
+          <span :key="`holiday-until-${hours.until}`">
+            {{ hours.until }}
+          </span>
+        </template>
+      </dd>
     </dl>
   </div>
 </template>
@@ -55,18 +67,29 @@ export default {
 .value {
   margin: 0;
 }
+
+.holidays {
+  &.label {
+    margin-top: var(--spacing-s);
+  }
+
+  grid-column: span 2;
+}
 </style>
 
 <i18n>
 {
   "nl": {
-    "title": "Openingstijden"
+    "title": "Openingstijden",
+    "holidays": "Feestdagen"
   },
   "de": {
-    "title": "Öffnungszeiten"
+    "title": "Öffnungszeiten",
+    "holidays": "Feiertage"
   },
   "en": {
-    "title": "Opening hours"
+    "title": "Opening hours",
+    "holidays": "Public holidays"
   }
 }
 </i18n>
