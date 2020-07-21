@@ -19,7 +19,7 @@ export default {
   computed: {
     label() {
       if (this.price.extraNight) {
-        const persons = this.$tc('nights', this.price.extraNight)
+        const persons = this.$tc('persons', this.price.extraNight)
         return this.$t('extraNight', { persons })
       } else if (this.price.nights) {
         const nights = this.$tc('nights', this.price.nights)
