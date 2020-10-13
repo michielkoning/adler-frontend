@@ -6,7 +6,7 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '10:00',
+          until: '12:00',
         },
       ],
     },
@@ -16,11 +16,11 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '10:00',
+          until: '12:00',
         },
         {
           from: '16:00',
-          until: '21:00',
+          until: '22:00',
         },
       ],
     },
@@ -30,7 +30,11 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '21:00',
+          until: '12:00',
+        },
+        {
+          from: '16:00',
+          until: '22:00',
         },
       ],
     },
@@ -40,7 +44,11 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '21:00',
+          until: '12:00',
+        },
+        {
+          from: '16:00',
+          until: '22:00',
         },
       ],
     },
@@ -50,7 +58,11 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '21:00',
+          until: '12:00',
+        },
+        {
+          from: '16:00',
+          until: '22:00',
         },
       ],
     },
@@ -59,8 +71,8 @@ export default {
       day: 5,
       hours: [
         {
-          from: '9:00',
-          until: '21:00',
+          from: '8:00',
+          until: '22:00',
         },
       ],
     },
@@ -70,7 +82,7 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '21:00',
+          until: '22:00',
         },
       ],
     },
@@ -79,7 +91,7 @@ export default {
     hours: [
       {
         from: '8:00',
-        until: '21:00',
+        until: '22:00',
       },
     ],
   },
