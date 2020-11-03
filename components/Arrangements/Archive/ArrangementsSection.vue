@@ -27,7 +27,7 @@ export default {
     "title": "Onze arrangementen"
   },
   "de": {
-    "title": "Unsere Arrangementen"
+    "title": "Unsere Arrangements"
   },
   "en": {
     "title": "Our arrangements"

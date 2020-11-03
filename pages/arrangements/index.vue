@@ -30,7 +30,7 @@ export default {
   },
   nuxtI18n: {
     paths: {
-      de: '/arrangementen',
+      de: '/arrangements',
       en: '/arrangements',
       nl: '/arrangementen',
     },

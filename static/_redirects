@@ -1,7 +1,7 @@
 /                                               /nl/                      302!  Country=nl,be
 /                                               /de/                      302!
-/de/pauschalen/                                 /de/arrangementen/        301!
-/de/arrangements/*                              /de/arrangementen/:splat  301!
+/de/pauschalen/                                 /de/arrangements/         301!
+/de/arrangementen/*                             /de/arrangements/:splat   301!
 /de/contact-en-route/                           /de/kontakt/              301!
 /nl/contact-en-route/                           /nl/contact/              301!
 /en/contact-and-route/                          /en/contact/              301!
