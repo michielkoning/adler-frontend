@@ -10,6 +10,5 @@ export default {
     lang,
     theme_color: themeColor,
     background_color: themeColor,
-    purpose: 'maskable',
   },
 }
