@@ -4,7 +4,7 @@
       {{ $t('title') }}
     </h2>
     <div ref="menu">
-      <ul :class="$style.menu">
+      <ul v-if="currentMenu" :class="$style.menu">
         <main-navigation-item
           :title="$t('pages.home')"
           :url="localePath('/')"
