@@ -22,6 +22,7 @@ export const actions = {
       const response = await context.app.apolloProvider.defaultClient.query({
         query: MenuQuery,
         variables: {
+          language: language.toUpperCase(),
           hotelPageId: hotelPageId[language],
           environmentPageId: environmentPageId[language],
         },

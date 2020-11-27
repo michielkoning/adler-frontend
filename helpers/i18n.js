@@ -5,7 +5,7 @@ export default (i18n, translations, paramKey, keyToReplace) => {
   const currentLocale = i18n.locale
   i18n.locales.forEach((locale) => {
     const translatedPage = translations.find(
-      (translation) => translation.language.slug === locale.code,
+      (translation) => translation.language?.slug === locale.code,
     )
     if (locale.code === currentLocale) {
       return
