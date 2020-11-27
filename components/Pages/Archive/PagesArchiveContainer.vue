@@ -2,7 +2,7 @@
   <apollo-query
     :query="require('~/graphql/Pages/Pages.gql')"
     :variables="{
-      parent: parent.toString(),
+      parent: parent,
       language: $i18n.locale.toUpperCase(),
     }"
   >

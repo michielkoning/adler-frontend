@@ -3,7 +3,7 @@
 #import "./Fragments/Arrangement.gql"
 
 query Arrangement($uri: ID!) {
-  arrangement(id: $uri, idType: URI) {
+  arrangement(id: $uri, idType: SLUG) {
     ...arrangement
     content
     featuredImage {

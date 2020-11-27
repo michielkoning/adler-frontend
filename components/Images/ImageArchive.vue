@@ -1,17 +1,17 @@
 <template>
   <picture v-if="image">
     <source
-      v-if="image.archiveWebP"
-      :srcset="`${image.archiveWebP} 1x, ${image.archiveWebP2x} 2x`"
+      v-if="image.node.archiveWebP"
+      :srcset="`${image.node.archiveWebP} 1x, ${image.node.archiveWebP2x} 2x`"
       type="image/webp"
     />
     <source
-      :srcset="`${image.archive} 1x, ${image.archive2x} 2x`"
+      :srcset="`${image.node.archive} 1x, ${image.node.archive2x} 2x`"
       type="image/jpeg"
     />
     <lazy-loading-image
-      :src="image.archive"
-      :alt="image.altText"
+      :src="image.node.archive"
+      :alt="image.node.altText"
       :class="$style.image"
     />
   </picture>

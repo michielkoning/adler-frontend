@@ -15,11 +15,7 @@ fragment pageDetails on Page {
       ...gallery
     }
   }
-  parent {
-    ... on Page {
-      databaseId
-    }
-  }
+  parentId
   seo {
     ...seo
   }

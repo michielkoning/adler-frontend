@@ -1,31 +1,38 @@
+fragment menuItem on Page {
+  id
+  url: relativeUrl
+  title
+}
+
 query Menu(
   $language: LanguageCodeFilterEnum
   $hotelPageId: ID!
   $environmentPageId: ID!
 ) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
-    title
-    url: relativeUrl
-    childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
-      edges {
-        node {
-          id
-          url: relativeUrl
-          title
-        }
+    ...menuItem
+  }
+  environment: page(id: $environmentPageId, idType: DATABASE_ID) {
+    ...menuItem
+  }
+  hotelPageChildren: pages(
+    where: { parent: $hotelPageId, orderby: { field: MENU_ORDER, order: ASC } }
+  ) {
+    edges {
+      node {
+        ...menuItem
       }
     }
   }
-  environment: page(id: $environmentPageId, idType: DATABASE_ID) {
-    title
-    url: relativeUrl
-    childPages(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
-      edges {
-        node {
-          id
-          url: relativeUrl
-          title
-        }
+  environmentPageChildren: pages(
+    where: {
+      parent: $environmentPageId
+      orderby: { field: MENU_ORDER, order: ASC }
+    }
+  ) {
+    edges {
+      node {
+        ...menuItem
       }
     }
   }

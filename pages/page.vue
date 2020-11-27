@@ -5,7 +5,7 @@
       <related-pages-section
         v-if="page.parent"
         :not-in="page.databaseId"
-        :parent-page-id="page.parent.databaseId"
+        :parent-page-id="page.parentId"
       />
     </template>
   </app-page>

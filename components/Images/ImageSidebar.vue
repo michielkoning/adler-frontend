@@ -1,17 +1,17 @@
 <template>
   <picture v-if="image">
     <source
-      v-if="image.relatedWebP"
-      :srcset="`${image.relatedWebP} 1x, ${image.relatedWebP2x} 2x`"
+      v-if="image.node.relatedWebP"
+      :srcset="`${image.node.relatedWebP} 1x, ${image.node.relatedWebP2x} 2x`"
       type="image/webp"
     />
     <source
-      :srcset="`${image.related} 1x, ${image.related2x} 2x`"
+      :srcset="`${image.node.related} 1x, ${image.node.related2x} 2x`"
       type="image/jpeg"
     />
     <lazy-loading-image
-      :src="image.related"
-      :alt="image.altText"
+      :src="image.node.related"
+      :alt="image.node.altText"
       :class="$style.image"
     />
   </picture>

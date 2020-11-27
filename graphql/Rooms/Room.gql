@@ -4,7 +4,7 @@
 #import "./Fragments/Room.gql"
 
 query Room($uri: ID!) {
-  room(id: $uri, idType: URI) {
+  room(id: $uri, idType: SLUG) {
     ...room
     content
     featuredImage {

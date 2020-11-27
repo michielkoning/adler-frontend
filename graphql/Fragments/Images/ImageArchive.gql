@@ -1,7 +1,9 @@
-fragment imageArchive on MediaItem {
-  altText
-  archive: sourceUrl(size: ARCHIVE)
-  archive2x: sourceUrl(size: ARCHIVE_2X)
-  archiveWebP: sourceUrlWebP(size: ARCHIVE)
-  archiveWebP2x: sourceUrlWebP(size: ARCHIVE_2X)
+fragment imageArchive on NodeWithFeaturedImageToMediaItemConnectionEdge {
+  node {
+    altText
+    archive: sourceUrl(size: ARCHIVE)
+    archive2x: sourceUrl(size: ARCHIVE_2X)
+    archiveWebP: sourceUrlWebP(size: ARCHIVE)
+    archiveWebP2x: sourceUrlWebP(size: ARCHIVE_2X)
+  }
 }

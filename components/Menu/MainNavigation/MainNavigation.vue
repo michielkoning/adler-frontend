@@ -15,13 +15,13 @@
             <main-navigation-item
               :title="data.hotel.title"
               :url="data.hotel.url"
-              :children="data.hotel.childPages"
+              :children="data.hotelPageChildren"
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item
               :title="data.environment.title"
               :url="data.environment.url"
-              :children="data.environment.childPages"
+              :children="data.environmentPageChildren"
               :reset-submenu="menuIsOpen"
             />
             <main-navigation-item

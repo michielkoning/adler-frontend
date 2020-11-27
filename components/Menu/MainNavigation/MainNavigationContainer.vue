@@ -12,7 +12,9 @@
       <slot
         v-else-if="data"
         :hotel="data.hotel"
+        :hotelPageChildren="data.hotelPageChildren"
         :environment="data.environment"
+        :environmentPageChildren="data.environmentPageChildren"
         :arrangements="data.arrangements"
         :rooms="data.rooms"
         :menuItems="data.menuItems"

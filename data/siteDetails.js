@@ -1,5 +1,5 @@
 export const title = 'Hotel Gasthof Adler'
-export const apiUrl = 'https://api.adler.michielkoning.nl/'
+export const apiUrl = 'https://api.adler-lingenau.com/'
 export const baseUrl = 'https://www.adler-lingenau.com/'
 export const themeColor = '#98012e'
 export const resmioUrl =

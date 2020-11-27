@@ -1,26 +1,26 @@
 <template>
   <picture v-if="image" :class="$style.picture">
     <source
-      v-if="image.heroLargeWebP"
+      v-if="image.node.heroLargeWebP"
       :srcset="`
-        ${image.heroLargeWebP} 1140w,
-        ${image.heroMediumWebP} 800w,
-        ${image.heroSmallWebP} 640w`"
+        ${image.node.heroLargeWebP} 1140w,
+        ${image.node.heroMediumWebP} 800w,
+        ${image.node.heroSmallWebP} 640w`"
       type="image/webp"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
     <source
       :srcset="`
-        ${image.heroLarge} 1140w,
-        ${image.heroMedium} 800w,
-        ${image.heroSmall} 640w`"
+        ${image.node.heroLarge} 1140w,
+        ${image.node.heroMedium} 800w,
+        ${image.node.heroSmall} 640w`"
       type="image/jpeg"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
     <lazy-loading-image
       :class="$style.image"
-      :src="image.heroMedium"
-      :alt="image.altText"
+      :src="image.node.heroMedium"
+      :alt="image.node.altText"
     />
   </picture>
 </template>
