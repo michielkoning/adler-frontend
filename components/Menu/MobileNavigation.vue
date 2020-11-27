@@ -58,9 +58,9 @@ export default {
     EventBusUtil.$on('change-page', () => this.toggleMenu(false))
   },
   methods: {
-    toggleMenu(status) {
-      this.menuIsExpanded = status
-      this.$emit('toggle-menu', status)
+    toggleMenu() {
+      this.menuIsExpanded = !this.menuIsExpanded
+      this.$emit('toggle-menu', this.menuIsExpanded)
     },
   },
 }

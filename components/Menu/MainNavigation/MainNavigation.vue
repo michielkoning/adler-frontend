@@ -12,6 +12,9 @@
               :title="$t('pages.home')"
               :url="localePath('/')"
             />
+            {{
+              menuIsOpen
+            }}
             <main-navigation-item
               :title="data.hotel.title"
               :url="data.hotel.url"
