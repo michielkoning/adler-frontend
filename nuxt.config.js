@@ -96,7 +96,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // '~/plugins/axios',
+    '~/plugins/axios',
     '~/plugins/google-maps',
     '~/plugins/vuelidate',
     '~/plugins/filters/currency',
@@ -106,7 +106,7 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    // '@nuxtjs/axios',
+    '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
     'nuxt-i18n',
