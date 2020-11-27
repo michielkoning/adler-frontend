@@ -3,71 +3,65 @@
     <h2 id="menu" class="sr-only" tabindex="-1">
       {{ $t('title') }}
     </h2>
-
     <div ref="menu">
-      <main-navigation-container>
-        <template #default="data">
-          <ul :class="$style.menu">
-            <main-navigation-item
-              :title="$t('pages.home')"
-              :url="localePath('/')"
-            />
-            <main-navigation-item
-              :title="data.hotel.title"
-              :url="data.hotel.url"
-              :children="data.hotelPageChildren"
-              :reset-submenu="menuIsOpen"
-            />
-            <main-navigation-item
-              :title="data.environment.title"
-              :url="data.environment.url"
-              :children="data.environmentPageChildren"
-              :reset-submenu="menuIsOpen"
-            />
-            <main-navigation-item
-              :title="$t('pages.arrangements')"
-              :url="localePath({ name: 'arrangements' })"
-              :children="data.arrangements"
-              :reset-submenu="menuIsOpen"
-            />
-            <main-navigation-item
-              :title="$t('pages.rooms')"
-              :url="localePath({ name: 'rooms' })"
-              :children="data.rooms"
-              :reset-submenu="menuIsOpen"
-            />
-            <main-navigation-item
-              :title="$t('pages.contact')"
-              :url="localePath({ name: 'contact' })"
-            />
-            <template v-if="data.menuItems.edges">
-              <main-navigation-item
-                v-for="menuItem in data.menuItems.edges"
-                :key="menuItem.node.id"
-                :title="menuItem.node.title"
-                :url="menuItem.node.url"
-              />
-            </template>
-          </ul>
-          <div
-            :class="[$style.arrow, { [$style.active]: mounted }]"
-            :style="{ transform: arrowPosition, width: arrowWidth }"
+      <ul :class="$style.menu">
+        <main-navigation-item
+          :title="$t('pages.home')"
+          :url="localePath('/')"
+        />
+        <main-navigation-item
+          :title="currentMenu.hotel.title"
+          :url="currentMenu.hotel.url"
+          :children="currentMenu.hotelPageChildren"
+          :reset-submenu="menuIsOpen"
+        />
+        <main-navigation-item
+          :title="currentMenu.environment.title"
+          :url="currentMenu.environment.url"
+          :children="currentMenu.environmentPageChildren"
+          :reset-submenu="menuIsOpen"
+        />
+        <main-navigation-item
+          :title="$t('pages.arrangements')"
+          :url="localePath({ name: 'arrangements' })"
+          :children="currentMenu.arrangements"
+          :reset-submenu="menuIsOpen"
+        />
+        <main-navigation-item
+          :title="$t('pages.rooms')"
+          :url="localePath({ name: 'rooms' })"
+          :children="currentMenu.rooms"
+          :reset-submenu="menuIsOpen"
+        />
+        <main-navigation-item
+          :title="$t('pages.contact')"
+          :url="localePath({ name: 'contact' })"
+        />
+        <template v-if="currentMenu.menuItems.edges">
+          <main-navigation-item
+            v-for="menuItem in currentMenu.menuItems.edges"
+            :key="menuItem.node.id"
+            :title="menuItem.node.title"
+            :url="menuItem.node.url"
           />
         </template>
-      </main-navigation-container>
+      </ul>
+      <div
+        :class="[$style.arrow, { [$style.active]: mounted }]"
+        :style="{ transform: arrowPosition, width: arrowWidth }"
+      />
     </div>
   </nav>
 </template>
 
 <script>
 import { debounce } from 'throttle-debounce'
+import { mapState } from 'vuex'
 import MainNavigationItem from '~/components/Menu/MainNavigation/MainNavigationItem.vue'
-import MainNavigationContainer from '~/components/Menu/MainNavigation/MainNavigationContainer.vue'
 
 export default {
   components: {
     MainNavigationItem,
-    MainNavigationContainer,
   },
   props: {
     menuIsOpen: {
@@ -81,6 +75,12 @@ export default {
       arrowWidth: 0,
       mounted: false,
     }
+  },
+  computed: {
+    ...mapState('menu', ['menu']),
+    currentMenu() {
+      return this.menu[this.$i18n.locale]
+    },
   },
   watch: {
     $route() {
