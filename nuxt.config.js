@@ -10,7 +10,7 @@ import { apiUrl, baseUrl, title } from './data/siteDetails'
 import { twitterUrl } from './data/socialMedia'
 
 export default {
-  mode: 'universal',
+  target: 'static',
   env: {
     baseUrl,
   },
