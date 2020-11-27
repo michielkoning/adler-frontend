@@ -3,7 +3,7 @@
     :query="require('~/graphql/Arrangements/ArrangementsHighlights.gql')"
     :variables="{ language: $i18n.locale.toUpperCase(), first }"
   >
-    <template v-slot="{ result: { data }, isLoading }">
+    <template #default="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot
         v-else-if="data && data.arrangementsHighlights.edges"

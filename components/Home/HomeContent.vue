@@ -2,7 +2,7 @@
   <div :class="$style.wrapper">
     <center-wrapper>
       <arrangements-highlights-container :first="2">
-        <template v-slot="data">
+        <template #default="data">
           <div v-if="data" :class="$style.content">
             <highlights-item
               v-for="item in data.arrangementsHighlights"

@@ -8,7 +8,7 @@
         {{ $t('title') }}
       </h1>
       <arrangements-highlights-container>
-        <template v-slot="data">
+        <template #default="data">
           <highlights-list v-if="data" :items="data.arrangementsHighlights" />
         </template>
       </arrangements-highlights-container>

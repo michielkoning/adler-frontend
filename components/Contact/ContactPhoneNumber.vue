@@ -1,6 +1,6 @@
 <template>
   <contact-item-wrapper>
-    <template v-slot:icon>
+    <template #icon>
       <icon-phone aria-hidden="true" width="20" height="20" />
     </template>
 

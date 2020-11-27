@@ -1,7 +1,7 @@
 <template>
   <app-page :page="page">
     <pages-archive-section :parent="page.databaseId" />
-    <template v-slot:sidebar>
+    <template #sidebar>
       <related-pages-section
         v-if="page.parent"
         :not-in="page.databaseId"

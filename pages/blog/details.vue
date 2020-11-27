@@ -1,6 +1,6 @@
 <template>
   <app-page :page="post">
-    <template v-slot:sidebar>
+    <template #sidebar>
       <related-posts-section :not-in="post.databaseId" />
     </template>
   </app-page>

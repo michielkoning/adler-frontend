@@ -8,7 +8,7 @@
       <social-media-links />
     </div>
 
-    <template v-slot:sidebar>
+    <template #sidebar>
       <form-contact />
     </template>
   </app-page>

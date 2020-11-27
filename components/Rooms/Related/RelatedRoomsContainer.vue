@@ -3,7 +3,7 @@
     :query="require('~/graphql/Rooms/RelatedRooms.gql')"
     :variables="{ notIn, language: $i18n.locale.toUpperCase() }"
   >
-    <template v-slot="{ result: { data }, isLoading }">
+    <template #default="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot
         v-else-if="data && data.relatedRooms.edges"

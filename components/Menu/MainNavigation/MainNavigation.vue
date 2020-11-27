@@ -6,7 +6,7 @@
 
     <div ref="menu">
       <main-navigation-container>
-        <template v-slot="data">
+        <template #default="data">
           <ul :class="$style.menu">
             <main-navigation-item
               :title="$t('pages.home')"

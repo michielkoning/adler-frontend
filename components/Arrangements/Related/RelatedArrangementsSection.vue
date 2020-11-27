@@ -1,7 +1,7 @@
 <template>
   <sitebar-item-section id="related-arrangements" :title="$t('title')">
     <related-arrangements-container :not-in="notIn">
-      <template v-slot="data">
+      <template #default="data">
         <sitebar-item-list v-if="data" :items="data.relatedArrangements" />
       </template>
     </related-arrangements-container>

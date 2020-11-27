@@ -1,7 +1,7 @@
 <template>
   <sitebar-item-section id="related-pages" :title="$t('title')">
     <related-pages-container :not-in="notIn" :parent-page-id="parentPageId">
-      <template v-slot="data">
+      <template #default="data">
         <sitebar-item-list v-if="data" :items="data.relatedPages" />
       </template>
     </related-pages-container>

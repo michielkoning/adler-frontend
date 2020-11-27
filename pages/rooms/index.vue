@@ -2,7 +2,7 @@
   <app-page :page="page" :show-resmio="false">
     <rooms-archive-section />
 
-    <template v-slot:sidebar>
+    <template #sidebar>
       <book-room :title="$t('bookNow')" />
     </template>
   </app-page>

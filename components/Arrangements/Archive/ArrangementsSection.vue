@@ -2,7 +2,7 @@
   <section aria-labelledby="arrangements-title">
     <h1 id="arrangements-title" class="sr-only">{{ $t('title') }}</h1>
     <arrangements-container>
-      <template v-slot="data">
+      <template #default="data">
         <archive-list v-if="data" :items="data.arrangements" />
       </template>
     </arrangements-container>

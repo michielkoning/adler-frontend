@@ -2,7 +2,7 @@
   <app-page :page="room" :show-resmio="false">
     <room-prices-group :prices="room.pricesGroup" />
     <room-services :services="room.services" />
-    <template v-slot:sidebar>
+    <template #sidebar>
       <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
       <related-rooms-section :not-in="room.databaseId" />
     </template>

@@ -3,7 +3,7 @@
     :query="require('~/graphql/Posts/Posts.gql')"
     :variables="{ language: $i18n.locale.toUpperCase() }"
   >
-    <template v-slot="{ result: { data }, isLoading }">
+    <template #default="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
       <slot v-else-if="data && data.posts.edges" :posts="data.posts.edges" />
     </template>

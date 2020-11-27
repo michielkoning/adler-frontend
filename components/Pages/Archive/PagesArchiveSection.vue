@@ -1,6 +1,6 @@
 <template>
   <pages-archive-container :parent="parent">
-    <template v-slot="data">
+    <template #default="data">
       <section
         v-if="data.pages && data.pages.length"
         aria-labelledby="posts-title"

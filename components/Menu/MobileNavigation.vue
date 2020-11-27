@@ -14,7 +14,7 @@
         <button
           :aria-expanded="menuIsExpanded ? 'true' : 'false'"
           :class="$style.btn"
-          @click="toggleMenu(!menuIsExpanded)"
+          @click="toggleMenu"
         >
           <icon-bars
             aria-hidden="true"
@@ -60,7 +60,7 @@ export default {
   methods: {
     toggleMenu(status) {
       this.menuIsExpanded = status
-      this.$emit('toggleMenu', status)
+      this.$emit('toggle-menu', status)
     },
   },
 }

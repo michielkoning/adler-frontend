@@ -1,7 +1,7 @@
 <template>
   <header :class="$style.header">
     <skip-links />
-    <mobile-navigation @toggleMenu="toggleMenu" />
+    <mobile-navigation @toggle-menu="toggleMenu" />
     <center-wrapper :top="true">
       <transition
         name="slide"

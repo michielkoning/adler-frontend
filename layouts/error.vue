@@ -15,6 +15,11 @@ export default {
       required: true,
     },
   },
+  head() {
+    return {
+      title: this.title,
+    }
+  },
 
   computed: {
     page() {
@@ -29,11 +34,6 @@ export default {
       }
       return this.$t('title500')
     },
-  },
-  head() {
-    return {
-      title: this.title,
-    }
   },
 }
 </script>
