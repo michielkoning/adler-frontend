@@ -14,6 +14,7 @@ export default {
   env: {
     baseUrl,
   },
+  components: true,
   server: {
     port: 3333,
     host: '0.0.0.0',

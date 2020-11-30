@@ -14,20 +14,10 @@
 <script>
 import ArrangementQuery from '~/graphql/Arrangements/Arrangement.gql'
 import RelatedArrangementsQuery from '~/graphql/Arrangements/RelatedArrangements.gql'
-import AppPage from '~/components/Layout/AppPage.vue'
-import RelatedArrangementsSection from '~/components/Arrangements/Related/RelatedArrangementsSection.vue'
-import ArrangementPrices from '~/components/Arrangements/Prices/ArrangementPrices.vue'
-import BookArrangement from '~/components/Arrangements/Details/BookArrangement.vue'
 import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
-  components: {
-    AppPage,
-    RelatedArrangementsSection,
-    ArrangementPrices,
-    BookArrangement,
-  },
   async asyncData({ app, params, store, redirect }) {
     const arrangement = await app.apolloProvider.defaultClient.query({
       query: ArrangementQuery,
