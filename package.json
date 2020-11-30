@@ -15,7 +15,7 @@
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/pwa": "^3.2.2",
+    "@nuxtjs/pwa": "^3.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
     "apollo-fetch": "^0.7.0",
     "body-scroll-lock": "^3.1.5",
@@ -52,7 +52,7 @@
     "nuxt-svg-loader": "^1.2.0",
     "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.2.0",
+    "prettier": "^2.2.1",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0"
   }

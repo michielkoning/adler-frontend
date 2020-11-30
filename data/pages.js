@@ -11,7 +11,7 @@ export const hotelPageId = {
 }
 
 export const arrangementsPageId = {
-  de: 8,
+  de: 3352,
   nl: 3062,
   en: 3106,
 }
