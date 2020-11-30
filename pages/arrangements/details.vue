@@ -3,13 +3,17 @@
     <arrangement-prices :prices="arrangement.pricesGroup.prices" />
     <template #sidebar>
       <book-arrangement :title="arrangement.title" />
-      <related-arrangements-section :not-in="arrangement.databaseId" />
+      <related-arrangements-section
+        v-if="relatedArrangements.edges.length"
+        :arrangements="relatedArrangements.edges"
+      />
     </template>
   </app-page>
 </template>
 
 <script>
 import ArrangementQuery from '~/graphql/Arrangements/Arrangement.gql'
+import RelatedArrangementsQuery from '~/graphql/Arrangements/RelatedArrangements.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import RelatedArrangementsSection from '~/components/Arrangements/Related/RelatedArrangementsSection.vue'
 import ArrangementPrices from '~/components/Arrangements/Prices/ArrangementPrices.vue'
@@ -30,10 +34,21 @@ export default {
       variables: {
         uri: params.slug,
       },
+      update: (data) => {
+        window.console.log(data)
+      },
     })
 
     if (!arrangement.data.arrangement)
       redirect(301, app.localePath('arrangements'))
+
+    const relatedArrangements = await app.apolloProvider.defaultClient.query({
+      query: RelatedArrangementsQuery,
+      variables: {
+        notIn: arrangement.data.arrangement.databaseId,
+        language: app.i18n.locale.toUpperCase(),
+      },
+    })
 
     const translations = getTranslations(
       app.i18n,
@@ -46,6 +61,7 @@ export default {
 
     return {
       arrangement: arrangement.data.arrangement,
+      relatedArrangements: relatedArrangements.data.relatedArrangements,
     }
   },
   nuxtI18n: {
