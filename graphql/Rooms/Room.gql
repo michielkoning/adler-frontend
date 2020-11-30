@@ -1,6 +1,5 @@
 #import "./../Fragments/Images/ImageHero.gql"
 #import "./../Fragments/Images/Gallery.gql"
-#import "./../Fragments/Seo.gql"
 #import "./Fragments/Room.gql"
 
 query Room($uri: ID!) {
@@ -40,7 +39,17 @@ query Room($uri: ID!) {
       }
     }
     seo {
-      ...seo
-    }
+      metaDesc
+      opengraphDescription
+      opengraphImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      opengraphTitle
+      title
+      twitterDescription
+      twitterImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      twitterTitle    }
   }
 }

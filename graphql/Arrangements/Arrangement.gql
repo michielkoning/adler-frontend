@@ -1,5 +1,4 @@
 #import "./../Fragments/Images/ImageHero.gql"
-#import "./../Fragments/Seo.gql"
 #import "./Fragments/Arrangement.gql"
 
 query Arrangement($uri: ID!) {
@@ -27,7 +26,18 @@ query Arrangement($uri: ID!) {
       }
     }
     seo {
-      ...seo
+      metaDesc
+      opengraphDescription
+      opengraphImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      opengraphTitle
+      title
+      twitterDescription
+      twitterImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      twitterTitle
     }
   }
 }

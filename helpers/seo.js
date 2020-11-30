@@ -19,7 +19,7 @@ const getMetaDescripion = (page, key) => {
 
 const getMetaImage = (page, key) => {
   if (page.seo[key]) {
-    return page.seo[key]
+    return page.seo[key].archive
   } else if (page.featuredImage) {
     if (page.featuredImage.node.heroSmall) {
       return page.featuredImage.node.heroSmall
@@ -54,7 +54,10 @@ export default (page) => {
         name: 'og:url',
         content: page.link,
       },
-      { name: 'og:image', content: getMetaImage(page, 'opengraphImage') },
+      {
+        name: 'og:image',
+        content: getMetaImage(page, 'opengraphImage'),
+      },
       // Twitter Card
       { name: 'twitter:card', content: 'summary' },
 
@@ -66,7 +69,10 @@ export default (page) => {
         name: 'twitter:description',
         content: page.seo.metaDesc,
       },
-      { name: 'twitter:image', content: getMetaImage(page, 'twitterImage') },
+      {
+        name: 'twitter:image',
+        content: getMetaImage(page, 'twitterImage'),
+      },
       { name: 'twitter:image:alt', content: page.seo.title },
     ],
   }

@@ -1,6 +1,5 @@
 #import "./../../Fragments/Images/ImageHero.gql"
 #import "./../../Fragments/Images/Gallery.gql"
-#import "./../../Fragments/Seo.gql"
 #import "./Page.gql"
 
 fragment pageDetails on Page {
@@ -17,6 +16,17 @@ fragment pageDetails on Page {
   }
   parentId
   seo {
-    ...seo
+    metaDesc
+    opengraphDescription
+    opengraphImage {
+      archive: sourceUrl(size: ARCHIVE)
+    }
+    opengraphTitle
+    title
+    twitterDescription
+    twitterImage {
+      archive: sourceUrl(size: ARCHIVE)
+    }
+    twitterTitle
   }
 }

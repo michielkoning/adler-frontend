@@ -1,5 +1,4 @@
 #import "./../Fragments/Images/ImageHero.gql"
-#import "./../Fragments/Seo.gql"
 #import "./Fragments/Post.gql"
 
 query Post($uri: ID!) {
@@ -18,7 +17,18 @@ query Post($uri: ID!) {
       }
     }
     seo {
-      ...seo
+      metaDesc
+      opengraphDescription
+      opengraphImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      opengraphTitle
+      title
+      twitterDescription
+      twitterImage {
+        archive: sourceUrl(size: ARCHIVE)
+      }
+      twitterTitle
     }
   }
 }
