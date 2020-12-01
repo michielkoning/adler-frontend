@@ -72,8 +72,7 @@ export default {
       return this.$route.fullPath
     },
     currentPage() {
-      const cleanBaseUrl = baseUrl.slice(0, -1)
-      return `${cleanBaseUrl}${this.$route.path}`
+      return `${baseUrl}${this.$route.path}`
     },
   },
   methods: {
