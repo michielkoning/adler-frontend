@@ -43,10 +43,16 @@
 </template>
 
 <script>
+import IconFacebook from '~/icons/facebook.svg'
+import IconTwitter from '~/icons/twitter.svg'
 import { facebookUrl, twitterUrl } from '~/data/socialMedia'
 import { title } from '~/data/siteDetails'
 
 export default {
+  components: {
+    IconFacebook,
+    IconTwitter,
+  },
   data() {
     return {
       facebookUrl,
