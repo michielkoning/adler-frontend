@@ -12,8 +12,12 @@
 
 <script>
 import { emailAddress } from '~/data/address'
+import IconMail from '~/icons/envelope.svg'
 
 export default {
+  components: {
+    IconMail,
+  },
   data() {
     return {
       emailAddress,
