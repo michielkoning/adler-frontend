@@ -1,11 +1,10 @@
 <template>
   <app-page :page="page">
-    <pages-archive-section :parent="page.databaseId" />
+    <pages-archive-section v-if="pages.edges.length" :pages="pages.edges" />
     <template #sidebar>
       <related-pages-section
-        v-if="page.parent"
-        :not-in="page.databaseId"
-        :parent-page-id="page.parentId"
+        v-if="relatedPages && relatedPages.edges.length"
+        :pages="relatedPages.edges"
       />
     </template>
   </app-page>
@@ -13,20 +12,15 @@
 
 <script>
 import PageByURIQuery from '~/graphql/Pages/PageByURI.gql'
-import AppPage from '~/components/Layout/AppPage.vue'
-import RelatedPagesSection from '~/components/Pages/Related/RelatedPagesSection.vue'
+import PagesQuery from '~/graphql/Pages/Pages.gql'
+import RelatedPagesQuery from '~/graphql/Pages/RelatedPages.gql'
 import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
-import PagesArchiveSection from '~/components/Pages/Archive/PagesArchiveSection.vue'
 
 export default {
-  components: {
-    PagesArchiveSection,
-    AppPage,
-    RelatedPagesSection,
-  },
   async asyncData({ app, params, store, redirect }) {
-    const page = await app.apolloProvider.defaultClient.query({
+    const { defaultClient } = app.apolloProvider
+    const page = await defaultClient.query({
       query: PageByURIQuery,
       variables: {
         uri: params.pathMatch,
@@ -35,6 +29,26 @@ export default {
 
     if (!page.data.page) redirect(301, app.localePath('/'))
 
+    const pages = await defaultClient.query({
+      query: PagesQuery,
+      variables: {
+        parent: page.data.page.databaseId,
+        language: app.i18n.locale.toUpperCase(),
+      },
+    })
+
+    let relatedPages = null
+    if (page.data.page.parentDatabaseId) {
+      const relatedPagesResult = await defaultClient.query({
+        query: RelatedPagesQuery,
+        variables: {
+          notIn: page.data.page.databaseId,
+          parentId: page.data.page.parentDatabaseId,
+          language: app.i18n.locale.toUpperCase(),
+        },
+      })
+      relatedPages = relatedPagesResult.data.relatedPages
+    }
     const translations = getTranslations(
       app.i18n,
       page.data.page.translations,
@@ -46,6 +60,8 @@ export default {
 
     return {
       page: page.data.page,
+      pages: pages.data.pages,
+      relatedPages,
     }
   },
   nuxtI18n: {

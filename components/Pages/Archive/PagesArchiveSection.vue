@@ -1,30 +1,16 @@
 <template>
-  <pages-archive-container :parent="parent">
-    <template #default="data">
-      <section
-        v-if="data.pages && data.pages.length"
-        aria-labelledby="posts-title"
-      >
-        <h1 id="posts-title" class="sr-only">{{ $t('title') }}</h1>
-        <archive-list :items="data.pages" />
-      </section>
-    </template>
-  </pages-archive-container>
+  <section aria-labelledby="pages-title">
+    <h1 id="pages-title" class="sr-only">{{ $t('title') }}</h1>
+    <archive-list :items="pages" />
+  </section>
 </template>
 
 <script>
-import ArchiveList from '~/components/Archive/ArchiveList.vue'
-import PagesArchiveContainer from '~/components/Pages/Archive/PagesArchiveContainer.vue'
-
 export default {
-  components: {
-    ArchiveList,
-    PagesArchiveContainer,
-  },
   props: {
-    parent: {
-      type: Number,
-      default: 0,
+    pages: {
+      type: Array,
+      default: () => [],
     },
   },
 }

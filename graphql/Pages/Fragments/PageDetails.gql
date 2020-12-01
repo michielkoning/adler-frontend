@@ -14,7 +14,7 @@ fragment pageDetails on Page {
       ...gallery
     }
   }
-  parentId
+  parentDatabaseId
   seo {
     metaDesc
     opengraphDescription
