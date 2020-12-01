@@ -41,6 +41,7 @@
 
 <script>
 import FacilitiesList from '~/components/Facilitites/FacilitiesList.vue'
+import IconTicket from '~/icons/ticket.svg'
 import IconBed from '~/icons/bed.svg'
 import IconMountain from '~/icons/mountain.svg'
 import IconChild from '~/icons/child.svg'
@@ -51,6 +52,7 @@ export default {
     IconBed,
     IconMountain,
     IconChild,
+    IconTicket,
   },
   props: {
     facility: {
