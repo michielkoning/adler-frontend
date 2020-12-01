@@ -1,13 +1,17 @@
 <template>
   <app-page :page="post">
     <template #sidebar>
-      <related-posts-section :not-in="post.databaseId" />
+      <related-posts-section
+        v-if="relatedPosts.edges.length"
+        :related-posts="relatedPosts.edges"
+      />
     </template>
   </app-page>
 </template>
 
 <script>
 import PostQuery from '~/graphql/Posts/Post.gql'
+import RelatedPostQuery from '~/graphql/Posts/RelatedPosts.gql'
 import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
 
@@ -22,6 +26,14 @@ export default {
 
     if (!post.data.post) redirect(301, app.localePath('blog'))
 
+    const relatedPosts = await app.apolloProvider.defaultClient.query({
+      query: RelatedPostQuery,
+      variables: {
+        notIn: post.data.post.databaseId,
+        language: app.i18n.locale.toUpperCase(),
+      },
+    })
+
     const translations = getTranslations(
       app.i18n,
       post.data.post.translations,
@@ -33,6 +45,7 @@ export default {
 
     return {
       post: post.data.post,
+      relatedPosts: relatedPosts.data.relatedPosts,
     }
   },
   nuxtI18n: {
