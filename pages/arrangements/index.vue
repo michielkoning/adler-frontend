@@ -1,8 +1,9 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <arrangements-section
+    <archive-section
       v-if="arrangements.edges.length"
-      :arrangements="arrangements.edges"
+      :items="arrangements.edges"
+      :title="$t('archiveTitle')"
     />
   </app-page>
 </template>
@@ -45,3 +46,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "archiveTitle": "Onze arrangementen"
+  },
+  "de": {
+    "archiveTitle": "Unsere Arrangements"
+  },
+  "en": {
+    "archiveTitle": "Our arrangements"
+  }
+}
+</i18n>

@@ -1,6 +1,10 @@
 <template>
   <app-page :page="page">
-    <pages-archive-section v-if="pages.edges.length" :pages="pages.edges" />
+    <archive-section
+      v-if="pages.edges.length"
+      :items="pages.edges"
+      :title="$t('archiveTitle')"
+    />
     <template #sidebar>
       <related-pages-section
         v-if="relatedPages && relatedPages.edges.length"
@@ -76,3 +80,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "archiveTitle": "Bekijk ook"
+  },
+  "de":  {
+    "archiveTitle": "Auch interessant"
+  },
+  "en": {
+    "archiveTitle": "See also"
+  }
+}
+</i18n>

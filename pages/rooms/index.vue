@@ -1,6 +1,10 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <rooms-section v-if="rooms.edges.length" :rooms="rooms.edges" />
+    <archive-section
+      v-if="rooms.edges.length"
+      :items="rooms.edges"
+      :title="$t('archiveTitle')"
+    />
     <template #sidebar>
       <book-room :title="$t('bookNow')" />
     </template>
@@ -45,3 +49,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "archiveTitle": "Onze kamers"
+  },
+  "de": {
+    "archiveTitle": "Unsere Zimmer"
+  },
+  "en": {
+    "archiveTitle": "Our rooms"
+  }
+}
+</i18n>

@@ -1,6 +1,10 @@
 <template>
   <app-page :page="page">
-    <posts-section v-if="posts.edges.length" :posts="posts.edges" />
+    <archive-section
+      v-if="posts.edges.length"
+      :items="posts.edges"
+      :title="$t('archiveTitle')"
+    />
   </app-page>
 </template>
 
@@ -43,3 +47,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "archiveTitle": "Laatste berichten"
+  },
+  "de": {
+    "archiveTitle": "Neueste Beiträge"
+  },
+  "en": {
+    "archiveTitle": "Latest posts"
+  }
+}
+</i18n>
