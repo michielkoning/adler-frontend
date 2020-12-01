@@ -3,9 +3,10 @@
     <arrangement-prices :prices="arrangement.pricesGroup.prices" />
     <template #sidebar>
       <book-arrangement :title="arrangement.title" />
-      <related-arrangements-section
+      <related-list-section
         v-if="relatedArrangements.edges.length"
-        :arrangements="relatedArrangements.edges"
+        :items="relatedArrangements.edges"
+        :title="$t('relatedListTitle')"
       />
     </template>
   </app-page>
@@ -63,3 +64,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "relatedListTitle": "Meer aanbiedingen"
+  },
+  "de": {
+    "relatedListTitle": "Weitere Angebote"
+  },
+  "en": {
+    "relatedListTitle": "More offers"
+  }
+}
+</i18n>

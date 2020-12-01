@@ -4,9 +4,10 @@
     <room-services :services="room.services" />
     <template #sidebar>
       <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
-      <related-rooms-section
+      <related-list-section
         v-if="relatedRooms.edges.length"
-        :rooms="relatedRooms.edges"
+        :items="relatedRooms.edges"
+        :title="$t('relatedListTitle')"
       />
     </template>
   </app-page>
@@ -63,3 +64,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "relatedListTitle": "Onze andere kamers"
+  },
+  "de": {
+    "relatedListTitle": "Andere Zimmerarten"
+  },
+  "en": {
+    "relatedListTitle": "Our other rooms"
+  }
+}
+</i18n>

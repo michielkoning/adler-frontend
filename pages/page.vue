@@ -6,9 +6,10 @@
       :title="$t('archiveTitle')"
     />
     <template #sidebar>
-      <related-pages-section
+      <related-list-section
         v-if="relatedPages && relatedPages.edges.length"
-        :pages="relatedPages.edges"
+        :items="relatedPages.edges"
+        :title="$t('relatedListTitle')"
       />
     </template>
   </app-page>
@@ -84,13 +85,16 @@ export default {
 <i18n>
 {
   "nl": {
-    "archiveTitle": "Bekijk ook"
+    "archiveTitle": "Gerelateerde pagina's",
+    "relatedListTitle": "Bekijk ook"
   },
   "de":  {
-    "archiveTitle": "Auch interessant"
+    "archiveTitle": "Verwandte Seiten",
+    "relatedListTitle": "Auch interessant"
   },
   "en": {
-    "archiveTitle": "See also"
+    "archiveTitle": "Related pages",
+    "relatedListTitle": "See also"
   }
 }
 </i18n>

@@ -1,9 +1,10 @@
 <template>
   <app-page :page="post">
     <template #sidebar>
-      <related-posts-section
+      <related-list-section
         v-if="relatedPosts.edges.length"
-        :related-posts="relatedPosts.edges"
+        :items="relatedPosts.edges"
+        :title="$t('relatedListTitle')"
       />
     </template>
   </app-page>
@@ -60,3 +61,17 @@ export default {
   },
 }
 </script>
+
+<i18n>
+{
+  "nl": {
+    "relatedListTitle": "Meer berichten"
+  },
+  "de": {
+    "relatedListTitle": "Mehr Berichte"
+  },
+  "en": {
+    "relatedListTitle": "More posts"
+  }
+}
+</i18n>
