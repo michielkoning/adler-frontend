@@ -34,22 +34,7 @@
 </template>
 
 <script>
-import PostDate from '@/components/Shared/PostDate.vue'
-import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
-import ResmioWidget from '~/components/Shared/Resmio.vue'
-import ImageHero from '~/components/Images/ImageHero.vue'
-import GalleryList from '~/components/Gallery/GalleryList.vue'
-import ArrangementsHighlightsSection from '~/components/Arrangements/Highlights/ArrangementsHighlightsSection.vue'
-
 export default {
-  components: {
-    PostDate,
-    CenterWrapper,
-    ResmioWidget,
-    ImageHero,
-    GalleryList,
-    ArrangementsHighlightsSection,
-  },
   props: {
     showResmio: {
       type: Boolean,
