@@ -9,6 +9,12 @@ export const state = () => ({
   },
 })
 
+export const getters = {
+  getByLanguage: (state) => (language) => {
+    return state.menu[language]
+  },
+}
+
 export const mutations = {
   set(state, payload) {
     state.menu[payload.language] = payload.data

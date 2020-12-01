@@ -44,17 +44,8 @@ import {
   directionsUrl,
 } from '~/data/address'
 import { title } from '~/data/siteDetails'
-import ContactEmailaddress from '~/components/Contact/ContactEmailaddress.vue'
-import ContactPhoneNumber from '~/components/Contact/ContactPhoneNumber.vue'
-import AppButton from '~/components/Shared/AppButton.vue'
 
 export default {
-  components: {
-    AppButton,
-    ContactEmailaddress,
-    ContactPhoneNumber,
-  },
-
   data() {
     return {
       directionsUrl,

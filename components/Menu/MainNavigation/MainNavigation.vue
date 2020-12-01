@@ -4,42 +4,42 @@
       {{ $t('title') }}
     </h2>
     <div ref="menu">
-      <ul v-if="currentMenu" :class="$style.menu">
+      <ul v-if="menu" :class="$style.menu">
         <main-navigation-item
           :title="$t('pages.home')"
           :url="localePath('/')"
         />
         <main-navigation-item
-          :title="currentMenu.hotel.title"
-          :url="currentMenu.hotel.url"
-          :children="currentMenu.hotelPageChildren"
+          :title="menu.hotel.title"
+          :url="menu.hotel.url"
+          :children="menu.hotelPageChildren"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
-          :title="currentMenu.environment.title"
-          :url="currentMenu.environment.url"
-          :children="currentMenu.environmentPageChildren"
+          :title="menu.environment.title"
+          :url="menu.environment.url"
+          :children="menu.environmentPageChildren"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="$t('pages.arrangements')"
           :url="localePath({ name: 'arrangements' })"
-          :children="currentMenu.arrangements"
+          :children="menu.arrangements"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="$t('pages.rooms')"
           :url="localePath({ name: 'rooms' })"
-          :children="currentMenu.rooms"
+          :children="menu.rooms"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="$t('pages.contact')"
           :url="localePath({ name: 'contact' })"
         />
-        <template v-if="currentMenu.menuItems.edges">
+        <template v-if="menu.menuItems.edges">
           <main-navigation-item
-            v-for="menuItem in currentMenu.menuItems.edges"
+            v-for="menuItem in menu.menuItems.edges"
             :key="menuItem.node.id"
             :title="menuItem.node.title"
             :url="menuItem.node.url"
@@ -56,13 +56,8 @@
 
 <script>
 import { debounce } from 'throttle-debounce'
-import { mapState } from 'vuex'
-import MainNavigationItem from '~/components/Menu/MainNavigation/MainNavigationItem.vue'
 
 export default {
-  components: {
-    MainNavigationItem,
-  },
   props: {
     menuIsOpen: {
       type: Boolean,
@@ -77,9 +72,8 @@ export default {
     }
   },
   computed: {
-    ...mapState('menu', ['menu']),
-    currentMenu() {
-      return this.menu[this.$i18n.locale]
+    menu() {
+      return this.$store.getters['menu/getByLanguage'](this.$i18n.locale)
     },
   },
   watch: {

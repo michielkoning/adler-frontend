@@ -1,12 +1,21 @@
-import ArrangementsHighlightsQuery from '~/graphql/Arrangements/ArrangementsHighlights.gql'
+import ArrangementsHighlightsQuery from '~/graphql/Arrangements/Arrangements.gql'
 
 export const state = () => ({
   highlights: {
-    nl: null,
-    de: null,
-    en: null,
+    nl: [],
+    de: [],
+    en: [],
   },
 })
+
+export const getters = {
+  getFirstByLanguage: (state) => (language, amount) => {
+    return state.highlights[language].slice(0, amount)
+  },
+  getByLanguage: (state) => (language) => {
+    return state.highlights[language]
+  },
+}
 
 export const mutations = {
   set(state, payload) {
@@ -24,7 +33,12 @@ export const actions = {
           language: language.toUpperCase(),
         },
       })
-      commit('set', { language, data: response.data })
+      if (response.data?.arrangementsHighlights?.edges.length) {
+        commit('set', {
+          language,
+          data: response.data.arrangementsHighlights.edges,
+        })
+      }
     }
   },
 }

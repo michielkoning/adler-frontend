@@ -12,14 +12,8 @@
 
 <script>
 import { emailAddress } from '~/data/address'
-import IconMail from '~/icons/envelope.svg'
-import ContactItemWrapper from '~/components/Contact/ContactItemWrapper.vue'
 
 export default {
-  components: {
-    IconMail,
-    ContactItemWrapper,
-  },
   data() {
     return {
       emailAddress,

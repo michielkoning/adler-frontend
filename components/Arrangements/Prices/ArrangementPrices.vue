@@ -21,12 +21,7 @@
 </template>
 
 <script>
-import ArrangementPrice from '~/components/Arrangements/Prices/ArrangementPrice.vue'
-
 export default {
-  components: {
-    ArrangementPrice,
-  },
   props: {
     prices: {
       type: Array,

@@ -7,16 +7,7 @@
 </template>
 
 <script>
-import BookNow from '~/components/Shared/BookNow.vue'
-import AppModal from '~/components/Shared/AppModal.vue'
-import FormArrangement from '~/components/Forms/FormArrangement.vue'
-
 export default {
-  components: {
-    BookNow,
-    AppModal,
-    FormArrangement,
-  },
   props: {
     title: {
       type: String,

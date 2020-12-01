@@ -1,5 +1,6 @@
 <template>
   <section
+    v-if="arrangements.length"
     aria-labelledby="arrangements-highlights-title"
     :class="$style.highlights"
   >
@@ -7,7 +8,7 @@
       <h1 id="arrangements-highlights-title" :class="$style.title">
         {{ $t('title') }}
       </h1>
-      <highlights-list v-if="arrangements" :items="arrangements" />
+      <highlights-list :items="arrangements" />
       <div :class="$style['button-wrapper']">
         <app-button
           :to="localePath({ name: 'arrangements' })"
@@ -21,13 +22,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   computed: {
-    ...mapState('arrangements', ['highlights']),
-    currentMenu() {
-      return this.arrangements[this.$i18n.locale]
+    arrangements() {
+      return this.$store.getters['arrangements/getFirstByLanguage'](
+        this.$i18n.locale,
+        3,
+      )
     },
   },
 }

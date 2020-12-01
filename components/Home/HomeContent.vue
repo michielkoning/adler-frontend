@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.wrapper">
     <center-wrapper>
-      <div v-if="currentMenu" :class="$style.content">
+      <div v-if="arrangements.length" :class="$style.content">
         <highlights-item
-          v-for="item in currentMenu"
+          v-for="item in arrangements"
           :key="item.node.id"
           tag="div"
           :item="item.node"
@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   props: {
     posts: {
@@ -31,9 +29,11 @@ export default {
     },
   },
   computed: {
-    ...mapState('arrangements', ['highlights']),
-    currentMenu() {
-      return this.arrangements[this.$i18n.locale]
+    arrangements() {
+      return this.$store.getters['arrangements/getFirstByLanguage'](
+        this.$i18n.locale,
+        2,
+      )
     },
   },
 }

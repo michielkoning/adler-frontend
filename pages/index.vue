@@ -1,14 +1,14 @@
 <template>
   <div>
     <home-hero :page="page" />
-    <home-content :posts="posts" />
+    <home-content :posts="relatedPosts" />
     <facilities-wrapper />
   </div>
 </template>
 
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
-import PostsQuery from '~/graphql/Posts/Posts.gql'
+import RelatedPostsQuery from '~/graphql/Posts/RelatedPosts.gql'
 
 import { homePageId } from '~/data/pages'
 import getSeoMetaData from '~/helpers/seo'
@@ -24,15 +24,16 @@ export default {
         pageId: homePageId[language],
       },
     })
-    const posts = await defaultClient.query({
-      query: PostsQuery,
+    const relatedPosts = await defaultClient.query({
+      query: RelatedPostsQuery,
       variables: {
         language: language.toUpperCase(),
+        notIn: 0,
       },
     })
     return {
       page: page.data.page,
-      posts: posts.data.posts,
+      relatedPosts: relatedPosts.data.relatedPosts,
     }
   },
 

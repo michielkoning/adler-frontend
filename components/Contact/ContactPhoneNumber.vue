@@ -12,14 +12,8 @@
 
 <script>
 import { phoneNumber } from '~/data/address'
-import IconPhone from '~/icons/phone.svg'
-import ContactItemWrapper from '~/components/Contact/ContactItemWrapper.vue'
 
 export default {
-  components: {
-    IconPhone,
-    ContactItemWrapper,
-  },
   data() {
     return {
       phoneNumber,
