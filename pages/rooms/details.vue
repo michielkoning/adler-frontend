@@ -4,29 +4,21 @@
     <room-services :services="room.services" />
     <template #sidebar>
       <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
-      <related-rooms-section :not-in="room.databaseId" />
+      <related-rooms-section
+        v-if="relatedRooms.edges.length"
+        :rooms="relatedRooms.edges"
+      />
     </template>
   </app-page>
 </template>
 
 <script>
 import RoomQuery from '~/graphql/Rooms/Room.gql'
-import AppPage from '~/components/Layout/AppPage.vue'
-import RelatedRoomsSection from '~/components/Rooms/Related/RelatedRoomsSection.vue'
-import RoomPricesGroup from '~/components/Rooms/Prices/RoomPricesGroup.vue'
-import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
-import RoomServices from '~/components/Rooms/Details/RoomServices.vue'
 import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
+import RelatedRoomsQuery from '~/graphql/Rooms/RelatedRooms.gql'
 
 export default {
-  components: {
-    AppPage,
-    RelatedRoomsSection,
-    RoomPricesGroup,
-    BookRoom,
-    RoomServices,
-  },
   async asyncData({ app, params, store, redirect }) {
     const room = await app.apolloProvider.defaultClient.query({
       query: RoomQuery,
@@ -36,6 +28,14 @@ export default {
     })
 
     if (!room.data.room) redirect(301, app.localePath('rooms'))
+
+    const relatedRooms = await app.apolloProvider.defaultClient.query({
+      query: RelatedRoomsQuery,
+      variables: {
+        notIn: room.data.room.databaseId,
+        language: app.i18n.locale.toUpperCase(),
+      },
+    })
 
     const translations = getTranslations(
       app.i18n,
@@ -48,6 +48,7 @@ export default {
 
     return {
       room: room.data.room,
+      relatedRooms: relatedRooms.data.relatedRooms,
     }
   },
   nuxtI18n: {

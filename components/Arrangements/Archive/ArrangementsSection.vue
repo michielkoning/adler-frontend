@@ -6,12 +6,7 @@
 </template>
 
 <script>
-import ArchiveList from '~/components/Archive/ArchiveList.vue'
-
 export default {
-  components: {
-    ArchiveList,
-  },
   props: {
     arrangements: {
       type: Array,

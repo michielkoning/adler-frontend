@@ -24,9 +24,6 @@ export default {
       variables: {
         uri: params.slug,
       },
-      update: (data) => {
-        window.console.log(data)
-      },
     })
 
     if (!arrangement.data.arrangement)

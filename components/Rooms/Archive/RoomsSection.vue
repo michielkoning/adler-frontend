@@ -1,22 +1,17 @@
 <template>
   <section aria-labelledby="rooms-title">
     <h1 id="rooms-title" class="sr-only">{{ $t('title') }}</h1>
-    <rooms-container>
-      <template #default="data">
-        <archive-list v-if="data" :items="data.rooms" />
-      </template>
-    </rooms-container>
+    <archive-list :items="rooms" />
   </section>
 </template>
 
 <script>
-import ArchiveList from '~/components/Archive/ArchiveList.vue'
-import RoomsContainer from '~/components/Rooms/Archive/RoomsContainer.vue'
-
 export default {
-  components: {
-    ArchiveList,
-    RoomsContainer,
+  props: {
+    rooms: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>

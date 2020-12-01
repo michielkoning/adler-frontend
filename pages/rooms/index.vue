@@ -1,6 +1,6 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <rooms-archive-section />
+    <rooms-archive-section v-if="rooms.edges.length" :rooms="rooms.edges" />
 
     <template #sidebar>
       <book-room :title="$t('bookNow')" />
@@ -10,6 +10,7 @@
 
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
+import RoomsQuery from '~/graphql/Rooms/Rooms.gql'
 import AppPage from '~/components/Layout/AppPage.vue'
 import getSeoMetaData from '~/helpers/seo'
 import { roomsPageId } from '~/data/pages'
@@ -30,8 +31,15 @@ export default {
         pageId: roomsPageId[language],
       },
     })
+    const rooms = await app.apolloProvider.defaultClient.query({
+      query: RoomsQuery,
+      variables: {
+        language: language.toUpperCase(),
+      },
+    })
     return {
       page: page.data.page,
+      rooms: rooms.data.rooms,
     }
   },
   nuxtI18n: {

@@ -1,7 +1,7 @@
 <template>
   <app-page :page="page" :show-resmio="false">
     <arrangements-archive-section
-      v-if="arrangements.edges"
+      v-if="arrangements.edges.length"
       :arrangements="arrangements.edges"
     />
   </app-page>
