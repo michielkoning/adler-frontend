@@ -1,6 +1,6 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <arrangements-archive-section
+    <arrangements-section
       v-if="arrangements.edges.length"
       :arrangements="arrangements.edges"
     />

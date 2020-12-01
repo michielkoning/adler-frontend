@@ -1,7 +1,6 @@
 <template>
   <app-page :page="page" :show-resmio="false">
-    <rooms-archive-section v-if="rooms.edges.length" :rooms="rooms.edges" />
-
+    <rooms-section v-if="rooms.edges.length" :rooms="rooms.edges" />
     <template #sidebar>
       <book-room :title="$t('bookNow')" />
     </template>

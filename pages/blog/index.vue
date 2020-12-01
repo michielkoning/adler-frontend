@@ -1,6 +1,6 @@
 <template>
   <app-page :page="page">
-    <posts-archive-section v-if="posts.edges.length" :posts="posts.edges" />
+    <posts-section v-if="posts.edges.length" :posts="posts.edges" />
   </app-page>
 </template>
 
