@@ -12,8 +12,12 @@
 
 <script>
 import { phoneNumber } from '~/data/address'
+import IconPhone from '~/icons/phone.svg'
 
 export default {
+  components: {
+    IconPhone,
+  },
   data() {
     return {
       phoneNumber,
