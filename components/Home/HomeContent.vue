@@ -67,13 +67,13 @@ export default {
 <i18n>
 {
   "nl": {
-    "latestPosts": "Laatste berichten"
+    "relatedListTitle": "Laatste berichten"
   },
   "de": {
-    "latestPosts": "Neueste Beiträge"
+    "relatedListTitle": "Neueste Beiträge"
   },
   "en": {
-    "latestPosts": "Latest posts"
+    "relatedListTitle": "Latest posts"
   }
 }
 </i18n>
