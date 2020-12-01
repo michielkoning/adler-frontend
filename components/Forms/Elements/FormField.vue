@@ -10,12 +10,7 @@
 </template>
 
 <script>
-import ErrorMessage from '~/components/Forms/Elements/ErrorMessage.vue'
-
 export default {
-  components: {
-    ErrorMessage,
-  },
   props: {
     title: {
       type: String,

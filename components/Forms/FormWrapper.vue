@@ -30,17 +30,9 @@
 
 <script>
 import axios from 'axios'
-import AppButton from '~/components/Shared/AppButton.vue'
-import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
-import AppLoader from '~/components/Shared/AppLoader.vue'
 import { baseUrl } from '~/data/siteDetails'
 
 export default {
-  components: {
-    AppLoader,
-    AppButton,
-    FormInputText,
-  },
   props: {
     name: {
       type: String,

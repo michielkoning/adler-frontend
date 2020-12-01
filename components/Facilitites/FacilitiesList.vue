@@ -9,12 +9,7 @@
 </template>
 
 <script>
-import FacilitiesListItem from '~/components/Facilitites/FacilitiesListItem.vue'
-
 export default {
-  components: {
-    FacilitiesListItem,
-  },
   props: {
     list: {
       type: Array,

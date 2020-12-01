@@ -22,17 +22,13 @@
 </template>
 
 <script>
-import ImageHero from '~/components/Images/ImageHero.vue'
 import IconLogoHero from '~/icons/logo-hero.svg'
 import { title } from '~/data/siteDetails'
 import { city, province } from '~/data/address'
-import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 
 export default {
   components: {
-    ImageHero,
     IconLogoHero,
-    CenterWrapper,
   },
   props: {
     page: {

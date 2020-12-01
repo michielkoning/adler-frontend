@@ -24,18 +24,7 @@
 </template>
 
 <script>
-import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
-import ImageArchive from '~/components/Images/ImageArchive.vue'
-import ReadMore from '~/components/Shared/ReadMore.vue'
-import PriceBadge from '~/components/Shared/PriceBadge.vue'
-
 export default {
-  components: {
-    ClickableListItem,
-    ImageArchive,
-    ReadMore,
-    PriceBadge,
-  },
   props: {
     item: {
       type: Object,

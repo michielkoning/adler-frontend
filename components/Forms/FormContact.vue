@@ -42,20 +42,8 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import FormFieldset from '~/components/Forms/Elements/FormFieldset.vue'
-import FormInputText from '~/components/Forms/Elements/FormInputText.vue'
-import FormTextarea from '~/components/Forms/Elements/FormTextarea.vue'
-import FormWrapper from '~/components/Forms/FormWrapper.vue'
-import SitebarItemSection from '~/components/Sidebar/SitebarItemSection.vue'
 
 export default {
-  components: {
-    SitebarItemSection,
-    FormFieldset,
-    FormInputText,
-    FormTextarea,
-    FormWrapper,
-  },
   data() {
     return {
       formData: {

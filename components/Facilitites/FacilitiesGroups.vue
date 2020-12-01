@@ -13,12 +13,7 @@
 </template>
 
 <script>
-import FacilitiesGroup from '~/components/Facilitites/FacilitiesGroup.vue'
-
 export default {
-  components: {
-    FacilitiesGroup,
-  },
   props: {
     facilities: {
       type: Object,

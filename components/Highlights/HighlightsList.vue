@@ -9,12 +9,7 @@
 </template>
 
 <script>
-import HighlightsItem from '~/components/Highlights/HighlightsItem.vue'
-
 export default {
-  components: {
-    HighlightsItem,
-  },
   props: {
     items: {
       type: Array,

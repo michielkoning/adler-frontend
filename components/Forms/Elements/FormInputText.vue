@@ -14,12 +14,7 @@
 </template>
 
 <script>
-import FormField from '~/components/Forms/Elements/FormField.vue'
-
 export default {
-  components: {
-    FormField,
-  },
   inheritAttrs: false,
   props: {
     title: {

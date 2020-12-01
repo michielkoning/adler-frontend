@@ -26,12 +26,7 @@
 </template>
 
 <script>
-import LazyLoadingImage from '~/components/Images/LazyLoadingImage.vue'
-
 export default {
-  components: {
-    LazyLoadingImage,
-  },
   props: {
     image: {
       type: Object,

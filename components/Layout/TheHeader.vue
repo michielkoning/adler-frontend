@@ -39,21 +39,11 @@
 <script>
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import IconLogo from '~/icons/logo.svg'
-import SkipLinks from '~/components/Layout/SkipLinks.vue'
-import MobileNavigation from '~/components/Menu/MobileNavigation.vue'
-import MainNavigation from '~/components/Menu/MainNavigation/MainNavigation.vue'
-import MetaNavigation from '~/components/Menu/MetaNavigation.vue'
-import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
 import { title } from '~/data/siteDetails'
 
 export default {
   components: {
-    SkipLinks,
-    MobileNavigation,
     IconLogo,
-    MainNavigation,
-    MetaNavigation,
-    CenterWrapper,
   },
   data() {
     return {

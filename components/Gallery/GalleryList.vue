@@ -15,11 +15,7 @@
         :class="[$style.item, $style[`item-${index}`]]"
         @click="openModalWithImage(index)"
       >
-        <tag
-          :is="imageSizeComponent(index)"
-          :image="item"
-          :class="$style.image"
-        />
+        <tag :is="imageSizeComponent(index)" :image="item" />
       </li>
       <li :class="$style['item-btn']">
         <button :class="$style.btn" @click="toggleModal">
@@ -31,20 +27,7 @@
 </template>
 
 <script>
-import GalleryCarousel from '~/components/Gallery/GalleryCarousel.vue'
-import GalleryImageLarge from '~/components/Gallery/Images/GalleryImageLarge.vue'
-import GalleryImageMedium from '~/components/Gallery/Images/GalleryImageMedium.vue'
-import GalleryImageSmall from '~/components/Gallery/Images/GalleryImageSmall.vue'
-import AppModal from '~/components/Shared/AppModal.vue'
-
 export default {
-  components: {
-    GalleryCarousel,
-    AppModal,
-    GalleryImageLarge,
-    GalleryImageMedium,
-    GalleryImageSmall,
-  },
   props: {
     gallery: {
       type: Array,
@@ -169,10 +152,6 @@ export default {
   .item-4 {
     display: block;
   }
-}
-
-.image {
-  @mixin object-fit;
 }
 
 .btn {
