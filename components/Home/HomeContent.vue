@@ -1,39 +1,40 @@
 <template>
   <div :class="$style.wrapper">
     <center-wrapper>
-      <arrangements-highlights-container :first="2">
-        <template #default="data">
-          <div v-if="data" :class="$style.content">
-            <highlights-item
-              v-for="item in data.arrangementsHighlights"
-              :key="item.node.id"
-              tag="div"
-              :item="item.node"
-              :class="$style.highlight"
-            />
-            <related-posts-section />
-            <resmio-widget />
-          </div>
-        </template>
-      </arrangements-highlights-container>
+      <div v-if="currentMenu" :class="$style.content">
+        <highlights-item
+          v-for="item in currentMenu"
+          :key="item.node.id"
+          tag="div"
+          :item="item.node"
+          :class="$style.highlight"
+        />
+        <related-list-section
+          v-if="posts && posts.edges.length"
+          :items="posts.edges"
+          :title="$t('relatedListTitle')"
+        />
+        <resmio-widget />
+      </div>
     </center-wrapper>
   </div>
 </template>
 
 <script>
-import ResmioWidget from '~/components/Shared/Resmio.vue'
-import RelatedPostsSection from '~/components/Posts/Related/RelatedPostsSection.vue'
-import HighlightsItem from '~/components/Highlights/HighlightsItem.vue'
-import ArrangementsHighlightsContainer from '~/components/Arrangements/Highlights/ArrangementsHighlightsContainer.vue'
-import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
+import { mapState } from 'vuex'
 
 export default {
-  components: {
-    ResmioWidget,
-    RelatedPostsSection,
-    HighlightsItem,
-    ArrangementsHighlightsContainer,
-    CenterWrapper,
+  props: {
+    posts: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  computed: {
+    ...mapState('arrangements', ['highlights']),
+    currentMenu() {
+      return this.arrangements[this.$i18n.locale]
+    },
   },
 }
 </script>
@@ -62,3 +63,17 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "nl": {
+    "latestPosts": "Laatste berichten"
+  },
+  "de": {
+    "latestPosts": "Neueste Beiträge"
+  },
+  "en": {
+    "latestPosts": "Latest posts"
+  }
+}
+</i18n>

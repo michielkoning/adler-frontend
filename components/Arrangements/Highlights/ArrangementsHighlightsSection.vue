@@ -7,11 +7,7 @@
       <h1 id="arrangements-highlights-title" :class="$style.title">
         {{ $t('title') }}
       </h1>
-      <arrangements-highlights-container>
-        <template #default="data">
-          <highlights-list v-if="data" :items="data.arrangementsHighlights" />
-        </template>
-      </arrangements-highlights-container>
+      <highlights-list v-if="arrangements" :items="arrangements" />
       <div :class="$style['button-wrapper']">
         <app-button
           :to="localePath({ name: 'arrangements' })"
@@ -25,17 +21,14 @@
 </template>
 
 <script>
-import ArrangementsHighlightsContainer from '~/components/Arrangements/Highlights/ArrangementsHighlightsContainer.vue'
-import CenterWrapper from '~/components/Layout/CenterWrapper.vue'
-import AppButton from '~/components/Shared/AppButton.vue'
-import HighlightsList from '~/components/Highlights/HighlightsList.vue'
+import { mapState } from 'vuex'
 
 export default {
-  components: {
-    ArrangementsHighlightsContainer,
-    CenterWrapper,
-    HighlightsList,
-    AppButton,
+  computed: {
+    ...mapState('arrangements', ['highlights']),
+    currentMenu() {
+      return this.arrangements[this.$i18n.locale]
+    },
   },
 }
 </script>
