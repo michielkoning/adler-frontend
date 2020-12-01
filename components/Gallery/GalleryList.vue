@@ -27,7 +27,16 @@
 </template>
 
 <script>
+import GalleryImageLarge from '~/components/Gallery/Images/GalleryImageLarge.vue'
+import GalleryImageMedium from '~/components/Gallery/Images/GalleryImageMedium.vue'
+import GalleryImageSmall from '~/components/Gallery/Images/GalleryImageSmall.vue'
+
 export default {
+  components: {
+    GalleryImageLarge,
+    GalleryImageMedium,
+    GalleryImageSmall,
+  },
   props: {
     gallery: {
       type: Array,
