@@ -5,12 +5,7 @@
 </template>
 
 <script>
-import ArchiveItem from '~/components/Archive/ArchiveItem.vue'
-
 export default {
-  components: {
-    ArchiveItem,
-  },
   props: {
     items: {
       type: Array,

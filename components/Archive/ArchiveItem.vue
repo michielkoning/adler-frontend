@@ -26,20 +26,7 @@
 </template>
 
 <script>
-import PostDate from '@/components/Shared/PostDate.vue'
-import ClickableListItem from '~/components/Shared/ClickableListItem.vue'
-import ImageArchive from '~/components/Images/ImageArchive.vue'
-import PriceBadge from '~/components/Shared/PriceBadge.vue'
-import ReadMore from '~/components/Shared/ReadMore.vue'
-
 export default {
-  components: {
-    ClickableListItem,
-    ImageArchive,
-    PriceBadge,
-    ReadMore,
-    PostDate,
-  },
   props: {
     item: {
       type: Object,

@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div :class="$style.page">
     <the-header />
     <main>
       <nuxt />
@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .page {
   background: var(--color-background);
   display: flex;

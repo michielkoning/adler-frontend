@@ -11,6 +11,7 @@ import { twitterUrl } from './data/socialMedia'
 
 export default {
   target: 'static',
+  modern: 'client',
   env: {
     baseUrl,
   },
