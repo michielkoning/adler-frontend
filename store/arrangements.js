@@ -1,4 +1,4 @@
-import ArrangementsHighlightsQuery from '~/graphql/Arrangements/Arrangements.gql'
+import ArrangementsHighlightsQuery from '~/graphql/Arrangements/ArrangementsHighlights.gql'
 
 export const state = () => ({
   highlights: {

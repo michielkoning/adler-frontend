@@ -1,9 +1,9 @@
 #import "./../Fragments/Images/ImageArchive.gql"
 #import "./Fragments/Arrangement.gql"
 
-query ArrangementsHighlights($first: Int, $language: LanguageCodeFilterEnum) {
+query ArrangementsHighlights($language: LanguageCodeFilterEnum) {
   arrangementsHighlights: arrangements(
-    first: $first
+    first: 3
     where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }
   ) {
     edges {
