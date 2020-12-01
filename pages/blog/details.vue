@@ -8,16 +8,10 @@
 
 <script>
 import PostQuery from '~/graphql/Posts/Post.gql'
-import AppPage from '~/components/Layout/AppPage.vue'
-import RelatedPostsSection from '~/components/Posts/Related/RelatedPostsSection.vue'
 import getTranslations from '~/helpers/i18n'
 import getSeoMetaData from '~/helpers/seo'
 
 export default {
-  components: {
-    AppPage,
-    RelatedPostsSection,
-  },
   async asyncData({ app, params, store, redirect }) {
     const post = await app.apolloProvider.defaultClient.query({
       query: PostQuery,

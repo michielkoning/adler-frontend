@@ -10,16 +10,8 @@
 import PageQuery from '~/graphql/Pages/Page.gql'
 import { homePageId } from '~/data/pages'
 import getSeoMetaData from '~/helpers/seo'
-import FacilitiesWrapper from '~/components/Facilitites/FacilitiesWrapper.vue'
-import HomeHero from '~/components/Home/HomeHero.vue'
-import HomeContent from '~/components/Home/HomeContent.vue'
 
 export default {
-  components: {
-    FacilitiesWrapper,
-    HomeHero,
-    HomeContent,
-  },
   async asyncData({ app, params }) {
     const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({

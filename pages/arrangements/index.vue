@@ -8,18 +8,12 @@
 </template>
 
 <script>
-import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import ArrangementsQuery from '~/graphql/Arrangements/Arrangements.gql'
 import getSeoMetaData from '~/helpers/seo'
 import { arrangementsPageId } from '~/data/pages'
-import ArrangementsArchiveSection from '~/components/Arrangements/Archive/ArrangementsSection.vue'
 
 export default {
-  components: {
-    ArrangementsArchiveSection,
-    AppPage,
-  },
   async asyncData({ app, params }) {
     const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({

@@ -1,31 +1,34 @@
 <template>
   <app-page :page="page">
-    <posts-archive-section />
+    <posts-archive-section v-if="posts.edges.length" :posts="posts.edges" />
   </app-page>
 </template>
 
 <script>
-import AppPage from '~/components/Layout/AppPage.vue'
 import PageQuery from '~/graphql/Pages/Page.gql'
+import PostsQuery from '~/graphql/Posts/Posts.gql'
 import getSeoMetaData from '~/helpers/seo'
 import { blogPageId } from '~/data/pages'
 
 export default {
-  components: {
-    PostsArchiveSection: () =>
-      import('~/components/Posts/Archive/PostsArchiveSection.vue'),
-    AppPage,
-  },
   async asyncData({ app, params }) {
     const language = app.i18n.locale
-    const page = await app.apolloProvider.defaultClient.query({
+    const { defaultClient } = app.apolloProvider
+    const page = await defaultClient.query({
       query: PageQuery,
       variables: {
         pageId: blogPageId[language],
       },
     })
+    const posts = await defaultClient.query({
+      query: PostsQuery,
+      variables: {
+        language: language.toUpperCase(),
+      },
+    })
     return {
       page: page.data.page,
+      posts: posts.data.posts,
     }
   },
   nuxtI18n: {

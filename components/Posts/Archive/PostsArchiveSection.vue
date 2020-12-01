@@ -1,22 +1,17 @@
 <template>
   <section aria-labelledby="posts-title">
     <h1 id="posts-title" class="sr-only">{{ $t('title') }}</h1>
-    <posts-archive-container>
-      <template #default="data">
-        <archive-list v-if="data" :items="data.posts" />
-      </template>
-    </posts-archive-container>
+    <archive-list :items="posts" />
   </section>
 </template>
 
 <script>
-import ArchiveList from '~/components/Archive/ArchiveList.vue'
-import PostsArchiveContainer from '~/components/Posts/Archive/PostsArchiveContainer.vue'
-
 export default {
-  components: {
-    ArchiveList,
-    PostsArchiveContainer,
+  props: {
+    posts: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>
@@ -27,7 +22,7 @@ export default {
     "title": "Laatste berichten"
   },
   "de": {
-    "title": "PLACEHOLDER"
+    "title": "Neueste Beiträge"
   },
   "en": {
     "title": "Latest posts"

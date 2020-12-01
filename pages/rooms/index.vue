@@ -11,18 +11,10 @@
 <script>
 import PageQuery from '~/graphql/Pages/Page.gql'
 import RoomsQuery from '~/graphql/Rooms/Rooms.gql'
-import AppPage from '~/components/Layout/AppPage.vue'
 import getSeoMetaData from '~/helpers/seo'
 import { roomsPageId } from '~/data/pages'
-import BookRoom from '~/components/Rooms/Details/BookRoom.vue'
 
 export default {
-  components: {
-    RoomsArchiveSection: () =>
-      import('~/components/Rooms/Archive/RoomsSection.vue'),
-    AppPage,
-    BookRoom,
-  },
   async asyncData({ app, params }) {
     const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({
