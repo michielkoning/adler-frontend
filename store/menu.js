@@ -16,9 +16,9 @@ export const mutations = {
 }
 
 export const actions = {
-  set({ commit }, context) {
+  async set({ commit }, context) {
     const languages = ['nl', 'de', 'en']
-    languages.forEach(async (language) => {
+    for (const language of languages) {
       const response = await context.app.apolloProvider.defaultClient.query({
         query: MenuQuery,
         variables: {
@@ -28,6 +28,6 @@ export const actions = {
         },
       })
       commit('set', { language, data: response.data })
-    })
+    }
   },
 }
