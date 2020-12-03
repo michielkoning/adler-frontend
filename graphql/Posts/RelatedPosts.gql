@@ -6,7 +6,7 @@ query RelatedPosts($language: LanguageCodeFilterEnum, $notIn: [ID]) {
     edges {
       node {
         ...post
-        relativeUrl
+        uri: relativeUrl
         featuredImage {
           ...imageSidebar
         }

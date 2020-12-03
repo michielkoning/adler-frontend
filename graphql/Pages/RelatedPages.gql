@@ -17,7 +17,7 @@ query RelatedPages(
     edges {
       node {
         ...page
-        relativeUrl
+        uri
         featuredImage {
           ...imageSidebar
         }

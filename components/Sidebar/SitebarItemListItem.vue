@@ -1,12 +1,8 @@
 <template>
-  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
+  <clickable-list-item :url="item.uri" :class="$style['item']">
     <div :class="$style['link-wrapper']">
       <!-- eslint-disable vue/no-v-html -->
-      <nuxt-link
-        :to="item.relativeUrl"
-        :class="$style.title"
-        v-html="item.title"
-      />
+      <nuxt-link :to="item.uri" :class="$style.title" v-html="item.title" />
       <!-- eslint-enable vue/no-v-html -->
     </div>
     <image-sidebar :image="item.featuredImage" :class="$style.image" />

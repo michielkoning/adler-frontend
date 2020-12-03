@@ -14,7 +14,7 @@ query Posts($after: String, $language: LanguageCodeFilterEnum) {
         ...post
         date
         excerpt
-        relativeUrl
+        uri: relativeUrl
         featuredImage {
           ...imageArchive
         }

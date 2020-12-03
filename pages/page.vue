@@ -58,7 +58,7 @@ export default {
       app.i18n,
       page.data.page.translations,
       'pathMatch',
-      'relativeUrl',
+      'uri',
     )
 
     await store.dispatch('i18n/setRouteParams', translations)

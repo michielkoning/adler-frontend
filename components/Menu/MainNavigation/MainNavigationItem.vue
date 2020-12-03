@@ -8,7 +8,7 @@
     <!-- eslint-disable vue/no-v-html -->
     <nuxt-link
       ref="link"
-      :to="url"
+      :to="uri"
       :aria-haspopup="hasChildren"
       :class="$style['menu-link']"
       class="menu-link"
@@ -48,7 +48,7 @@
           >
             <!-- eslint-disable vue/no-v-html -->
             <nuxt-link
-              :to="subItem.node.url"
+              :to="subItem.node.uri"
               :class="$style['submenu-link']"
               class="submenu-link"
               @click.native="changePage"
@@ -73,7 +73,7 @@ export default {
     AnimationSlideIn,
   },
   props: {
-    url: {
+    uri: {
       type: String,
       required: true,
     },

@@ -10,7 +10,7 @@ query Rooms($language: LanguageCodeFilterEnum) {
       node {
         ...room
         excerpt
-        relativeUrl
+        uri: relativeUrl
         featuredImage {
           ...imageArchive
         }

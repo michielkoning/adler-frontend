@@ -1,6 +1,6 @@
 fragment menuItem on Page {
   id
-  url: relativeUrl
+  uri
   title
 }
 
@@ -42,7 +42,7 @@ query Menu(
     edges {
       node {
         id
-        url: relativeUrl
+        uri: relativeUrl
         title
       }
     }
@@ -53,7 +53,7 @@ query Menu(
     edges {
       node {
         id
-        url: relativeUrl
+        uri: relativeUrl
         title
       }
     }
@@ -63,12 +63,12 @@ query Menu(
       node {
         id
         title: label
-        url: relativeUrl
+        uri: path
         childItems {
           edges {
             node {
               title: label
-              url: relativeUrl
+              uri: path
             }
           }
         }

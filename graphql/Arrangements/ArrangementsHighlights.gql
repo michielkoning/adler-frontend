@@ -10,7 +10,7 @@ query ArrangementsHighlights($language: LanguageCodeFilterEnum) {
       node {
         ...arrangement
         excerpt
-        relativeUrl
+        uri: relativeUrl
         featuredImage {
           ...imageArchive
         }

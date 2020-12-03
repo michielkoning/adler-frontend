@@ -14,7 +14,7 @@ query Pages($after: String, $parent: ID, $language: LanguageCodeFilterEnum) {
       node {
         ...page
         excerpt
-        relativeUrl
+        uri
         featuredImage {
           ...imageArchive
         }

@@ -7,42 +7,42 @@
       <ul v-if="menu" :class="$style.menu">
         <main-navigation-item
           :title="$t('pages.home')"
-          :url="localePath('/')"
+          :uri="localePath('/')"
         />
         <main-navigation-item
           :title="menu.hotel.title"
-          :url="menu.hotel.url"
+          :uri="menu.hotel.uri"
           :children="menu.hotelPageChildren"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="menu.environment.title"
-          :url="menu.environment.url"
+          :uri="menu.environment.uri"
           :children="menu.environmentPageChildren"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="$t('pages.arrangements')"
-          :url="localePath({ name: 'arrangements' })"
+          :uri="localePath({ name: 'arrangements' })"
           :children="menu.arrangements"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="$t('pages.rooms')"
-          :url="localePath({ name: 'rooms' })"
+          :uri="localePath({ name: 'rooms' })"
           :children="menu.rooms"
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
           :title="$t('pages.contact')"
-          :url="localePath({ name: 'contact' })"
+          :uri="localePath({ name: 'contact' })"
         />
         <template v-if="menu.menuItems.edges">
           <main-navigation-item
             v-for="menuItem in menu.menuItems.edges"
             :key="menuItem.node.id"
             :title="menuItem.node.title"
-            :url="menuItem.node.url"
+            :uri="menuItem.node.uri"
           />
         </template>
       </ul>

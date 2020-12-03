@@ -12,7 +12,7 @@ query RelatedArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
     edges {
       node {
         ...arrangement
-        relativeUrl
+        uri: relativeUrl
         featuredImage {
           ...imageSidebar
         }

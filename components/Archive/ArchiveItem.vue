@@ -1,13 +1,9 @@
 <template>
-  <clickable-list-item :url="item.relativeUrl" :class="$style['item']">
+  <clickable-list-item :url="item.uri" :class="$style['item']">
     <div :class="$style.content">
       <h2 :class="$style.title">
         <!-- eslint-disable vue/no-v-html -->
-        <router-link
-          :to="item.relativeUrl"
-          :class="$style.link"
-          v-html="item.title"
-        />
+        <router-link :to="item.uri" :class="$style.link" v-html="item.title" />
         <!-- eslint-enable vue/no-v-html -->
       </h2>
       <post-date v-if="item.date" :date="item.date" />
