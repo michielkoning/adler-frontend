@@ -5,7 +5,6 @@ import generate from './config/generate'
 import i18n from './config/i18n'
 import pwa from './config/pwa'
 import apollo from './config/apollo'
-import sitemap from './config/sitemap'
 import { apiUrl, baseUrl, title } from './data/siteDetails'
 import { twitterUrl } from './data/socialMedia'
 
@@ -113,7 +112,6 @@ export default {
     '@nuxtjs/apollo',
     'nuxt-i18n',
     'nuxt-svg-loader',
-    '@nuxtjs/sitemap',
   ],
   buildModules: [
     '@nuxtjs/google-analytics',
@@ -177,5 +175,4 @@ export default {
   },
   generate,
   apollo,
-  sitemap,
 }
