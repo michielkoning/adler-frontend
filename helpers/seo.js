@@ -17,16 +17,12 @@ const getMetaDescripion = (seo, key) => {
   return null
 }
 
-const getMetaImage = (page, key) => {
-  // if (page.seo[key]) {
-  //   return page.seo[key].archive
-  // } else if (page.featuredImage) {
-  //   if (page.featuredImage.node.heroSmall) {
-  //     return page.featuredImage.node.heroSmall
-  //   } else if (page.featuredImage.node.archive2x) {
-  //     return page.featuredImage.node.archive2x
-  //   }
-  // }
+const getMetaImage = (seo, key) => {
+  if (seo[key]) {
+    return seo[key].archive
+  } else if (seo.opengraphImage) {
+    return seo.opengraphImage.archive
+  }
   return null
 }
 
@@ -60,11 +56,11 @@ export default (seo) => {
         name: 'og:type',
         content: 'article',
       },
-      // {
-      //   hid: 'og:image',
-      //   name: 'og:image',
-      //   content: getMetaImage(seo, 'opengraphImage'),
-      // },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: getMetaImage(seo, 'opengraphImage'),
+      },
       {
         hid: 'twitter:title',
         name: 'twitter:title',
