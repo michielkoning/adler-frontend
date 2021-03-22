@@ -1,8 +1,8 @@
 {
   "name": "adler-lingenau",
+  "description": "Familienhotel & Gasthof Adler, in Lingenau im Bregenzerwald",
   "version": "1.0.0",
   "private": true,
-  "description": "",
   "author": "Michiel Koning",
   "scripts": {
     "build": "nuxt build",

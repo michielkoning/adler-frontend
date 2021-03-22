@@ -1,14 +1,24 @@
-import { themeColor, title } from '../data/siteDetails'
+import { title, categories, twitter, themeColor } from './../data/siteDetails'
 
-const lang = 'de'
-
+// PWA module configuration: https://go.nuxtjs.dev/pwa
 export default {
   manifest: {
-    name: title,
-    short_name: 'Adler',
-    description: 'Familienhotel & Gasthof Adler, in Lingenau im Bregenzerwald',
-    lang,
-    theme_color: themeColor,
     background_color: themeColor,
+    theme_color: themeColor,
+    categories,
+    lang: 'de',
+    name: title,
+    orientation: 'portrait-primary',
+    short_name: 'Adler',
+  },
+  meta: {
+    appleStatusBarStyle: 'black-translucent',
+    mobileApp: true,
+    mobileAppIOS: true,
+    theme_color: themeColor,
+    twitterCard: 'summary_large_image',
+    viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+    twitterCreator: twitter,
+    twitterSite: twitter,
   },
 }

@@ -43,7 +43,7 @@ export default {
     },
   },
   head() {
-    return getSeoMetaData(this.page)
+    return getSeoMetaData(this.page.seo)
   },
 }
 </script>

@@ -60,7 +60,7 @@ export default {
     },
   },
   head() {
-    return getSeoMetaData(this.room)
+    return getSeoMetaData(this.room.seo)
   },
 }
 </script>

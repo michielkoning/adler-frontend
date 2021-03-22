@@ -1,79 +1,86 @@
-const getMetaTitle = (page, key) => {
-  if (page.seo[key]) {
-    return page.seo[key]
-  } else if (page.seo.title) {
-    return page.seo.title
+const getMetaTitle = (seo, key) => {
+  if (seo[key]) {
+    return seo[key]
+  } else if (seo.title) {
+    return seo.title
   }
 
-  return page.title
+  return null
 }
 
-const getMetaDescripion = (page, key) => {
-  if (page.seo[key]) {
-    return page.seo[key]
-  } else if (page.seo.metaDesc) {
-    return page.seo.metaDesc
+const getMetaDescripion = (seo, key) => {
+  if (seo[key]) {
+    return seo[key]
+  } else if (seo.metaDesc) {
+    return seo.metaDesc
   }
   return null
 }
 
-const getMetaImage = (page, key) => {
-  if (page.seo[key]) {
-    return page.seo[key].archive
-  } else if (page.featuredImage) {
-    if (page.featuredImage.node.heroSmall) {
-      return page.featuredImage.node.heroSmall
-    } else if (page.featuredImage.node.archive2x) {
-      return page.featuredImage.node.archive2x
-    }
+const getMetaImage = (seo, key) => {
+  if (seo[key] && seo[key].archive) {
+    return seo[key].archive
+  } else if (seo.opengraphImage.archive) {
+    return seo.opengraphImage.archive
   }
   return null
 }
 
-export default (page) => {
+export default (seo) => {
   return {
-    title: page.seo.title,
+    title: seo.title,
     meta: [
       {
         name: 'description',
         hid: 'description',
-        content: page.seo.metaDesc,
+        content: seo.metaDesc,
       },
       // Open Graph
       {
         hid: 'og:title',
         name: 'og:title',
-        content: page.seo.title,
+        content: seo.opengraphTitle,
       },
       {
         hid: 'og:description',
         name: 'og:description',
-        content: getMetaDescripion(page, 'opengraphDescription'),
+        content: getMetaDescripion(seo, 'opengraphDescription'),
       },
       {
+        hid: 'og:url',
         name: 'og:url',
-        content: page.link,
+        content: seo.opengraphUrl,
       },
       {
+        hid: 'og:type',
+        name: 'og:type',
+        content: 'article',
+      },
+      {
+        hid: 'og:image',
         name: 'og:image',
-        content: getMetaImage(page, 'opengraphImage'),
+        content: getMetaImage(seo, 'opengraphImage'),
       },
-      // Twitter Card
-      { name: 'twitter:card', content: 'summary' },
-
       {
+        hid: 'twitter:title',
         name: 'twitter:title',
-        content: getMetaTitle(page, 'twitterTitle'),
+        content: getMetaTitle(seo, 'twitterTitle'),
       },
       {
+        hide: 'twitter:description',
         name: 'twitter:description',
-        content: page.seo.metaDesc,
+        content: getMetaDescripion(seo, seo.metaDesc),
       },
       {
+        hide: 'twitter:image',
         name: 'twitter:image',
-        content: getMetaImage(page, 'twitterImage'),
+        content: getMetaImage(seo, 'twitterImage'),
       },
-      { name: 'twitter:image:alt', content: page.seo.title },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: seo.title,
+      },
     ],
   }
 }

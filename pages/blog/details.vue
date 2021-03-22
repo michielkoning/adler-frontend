@@ -57,7 +57,7 @@ export default {
     },
   },
   head() {
-    return getSeoMetaData(this.post)
+    return getSeoMetaData(this.post.seo)
   },
 }
 </script>

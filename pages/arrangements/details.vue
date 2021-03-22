@@ -60,7 +60,7 @@ export default {
     },
   },
   head() {
-    return getSeoMetaData(this.arrangement)
+    return getSeoMetaData(this.arrangement.seo)
   },
 }
 </script>
