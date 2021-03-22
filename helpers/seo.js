@@ -17,11 +17,15 @@ const getMetaDescripion = (seo, key) => {
   return null
 }
 
-const getMetaImage = (seo, key) => {
-  if (seo[key] && seo[key].archive) {
-    return seo[key].archive
-  } else if (seo.opengraphImage.archive) {
-    return seo.opengraphImage.archive
+const getMetaImage = (page, key) => {
+  if (page.seo[key]) {
+    return page.seo[key].archive
+  } else if (page.featuredImage) {
+    if (page.featuredImage.node.heroSmall) {
+      return page.featuredImage.node.heroSmall
+    } else if (page.featuredImage.node.archive2x) {
+      return page.featuredImage.node.archive2x
+    }
   }
   return null
 }
