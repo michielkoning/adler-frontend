@@ -1,10 +1,18 @@
-fragment seo on SEO {
+fragment seo on PostTypeSEO {
+  canonical
+  cornerstone
   metaDesc
+  opengraphAuthor
   opengraphDescription
   opengraphImage {
     archive: sourceUrl(size: ARCHIVE)
   }
+  opengraphModifiedTime
+  opengraphPublishedTime
+  opengraphPublisher
   opengraphTitle
+  opengraphType
+  opengraphUrl
   title
   twitterDescription
   twitterImage {
