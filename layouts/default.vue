@@ -12,6 +12,14 @@
 </template>
 
 <script>
+export default {
+  head() {
+    return this.$nuxtI18nHead({ addSeoAttributes: true })
+  },
+}
+</script>
+
+<script>
 import TheHeader from '~/components/Layout/TheHeader.vue'
 import TheFooter from '~/components/Layout/TheFooter.vue'
 import ErrorHandler from '~/components/Layout/ErrorHandler.vue'

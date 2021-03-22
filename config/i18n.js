@@ -25,7 +25,6 @@ export default {
   rootRedirect: 'de',
   baseUrl,
   lazy: true,
-  seo: true,
   strategy: 'prefix',
   langDir: 'locales/',
   locales: [
