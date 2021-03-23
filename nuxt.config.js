@@ -94,8 +94,8 @@ export default {
   plugins: [
     '~/plugins/axios',
     '~/plugins/filters/currency',
+    '~/plugins/vuelidate',
     { src: '~/plugins/google-maps', mode: 'client' },
-    { src: '~/plugins/vuelidate', mode: 'client' },
     { src: '~/plugins/vue-announcer.js', mode: 'client' },
   ],
   /*
