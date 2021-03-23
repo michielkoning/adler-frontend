@@ -24,6 +24,7 @@ export default {
   fallbackLocale: 'de',
   rootRedirect: 'de',
   baseUrl,
+  seo: false,
   lazy: true,
   strategy: 'prefix',
   langDir: 'locales/',
