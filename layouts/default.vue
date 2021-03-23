@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.page">
+    <vue-announcer />
     <the-header />
     <main>
       <nuxt />

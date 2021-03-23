@@ -13,6 +13,7 @@
           v-model.trim.lazy="$v.formData.name.$model"
           :error-message="errorMessageName"
           :title="$t('form.name')"
+          autocomplete="name"
         />
         <form-input-text
           id="email"
@@ -20,12 +21,14 @@
           :error-message="errorMessageEmail"
           :title="$t('form.email')"
           type="email"
+          autocomplete="email"
         />
         <form-input-text
           id="phone"
           v-model="formData.phone"
           :title="$t('form.phoneNumber')"
           type="tel"
+          autocomplete="tel"
         />
         <form-textarea
           id="message"

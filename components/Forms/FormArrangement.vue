@@ -14,6 +14,7 @@
         :class="$style.name"
         :error-message="errorMessageName"
         :title="$t('form.name')"
+        autocomplete="name"
       />
       <form-input-text
         id="address"
@@ -21,6 +22,7 @@
         :class="$style.address"
         :error-message="errorMessageAddress"
         :title="$t('form.address')"
+        autocomplete="street-address"
       />
       <form-input-text
         id="zipcode"
@@ -28,6 +30,7 @@
         :class="$style.zipcode"
         :error-message="errorMessageZipcode"
         :title="$t('form.zipcode')"
+        autocomplete="postal-code"
       />
       <form-input-text
         id="city"
@@ -35,6 +38,7 @@
         :class="$style.city"
         :error-message="errorMessageCity"
         :title="$t('form.city')"
+        autocomplete="locality"
       />
       <form-input-text
         id="country"
@@ -42,6 +46,7 @@
         :class="$style.country"
         :error-message="errorMessageCountry"
         :title="$t('form.country')"
+        autocomplete="country"
       />
       <form-input-text
         id="phone"
@@ -49,6 +54,7 @@
         :class="$style['phone-number']"
         :title="$t('form.phoneNumber')"
         type="tel"
+        autocomplete="tel"
       />
       <form-input-text
         id="email"
@@ -57,6 +63,7 @@
         :error-message="errorMessageEmail"
         :title="$t('form.email')"
         type="email"
+        autocomplete="email"
       />
     </form-fieldset>
     <form-fieldset :title="$t('familyData')" class="totals">
