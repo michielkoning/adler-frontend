@@ -5,5 +5,7 @@ fragment imageSidebar on NodeWithFeaturedImageToMediaItemConnectionEdge {
     related2x: sourceUrl(size: RELATED_2X)
     relatedWebP: sourceUrlWebP(size: RELATED)
     relatedWebP2x: sourceUrlWebP(size: RELATED_2X)
+    relatedAvif: sourceUrlAvif(size: RELATED)
+    relatedAvif2x: sourceUrlAvif(size: RELATED_2X)
   }
 }

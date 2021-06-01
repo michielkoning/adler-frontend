@@ -9,4 +9,8 @@ fragment gallery on MediaItem {
   galleryMediumWebP: sourceUrlWebP(size: HERO_MEDIUM)
   gallerySmallWebP: sourceUrlWebP(size: HERO_SMALL)
   galleryExtraSmallWebP: sourceUrlWebP(size: ARCHIVE)
+  galleryLargeAvif: sourceUrlAvif(size: HERO_LARGE)
+  galleryMediumAvif: sourceUrlAvif(size: HERO_MEDIUM)
+  gallerySmallAvif: sourceUrlAvif(size: HERO_SMALL)
+  galleryExtraSmallAvif: sourceUrlAvif(size: ARCHIVE)
 }

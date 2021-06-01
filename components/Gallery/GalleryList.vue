@@ -15,7 +15,7 @@
         :class="[$style.item, $style[`item-${index}`]]"
         @click="openModalWithImage(index)"
       >
-        <tag :is="imageSizeComponent(index)" :image="item" />
+        <tag :is="imageSizeComponent(index)" :image="item" :lazy="false" />
       </li>
       <li :class="$style['item-btn']">
         <button :class="$style.btn" @click="toggleModal">

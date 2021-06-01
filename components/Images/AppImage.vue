@@ -5,6 +5,10 @@
 <script>
 export default {
   props: {
+    lazy: {
+      type: Boolean,
+      default: true,
+    },
     src: {
       type: String,
       required: true,
@@ -24,7 +28,7 @@ export default {
       return null
     },
     loading() {
-      if (this.hasSizeInSrc) {
+      if (this.hasSizeInSrc && this.lazy) {
         return 'lazy'
       }
       return null

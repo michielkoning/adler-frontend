@@ -1,6 +1,15 @@
 <template>
   <picture v-if="image">
     <source
+      v-if="image.galleryLargeAvif"
+      :srcset="`
+        ${image.galleryLargeAvif} 1140w,
+        ${image.galleryMediumAvif} 800w,
+        ${image.gallerySmallAvif} 640w`"
+      type="image/avif"
+      sizes="(min-width: 1140px) 1140px, 100vw"
+    />
+    <source
       v-if="image.galleryLargeWebP"
       :srcset="`
         ${image.galleryLargeWebP} 1140w,
@@ -17,10 +26,11 @@
       type="image/jpeg"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
-    <lazy-loading-image
+    <app-image
       :class="$style.image"
       :src="image.galleryMedium"
       :alt="image.altText"
+      :lazy="lazy"
     />
   </picture>
 </template>
@@ -31,6 +41,10 @@ export default {
     image: {
       type: Object,
       default: () => {},
+    },
+    lazy: {
+      type: Boolean,
+      default: true,
     },
   },
 }

@@ -1,6 +1,15 @@
 <template>
   <picture v-if="image" :class="$style.picture">
     <source
+      v-if="image.node.heroLargeAvif"
+      :srcset="`
+        ${image.node.heroLargeAvif} 1140w,
+        ${image.node.heroMediumAvif} 800w,
+        ${image.node.heroSmallAvif} 640w`"
+      type="image/avif"
+      sizes="(min-width: 1140px) 1140px, 100vw"
+    />
+    <source
       v-if="image.node.heroLargeWebP"
       :srcset="`
         ${image.node.heroLargeWebP} 1140w,
@@ -17,7 +26,8 @@
       type="image/jpeg"
       sizes="(min-width: 1140px) 1140px, 100vw"
     />
-    <lazy-loading-image
+    <app-image
+      :lazy="false"
       :class="$style.image"
       :src="image.node.heroMedium"
       :alt="image.node.altText"

@@ -1,6 +1,11 @@
 <template>
   <picture v-if="image">
     <source
+      v-if="image.node.relatedAvif"
+      :srcset="`${image.node.relatedAvif} 1x, ${image.node.relatedAvif2x} 2x`"
+      type="image/avif"
+    />
+    <source
       v-if="image.node.relatedWebP"
       :srcset="`${image.node.relatedWebP} 1x, ${image.node.relatedWebP2x} 2x`"
       type="image/webp"
@@ -9,7 +14,7 @@
       :srcset="`${image.node.related} 1x, ${image.node.related2x} 2x`"
       type="image/jpeg"
     />
-    <lazy-loading-image
+    <app-image
       :src="image.node.related"
       :alt="image.node.altText"
       :class="$style.image"
