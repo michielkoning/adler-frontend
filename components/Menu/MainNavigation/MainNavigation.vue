@@ -22,6 +22,13 @@
           :reset-submenu="menuIsOpen"
         />
         <main-navigation-item
+          v-if="menu.kids"
+          :title="menu.kids.title"
+          :uri="menu.kids.uri"
+          :children="menu.kidsPageChildren"
+          :reset-submenu="menuIsOpen"
+        />
+        <main-navigation-item
           :title="$t('pages.arrangements')"
           :uri="localePath({ name: 'arrangements' })"
           :children="menu.arrangements"

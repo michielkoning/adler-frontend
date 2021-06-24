@@ -45,3 +45,9 @@ export const privacyPageId = {
   nl: 3071,
   en: 3084,
 }
+
+export const kidsPageId = {
+  de: 3668,
+  nl: 1,
+  en: 1,
+}

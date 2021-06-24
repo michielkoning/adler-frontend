@@ -8,11 +8,15 @@ query Menu(
   $language: LanguageCodeFilterEnum
   $hotelPageId: ID!
   $environmentPageId: ID!
+  $kidsPageId: ID!
 ) {
   hotel: page(id: $hotelPageId, idType: DATABASE_ID) {
     ...menuItem
   }
   environment: page(id: $environmentPageId, idType: DATABASE_ID) {
+    ...menuItem
+  }
+  kids: page(id: $kidsPageId, idType: DATABASE_ID) {
     ...menuItem
   }
   hotelPageChildren: pages(
@@ -29,6 +33,15 @@ query Menu(
       parent: $environmentPageId
       orderby: { field: MENU_ORDER, order: ASC }
     }
+  ) {
+    edges {
+      node {
+        ...menuItem
+      }
+    }
+  }
+  kidsPageChildren: pages(
+    where: { parent: $kidsPageId, orderby: { field: MENU_ORDER, order: ASC } }
   ) {
     edges {
       node {

@@ -1,5 +1,5 @@
 import MenuQuery from '~/graphql/Menu/Menu.gql'
-import { hotelPageId, environmentPageId } from '~/data/pages'
+import { hotelPageId, environmentPageId, kidsPageId } from '~/data/pages'
 
 export const state = () => ({
   menu: {
@@ -31,6 +31,7 @@ export const actions = {
           language: language.toUpperCase(),
           hotelPageId: hotelPageId[language],
           environmentPageId: environmentPageId[language],
+          kidsPageId: kidsPageId[language],
         },
       })
       commit('set', { language, data: response.data })

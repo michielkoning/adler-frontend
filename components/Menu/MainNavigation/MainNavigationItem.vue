@@ -235,6 +235,7 @@ export default {
 
   @media (--navigation-md) {
     top: var(--spacing-s);
+    transform: translateY(-2px);
   }
 }
 
