@@ -30,10 +30,6 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '12:00',
-        },
-        {
-          from: '16:00',
           until: '22:00',
         },
       ],
@@ -44,10 +40,6 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '12:00',
-        },
-        {
-          from: '16:00',
           until: '22:00',
         },
       ],
@@ -58,10 +50,6 @@ export default {
       hours: [
         {
           from: '8:00',
-          until: '12:00',
-        },
-        {
-          from: '16:00',
           until: '22:00',
         },
       ],
