@@ -18,18 +18,20 @@
           </template>
         </dd>
       </template>
-      <dt :class="[$style.label, $style.holidays]">{{ $t('holidays') }}:</dt>
-      <dd :class="$style.holidays">
-        <template v-for="hours in openingTimes.holidays.hours">
-          <span :key="`holiday-from-${hours.from}`">
-            {{ hours.from }}
-          </span>
-          –
-          <span :key="`holiday-until-${hours.until}`">
-            {{ hours.until }}
-          </span>
-        </template>
-      </dd>
+      <template v-if="openingTimes.holidays.hours.length">
+        <dt :class="[$style.label, $style.holidays]">{{ $t('holidays') }}:</dt>
+        <dd :class="$style.holidays">
+          <template v-for="hours in openingTimes.holidays.hours">
+            <span :key="`holiday-from-${hours.from}`">
+              {{ hours.from }}
+            </span>
+            –
+            <span :key="`holiday-until-${hours.until}`">
+              {{ hours.until }}
+            </span>
+          </template>
+        </dd>
+      </template>
     </dl>
   </div>
 </template>
