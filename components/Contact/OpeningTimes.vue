@@ -48,8 +48,8 @@ export default {
   methods: {
     getDayOfWeek(day) {
       const date = new Date()
-      const diff =
-        date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : day + 1)
+      const selectDay = date.getDay() === 0 && day === 0 ? -6 : day + 1
+      const diff = date.getDate() - date.getDay() + selectDay
       return this.$d(new Date(date.setDate(diff)), 'day')
     },
   },
