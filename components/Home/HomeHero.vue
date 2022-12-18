@@ -1,6 +1,10 @@
 <template>
   <div :class="$style.hero">
-    <image-hero :image="page.featuredImage" :class="$style.image" />
+    <image-hero
+      :image="page.featuredImage"
+      :class="$style.image"
+      sizes="100vw"
+    />
 
     <div :class="$style.content">
       <center-wrapper>
