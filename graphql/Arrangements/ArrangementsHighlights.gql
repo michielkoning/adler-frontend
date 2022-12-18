@@ -3,7 +3,7 @@
 
 query ArrangementsHighlights($language: LanguageCodeFilterEnum) {
   arrangementsHighlights: arrangements(
-    first: 3
+    first: 4
     where: { language: $language, orderby: { field: MENU_ORDER, order: ASC } }
   ) {
     edges {

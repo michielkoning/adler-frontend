@@ -2,19 +2,23 @@
   <div :class="$style.wrapper">
     <center-wrapper>
       <div v-if="arrangements.length" :class="$style.content">
-        <highlights-item
-          v-for="item in arrangements"
-          :key="item.node.id"
-          tag="div"
-          :item="item.node"
-          :class="$style.highlight"
-        />
-        <related-list-section
-          v-if="posts && posts.edges.length"
-          :items="posts.edges"
-          :title="$t('relatedListTitle')"
-        />
-        <resmio-widget />
+        <div :class="$style.highlights">
+          <highlights-item
+            v-for="item in arrangements"
+            :key="item.node.id"
+            tag="div"
+            :item="item.node"
+            :class="$style.highlight"
+          />
+        </div>
+        <div :class="$style.sidebar">
+          <related-list-section
+            v-if="posts && posts.edges.length"
+            :items="posts.edges"
+            :title="$t('relatedListTitle')"
+          />
+          <resmio-widget :class="$style.resmio" />
+        </div>
       </div>
     </center-wrapper>
   </div>
@@ -32,7 +36,7 @@ export default {
     arrangements() {
       return this.$store.getters['arrangements/getFirstByLanguage'](
         this.$i18n.locale,
-        2,
+        4,
       )
     },
   },
@@ -48,19 +52,30 @@ export default {
   grid-gap: var(--spacing-l);
   display: grid;
 
-  @media (--viewport-sm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   @media (--viewport-lg) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr;
   }
 }
 
-.highlight {
+.highlights {
+  grid-gap: var(--spacing-l);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+}
+
+.sidebar {
+  display: grid;
+  gap: var(--spacing-l);
+  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+
   @media (--viewport-lg) {
-    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
   }
+}
+
+.resmio {
+  flex: 1 1 auto;
 }
 </style>
 
