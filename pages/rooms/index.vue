@@ -18,7 +18,7 @@ import getSeoMetaData from '~/helpers/seo'
 import { roomsPageId } from '~/data/pages'
 
 export default {
-  async asyncData({ app, params }) {
+  async asyncData({ app }) {
     const language = app.i18n.locale
     const page = await app.apolloProvider.defaultClient.query({
       query: PageQuery,
