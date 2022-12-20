@@ -77,6 +77,12 @@ export default {
         href: '/favicon.ico',
       },
     ],
+    script: [
+      {
+        src: 'https://www.easy-booking.at/bookingengine2/js/jquery.easybooking.frontend.js',
+        body: true,
+      },
+    ],
   },
 
   /*

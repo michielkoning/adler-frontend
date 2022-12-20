@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div id="ebFrontEndFrame"></div>
-  </div>
+  <div id="ebFrontEndFrame"></div>
 </template>
 
 <script>
@@ -22,6 +20,9 @@ export default {
       resizeInterval: 500,
       source: 'website',
       collapsedExtras: false,
+      headingColor: '#98012e',
+      fontColor: '#ffffff',
+      backgroundColor: '#98012e',
     })
   },
   methods: {

@@ -3,7 +3,7 @@
     <app-modal
       :show="showModal"
       :large="true"
-      :title="title"
+      :title="$t('bookNow')"
       @close="toggleModal"
     >
       <easy-booking-frame v-if="showModal" :url="bookUrl" />
@@ -21,16 +21,6 @@ export default {
     AppModal,
     BookNow,
     EasyBookingFrame,
-  },
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    bookUrl: {
-      type: String,
-      default: null,
-    },
   },
   data() {
     return {

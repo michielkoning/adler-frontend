@@ -3,7 +3,7 @@
     <room-prices-group :prices="room.pricesGroup" />
     <room-services :services="room.services" />
     <template #sidebar>
-      <book-room :title="room.title" :book-url="room.bookUrlGroup.bookUrl" />
+      <book-room />
       <related-list-section
         v-if="relatedRooms.edges.length"
         :items="relatedRooms.edges"

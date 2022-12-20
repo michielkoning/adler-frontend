@@ -6,7 +6,7 @@
       :title="$t('archiveTitle')"
     />
     <template #sidebar>
-      <book-room :title="$t('bookNow')" />
+      <book-room />
     </template>
   </app-page>
 </template>
