@@ -26,6 +26,13 @@ const getMetaImage = (seo, key) => {
   return null
 }
 
+const getSchema = (schema) => {
+  if (schema.raw) {
+    return JSON.parse(schema.raw)
+  }
+  return null
+}
+
 export default (seo) => {
   return {
     title: seo.title,
@@ -80,6 +87,12 @@ export default (seo) => {
         hid: 'twitter:image:alt',
         name: 'twitter:image:alt',
         content: seo.title,
+      },
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        json: getSchema(seo.schema),
       },
     ],
   }
