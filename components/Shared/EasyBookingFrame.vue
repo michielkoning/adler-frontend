@@ -1,54 +1,31 @@
 <template>
   <div>
-    <app-loader v-if="loading" />
-    <iframe
-      ref="frame"
-      height="600"
-      width="1000"
-      :title="$t('bookNow')"
-      @load="updateLoader"
-    />
+    <div id="ebFrontEndFrame"></div>
   </div>
 </template>
 
 <script>
-import { easyBookingUrl } from '~/data/siteDetails'
-import lazyLoadFrame from '~/helpers/lazyLoadFrame'
-import AppLoader from '~/components/Shared/AppLoader.vue'
-
 export default {
-  components: {
-    AppLoader,
-  },
-  props: {
-    url: {
-      type: String,
-      default: null,
-    },
-  },
-  data() {
-    return {
-      loading: true,
-    }
-  },
-  computed: {
-    easyBookingUrlI18n() {
-      const langId = this.getLangId()
-      const url = this.url || easyBookingUrl
-      return url
-        .replace(/\d\/category/, `${langId}/category`)
-        .replace(/\d\/stepOne/, `${langId}/stepOne`)
-    },
-  },
   mounted() {
-    const { frame } = this.$refs
-    lazyLoadFrame(frame, this.easyBookingUrlI18n)
+    window.jQuery('#ebFrontEndFrame').ebFrontEnd({
+      customerId: 7731,
+      serialNo: '8531-6749-1187',
+      localeId: this.getLocale(),
+      frameId: 'ebFrontEndPlugin',
+      encapsulated: true,
+      adultOnly: false,
+      hideFilters: 'on',
+      conversionReservation: '',
+      conversionEnquiry: '',
+      frameWidth: 'auto',
+      frameHeight: 'auto',
+      resizeInterval: 500,
+      source: 'website',
+      collapsedExtras: false,
+    })
   },
   methods: {
-    updateLoader() {
-      this.loading = false
-    },
-    getLangId() {
+    getLocale() {
       if (this.$i18n.locale === 'en') return 1
       if (this.$i18n.locale === 'nl') return 3
       return 2

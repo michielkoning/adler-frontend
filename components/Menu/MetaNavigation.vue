@@ -30,7 +30,7 @@
       :title="$t('bookNow')"
       @close="toggleModal"
     >
-      <easy-booking-frame />
+      <easy-booking-frame v-if="showModal" />
     </app-modal>
   </nav>
 </template>
