@@ -38,6 +38,7 @@ export default {
       return url
         .replace(/\d\/category/, `${langId}/category`)
         .replace(/\d\/stepOne/, `${langId}/stepOne`)
+        .replace('clientWeb001', 'bookingengine2')
     },
   },
   mounted() {
