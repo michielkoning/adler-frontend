@@ -1,9 +1,0 @@
-/                                               /nl/                      302!  Country=nl,be
-/                                               /de/                      302!
-/de/pauschalen/                                 /de/arrangements/         301!
-/de/arrangementen/*                             /de/arrangements/:splat   301!
-/de/contact-en-route/                           /de/kontakt/              301!
-/nl/contact-en-route/                           /nl/contact/              301!
-/en/contact-and-route/                          /en/contact/              301!
-/wp-admin/*                                     https://api.adler-lingenau.com/wp-admin/:splat  301!
-/wp-login/*                                     https://api.adler-lingenau.com/wp-login/:splat  301!

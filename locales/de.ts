@@ -1,0 +1,37 @@
+export default {
+  prices: "Preise",
+  bookNow: "Jetzt buchen",
+  close: "Schließen",
+  pages: {
+    home: "Home",
+    arrangements: "Arrangements",
+    hotel: "Hotel",
+    rooms: "Zimmer",
+    blog: "Blog",
+    contact: "Kontakt",
+    privacy: "Datenschutzerklärung",
+  },
+  form: {
+    name: "Name",
+    phoneNumber: "Telefon",
+    email: "Email",
+    message: "Bericht",
+    address: "Adresse",
+    zipcode: "PLZ",
+    city: "Ort",
+    country: "Land",
+    remarks: "Anmerkungen",
+    totalRooms: "Zimmeranzahl",
+    totalAdults: "Anzahl Erwachsene",
+    totalChildren: "Anzahl Kinder",
+    ageChildren: "Alter der Kinder",
+    dateArrival: "Datum Ankunft",
+    dateDeparture: "Datum Abreise",
+    error: {
+      required: "Dieses Feld ist verpflichtend einzufüllen",
+      email: {
+        incorrect: "Bitte benutzen Sie eine gültige Email-Adresse",
+      },
+    },
+  },
+};

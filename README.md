@@ -1,29 +1,42 @@
-# starter-template
+# Nuxt 3 Minimal Starter
 
-> My sensational Nuxt.js project
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Build Setup
+## Setup
 
-``` bash
-# install dependencies
-$ npm install
+Make sure to install the dependencies:
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+```bash
+# yarn
+yarn install
 
-# build for production and launch server
-$ npm run build
-$ npm start
+# npm
+npm install
 
-# generate static project
-$ npm run generate
+# pnpm
+pnpm install
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Development Server
 
-{
-  "query": "query GET_POSTS($first: Int) {\n  posts(first: $first) {\n    edges {\n      node {\n        id\n        title,\n        excerpt\n        date\n        featuredImage {\n          sourceUrl(size:MEDIUM)\n        }\n      }\n    }\n  }\n}\n",
-  "variables": {
-    "first": 2
-  }
-}
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

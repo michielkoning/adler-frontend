@@ -1,7 +1,0 @@
-fragment imageHero on NodeWithFeaturedImageToMediaItemConnectionEdge {
-  node {
-    altText
-    srcSet
-    src: sourceUrl(size: HERO_MEDIUM)
-  }
-}

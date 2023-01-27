@@ -1,0 +1,37 @@
+export default {
+  prices: "Prices",
+  bookNow: "Book now",
+  close: "Close",
+  pages: {
+    home: "Home",
+    arrangements: "Arrangements",
+    hotel: "Hotel",
+    rooms: "Rooms",
+    blog: "Blog",
+    contact: "Contact",
+    privacy: "Privacybeleid",
+  },
+  form: {
+    name: "Name",
+    phoneNumber: "Phone number",
+    email: "Email address",
+    message: "Message",
+    address: "Address",
+    zipcode: "Zipcode",
+    city: "City",
+    country: "Country",
+    remarks: "Remarkt",
+    totalRooms: "Number of rooms",
+    totalAdults: "Number of adults",
+    totalChildren: "TNumber of kids",
+    ageChildren: "Age of kids",
+    dateArrival: "Date of arrival",
+    dateDeparture: "Date of departure",
+    error: {
+      required: "This is a required field",
+      email: {
+        incorrect: "The e-mail address is not correct",
+      },
+    },
+  },
+};

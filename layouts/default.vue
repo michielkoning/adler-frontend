@@ -1,49 +1,36 @@
-<template>
-  <div :class="$style.page">
-    <vue-announcer />
-    <the-header />
-    <main>
-      <nuxt />
-    </main>
+<script setup>
+const route = useRoute();
+const { t } = useI18n();
+const head = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: "id",
+  addSeoAttributes: true,
+});
+</script>
 
-    <the-footer />
-    <error-handler />
-    <cookie-wall />
+<template>
+  <div>
+    <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+      <Head>
+        <template v-for="link in head.link" :key="link.id">
+          <Link
+            :id="link.id"
+            :rel="link.rel"
+            :href="link.href"
+            :hreflang="link.hreflang"
+          />
+        </template>
+        <template v-for="meta in head.meta" :key="meta.id">
+          <Meta
+            :id="meta.id"
+            :property="meta.property"
+            :content="meta.content"
+          />
+        </template>
+      </Head>
+      <Body>
+        <slot />
+      </Body>
+    </Html>
   </div>
 </template>
-
-<script>
-export default {
-  head() {
-    return this.$nuxtI18nHead({ addSeoAttributes: true })
-  },
-}
-</script>
-
-<script>
-import TheHeader from '~/components/Layout/TheHeader.vue'
-import TheFooter from '~/components/Layout/TheFooter.vue'
-import ErrorHandler from '~/components/Layout/ErrorHandler.vue'
-import CookieWall from '~/components/Layout/CookieWall.vue'
-
-export default {
-  components: {
-    TheHeader,
-    TheFooter,
-    ErrorHandler,
-    CookieWall,
-  },
-  head() {
-    return this.$nuxtI18nSeo()
-  },
-}
-</script>
-
-<style lang="postcss" module>
-.page {
-  background: var(--color-background);
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-</style>
