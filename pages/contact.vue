@@ -1,20 +1,20 @@
 <script setup lang="ts">
   import PageQuery from "~/graphql/Pages/Page.gql";
   import type { IPage } from "~~/interfaces/IContent";
-  import { homePageId } from "~/data/pages";
+  import { contactPageId } from "~/data/pages";
 
   defineI18nRoute({
     paths: {
-      en: "/",
-      nl: "/",
-      de: "/",
+      de: "/kontakt",
+      en: "/contact",
+      nl: "/contact",
     },
   });
 
   const { locale } = useI18n();
 
   const { data } = await useAsyncQuery<{ page: IPage }>(PageQuery, {
-    pageId: homePageId[locale.value],
+    pageId: contactPageId[locale.value],
   });
 
   const page = computed(() => {

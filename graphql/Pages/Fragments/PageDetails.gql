@@ -1,5 +1,4 @@
-#import "./../../Fragments/Images/ImageHero.gql"
-#import "./../../Fragments/Images/Gallery.gql"
+#import "./../../Fragments/FeaturedImage.gql"
 #import "./../../Fragments/Seo.gql"
 #import "./Page.gql"
 
@@ -8,13 +7,13 @@ fragment pageDetails on Page {
   content
   link
   featuredImage {
-    ...imageHero
+    ...featuredImage
   }
-  galleryGroup {
-    gallery {
-      ...gallery
-    }
-  }
+  # galleryGroup {
+  #   gallery {
+  #     ...featuredImage
+  #   }
+  # }
   parentDatabaseId
   seo {
     ...seo

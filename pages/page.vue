@@ -1,20 +1,19 @@
 <script setup lang="ts">
-  import PageQuery from "~/graphql/Pages/Page.gql";
+  import PageByURIQuery from "~/graphql/Pages/PageByURI.gql";
   import type { IPage } from "~~/interfaces/IContent";
-  import { homePageId } from "~/data/pages";
 
   defineI18nRoute({
     paths: {
-      en: "/",
-      nl: "/",
-      de: "/",
+      en: "/:pathMatch(.*)*",
+      nl: "/:pathMatch(.*)*",
+      de: "/:pathMatch(.*)*",
     },
   });
 
-  const { locale } = useI18n();
+  const route = useRoute();
 
-  const { data } = await useAsyncQuery<{ page: IPage }>(PageQuery, {
-    pageId: homePageId[locale.value],
+  const { data } = await useAsyncQuery<{ page: IPage }>(PageByURIQuery, {
+    uri: route.fullPath,
   });
 
   const page = computed(() => {
@@ -30,5 +29,6 @@
 <template>
   <div v-if="page">
     <h1>{{ page.title }}</h1>
+    <div v-html="page.content" />
   </div>
 </template>

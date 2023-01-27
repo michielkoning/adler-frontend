@@ -5,7 +5,7 @@ fragment seo on PostTypeSEO {
   opengraphAuthor
   opengraphDescription
   opengraphImage {
-    archive: sourceUrl(size: ARCHIVE)
+    mediaItemUrl
   }
   opengraphModifiedTime
   opengraphPublishedTime
@@ -16,7 +16,7 @@ fragment seo on PostTypeSEO {
   title
   twitterDescription
   twitterImage {
-    archive: sourceUrl(size: ARCHIVE)
+    mediaItemUrl
   }
   twitterTitle
   schema {
