@@ -38,7 +38,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint: "https://api.adler-lingenau.com/nl//graphql",
+        httpEndpoint: "https://api.adler-lingenau.com/graphql",
         // httpEndpoint: "/.netlify/functions/graphql",
       },
     },
@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     "@kevinmarrec/nuxt-pwa",
   ],
   i18n: {
-    baseUrl: "https://www.adler-lingenau.com/nl/",
+    baseUrl: "https://www.adler-lingenau.com/",
     defaultLocale: "de",
     strategy: "prefix",
     fallbackLocale: "de",

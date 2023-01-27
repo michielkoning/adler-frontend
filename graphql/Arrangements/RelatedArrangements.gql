@@ -1,0 +1,22 @@
+#import "./Fragments/Arrangement.gql"
+#import "./../Fragments/Images/ImageRelated.gql"
+
+query RelatedArrangements($language: LanguageCodeFilterEnum, $notIn: [ID]) {
+  relatedArrangements: arrangements(
+    where: {
+      language: $language
+      notIn: $notIn
+      orderby: { field: MENU_ORDER, order: ASC }
+    }
+  ) {
+    edges {
+      node {
+        ...arrangement
+        uri: relativeUrl
+        featuredImage {
+          ...imageSidebar
+        }
+      }
+    }
+  }
+}

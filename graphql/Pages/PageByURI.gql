@@ -1,0 +1,14 @@
+#import "./Fragments/PageDetails.gql"
+
+query PageByURI($uri: ID!) {
+  page(id: $uri, idType: URI) {
+    ...pageDetails
+    translations {
+      uri
+      language {
+        code
+        slug
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+#import "./../../Fragments/Images/ImageHero.gql"
+#import "./../../Fragments/Images/Gallery.gql"
+#import "./../../Fragments/Seo.gql"
+#import "./Page.gql"
+
+fragment pageDetails on Page {
+  ...page
+  content
+  link
+  featuredImage {
+    ...imageHero
+  }
+  galleryGroup {
+    gallery {
+      ...gallery
+    }
+  }
+  parentDatabaseId
+  seo {
+    ...seo
+  }
+}

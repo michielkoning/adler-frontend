@@ -1,0 +1,5 @@
+fragment arrangement on Arrangement {
+  id
+  databaseId
+  title
+}
