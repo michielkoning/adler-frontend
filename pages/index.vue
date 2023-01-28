@@ -12,6 +12,7 @@
   });
 
   const { locale } = useI18n();
+  const route = useRoute();
 
   const { data } = await useAsyncQuery<{ page: IPage }>(PageQuery, {
     pageId: homePageId[locale.value],
