@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .wrapper {
   display: grid;
   grid-gap: var(--gutter);
