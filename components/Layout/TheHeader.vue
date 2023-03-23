@@ -74,6 +74,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+@import '~/styles/media-queries/media-queries.css';
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s 0.2s;

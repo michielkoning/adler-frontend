@@ -67,6 +67,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .wrapper {
   position: fixed;
   padding: var(--spacing-xs) 0;

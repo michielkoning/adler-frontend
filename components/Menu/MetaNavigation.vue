@@ -66,6 +66,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .meta-navigation {
   padding-bottom: 8em;
 

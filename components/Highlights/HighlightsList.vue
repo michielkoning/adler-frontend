@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .list {
   @mixin list-reset;
 

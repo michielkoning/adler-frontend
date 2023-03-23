@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .list {
   display: grid;
   grid-column-gap: var(--gutter);

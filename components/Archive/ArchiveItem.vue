@@ -33,6 +33,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .link {
   @mixin link-reset;
 }

@@ -331,6 +331,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+@import '~/styles/media-queries/media-queries.css';
+
 @media (--viewport-xs) {
   .addresses /deep/ .fields {
     grid-template-columns: repeat(4, 1fr);
