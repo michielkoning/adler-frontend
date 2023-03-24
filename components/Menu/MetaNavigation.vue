@@ -1,28 +1,22 @@
 <template>
-  <nav
-    aria-labelledby="secondary-menu-title"
-    :class="$style['meta-navigation']"
-  >
+  <nav aria-labelledby="secondary-menu-title" class="meta-navigation">
     <h2 id="secondary-menu-title" class="sr-only">
       {{ $t('title') }}
     </h2>
 
-    <contact-phone-number
-      :class="[$style['contact-item'], $style['contact-item-phone-number']]"
-    />
-    <contact-emailaddress
-      :class="[$style['contact-item'], $style['contact-item-emailaddress']]"
-    />
+    <contact-phone-number class="[contact-item contact-item-phone-number]" />
+    <contact-emailaddress class="[contact-item contact-item-emailaddress]" />
 
-    <language-switcher :class="$style['language-switcher']" />
+    <language-switcher class="language-switcher" />
+    <div class="buttons">
+      <app-button size="small" class="btn-book-now" @click="toggleModal">
+        {{ $t('vouchers') }}
+      </app-button>
 
-    <app-button
-      size="small"
-      :class="$style['btn-book-now']"
-      @click="toggleModal"
-    >
-      {{ $t('bookNow') }}
-    </app-button>
+      <app-button size="small" class="btn-book-now" @click="toggleModal">
+        {{ $t('bookNow') }}
+      </app-button>
+    </div>
 
     <app-modal
       :show="showModal"
@@ -65,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" module>
+<style lang="postcss" scoped>
 @import '~/styles/media-queries/media-queries.css';
 
 .meta-navigation {
@@ -74,32 +68,28 @@ export default {
   @media (--navigation-md) {
     display: flex;
     align-items: center;
+    gap: 1em;
     padding: var(--spacing-s) var(--spacing-m);
     background: var(--color-background-alternative);
   }
 }
 
-.language-switcher {
-  margin-top: var(--spacing-m);
+.buttons {
+  display: flex;
+  gap: 0.5em;
+}
 
+.language-switcher {
   @media (--navigation-md) {
     transform: translateY(0.15em);
-    margin: 0 0 0 var(--spacing-l);
   }
 }
 
 .btn-book-now {
   display: none;
-  margin-left: var(--spacing-l);
 
   @media (--navigation-lg) {
     display: block;
-  }
-}
-
-.contact-item-emailaddress {
-  @media (--navigation-md) {
-    margin-left: var(--spacing-m);
   }
 }
 
