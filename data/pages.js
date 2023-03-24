@@ -51,9 +51,3 @@ export const kidsPageId = {
   nl: 3714,
   en: 3725,
 }
-
-export const vouchersPageId = {
-  de: 4044,
-  nl: 4046,
-  en: 4048,
-}

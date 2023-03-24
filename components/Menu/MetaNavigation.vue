@@ -13,7 +13,7 @@
     <div class="buttons">
       <app-button
         size="small"
-        :to="localePath({ name: 'vouchers' })"
+        href="https://www.gurado.de/adler-lingenau/geschenkgutscheine.html"
         @click.native="changePage"
       >
         {{ $t('vouchers') }}
