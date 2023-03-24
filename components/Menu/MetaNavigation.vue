@@ -12,6 +12,8 @@
     <language-switcher class="language-switcher" />
     <div class="buttons">
       <app-button
+        rel="noopener"
+        target="_blank"
         size="small"
         href="https://www.gurado.de/adler-lingenau/geschenkgutscheine.html"
         @click.native="changePage"
