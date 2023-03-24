@@ -12,6 +12,7 @@
     <language-switcher class="language-switcher" />
     <div class="buttons">
       <app-button
+        v-if="$i18n.locale === 'de'"
         rel="noopener"
         target="_blank"
         size="small"
