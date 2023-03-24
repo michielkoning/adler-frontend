@@ -67,9 +67,8 @@ export default {
 .list {
   @mixin list-reset;
 
-  display: grid;
-  gap: 0.25em;
-  grid-template-columns: repeat(auto-fill, minmax(2.5em, 1fr));
+  display: flex;
+  gap: 1em;
 }
 
 .link {
