@@ -23,18 +23,18 @@
       <li :class="$style['list-item']">
         <a
           :class="$style.link"
-          :href="twitterUrl"
+          :href="instagramUrl"
           rel="noopener"
           target="_blank"
         >
-          <icon-twitter aria-hidden="true" width="36" height="36" />
+          <icon-instagram aria-hidden="true" width="36" height="36" />
           <span class="sr-only">
             {{
               $t('followUsOnNetwork', {
                 title: title,
               })
             }}
-            <span lang="en">Twitter</span>
+            <span lang="en">Instagram</span>
           </span>
         </a>
       </li>
@@ -44,19 +44,19 @@
 
 <script>
 import IconFacebook from '~/icons/facebook.svg'
-import IconTwitter from '~/icons/twitter.svg'
-import { facebookUrl, twitterUrl } from '~/data/socialMedia'
+import IconInstagram from '~/icons/instagram.svg'
+import { facebookUrl, instagramUrl } from '~/data/socialMedia'
 import { title } from '~/data/siteDetails'
 
 export default {
   components: {
     IconFacebook,
-    IconTwitter,
+    IconInstagram,
   },
   data() {
     return {
       facebookUrl,
-      twitterUrl,
+      instagramUrl,
       title,
     }
   },
@@ -67,8 +67,8 @@ export default {
 .list {
   @mixin list-reset;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(2.5em, 1fr));
+  display: flex;
+  gap: 1em;
 }
 
 .link {

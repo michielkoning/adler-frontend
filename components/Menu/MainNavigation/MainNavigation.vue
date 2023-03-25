@@ -136,6 +136,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .nav {
   position: relative;
   margin-bottom: var(--spacing-m);

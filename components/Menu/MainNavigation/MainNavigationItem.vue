@@ -143,6 +143,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .menu-item {
   position: relative;
   font-family: var(--font-family-headings);

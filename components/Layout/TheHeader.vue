@@ -1,5 +1,5 @@
 <template>
-  <header :class="$style.header">
+  <header class="header">
     <skip-links />
     <mobile-navigation @toggle-menu="toggleMenu" />
     <center-wrapper :top="true">
@@ -8,24 +8,24 @@
         @after-enter="afterEnter"
         @after-leave="afterLeave"
       >
-        <div v-show="showMenu" :class="$style.background">
+        <div v-show="showMenu" class="background">
           <transition name="fade">
-            <div v-show="showMenu" ref="content" :class="$style.content">
+            <div v-show="showMenu" ref="content" class="content">
               <nuxt-link
-                :class="$style['logo-wrapper']"
+                :class="['logo-wrapper']"
                 :to="localePath({ name: 'index' })"
               >
                 <icon-logo
-                  :class="$style.logo"
+                  class="logo"
                   aria-hidden="true"
                   width="497"
                   height="424"
                 />
                 <span class="sr-only">{{ title }}</span>
               </nuxt-link>
-              <meta-navigation :class="$style['meta-navigation']" />
+              <meta-navigation class="meta-navigation" />
               <main-navigation
-                :class="$style['main-navigation']"
+                :class="['main-navigation']"
                 :menu-is-open="showMenu"
               />
             </div>
@@ -74,6 +74,8 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+@import '~/styles/media-queries/media-queries.css';
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s 0.2s;
@@ -94,9 +96,7 @@ export default {
 .slide-leave-to {
   transform: translateY(-100vh);
 }
-</style>
 
-<style lang="postcss" module>
 .header {
   background: var(--color-primary);
   margin-bottom: var(--menu-height);

@@ -158,7 +158,6 @@ export default {
           mixinsDir: './styles/mixins/',
         },
         'postcss-preset-env': {
-          importFrom: ['./styles/media-queries/media-queries.css'],
 
           features: {
             'nesting-rules': true,

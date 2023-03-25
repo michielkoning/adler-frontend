@@ -30,6 +30,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .footer {
   @mixin block-padding;
 

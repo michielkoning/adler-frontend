@@ -49,6 +49,8 @@ export default {
 </script>
 
 <style lang="postcss" module>
+@import '~/styles/media-queries/media-queries.css';
+
 .page {
   display: grid;
   align-items: start;
