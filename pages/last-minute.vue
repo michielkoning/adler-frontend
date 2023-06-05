@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <app-page :page="page"> </app-page>
+  </div>
+</template>
+
+<script>
+import { lastMinutePageId } from '../data/pages'
+import PageQuery from '~/graphql/Pages/Page.gql'
+import getSeoMetaData from '~/helpers/seo'
+
+export default {
+  async asyncData({ app, params, store, redirect }) {
+    const language = app.i18n.locale
+
+    const page = await app.apolloProvider.defaultClient.query({
+      query: PageQuery,
+      variables: {
+        pageId: lastMinutePageId[language],
+      },
+    })
+
+    return {
+      page: page.data.page,
+    }
+  },
+  nuxtI18n: {
+    paths: {
+      de: '/last-minute',
+      en: '/last-minute',
+      nl: '/last-minute',
+    },
+  },
+  head() {
+    return getSeoMetaData(this.page.seo)
+  },
+}
+</script>
