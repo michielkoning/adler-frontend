@@ -1,6 +1,9 @@
 <template>
   <div>
-    <app-page :page="page"> </app-page>
+    <center-wrapper>
+      <h1 v-if="page">{{ page.title }}</h1>
+    </center-wrapper>
+    <last-minutes-container />
   </div>
 </template>
 
@@ -8,9 +11,10 @@
 import { lastMinutePageId } from '../data/pages'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import getSeoMetaData from '~/helpers/seo'
+import LastMinutesQuery from '~/graphql/LastMinutes/LastMinutes.gql'
 
 export default {
-  async asyncData({ app, params, store, redirect }) {
+  async asyncData({ app }) {
     const language = app.i18n.locale
 
     const page = await app.apolloProvider.defaultClient.query({
@@ -20,7 +24,12 @@ export default {
       },
     })
 
+    const lastMinutes = await app.apolloProvider.defaultClient.query({
+      query: LastMinutesQuery,
+    })
+
     return {
+      lastMinutes: lastMinutes.data.lastMinutes,
       page: page.data.page,
     }
   },

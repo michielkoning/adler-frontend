@@ -16,6 +16,7 @@ export default {
   },
   components: [
     '~/components/Animations',
+    '~/components/LastMinutes',
     '~/components/Archive',
     '~/components/Arrangements/Details',
     '~/components/Arrangements/Highlights',
@@ -158,7 +159,6 @@ export default {
           mixinsDir: './styles/mixins/',
         },
         'postcss-preset-env': {
-
           features: {
             'nesting-rules': true,
             'custom-media-queries': true,
