@@ -11,19 +11,21 @@
 
     <language-switcher class="language-switcher" />
     <div class="buttons">
-      <nuxt-link
-        :to="localePath('last-minute')"
+      <app-button
+        :to="localePath('last-minutes')"
         size="small"
+        button-style="ghost"
         @click.native="changePage"
       >
         {{ $t('lastMinutes') }}
-      </nuxt-link>
+      </app-button>
       <app-button
         v-if="$i18n.locale === 'de'"
         rel="noopener"
         target="_blank"
         size="small"
         href="https://www.gurado.de/adler-lingenau/geschenkgutscheine.html"
+        button-style="ghost"
         @click.native="changePage"
       >
         {{ $t('vouchers') }}

@@ -12,6 +12,15 @@
     "contact": "Kontakt",
     "privacy": "Datenschutzerklärung"
   },
+  "persons": "0 Personen | 1 Person | {count} Personen",
+  "nights": "0 Nächte | 1 Nacht | {count} Nächte",
+  "adults": "0 Erwachsene | 1 Erwachsene | {count} Erwachsene",
+  "kids": "0 Kinder | 1 Kind | {count} Kinder",
+  "extraNight": "Extra Nacht für {persons}",
+  "services": "Dienstleistungen",
+  "date": "Datum",
+  "totalPersons": "Gesamtzahl der Personen",
+  "room": "Zimmer",
   "form": {
     "name": "Name",
     "phoneNumber": "Telefon",

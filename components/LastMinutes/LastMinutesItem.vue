@@ -13,7 +13,7 @@
             width="20"
             height="20"
           />
-          <span class="sr-only">Data</span>
+          <span class="sr-only">{{ $t('date') }}</span>
         </dt>
         <dd v-if="dateFrom && dateUntill">
           {{ $d(dateFrom, 'short') }}
@@ -22,16 +22,16 @@
         </dd>
         <dt>
           <icon-family class="icon" aria-hidden="true" width="20" height="20" />
-          <span class="sr-only">Aantal personen</span>
+          <span class="sr-only">{{ $t('totalPersons') }}</span>
         </dt>
         <dd>
-          {{ item.lastMinute.totalPersons.adults }} volwassenen &dash;
-          {{ item.lastMinute.totalPersons.kids }} kinderen
+          {{ $tc('adults', item.lastMinute.totalPersons.adults) }} &dash;
+          {{ $tc('kids', item.lastMinute.totalPersons.kids) }}
         </dd>
 
         <dt>
           <icon-bed class="icon" aria-hidden="true" width="20" height="20" />
-          <span class="sr-only">Kamer</span>
+          <span class="sr-only">{{ $t('room') }}</span>
         </dt>
         <dd>
           <nuxt-link :to="item.lastMinute.room.uri">
@@ -40,7 +40,7 @@
         </dd>
       </dl>
       <div class="services">
-        <h3>Voorzieningen</h3>
+        <h3>{{ $t('services') }}</h3>
         <ul v-if="item.servicesLastMinute.edges.length">
           <li
             v-for="service in item.servicesLastMinute.edges"

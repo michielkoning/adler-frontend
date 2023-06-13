@@ -11,6 +11,16 @@
     "contact": "Contact",
     "privacy": "Privacybeleid"
   },
+  "lastMinutes": "Last minutes",
+  "persons": "0 personen | 1 persoon | {count} personen",
+  "nights": "0 nachten | 1 nacht | {count} nachten",
+  "adults": "0 volwassenen | 1 volwassene | {count} volwassenen",
+  "kids": "0 kinderen | 1 kind | {count} kinderen",
+  "extraNight": "Extra nacht voor {persons}",
+  "services": "Voorzieningen",
+  "date": "Datum",
+  "totalPersons": "Aantal personen",
+  "room": "Kamer",
   "form": {
     "name": "Naam",
     "phoneNumber": "Telefoonnummer",
