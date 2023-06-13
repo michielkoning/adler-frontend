@@ -1,12 +1,12 @@
 <template>
-  <last-minutes-container />
+  <last-minutes-section :items="lastMinutes" />
 </template>
 
 <script>
 import { lastMinutePageId } from '~/data/pages'
 import PageQuery from '~/graphql/Pages/Page.gql'
 import getSeoMetaData from '~/helpers/seo'
-
+import LastMinutesQuery from '~/graphql/LastMinutes/LastMinutes.gql'
 export default {
   async asyncData({ app, params }) {
     const language = app.i18n.locale
@@ -16,7 +16,14 @@ export default {
         pageId: lastMinutePageId[language],
       },
     })
+    const lastMinutes = await app.apolloProvider.defaultClient.query({
+      query: LastMinutesQuery,
+      variables: {
+        language: language.toUpperCase(),
+      },
+    })
     return {
+      lastMinutes: lastMinutes.data.lastMinutes.edges,
       page: page.data.page,
     }
   },
