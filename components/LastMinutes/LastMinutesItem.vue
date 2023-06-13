@@ -4,17 +4,41 @@
       <h2 class="title">
         {{ item.title }}
       </h2>
-      <div v-if="dateFrom && dateUntill" class="dates">
-        Van
-        {{ $d(dateFrom, 'short') }}
-        tot
-        {{ $d(dateUntill, 'short') }}
-      </div>
 
-      <div class="persons">
-        Voor {{ item.lastMinute.totalPersons.adults }} volwassenen en
-        {{ item.lastMinute.totalPersons.kids }} kinderen
-      </div>
+      <dl>
+        <dt v-if="dateFrom && dateUntill">
+          <icon-calendar
+            class="icon"
+            aria-hidden="true"
+            width="20"
+            height="20"
+          />
+          <span class="sr-only">Data</span>
+        </dt>
+        <dd v-if="dateFrom && dateUntill">
+          {{ $d(dateFrom, 'short') }}
+          &dash;
+          {{ $d(dateUntill, 'short') }}
+        </dd>
+        <dt>
+          <icon-family class="icon" aria-hidden="true" width="20" height="20" />
+          <span class="sr-only">Aantal personen</span>
+        </dt>
+        <dd>
+          {{ item.lastMinute.totalPersons.adults }} volwassenen &dash;
+          {{ item.lastMinute.totalPersons.kids }} kinderen
+        </dd>
+
+        <dt>
+          <icon-bed class="icon" aria-hidden="true" width="20" height="20" />
+          <span class="sr-only">Kamer</span>
+        </dt>
+        <dd>
+          <nuxt-link :to="item.lastMinute.room.uri">
+            {{ item.lastMinute.room.title }}
+          </nuxt-link>
+        </dd>
+      </dl>
       <div class="services">
         <h3>Voorzieningen</h3>
         <ul v-if="item.servicesLastMinute.edges.length">
@@ -40,7 +64,16 @@
 </template>
 
 <script>
+import IconBed from '~/icons/bed.svg'
+import IconCalendar from '~/icons/calendar.svg'
+import IconFamily from '~/icons/family.svg'
+
 export default {
+  components: {
+    IconBed,
+    IconCalendar,
+    IconFamily,
+  },
   props: {
     item: {
       type: Object,
@@ -121,6 +154,21 @@ export default {
   &:hover {
     @mixin btn-primary-hover;
   }
+}
+
+dl {
+  display: grid;
+  gap: 0.25em;
+  margin-bottom: 1em;
+  grid-template-columns: 1.75em auto;
+}
+
+dt {
+  overflow: hidden;
+}
+
+.icon {
+  translate: 0 0.1em 0;
 }
 </style>
 

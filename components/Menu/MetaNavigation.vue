@@ -11,6 +11,13 @@
 
     <language-switcher class="language-switcher" />
     <div class="buttons">
+      <nuxt-link
+        :to="localePath('last-minute')"
+        size="small"
+        @click.native="changePage"
+      >
+        {{ $t('lastMinutes') }}
+      </nuxt-link>
       <app-button
         v-if="$i18n.locale === 'de'"
         rel="noopener"
