@@ -5,7 +5,7 @@
   >
     <template #default="{ result: { data }, isLoading }">
       <app-loader v-if="isLoading" />
-      <last-minutes-section :items="data.lastMinutes.edges" />
+      <last-minutes-section v-else-if="data" :items="data.lastMinutes.edges" />
     </template>
   </apollo-query>
 </template>

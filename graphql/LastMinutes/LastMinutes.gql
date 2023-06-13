@@ -1,7 +1,7 @@
 #import "./../Fragments/Images/ImageArchive.gql"
 
-query GetLastMinutes {
-  lastMinutes {
+query GetLastMinutes($language: LanguageCodeFilterEnum) {
+  lastMinutes(where: { language: $language }) {
     edges {
       node {
         id

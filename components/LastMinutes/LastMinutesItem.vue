@@ -1,9 +1,15 @@
 <template>
-  <li :class="$style.item" :tag="tag">
+  <li :class="$style.item">
     <div :class="$style.content">
       <h2 :class="$style.title">
         {{ item.title }}
       </h2>
+      <!-- <span v-if="item.lastMinute.dates.dateFrom">
+        Van
+        {{ $d(new Date(item.lastMinute.dates.dateFrom), 'short') }}
+        tot
+        {{ item.lastMinute.dates.dateUntill }}
+      </span> -->
     </div>
     <price-badge
       v-if="item.lastMinute.price"
