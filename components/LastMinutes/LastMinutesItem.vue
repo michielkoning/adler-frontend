@@ -1,22 +1,41 @@
 <template>
-  <li :class="$style.item">
-    <div :class="$style.content">
-      <h2 :class="$style.title">
+  <li class="item">
+    <div class="content">
+      <h2 class="title">
         {{ item.title }}
       </h2>
-      <!-- <span v-if="item.lastMinute.dates.dateFrom">
+      <div v-if="dateFrom && dateUntill" class="dates">
         Van
-        {{ $d(new Date(item.lastMinute.dates.dateFrom), 'short') }}
+        {{ $d(dateFrom, 'short') }}
         tot
-        {{ item.lastMinute.dates.dateUntill }}
-      </span> -->
+        {{ $d(dateUntill, 'short') }}
+      </div>
+
+      <div class="persons">
+        Voor {{ item.lastMinute.totalPersons.adults }} volwassenen en
+        {{ item.lastMinute.totalPersons.kids }} kinderen
+      </div>
+      <div class="services">
+        <h3>Voorzieningen</h3>
+        <ul v-if="item.servicesLastMinute.edges.length">
+          <li
+            v-for="service in item.servicesLastMinute.edges"
+            :key="service.node.name"
+          >
+            {{ service.node.name }}
+          </li>
+        </ul>
+      </div>
+      <span class="btn" aria-hidden="true">
+        {{ $t('btn') }}
+      </span>
     </div>
     <price-badge
       v-if="item.lastMinute.price"
       :price="item.lastMinute.price"
-      :class="$style['price-badge']"
+      class="price-badge"
     />
-    <image-archive :image="item.featuredImage" :class="$style.image" />
+    <image-archive :image="item.featuredImage" class="image" />
   </li>
 </template>
 
@@ -28,10 +47,27 @@ export default {
       default: () => {},
     },
   },
+  computed: {
+    dateFrom() {
+      return this.convertToDate(this.item.lastMinute.dates.dateFrom)
+    },
+    dateUntill() {
+      return this.convertToDate(this.item.lastMinute.dates.dateUntill)
+    },
+  },
+  methods: {
+    convertToDate(value) {
+      if (!value) {
+        return null
+      }
+      const [day, month, year] = value.split('/')
+      return new Date(`${year}-${month}-${day}`)
+    },
+  },
 }
 </script>
 
-<style lang="postcss" module>
+<style lang="postcss" scoped>
 .item {
   position: relative;
   display: flex;
@@ -52,10 +88,6 @@ export default {
   flex-direction: column;
 }
 
-.title {
-  text-align: center;
-}
-
 .link {
   @mixin link-reset;
 }
@@ -65,14 +97,43 @@ export default {
   order: -1;
 }
 
-.read-more {
-  margin-top: auto;
-  align-self: center;
-}
-
 .price-badge {
   position: absolute;
   top: 3em;
   right: calc(var(--spacing-s) * -1);
 }
+
+.persons {
+  margin-bottom: 1em;
+  font-weight: var(--font-weight-bold);
+}
+
+.btn {
+  @mixin btn;
+  @mixin btn-primary;
+  @mixin btn-small;
+
+  margin-top: auto;
+  align-self: center;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+
+  &:hover {
+    @mixin btn-primary-hover;
+  }
+}
 </style>
+
+<i18n>
+{
+  "nl": {
+    "btn": "Nu aanvragen"
+  },
+  "de": {
+    "btn": "Jetzt anfragen"
+  },
+  "en": {
+    "btn": "Book now"
+  }
+}
+</i18n>

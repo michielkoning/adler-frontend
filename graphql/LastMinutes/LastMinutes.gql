@@ -6,6 +6,13 @@ query GetLastMinutes($language: LanguageCodeFilterEnum) {
       node {
         id
         title
+        servicesLastMinute {
+          edges {
+            node {
+              name
+            }
+          }
+        }
         featuredImage {
           ...imageArchive
         }
