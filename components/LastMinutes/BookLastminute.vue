@@ -1,7 +1,7 @@
 <template>
   <book-now :title="$t('requestNow')" @trigger="toggleModal">
-    <app-modal :show="showModal" :title="title" @close="toggleModal">
-      <form-arrangement :title="title" />
+    <app-modal :show="showModal" :title="$t('requestNow')" @close="toggleModal">
+      <form-last-minute :last-minute="lastMinute" />
     </app-modal>
   </book-now>
 </template>
@@ -9,8 +9,8 @@
 <script>
 export default {
   props: {
-    title: {
-      type: String,
+    lastMinute: {
+      type: Object,
       required: true,
     },
   },

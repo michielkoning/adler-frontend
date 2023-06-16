@@ -1,10 +1,6 @@
 <template>
   <li class="item">
     <div class="content">
-      <h2 class="title">
-        {{ item.title }}
-      </h2>
-
       <dl>
         <dt v-if="dateFrom && dateUntill">
           <icon-calendar
@@ -29,14 +25,22 @@
           {{ $tc('kids', item.lastMinute.totalPersons.kids) }}
         </dd>
 
-        <dt>
+        <dt v-if="item.lastMinute.room">
           <icon-bed class="icon" aria-hidden="true" width="20" height="20" />
           <span class="sr-only">{{ $t('room') }}</span>
         </dt>
-        <dd>
+        <dd v-if="item.lastMinute.room">
           <nuxt-link :to="item.lastMinute.room.uri">
             {{ item.lastMinute.room.title }}
           </nuxt-link>
+        </dd>
+
+        <dt>
+          <icon-bed class="icon" aria-hidden="true" width="20" height="20" />
+          <span class="sr-only">{{ $t('price') }}</span>
+        </dt>
+        <dd v-if="item.lastMinute.price">
+          {{ item.lastMinute.price }}
         </dd>
       </dl>
       <div class="services">
@@ -50,15 +54,8 @@
           </li>
         </ul>
       </div>
-      <span class="btn" aria-hidden="true">
-        {{ $t('btn') }}
-      </span>
+      <book-lastminute :last-minute="item" />
     </div>
-    <price-badge
-      v-if="item.lastMinute.price"
-      :price="item.lastMinute.price"
-      class="price-badge"
-    />
     <image-archive :image="item.featuredImage" class="image" />
   </li>
 </template>
@@ -171,17 +168,3 @@ dt {
   translate: 0 0.1em 0;
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "btn": "Nu aanvragen"
-  },
-  "de": {
-    "btn": "Jetzt anfragen"
-  },
-  "en": {
-    "btn": "Book now"
-  }
-}
-</i18n>

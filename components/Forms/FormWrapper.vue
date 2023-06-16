@@ -22,7 +22,13 @@
     />
     <div>{{ errorMessage }}</div>
     <app-loader v-if="loading" />
-    <app-button v-else type="submit" :is-full-width="true" :class="$style.btn">
+    <app-button
+      v-else
+      type="submit"
+      :is-full-width="true"
+      :class="$style.btn"
+      size="large"
+    >
       {{ btnText }}
     </app-button>
   </form>
