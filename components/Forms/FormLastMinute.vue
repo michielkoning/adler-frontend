@@ -9,37 +9,37 @@
     <input
       v-model="formData.lastMinuteTitle"
       type="hidden"
-      name="last-minutes-title"
+      name="lastMinutesTitle"
     />
     <input
       v-model="formData.lastMinuteRoom"
       type="hidden"
-      name="last-minutes-room"
+      name="lastMinutesRoom"
     />
     <input
       v-model="formData.lastMinutePrice"
       type="hidden"
-      name="last-minutes-price"
+      name="lastMinutesPrice"
     />
     <input
       v-model="formData.lastMinuteDateFrom"
       type="hidden"
-      name="last-minutes-date-from"
+      name="lastMinutesDateFrom"
     />
     <input
       v-model="formData.lastMinuteDateUntil"
       type="hidden"
-      name="last-minutes-date-until"
+      name="lastMinutesDateUntil"
     />
     <input
       v-model="formData.lastMinuteChildren"
       type="hidden"
-      name="last-minutes-kids"
+      name="lastMinutesKids"
     />
     <input
       v-model="formData.lastMinuteAdults"
       type="hidden"
-      name="last-minutes-adults"
+      name="lastMinutesAdults"
     />
     <form-fieldset :title="$t('addressData')" class="addresses">
       <form-input-text
