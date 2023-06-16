@@ -129,26 +129,6 @@
       />
     </form-fieldset>
 
-    <form-fieldset :title="$t('dates')" class="dates">
-      <form-input-text
-        id="dateArrival"
-        v-model.trim.lazy="$v.formData.dateArrival.$model"
-        :class="$style.date"
-        :error-message="errorMessageDateArrival"
-        :title="$t('form.dateArrival')"
-        type="date"
-        :min="minDate"
-      />
-      <form-input-text
-        id="dateDeparture"
-        v-model.trim.lazy="$v.formData.dateDeparture.$model"
-        :class="$style.date"
-        :error-message="errorMessageDateDeparture"
-        :title="$t('form.dateDeparture')"
-        type="date"
-        :min="minDate"
-      />
-    </form-fieldset>
     <form-fieldset :title="$t('remarks')">
       <form-textarea
         id="remarks"
@@ -195,8 +175,6 @@ export default {
         totalAdults: '',
         totalChildren: '',
         ageChildren: '',
-        dateArrival: '',
-        dateDeparture: '',
         remarks: '',
         lastMinuteTitle: '',
         lastMinuteRoom: '',
@@ -209,13 +187,6 @@ export default {
     }
   },
   computed: {
-    minDate() {
-      const date = new Date(Date.now())
-      const year = date.getFullYear()
-      const month = this.addLeadingZero(date.getMonth() + 1)
-      const day = this.addLeadingZero(date.getDate())
-      return `${year}-${month}-${day}`
-    },
     errorMessageName() {
       if (this.$v.formData.name.$anyError) {
         if (!this.$v.formData.name.required) {
@@ -291,22 +262,6 @@ export default {
       }
       return null
     },
-    errorMessageDateArrival() {
-      if (this.$v.formData.dateArrival.$anyError) {
-        if (!this.$v.formData.dateArrival.required) {
-          return this.$t('form.error.required')
-        }
-      }
-      return null
-    },
-    errorMessageDateDeparture() {
-      if (this.$v.formData.dateDeparture.$anyError) {
-        if (!this.$v.formData.dateDeparture.required) {
-          return this.$t('form.error.required')
-        }
-      }
-      return null
-    },
   },
   mounted() {
     this.formData.price = this.lastMinute.lastMinute.price
@@ -346,12 +301,6 @@ export default {
         required,
       },
       totalChildren: {
-        required,
-      },
-      dateArrival: {
-        required,
-      },
-      dateDeparture: {
         required,
       },
       email: {

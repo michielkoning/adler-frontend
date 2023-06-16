@@ -1,7 +1,7 @@
 <template>
   <book-now :title="$t('requestNow')" @trigger="toggleModal">
     <app-modal :show="showModal" :title="$t('requestNow')" @close="toggleModal">
-      <form-last-minute :last-minute="lastMinute" />
+      <form-last-minute v-if="lastMinute" :last-minute="lastMinute" />
     </app-modal>
   </book-now>
 </template>
