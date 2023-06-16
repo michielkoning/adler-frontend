@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-          <icon-bed class="icon" aria-hidden="true" width="20" height="20" />
+          <icon-price class="icon" aria-hidden="true" width="20" height="20" />
           <span class="sr-only">{{ $t('price') }}</span>
         </dt>
         <dd v-if="item.lastMinute.price">
@@ -64,12 +64,14 @@
 import IconBed from '~/icons/bed.svg'
 import IconCalendar from '~/icons/calendar.svg'
 import IconFamily from '~/icons/family.svg'
+import IconPrice from '~/icons/price.svg'
 
 export default {
   components: {
     IconBed,
     IconCalendar,
     IconFamily,
+    IconPrice,
   },
   props: {
     item: {
