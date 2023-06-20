@@ -16,15 +16,6 @@
           &dash;
           {{ $d(dateUntill, 'short') }}
         </dd>
-        <dt>
-          <icon-family class="icon" aria-hidden="true" width="20" height="20" />
-          <span class="sr-only">{{ $t('totalPersons') }}</span>
-        </dt>
-        <dd>
-          {{ $tc('adults', item.lastMinute.totalPersons.adults) }} &dash;
-          {{ $tc('kids', item.lastMinute.totalPersons.kids) }}
-        </dd>
-
         <dt v-if="item.lastMinute.room">
           <icon-bed class="icon" aria-hidden="true" width="20" height="20" />
           <span class="sr-only">{{ $t('room') }}</span>
@@ -34,15 +25,44 @@
             {{ item.lastMinute.room.title }}
           </nuxt-link>
         </dd>
-
-        <dt>
-          <icon-price class="icon" aria-hidden="true" width="20" height="20" />
-          <span class="sr-only">{{ $t('price') }}</span>
-        </dt>
-        <dd v-if="item.lastMinute.price">
-          {{ item.lastMinute.price }}
-        </dd>
       </dl>
+
+      <div v-if="item.lastMinute.prices.length" class="prices">
+        <h3>{{ $t('prices') }}</h3>
+        <ul class="prices-list">
+          <li
+            v-for="price in item.lastMinute.prices"
+            :key="price.price"
+            class="price-details"
+          >
+            <dl class="prices-definitions">
+              <dt>
+                <icon-family
+                  class="icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                />
+                <span class="sr-only">{{ $t('totalPersons') }}</span>
+              </dt>
+              <dd>
+                {{ $tc('adults', price.adults) }} &dash;
+                {{ $tc('kids', price.kids) }}
+              </dd>
+              <dt>
+                <icon-price
+                  class="icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                />
+                <span class="sr-only">{{ $t('totalPersons') }}</span>
+              </dt>
+              <dd>{{ price.price }}</dd>
+            </dl>
+          </li>
+        </ul>
+      </div>
       <div class="services">
         <h3>{{ $t('services') }}</h3>
         <ul v-if="item.servicesLastMinute.edges.length">
@@ -54,7 +74,7 @@
           </li>
         </ul>
       </div>
-      <book-lastminute :last-minute="item" />
+      <book-lastminute :last-minute="item" class="btn" />
     </div>
     <image-archive :image="item.featuredImage" class="image" />
   </li>
@@ -63,15 +83,15 @@
 <script>
 import IconBed from '~/icons/bed.svg'
 import IconCalendar from '~/icons/calendar.svg'
-import IconFamily from '~/icons/family.svg'
 import IconPrice from '~/icons/price.svg'
+import IconFamily from '~/icons/family.svg'
 
 export default {
   components: {
     IconBed,
     IconCalendar,
-    IconFamily,
     IconPrice,
+    IconFamily,
   },
   props: {
     item: {
@@ -140,26 +160,15 @@ export default {
   font-weight: var(--font-weight-bold);
 }
 
-.btn {
-  @mixin btn;
-  @mixin btn-primary;
-  @mixin btn-small;
-
-  margin-top: auto;
-  align-self: center;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-
-  &:hover {
-    @mixin btn-primary-hover;
-  }
-}
-
 dl {
   display: grid;
   gap: 0.25em;
   margin-bottom: 1em;
   grid-template-columns: 1.75em auto;
+}
+
+.prices-definitions {
+  margin-bottom: 0;
 }
 
 dt {
@@ -168,5 +177,21 @@ dt {
 
 .icon {
   translate: 0 0.1em 0;
+}
+
+.price-details:not(:last-child) {
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.prices-list {
+  @mixin list-reset;
+
+  margin-bottom: 1.5em;
+}
+
+.btn {
+  margin-top: auto;
 }
 </style>

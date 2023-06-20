@@ -20,7 +20,8 @@ query GetLastMinutes($language: LanguageCodeFilterEnum) {
         }
 
         lastMinute {
-          totalPersons {
+          prices {
+            price
             adults
             kids
           }
@@ -29,7 +30,6 @@ query GetLastMinutes($language: LanguageCodeFilterEnum) {
             dateUntill
           }
           fieldGroupName
-          price
           room {
             ... on Room {
               uri: relativeUrl

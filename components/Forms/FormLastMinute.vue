@@ -6,6 +6,36 @@
     :valid="!$v.$invalid"
     @validate="validate"
   >
+    <input
+      v-model="formData.lastMinuteTitle"
+      type="text"
+      name="lastMinutesTitle"
+    />
+    <input
+      v-model="formData.lastMinuteRoom"
+      type="text"
+      name="lastMinutesRoom"
+    />
+    <input
+      v-model="formData.lastMinutePrices"
+      type="text"
+      name="lastMinutesPrice"
+    />
+    <input
+      v-model="formData.lastMinuteDateFrom"
+      type="text"
+      name="lastMinutesDateFrom"
+    />
+    <input
+      v-model="formData.lastMinuteDateUntil"
+      type="text"
+      name="lastMinutesDateUntil"
+    />
+    <input
+      v-model="formData.lastMinutePersons"
+      type="text"
+      name="lastMinutesAdults"
+    />
     <form-fieldset :title="$t('addressData')" class="addresses">
       <form-input-text
         id="name"
@@ -143,11 +173,10 @@ export default {
         remarks: 'no remarkt',
         lastMinuteTitle: '',
         lastMinuteRoom: '',
-        lastMinutePrice: '',
+        lastMinutePrices: '',
         lastMinuteDateFrom: '',
         lastMinuteDateUntil: '',
-        lastMinuteChildren: '',
-        lastMinuteAdults: '',
+        lastMinutePersons: '',
       },
     }
   },
@@ -229,17 +258,21 @@ export default {
     },
   },
   mounted() {
-    this.formData.price = this.lastMinute.lastMinute.price
+    this.formData.lastMinutePrices = this.lastMinute.lastMinute.prices
+      .map((p) => {
+        return p.price
+      })
+      .join(' - ')
+    this.formData.lastMinutePersons = this.lastMinute.lastMinute.prices
+      .map((p) => {
+        return `${p.kids} Kinder ${p.adults} Erwachsene`
+      })
+      .join(' - ')
     this.formData.lastMinuteTitle = this.lastMinute.title
     this.formData.lastMinuteRoom = this.lastMinute.lastMinute.room.title
-    this.formData.lastMinutePrice = this.lastMinute.lastMinute.price
     this.formData.lastMinuteDateFrom = this.lastMinute.lastMinute.dates.dateFrom
     this.formData.lastMinuteDateUntil =
       this.lastMinute.lastMinute.dates.dateUntill
-    this.formData.lastMinuteChildren =
-      this.lastMinute.lastMinute.totalPersons.kids
-    this.formData.lastMinuteAdults =
-      this.lastMinute.lastMinute.totalPersons.adults
   },
 
   validations: {
