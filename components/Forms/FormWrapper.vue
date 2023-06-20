@@ -104,6 +104,7 @@ export default {
         ...this.formData,
         page: this.currentPage,
       })
+      console.log({ encodeFormData })
 
       try {
         await axios.post(this.urlAction, encodeFormData, axiosConfig)

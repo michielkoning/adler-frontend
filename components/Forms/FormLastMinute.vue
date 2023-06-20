@@ -6,41 +6,6 @@
     :valid="!$v.$invalid"
     @validate="validate"
   >
-    <input
-      v-model="formData.lastMinuteTitle"
-      type="hidden"
-      name="lastMinutesTitle"
-    />
-    <input
-      v-model="formData.lastMinuteRoom"
-      type="hidden"
-      name="lastMinutesRoom"
-    />
-    <input
-      v-model="formData.lastMinutePrice"
-      type="hidden"
-      name="lastMinutesPrice"
-    />
-    <input
-      v-model="formData.lastMinuteDateFrom"
-      type="hidden"
-      name="lastMinutesDateFrom"
-    />
-    <input
-      v-model="formData.lastMinuteDateUntil"
-      type="hidden"
-      name="lastMinutesDateUntil"
-    />
-    <input
-      v-model="formData.lastMinuteChildren"
-      type="hidden"
-      name="lastMinutesKids"
-    />
-    <input
-      v-model="formData.lastMinuteAdults"
-      type="hidden"
-      name="lastMinutesAdults"
-    />
     <form-fieldset :title="$t('addressData')" class="addresses">
       <form-input-text
         id="name"
@@ -164,18 +129,18 @@ export default {
   data() {
     return {
       formData: {
-        name: '',
-        address: '',
-        zipcode: '',
-        city: '',
-        country: '',
-        phone: '',
-        email: '',
-        totalRooms: '',
-        totalAdults: '',
-        totalChildren: '',
-        ageChildren: '',
-        remarks: '',
+        name: 'michiel',
+        address: 'oudlaan',
+        zipcode: '6408RC',
+        city: 'Wageningen',
+        country: 'NEderland',
+        phone: '0611315146',
+        email: 'mail@michielkoning.nl',
+        totalRooms: '1',
+        totalAdults: '2',
+        totalChildren: '3',
+        ageChildren: '4',
+        remarks: 'no remarkt',
         lastMinuteTitle: '',
         lastMinuteRoom: '',
         lastMinutePrice: '',
