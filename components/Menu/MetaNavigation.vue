@@ -12,6 +12,7 @@
     <language-switcher class="language-switcher" />
     <div class="buttons">
       <app-button
+        v-if="hasLastMinutes"
         :to="localePath('last-minutes')"
         size="small"
         button-style="ghost"
@@ -69,6 +70,12 @@ export default {
     return {
       showModal: false,
     }
+  },
+  computed: {
+    hasLastMinutes() {
+      const menu = this.$store.getters['menu/getByLanguage'](this.$i18n.locale)
+      return menu.lastMinutes.edges.length
+    },
   },
   methods: {
     changePage() {
