@@ -8,32 +8,32 @@
   >
     <input
       v-model="formData.lastMinuteTitle"
-      type="text"
+      type="hidden"
       name="lastMinutesTitle"
     />
     <input
       v-model="formData.lastMinuteRoom"
-      type="text"
+      type="hidden"
       name="lastMinutesRoom"
     />
     <input
       v-model="formData.lastMinutePrices"
-      type="text"
+      type="hidden"
       name="lastMinutesPrice"
     />
     <input
       v-model="formData.lastMinuteDateFrom"
-      type="text"
+      type="hidden"
       name="lastMinutesDateFrom"
     />
     <input
       v-model="formData.lastMinuteDateUntil"
-      type="text"
+      type="hidden"
       name="lastMinutesDateUntil"
     />
     <input
       v-model="formData.lastMinutePersons"
-      type="text"
+      type="hidden"
       name="lastMinutesAdults"
     />
     <form-fieldset :title="$t('addressData')" class="addresses">
