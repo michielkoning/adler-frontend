@@ -269,7 +269,9 @@ export default {
       })
       .join(' - ')
     this.formData.lastMinuteTitle = this.lastMinute.title
-    this.formData.lastMinuteRoom = this.lastMinute.lastMinute.room.title
+    if (this.lastMinute.lastMinute.room) {
+      this.formData.lastMinuteRoom = this.lastMinute.lastMinute.room.title
+    }
     this.formData.lastMinuteDateFrom = this.lastMinute.lastMinute.dates.dateFrom
     this.formData.lastMinuteDateUntil =
       this.lastMinute.lastMinute.dates.dateUntill

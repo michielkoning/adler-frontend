@@ -63,9 +63,9 @@
           </li>
         </ul>
       </div>
-      <div class="services">
+      <div v-if="item.servicesLastMinute.edges.length" class="services">
         <h3>{{ $t('services') }}</h3>
-        <ul v-if="item.servicesLastMinute.edges.length">
+        <ul>
           <li
             v-for="service in item.servicesLastMinute.edges"
             :key="service.node.name"
