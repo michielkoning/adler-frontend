@@ -51,3 +51,9 @@ export const kidsPageId = {
   nl: 3714,
   en: 3725,
 }
+
+export const lastMinutePageId = {
+  de: 4064,
+  nl: 4105,
+  en: 4107,
+}

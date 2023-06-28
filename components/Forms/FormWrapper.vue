@@ -22,7 +22,13 @@
     />
     <div>{{ errorMessage }}</div>
     <app-loader v-if="loading" />
-    <app-button v-else type="submit" :is-full-width="true" :class="$style.btn">
+    <app-button
+      v-else
+      type="submit"
+      :is-full-width="true"
+      :class="$style.btn"
+      size="large"
+    >
       {{ btnText }}
     </app-button>
   </form>
@@ -36,10 +42,6 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
-    },
-    formData: {
-      type: Object,
       required: true,
     },
     btnText: {
@@ -68,39 +70,26 @@ export default {
     },
   },
   methods: {
-    submit() {
+    submit(event) {
       this.errorMessage = ''
       this.$emit('validate')
       if (this.valid) {
-        this.postForm()
+        const formData = new FormData(event.target)
+        this.postForm(formData)
       } else {
         this.errorMessage = this.$t('errorMessage')
       }
     },
-    encodeFormData(data) {
-      return Object.keys(data)
-        .map(
-          (key) =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
-        )
-        .join('&')
-    },
-    async postForm() {
+
+    async postForm(formData) {
       this.loading = true
-      const axiosConfig = {
-        header: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      }
-      const encodeFormData = this.encodeFormData({
-        'form-name': this.name,
-        'bot-field': this.botField,
-        ...this.formData,
-        page: this.currentPage,
-      })
+
+      const encodeFormData = new URLSearchParams(formData).toString()
 
       try {
-        await axios.post(this.urlAction, encodeFormData, axiosConfig)
+        await axios.post(this.urlAction, encodeFormData, {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        })
         this.submitted = true
       } finally {
         this.loading = false

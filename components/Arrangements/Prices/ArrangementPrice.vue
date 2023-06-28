@@ -42,29 +42,3 @@ export default {
   width: 5em;
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "persons": "0 personen | 1 persoon | {count} personen",
-    "nights": "0 nachten | 1 nacht | {count} nachten",
-    "adults": "0 volwassenen | 1 volwassene | {count} volwassenen",
-    "kids": "0 kinderen | 1 kind | {count} kinderen",
-    "extraNight": "Extra nacht voor {persons}"
-  },
-  "de": {
-    "persons": "0 Personen | 1 Person | {count} Personen",
-    "nights": "0 Nächte | 1 Nacht | {count} Nächte",
-    "adults": "0 Erwachsene | 1 Erwachsene | {count} Erwachsene",
-    "kids": "0 Kinder | 1 Kind | {count} Kinder",
-    "extraNight": "Extra Nacht für {persons}"
-  },
-  "en": {
-    "persons": "0 persons | 1 person | {count} persons",
-    "nights": "0 nights | 1 night | {count} nights",
-    "adults": "0 adults | 1 adult | {count} adults",
-    "kids": "0 children | 1 child | {count} children",
-    "extraNight": "Extra night for {persons}"
-  }
-}
-</i18n>

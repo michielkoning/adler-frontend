@@ -12,11 +12,21 @@
     <language-switcher class="language-switcher" />
     <div class="buttons">
       <app-button
+        v-if="hasLastMinutes"
+        :to="localePath('last-minutes')"
+        size="small"
+        button-style="ghost"
+        @click.native="changePage"
+      >
+        {{ $t('lastMinutes') }}
+      </app-button>
+      <app-button
         v-if="$i18n.locale === 'de'"
         rel="noopener"
         target="_blank"
         size="small"
         href="https://www.gurado.de/adler-lingenau/geschenkgutscheine.html"
+        button-style="ghost"
         @click.native="changePage"
       >
         {{ $t('vouchers') }}
@@ -60,6 +70,12 @@ export default {
     return {
       showModal: false,
     }
+  },
+  computed: {
+    hasLastMinutes() {
+      const menu = this.$store.getters['menu/getByLanguage'](this.$i18n.locale)
+      return menu.lastMinutes.edges.length
+    },
   },
   methods: {
     changePage() {
