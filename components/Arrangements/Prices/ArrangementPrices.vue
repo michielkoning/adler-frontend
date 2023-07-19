@@ -34,13 +34,13 @@ export default {
 <i18n>
 {
   "nl": {
-    "disclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, inclusief toeristenbelasting."
+    "disclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, exclusief toeristenbelasting."
   },
   "de": {
-    "disclaimer": "Die genannten Preise sind die Gesamtpreise für das Arrangement inkl. Kurtaxe."
+    "disclaimer": "Die genannten Preise sind die Gesamtpreise für das Arrangement exkl. Kurtaxe."
   },
   "en": {
-    "disclaimer": "Displayed prices are pices of the total package, including tourist tax."
+    "disclaimer": "Displayed prices are pices of the total package, excluding tourist tax."
   }
 }
 </i18n>

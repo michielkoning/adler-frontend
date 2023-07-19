@@ -1,4 +1,4 @@
-export const title = 'Hotel Gasthof Adler'
+export const title = 'Familienhotel Adler ***S'
 export const apiUrl = 'https://api.adler-lingenau.com/'
 export const baseUrl = 'https://www.adler-lingenau.com'
 export const themeColor = '#98012e'
