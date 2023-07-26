@@ -14,7 +14,7 @@ query Arrangements($language: LanguageCodeFilterEnum) {
         featuredImage {
           ...imageArchive
         }
-        pricesGroup {
+        pricesGroup: pricesArrangementGroup {
           priceFrom
         }
       }

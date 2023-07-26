@@ -9,7 +9,7 @@ query Arrangement($uri: ID!) {
     featuredImage {
       ...imageHero
     }
-    pricesGroup {
+    pricesGroup: pricesArrangementGroup {
       prices {
         label
         value

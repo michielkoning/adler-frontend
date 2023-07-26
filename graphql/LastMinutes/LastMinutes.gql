@@ -19,7 +19,7 @@ query GetLastMinutes($language: LanguageCodeFilterEnum) {
           ...imageArchive
         }
 
-        lastMinute {
+        lastMinute: lastMinutesGroup {
           prices {
             price
             adults

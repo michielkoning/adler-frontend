@@ -14,7 +14,7 @@ query Rooms($language: LanguageCodeFilterEnum) {
         featuredImage {
           ...imageArchive
         }
-        pricesGroup {
+        pricesGroup: pricesRoomGroup {
           priceFrom
         }
       }
