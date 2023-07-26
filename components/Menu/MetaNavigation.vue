@@ -73,8 +73,8 @@ export default {
   },
   computed: {
     hasLastMinutes() {
-      const menu = this.$store.getters['menu/getByLanguage'](this.$i18n.locale)
-      return menu.lastMinutes.edges.length
+      // const menu = this.$store.getters['menu/getByLanguage'](this.$i18n.locale)
+      return 0
     },
   },
   methods: {

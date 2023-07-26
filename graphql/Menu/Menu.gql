@@ -88,11 +88,11 @@ query Menu(
       }
     }
   }
-  lastMinutes(where: { language: $language }) {
-    edges {
-      node {
-        id
-      }
-    }
-  }
+  # lastMinutes(where: { language: $language }) {
+  #   edges {
+  #     node {
+  #       id
+  #     }
+  #   }
+  # }
 }
