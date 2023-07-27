@@ -44,6 +44,10 @@
           :title="$t('pages.contact')"
           :uri="localePath({ name: 'contact' })"
         />
+        <main-navigation-item
+          :title="$t('lastMinutes')"
+          :uri="localePath('last-minutes')"
+        />
         <template v-if="menu.menuItems.edges">
           <main-navigation-item
             v-for="menuItem in menu.menuItems.edges"
