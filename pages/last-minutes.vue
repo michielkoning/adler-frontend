@@ -16,19 +16,37 @@ export default {
         pageId: lastMinutePageId[language],
       },
     })
+
     const lastMinutes = await app.apolloProvider.defaultClient.query({
       query: LastMinutesQuery,
       variables: {
         language: language.toUpperCase(),
       },
     })
+
+    const convertToDate = (value) => {
+      if (!value) {
+        return null
+      }
+      const [day, month, year] = value.split('/')
+      return new Date(`${year}-${month}-${day}`)
+    }
+
+    const lastMinutesByDate = lastMinutes.data.lastMinutes.edges.sort(
+      (a, b) => {
+        return (
+          convertToDate(a.node.lastMinute.dates.dateFrom) -
+          convertToDate(b.node.lastMinute.dates.dateFrom)
+        )
+      },
+    )
     return {
-      lastMinutes: lastMinutes.data.lastMinutes.edges,
+      lastMinutes: lastMinutesByDate,
       page: page.data.page,
     }
   },
   nuxtI18n: {
-    paths: {
+    b: {
       de: '/last-minute',
       en: '/last-minute',
       nl: '/last-minute',
