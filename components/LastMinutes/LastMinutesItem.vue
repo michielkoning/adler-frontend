@@ -1,5 +1,12 @@
 <template>
   <li class="item">
+    <app-badge
+      v-if="item.lastMinute.sold"
+      :text="$t('sold')"
+      class="badge"
+      :small-text="true"
+    />
+
     <div class="content">
       <dl>
         <dt v-if="dateFrom && dateUntill">
@@ -149,7 +156,7 @@ export default {
   order: -1;
 }
 
-.price-badge {
+.badge {
   position: absolute;
   top: 3em;
   right: calc(var(--spacing-s) * -1);
