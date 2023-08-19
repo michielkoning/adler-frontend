@@ -1,5 +1,11 @@
 <template>
   <li class="item">
+    <app-badge
+      v-if="isSold"
+      :text="$t('sold')"
+      class="badge"
+      :small-text="true"
+    />
     <div class="content">
       <dl>
         <dt v-if="dateFrom && dateUntill">
@@ -74,7 +80,7 @@
           </li>
         </ul>
       </div>
-      <book-lastminute :last-minute="item" class="btn" />
+      <book-lastminute v-if="!isSold" :last-minute="item" class="btn" />
     </div>
     <image-archive :image="item.featuredImage" class="image" />
   </li>
@@ -100,6 +106,15 @@ export default {
     },
   },
   computed: {
+    isSold() {
+      if (this.item.lastMinute.sold === true) {
+        return true
+      }
+      if (this.dateFrom < new Date()) {
+        return true
+      }
+      return false
+    },
     dateFrom() {
       return this.convertToDate(this.item.lastMinute.dates.dateFrom)
     },
@@ -149,7 +164,7 @@ export default {
   order: -1;
 }
 
-.price-badge {
+.badge {
   position: absolute;
   top: 3em;
   right: calc(var(--spacing-s) * -1);

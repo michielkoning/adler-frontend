@@ -12,7 +12,6 @@
     <language-switcher class="language-switcher" />
     <div class="buttons">
       <app-button
-        v-if="hasLastMinutes"
         :to="localePath('last-minutes')"
         size="small"
         button-style="ghost"
@@ -57,6 +56,7 @@ import EventBusUtil from '~/utils/eventBusUtil'
 import LanguageSwitcher from '~/components/Menu/LanguageSwitcher.vue'
 import ContactEmailaddress from '~/components/Contact/ContactEmailaddress.vue'
 import ContactPhoneNumber from '~/components/Contact/ContactPhoneNumber.vue'
+
 export default {
   components: {
     ContactEmailaddress,
@@ -71,12 +71,7 @@ export default {
       showModal: false,
     }
   },
-  computed: {
-    hasLastMinutes() {
-      const menu = this.$store.getters['menu/getByLanguage'](this.$i18n.locale)
-      return menu.lastMinutes.edges.length
-    },
-  },
+
   methods: {
     changePage() {
       EventBusUtil.$emit('change-page')

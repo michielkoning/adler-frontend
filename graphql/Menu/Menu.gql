@@ -88,11 +88,4 @@ query Menu(
       }
     }
   }
-  lastMinutes(where: { language: $language }) {
-    edges {
-      node {
-        id
-      }
-    }
-  }
 }
