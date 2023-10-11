@@ -2,32 +2,18 @@
   <div>
     <h2>{{ $t('title') }}</h2>
     <dl :class="$style.list">
-      <template v-for="openingDay in openingTimes.days">
-        <dt :key="`day-${openingDay.day}`" :class="$style.label">
-          {{ getDayOfWeek(openingDay.day) }}
+      <template v-for="(openingDay, index) in days">
+        <dt :key="`day-${index}`" :class="$style.label">
+          {{ getDayOfWeek(index) }}
         </dt>
-        <dd :key="`hours-${openingDay.day}`" :class="$style.value">
-          <template v-for="hours in openingDay.hours">
-            <span :key="`from-${openingDay.day}-${hours.from}`">
-              {{ hours.from }}
+        <dd :key="`hours-${index}`" :class="$style.value">
+          <template v-for="hours in openingDay">
+            <span :key="`from-${index}-${hours.from}`">
+              {{ hours.start }}
             </span>
             –
             <span :key="`until-${openingDay.day}-${hours.until}`">
-              {{ hours.until }}
-            </span>
-          </template>
-        </dd>
-      </template>
-      <template v-if="openingTimes.holidays.hours.length">
-        <dt :class="[$style.label, $style.holidays]">{{ $t('holidays') }}:</dt>
-        <dd :class="$style.holidays">
-          <template v-for="hours in openingTimes.holidays.hours">
-            <span :key="`holiday-from-${hours.from}`">
-              {{ hours.from }}
-            </span>
-            –
-            <span :key="`holiday-until-${hours.until}`">
-              {{ hours.until }}
+              {{ hours.end }}
             </span>
           </template>
         </dd>
@@ -37,14 +23,23 @@
 </template>
 
 <script>
-import openingTimes from '~/data/openingTimes'
+import { mapState } from 'vuex'
 
 export default {
-  data() {
-    return {
-      openingTimes,
-    }
+  computed: {
+    ...mapState({
+      openingHours: (state) => state.openingHours.openingHours,
+    }),
+    days() {
+      if (!this.openingHours) {
+        return []
+      }
+      const list = Object.values(this.openingHours)
+      const days = list.filter((day) => day !== 'AdlerSettings_Openinghours')
+      return days
+    },
   },
+
   methods: {
     getDayOfWeek(day) {
       const date = new Date()

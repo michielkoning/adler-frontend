@@ -1,0 +1,34 @@
+query OpeningHours {
+  adlerSettings {
+    openingHours {
+      monday {
+        end
+        start
+      }
+      tuesday {
+        end
+        start
+      }
+      wednesday {
+        end
+        start
+      }
+      thursday {
+        end
+        start
+      }
+      friday {
+        end
+        start
+      }
+      saturday {
+        end
+        start
+      }
+      sunday {
+        end
+        start
+      }
+    }
+  }
+}
