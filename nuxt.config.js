@@ -110,11 +110,7 @@ export default {
     'nuxt-i18n',
     'nuxt-svg-loader',
   ],
-  buildModules: [
-    '@nuxtjs/google-analytics',
-    '@nuxtjs/stylelint-module',
-    'nuxt-facebook-pixel-module',
-  ],
+  buildModules: ['@nuxtjs/google-analytics', 'nuxt-facebook-pixel-module'],
   googleAnalytics,
   facebook: facebookPixel,
   pwa,
