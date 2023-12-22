@@ -5,10 +5,10 @@
         <div>
           <article :class="$style.body">
             <!-- eslint-disable-next-line -->
-          <h1 v-html="page.title" id="content" tabindex="-1" />
+            <h1 v-html="page.title" id="content" tabindex="-1" />
             <post-date v-if="page.date" :date="page.date" />
             <!-- eslint-disable-next-line -->
-          <div v-html="page.content" />
+            <div v-html="page.content" />
           </article>
           <slot />
         </div>
@@ -27,6 +27,10 @@
           <resmio-widget v-if="showResmio" />
         </aside>
       </div>
+      <giggle-widget
+        v-if="page.Giggle.giggleWidget"
+        :stream="page.Giggle.giggleWidget"
+      />
     </center-wrapper>
 
     <arrangements-highlights-section />
@@ -34,7 +38,10 @@
 </template>
 
 <script>
+import GiggleWidget from '../Shared/GiggleWidget.vue'
+
 export default {
+  components: { GiggleWidget },
   props: {
     showResmio: {
       type: Boolean,
