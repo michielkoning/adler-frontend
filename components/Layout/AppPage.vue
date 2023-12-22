@@ -27,10 +27,12 @@
           <resmio-widget v-if="showResmio" />
         </aside>
       </div>
-      <giggle-widget
-        v-if="page.Giggle.giggleWidget"
-        :stream="page.Giggle.giggleWidget"
-      />
+      <client-only>
+        <giggle-widget
+          v-if="page.Giggle.giggleWidget"
+          :stream="page.Giggle.giggleWidget"
+        />
+      </client-only>
     </center-wrapper>
 
     <arrangements-highlights-section />

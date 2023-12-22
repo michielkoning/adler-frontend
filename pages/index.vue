@@ -4,7 +4,10 @@
     <home-content :posts="relatedPosts" />
     <center-wrapper>
       <client-only>
-        <giggle-widget />
+        <giggle-widget
+          v-if="page.Giggle.giggleWidget"
+          :stream="page.Giggle.giggleWidget"
+        />
       </client-only>
     </center-wrapper>
     <facilities-wrapper />
