@@ -29,7 +29,7 @@
       </div>
       <client-only>
         <giggle-widget
-          v-if="page.Giggle.giggleWidget"
+          v-if="page.Giggle && page.Giggle.giggleWidget"
           :stream="page.Giggle.giggleWidget"
         />
       </client-only>
@@ -40,10 +40,7 @@
 </template>
 
 <script>
-import GiggleWidget from '../Shared/GiggleWidget.vue'
-
 export default {
-  components: { GiggleWidget },
   props: {
     showResmio: {
       type: Boolean,

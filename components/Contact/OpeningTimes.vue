@@ -8,11 +8,11 @@
         </dt>
         <dd :key="`hours-${index}`" :class="$style.value">
           <template v-for="hours in openingDay">
-            <span :key="`from-${index}-${hours.from}`">
+            <span :key="`from-${index}-${hours.start}`">
               {{ hours.start }}
             </span>
             –
-            <span :key="`until-${openingDay.day}-${hours.until}`">
+            <span :key="`until-${openingDay.day}-${hours.end}`">
               {{ hours.end }}
             </span>
           </template>
