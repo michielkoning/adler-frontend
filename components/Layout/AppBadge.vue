@@ -14,7 +14,7 @@ export default {
       default: false,
     },
   },
-}
+};
 </script>
 
 <template>
@@ -25,8 +25,6 @@ export default {
     <div class="value" :class="{ 'has-small-text': smallText }">{{ text }}</div>
   </div>
 </template>
-
-
 
 <style lang="postcss" scoped>
 .badge {

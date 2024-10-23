@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-const route = useRoute()
-const { data } = useFetch('/api/pages', {
+const { data } = useFetch("/api/pages", {
   params: {
-    slug: 'speeltuin'
-  }
-})
+    slug: "speeltuin",
+  },
+});
 </script>
 
 <template>
-  <app-page :title="data.title" v-if="data" :content="data.content" />
+  <app-page v-if="data" :title="data.title" :content="data.content" />
 </template>

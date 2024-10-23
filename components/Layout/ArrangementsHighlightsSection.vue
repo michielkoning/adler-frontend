@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-const route = useRoute()
-const { data } = useFetch('/api/arrangements')
+const { data } = useFetch("/api/arrangements");
 </script>
 
 <template>
@@ -10,9 +9,7 @@ const { data } = useFetch('/api/arrangements')
     class="highlights"
   >
     <center-wrapper>
-      <h1 id="arrangements-highlights-title" class="title">
-        $t('title') 
-      </h1>
+      <h1 id="arrangements-highlights-title" class="title">$t('title')</h1>
       <highlights-list :items="data" />
       <div class="button-wrapper">
         <!-- <app-button
@@ -25,8 +22,6 @@ const { data } = useFetch('/api/arrangements')
     </center-wrapper>
   </section>
 </template>
-
-
 
 <style lang="postcss" scoped>
 .highlights {

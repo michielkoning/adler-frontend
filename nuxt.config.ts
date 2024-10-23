@@ -35,6 +35,10 @@ export default defineNuxtConfig({
     // '~/components',
   ],
 
+  nitro: {
+    preset: "netlify",
+  },
+
   postcss: {
     plugins: {
       "postcss-mixins": {

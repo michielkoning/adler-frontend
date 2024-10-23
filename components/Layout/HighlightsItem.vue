@@ -28,10 +28,10 @@ export default {
     },
     tag: {
       type: String,
-      default: 'li',
+      default: "li",
     },
   },
-}
+};
 </script>
 
 <style lang="postcss" module>
