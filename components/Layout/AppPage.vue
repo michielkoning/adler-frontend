@@ -42,7 +42,7 @@ defineProps<{
       </client-only> -->
     </center-wrapper>
 
-    <!-- <arrangements-highlights-section /> -->
+    <arrangements-highlights-section />
   </div>
 </template>
 

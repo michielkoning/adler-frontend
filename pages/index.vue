@@ -2,7 +2,7 @@
 const route = useRoute()
 const { data } = useFetch('/api/pages', {
   params: {
-    slug: 'krimidinner-14-12-24-blutmond'
+    slug: 'speeltuin'
   }
 })
 </script>

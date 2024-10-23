@@ -64,4 +64,19 @@ export default defineNuxtConfig({
   stylelint: {
     lintOnStart: false,
   },
+
+  i18n: {
+    defaultLocale: "nl",
+    lazy: true,
+    langDir: "locales",
+    baseUrl: "https://www.loesje.nl/",
+    locales: [
+      {
+        language: "nl-NL",
+        code: "nl",
+        file: "nl.json",
+      },
+    ],
+  },
+
 })
