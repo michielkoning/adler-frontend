@@ -1,57 +1,18 @@
 {
-  "name": "adler-lingenau",
-  "description": "Familienhotel & Gasthof Adler, in Lingenau im Bregenzerwald",
-  "version": "1.0.0",
+  "name": "nuxt-app",
   "private": true,
-  "author": "Michiel Koning",
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "precommit": "npm run lint",
-    "start": "nuxt start"
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.5",
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/pwa": "^3.3.5",
-    "@vue-a11y/announcer": "^2.1.0",
-    "apollo-fetch": "^0.7.0",
-    "body-scroll-lock": "^3.1.5",
-    "cross-env": "^7.0.3",
-    "graphql-tag": "^2.12.5",
-    "nuxt": "^2.15.8",
-    "nuxt-facebook-pixel-module": "^1.5.0",
-    "nuxt-i18n": "^6.27.3",
-    "throttle-debounce": "^3.0.1",
-    "vue2-google-maps": "^0.10.7",
-    "vuelidate": "^0.7.6"
+    "nuxt": "^3.13.2",
+    "vue": "latest",
+    "vue-router": "latest"
   },
-  "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
-    "@nuxtjs/eslint-config": "^6.0.1",
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/stylelint-module": "^4.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": ">=5.1.0",
-    "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-vue": "^7.17.0",
-    "nodemon": "^2.0.12",
-    "nuxt-svg-loader": "^1.2.0",
-    "postcss-mixins": "^6.2.3",
-    "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.4.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
-  }
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }

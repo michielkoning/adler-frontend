@@ -1,7 +1,0 @@
-#import "./Fragments/PageDetails.gql"
-
-query Page($pageId: ID!) {
-  page(id: $pageId, idType: DATABASE_ID) {
-    ...pageDetails
-  }
-}
