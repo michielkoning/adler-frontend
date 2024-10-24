@@ -1,14 +1,16 @@
 import { z } from "zod";
 import { FeaturedImageSchema } from "./FeaturedImageSchema";
 
-export const PageSchema = z.array(
+export const RelatedPageSchema = z.array(
   z.object({
     id: z.number(),
-    slug: z.string(),
+    link: z
+      .string()
+      .transform((val) => val.replace("https://www.adler-lingenau.com", "")),
     title: z.object({
       rendered: z.string(),
     }),
-    content: z.object({
+    excerpt: z.object({
       rendered: z.string(),
     }),
     _embedded: z.object({
