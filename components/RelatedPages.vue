@@ -1,7 +1,11 @@
 <script lang="ts" setup>
+const props = defineProps<{
+  parentId: number
+}>()
+
 const { data } = useFetch("/api/relatedPages", {
   params: {
-    parentId: 3668,
+    parentId: props.parentId,
   },
 });
 </script>

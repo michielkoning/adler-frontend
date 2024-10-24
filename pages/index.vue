@@ -16,6 +16,6 @@ const { data } = useFetch("/api/pages", {
 
 <template>
   <app-page v-if="data" v-bind="data.content">
-    <related-pages />
+    <related-pages :parent-id="data.id" />
   </app-page>
 </template>
