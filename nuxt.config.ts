@@ -1,12 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: "2024-04-03",
   telemetry: false,
-  css: ['~/assets/css/base.css'],
+  css: ["~/assets/css/base.css"],
 
-  devtools: { 
-    enabled: true 
+  devtools: {
+    enabled: true,
   },
+  image: {
+    densities: [1, 2],
+    domains: ["api.adler-lingenau.com"],
+  },
+
   components: [
     // '~/components/Animations',
     // '~/components/LastMinutes',
@@ -23,7 +28,7 @@ export default defineNuxtConfig({
     // '~/components/Highlights',
     // '~/components/Home',
     // '~/components/Images',
-    '~/components/Layout',
+    "~/components/Layout",
     // '~/components/Menu',
     // '~/components/Menu/MainNavigation',
     // '~/components/Posts/Related',
@@ -82,5 +87,4 @@ export default defineNuxtConfig({
       },
     ],
   },
-
-})
+});

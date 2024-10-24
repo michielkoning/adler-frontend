@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { FeaturedImageSchema } from "./FeaturedImageSchema";
 
 export const PageSchema = z.array(
   z.object({
@@ -10,6 +11,8 @@ export const PageSchema = z.array(
     content: z.object({
       rendered: z.string(),
     }),
-
-  }),
+    _embedded: z.object({
+      "wp:featuredmedia": z.array(FeaturedImageSchema),
+    }),
+  })
 );

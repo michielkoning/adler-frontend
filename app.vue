@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <nuxt-layout>
+    <nuxt-loading-indicator color="var(--color-black)" />
     <nuxt-page />
-  </div>
+  </nuxt-layout>
 </template>

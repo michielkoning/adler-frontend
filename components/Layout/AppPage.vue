@@ -1,21 +1,22 @@
 <script lang="ts" setup>
-defineProps<{
-  title: string
-  content: string
-}>()
+import {Content} from '~/types/Content';
+
+defineProps<Content>()
 </script>
 
 <template>
   <div>
     <center-wrapper>
       <div class="page">
+        <image-hero v-if="image" v-bind="image" class="image" />
+
         <div>
           <article class="body">
             <!-- eslint-disable-next-line -->
             <h1 v-html="title" id="content" tabindex="-1" />
             <!-- <post-date v-if="page.date" :date="page.date" /> -->
             <!-- eslint-disable-next-line -->
-            <div v-html="content" />
+            <div v-html="text" />
           </article>
           <slot />
         </div>
@@ -26,8 +27,7 @@ defineProps<{
           class="gallery"
           :gallery="page.galleryGroup.gallery"
         />
-
-        <image-hero v-else :image="page.featuredImage" class="image" /> -->
+        _ -->
 
         <aside class="sidebar">
           <slot name="sidebar" />
@@ -52,7 +52,7 @@ defineProps<{
 .page {
   display: grid;
   align-items: start;
-  grid-gap: var(--gutter);
+  gap: var(--gutter);
   margin-bottom: var(--spacing-xl);
   padding-top: var(--spacing-m);
 

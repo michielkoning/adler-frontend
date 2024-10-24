@@ -1,0 +1,51 @@
+<script setup lang="ts">
+const { title } = useAppConfig();
+const head = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: "id",
+  addSeoAttributes: true,
+});
+
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | ${title}` : title;
+  },
+});
+</script>
+
+<template>
+  <div>
+    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir">
+      <Head>
+        <Title>{{ title }}</Title>
+        <Link
+          v-for="link in head.link"
+          :id="link.id"
+          :key="link.id"
+          :rel="link.rel"
+          :href="link.href"
+          :hreflang="link.hreflang"
+        />
+
+        <Meta
+          v-for="meta in head.meta"
+          :id="meta.id"
+          :key="meta.id"
+          :property="meta.property"
+          :content="meta.content"
+        />
+      </Head>
+      <Body>
+        <nuxt-route-announcer />
+        <div class="page">
+          <header-top class="page-header-top sa-hidden" />
+          <the-header class="page-header sa-hidden" />
+          <main id="content" class="main" tabindex="-1">
+            <slot />
+          </main>
+          <the-footer class="page-footer sa-hidden" />
+        </div>
+      </Body>
+    </Html>
+  </div>
+</template>

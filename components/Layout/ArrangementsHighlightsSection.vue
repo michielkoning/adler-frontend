@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 const { data } = useFetch("/api/arrangements");
+
+const { t } = useI18n({
+  useScope: "local",
+});
 </script>
 
 <template>
@@ -9,7 +13,9 @@ const { data } = useFetch("/api/arrangements");
     class="highlights"
   >
     <center-wrapper>
-      <h1 id="arrangements-highlights-title" class="title">$t('title')</h1>
+      <h1 id="arrangements-highlights-title" class="title">
+        {{ t("title") }}
+      </h1>
       <highlights-list :items="data" />
       <div class="button-wrapper">
         <!-- <app-button

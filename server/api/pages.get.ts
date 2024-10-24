@@ -1,15 +1,16 @@
 import { z } from "zod";
 import { PageSchema } from "../schemas/PageSchema";
+import { Content } from "~/types/Content";
+import { Page } from "~/types/Page";
+import getFeaturedImage from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
   slug: z.string(),
 });
 
-export default defineEventHandler(async (event) => {
-
-
+export default defineEventHandler(async (event): Promise<Page> => {
   const query = await getValidatedQuery(event, (body) =>
-    querySchema.safeParse(body),
+    querySchema.safeParse(body)
   );
 
   if (!query.success) {
@@ -20,10 +21,10 @@ export default defineEventHandler(async (event) => {
     image: true,
     slug: query.data.slug,
     type: "pages",
-    fields: ["slug", "title", "content", "yoast_head_json", "parent", "acf", "excerpt"],
+    fields: ["slug", "title", "content", "parent", "acf", "excerpt"],
   });
 
-  const response = await $fetch(url)
+  const response = await $fetch(url);
 
   const parsed = PageSchema.safeParse(response);
 
@@ -33,20 +34,21 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-
   if (!parsed.data.length) {
     throw createError({
-      message: 'Page not found'
+      message: "Page not found",
     });
   }
 
-  const item = parsed.data[0]
+  const item = parsed.data[0];
 
   return {
     id: item.id,
     slug: item.slug,
-    title: item.title.rendered,
-    content: item.content.rendered,
-
-  }
+    content: {
+      title: item.title.rendered,
+      text: item.content.rendered,
+      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+    },
+  };
 });
