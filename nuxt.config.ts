@@ -78,7 +78,7 @@ export default defineNuxtConfig({
     defaultLocale: "nl",
     lazy: true,
     langDir: "locales",
-    baseUrl: "https://www.loesje.nl/",
+    baseUrl: "https://www.adler-lingenau.com/",
     locales: [
       {
         language: "nl-NL",
