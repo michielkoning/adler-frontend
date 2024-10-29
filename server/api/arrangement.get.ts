@@ -1,11 +1,24 @@
+import { z } from "zod";
 import { ArrangementSchema } from "../schemas/ArrangementSchema";
 
+const querySchema = z.object({
+  slug: z.string(),
+});
+
 export default defineEventHandler(async (event) => {
+  const query = await getValidatedQuery(event, (body) =>
+    querySchema.safeParse(body)
+  );
+
+  if (!query.success) {
+    throw query.error.issues;
+  }
+
   const url = getUrl({
     image: true,
-    // slug: query.data.slug,
+    slug: query.data.slug,
     type: "arrangement",
-    fields: ["slug", "title", "parent", "acf", "excerpt"],
+    fields: ["slug", "title", "content"],
     pageSize: 3,
   });
 
@@ -27,13 +40,13 @@ export default defineEventHandler(async (event) => {
 
   const item = parsed.data[0];
 
-  return parsed.data.map((item) => {
-    return {
-      id: item.id,
-      slug: item.slug,
+  return {
+    id: item.id,
+    slug: item.slug,
+    content: {
       title: item.title.rendered,
-      excerpt: item.excerpt.rendered,
-      priceFrom: item.acf.price_from,
-    };
-  });
+      text: item.content.rendered,
+      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+    },
+  };
 });

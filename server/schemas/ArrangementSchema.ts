@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { FeaturedImageSchema } from "./FeaturedImageSchema";
 
 export const ArrangementSchema = z.array(
   z.object({
@@ -7,12 +8,11 @@ export const ArrangementSchema = z.array(
     title: z.object({
       rendered: z.string(),
     }),
-    excerpt: z.object({
+    content: z.object({
       rendered: z.string(),
     }),
-    acf: z.object({
-      price_from: z.string().transform(val => Number(val))
-    })
-
-  }),
+    _embedded: z.object({
+      "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
+    }),
+  })
 );
