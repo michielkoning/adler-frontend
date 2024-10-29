@@ -15,5 +15,9 @@ const { data } = await useFetch("/api/arrangement", {
 </script>
 
 <template>
-  <app-page v-if="data" v-bind="data.content" />
+  <!-- <div>{{ data }}</div> -->
+  <app-page v-if="data" v-bind="data.content">
+    <arrangement-prices :prices="data.prices" />
+    <pre>{{ data.response }}</pre>
+  </app-page>
 </template>

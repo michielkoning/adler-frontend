@@ -18,11 +18,12 @@ export default defineEventHandler(async (event) => {
     image: true,
     slug: query.data.slug,
     type: "arrangement",
-    fields: ["slug", "title", "content"],
+    fields: ["slug", "title", "content", "acf"],
     pageSize: 3,
   });
 
   const response = await $fetch(url);
+  // return response;
 
   const parsed = ArrangementSchema.safeParse(response);
 
@@ -43,10 +44,12 @@ export default defineEventHandler(async (event) => {
   return {
     id: item.id,
     slug: item.slug,
+    prices: item.acf.prices,
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
+    response,
   };
 });

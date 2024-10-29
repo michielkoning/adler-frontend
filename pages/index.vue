@@ -7,7 +7,7 @@ defineI18nRoute({
 
 const route = useRoute();
 
-const { data } = useFetch("/api/pages", {
+const { data } = await useFetch("/api/pages", {
   params: {
     slug: route.params.slug,
   },

@@ -13,9 +13,6 @@ export default ({
   search,
   parent,
   productCategory,
-  featured = false,
-  categoryId,
-  isCommerce = false,
   date,
   dateBefore,
   dateAfter,
@@ -34,9 +31,6 @@ export default ({
   search?: string;
   parent?: number;
   productCategory?: string;
-  featured?: boolean;
-  categoryId?: string;
-  isCommerce?: boolean;
   date?: string;
   dateBefore?: string;
   dateAfter?: string;
