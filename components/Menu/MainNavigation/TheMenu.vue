@@ -1,0 +1,16 @@
+<script lang="ts" setup>
+const localePath = useLocalePath();
+</script>
+
+<template>
+  <center-wrapper>
+    <ul>
+      <li><nuxt-link :to="localePath('/')">home</nuxt-link></li>
+      <li>
+        <nuxt-link :to="localePath('/arrangementen/meivakantie-aanbieding/')"
+          >arrangementen</nuxt-link
+        >
+      </li>
+    </ul>
+  </center-wrapper>
+</template>

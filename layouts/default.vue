@@ -38,8 +38,9 @@ useHead({
       <Body>
         <nuxt-route-announcer />
         <div class="page">
-          <header-top class="page-header-top sa-hidden" />
-          <the-header class="page-header sa-hidden" />
+          <!-- <header-top class="page-header-top sa-hidden" /> -->
+          <!-- <the-header class="page-header sa-hidden" /> -->
+          <the-menu />
           <main id="content" class="main" tabindex="-1">
             <slot />
           </main>

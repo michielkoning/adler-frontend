@@ -27,13 +27,13 @@ const { t } = useI18n({
     </div>
 
     <div class="contact">
-      <contact-phone-number itemprop="telephone" />
-      <contact-emailaddress itemprop="email" />
+      <!-- <contact-phone-number itemprop="telephone" />
+      <contact-emailaddress itemprop="email" /> -->
     </div>
 
     <app-button
       size="small"
-      :href="directionsUrl"
+      :href="address.directionsUrl"
       target="_blank"
       rel="noopener"
     >

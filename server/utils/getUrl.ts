@@ -16,6 +16,7 @@ export default ({
   date,
   dateBefore,
   dateAfter,
+  lang,
 }: {
   fields: string[];
   type: string;
@@ -34,6 +35,7 @@ export default ({
   date?: string;
   dateBefore?: string;
   dateAfter?: string;
+  lang?: string;
 }) => {
   const { apiUrl } = useAppConfig();
 
@@ -63,6 +65,9 @@ export default ({
   }
   if (search) {
     url.searchParams.set("search", search);
+  }
+  if (lang) {
+    url.searchParams.set("lang", lang);
   }
   if (parent) {
     url.searchParams.set("parent", parent.toString());

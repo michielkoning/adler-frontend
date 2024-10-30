@@ -1,17 +1,18 @@
-import { ArrangementSchema } from "../schemas/ArrangementSchema";
+import { ArrangementsSchema } from "../schemas/ArrangementsSchema";
 
 export default defineEventHandler(async (event) => {
   const url = getUrl({
     image: true,
+    lang: "nl",
     // slug: query.data.slug,
     type: "arrangement",
-    fields: ["slug", "title", "parent", "acf", "excerpt"],
+    fields: ["slug", "title", "acf", "excerpt"],
     pageSize: 3,
   });
 
   const response = await $fetch(url);
 
-  const parsed = ArrangementSchema.safeParse(response);
+  const parsed = ArrangementsSchema.safeParse(response);
 
   if (!parsed.success) {
     throw createError({
