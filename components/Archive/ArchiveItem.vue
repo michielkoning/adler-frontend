@@ -8,7 +8,7 @@ defineProps<Archive>()
   <clickable-list-item :to="link" class="item">
    <div class="content">
       <h2 class="title">
-        <nuxt-link :to="link" class="link" v-html="title" />
+        <nuxt-link :to="link" class="link"><span v-html="title" /></nuxt-link>
       </h2>
       <post-date v-if="date" :date="date" />
       <div v-html="text" />

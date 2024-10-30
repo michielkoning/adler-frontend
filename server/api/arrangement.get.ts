@@ -19,7 +19,6 @@ export default defineEventHandler(async (event) => {
     slug: query.data.slug,
     type: "arrangement",
     fields: ["slug", "title", "content", "acf"],
-    pageSize: 3,
   });
 
   const response = await $fetch(url);
@@ -50,6 +49,5 @@ export default defineEventHandler(async (event) => {
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
-    response,
   };
 });

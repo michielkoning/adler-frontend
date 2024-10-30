@@ -50,7 +50,7 @@ export default ({
   }
   const allFields = ["id", ...fields];
   url.searchParams.set("status", "publish");
-  url.searchParams.set("_fields", allFields.join(","));
+  // url.searchParams.set("_fields", allFields.join(","));
   if (fields.includes("acf")) {
     url.searchParams.set("acf_format", "standard");
   }

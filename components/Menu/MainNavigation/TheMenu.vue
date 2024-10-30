@@ -14,3 +14,11 @@ const localePath = useLocalePath();
     </ul>
   </center-wrapper>
 </template>
+
+<style lang="postcss" scoped>
+ul {
+  display: flex;
+  list-style: none outside;
+  gap: 1em;
+}
+</style>

@@ -46,5 +46,6 @@
   },
   "requestNow": "Book now",
   "vouchers": "Vouchers",
-  "sold": "Sold"
+  "sold": "Sold",
+  "thisRoomIncludes": "This room is equipped with"
 }

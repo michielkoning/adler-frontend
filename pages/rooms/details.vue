@@ -1,13 +1,15 @@
 <script lang="ts" setup>
 defineI18nRoute({
   paths: {
-    nl: "/[...slug]",
+    de: "/zimmer/[slug]",
+    en: "/rooms/[slug]",
+    nl: "/kamers/[slug]",
   },
 });
 
 const route = useRoute();
 
-const { data } = await useFetch("/api/pages", {
+const { data } = await useFetch("/api/room", {
   params: {
     slug: route.params.slug,
   },
@@ -16,7 +18,6 @@ const { data } = await useFetch("/api/pages", {
 
 <template>
   <app-page v-if="data" v-bind="data.content">
-    <related-pages :parent-id="data.id" />
-    <rooms-list />
+    <room-services v-if="data.services.length" :items="data.services" />
   </app-page>
 </template>

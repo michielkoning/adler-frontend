@@ -1,13 +1,13 @@
-import { z } from "zod";
 import getFeaturedImage from "../utils/getFeaturedImage";
-import { RelatedPageSchema } from "../schemas/RelatedPageSchema";
-import { Archive } from "~/types/Archive";
+import { z } from "zod";
+import { RoomSchema } from "../schemas/RoomSchema";
+import { getTagsByType } from "../utils/getTagsByType";
 
 const querySchema = z.object({
-  parentId: z.string().transform((val) => Number(val)),
+  slug: z.string(),
 });
 
-export default defineEventHandler(async (event): Promise<Archive[]> => {
+export default defineEventHandler(async (event) => {
   const query = await getValidatedQuery(event, (body) =>
     querySchema.safeParse(body)
   );
@@ -18,14 +18,14 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   const url = getUrl({
     image: true,
-    parent: query.data.parentId,
-    type: "pages",
-    fields: ["title", "slug", "excerpt", "acf", "link"],
+    type: "room",
+    fields: ["title", "slug", "content", "acf"],
+    slug: query.data.slug,
   });
 
   const response = await $fetch(url);
 
-  const parsed = RelatedPageSchema.safeParse(response);
+  const parsed = RoomSchema.safeParse(response);
 
   if (!parsed.success) {
     throw createError({
@@ -39,13 +39,17 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     });
   }
 
-  return parsed.data.map((item) => {
-    return {
-      id: item.id,
+  const item = parsed.data[0];
+
+  return {
+    id: item.id,
+    slug: item.slug,
+    // prices: item.acf.prices,
+    content: {
       title: item.title.rendered,
-      link: item.link,
-      text: item.excerpt.rendered,
+      text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
-    };
-  });
+    },
+    services: getTagsByType(item._embedded["wp:term"]),
+  };
 });
