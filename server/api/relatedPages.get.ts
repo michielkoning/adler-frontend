@@ -33,12 +33,6 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     });
   }
 
-  if (!parsed.data.length) {
-    throw createError({
-      message: "Page not found",
-    });
-  }
-
   return parsed.data.map((item) => {
     return {
       id: item.id,
