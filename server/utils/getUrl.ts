@@ -39,7 +39,7 @@ export default ({
 }) => {
   const { apiUrl } = useAppConfig();
 
-  let baseUrl = `${apiUrl}${type}/`;
+  let baseUrl = `${apiUrl}wp/v2/${type}/`;
   // baseUrl = `${baseUrl}${id}`;
 
   const url = new URL(baseUrl);
@@ -50,7 +50,7 @@ export default ({
   }
   const allFields = ["id", ...fields];
   url.searchParams.set("status", "publish");
-  // url.searchParams.set("_fields", allFields.join(","));
+  url.searchParams.set("_fields", allFields.join(","));
   if (fields.includes("acf")) {
     url.searchParams.set("acf_format", "standard");
   }
