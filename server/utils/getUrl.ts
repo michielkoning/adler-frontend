@@ -40,7 +40,9 @@ export default ({
   const { apiUrl } = useAppConfig();
 
   let baseUrl = `${apiUrl}wp/v2/${type}/`;
-  // baseUrl = `${baseUrl}${id}`;
+  if (id) {
+    baseUrl = `${baseUrl}${id}`;
+  }
 
   const url = new URL(baseUrl);
   if (image) {

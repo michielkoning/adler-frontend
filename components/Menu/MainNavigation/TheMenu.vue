@@ -11,6 +11,14 @@ const localePath = useLocalePath();
           >arrangementen</nuxt-link
         >
       </li>
+      <li>
+        <nuxt-link :to="localePath('/kamers/')">rooms</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link :to="localePath('/kinderhotel-bregenzerwald-2/')"
+          >Kinderen</nuxt-link
+        >
+      </li>
     </ul>
   </center-wrapper>
 </template>

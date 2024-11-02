@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { PageListSchema } from "../schemas/PageSchema";
+import { PageSchema } from "../schemas/PageSchema";
+import { Content } from "~/types/Content";
 import { Page } from "~/types/Page";
 import getFeaturedImage from "../utils/getFeaturedImage";
 
@@ -26,7 +27,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   const response = await $fetch(url);
 
-  const parsed = PageListSchema.safeParse(response);
+  const parsed = PageSchema.safeParse(response);
 
   if (!parsed.success) {
     throw createError({
@@ -34,13 +35,13 @@ export default defineEventHandler(async (event): Promise<Page> => {
     });
   }
 
-  if (!parsed.data.length) {
+  if (!parsed.data) {
     throw createError({
       message: "Page not found",
     });
   }
 
-  const item = parsed.data[0];
+  const item = parsed.data;
 
   return {
     id: item.id,

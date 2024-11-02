@@ -50,3 +50,15 @@ useHead({
     </Html>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+</style>

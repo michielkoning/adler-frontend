@@ -1,22 +1,39 @@
 <script lang="ts" setup>
 defineI18nRoute({
   paths: {
-    nl: "/[...slug]",
+    nl: "/",
   },
 });
 
-const route = useRoute();
+const { pageIds } = useAppConfig();
 
-const { data } = await useFetch("/api/pages", {
+const { locale } = useI18n();
+
+const getPageId  = (pageId: {
+  nl: number,
+  de: number,
+  en: number,
+}, locale: string) => {
+  switch (locale) {
+    case 'nl': return pageId.nl
+    case 'en': return pageId.en
+    default: return pageId.de
+  }
+}
+
+const { data } = await useFetch("/api/pageById", {
   params: {
-    slug: route.params.slug,
+    id:  getPageId(pageIds.homePageId, locale.value),
   },
 });
 </script>
 
 <template>
-  <app-page v-if="data" v-bind="data.content">
-    <related-pages :parent-id="data.id" />
-    <rooms-list />
-  </app-page>
+  <div>
+    {{ locale }}
+    <app-page v-if="data" v-bind="data.content">
+      <related-pages :parent-id="data.id" />
+    </app-page>
+    <facilities-section />
+  </div>
 </template>
