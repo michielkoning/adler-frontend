@@ -19,6 +19,16 @@ const localePath = useLocalePath();
           >Kinderen</nuxt-link
         >
       </li>
+      <li>
+        <nuxt-link
+          :to="
+            localePath({
+              name: 'contact',
+            })
+          "
+          >contact</nuxt-link
+        >
+      </li>
     </ul>
   </center-wrapper>
 </template>

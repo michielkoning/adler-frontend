@@ -1,4 +1,3 @@
-.announcer,
 .sr-only {
   @mixin sr-only;
 }
@@ -9,13 +8,6 @@
 
 .visuallyhidden {
   display: none;
-}
-
-@media screen and (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
 }
 
 @media screen and (inverted-colors: inverted) {
