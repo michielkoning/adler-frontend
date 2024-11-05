@@ -1,10 +1,6 @@
 <script setup lang="ts">
 const { title } = useAppConfig();
-const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: "id",
-  addSeoAttributes: true,
-});
+const head = useLocaleHead();
 
 useHead({
   titleTemplate: (titleChunk) => {
