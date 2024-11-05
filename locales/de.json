@@ -1,0 +1,51 @@
+{
+  "prices": "Preise",
+  "bookNow": "Jetzt buchen",
+  "close": "Schließen",
+  "lastMinutes": "Last minutes",
+  "pages": {
+    "home": "Home",
+    "arrangements": "Arrangements",
+    "hotel": "Hotel",
+    "rooms": "Zimmer",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "privacy": "Datenschutzerklärung"
+  },
+  "persons": "0 Personen | 1 Person | {count} Personen",
+  "nights": "0 Nächte | 1 Nacht | {count} Nächte",
+  "adults": "0 Erwachsene | 1 Erwachsene | {count} Erwachsene",
+  "kids": "0 Kinder | 1 Kind | {count} Kinder",
+  "extraNight": "Extra Nacht für {persons}",
+  "services": "Inklusiv",
+  "date": "Datum",
+  "totalPersons": "Gesamtzahl der Personen",
+  "room": "Zimmer",
+  "form": {
+    "name": "Name",
+    "phoneNumber": "Telefon",
+    "email": "Email",
+    "message": "Bericht",
+    "address": "Adresse",
+    "zipcode": "PLZ",
+    "city": "Ort",
+    "country": "Land",
+    "remarks": "Anmerkungen",
+    "totalRooms": "Zimmeranzahl",
+    "totalAdults": "Anzahl Erwachsene",
+    "totalChildren": "Anzahl Kinder",
+    "ageChildren": "Alter der Kinder",
+    "dateArrival": "Datum Ankunft",
+    "dateDeparture": "Datum Abreise",
+    "error": {
+      "required": "Dieses Feld ist verpflichtend einzufüllen",
+      "email": {
+        "incorrect": "Bitte benutzen Sie eine gültige Email-Adresse"
+      }
+    }
+  },
+  "requestNow": "Jetzt anfragen",
+  "vouchers": "Gutscheine",
+  "sold": "Verkauft",
+  "thisRoomIncludes": "Dieses Zimmer ist ausgestattet mit"
+}

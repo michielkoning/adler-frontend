@@ -27,8 +27,8 @@ const { t } = useI18n({
     </div>
 
     <div class="contact">
-      <contact-phone-number itemprop="telephone" />
-      <contact-emailaddress itemprop="email" />
+      <!-- <contact-phone-number itemprop="telephone" />
+      <contact-emailaddress itemprop="email" /> -->
     </div>
 
     <app-button

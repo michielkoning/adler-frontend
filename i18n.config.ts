@@ -1,31 +1,48 @@
+const numberFormats = {
+  currency: {
+    style: "currency",
+    currency: "EUR",
+    currencyDisplay: "symbol",
+  },
+};
+
+const dateTimeFormats = {
+  short: {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  },
+  day: {
+    weekday: "short",
+  },
+};
+
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: "nl",
-
   numberFormats: {
     nl: {
-      currency: {
-        style: "currency",
-        currency: "EUR",
-        currencyDisplay: "symbol",
-      },
+      currency: numberFormats.currency,
+    },
+    en: {
+      currency: numberFormats.currency,
+    },
+    de: {
+      currency: numberFormats.currency,
     },
   },
-  datetimeFormats: {
+  dateTimeFormats: {
     nl: {
-      short: {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      },
-      long: {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-        weekday: "short",
-        hour: "numeric",
-        minute: "numeric",
-      },
+      short: dateTimeFormats.short,
+      day: dateTimeFormats.day,
+    },
+    en: {
+      short: dateTimeFormats.short,
+      day: dateTimeFormats.day,
+    },
+    de: {
+      short: dateTimeFormats.short,
+      day: dateTimeFormats.day,
     },
   },
 }));

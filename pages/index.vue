@@ -1,21 +1,24 @@
 <script lang="ts" setup>
 defineI18nRoute({
   paths: {
-    nl: "/[...slug]",
+    de: "/",
+    en: "/",
+    nl: "/",
   },
 });
 
-const route = useRoute();
+const { pageIds } = useAppConfig();
 
-const { data } = useFetch("/api/pages", {
+const { data } = await useFetch("/api/pageById", {
   params: {
-    slug: route.params.slug,
+    id: getPageId(pageIds.homePageId),
   },
 });
 </script>
 
 <template>
-  <app-page v-if="data" v-bind="data.content">
-    <related-pages :parent-id="data.id" />
-  </app-page>
+  <div>
+    <app-page v-if="data" v-bind="data.content" />
+    <facilities-section />
+  </div>
 </template>

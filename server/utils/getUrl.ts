@@ -13,12 +13,10 @@ export default ({
   search,
   parent,
   productCategory,
-  featured = false,
-  categoryId,
-  isCommerce = false,
   date,
   dateBefore,
   dateAfter,
+  lang,
 }: {
   fields: string[];
   type: string;
@@ -34,17 +32,17 @@ export default ({
   search?: string;
   parent?: number;
   productCategory?: string;
-  featured?: boolean;
-  categoryId?: string;
-  isCommerce?: boolean;
   date?: string;
   dateBefore?: string;
   dateAfter?: string;
+  lang?: string;
 }) => {
   const { apiUrl } = useAppConfig();
 
-  let baseUrl = `${apiUrl}${type}/`;
-  // baseUrl = `${baseUrl}${id}`;
+  let baseUrl = `${apiUrl}wp/v2/${type}/`;
+  if (id) {
+    baseUrl = `${baseUrl}${id}`;
+  }
 
   const url = new URL(baseUrl);
   if (image) {
@@ -69,6 +67,9 @@ export default ({
   }
   if (search) {
     url.searchParams.set("search", search);
+  }
+  if (lang) {
+    url.searchParams.set("lang", lang);
   }
   if (parent) {
     url.searchParams.set("parent", parent.toString());

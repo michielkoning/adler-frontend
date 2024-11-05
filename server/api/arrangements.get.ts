@@ -1,18 +1,18 @@
-import { ArrangementSchema } from "../schemas/ArrangementSchema";
+import { ArrangementsSchema } from "../schemas/ArrangementsSchema";
 
 export default defineEventHandler(async (event) => {
   const url = getUrl({
     image: true,
+    lang: "nl",
     // slug: query.data.slug,
     type: "arrangement",
-    fields: ["slug", "title", "parent", "acf", "excerpt"],
-    pageSize: 3
+    fields: ["slug", "title", "acf", "excerpt"],
+    pageSize: 3,
   });
 
+  const response = await $fetch(url);
 
-  const response = await $fetch(url)
-
-  const parsed = ArrangementSchema.safeParse(response);
+  const parsed = ArrangementsSchema.safeParse(response);
 
   if (!parsed.success) {
     throw createError({
@@ -20,23 +20,21 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-
   if (!parsed.data.length) {
     throw createError({
-      message: 'Page not found'
+      message: "Page not found",
     });
   }
 
-  const item = parsed.data[0]
+  const item = parsed.data[0];
 
-  return parsed.data.map(item => {
+  return parsed.data.map((item) => {
     return {
-    id: item.id,
-    slug: item.slug,
-    title: item.title.rendered,
-    excerpt: item.excerpt.rendered,
-    priceFrom: item.acf.price_from,
-
-    }}
-  )
+      id: item.id,
+      slug: item.slug,
+      title: item.title.rendered,
+      excerpt: item.excerpt.rendered,
+      priceFrom: item.acf.price_from,
+    };
+  });
 });
