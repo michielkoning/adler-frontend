@@ -14,4 +14,46 @@ export default defineAppConfig({
     latitude: 9.922004,
     directionsUrl: "https://www.google.com/maps?daddr=Hof%2043%20Lingenau",
   },
+  facilities: { kids: {
+    title: 'forKids',
+    icon: 'child',
+    list: [
+      'playground',
+      'childrensPlayroom',
+      'dayCare',
+      'bowlingAlley',
+      'childrensMenu',
+      'childFriendlyRestaurant',
+      'babyEquipment',
+      'childrensProgram',
+      'hikingTrailsForChildren',
+    ],
+  },
+  rooms: {
+    title: 'ourRooms',
+    icon: 'bed',
+    list: ['singleRooms', 'doubleRooms', 'familyRooms'],
+  },
+  extras: {
+    title: 'extras',
+    icon: 'ticket',
+    list: [
+      'areaCard',
+      'freeTransport',
+      'valleyPass',
+      'skiPackages',
+      'babyWeeks',
+    ],
+  },
+  environment: {
+    title: 'environment',
+    icon: 'mountain',
+    list: [
+      'skiAreas',
+      'cableCars',
+      'outdoorPools',
+      'childrensProgramsInSurroundings',
+      'walkingPaths',
+    ],
+  },    }
 });

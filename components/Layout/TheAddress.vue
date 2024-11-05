@@ -33,7 +33,7 @@ const { t } = useI18n({
 
     <app-button
       size="small"
-      :href="directionsUrl"
+      :href="address.directionsUrl"
       target="_blank"
       rel="noopener"
     >
