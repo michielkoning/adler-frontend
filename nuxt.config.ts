@@ -1,3 +1,5 @@
+import { name } from "eslint-plugin-prettier/recommended";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
@@ -69,13 +71,14 @@ export default defineNuxtConfig({
     "@nuxtjs/stylelint-module",
     "@nuxt/image",
     "nuxt-schema-org",
+    "@nuxt/fonts",
   ],
   stylelint: {
     lintOnStart: false,
   },
 
   i18n: {
-    strategy: 'prefix',
+    strategy: "prefix",
     defaultLocale: "nl",
     lazy: true,
     baseUrl: "https://www.adler-lingenau.com/",
@@ -83,6 +86,16 @@ export default defineNuxtConfig({
       {
         language: "nl-NL",
         code: "nl",
+      },
+    ],
+  },
+  fonts: {
+    families: [
+      {
+        name: "Dosis",
+        provider: "google",
+        global: true,
+        weights: [500],
       },
     ],
   },

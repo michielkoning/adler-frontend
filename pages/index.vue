@@ -17,8 +17,6 @@ const { data } = await useFetch("/api/pageById", {
 </script>
 
 <template>
-  <div>
-    <app-page v-if="data" v-bind="data.content" />
-    <facilities-section />
-  </div>
+  <home-hero v-if="data" :image="data.content.image" />
+  <facilities-section />
 </template>
