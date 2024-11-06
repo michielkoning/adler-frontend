@@ -17,7 +17,22 @@ export const RoomSchema = z.array(
       "wp:term": TermsListSchema,
     }),
     acf: z.object({
-      price_from: z.string().transform((val) => Number(val)),
+      full_board_high_season: z
+        .string()
+        .optional()
+        .transform((val) => Number(val)),
+      half_board_high_season: z
+        .string()
+        .optional()
+        .transform((val) => Number(val)),
+      full_board_low_season: z
+        .string()
+        .optional()
+        .transform((val) => Number(val)),
+      half_board_low_season: z
+        .string()
+        .optional()
+        .transform((val) => Number(val)),
     }),
   })
 );

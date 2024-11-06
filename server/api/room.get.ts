@@ -44,12 +44,18 @@ export default defineEventHandler(async (event) => {
   return {
     id: item.id,
     slug: item.slug,
-    // prices: item.acf.prices,
+    prices: {
+      fullBoardHighSeason: item.acf.full_board_high_season,
+      halfBoardHighSeason: item.acf.half_board_high_season,
+      fullBoardLowSeason: item.acf.full_board_low_season,
+      halfBoardLowSeason: item.acf.half_board_low_season,
+    },
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
     services: getTagsByType(item._embedded["wp:term"]),
+    response,
   };
 });
