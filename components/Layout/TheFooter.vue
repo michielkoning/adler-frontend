@@ -3,8 +3,8 @@
     <center-wrapper>
       <div class="wrapper">
         <the-address class="address" />
-        <!--  <opening-times />
-        <quick-links class="quick-links" />
+        <opening-times />
+        <!--   <quick-links class="quick-links" />
         <social-media-links /> -->
       </div>
     </center-wrapper>

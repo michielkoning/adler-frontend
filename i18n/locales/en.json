@@ -47,5 +47,6 @@
   "requestNow": "Book now",
   "vouchers": "Vouchers",
   "sold": "Sold",
-  "thisRoomIncludes": "This room is equipped with"
+  "thisRoomIncludes": "This room is equipped with",
+  "openingHours": "Opening hours"
 }

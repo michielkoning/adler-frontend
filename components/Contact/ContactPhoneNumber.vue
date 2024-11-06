@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { phoneNumber } from '~/data/address'
-import IconPhone from '~/icons/phone.svg'
+import { phoneNumber } from "~/data/address";
+import IconPhone from "~/icons/phone.svg";
 
 export default {
   components: {
@@ -21,17 +21,17 @@ export default {
   data() {
     return {
       phoneNumber,
-    }
+    };
   },
   computed: {
     phoneNumberLink() {
-      return `tel:${this.encodeURIComponent(this.phoneNumber)}`
+      return `tel:${this.encodeURIComponent(this.phoneNumber)}`;
     },
   },
   methods: {
     encodeURIComponent(value) {
-      return encodeURIComponent(value)
+      return encodeURIComponent(value);
     },
   },
-}
+};
 </script>
