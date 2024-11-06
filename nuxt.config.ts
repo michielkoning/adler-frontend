@@ -79,13 +79,27 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: "prefix",
-    defaultLocale: "nl",
+    defaultLocale: "de",
     lazy: true,
     baseUrl: "https://www.adler-lingenau.com/",
     locales: [
       {
-        language: "nl-NL",
+        name: "Deutsch",
+        code: "de",
+        language: "de",
+        file: "de.json",
+      },
+      {
+        name: "Nederlands",
         code: "nl",
+        language: "nl",
+        file: "nl.json",
+      },
+      {
+        name: "English",
+        code: "en",
+        language: "en",
+        file: "en.json",
       },
     ],
   },

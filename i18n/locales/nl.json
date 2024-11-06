@@ -75,5 +75,10 @@
   "outdoorPools": "16 buitenzwembaden (met gratis kaart)",
   "childrensProgramsInSurroundings": "Kinderprogramma in Lingenau en omgeving",
   "walkingPaths": "Leuke zomer- en winterwandelpaden",
-  "openingHours": "Openingstijden"
+  "openingHours": "Openingstijden",
+  "highSeason": "Hoogseizoen",
+  "lowSeason": "Tussenseizoen",
+  "fullBoard": "Inclusief ontbijt",
+  "halfBoard": "Halfpension",
+  "monday": "Maandag"
 }

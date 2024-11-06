@@ -18,6 +18,7 @@ const { data } = await useFetch("/api/room", {
 
 <template>
   <app-page v-if="data" v-bind="data.content">
+    <room-prices :prices="data.prices" />
     <room-services v-if="data.services.length" :items="data.services" />
   </app-page>
   <pre>{{ data }}</pre>

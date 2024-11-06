@@ -48,5 +48,9 @@
   "vouchers": "Gutscheine",
   "sold": "Verkauft",
   "thisRoomIncludes": "Dieses Zimmer ist ausgestattet mit",
-  "openingHours": "Öffnungszeiten"
+  "openingHours": "Öffnungszeiten",
+  "highSeason": "Hochsaison",
+  "lowSeason": "Nebensaison",
+  "fullBoard": "Frühstücksbuffet",
+  "halfBoard": "Halbpension"
 }

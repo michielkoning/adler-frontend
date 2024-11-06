@@ -48,5 +48,9 @@
   "vouchers": "Vouchers",
   "sold": "Sold",
   "thisRoomIncludes": "This room is equipped with",
-  "openingHours": "Opening hours"
+  "openingHours": "Opening hours",
+  "highSeason": "High season",
+  "lowSeason": "Low season",
+  "fullBoard": "Full board",
+  "halfBoard": "Half Board"
 }

@@ -8,7 +8,7 @@ const { data } = useFetch("/api/openingHours");
     <dl class="list">
       <template v-for="(openingDay, index) in data" :key="`day-${index}`">
         <dt class="label">
-          {{ index }}
+          {{ $t(index) }}
         </dt>
         <dd class="value">
           <template

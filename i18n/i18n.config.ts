@@ -19,7 +19,6 @@ const dateTimeFormats = {
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "nl",
   numberFormats: {
     nl: {
       currency: numberFormats.currency,

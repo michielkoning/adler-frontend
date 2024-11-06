@@ -56,6 +56,5 @@ export default defineEventHandler(async (event) => {
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
     services: getTagsByType(item._embedded["wp:term"]),
-    response,
   };
 });

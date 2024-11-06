@@ -3,24 +3,23 @@ defineProps<{
   items: any[]
 }>()
 
-const localePath = useLocalePath();
-
 </script>
 
 <template>
   <ul v-if="items.length" class="list">
     <li v-for="item in items" :key="item.id">
       <h2>
-        <nuxt-link
-          :to="
-            localePath({
-              name: 'arrangement',
+        <nuxt-link-locale
+          :to="{
+              name: 'arrangements-details',
               params: {
                 slug: item.slug,
               },
-            })
-          "
-          v-html="item.title"  />
+            }"
+          >
+        <span v-html="item.title" />
+        </nuxt-link-locale>
+
       </h2>
       <div v-html="item.excerpt" />
       <price-badge v-if="item.priceFrom" :price="item.priceFrom" />
