@@ -1,9 +1,15 @@
 <script lang="ts" setup>
 const localePath = useLocalePath();
+
+const { data, error } = await useFetch("/api/menu");
 </script>
 
 <template>
   <center-wrapper>
+    <pre>
+    {{ data }} {{ error }}
+  </pre
+    >
     <ul>
       <li><nuxt-link :to="localePath('/')">home</nuxt-link></li>
       <li>

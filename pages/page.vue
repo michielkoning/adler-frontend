@@ -16,11 +16,15 @@ const slug = computed(() => {
   }
 });
 
-const { data } = await useFetch("/api/pages", {
+const { data, error } = await useFetch("/api/pages", {
   params: {
     slug,
   },
 });
+
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

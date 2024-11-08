@@ -4,7 +4,6 @@ export default defineEventHandler(async (event) => {
   const url = getUrl({
     image: true,
     lang: "nl",
-    // slug: query.data.slug,
     type: "arrangement",
     fields: ["slug", "title", "acf", "excerpt"],
     pageSize: 3,

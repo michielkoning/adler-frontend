@@ -24,7 +24,7 @@ export default ({
   slug?: string;
   page?: number;
   image?: boolean;
-  include?: string;
+  include?: [number];
   exclude?: string;
   subjectIds?: string;
   sourceIds?: string;
