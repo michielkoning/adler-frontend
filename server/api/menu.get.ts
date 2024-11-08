@@ -10,8 +10,10 @@ export default defineEventHandler(async (event) => {
 
   const environmentPageId = pageIds.environmentPageId.nl;
   const hotelPageId = pageIds.hotelPageId.nl;
+  const kidsPageId = pageIds.kidsPageId.nl;
   const arrangementsPageId = pageIds.arrangementsPageId.nl;
   const roomsPageId = pageIds.roomsPageId.nl;
+  const contactPageId = pageIds.contactPageId.nl;
 
   const validateResponse = (response: z.infer<typeof MenuListSchema>) => {
     const parsed = MenuListSchema.safeParse(response);
@@ -39,8 +41,10 @@ export default defineEventHandler(async (event) => {
       include: [
         environmentPageId,
         hotelPageId,
+        kidsPageId,
         arrangementsPageId,
         roomsPageId,
+        contactPageId,
       ],
     });
     $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
@@ -64,8 +68,13 @@ export default defineEventHandler(async (event) => {
     return Promise.all([
       getChildPagesByParent(hotelPageId),
       getChildPagesByParent(environmentPageId),
-    ]).then(([hotelChildPages, environmentChildPages]) => {
-      resolve([...hotelChildPages, ...environmentChildPages]);
+      getChildPagesByParent(kidsPageId),
+    ]).then(([hotelChildPages, environmentChildPages, kidsChildPages]) => {
+      resolve([
+        ...hotelChildPages,
+        ...environmentChildPages,
+        ...kidsChildPages,
+      ]);
     });
   });
 
@@ -125,8 +134,10 @@ export default defineEventHandler(async (event) => {
   const menu = [
     getMenuById(hotelPageId),
     getMenuById(environmentPageId),
+    getMenuById(kidsPageId),
     getMenuById(roomsPageId),
     getMenuById(arrangementsPageId),
+    getMenuById(contactPageId),
   ];
 
   return menu;
