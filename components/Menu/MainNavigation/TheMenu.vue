@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data, error } = await useFetch("/api/menu");
+const { data } = await useFetch("/api/menu");
 </script>
 
 <template>

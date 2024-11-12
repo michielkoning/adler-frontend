@@ -52,5 +52,8 @@
   "highSeason": "High season",
   "lowSeason": "Low season",
   "fullBoard": "Full board",
-  "halfBoard": "Half Board"
+  "halfBoard": "Half Board",
+  "quickLinks": "Useful links",
+  "followUsOnNetwork": "View {title} on",
+  "followUsOn": "Follow us on"
 }

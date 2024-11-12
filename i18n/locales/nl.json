@@ -80,5 +80,8 @@
   "lowSeason": "Tussenseizoen",
   "fullBoard": "Inclusief ontbijt",
   "halfBoard": "Halfpension",
-  "monday": "Maandag"
+  "quickLinks": "Handige links",
+  "monday": "Maandag",
+  "followUsOnNetwork": "Bekijk {title} op",
+  "followUsOn": "Volg ons op"
 }

@@ -52,5 +52,8 @@
   "highSeason": "Hochsaison",
   "lowSeason": "Nebensaison",
   "fullBoard": "Frühstücksbuffet",
-  "halfBoard": "Halbpension"
+  "halfBoard": "Halbpension",
+  "quickLinks": "Nützliche Links",
+  "followUsOnNetwork": "Folgen Sie {title} auf",
+  "followUsOn": "Folgen Sie uns auf"
 }

@@ -5,7 +5,7 @@
     <div class="dot dot-3"></div>
     <div class="dot dot-4"></div>
     <span class="sr-only" aria-live="polite" role="region">
-      {{ $t('title') }}
+      {{ $t("title") }}
     </span>
   </div>
 </template>
