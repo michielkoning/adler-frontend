@@ -3,7 +3,7 @@ const props = defineProps<{
   parentId: number
 }>()
 
-const { data } = useFetch("/api/relatedPages", {
+const { data } = await useFetch("/api/relatedPages", {
   params: {
     parentId: props.parentId,
   },

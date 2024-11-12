@@ -14,6 +14,9 @@ export default defineAppConfig({
     latitude: 9.922004,
     directionsUrl: "https://www.google.com/maps?daddr=Hof%2043%20Lingenau",
   },
+  facebookUrl: "https://www.facebook.com/adler.hotel",
+  twitterUrl: "https://twitter.com/Adler_Hotel",
+  instagramUrl: "https://www.instagram.com/adlerlingenau/",
   pageIds: {
     homePageId: {
       de: 22,
@@ -35,7 +38,7 @@ export default defineAppConfig({
       nl: 3065,
       en: 3109,
     },
-    blogPageId: {
+    postsPageId: {
       de: 26,
       nl: 3112,
       en: 3113,
@@ -64,7 +67,7 @@ export default defineAppConfig({
       de: 4064,
       nl: 4105,
       en: 4107,
-    }
+    },
   },
   facilities: {
     kids: {
@@ -109,5 +112,5 @@ export default defineAppConfig({
         "walkingPaths",
       ],
     },
-  }
-})
+  },
+});

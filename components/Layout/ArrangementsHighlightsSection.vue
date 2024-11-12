@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data } = useFetch("/api/arrangements");
+const { data } = await useFetch("/api/arrangements");
 
 const { t } = useI18n({
   useScope: "local",

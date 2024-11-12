@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { title } = useAppConfig();
+const { title, facebookUrl, instagramUrl } = useAppConfig();
 </script>
 
 <template>

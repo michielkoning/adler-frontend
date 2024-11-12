@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data } = useFetch("/api/openingHours");
+const { data } = await useFetch("/api/openingHours");
 </script>
 
 <template>

@@ -27,6 +27,7 @@ const loading = computed(() => {
     :src="src"
     :preload="loading === 'eager'"
     :width="width"
+    :quality="100"
     :height="height"
     class="image"
     format="avif,webp"

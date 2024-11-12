@@ -25,8 +25,8 @@
         </nuxt-link-locale>
       </li>
       <li class="list-item">
-        <nuxt-link-locale :to="{ name: 'blog-list' }">
-          {{ $t(`pages.blog`) }}
+        <nuxt-link-locale :to="{ name: 'posts-list' }">
+          {{ $t(`pages.posts`) }}
         </nuxt-link-locale>
       </li>
       <li class="list-item">
