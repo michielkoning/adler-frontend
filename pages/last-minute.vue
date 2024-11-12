@@ -9,11 +9,15 @@ defineI18nRoute({
 
 const { pageIds } = useAppConfig();
 
-const { data } = await useFetch("/api/pageById", {
+const { data, error } = await useFetch("/api/pageById", {
   params: {
     id: getPageId(pageIds.lastMinutePageId),
   },
 });
+
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

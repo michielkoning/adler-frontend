@@ -7,11 +7,15 @@ defineI18nRoute({
 
 const route = useRoute();
 
-const { data } = await useFetch("/api/arrangement", {
+const { data, error } = await useFetch("/api/arrangement", {
   params: {
     slug: route.params.slug,
   },
 });
+
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

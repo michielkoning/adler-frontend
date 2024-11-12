@@ -5,7 +5,7 @@
       <tbody>
         <tr v-for="price in prices" :key="price.label">
           <td>{{ price.label }}</td>
-          <td>{{ $n(price.value, "currency") }}</td>
+          <i18n-d value="price.value" format="currency" />
         </tr>
       </tbody>
       <tfoot>

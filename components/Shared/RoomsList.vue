@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const localePath = useLocalePath();
-const { data } = await useFetch("/api/rooms", {
+const { data, error } = await useFetch("/api/rooms", {
   transform: (response) => {
     return response.map((item) => {
       return {
@@ -15,6 +15,10 @@ const { data } = await useFetch("/api/rooms", {
     });
   },
 });
+
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

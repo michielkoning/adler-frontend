@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-const { data } = await useFetch("/api/menu");
+const { data, error } = await useFetch("/api/menu");
+
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-const { data } = await useFetch("/api/arrangements");
+const { data, error } = await useFetch("/api/arrangements");
+
+if (error.value) {
+  throw createError(error.value);
+}
 
 const { t } = useI18n({
   useScope: "local",

@@ -3,11 +3,15 @@ const props = defineProps<{
   parentId: number
 }>()
 
-const { data } = await useFetch("/api/relatedPages", {
+const { data, error } = await useFetch("/api/relatedPages", {
   params: {
     parentId: props.parentId,
   },
 });
+
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

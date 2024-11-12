@@ -13,6 +13,6 @@ const dateTime = computed(() => {
 
 <template>
   <time :datetime="dateTime">
-    <i18n-d :value="new Date(date)" format="short" />
+    {{  $d(new Date(date), 'short') }}
   </time>
 </template>
