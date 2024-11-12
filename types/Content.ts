@@ -4,4 +4,5 @@ export type Content = {
   title: string;
   text: string;
   image?: Image;
+  date?: string;
 };

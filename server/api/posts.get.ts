@@ -6,7 +6,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   const url = getUrl({
     image: true,
     type: "posts",
-    fields: ["title", "slug", "excerpt"],
+    fields: ["title", "slug", "excerpt", "date"],
   });
 
   const response = await $fetch(url);
@@ -15,13 +15,13 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   if (!parsed.success) {
     throw createError({
-      message: parsed.error.issues.map((i) => i.path).join(","),
+      statusMessage: parsed.error.issues.map((i) => i.path).join(","),
     });
   }
 
   if (!parsed.data.length) {
     throw createError({
-      message: "Page not found",
+      statusMessage: "Page not found",
     });
   }
 
@@ -30,6 +30,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
       id: item.id,
       title: item.title.rendered,
       link: item.slug,
+      date: item.date,
       text: item.excerpt.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     };

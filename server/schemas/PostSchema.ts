@@ -5,6 +5,7 @@ export const PostSchema = z.array(
   z.object({
     id: z.number(),
     slug: z.string(),
+    date: z.string(),
     title: z.object({
       rendered: z.string(),
     }),

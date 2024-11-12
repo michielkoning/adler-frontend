@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   const url = getUrl({
     image: true,
     type: "posts",
-    fields: ["title", "slug", "content", "acf"],
+    fields: ["title", "slug", "content", "date"],
     slug: query.data.slug,
   });
 
@@ -28,13 +28,13 @@ export default defineEventHandler(async (event) => {
 
   if (!parsed.success) {
     throw createError({
-      message: parsed.error.issues.map((i) => i.path).join(","),
+      statusMessage: parsed.error.issues.map((i) => i.path).join(","),
     });
   }
 
   if (!parsed.data.length) {
     throw createError({
-      message: "Page not found",
+      statusMessage: "Post not found",
     });
   }
 
@@ -46,6 +46,7 @@ export default defineEventHandler(async (event) => {
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
+      date: item.date,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
   };

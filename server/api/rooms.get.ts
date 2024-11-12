@@ -15,13 +15,13 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   if (!parsed.success) {
     throw createError({
-      message: parsed.error.issues.map((i) => i.path).join(","),
+      statusMessage: parsed.error.issues.map((i) => i.path).join(","),
     });
   }
 
   if (!parsed.data.length) {
     throw createError({
-      message: "Page not found",
+      statusMessage: "Page not found",
     });
   }
 

@@ -13,7 +13,7 @@ const down: Ref<number | null> = ref(null);
 
 const mouseDown = (event: MouseEvent) => {
   const target = event.target as Element;
-  if (target.nodeName === "A" || target.parentNode?.nodeName === "a") {
+  if (target.nodeName.toUpperCase() === "A" || target.parentNode?.nodeName.toUpperCase() === "A") {
     down.value = null;
   } else {
     down.value = +new Date();

@@ -6,17 +6,6 @@ const numberFormats = {
   },
 };
 
-const dateTimeFormats = {
-  short: {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  },
-  day: {
-    weekday: "short",
-  },
-};
-
 export default defineI18nConfig(() => ({
   legacy: false,
   numberFormats: {
@@ -30,18 +19,36 @@ export default defineI18nConfig(() => ({
       currency: numberFormats.currency,
     },
   },
-  dateTimeFormats: {
+  datetimeFormats: {
     nl: {
-      short: dateTimeFormats.short,
-      day: dateTimeFormats.day,
+      short: {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      },
+      day: {
+        weekday: "short",
+      },
     },
     en: {
-      short: dateTimeFormats.short,
-      day: dateTimeFormats.day,
+      short: {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      },
+      day: {
+        weekday: "short",
+      },
     },
     de: {
-      short: dateTimeFormats.short,
-      day: dateTimeFormats.day,
+      short: {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      },
+      day: {
+        weekday: "short",
+      },
     },
   },
 }));

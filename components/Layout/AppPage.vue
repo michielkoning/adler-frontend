@@ -12,10 +12,8 @@ defineProps<Content>()
 
         <div>
           <article class="body">
-            <!-- eslint-disable-next-line -->
             <h1 v-html="title" id="content" tabindex="-1" />
-            <!-- <post-date v-if="page.date" :date="page.date" /> -->
-            <!-- eslint-disable-next-line -->
+            <post-date v-if="date" :date="date" />
             <div v-html="text" />
           </article>
           <slot />

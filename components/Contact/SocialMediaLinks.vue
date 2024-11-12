@@ -9,7 +9,6 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
       <li class="list-item">
         <a class="link" :href="facebookUrl" rel="noopener" target="_blank">
           <app-icon icon="facebook" />
-          <icon-facebook aria-hidden="true" width="36" height="36" />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {

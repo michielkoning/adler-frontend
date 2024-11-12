@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
   if (!parsed.success) {
     throw createError({
-      message: parsed.error.issues.map((i) => i.path).join(","),
+      statusMessage: parsed.error.issues.map((i) => i.path).join(","),
     });
   }
 
