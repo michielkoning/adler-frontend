@@ -15,9 +15,9 @@ const { data, error } = await useFetch("/api/arrangement", {
   },
 });
 
-// if (error.value) {
-//   throw createError(error.value);
-// }
+if (error.value) {
+  throw createError(error.value);
+}
 </script>
 
 <template>

@@ -22,7 +22,9 @@ export default {
     <div class="label">
       {{ prefix }}
     </div>
-    <div class="value" :class="{ 'has-small-text': smallText }">{{ text }}</div>
+    <div class="value" :class="{ 'has-small-text': smallText }">
+      {{ text }}
+    </div>
   </div>
 </template>
 

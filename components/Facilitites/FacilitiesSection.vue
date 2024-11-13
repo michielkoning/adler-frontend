@@ -5,7 +5,9 @@ const { facilities } = useAppConfig();
 <template>
   <section class="facilities" :aria-label="$t('ourFacilities')">
     <center-wrapper>
-      <h1 class="title">{{ $t("ourFacilities") }}</h1>
+      <h1 class="title">
+        {{ $t("ourFacilities") }}
+      </h1>
 
       <div class="row">
         <facilities-group :facility="facilities.kids" />
