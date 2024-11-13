@@ -50,6 +50,7 @@ export default defineEventHandler(async (event) => {
       fullBoardLowSeason: item.acf.full_board_low_season,
       halfBoardLowSeason: item.acf.half_board_low_season,
     },
+    bookUrl: item.acf.book_url,
     content: {
       title: item.title.rendered,
       text: item.content.rendered,

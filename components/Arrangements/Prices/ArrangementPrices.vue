@@ -11,7 +11,7 @@
       <tfoot>
         <tr>
           <td colspan="2">
-            {{ $t("disclaimer") }}
+            {{ $t("arrangementDisclaimer") }}
           </td>
         </tr>
       </tfoot>
@@ -29,17 +29,3 @@ export default {
   },
 };
 </script>
-
-<i18n>
-{
-  "nl": {
-    "disclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, exclusief toeristenbelasting."
-  },
-  "de": {
-    "disclaimer": "Die genannten Preise sind die Gesamtpreise für das Arrangement exkl. Kurtaxe."
-  },
-  "en": {
-    "disclaimer": "Displayed prices are pices of the total package, excluding tourist tax."
-  }
-}
-</i18n>

@@ -12,7 +12,7 @@ defineProps<{
     <div class="value">
       {{ $n(price, 'currency') }}
     </div>
-    <div class="suffix">{{ $t('suffix') }}</div>
+    <div class="suffix">{{ $t('perPersonAndNight') }}</div>
   </div>
 </template>
 
@@ -45,16 +45,3 @@ defineProps<{
 }
 </style>
 
-<i18n>
-{
-  "nl": {
-    "suffix": "per pers & nacht"
-  },
-  "de": {
-    "suffix": "pro Pers. & Nacht"
-  },
-  "en": {
-    "suffix": "per person & night"
-  }
-}
-</i18n>

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 defineI18nRoute({
   paths: {
+    de: "/arrangements/[slug]",
+    en: "/arrangements/[slug]",
     nl: "/arrangementen/[slug]",
   },
 });
@@ -13,13 +15,14 @@ const { data, error } = await useFetch("/api/arrangement", {
   },
 });
 
-if (error.value) {
-  throw createError(error.value);
-}
+// if (error.value) {
+//   throw createError(error.value);
+// }
 </script>
 
 <template>
   <app-page v-if="data" v-bind="data.content">
-    <arrangement-prices :prices="data.prices" />
+    {{ data.prices }}
+    <!-- <arrangement-prices :prices="data.prices" /> -->
   </app-page>
 </template>

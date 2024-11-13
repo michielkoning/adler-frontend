@@ -57,17 +57,3 @@ export default {
   display: none;
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "from": "Vanaf"
-  },
-  "de": {
-    "from": "Ab"
-  },
-  "en": {
-    "from": "From"
-  }
-}
-</i18n>

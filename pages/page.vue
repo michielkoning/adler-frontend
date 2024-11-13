@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 defineI18nRoute({
   paths: {
+    de: "/[...slug]",
+    en: "/[...slug]",
     nl: "/[...slug]",
   },
 });

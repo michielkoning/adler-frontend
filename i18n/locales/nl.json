@@ -84,5 +84,13 @@
   "monday": "Maandag",
   "followUsOnNetwork": "Bekijk {title} op",
   "followUsOn": "Volg ons op",
-  "readMore": "Lees verder"
+  "readMore": "Lees verder",
+  "metaNavigationTitle": "Contact en taalkeuze",
+  "address": "Adres",
+  "austria": "Oostenrijk",
+  "directions": "Routebeschrijving",
+  "arrangementDisclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, exclusief toeristenbelasting.",
+  "showSubmenuFor": "Toon submenu voor {title}",
+  "from": "Vanaf",
+  "perPersonAndNight": "per pers & nacht"
 }

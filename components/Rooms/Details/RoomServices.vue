@@ -27,17 +27,3 @@ defineProps<{
   }
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "title": "Deze kamer is voorzien van"
-  },
-  "de": {
-    "title": "Dieses Zimmer ist ausgestattet mit"
-  },
-  "en": {
-    "title": "This room is equipped with"
-  }
-}
-</i18n>

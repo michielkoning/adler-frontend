@@ -56,5 +56,13 @@
   "quickLinks": "Nützliche Links",
   "followUsOnNetwork": "Folgen Sie {title} auf",
   "followUsOn": "Folgen Sie uns auf",
-  "readMore": "Mehr Info"
+  "readMore": "Mehr Info",
+  "metaNavigationTitle": "Kontakt und Wahl der Sprache",
+  "address": "Adresse",
+  "austria": "Österreich",
+  "directions": "Routenbeschreibung",
+  "arrangementDisclaimer": "Die genannten Preise sind die Gesamtpreise für das Arrangement exkl. Kurtaxe.",
+  "showSubmenuFor": "Untermenü anzeigen für {title}",
+  "from": "Ab",
+  "perPersonAndNight": "pro Pers. & Nacht"
 }

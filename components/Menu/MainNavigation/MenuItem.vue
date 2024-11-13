@@ -96,7 +96,7 @@ const controlId = `menu-${props.id}`
 }
 
 .icon {
-  transition: transform var(--animation);
+  transition: transform var(--transition);
 }
 
 

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 defineI18nRoute({
   paths: {
-    de: "/privacy-policy",
-    en: "/privacy-policy",
-    nl: "/privacy-policy",
+    de: "/arrangements",
+    en: "/arrangements",
+    nl: "/arrangementen",
   },
 });
 

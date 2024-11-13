@@ -3,7 +3,8 @@
     <center-wrapper>
       <div class="background">
         <div class="content">
-          <nuxt-link-locale class="logo" :to="{ name: 'index' }">
+          <div class="logo-wrapper">logo</div>
+          <!-- <nuxt-link-locale class="logo" :to="{ name: 'index' }">
             <app-icon
               icon="logo"
               class="image"
@@ -12,8 +13,9 @@
               height="424"
             />
             <span class="sr-only">{{ title }}</span>
-          </nuxt-link-locale>
-          <the-menu />
+          </nuxt-link-locale> -->
+          <meta-navigation class="meta-navigation" />
+          <the-menu class="main-navigation" />
         </div>
       </div>
     </center-wrapper>
@@ -35,10 +37,7 @@
 
 .background {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   height: 100vh;
   overflow: hidden;
   z-index: var(--z-main-navigation);
@@ -98,6 +97,25 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+.meta-navigation {
+  align-self: start;
+  justify-self: end;
+}
+
+.main-navigation {
+  order: -1;
+
+  @media (--navigation-md) {
+    grid-column: span 2;
+    order: 1;
+    align-self: end;
+  }
+
+  @media (--navigation-lg) {
+    grid-column: span 1;
+  }
 }
 
 .image {

@@ -1,14 +1,10 @@
 <script lang="ts" setup>
 const { address, title } = useAppConfig();
-
-const { t } = useI18n({
-  useScope: "local",
-});
 </script>
 
 <template>
   <address itemscope itemtype="http://schema.org/Organization" class="">
-    <h2>{{ t("address") }}</h2>
+    <h2>{{ $t("address") }}</h2>
     <div class="address">
       {{ title }}
       <div
@@ -22,23 +18,22 @@ const { t } = useI18n({
         <br />
       </div>
 
-      <span itemprop="addressCountry">{{ t(address.country) }}</span> -
+      <span itemprop="addressCountry">{{ $t(address.country) }}</span> -
       <span itemprop="addressRegion">{{ address.region }}</span>
     </div>
 
     <div class="contact">
-      <!-- <contact-phone-number itemprop="telephone" />
-      <contact-emailaddress itemprop="email" /> -->
+      <contact-phone-number itemprop="telephone" />
+      <contact-emailaddress itemprop="email" />
     </div>
 
     <app-button
+      :title="$t('directions')"
       size="small"
-      :href="address.directionsUrl"
+      :to="address.directionsUrl"
       target="_blank"
-      rel="noopener"
-    >
-      {{ t("directions") }}
-    </app-button>
+      external
+    />
   </address>
 </template>
 
@@ -51,23 +46,3 @@ const { t } = useI18n({
   margin-bottom: var(--spacing-m);
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "address": "Adres",
-    "austria": "Oostenrijk",
-    "directions": "Routebeschrijving"
-  },
-  "de": {
-    "address": "Adresse",
-    "austria": "Österreich",
-    "directions": "Routenbeschreibung"
-  },
-  "en": {
-    "address": "Address",
-    "austria": "Austria",
-    "directions": "Travel directions"
-  }
-}
-</i18n>

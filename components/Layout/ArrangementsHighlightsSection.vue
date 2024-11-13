@@ -24,7 +24,7 @@ const { t } = useI18n({
       <div class="button-wrapper">
         <!-- <app-button
           :to="localePath({ name: 'arrangements' })"
-          button-style="ghost"
+          variant="ghost"
         >
           {{ $t('btnTitle') }}
         </app-button> -->

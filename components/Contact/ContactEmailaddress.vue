@@ -1,32 +1,15 @@
-<template>
-  <contact-item-wrapper>
-    <template #icon>
-      <icon-mail aria-hidden="true" width="20" height="20" />
-    </template>
+<script lang="ts" setup>
+const { address } = useAppConfig();
 
-    <a :href="emailAddressLink" v-bind="$attrs">
-      {{ emailAddress }}
-    </a>
-  </contact-item-wrapper>
-</template>
-
-<script>
-import { emailAddress } from "~/data/address";
-import IconMail from "~/icons/envelope.svg";
-
-export default {
-  components: {
-    IconMail,
-  },
-  data() {
-    return {
-      emailAddress,
-    };
-  },
-  computed: {
-    emailAddressLink() {
-      return `mailto:${this.emailAddress}`;
-    },
-  },
-};
+const emailLink = computed(() => {
+  return `mailto:${encodeURIComponent(address.emailAddress)}`;
+});
 </script>
+
+<template>
+  <contact-item-wrapper
+    :title="address.emailAddress"
+    :url="emailLink"
+    icon="envelope"
+  />
+</template>

@@ -60,7 +60,7 @@ if (error.value) {
   }
 
   &.active {
-    transition: all var(--animation);
+    transition: all var(--transition);
   }
 }
 </style>
