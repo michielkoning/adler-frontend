@@ -3,6 +3,7 @@ const numberFormats = {
     style: "currency",
     currency: "EUR",
     currencyDisplay: "symbol",
+    trailingZeroDisplay: "stripIfInteger",
   },
 };
 

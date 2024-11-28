@@ -28,9 +28,11 @@ const url = localePath          ({
 
       </h2>
       <div v-html="item.text" />
+      <read-more class="read-more" />
+
       <price-badge v-if="item.price" :price="item.price" class="price-badge" />
     </div>
-    <app-image v-bind="item.image" v-if="item.image" class="image" />
+    <app-image v-bind="item.image" v-if="item.image" class="image" sizes="100vw md:33vw xl:400px" />
 
   </clickable-list-item>
 </template>

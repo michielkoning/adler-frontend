@@ -36,8 +36,6 @@
 }
 
 .background {
-  position: fixed;
-  inset: 0;
   height: 100vh;
   overflow: hidden;
   z-index: var(--z-main-navigation);
