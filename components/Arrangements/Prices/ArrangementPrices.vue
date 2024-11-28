@@ -1,17 +1,26 @@
+<script lang="ts" setup>
+import type { ArrangementPrices } from '~/types/Arangement';
+
+defineProps<{
+prices: ArrangementPrices
+}>()
+</script>
+
 <template>
-  <div v-if="prices && prices.length">
+  <div>
     <h2>{{ $t("prices") }}</h2>
     <table>
       <tbody>
-        <tr v-for="price in prices" :key="price.label">
-          <td>{{ price.label }}</td>
-          <i18n-d value="price.value" format="currency" />
-        </tr>
+          <arrangement-price
+          v-for="price in prices" :key="price.label"
+          :price="price"
+        />
+
       </tbody>
       <tfoot>
         <tr>
           <td colspan="2">
-            {{ $t("arrangementDisclaimer") }}
+            {{ t("arrangementDisclaimer") }}
           </td>
         </tr>
       </tfoot>
@@ -19,13 +28,3 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    prices: {
-      type: Array,
-      default: () => [],
-    },
-  },
-};
-</script>

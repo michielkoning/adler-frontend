@@ -1,41 +1,39 @@
+<script lang="ts" setup>
+import type { ArrangementPrice } from '~/types/Arangement';
+
+const props = defineProps<{
+price: ArrangementPrice
+}>()
+
+const { t } = useI18n()
+
+const label = computed(() => {
+      if (props.price.extra_night) {
+        const persons = t("persons", props.price.extra_night);
+        return t("extraNight", { persons });
+      } else if (props.price.nights) {
+        const nights = t("nights", props.price.nights);
+        const adults = t("adults", props.price.adults);
+        const kids = t("kids", props.price.kids);
+        return `${nights}: ${adults} & ${kids}`;
+      } else if (props.price.label) {
+        return props.price.label;
+      }
+      return "";
+    })
+</script>
+
+
 <template>
-  <tr v-if="label">
-    <!-- eslint-disable-next-line vue/no-v-html -->
+  <tr>
     <td v-html="label" />
-    <td :class="$style.price">
-      <!-- {{ $n(price.value, "currency") | currency }} -->
+    <td class="price">
+      {{ n(price.value, "currency") }}
     </td>
   </tr>
 </template>
 
-<script>
-export default {
-  props: {
-    price: {
-      type: Object,
-      default: () => {},
-    },
-  },
-  computed: {
-    label() {
-      if (this.price.extraNight) {
-        const persons = this.$tc("persons", this.price.extraNight);
-        return this.$t("extraNight", { persons });
-      } else if (this.price.nights) {
-        const nights = this.$tc("nights", this.price.nights);
-        const adults = this.$tc("adults", this.price.adults);
-        const kids = this.$tc("kids", this.price.kids);
-        return `${nights}: ${adults} & ${kids}`;
-      } else if (this.price.label) {
-        return this.price.label;
-      }
-      return "";
-    },
-  },
-};
-</script>
-
-<style lang="postcss" module>
+<style lang="postcss" scoped>
 .price {
   font-weight: var(--font-weight-bold);
   text-align: right;

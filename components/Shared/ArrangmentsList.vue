@@ -3,7 +3,7 @@ const { locale } = useI18n();
 
 const localePath = useLocalePath();
 
-const { data, error } = await useFetch("/api/rooms", {
+const { data, error } = await useFetch("/api/arrangements", {
   params: {
     locale,
   },
@@ -12,7 +12,7 @@ const { data, error } = await useFetch("/api/rooms", {
       return {
         ...item,
         link: localePath({
-          name: "rooms-details",
+          name: "arrangements-details",
           params: {
             slug: item.link,
           },

@@ -1,12 +1,12 @@
 import { z } from "zod";
 import { ArrangementSchema } from "../schemas/ArrangementSchema";
+import { Arrangement } from "~/types/Arangement";
 
 const querySchema = z.object({
   slug: z.string(),
-  locale: z.string(),
 });
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<Arrangement> => {
   const query = await getValidatedQuery(event, (body) =>
     querySchema.safeParse(body)
   );
