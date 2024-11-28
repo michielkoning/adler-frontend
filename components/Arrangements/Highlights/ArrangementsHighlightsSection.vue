@@ -27,7 +27,9 @@ if (error.value) {
       <div class="button-wrapper">
         <app-button
           :title="$t('viewAllArrangements')"
-          :to="{ name: 'arrangements' }"
+          :to="{
+            name: 'arrangements-list',
+          }"
           variant="ghost"
         />
       </div>

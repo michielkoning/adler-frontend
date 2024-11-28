@@ -6,12 +6,12 @@ const props = defineProps<{
 }>()
 const localePath = useLocalePath()
 
-const url = localePath          ({
-              name: 'arrangements-details',
-              params: {
-                slug: props.item.link,
-              },
-            })
+const url = localePath({
+  name: 'arrangements-details',
+  params: {
+    slug: props.item.link,
+  },
+})
 
 </script>
 
@@ -25,7 +25,6 @@ const url = localePath          ({
           >
         <span v-html="item.title" />
         </nuxt-link>
-
       </h2>
       <div v-html="item.text" />
       <read-more class="read-more" />
@@ -36,8 +35,6 @@ const url = localePath          ({
 
   </clickable-list-item>
 </template>
-
-
 
 <style lang="postcss" scoped>
 .item {

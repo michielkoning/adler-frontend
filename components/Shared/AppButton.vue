@@ -4,7 +4,6 @@ import type { NuxtLinkProps } from '#app';
 const props = withDefaults(defineProps<NuxtLinkProps & {
   buttonTag?: string,
   type?: 'submit' | 'button',
-  href?: string,
   variant?: 'primary' | 'ghost',
   size?: 'small' | 'medium' | 'large',
   isFullWidth?: boolean,
@@ -12,7 +11,8 @@ const props = withDefaults(defineProps<NuxtLinkProps & {
 }>(), {
   variant: 'primary',
   size: 'medium',
-  type: 'button'
+  type: 'button',
+  isFullWidth: false
 })
 
 const component = computed(() => {

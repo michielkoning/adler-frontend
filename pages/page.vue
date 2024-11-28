@@ -30,11 +30,7 @@ if (error.value) {
 </script>
 
 <template>
-  <div>
-    <the-page v-if="data" v-bind="data.content">
-      <related-pages :parent-id="data.id" />
-      <!-- <rooms-list /> -->
-    </the-page>
-    <facilities-section />
-  </div>
+  <the-page v-if="data" v-bind="data.content">
+    <related-pages :parent-id="data.id" />
+  </the-page>
 </template>
