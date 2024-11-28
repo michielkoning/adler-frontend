@@ -25,7 +25,7 @@ export default ({
   page?: number;
   image?: boolean;
   include?: [number];
-  exclude?: string;
+  exclude?: number;
   subjectIds?: string;
   sourceIds?: string;
   pageSize?: number;
@@ -75,7 +75,7 @@ export default ({
     url.searchParams.set("parent", parent.toString());
   }
   if (exclude) {
-    url.searchParams.set("exclude", exclude);
+    url.searchParams.set("exclude", exclude.toString());
   }
   if (include) {
     url.searchParams.set("include", include);

@@ -7,6 +7,10 @@ const querySchema = z.object({
     .string()
     .optional()
     .transform((val) => Number(val)),
+  exclude: z
+    .string()
+    .optional()
+    .transform((val) => Number(val)),
 });
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
@@ -24,6 +28,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     type: "arrangement",
     fields: ["slug", "title", "acf", "excerpt"],
     pageSize: query.data.pageSize,
+    exclude: query.data.exclude,
   });
 
   const response = await $fetch(url);

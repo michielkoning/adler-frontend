@@ -21,5 +21,25 @@ if (error.value) {
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content" />
+  <the-page v-if="data" v-bind="data.content">
+    <block-map />
+    <div class="wrapper">
+      <the-address />
+      <opening-times />
+      <social-media-links />
+    </div>
+  </the-page>
 </template>
+
+<style lang="postcss" scoped>
+@import "~/assets/css/media-queries/media-queries.css";
+
+.wrapper {
+  display: grid;
+  grid-gap: var(--gutter);
+
+  @media (--viewport-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  }
+}
+</style>

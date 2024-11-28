@@ -20,7 +20,7 @@ prices: ArrangementPrices
       <tfoot>
         <tr>
           <td colspan="2">
-            {{ t("arrangementDisclaimer") }}
+            {{ $t("arrangementDisclaimer") }}
           </td>
         </tr>
       </tfoot>
