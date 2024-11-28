@@ -1,15 +1,8 @@
 import { z } from "zod";
+import { ArchiveSchema } from "./ArchiveSchema";
 
 export const ArrangementsSchema = z.array(
-  z.object({
-    id: z.number(),
-    slug: z.string(),
-    title: z.object({
-      rendered: z.string(),
-    }),
-    excerpt: z.object({
-      rendered: z.string(),
-    }),
+  ArchiveSchema.extend({
     acf: z.object({
       price_from: z.string().transform((val) => Number(val)),
     }),

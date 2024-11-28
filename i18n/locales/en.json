@@ -64,5 +64,7 @@
   "arrangementDisclaimer": "Displayed prices are pices of the total package, excluding tourist tax.",
   "showSubmenuFor": "Show submenu for {title}",
   "from": "From",
-  "perPersonAndNight": "per person & night"
+  "perPersonAndNight": "per person & night",
+  "ourHighlightedArrangements": "Our highlighted arrangements",
+  "viewAllArrangements": "View all our arrangements"
 }

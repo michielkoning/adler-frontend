@@ -21,13 +21,13 @@ if (error.value) {
 </script>
 
 <template>
-  <app-page v-if="data" v-bind="data.content">
+  <the-page v-if="data" v-bind="data.content">
     <room-prices :prices="data.prices" />
     <room-services v-if="data.services.length" :items="data.services" />
     <template #sidebar>
       <div />
     </template>
     <!-- <btn-book-room :url="data.bookUrl" /> -->
-  </app-page>
+  </the-page>
   <pre>{{ data }}</pre>
 </template>

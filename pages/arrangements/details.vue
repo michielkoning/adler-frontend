@@ -21,8 +21,8 @@ if (error.value) {
 </script>
 
 <template>
-  <app-page v-if="data" v-bind="data.content">
+  <the-page v-if="data" v-bind="data.content">
     {{ data.prices }}
     <!-- <arrangement-prices :prices="data.prices" /> -->
-  </app-page>
+  </the-page>
 </template>

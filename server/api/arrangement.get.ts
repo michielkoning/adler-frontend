@@ -3,6 +3,7 @@ import { ArrangementSchema } from "../schemas/ArrangementSchema";
 
 const querySchema = z.object({
   slug: z.string(),
+  locale: z.string(),
 });
 
 export default defineEventHandler(async (event) => {
@@ -22,7 +23,6 @@ export default defineEventHandler(async (event) => {
   });
 
   const response = await $fetch(url);
-  // return response;
 
   const parsed = ArrangementSchema.safeParse(response);
 

@@ -81,7 +81,6 @@
   "fullBoard": "Inclusief ontbijt",
   "halfBoard": "Halfpension",
   "quickLinks": "Handige links",
-  "monday": "Maandag",
   "followUsOnNetwork": "Bekijk {title} op",
   "followUsOn": "Volg ons op",
   "readMore": "Lees verder",
@@ -92,5 +91,16 @@
   "arrangementDisclaimer": "Vermelde prijzen zijn prijzen van de totale voor het pakket, exclusief toeristenbelasting.",
   "showSubmenuFor": "Toon submenu voor {title}",
   "from": "Vanaf",
-  "perPersonAndNight": "per pers & nacht"
+  "perPersonAndNight": "per pers & nacht",
+  "openingTimes": {
+    "monday": "ma",
+    "tuesday": "di",
+    "wednesday": "wo",
+    "thursday": "do",
+    "friday": "vr",
+    "saturday": "za",
+    "sunday": "zo"
+  },
+  "ourHighlightedArrangements": "Onze uitgelichte arrangementen",
+  "viewAllArrangements": "Bekijk al onze arrangementen"
 }

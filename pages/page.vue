@@ -31,10 +31,10 @@ if (error.value) {
 
 <template>
   <div>
-    <app-page v-if="data" v-bind="data.content">
+    <the-page v-if="data" v-bind="data.content">
       <related-pages :parent-id="data.id" />
       <!-- <rooms-list /> -->
-    </app-page>
+    </the-page>
     <facilities-section />
   </div>
 </template>

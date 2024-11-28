@@ -1,12 +1,29 @@
+import { Archive } from "~/types/Archive";
 import { ArrangementsSchema } from "../schemas/ArrangementsSchema";
+import { z } from "zod";
 
-export default defineEventHandler(async (event) => {
+const querySchema = z.object({
+  pageSize: z
+    .string()
+    .optional()
+    .transform((val) => Number(val)),
+});
+
+export default defineEventHandler(async (event): Promise<Archive[]> => {
+  const query = await getValidatedQuery(event, (body) =>
+    querySchema.safeParse(body)
+  );
+
+  if (!query.success) {
+    throw query.error.issues;
+  }
+
   const url = getUrl({
     image: true,
     lang: "nl",
     type: "arrangement",
     fields: ["slug", "title", "acf", "excerpt"],
-    pageSize: 3,
+    pageSize: query.data.pageSize,
   });
 
   const response = await $fetch(url);
@@ -25,15 +42,14 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const item = parsed.data[0];
-
   return parsed.data.map((item) => {
     return {
       id: item.id,
-      slug: item.slug,
+      link: item.slug,
       title: item.title.rendered,
-      excerpt: item.excerpt.rendered,
-      priceFrom: item.acf.price_from,
+      text: item.excerpt.rendered,
+      price: item.acf.price_from,
+      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     };
   });
 });

@@ -21,7 +21,7 @@ if (error.value) {
 </script>
 
 <template>
-  <app-page v-if="data" v-bind="data.content">
+  <the-page v-if="data" v-bind="data.content">
     <rooms-list />
-  </app-page>
+  </the-page>
 </template>

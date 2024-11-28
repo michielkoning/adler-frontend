@@ -19,13 +19,13 @@ const mouseDown = (event: MouseEvent) => {
     down.value = +new Date();
   }
 };
-const mouseUp = () => {
+const mouseUp = async () => {
   if (!down.value) {
     return;
   }
   const up = +new Date();
   if (up - down.value < 200) {
-    navigateTo(props.to, {
+   await navigateTo(props.to, {
       external: props.external,
     });
   }

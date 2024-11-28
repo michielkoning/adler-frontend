@@ -23,8 +23,8 @@ const {title, address} = useAppConfig()
         <app-icon
           icon="logo-hero"
           aria-hidden="true"
-          width="800"
-          height="96"
+          :width="800"
+          :height="96"
           class="icon"
         />
         <h1 id="content" tabindex="-1" class="sr-only">

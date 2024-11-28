@@ -12,17 +12,17 @@ if (error.value) {
     <dl class="list">
       <template v-for="(openingDay, index) in data" :key="`day-${index}`">
         <dt class="label">
-          {{ $t(index) }}
+          {{ $t(`openingTimes.${index}`) }}
         </dt>
         <dd class="value">
-          <template
+          <span
             v-for="hours in openingDay"
             :key="`from-${index}-${hours.start}`"
           >
             {{ hours.start }}
             –
             {{ hours.end }}
-          </template>
+          </span>
         </dd>
       </template>
     </dl>
@@ -41,5 +41,7 @@ if (error.value) {
 
 .value {
   margin: 0;
+  display: flex;
+  gap: 1ch;
 }
 </style>

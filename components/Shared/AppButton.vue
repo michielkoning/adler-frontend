@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-const props = withDefaults(defineProps<{
-  to?: string,
+import type { NuxtLinkProps } from '#app';
+
+const props = withDefaults(defineProps<NuxtLinkProps & {
   buttonTag?: string,
   type?: 'submit' | 'button',
   href?: string,
