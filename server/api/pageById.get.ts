@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { PageSchema } from "../schemas/PageSchema";
-import { Content } from "~/types/Content";
 import { Page } from "~/types/Page";
-import getFeaturedImage from "../utils/getFeaturedImage";
+import { getUrl } from "../utils/getUrl";
+import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
   slug: z.string().optional(),

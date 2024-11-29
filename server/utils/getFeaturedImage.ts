@@ -2,7 +2,7 @@ import { z } from "zod";
 import type { Image } from "~/types/Image";
 import { FeaturedImageSchema } from "../schemas/FeaturedImageSchema";
 
-export default (
+export const getFeaturedImage = (
   featuredImage: z.infer<typeof FeaturedImageSchema>[] | undefined
 ) => {
   if (!featuredImage) {

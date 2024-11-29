@@ -22,7 +22,8 @@ if (error.value) {
 
 <template>
   <the-page v-if="data" v-bind="data.content">
-    <block-map />
+    <!-- <block-map /> -->
+    <form-contact />
     <div class="wrapper">
       <the-address />
       <opening-times />

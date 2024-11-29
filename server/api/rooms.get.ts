@@ -1,6 +1,7 @@
-import getFeaturedImage from "../utils/getFeaturedImage";
 import { Archive } from "~/types/Archive";
 import { RoomsSchema } from "../schemas/RoomsSchema";
+import { getUrl } from "../utils/getUrl";
+import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
   const url = getUrl({

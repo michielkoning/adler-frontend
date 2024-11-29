@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { ArrangementSchema } from "../schemas/ArrangementSchema";
 import { Arrangement } from "~/types/Arangement";
+import { getUrl } from "../utils/getUrl";
+import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
   slug: z.string(),

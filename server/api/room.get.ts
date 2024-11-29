@@ -1,7 +1,8 @@
-import getFeaturedImage from "../utils/getFeaturedImage";
 import { z } from "zod";
 import { RoomSchema } from "../schemas/RoomSchema";
 import { getTagsByType } from "../utils/getTagsByType";
+import { getUrl } from "../utils/getUrl";
+import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
   slug: z.string(),

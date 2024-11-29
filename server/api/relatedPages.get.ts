@@ -1,7 +1,8 @@
 import { z } from "zod";
-import getFeaturedImage from "../utils/getFeaturedImage";
 import { RelatedPageSchema } from "../schemas/RelatedPageSchema";
 import { Archive } from "~/types/Archive";
+import { getUrl } from "../utils/getUrl";
+import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
   parentId: z.string().transform((val) => Number(val)),

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { MenuListSchema } from "../schemas/MenuSchema";
+import { getUrl } from "../utils/getUrl";
 
 export default defineEventHandler(async (event) => {
   const { pageIds } = useAppConfig();

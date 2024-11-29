@@ -1,6 +1,8 @@
 import { Archive } from "~/types/Archive";
 import { ArrangementsSchema } from "../schemas/ArrangementsSchema";
 import { z } from "zod";
+import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { getUrl } from "../utils/getUrl";
 
 const querySchema = z.object({
   pageSize: z
