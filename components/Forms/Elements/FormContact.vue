@@ -16,7 +16,6 @@ const validationSchema = toTypedSchema(
       .min(1, { message: "This is required" })
       .email({ message: "Must be a valid email" })
       .default("mich@asasc.com"),
-    password: string().min(1, { message: "This is required" }).default("asds"),
   }),
 );
 
@@ -27,9 +26,6 @@ const { handleSubmit, errors, defineField } = useForm({
 const [email, emailProps] = defineField("email", {
   validateOnModelUpdate: false,
 });
-const { value: password } = useField("password", {
-  validateOnModelUpdate: false,
-});
 
 const onSubmit = handleSubmit((values) => {
   console.log(values);
@@ -38,50 +34,35 @@ const onSubmit = handleSubmit((values) => {
 </script>
 
 <template>
-  <form-fieldset :title="$t('title')">
-    <form :validation-schema="validationSchema" @submit="onSubmit">
-      {{ email }}
-      <input v-model="email" name="email" type="email" v-bind="emailProps" />
-      <span>{{ errors.email }}</span>
-
-      <input v-model="password" name="password" type="password" />
-      <span>{{ errors.password }}</span>
+  <form :validation-schema="validationSchema" @submit="onSubmit">
+    <form-fieldset :title="$t('title')">
       <form-input-text
         v-model="email"
         name="email"
         :title="$t('form.email')"
         type="email"
+        :error-message="errors.email"
         autocomplete="email"
         v-bind="emailProps"
       />
-      {{ emailProps }}
-      <button>Submit</button>
-    </form>
 
-    <!-- <div v-if="v$.formData.$error">Name field has an error.</div> -->
-    <form-input-text
-      v-model="formData.email"
-      name="email"
-      :title="$t('form.email')"
-      type="email"
-      autocomplete="email"
-    />
-    <form-input-text
-      v-model="formData.phone"
-      name="phone"
-      :title="$t('form.phoneNumber')"
-      type="tel"
-      autocomplete="tel"
-    />
-    <!-- <form-textarea
+      <form-input-text
+        v-model="formData.phone"
+        name="phone"
+        :title="$t('form.phoneNumber')"
+        type="tel"
+        autocomplete="tel"
+      />
+      <!-- <form-textarea
       id="message"
       v-model.trim="formData.message"
-      :error-message="errorMessageMessage"
+      :error="errorMessageMessage"
       :title="$t('form.message')"
       rows="4"
       type="message"
     /> -->
-  </form-fieldset>
+    </form-fieldset>
+  </form>
 </template>
 
 <i18n>

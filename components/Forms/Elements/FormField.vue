@@ -11,7 +11,7 @@ defineProps<{
   <div>
     <label :for="id" class="label">{{ title }}</label>
     <slot />
-    <!-- <error-message :error-message="errorMessage" class="error-message" /> -->
+    <form-error-message :errorMessage="errorMessage" class="error-message" />
   </div>
 </template>
 
@@ -28,3 +28,4 @@ defineProps<{
   margin-top: var(--spacing-xxs);
 }
 </style>
+
