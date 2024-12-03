@@ -28,17 +28,16 @@ const {
 
 <template>
   <form-field :id="id" :title="title" :name="name">
-    <input
+    <textarea
       :id="id"
       :name="name"
       v-bind="$attrs"
-      :value="inputValue"
       @input="handleChange"
       @blur="handleBlur"
       :type="type"
       class="field"
-
-    />
+    >{{  inputValue }}
+    </textarea>
   </form-field>
 </template>
 

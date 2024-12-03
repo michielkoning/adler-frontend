@@ -23,12 +23,16 @@ if (error.value) {
 <template>
   <the-page v-if="data" v-bind="data.content">
     <!-- <block-map /> -->
-    <form-contact />
     <div class="wrapper">
       <the-address />
       <opening-times />
       <social-media-links />
     </div>
+    <template #sidebar>
+      <sitebar-item-section :title="$t('form.formContact')">
+        <form-contact />
+      </sitebar-item-section>
+    </template>
   </the-page>
 </template>
 

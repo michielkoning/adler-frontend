@@ -1,5 +1,6 @@
 export default defineAppConfig({
   apiUrl: "https://api.adler-lingenau.com/wp-json/",
+  baseUrl: "https://adler-lingenau.com",
   title: "Adler Lingenau",
   address: {
     street: "Hof 43",

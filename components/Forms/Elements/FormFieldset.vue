@@ -17,13 +17,12 @@ defineProps<{
 .fieldset {
   border: 0;
   padding: 0;
-  margin: 0;
+  margin: 0 0 var(--spacing-m);
   min-width: 0;
 }
 
 .fieldset + .fieldset {
   border-top: 1px solid var(--color-gray);
-  margin-top: var(--spacing-m);
   padding-top: var(--spacing-m);
 }
 

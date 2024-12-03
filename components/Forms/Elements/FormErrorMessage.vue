@@ -1,8 +1,17 @@
 <script lang="ts" setup>
-defineProps<{
-  errorMessage?: string;
+import { useField,  ErrorMessage as oaaa } from 'vee-validate';
+
+const props = defineProps<{
+  name: string
 }>()
+
+const name = toRef(props, 'name');
+
+const {
+  errorMessage,
+} = useField(name, undefined);
 </script>
+
 
 <template>
   <span aria-live="assertive">{{ errorMessage }}</span>

@@ -2,6 +2,7 @@
 defineProps<{
   id: string;
   title: string;
+  name: string
   errorMessage?: string;
 }>()
 
@@ -11,7 +12,7 @@ defineProps<{
   <div>
     <label :for="id" class="label">{{ title }}</label>
     <slot />
-    <form-error-message :errorMessage="errorMessage" class="error-message" />
+    <form-error-message :name="name" class="error-message" />
   </div>
 </template>
 

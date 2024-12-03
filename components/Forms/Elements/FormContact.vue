@@ -1,83 +1,37 @@
 <script lang="ts" setup>
-import { useField, useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
-import { object, string } from "zod";
-
-const formData = reactive({
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-});
+import z from "zod";
 
 const validationSchema = toTypedSchema(
-  object({
-    email: string()
+  z.object({
+    email: z
+      .string()
       .min(1, { message: "This is required" })
       .email({ message: "Must be a valid email" })
-      .default("mich@asasc.com"),
+      .default(""),
+    phone: z.string().default(""),
+    message: z.string().default(""),
   }),
 );
-
-const { handleSubmit, errors, defineField } = useForm({
-  validationSchema,
-});
-
-const [email, emailProps] = defineField("email", {
-  validateOnModelUpdate: false,
-});
-
-const onSubmit = handleSubmit((values) => {
-  console.log(values);
-  alert(JSON.stringify(values, null, 2));
-});
 </script>
 
 <template>
-  <form :validation-schema="validationSchema" @submit="onSubmit">
-    <form-fieldset :title="$t('title')">
+  <app-form :validation-schema="validationSchema" name="contact">
+    <form-fieldset :title="$t('form.formContact')">
       <form-input-text
-        v-model="email"
         name="email"
         :title="$t('form.email')"
         type="email"
-        :error-message="errors.email"
         autocomplete="email"
-        v-bind="emailProps"
       />
 
       <form-input-text
-        v-model="formData.phone"
         name="phone"
         :title="$t('form.phoneNumber')"
         type="tel"
         autocomplete="tel"
       />
-      <!-- <form-textarea
-      id="message"
-      v-model.trim="formData.message"
-      :error="errorMessageMessage"
-      :title="$t('form.message')"
-      rows="4"
-      type="message"
-    /> -->
+      <form-textarea name="message" :title="$t('form.message')" rows="4" />
     </form-fieldset>
-  </form>
+  </app-form>
 </template>
-
-<i18n>
-{
-  "nl": {
-    "title": "Neem contact met ons op",
-    "btnText": "Verzenden"
-  },
-  "de": {
-    "title": "Nehmen Sie Kontakt mit uns auf",
-    "btnText": "Senden"
-  },
-  "en": {
-    "title": "Contact us",
-    "btnText": "Send"
-  }
-}
-</i18n>
