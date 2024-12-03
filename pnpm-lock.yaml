@@ -11,15 +11,15 @@ importers:
       '@nuxt/image':
         specifier: ^1.8.1
         version: 1.8.1(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.26.0)(webpack-sources@3.2.3)
-      '@vuelidate/core':
-        specifier: ^2.0.3
-        version: 2.0.3(vue@3.5.13(typescript@5.6.3))
-      '@vuelidate/validators':
-        specifier: ^2.0.4
-        version: 2.0.4(vue@3.5.13(typescript@5.6.3))
+      '@vee-validate/zod':
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.13(typescript@5.6.3))
       body-scroll-lock:
         specifier: ^3.1.5
         version: 3.1.5
+      vee-validate:
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.13(typescript@5.6.3))
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.6.3)
@@ -1601,6 +1601,9 @@ packages:
     peerDependencies:
       vue: '>=2.7 || >=3'
 
+  '@vee-validate/zod@4.14.7':
+    resolution: {integrity: sha512-UD0Tfyz1cKKd7BinnUztqKL+oeMjg/T4ZEguN/uZV4DsR9z7gdrD0lOuOU7aVl9UpVK6NM7MhDka35Lj7b/DTw==}
+
   '@vercel/nft@0.27.6':
     resolution: {integrity: sha512-mwuyUxskdcV8dd7N7JnxBgvFEz1D9UOePI/WyLLzktv6HSCwgPNQGit/UJ2IykAWGlypKw4pBQjOKWvIbXITSg==}
     engines: {node: '>=16'}
@@ -1678,6 +1681,9 @@ packages:
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
+  '@vue/devtools-api@7.6.7':
+    resolution: {integrity: sha512-PV4I31WaV2rfA8RGauM+69uFEzWkqtP561RiLU2wK+Ce85u3zyKW3aoESlLCNzkc4y0JaJyskH6zAE3xWOP8+Q==}
+
   '@vue/devtools-core@7.4.4':
     resolution: {integrity: sha512-DLxgA3DfeADkRzhAfm3G2Rw/cWxub64SdP5b+s5dwL30+whOGj+QNhmyFpwZ8ZTrHDFRIPj0RqNzJ8IRR1pz7w==}
     peerDependencies:
@@ -1686,8 +1692,14 @@ packages:
   '@vue/devtools-kit@7.4.4':
     resolution: {integrity: sha512-awK/4NfsUG0nQ7qnTM37m7ZkEUMREyPh8taFCX+uQYps/MTFEum0AD05VeGDRMXwWvMmGIcWX9xp8ZiBddY0jw==}
 
+  '@vue/devtools-kit@7.6.7':
+    resolution: {integrity: sha512-V8/jrXY/swHgnblABG9U4QCbE60c6RuPasmv2d9FvVqc5d94t1vDiESuvRmdNJBdWz4/D3q6ffgyAfRVjwHYEw==}
+
   '@vue/devtools-shared@7.6.4':
     resolution: {integrity: sha512-nD6CUvBEel+y7zpyorjiUocy0nh77DThZJ0k1GRnJeOmY3ATq2fWijEp7wk37gb023Cb0R396uYh5qMSBQ5WFg==}
+
+  '@vue/devtools-shared@7.6.7':
+    resolution: {integrity: sha512-QggO6SviAsolrePAXZ/sA1dSicSPt4TueZibCvydfhNDieL1lAuyMTgQDGst7TEvMGb4vgYv2I+1sDkO4jWNnw==}
 
   '@vue/reactivity@3.5.13':
     resolution: {integrity: sha512-NaCwtw8o48B9I6L1zl2p41OHo/2Z4wqYGGIK1Khu5T7yxrn+ATOixn/Udn2m+6kZKB/J7cuT9DbWWhRxqixACg==}
@@ -1708,24 +1720,6 @@ packages:
 
   '@vue/shared@3.5.13':
     resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
-
-  '@vuelidate/core@2.0.3':
-    resolution: {integrity: sha512-AN6l7KF7+mEfyWG0doT96z+47ljwPpZfi9/JrNMkOGLFv27XVZvKzRLXlmDPQjPl/wOB1GNnHuc54jlCLRNqGA==}
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^2.0.0 || >=3.0.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-
-  '@vuelidate/validators@2.0.4':
-    resolution: {integrity: sha512-odTxtUZ2JpwwiQ10t0QWYJkkYrfd0SyFYhdHH44QQ1jDatlZgTh/KRzrWVmn/ib9Gq7H4hFD4e8ahoo5YlUlDw==}
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^2.0.0 || >=3.0.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
 
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
@@ -4982,6 +4976,11 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
+  vee-validate@4.14.7:
+    resolution: {integrity: sha512-XVb1gBFJR57equ11HEI8uxNqFJkwvCP/b+p+saDPQYaW7k45cdF5jsYPEJud1o29GD6h2y7Awm7Qfm89yKi74A==}
+    peerDependencies:
+      vue: ^3.4.26
+
   vite-hot-client@0.2.3:
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}
     peerDependencies:
@@ -5115,17 +5114,6 @@ packages:
 
   vue-bundle-renderer@2.1.1:
     resolution: {integrity: sha512-+qALLI5cQncuetYOXp4yScwYvqh8c6SMXee3B+M7oTZxOgtESP0l4j/fXdEJoZ+EdMxkGWIj+aSEyjXkOdmd7g==}
-
-  vue-demi@0.13.11:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
-    engines: {node: '>=12'}
-    hasBin: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
 
   vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
@@ -7127,6 +7115,14 @@ snapshots:
       unhead: 1.11.11
       vue: 3.5.13(typescript@5.6.3)
 
+  '@vee-validate/zod@4.14.7(vue@3.5.13(typescript@5.6.3))':
+    dependencies:
+      type-fest: 4.26.1
+      vee-validate: 4.14.7(vue@3.5.13(typescript@5.6.3))
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - vue
+
   '@vercel/nft@0.27.6':
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.11
@@ -7270,6 +7266,10 @@ snapshots:
 
   '@vue/devtools-api@6.6.4': {}
 
+  '@vue/devtools-api@7.6.7':
+    dependencies:
+      '@vue/devtools-kit': 7.6.7
+
   '@vue/devtools-core@7.4.4(vite@5.4.11(@types/node@22.9.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       '@vue/devtools-kit': 7.4.4
@@ -7292,7 +7292,21 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.1
 
+  '@vue/devtools-kit@7.6.7':
+    dependencies:
+      '@vue/devtools-shared': 7.6.7
+      birpc: 0.2.19
+      hookable: 5.5.3
+      mitt: 3.0.1
+      perfect-debounce: 1.0.0
+      speakingurl: 14.0.1
+      superjson: 2.2.1
+
   '@vue/devtools-shared@7.6.4':
+    dependencies:
+      rfdc: 1.4.1
+
+  '@vue/devtools-shared@7.6.7':
     dependencies:
       rfdc: 1.4.1
 
@@ -7321,16 +7335,6 @@ snapshots:
   '@vue/shared@3.5.12': {}
 
   '@vue/shared@3.5.13': {}
-
-  '@vuelidate/core@2.0.3(vue@3.5.13(typescript@5.6.3))':
-    dependencies:
-      vue: 3.5.13(typescript@5.6.3)
-      vue-demi: 0.13.11(vue@3.5.13(typescript@5.6.3))
-
-  '@vuelidate/validators@2.0.4(vue@3.5.13(typescript@5.6.3))':
-    dependencies:
-      vue: 3.5.13(typescript@5.6.3)
-      vue-demi: 0.13.11(vue@3.5.13(typescript@5.6.3))
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -11111,6 +11115,12 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
+  vee-validate@4.14.7(vue@3.5.13(typescript@5.6.3)):
+    dependencies:
+      '@vue/devtools-api': 7.6.7
+      type-fest: 4.26.1
+      vue: 3.5.13(typescript@5.6.3)
+
   vite-hot-client@0.2.3(vite@5.4.11(@types/node@22.9.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)):
     dependencies:
       vite: 5.4.11(@types/node@22.9.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
@@ -11239,10 +11249,6 @@ snapshots:
   vue-bundle-renderer@2.1.1:
     dependencies:
       ufo: 1.5.4
-
-  vue-demi@0.13.11(vue@3.5.13(typescript@5.6.3)):
-    dependencies:
-      vue: 3.5.13(typescript@5.6.3)
 
   vue-devtools-stub@0.1.0: {}
 

@@ -3,6 +3,7 @@ withDefaults(defineProps<{
   title: string
   name: string
   type?: 'text' | 'email' | 'tel'
+  errorMessage?: string
 }>(), {
   type: 'text'
 })
@@ -15,16 +16,17 @@ defineOptions({
 
 const id = useId();
 
-const emit = defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue', 'blur']);
 </script>
 
 <template>
-  <form-field :id="id" :title="title">
+  <form-field :id="id" :title="title" :error-message="errorMessage">
     <input
       :id="id"
       :name="name"
       v-bind="$attrs"
       v-model="model"
+      @blur="$emit('blur')"
       :type="type"
       class="field"
     />

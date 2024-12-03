@@ -74,14 +74,6 @@ export default defineNuxtConfig({
   stylelint: {
     lintOnStart: false,
   },
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        esModuleInterop: true,
-      },
-    },
-    strict: true,
-  },
   i18n: {
     strategy: "prefix",
     defaultLocale: "de",

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { required, email } from "@vuelidate/validators";
-import { useVuelidate } from "@vuelidate/core";
+import { useField, useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { object, string } from "zod";
 
 const formData = reactive({
   name: "",
@@ -9,23 +10,54 @@ const formData = reactive({
   message: "",
 });
 
-const rules = {
-  name: { required },
-  email: { required, email },
-};
+const validationSchema = toTypedSchema(
+  object({
+    email: string()
+      .min(1, { message: "This is required" })
+      .email({ message: "Must be a valid email" })
+      .default("mich@asasc.com"),
+    password: string().min(1, { message: "This is required" }).default("asds"),
+  }),
+);
 
-const v$ = useVuelidate(rules, formData);
+const { handleSubmit, errors, defineField } = useForm({
+  validationSchema,
+});
+
+const [email, emailProps] = defineField("email", {
+  validateOnModelUpdate: false,
+});
+const { value: password } = useField("password", {
+  validateOnModelUpdate: false,
+});
+
+const onSubmit = handleSubmit((values) => {
+  console.log(values);
+  alert(JSON.stringify(values, null, 2));
+});
 </script>
 
 <template>
   <form-fieldset :title="$t('title')">
-    {{ formData }}
-    <form-input-text
-      v-model="formData.name"
-      name="name"
-      :title="$t('form.name')"
-      autocomplete="name"
-    />
+    <form :validation-schema="validationSchema" @submit="onSubmit">
+      {{ email }}
+      <input v-model="email" name="email" type="email" v-bind="emailProps" />
+      <span>{{ errors.email }}</span>
+
+      <input v-model="password" name="password" type="password" />
+      <span>{{ errors.password }}</span>
+      <form-input-text
+        v-model="email"
+        name="email"
+        :title="$t('form.email')"
+        type="email"
+        autocomplete="email"
+        v-bind="emailProps"
+      />
+      {{ emailProps }}
+      <button>Submit</button>
+    </form>
+
     <!-- <div v-if="v$.formData.$error">Name field has an error.</div> -->
     <form-input-text
       v-model="formData.email"
