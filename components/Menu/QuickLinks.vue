@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ $t("title") }}</h2>
+    <h2>{{ $t("usefulLinks") }}</h2>
 
     <ul class="list">
       <li class="list-item">
