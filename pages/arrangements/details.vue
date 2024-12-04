@@ -23,5 +23,13 @@ if (error.value) {
 <template>
   <the-page v-if="data" v-bind="data.content">
     <arrangement-prices :prices="data.prices" />
+
+    <template #sidebar>
+      <related-list-section
+        v-if="data.relatedArrangements.length"
+        :items="data.relatedArrangements"
+        :title="$t('relatedArrangements')"
+      />
+    </template>
   </the-page>
 </template>

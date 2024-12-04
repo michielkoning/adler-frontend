@@ -42,6 +42,12 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
 
   const item = parsed.data[0];
 
+  const relatedArrangements = await $fetch("/api/arrangements", {
+    params: {
+      exclude: item.id,
+    },
+  });
+
   return {
     id: item.id,
     slug: item.slug,
@@ -51,5 +57,6 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
+    relatedArrangements,
   };
 });

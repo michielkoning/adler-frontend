@@ -1,3 +1,4 @@
+import type { Archive } from "./Archive";
 import type { Page } from "./Page";
 
 export type ArrangementPrice = {
@@ -14,4 +15,5 @@ export type ArrangementPrices = ArrangementPrice[];
 
 export type Arrangement = Page & {
   prices: ArrangementPrices;
+  relatedArrangements: Archive[];
 };

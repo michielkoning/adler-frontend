@@ -42,6 +42,12 @@ export default defineEventHandler(async (event) => {
 
   const item = parsed.data[0];
 
+  const relatedRooms = await $fetch("/api/rooms", {
+    params: {
+      exclude: item.id,
+    },
+  });
+
   return {
     id: item.id,
     slug: item.slug,
@@ -58,5 +64,6 @@ export default defineEventHandler(async (event) => {
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
     services: getTagsByType(item._embedded["wp:term"]),
+    relatedRooms,
   };
 });
