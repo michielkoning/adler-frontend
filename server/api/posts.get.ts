@@ -2,12 +2,29 @@ import { Archive } from "~/types/Archive";
 import { PostsSchema } from "../schemas/PostsSchema";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { z } from "zod";
+
+const querySchema = z.object({
+  exclude: z
+    .string()
+    .optional()
+    .transform((val) => Number(val)),
+});
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
+  const query = await getValidatedQuery(event, (body) =>
+    querySchema.safeParse(body)
+  );
+
+  if (!query.success) {
+    throw query.error.issues;
+  }
+
   const url = getUrl({
     image: true,
     type: "posts",
     fields: ["title", "slug", "excerpt", "date"],
+    exclude: query.data.exclude,
   });
 
   const response = await $fetch(url);

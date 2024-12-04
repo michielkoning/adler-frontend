@@ -21,5 +21,13 @@ if (error.value) {
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content" />
+  <the-page v-if="data" v-bind="data.content">
+    <template #sidebar>
+      <related-list-section
+        v-if="data.relatedPosts.length"
+        :items="data.relatedPosts"
+        :title="$t('relatedPosts')"
+      />
+    </template>
+  </the-page>
 </template>

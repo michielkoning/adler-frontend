@@ -29,9 +29,9 @@ if (error.value) {
       <social-media-links />
     </div>
     <template #sidebar>
-      <sitebar-item-section :title="$t('form.formContact')">
+      <sidebar-item-section :title="$t('form.formContact')">
         <form-contact />
-      </sitebar-item-section>
+      </sidebar-item-section>
     </template>
   </the-page>
 </template>
