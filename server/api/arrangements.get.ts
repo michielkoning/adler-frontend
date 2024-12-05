@@ -5,6 +5,7 @@ import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { getUrl } from "../utils/getUrl";
 
 const querySchema = z.object({
+  locale: z.string(),
   pageSize: z
     .string()
     .optional()
@@ -31,6 +32,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     fields: ["slug", "title", "acf", "excerpt"],
     pageSize: query.data.pageSize,
     exclude: query.data.exclude,
+    locale: query.data.locale,
+    orderby: "menu_order",
+    order: "asc",
   });
 
   const response = await $fetch(url);

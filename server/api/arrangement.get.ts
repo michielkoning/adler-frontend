@@ -5,6 +5,7 @@ import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
+  locale: z.string(),
   slug: z.string(),
 });
 
@@ -45,6 +46,7 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
   const relatedArrangements = await $fetch("/api/arrangements", {
     params: {
       exclude: item.id,
+      locale: query.data.locale,
     },
   });
 

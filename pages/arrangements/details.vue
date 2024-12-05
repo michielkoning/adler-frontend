@@ -8,10 +8,12 @@ defineI18nRoute({
 });
 
 const route = useRoute();
+const { locale } = useI18n();
 
 const { data, error } = await useFetch("/api/arrangement", {
   params: {
     slug: route.params.slug,
+    locale,
   },
 });
 

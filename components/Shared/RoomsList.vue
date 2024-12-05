@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const { locale } = useI18n();
-
 const localePath = useLocalePath();
 
 const { data, error } = await useFetch("/api/rooms", {

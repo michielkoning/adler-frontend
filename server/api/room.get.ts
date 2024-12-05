@@ -6,6 +6,7 @@ import { getFeaturedImage } from "../utils/getFeaturedImage";
 
 const querySchema = z.object({
   slug: z.string(),
+  locale: z.string(),
 });
 
 export default defineEventHandler(async (event) => {
@@ -45,6 +46,7 @@ export default defineEventHandler(async (event) => {
   const relatedRooms = await $fetch("/api/rooms", {
     params: {
       exclude: item.id,
+      locale: query.data.locale,
     },
   });
 

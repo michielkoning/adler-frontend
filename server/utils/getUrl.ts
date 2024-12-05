@@ -19,6 +19,7 @@ export const getUrl = ({
   lang,
   orderby,
   order,
+  locale,
 }: {
   fields: string[];
   type: string;
@@ -40,6 +41,7 @@ export const getUrl = ({
   lang?: string;
   orderby?: "menu_order";
   order?: "asc" | "desc";
+  locale?: string;
 }) => {
   const { apiUrl } = useAppConfig();
 
@@ -99,7 +101,9 @@ export const getUrl = ({
   if (pageSize) {
     url.searchParams.set("per_page", pageSize.toString());
   }
-
+  if (locale) {
+    url.searchParams.set("lang", locale);
+  }
   if (orderby) {
     url.searchParams.set("orderby", orderby);
     url.searchParams.set("order", order ?? "asc");

@@ -5,6 +5,7 @@ import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { z } from "zod";
 
 const querySchema = z.object({
+  locale: z.string(),
   exclude: z
     .string()
     .optional()
@@ -25,6 +26,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     type: "room",
     fields: ["title", "slug", "excerpt", "acf"],
     exclude: query.data.exclude,
+    locale: query.data.locale,
+    orderby: "menu_order",
+    order: "asc",
   });
 
   const response = await $fetch(url);

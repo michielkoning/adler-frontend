@@ -3,9 +3,12 @@ const props = defineProps<{
   parentId: number
 }>()
 
+const { locale } = useI18n();
+
 const { data, error } = await useFetch("/api/relatedPages", {
   params: {
     parentId: props.parentId,
+    locale,
   },
 });
 
