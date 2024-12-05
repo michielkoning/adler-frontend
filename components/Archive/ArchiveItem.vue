@@ -45,7 +45,11 @@ defineProps<Archive>()
   &:focus-within,
   &:hover {
     & .link {
-      box-shadow: 0 2px 0 0 var(--color-primary);
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--color-primary);
     }
   }
 

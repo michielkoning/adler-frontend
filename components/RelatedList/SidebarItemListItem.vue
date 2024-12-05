@@ -15,16 +15,12 @@ defineProps<Archive>()
 
 
 <style lang="postcss" scoped>
-.title {
+.link {
   @mixin link-reset;
 
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
   font-size: var(--font-size-l);
-
-  &:hover {
-    box-shadow: 0 2px 0 0 var(--color-primary);
-  }
 }
 
 .item {
@@ -35,8 +31,12 @@ defineProps<Archive>()
 
   &:focus-within,
   &:hover {
-    & .title {
-      box-shadow: 0 2px 0 0 var(--color-primary);
+    & .link {
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--color-primary);
     }
   }
 }

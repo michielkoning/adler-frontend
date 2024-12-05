@@ -17,6 +17,8 @@ export const getUrl = ({
   dateBefore,
   dateAfter,
   lang,
+  orderby,
+  order,
 }: {
   fields: string[];
   type: string;
@@ -36,6 +38,8 @@ export const getUrl = ({
   dateBefore?: string;
   dateAfter?: string;
   lang?: string;
+  orderby?: "menu_order";
+  order?: "asc" | "desc";
 }) => {
   const { apiUrl } = useAppConfig();
 
@@ -94,6 +98,11 @@ export const getUrl = ({
   }
   if (pageSize) {
     url.searchParams.set("per_page", pageSize.toString());
+  }
+
+  if (orderby) {
+    url.searchParams.set("orderby", orderby);
+    url.searchParams.set("order", order ?? "asc");
   }
 
   if (productCategory) {

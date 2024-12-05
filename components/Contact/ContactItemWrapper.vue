@@ -18,7 +18,7 @@ defineProps<{
 
 <style lang="postcss" scoped>
 .contact-item {
-  display: flex;
+  display: inline-flex;
   margin-bottom: var(--spacing-xxs);
   gap: var(--spacing-xs);
 }

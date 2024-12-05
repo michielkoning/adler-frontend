@@ -14,6 +14,10 @@
 <style lang="postcss" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
+:global(a) {
+  text-decoration-color: currentcolor;
+}
+
 .footer {
   @mixin block-padding;
 

@@ -22,6 +22,8 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     parent: query.data.parentId,
     type: "pages",
     fields: ["title", "slug", "excerpt", "acf", "link"],
+    orderby: "menu_order",
+    order: "asc",
   });
 
   const response = await $fetch(url);
