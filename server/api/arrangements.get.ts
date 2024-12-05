@@ -3,9 +3,10 @@ import { ArrangementsSchema } from "../schemas/ArrangementsSchema";
 import { z } from "zod";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { getUrl } from "../utils/getUrl";
+import { LocaleSchema } from "../schemas/LocaleSchema";
 
 const querySchema = z.object({
-  locale: z.string(),
+  locale: LocaleSchema,
   pageSize: z
     .string()
     .optional()
@@ -22,7 +23,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   );
 
   if (!query.success) {
-    throw query.error.issues;
+    throw createError({
+      statusMessage: query.error.issues.map((i) => i.message).join(","),
+    });
   }
 
   const url = getUrl({

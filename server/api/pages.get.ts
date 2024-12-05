@@ -15,8 +15,11 @@ export default defineEventHandler(async (event): Promise<Page> => {
   );
 
   if (!query.success) {
-    throw query.error.issues;
+    throw createError({
+      statusMessage: query.error.issues.map((i) => i.message).join(","),
+    });
   }
+
   const url = getUrl({
     image: true,
     slug: query.data.slug,

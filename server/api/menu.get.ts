@@ -1,9 +1,10 @@
 import { z } from "zod";
 import { MenuListSchema } from "../schemas/MenuSchema";
 import { getUrl } from "../utils/getUrl";
+import { LocaleSchema } from "../schemas/LocaleSchema";
 
 const querySchema = z.object({
-  locale: z.string(),
+  locale: LocaleSchema,
 });
 
 export default defineEventHandler(async (event) => {
@@ -12,7 +13,9 @@ export default defineEventHandler(async (event) => {
   );
 
   if (!query.success) {
-    throw query.error.issues;
+    throw createError({
+      statusMessage: query.error.issues.map((i) => i.message).join(","),
+    });
   }
 
   const { pageIds } = useAppConfig();

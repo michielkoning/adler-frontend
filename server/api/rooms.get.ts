@@ -3,9 +3,10 @@ import { RoomsSchema } from "../schemas/RoomsSchema";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { z } from "zod";
+import { LocaleSchema } from "../schemas/LocaleSchema";
 
 const querySchema = z.object({
-  locale: z.string(),
+  locale: LocaleSchema,
   exclude: z
     .string()
     .optional()
@@ -18,7 +19,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   );
 
   if (!query.success) {
-    throw query.error.issues;
+    throw createError({
+      statusMessage: query.error.issues.map((i) => i.message).join(","),
+    });
   }
 
   const url = getUrl({
@@ -37,7 +40,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   if (!parsed.success) {
     throw createError({
-      statusMessage: parsed.error.issues.map((i) => i.path).join(","),
+      statusMessage: parsed.error.issues
+        .map((i) => `${i.path}: ${i.message}`)
+        .join(","),
     });
   }
 

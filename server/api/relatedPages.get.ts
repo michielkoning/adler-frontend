@@ -14,7 +14,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   );
 
   if (!query.success) {
-    throw query.error.issues;
+    throw createError({
+      statusMessage: query.error.issues.map((i) => i.message).join(","),
+    });
   }
 
   const url = getUrl({

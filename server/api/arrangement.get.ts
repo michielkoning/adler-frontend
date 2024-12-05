@@ -3,9 +3,10 @@ import { ArrangementSchema } from "../schemas/ArrangementSchema";
 import { Arrangement } from "~/types/Arangement";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { LocaleSchema } from "../schemas/LocaleSchema";
 
 const querySchema = z.object({
-  locale: z.string(),
+  locale: LocaleSchema,
   slug: z.string(),
 });
 
@@ -15,7 +16,9 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
   );
 
   if (!query.success) {
-    throw query.error.issues;
+    throw createError({
+      statusMessage: query.error.issues.map((i) => i.message).join(","),
+    });
   }
 
   const url = getUrl({
