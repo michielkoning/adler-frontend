@@ -2,19 +2,30 @@ import { z } from "zod";
 import { MenuListSchema } from "../schemas/MenuSchema";
 import { getUrl } from "../utils/getUrl";
 
+const querySchema = z.object({
+  locale: z.string(),
+});
+
 export default defineEventHandler(async (event) => {
+  const query = await getValidatedQuery(event, (body) =>
+    querySchema.safeParse(body)
+  );
+
+  if (!query.success) {
+    throw query.error.issues;
+  }
+
   const { pageIds } = useAppConfig();
   const baseUrl = {
-    lang: "nl",
     fields: ["title", "link", "parent"],
   };
 
-  const environmentPageId = pageIds.environmentPageId.nl;
-  const hotelPageId = pageIds.hotelPageId.nl;
-  const kidsPageId = pageIds.kidsPageId.nl;
-  const arrangementsPageId = pageIds.arrangementsPageId.nl;
-  const roomsPageId = pageIds.roomsPageId.nl;
-  const contactPageId = pageIds.contactPageId.nl;
+  const environmentPageId = pageIds.environmentPageId[query.data.locale];
+  const hotelPageId = pageIds.hotelPageId[query.data.locale];
+  const kidsPageId = pageIds.kidsPageId[query.data.locale];
+  const arrangementsPageId = pageIds.arrangementsPageId[query.data.locale];
+  const roomsPageId = pageIds.roomsPageId[query.data.locale];
+  const contactPageId = pageIds.contactPageId[query.data.locale];
 
   const validateResponse = (response: z.infer<typeof MenuListSchema>) => {
     const parsed = MenuListSchema.safeParse(response);
@@ -39,6 +50,7 @@ export default defineEventHandler(async (event) => {
     const url = getUrl({
       ...baseUrl,
       type: "pages",
+      locale: query.data.locale,
       include: [
         environmentPageId,
         hotelPageId,

@@ -1,5 +1,11 @@
 <script lang="ts" setup>
-const { data, error } = await useFetch("/api/menu");
+const { locale } = useI18n();
+
+const { data, error } = await useFetch("/api/menu", {
+  params: {
+    locale,
+  },
+});
 
 if (error.value) {
   throw createError(error.value);
