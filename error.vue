@@ -9,8 +9,10 @@ defineProps<{
 
 <template>
   <nuxt-layout>
-    <dev-only>
-      <pre>{{ JSON.parse(error.data) }}</pre>
-    </dev-only>
+    <the-page title="sad" text="ad">
+      <dev-only>
+        <pre>{{ JSON.parse(error.data) }}</pre>
+      </dev-only>
+  </the-page>
   </nuxt-layout>
 </template>

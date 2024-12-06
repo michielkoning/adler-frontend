@@ -4,7 +4,7 @@ const localePath = useLocalePath();
 
 const { data, error } = await useFetch("/api/rooms", {
   params: {
-    locale,
+    // locale,
   },
   transform: (response) => {
     return response.map((item) => {

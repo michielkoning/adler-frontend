@@ -35,5 +35,4 @@ if (error.value) {
     </template>
     <!-- <btn-book-room :url="data.bookUrl" /> -->
   </the-page>
-  <pre>{{ data }}</pre>
 </template>

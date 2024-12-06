@@ -67,3 +67,7 @@ cite {
 blockquote {
   margin: 0;
 }
+
+pre {
+  white-space: pre-wrap;  
+}
