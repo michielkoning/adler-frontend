@@ -14,10 +14,10 @@ export default defineEventHandler(async (event) => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: query.error.issues.map((i) => i.message).join(","),
+      statusMessage: "Invalid arguments",
+      data: query.error.format(),
     });
   }
-
   const { pageIds } = useAppConfig();
   const baseUrl = {
     fields: ["title", "link", "parent"],
@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
 
     if (!parsed.success) {
       throw createError({
-        statusMessage: parsed.error.issues.map((i) => i.path).join(","),
+        data: parsed.error.format(),
       });
     }
 

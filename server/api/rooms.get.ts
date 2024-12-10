@@ -20,10 +20,10 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: query.error.issues.map((i) => i.message).join(","),
+      statusMessage: "Invalid arguments",
+      data: query.error.format(),
     });
   }
-
   const url = getUrl({
     image: true,
     type: "room",

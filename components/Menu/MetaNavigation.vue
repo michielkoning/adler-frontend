@@ -46,23 +46,9 @@ const toggleModal = () => {
         @click="changePage"
       />
 
-      <app-button
-        :title="$t('bookNow')"
-        size="small"
-        class="btn-book-now"
-        @click="toggleModal"
-      />
+      <btn-book-now />
     </div>
-
-    <!--  <app-modal
-      :show="showModal"
-      :large="true"
-      :title="$t('bookNow')"
-      @close="toggleModal"
-    >
-   <easy-booking-frame /> 
-    </app-modal>
-  --></nav>
+  </nav>
 </template>
 
 <style lang="postcss" scoped>

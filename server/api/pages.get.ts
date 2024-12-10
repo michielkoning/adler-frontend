@@ -16,10 +16,10 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: query.error.issues.map((i) => i.message).join(","),
+      statusMessage: "Invalid arguments",
+      data: query.error.format(),
     });
   }
-
   const url = getUrl({
     image: true,
     slug: query.data.slug,
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   if (!parsed.success) {
     throw createError({
-      statusMessage: parsed.error.issues.map((i) => i.path).join(","),
+      data: parsed.error.format(),
     });
   }
 
