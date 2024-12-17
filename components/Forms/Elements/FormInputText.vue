@@ -4,7 +4,8 @@ import { useField,  ErrorMessage as oaaa } from 'vee-validate';
 const props = withDefaults(defineProps<{
   title: string
   name: string
-  type?: 'text' | 'email' | 'tel'
+  type?: 'text' | 'email' | 'tel' | 'date' | 'number'
+  class?: string
 }>(), {
   type: 'text'
 })
@@ -27,7 +28,7 @@ const {
 </script>
 
 <template>
-  <form-field :id="id" :title="title" :name="name">
+  <form-field :id="id" :title="title" :name="name" :class="class">
     <input
       :id="id"
       :name="name"

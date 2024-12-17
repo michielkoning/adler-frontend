@@ -21,7 +21,7 @@ const {title, address} = useAppConfig()
     <div class="content">
       <center-wrapper>
         <app-icon
-          icon="logo-hero"
+          name="logo-hero"
           aria-hidden="true"
           :width="800"
           :height="96"

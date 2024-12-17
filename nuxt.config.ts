@@ -64,13 +64,17 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxtjs/i18n",
-    "nuxt-svgo",
     "@nuxt/eslint",
     "@nuxtjs/stylelint-module",
     "@nuxt/image",
     "nuxt-schema-org",
     "@nuxt/fonts",
+    "@nuxt/icon",
   ],
+  icon: {
+    componentName: "AppIcon",
+    mode: "svg",
+  },
   stylelint: {
     lintOnStart: false,
   },

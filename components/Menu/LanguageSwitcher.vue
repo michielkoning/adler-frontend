@@ -17,7 +17,7 @@ const changePage = () => {};
     :to="switchLocalePath(item.code)"
     @click="changePage"
   >
-    <app-icon :icon="`flag-${item.code}`" class="icon" />
+    <!-- <app-icon :icon="`flag-${item.code}`" class="icon" /> -->
     <span class="title">
       {{ item.name }}
     </span>

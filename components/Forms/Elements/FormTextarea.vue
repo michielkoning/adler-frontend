@@ -1,13 +1,10 @@
 <script lang="ts" setup>
 import { useField,  ErrorMessage as oaaa } from 'vee-validate';
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   title: string
   name: string
-  type?: 'text' | 'email' | 'tel'
-}>(), {
-  type: 'text'
-})
+}>()
 
 defineOptions({
   inheritAttrs: false
@@ -34,9 +31,9 @@ const {
       v-bind="$attrs"
       @input="handleChange"
       @blur="handleBlur"
-      :type="type"
       class="field"
-    >{{  inputValue }}
+    >
+      {{ inputValue }}
     </textarea>
   </form-field>
 </template>

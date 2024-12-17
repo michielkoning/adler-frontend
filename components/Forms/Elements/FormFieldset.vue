@@ -29,5 +29,6 @@ defineProps<{
 .fields {
   display: grid;
   grid-gap: var(--gutter);
+  grid-template-columns: repeat(var(--columns, 1), 1fr);
 }
 </style>

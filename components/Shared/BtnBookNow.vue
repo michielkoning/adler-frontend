@@ -14,12 +14,7 @@ const toggleModal = () => {
     @click="toggleModal"
   />
 
-  <app-modal
-    :show="showModal"
-    :large="true"
-    :title="$t('bookNow')"
-    @close="toggleModal"
-  >
-    <div>test</div>
+  <app-modal v-if="showModal" :title="$t('bookNow')" @close="toggleModal">
+    <form-book-arrangement />
   </app-modal>
 </template>
