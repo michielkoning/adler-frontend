@@ -70,5 +70,6 @@
   "relatedPosts": "More posts",
   "relatedRooms": "Our other rooms",
   "relatedArrangements": "More offers",
-  "usefulLinks": "Useful links"
+  "usefulLinks": "Useful links",
+  "location": "in {city}, {province}"
 }

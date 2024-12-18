@@ -112,5 +112,6 @@
   "relatedPosts": "Meer berichten",
   "relatedRooms": "Onze andere kamers",
   "relatedArrangements": "Meer aanbiedingen",
-  "usefulLinks": "Handige links"
+  "usefulLinks": "Handige links",
+  "location": "in {city}, {province}"
 }

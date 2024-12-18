@@ -70,5 +70,6 @@
   "relatedPosts": "Mehr Berichte",
   "relatedRooms": "Andere Zimmerarten",
   "relatedArrangements": "Weitere Angebote",
-  "usefulLinks": "Nützliche Links"
+  "usefulLinks": "Nützliche Links",
+  "location": "in {city} im {province}"
 }

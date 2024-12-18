@@ -8,8 +8,14 @@ defineProps<Content>()
   <div>
     <center-wrapper>
       <div class="page">
-        <image-hero v-if="image" v-bind="image" class="image" />
-
+        <app-image
+          :lazy="false"
+          class="image"
+          v-if="image"
+          v-bind="image"
+          sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:1280px xxl:1280"
+        />
+        
         <div>
           <article class="body">
             <h1 v-html="title" id="content" tabindex="-1" />
