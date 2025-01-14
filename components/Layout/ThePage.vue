@@ -8,14 +8,21 @@ defineProps<Content>()
   <div>
     <center-wrapper>
       <div class="page">
+
+
+        <gallery-list
+          v-if="gallery"          
+          class="gallery"
+          :images="gallery""
+        />
         <app-image
           :lazy="false"
           class="image"
-          v-if="image"
+          v-else-if="image"
           v-bind="image"
           sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:1280px xxl:1280"
         />
-        
+
         <div>
           <article class="body">
             <h1 v-html="title" id="content" tabindex="-1" />
@@ -24,14 +31,6 @@ defineProps<Content>()
           </article>
           <slot />
         </div>
-
-        <!-- <gallery-list
-          v-if="page.galleryGroup && page.galleryGroup.gallery"
-          :title="page.title"
-          class="gallery"
-          :gallery="page.galleryGroup.gallery"
-        />
-        _ -->
 
         <aside class="sidebar">
           <slot name="sidebar" />

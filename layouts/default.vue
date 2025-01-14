@@ -16,8 +16,8 @@ useHead({
         <Title>{{ title }}</Title>
         <Link
           v-for="link in head.link"
-          :id="link.id"
-          :key="link.id"
+          :id="link.hid"
+          :key="link.hid"
           :rel="link.rel"
           :href="link.href"
           :hreflang="link.hreflang"
@@ -25,8 +25,8 @@ useHead({
 
         <Meta
           v-for="meta in head.meta"
-          :id="meta.id"
-          :key="meta.id"
+          :id="meta.hid"
+          :key="meta.hid"
           :property="meta.property"
           :content="meta.content"
         />

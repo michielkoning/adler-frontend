@@ -113,5 +113,6 @@
   "relatedRooms": "Onze andere kamers",
   "relatedArrangements": "Meer aanbiedingen",
   "usefulLinks": "Handige links",
-  "location": "in {city}, {province}"
+  "location": "in {city}, {province}",
+  "viewAllPhotos": "Bekijk alle foto's"
 }

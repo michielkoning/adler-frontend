@@ -5,4 +5,5 @@ export type Content = {
   text: string;
   image?: Image;
   date?: string;
+  gallery?: Image[];
 };

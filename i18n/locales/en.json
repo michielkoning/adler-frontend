@@ -71,5 +71,6 @@
   "relatedRooms": "Our other rooms",
   "relatedArrangements": "More offers",
   "usefulLinks": "Useful links",
-  "location": "in {city}, {province}"
+  "location": "in {city}, {province}",
+  "viewAllPhotos": "View all photos"
 }

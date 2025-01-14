@@ -71,5 +71,6 @@
   "relatedRooms": "Andere Zimmerarten",
   "relatedArrangements": "Weitere Angebote",
   "usefulLinks": "Nützliche Links",
-  "location": "in {city} im {province}"
+  "location": "in {city} im {province}",
+  "viewAllPhotos": "Mehr Fotos"
 }

@@ -13,6 +13,17 @@ export const PageSchema = z.object({
   _embedded: z.object({
     "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
   }),
+  acf: z.object({
+    gallery: z.array(
+      z.object({
+        ID: z.number(),
+        url: z.string(),
+        alt: z.string(),
+        width: z.number(),
+        height: z.number(),
+      })
+    ),
+  }),
 });
 
 export const PageListSchema = z.array(PageSchema);
