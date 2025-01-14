@@ -53,7 +53,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
-      gallery: item.acf.gallery.map((image) => {
+      gallery: item.acf.gallery?.map((image) => {
         return {
           src: image.url,
           width: image.width,

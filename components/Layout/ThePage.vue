@@ -11,7 +11,7 @@ defineProps<Content>()
 
 
         <gallery-list
-          v-if="gallery"          
+          v-if="gallery"
           class="gallery"
           :images="gallery""
         />
