@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useField,  ErrorMessage as oaaa } from 'vee-validate';
+import {  useField } from 'vee-validate';
 
 const props = withDefaults(defineProps<{
   title: string

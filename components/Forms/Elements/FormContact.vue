@@ -4,11 +4,7 @@ import z from "zod";
 
 const validationSchema = toTypedSchema(
   z.object({
-    email: z
-      .string()
-      .min(1, { message: "This is required" })
-      .email({ message: "Must be a valid email" })
-      .default(""),
+    email: z.string().min(1).email(),
     phone: z.string().default(""),
     message: z.string().default(""),
   }),

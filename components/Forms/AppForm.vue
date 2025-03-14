@@ -7,7 +7,6 @@ const props = defineProps<{
   validationSchema: TypedSchema
 }>()
 
-
 const {start, finish} = useLoadingIndicator()
 const route = useRoute()
 const appConfig = useAppConfig()
