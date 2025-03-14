@@ -19,7 +19,4 @@ fragment pageDetails on Page {
   seo {
     ...seo
   }
-  Giggle {
-    giggleWidget
-  }
 }

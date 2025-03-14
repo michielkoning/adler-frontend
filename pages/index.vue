@@ -2,14 +2,7 @@
   <div>
     <home-hero :page="page" />
     <home-content :posts="relatedPosts" />
-    <center-wrapper>
-      <client-only>
-        <giggle-widget
-          v-if="page.Giggle.giggleWidget"
-          :stream="page.Giggle.giggleWidget"
-        />
-      </client-only>
-    </center-wrapper>
+
     <facilities-wrapper />
   </div>
 </template>
