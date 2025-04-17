@@ -8,12 +8,7 @@
 
     <div :class="$style.content">
       <center-wrapper>
-        <icon-logo-hero
-          aria-hidden="true"
-          width="800"
-          height="96"
-          :class="$style.icon"
-        />
+        <img src="~/assets//images/logo-text.png" alt="" :class="$style.icon" />
         <h1 id="content" tabindex="-1" class="sr-only">
           {{ title }}
         </h1>
@@ -26,14 +21,10 @@
 </template>
 
 <script>
-import IconLogoHero from '~/icons/logo-hero.svg'
 import { title } from '~/data/siteDetails'
 import { city, province } from '~/data/address'
 
 export default {
-  components: {
-    IconLogoHero,
-  },
   props: {
     page: {
       type: Object,
@@ -83,11 +74,9 @@ export default {
 }
 
 .icon {
-  stroke: var(--color-gray-darker);
   width: 100%;
   max-width: 50rem;
-  height: 11vw;
-  max-height: 6em;
+  height: auto;
 }
 
 .subtitle {
