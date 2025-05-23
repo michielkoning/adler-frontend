@@ -13,6 +13,7 @@
     "lint:css": "stylelint **/*.{css,vue} --fix"
   },
   "devDependencies": {
+    "@iconify-json/fa6-solid": "^1.2.3",
     "@nuxt/eslint": "^1.4.1",
     "@nuxt/fonts": "^0.11.4",
     "@nuxt/icon": "^1.13.0",

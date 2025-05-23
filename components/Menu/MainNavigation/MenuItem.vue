@@ -36,7 +36,7 @@ const controlId = `menu-${props.id}`
         @click="toggleMenu"
       >
         <app-icon
-          name="fa-solid:chevron-down"
+          icon="fa-solid:chevron-down"
           aria-hidden="true"
           class="icon"
         />

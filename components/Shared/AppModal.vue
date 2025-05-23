@@ -11,6 +11,7 @@ withDefaults(defineProps<{
 const emit = defineEmits(['close'])
 
 const isHidden = ref(false);
+
 const dialog = useTemplateRef('dialog')
 
 onMounted(() => {
@@ -36,7 +37,7 @@ const afterClosing = () => {
       <h1 class="title" v-html="title" />
       <button class="close" type="button" @click="close">
         <span class="sr-only">{{ $t('close') }}</span>
-        <app-icon name="fa:close" aria-hidden="true" width="24" height="24" />
+        <app-icon icon="fa6-solid:xmark" class="icon" />
       </button>
     </header>        
     <div class="content">
@@ -97,6 +98,10 @@ const afterClosing = () => {
   &:focus {
     background: var(--color-gray-light);
   }
+}
+
+.icon {
+  width: 1.5em;
 }
 
 .content {

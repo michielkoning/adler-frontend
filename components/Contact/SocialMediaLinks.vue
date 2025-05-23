@@ -8,7 +8,7 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
     <ul class="list">
       <li class="list-item">
         <a class="link" :href="facebookUrl" rel="noopener" target="_blank">
-          <app-icon name="facebook" />
+          <app-icon icon="adler:facebook" />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {
@@ -21,7 +21,7 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
       </li>
       <li class="list-item">
         <a class="link" :href="instagramUrl" rel="noopener" target="_blank">
-          <app-icon name="instagram" />
+          <app-icon icon="alder:instagram" />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {

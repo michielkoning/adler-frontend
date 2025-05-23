@@ -73,6 +73,12 @@ export default defineNuxtConfig({
   icon: {
     componentName: "NuxtIcon",
     mode: "svg",
+    customCollections: [
+      {
+        prefix: 'adler',
+        dir: './assets/icons'
+      },
+    ],
   },
   stylelint: {
     lintOnStart: false,

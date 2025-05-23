@@ -4,16 +4,15 @@
       <div class="background">
         <div class="content">
           <div class="logo-wrapper">logo</div>
-          <!-- <nuxt-link-locale class="logo" :to="{ name: 'index' }">
+            <nuxt-link-locale class="logo" :to="{ name: 'index' }">
             <app-icon
-              icon="logo"
+              icon="adler:logo"
               class="image"
               aria-hidden="true"
-              width="497"
-              height="424"
+              width="100"
             />
             <span class="sr-only">{{ title }}</span>
-          </nuxt-link-locale> -->
+          </nuxt-link-locale> 
           <meta-navigation class="meta-navigation" />
           <the-menu class="main-navigation" />
         </div>
