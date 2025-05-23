@@ -10,7 +10,7 @@ button {
   line-height: var(--line-height-headings);
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
-  -webkit-appearance: none;
+  appearance: none;
   text-decoration: none;
   cursor: pointer;
 

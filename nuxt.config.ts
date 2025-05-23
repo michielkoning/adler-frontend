@@ -1,6 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: "2024-08-20",
   telemetry: false,
   css: ["~/assets/css/base.css"],
 
@@ -11,27 +10,27 @@ export default defineNuxtConfig({
     densities: [1, 2],
     domains: ["api.adler-lingenau.com"],
   },
-
+ 
   components: [
     "~/components/Animations",
-    "~/components/LastMinutes",
+    // "~/components/LastMinutes",
     "~/components/Archive",
-    "~/components/Arrangements/Details",
+    // "~/components/Arrangements/Details",
     "~/components/Arrangements/Highlights",
     "~/components/Arrangements/Prices",
     "~/components/Contact",
     "~/components/Facilitites",
     "~/components/Forms/Elements",
     "~/components/Forms",
-    "~/components/Gallery/Images",
+    // "~/components/Gallery/Images",
     "~/components/Gallery",
-    "~/components/Highlights",
+    // "~/components/Highlights",
     "~/components/Home",
-    "~/components/Images",
+    // "~/components/Images",
     "~/components/Layout",
     "~/components/Menu",
     "~/components/Menu/MainNavigation",
-    "~/components/Posts/Related",
+    // "~/components/Posts/Related",
     "~/components/RelatedList",
     "~/components/Rooms/Details",
     "~/components/Rooms/Prices",
