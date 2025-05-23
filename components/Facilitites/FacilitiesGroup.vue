@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
   <div class="group">
-    <app-icon :name="facility.icon" class="icon" />
+    <app-icon :icon="facility.icon" class="icon" />
     <div>
       <h2>{{ $t(facility.title) }}</h2>
       <ul v-if="facility.list.length" class="list">

@@ -71,7 +71,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
   ],
   icon: {
-    componentName: "AppIcon",
+    componentName: "NuxtIcon",
     mode: "svg",
   },
   stylelint: {

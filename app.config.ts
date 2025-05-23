@@ -73,7 +73,7 @@ export default defineAppConfig({
   facilities: {
     kids: {
       title: "forKids",
-      icon: "child",
+      icon: "fa-solid:child",
       list: [
         "playground",
         "childrensPlayroom",
@@ -88,12 +88,12 @@ export default defineAppConfig({
     },
     rooms: {
       title: "ourRooms",
-      icon: "bed",
+      icon: "fa-solid:bed",
       list: ["singleRooms", "doubleRooms", "familyRooms"],
     },
     extras: {
       title: "extras",
-      icon: "ticket",
+      icon: "fa-solid:ticket-alt",
       list: [
         "areaCard",
         "freeTransport",
@@ -104,7 +104,7 @@ export default defineAppConfig({
     },
     environment: {
       title: "environment",
-      icon: "mountain",
+      icon: "fa-solid:mountain",
       list: [
         "skiAreas",
         "cableCars",

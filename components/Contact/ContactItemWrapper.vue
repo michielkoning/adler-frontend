@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <nuxt-link :href="url" external class="contact-item">
     <!-- <app-icon :icon="icon" class="icon" /> -->
-    <icon name="fa6-solid:phone" class="icon" />
+    <!-- <icon name="fa6-solid:phone" class="icon" /> -->
     <span class="title">
     {{ title }}
     </span>
