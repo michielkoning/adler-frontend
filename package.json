@@ -36,7 +36,7 @@
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
-    "zod": "^3.25.23"
+    "zod": "^3.25.28"
   },
   "dependencies": {
     "@nuxt/image": "^1.10.0",

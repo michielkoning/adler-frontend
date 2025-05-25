@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Archive } from '~/types/Archive';
+import type { Archive } from '~/types/Archive';
 
 defineProps<Archive>()
 </script>

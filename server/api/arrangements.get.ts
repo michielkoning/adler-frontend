@@ -1,4 +1,4 @@
-import { Archive } from "~/types/Archive";
+import type { Archive } from "~/types/Archive";
 import { ArrangementsSchema } from "../schemas/ArrangementsSchema";
 import { z } from "zod";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
@@ -41,6 +41,8 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   });
 
   const response = await $fetch(url);
+
+
 
   const parsed = ArrangementsSchema.safeParse(response);
 

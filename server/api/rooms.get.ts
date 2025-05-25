@@ -1,4 +1,4 @@
-import { Archive } from "~/types/Archive";
+import type { Archive } from "~/types/Archive";
 import { RoomsSchema } from "../schemas/RoomsSchema";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";

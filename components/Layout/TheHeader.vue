@@ -7,8 +7,8 @@ const { title } = useAppConfig();
     <center-wrapper>
       <div class="background">
         <div class="content">
-          <div class="logo-wrapper">logo</div>
-            <nuxt-link-locale class="logo" :to="{ name: 'index' }">
+          <div class="logo-wrapper">
+          <nuxt-link-locale class="logo" :to="{ name: 'index' }">
             <app-icon
               icon="adler:logo"
               class="image"
@@ -16,7 +16,8 @@ const { title } = useAppConfig();
               width="100"
             />
             <span class="sr-only">{{ title }}</span>
-          </nuxt-link-locale> 
+          </nuxt-link-locale>
+        </div>
           <meta-navigation class="meta-navigation" />
           <the-menu class="main-navigation" />
         </div>

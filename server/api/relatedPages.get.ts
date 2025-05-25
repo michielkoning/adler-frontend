@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { RelatedPageSchema } from "../schemas/RelatedPageSchema";
-import { Archive } from "~/types/Archive";
+import type { Archive } from "~/types/Archive";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 
