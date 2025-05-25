@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const { title } = useAppConfig();
+</script>
+
 <template>
   <header class="header">
     <center-wrapper>

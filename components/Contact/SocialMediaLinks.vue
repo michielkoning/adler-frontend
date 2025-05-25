@@ -21,7 +21,7 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
       </li>
       <li class="list-item">
         <a class="link" :href="instagramUrl" rel="noopener" target="_blank">
-          <app-icon icon="alder:instagram" />
+          <app-icon icon="adler:instagram" />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {
