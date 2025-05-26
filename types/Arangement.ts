@@ -1,7 +1,7 @@
 import type { Archive } from "./Archive";
 import type { Page } from "./Page";
 
-export type ArrangementPrice = {
+export type ArrangementPrice =      {
   label: string;
   value: number;
   nights: number;

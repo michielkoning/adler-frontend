@@ -10,22 +10,29 @@ const changePage = () => {};
 </script>
 
 <template>
-  <nuxt-link
-    v-for="item in availableLocales"
-    :key="item.code"
-    class="link"
-    :to="switchLocalePath(item.code)"
-    @click="changePage"
-  >
-    <app-icon :icon="`adler:flag-${item.code}`" class="icon" />
-    <span class="title">
-      {{ item.name }}
-    </span>
-  </nuxt-link>
+  <div class="wrapper">
+    <nuxt-link
+      v-for="item in availableLocales"
+      :key="item.code"
+      class="link"
+      :to="switchLocalePath(item.code)"
+      @click="changePage"
+    >
+      <app-icon :icon="`adler:flag-${item.code}`" class="icon" />
+      <span class="title">
+        {{ item.name }}
+      </span>
+    </nuxt-link>
+  </div>
 </template>
 
 <style lang="postcss" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
+
+.wrapper {
+  display: flex;
+  gap: 0.5em;
+}
 
 .link {
   @mixin link-reset;

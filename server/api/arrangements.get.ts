@@ -42,8 +42,6 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   const response = await $fetch(url);
 
-
-
   const parsed = ArrangementsSchema.safeParse(response);
 
   if (!parsed.success) {

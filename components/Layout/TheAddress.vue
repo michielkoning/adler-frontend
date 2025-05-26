@@ -3,7 +3,7 @@ const { address, title } = useAppConfig();
 </script>
 
 <template>
-  <address itemscope itemtype="http://schema.org/Organization" class="">
+  <address itemscope itemtype="http://schema.org/Organization">
     <h2>{{ $t("address") }}</h2>
     <div class="address">
       {{ title }}
@@ -32,7 +32,6 @@ const { address, title } = useAppConfig();
       size="small"
       :to="address.directionsUrl"
       target="_blank"
-      external
     />
   </address>
 </template>
