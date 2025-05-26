@@ -9,7 +9,7 @@ const querySchema = z.object({
 
 export default defineEventHandler(async (event) => {
   const query = await getValidatedQuery(event, (body) =>
-    querySchema.safeParse(body)
+    querySchema.safeParse(body),
   );
 
   if (!query.success) {

@@ -1,11 +1,13 @@
 <script lang="ts" setup>
-import type { Image } from '~/types/Image';
+import type { Image } from "~/types/Image";
 
 const props = withDefaults(
-  defineProps<Image & {
-    sizes?: string
-    lazy?: boolean
-  }>(),
+  defineProps<
+    Image & {
+      sizes?: string;
+      lazy?: boolean;
+    }
+  >(),
   {
     sizes: undefined,
     lazy: true,

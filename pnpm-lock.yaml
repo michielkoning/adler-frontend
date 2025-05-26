@@ -102,6 +102,9 @@ importers:
       stylelint-config-standard-vue:
         specifier: ^1.0.0
         version: 1.0.0(postcss-html@1.8.0)(stylelint@16.19.1(typescript@5.8.3))
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
       zod:
         specifier: ^3.25.28
         version: 3.25.28

@@ -1,13 +1,9 @@
 <script lang="ts" setup>
 defineProps<{
-  price: number
-}>()
+  price: number;
+}>();
 </script>
 
 <template>
-  <app-badge
-    :prefix="$t('from')"
-    :text="$n(price, 'currency')"
-  />
+  <app-badge :prefix="$t('from')" :text="$n(price, 'currency')" />
 </template>
-

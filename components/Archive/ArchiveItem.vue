@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import type { Archive } from '~/types/Archive';
+import type { Archive } from "~/types/Archive";
 
-defineProps<Archive>()
+defineProps<Archive>();
 </script>
 
 <template>
   <clickable-list-item :to="link" class="item">
-   <div class="content">
+    <div class="content">
       <h2 class="title">
         <nuxt-link :to="link" class="link"><span v-html="title" /></nuxt-link>
       </h2>
@@ -14,17 +14,13 @@ defineProps<Archive>()
       <div v-html="text" />
       <read-more class="read-more" />
     </div>
-    <app-image v-bind="image" v-if="image" class="image" />
-    <price-badge
-      v-if="price"
-      :price="price"
-      class="price-badge"
-    />
+    <app-image v-if="image" v-bind="image" class="image" />
+    <price-badge v-if="price" :price="price" class="price-badge" />
   </clickable-list-item>
 </template>
 
 <style lang="postcss" scoped>
-@import '~/assets/css/media-queries/media-queries.css';
+@import "~/assets/css/media-queries/media-queries.css";
 
 .link {
   @mixin link-reset;

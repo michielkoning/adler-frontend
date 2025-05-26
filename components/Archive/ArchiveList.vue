@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { Archive } from '~/types/Archive';
+import type { Archive } from "~/types/Archive";
 
 defineProps<{
-  items: Archive[]
-  }>()
+  items: Archive[];
+}>();
 </script>
 
 <template>
@@ -11,7 +11,6 @@ defineProps<{
     <archive-item v-for="item in items" :key="item.id" v-bind="item" />
   </ul>
 </template>
-
 
 <style lang="postcss" scoped>
 @import "~/assets/css/media-queries/media-queries.css";

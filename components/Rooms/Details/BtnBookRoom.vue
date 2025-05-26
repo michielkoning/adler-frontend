@@ -1,9 +1,4 @@
-<script lang="ts" setup>
-defineProps<{
-  url: string,
-  title?: string
-}>()
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <book-now @trigger="toggleModal">
@@ -20,8 +15,12 @@ defineProps<{
 
 <script>
 import AppModal from '~/components/Shared/AppModal.vue'
-import BookNow from '~/components/Shared/BookNow.vue'
-import EasyBookingFrame from '~/components/Shared/EasyBookingFrame.vue'
+import BookNow from "~/components/Shared/BookNow.vue";
+import EasyBookingFrame from "~/components/Shared/EasyBookingFrame.vue";
+defineProps<{
+  url: string,
+  title?: string
+}>()
 
 export default {
   components: {
@@ -42,12 +41,12 @@ export default {
   data() {
     return {
       showModal: false,
-    }
+    };
   },
   methods: {
     toggleModal() {
-      this.showModal = !this.showModal
+      this.showModal = !this.showModal;
     },
   },
-}
+};
 </script>

@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 defineProps<{
   // icon: 'phone' | 'envelope',
-  title: string,
-  url: string
-}>()
-
+  title: string;
+  url: string;
+}>();
 </script>
 
 <template>
@@ -12,7 +11,7 @@ defineProps<{
     <!-- <app-icon :icon="icon" class="icon" /> -->
     <!-- <icon name="fa6-solid:phone" class="icon" /> -->
     <span class="title">
-    {{ title }}
+      {{ title }}
     </span>
   </nuxt-link>
 </template>

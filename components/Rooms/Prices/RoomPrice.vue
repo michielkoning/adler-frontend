@@ -1,21 +1,19 @@
 <script lang="ts" setup>
 defineProps<{
   title: string;
-  price: number
-}>()
+  price: number;
+}>();
 </script>
-
 
 <template>
   <div class="price">
     <div class="label">{{ title }}</div>
     <div class="value">
-      {{ $n(price, 'currency') }}
+      {{ $n(price, "currency") }}
     </div>
-    <div class="suffix">{{ $t('perPersonAndNight') }}</div>
+    <div class="suffix">{{ $t("perPersonAndNight") }}</div>
   </div>
 </template>
-
 
 <style lang="postcss" scoped>
 .price {
@@ -44,4 +42,3 @@ defineProps<{
   line-height: var(--line-height-headings);
 }
 </style>
-

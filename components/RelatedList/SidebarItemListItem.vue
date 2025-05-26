@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { Archive } from '~/types/Archive';
+import type { Archive } from "~/types/Archive";
 
-defineProps<Archive>()
+defineProps<Archive>();
 </script>
 
 <template>
@@ -9,10 +9,9 @@ defineProps<Archive>()
     <div class="link-wrapper">
       <nuxt-link :to="link" class="link"><span v-html="title" /></nuxt-link>
     </div>
-    <app-image v-bind="image" v-if="image" class="image" />
+    <app-image v-if="image" v-bind="image" class="image" />
   </clickable-list-item>
 </template>
-
 
 <style lang="postcss" scoped>
 .link {

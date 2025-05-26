@@ -2,10 +2,9 @@
 defineProps<{
   id: string;
   title: string;
-  name: string
+  name: string;
   errorMessage?: string;
-}>()
-
+}>();
 </script>
 
 <template>
@@ -29,4 +28,3 @@ defineProps<{
   margin-top: var(--spacing-xxs);
 }
 </style>
-

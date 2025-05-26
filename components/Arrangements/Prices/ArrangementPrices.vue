@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { ArrangementPrices } from '~/types/Arangement';
+import type { ArrangementPrices } from "~/types/Arangement";
 
 defineProps<{
-prices: ArrangementPrices
-}>()
+  prices: ArrangementPrices;
+}>();
 </script>
 
 <template>
@@ -11,11 +11,11 @@ prices: ArrangementPrices
     <h2>{{ $t("prices") }}</h2>
     <table>
       <tbody>
-          <arrangement-price
-          v-for="price in prices" :key="price.label"
+        <arrangement-price
+          v-for="price in prices"
+          :key="price.label"
           :price="price"
         />
-
       </tbody>
       <tfoot>
         <tr>
@@ -27,4 +27,3 @@ prices: ArrangementPrices
     </table>
   </div>
 </template>
-

@@ -1,35 +1,31 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  title: string,
+  title: string;
   id: number;
   link: string;
   children: {
-    title: string,
+    title: string;
     id: number;
     link: string;
-  }[]
-}>()
+  }[];
+}>();
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 
 const toggleMenu = () => {
-  isOpen.value = !isOpen.value
-}
+  isOpen.value = !isOpen.value;
+};
 
-const controlId = `menu-${props.id}`
+const controlId = `menu-${props.id}`;
 </script>
 
 <template>
   <li class="menu-item">
-    <nuxt-link
-      :to="link"
-      :aria-haspopup="children.length"
-      class="menu-link"
-    >
+    <nuxt-link :to="link" :aria-haspopup="children.length" class="menu-link">
       <span v-html="title" />
     </nuxt-link>
     <template v-if="children.length">
-    <button
+      <button
         :aria-expanded="isOpen"
         :aria-controls="controlId"
         class="btn-show-submenu"
@@ -42,7 +38,7 @@ const controlId = `menu-${props.id}`
         />
         <span class="sr-only">
           {{
-            $t('showSubmenuFor', {
+            $t("showSubmenuFor", {
               title: title,
             })
           }}
@@ -50,22 +46,15 @@ const controlId = `menu-${props.id}`
       </button>
 
       <slide-in-animation>
-        <ul v-show="isOpen" class="submenu" :id="controlId">
-          <li
-            v-for="subItem in children"
-            :key="subItem.id"
-            class="menu-item"
-          >
-          <nuxt-link
-              :to="subItem.link"
-              class="menu-link"
-            >
-            <span v-html="subItem.title" />
-          </nuxt-link>
-        </li>
-      </ul>
-    </slide-in-animation>
-  </template>
+        <ul v-show="isOpen" :id="controlId" class="submenu">
+          <li v-for="subItem in children" :key="subItem.id" class="menu-item">
+            <nuxt-link :to="subItem.link" class="menu-link">
+              <span v-html="subItem.title" />
+            </nuxt-link>
+          </li>
+        </ul>
+      </slide-in-animation>
+    </template>
   </li>
 </template>
 
@@ -80,7 +69,6 @@ const controlId = `menu-${props.id}`
   gap: var(--spacing-s);
 }
 
-
 .submenu-link,
 .menu-link {
   @mixin link-reset;
@@ -88,7 +76,7 @@ const controlId = `menu-${props.id}`
   font-size: var(--font-size-xl);
   border-bottom-width: 2px;
 
-  &[aria-haspopup='true'] {
+  &[aria-haspopup="true"] {
     padding-right: var(--spacing-m);
   }
 }
@@ -97,9 +85,8 @@ const controlId = `menu-${props.id}`
   transition: transform var(--transition);
 }
 
-
 .btn-show-submenu {
-  &[aria-expanded='true'] {
+  &[aria-expanded="true"] {
     .icon {
       transform: rotate(-180deg);
 

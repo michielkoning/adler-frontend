@@ -35,5 +35,5 @@ export const RoomSchema = z.array(
         .transform((val) => Number(val)),
       book_url: z.string(),
     }),
-  })
+  }),
 );

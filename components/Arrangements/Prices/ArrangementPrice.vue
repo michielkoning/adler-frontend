@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import type { ArrangementPrice } from '~/types/Arangement';
+import type { ArrangementPrice } from "~/types/Arangement";
 
 const props = defineProps<{
-price: ArrangementPrice
-}>()
+  price: ArrangementPrice;
+}>();
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const label = computed(() => {
   if (props.price.extra_night) {
-    return t("extraNight", { 
-      persons: t("persons", props.price.extra_night)
-   });
+    return t("extraNight", {
+      persons: t("persons", props.price.extra_night),
+    });
   } else if (props.price.nights) {
     const nights = t("nights", props.price.nights);
     const adults = t("adults", props.price.adults);
@@ -20,9 +20,8 @@ const label = computed(() => {
   } else {
     return props.price.label;
   }
-})
+});
 </script>
-
 
 <template>
   <tr>

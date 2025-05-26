@@ -16,16 +16,16 @@ defineProps<Content>()
           :images="gallery""
         />
         <app-image
+          v-else-if="image"
           :lazy="false"
           class="image"
-          v-else-if="image"
           v-bind="image"
           sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:1280px xxl:1280"
         />
 
         <div>
           <article class="body">
-            <h1 v-html="title" id="content" tabindex="-1" />
+            <h1 id="content" tabindex="-1" v-html="title" />
             <post-date v-if="date" :date="date" />
             <div v-html="text" />
           </article>

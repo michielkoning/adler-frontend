@@ -5,8 +5,8 @@ defineProps<{
     halfBoardHighSeason?: number;
     fullBoardLowSeason?: number;
     halfBoardLowSeason?: number;
-  }
-}>()
+  };
+}>();
 </script>
 
 <template>
@@ -14,30 +14,30 @@ defineProps<{
     <div class="group">
       <h2 class="title">{{ $t("highSeason") }}</h2>
       <room-price
+        v-if="prices.fullBoardHighSeason"
         class="price"
         :title="$t('fullBoard')"
-        v-if="prices.fullBoardHighSeason"
         :price="prices.fullBoardHighSeason"
       />
       <room-price
+        v-if="prices.halfBoardHighSeason"
         class="price"
         :title="$t('halfBoard')"
-        v-if="prices.halfBoardHighSeason"
         :price="prices.halfBoardHighSeason"
       />
     </div>
     <div class="group">
       <h2 class="title">{{ $t("lowSeason") }}</h2>
       <room-price
+        v-if="prices.fullBoardLowSeason"
         class="price"
         :title="$t('fullBoard')"
-        v-if="prices.fullBoardLowSeason"
         :price="prices.fullBoardLowSeason"
       />
       <room-price
+        v-if="prices.halfBoardLowSeason"
         class="price"
         :title="$t('halfBoard')"
-        v-if="prices.halfBoardLowSeason"
         :price="prices.halfBoardLowSeason"
       />
     </div>
@@ -45,7 +45,7 @@ defineProps<{
 </template>
 
 <style lang="postcss" scoped>
-@import '~/assets/css/media-queries/media-queries.css';
+@import "~/assets/css/media-queries/media-queries.css";
 
 .prices {
   display: grid;
@@ -70,4 +70,3 @@ defineProps<{
   flex: 0 0 100%;
 }
 </style>
-

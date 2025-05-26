@@ -4,7 +4,6 @@ import type { NuxtError } from "nuxt/app";
 defineProps<{
   error: NuxtError;
 }>();
-
 </script>
 
 <template>
@@ -13,6 +12,6 @@ defineProps<{
       <dev-only>
         <pre>{{ JSON.parse(error.data) }}</pre>
       </dev-only>
-  </the-page>
+    </the-page>
   </nuxt-layout>
 </template>

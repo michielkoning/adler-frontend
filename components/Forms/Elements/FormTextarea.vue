@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import { useField,  ErrorMessage as oaaa } from 'vee-validate';
+import { useField, ErrorMessage as oaaa } from "vee-validate";
 
 const props = defineProps<{
-  title: string
-  name: string
-}>()
+  title: string;
+  name: string;
+}>();
 
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 const id = useId();
 
-const name = toRef(props, 'name');
+const name = toRef(props, "name");
 
 // we don't provide any rules here because we are using form-level validation
 // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
@@ -29,9 +29,9 @@ const {
       :id="id"
       :name="name"
       v-bind="$attrs"
+      class="field"
       @input="handleChange"
       @blur="handleBlur"
-      class="field"
     >
       {{ inputValue }}
     </textarea>

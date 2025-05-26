@@ -1,29 +1,25 @@
 <script lang="ts" setup>
-import type { Archive } from '~/types/Archive';
+import type { Archive } from "~/types/Archive";
 
 const props = defineProps<{
-  item: Archive
-}>()
-const localePath = useLocalePath()
+  item: Archive;
+}>();
+const localePath = useLocalePath();
 
 const url = localePath({
-  name: 'arrangements-details',
+  name: "arrangements-details",
   params: {
     slug: props.item.link,
   },
-})
-
+});
 </script>
 
 <template>
-    <clickable-list-item :to="url" class="item">
-      <div class="content">
+  <clickable-list-item :to="url" class="item">
+    <div class="content">
       <h2 class="title">
-        <nuxt-link
-          :to="url"
-            class="link"
-          >
-        <span v-html="item.title" />
+        <nuxt-link :to="url" class="link">
+          <span v-html="item.title" />
         </nuxt-link>
       </h2>
       <div v-html="item.text" />
@@ -31,8 +27,12 @@ const url = localePath({
 
       <price-badge v-if="item.price" :price="item.price" class="price-badge" />
     </div>
-    <app-image v-bind="item.image" v-if="item.image" class="image" sizes="100vw md:33vw xl:400px" />
-
+    <app-image
+      v-if="item.image"
+      v-bind="item.image"
+      class="image"
+      sizes="100vw md:33vw xl:400px"
+    />
   </clickable-list-item>
 </template>
 

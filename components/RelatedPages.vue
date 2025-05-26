@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  parentId: number
-}>()
+  parentId: number;
+}>();
 
 const { locale } = useI18n();
 

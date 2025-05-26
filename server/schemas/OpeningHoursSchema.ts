@@ -5,7 +5,7 @@ const daySchema = z
     z.object({
       start: z.string(),
       end: z.string(),
-    })
+    }),
   )
   .default([]);
 

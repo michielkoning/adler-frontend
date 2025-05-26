@@ -22,7 +22,7 @@ export const PageSchema = z.object({
           alt: z.string(),
           width: z.number(),
           height: z.number(),
-        })
+        }),
       )
       .or(z.boolean())
       .transform((val) => {

@@ -12,7 +12,7 @@ withDefaults(
 </script>
 
 <template>
-  <div  class="notch" :class=" { top}">
+  <div class="notch" :class="{ top }">
     <div class="wrapper" :class="`wrapper-${size}`">
       <slot />
     </div>

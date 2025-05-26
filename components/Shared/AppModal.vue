@@ -1,45 +1,53 @@
 <script lang="ts" setup>
-withDefaults(defineProps<{
-  show?: boolean
-  title: string
-  large?: boolean
-}>(), {
-  show: false,
-  large: false
-})
+withDefaults(
+  defineProps<{
+    show?: boolean;
+    title: string;
+    large?: boolean;
+  }>(),
+  {
+    show: false,
+    large: false,
+  },
+);
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"]);
 
 const isHidden = ref(false);
 
-const dialog = useTemplateRef('dialog')
+const dialog = useTemplateRef("dialog");
 
 onMounted(() => {
-  dialog.value.showModal()
-})
+  dialog.value.showModal();
+});
 
 const close = () => {
-  isHidden.value = true
-}
+  isHidden.value = true;
+};
 
 const afterClosing = () => {
   if (isHidden.value) {
-    isHidden.value = false
+    isHidden.value = false;
     dialog.value.close();
-    emit('close')
+    emit("close");
   }
-}
+};
 </script>
 
 <template>
-  <dialog  class="dialog" ref="dialog" :class="{ large, 'is-hidden': isHidden }" @animationend="afterClosing">
+  <dialog
+    ref="dialog"
+    class="dialog"
+    :class="{ large, 'is-hidden': isHidden }"
+    @animationend="afterClosing"
+  >
     <header class="header">
       <h1 class="title" v-html="title" />
       <button class="close" type="button" @click="close">
-        <span class="sr-only">{{ $t('close') }}</span>
+        <span class="sr-only">{{ $t("close") }}</span>
         <app-icon icon="fa6-solid:xmark" class="icon" />
       </button>
-    </header>        
+    </header>
     <div class="content">
       <slot />
     </div>
@@ -62,7 +70,7 @@ const afterClosing = () => {
   &.large {
     max-width: var(--container-width-lg);
   }
-  
+
   &[open] {
     animation: show-dialog var(--transition);
 
@@ -119,7 +127,7 @@ const afterClosing = () => {
     translate: 0 -0.5em;
     opacity: 0;
   }
-  
+
   to {
     translate: 0 0;
     opacity: 1;
@@ -135,17 +143,17 @@ const afterClosing = () => {
 
 @keyframes show-backdrop {
   from {
-      opacity: 0;
+    opacity: 0;
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 @keyframes hide-backdrop {
   to {
-      opacity: 0;
+    opacity: 0;
   }
 }
 </style>

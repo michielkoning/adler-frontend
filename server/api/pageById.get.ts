@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { PageSchema } from "../schemas/PageSchema";
-import { Page } from "~/types/Page";
+import type { Page } from "~/types/Page";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 
@@ -11,7 +11,7 @@ const querySchema = z.object({
 
 export default defineEventHandler(async (event): Promise<Page> => {
   const query = await getValidatedQuery(event, (body) =>
-    querySchema.safeParse(body)
+    querySchema.safeParse(body),
   );
 
   if (!query.success) {

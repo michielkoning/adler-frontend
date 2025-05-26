@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ArrangementSchema } from "../schemas/ArrangementSchema";
-import { Arrangement } from "~/types/Arangement";
+import type { Arrangement } from "~/types/Arangement";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { LocaleSchema } from "../schemas/LocaleSchema";
@@ -12,7 +12,7 @@ const querySchema = z.object({
 
 export default defineEventHandler(async (event): Promise<Arrangement> => {
   const query = await getValidatedQuery(event, (body) =>
-    querySchema.safeParse(body)
+    querySchema.safeParse(body),
   );
 
   if (!query.success) {

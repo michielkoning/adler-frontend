@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 defineProps<{
   facility: {
-    icon: string
-    title: string
-    list: string[]
-  }
-}>()
+    icon: string;
+    title: string;
+    list: string[];
+  };
+}>();
 </script>
-
 
 <template>
   <div class="group">
@@ -15,7 +14,9 @@ defineProps<{
     <div>
       <h2>{{ $t(facility.title) }}</h2>
       <ul v-if="facility.list.length" class="list">
-        <li v-for="item in facility.list" :key="item" class="list-item">{{ $t(item) }}</li>
+        <li v-for="item in facility.list" :key="item" class="list-item">
+          {{ $t(item) }}
+        </li>
       </ul>
     </div>
   </div>
@@ -43,4 +44,3 @@ defineProps<{
   margin-bottom: var(--spacing-xxs);
 }
 </style>
-

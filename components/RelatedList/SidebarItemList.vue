@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { Archive } from '~/types/Archive';
+import type { Archive } from "~/types/Archive";
 
 defineProps<{
-  items: Archive[]
-}>()
+  items: Archive[];
+}>();
 </script>
 
 <template>
@@ -15,8 +15,6 @@ defineProps<{
     />
   </ul>
 </template>
-
-
 
 <style lang="postcss" scoped>
 .list {

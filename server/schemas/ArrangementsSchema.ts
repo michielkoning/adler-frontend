@@ -6,5 +6,5 @@ export const ArrangementsSchema = z.array(
     acf: z.object({
       price_from: z.string().transform((val) => Number(val)),
     }),
-  })
+  }),
 );

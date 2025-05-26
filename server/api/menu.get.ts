@@ -9,7 +9,7 @@ const querySchema = z.object({
 
 export default defineEventHandler(async (event) => {
   const query = await getValidatedQuery(event, (body) =>
-    querySchema.safeParse(body)
+    querySchema.safeParse(body),
   );
 
   if (!query.success) {
@@ -64,7 +64,7 @@ export default defineEventHandler(async (event) => {
       ],
     });
     $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
-      resolve(validateResponse(response))
+      resolve(validateResponse(response)),
     );
   });
 
@@ -76,7 +76,7 @@ export default defineEventHandler(async (event) => {
         parent,
       });
       $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
-        resolve(validateResponse(response))
+        resolve(validateResponse(response)),
       );
     });
 
@@ -101,7 +101,7 @@ export default defineEventHandler(async (event) => {
         type,
       });
       $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
-        resolve(validateResponse(response))
+        resolve(validateResponse(response)),
       );
     });
 

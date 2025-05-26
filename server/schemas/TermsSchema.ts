@@ -20,10 +20,10 @@ export const TermsListSchema = z
               name: z.string(),
               href: z.string(),
               templated: z.boolean(),
-            })
+            }),
           ),
         }),
-      })
-    )
+      }),
+    ),
   )
   .default([]);

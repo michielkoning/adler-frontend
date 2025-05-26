@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { TermsListSchema } from "../schemas/TermsSchema";
+import type { z } from "zod";
+import type { TermsListSchema } from "../schemas/TermsSchema";
 
 export const getTagsByType = (terms: z.infer<typeof TermsListSchema>) => {
   if (!terms.length) return [];

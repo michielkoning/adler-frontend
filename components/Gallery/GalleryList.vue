@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-import type { Image } from '~/types/Image';
+import type { Image } from "~/types/Image";
 
 const props = defineProps<{
-  images: Image[]
-}>()
+  images: Image[];
+}>();
 
 const previewImages = computed(() => {
-  const list = props.images.slice(0, 5)
+  const list = props.images.slice(0, 5);
   return list.map((image, index) => {
-    let sizes = 'xs:50vw sm:300px md:300px lg:300px xl:300px xxl:300px' 
+    let sizes = "xs:50vw sm:300px md:300px lg:300px xl:300px xxl:300px";
     if (index === 0) {
-       sizes = 'xs:100vw sm:100vw md:100vw lg:1140px xl:1140px xxl:1140px' 
+      sizes = "xs:100vw sm:100vw md:100vw lg:1140px xl:1140px xxl:1140px";
     } else if (index === 1) {
-      sizes = 'xs:50vw sm:300px md:300px lg:600px xl:600px xxl:600px' 
+      sizes = "xs:50vw sm:300px md:300px lg:600px xl:600px xxl:600px";
     }
     return {
       ...image,
-      sizes
-    }
-  })
-})
+      sizes,
+    };
+  });
+});
 </script>
 
 <template>
@@ -33,15 +33,15 @@ const previewImages = computed(() => {
       <app-image v-bind="image" />
     </li>
     <li class="item-btn">
-        <button class="btn" type="button">
-          {{ $t('viewAllPhotos') }}
-        </button>
-      </li>
+      <button class="btn" type="button">
+        {{ $t("viewAllPhotos") }}
+      </button>
+    </li>
   </ul>
 </template>
 
 <style lang="postcss" scoped>
-@import '~/assets/css/media-queries/media-queries.css';
+@import "~/assets/css/media-queries/media-queries.css";
 
 .list {
   @mixin list-reset;
@@ -144,5 +144,4 @@ const previewImages = computed(() => {
     font-size: var(--font-size-xl);
   }
 }
-
 </style>

@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     densities: [1, 2],
     domains: ["api.adler-lingenau.com"],
   },
- 
+
   components: [
     "~/components/Animations",
     // "~/components/LastMinutes",
@@ -75,8 +75,8 @@ export default defineNuxtConfig({
     mode: "svg",
     customCollections: [
       {
-        prefix: 'adler',
-        dir: './assets/icons'
+        prefix: "adler",
+        dir: "./assets/icons",
       },
     ],
   },

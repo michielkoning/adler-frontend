@@ -25,9 +25,9 @@ export const ArrangementSchema = z.array(
             kids: z.string().transform((val) => Number(val)),
             age_kids: z.string().transform((val) => Number(val)),
             extra_night: z.string().transform((val) => Number(val)),
-          })
+          }),
         )
         .default([]),
     }),
-  })
+  }),
 );
