@@ -46,12 +46,17 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     });
   }
 
+  return response;
+
   return parsed.data.map((item) => {
     return {
       id: item.id,
       link: item.slug,
       title: item.title.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      room: item.acf.room.ID,
+      prices: item.acf.prices,
+      dates: item.acf.dates,
     };
   });
 });

@@ -18,7 +18,9 @@ const isHidden = ref(false);
 const dialog = useTemplateRef("dialog");
 
 onMounted(() => {
-  dialog.value.showModal();
+  if (dialog.value) {
+    dialog.value.showModal();
+  }
 });
 
 const close = () => {
@@ -26,7 +28,7 @@ const close = () => {
 };
 
 const afterClosing = () => {
-  if (isHidden.value) {
+  if (isHidden.value && dialog.value) {
     isHidden.value = false;
     dialog.value.close();
     emit("close");

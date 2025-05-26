@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint . --fix && stylelint . --fix",
     "lint:js": "eslint . --fix",
-    "lint:css": "stylelint **/*.{css,vue} --fix"
+    "lint:css": "stylelint **/*.{css,vue} --fix",
+    "typecheck": "vue-tsc --noEmit"
   },
   "devDependencies": {
     "@iconify-json/fa6-solid": "^1.2.3",
@@ -37,6 +38,7 @@
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.10",
     "zod": "^3.25.28"
   },
   "dependencies": {

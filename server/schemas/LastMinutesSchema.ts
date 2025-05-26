@@ -12,6 +12,9 @@ export const LastMinutesSchema = z.array(
       "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
     }),
     acf: z.object({
+      room: z.object({
+        ID: z.number(),
+      }),
       dates: z.object({
         date_from: z.string(),
         date_untill: z.string(),

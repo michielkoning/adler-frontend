@@ -21,6 +21,6 @@ if (error.value) {
 </script>
 
 <template>
-  <home-hero v-if="data" :image="data.content.image" />
+  <home-hero v-if="data && data.content.image" :image="data.content.image" />
   <facilities-section />
 </template>
