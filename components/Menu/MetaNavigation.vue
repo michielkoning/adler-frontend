@@ -1,17 +1,3 @@
-<script lang="ts" setup>
-const showModal = ref(false);
-
-const localePath = useLocalePath();
-const changePage = () => {
-  // EventBusUtil.$emit("change-page");
-};
-
-const toggleModal = () => {
-  // EventBusUtil.$emit("change-page");
-  // this.showModal = !this.showModal;
-};
-</script>
-
 <template>
   <nav :aria-label="$t('metaNavigationTitle')" class="meta-navigation">
     <h2 id="secondary-menu-title" class="sr-only">
@@ -32,7 +18,6 @@ const toggleModal = () => {
         }"
         size="small"
         variant="ghost"
-        @click="changePage"
       >
         {{ $t("lastMinutes") }}
       </app-button>
@@ -43,7 +28,6 @@ const toggleModal = () => {
         to="https://www.gurado.de/adler-lingenau/geschenkgutscheine.html"
         variant="ghost"
         external
-        @click="changePage"
       />
 
       <btn-book-now />

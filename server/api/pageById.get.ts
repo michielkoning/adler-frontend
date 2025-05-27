@@ -3,7 +3,6 @@ import { PageSchema } from "../schemas/PageSchema";
 import type { Page } from "~/types/Page";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   slug: z.string().optional(),

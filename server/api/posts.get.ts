@@ -4,7 +4,6 @@ import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { z } from "zod";
 import { LocaleSchema } from "../schemas/LocaleSchema";
-import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   locale: LocaleSchema,

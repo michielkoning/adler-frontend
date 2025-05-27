@@ -3,13 +3,14 @@ import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { getUrl } from "../utils/getUrl";
 import { LocaleSchema } from "../schemas/LocaleSchema";
 import { LastMinutesSchema } from "../schemas/LastMinutesSchema";
-import { parseData } from "~/utils/parseData";
+
+import type { LastMinute } from "~/types/LastMinute";
 
 const querySchema = z.object({
   locale: LocaleSchema,
 });
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<LastMinute[]> => {
   const query = await getValidatedQuery(event, (body) =>
     querySchema.safeParse(body),
   );
@@ -20,6 +21,7 @@ export default defineEventHandler(async (event) => {
       data: query.error.format(),
     });
   }
+
   const url = getUrl({
     image: true,
     lang: query.data.locale,
@@ -34,15 +36,29 @@ export default defineEventHandler(async (event) => {
 
   const parsed = parseData(response, LastMinutesSchema);
 
-  return parsed.map((item) => {
+  const getRoom = async (id: number) => {
+    return await $fetch("/api/roomById", {
+      params: {
+        id,
+      },
+    });
+  };
+
+  const items = await parsed.map(async (item) => {
     return {
       id: item.id,
       link: item.slug,
       title: item.title.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
-      room: item.acf.room.ID,
+      room: await getRoom(item.acf.room.ID),
       prices: item.acf.prices,
-      dates: item.acf.dates,
+      isSold: item.acf.sold,
+      dates: {
+        from: item.acf.dates.date_from,
+        until: item.acf.dates.date_untill,
+      },
     };
   });
+
+  return await Promise.all(items);
 });

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { LastMinutesSection } from "#components";
+
 defineI18nRoute({
   paths: {
     de: "/last-minute",
@@ -9,7 +11,7 @@ defineI18nRoute({
 
 const { pageIds } = useAppConfig();
 
-const { data, error } = await useFetch("/api/pageById", {
+const { error } = await useFetch("/api/pageById", {
   params: {
     id: getPageId(pageIds.lastMinutePageId),
   },
@@ -21,7 +23,5 @@ if (error.value) {
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content">
-    <div>asdsad</div>
-  </the-page>
+  <last-minutes-section />
 </template>

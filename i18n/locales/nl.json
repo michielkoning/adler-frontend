@@ -114,5 +114,7 @@
   "relatedArrangements": "Meer aanbiedingen",
   "usefulLinks": "Handige links",
   "location": "in {city}, {province}",
-  "viewAllPhotos": "Bekijk alle foto's"
+  "viewAllPhotos": "Bekijk alle foto's",
+  "lastMinutesTitle": "Onze last minute aanbiedingen",
+  "lastMinutesNoResults": "Er zijn momenteel geen last minute aanbiedingen"
 }

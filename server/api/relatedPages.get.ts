@@ -3,7 +3,6 @@ import { RelatedPageSchema } from "../schemas/RelatedPageSchema";
 import type { Archive } from "~/types/Archive";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   parentId: z.string().transform((val) => Number(val)),

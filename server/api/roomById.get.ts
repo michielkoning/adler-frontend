@@ -1,15 +1,16 @@
 import { z } from "zod";
-import { PageListSchema } from "../schemas/PageSchema";
-import type { Page } from "~/types/Page";
+import { RoomSchema } from "../schemas/RoomSchema";
+import { getTagsByType } from "../utils/getTagsByType";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 
+import type { Room } from "~/types/Room";
+
 const querySchema = z.object({
-  slug: z.string().optional(),
-  id: z.string().optional(),
+  id: z.string(),
 });
 
-export default defineEventHandler(async (event): Promise<Page> => {
+export default defineEventHandler(async (event): Promise<Room> => {
   const query = await getValidatedQuery(event, (body) =>
     querySchema.safeParse(body),
   );
@@ -22,39 +23,32 @@ export default defineEventHandler(async (event): Promise<Page> => {
   }
   const url = getUrl({
     image: true,
-    slug: query.data.slug,
+    type: "room",
+    fields: ["title", "slug", "content", "acf"],
     id: query.data.id,
-    type: "pages",
-    fields: ["slug", "title", "content", "parent", "acf", "excerpt"],
   });
 
   const response = await $fetch(url);
 
-  const parsed = parseData(response, PageListSchema);
+  const parsed = parseData(response, RoomSchema);
 
-  if (!parsed.length) {
-    throw createError({
-      statusMessage: "Page not found",
-    });
-  }
-
-  const item = parsed[0];
+  const item = parsed;
 
   return {
     id: item.id,
     slug: item.slug,
+    prices: {
+      fullBoardHighSeason: item.acf.full_board_high_season,
+      halfBoardHighSeason: item.acf.half_board_high_season,
+      fullBoardLowSeason: item.acf.full_board_low_season,
+      halfBoardLowSeason: item.acf.half_board_low_season,
+    },
+    bookUrl: item.acf.book_url,
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
-      gallery: item.acf.gallery?.map((image) => {
-        return {
-          src: image.url,
-          width: image.width,
-          height: image.height,
-          alt: image.alt,
-        };
-      }),
     },
+    services: getTagsByType(item._embedded["wp:term"]),
   };
 });

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useField, ErrorMessage as oaaa } from "vee-validate";
+import { useField } from "vee-validate";
 
 const props = defineProps<{
   title: string;
@@ -27,14 +27,13 @@ const {
   <form-field :id="id" :title="title" :name="name">
     <textarea
       :id="id"
-      :name="name"
       v-bind="$attrs"
+      :value="inputValue"
+      :name="name"
       class="field"
       @input="handleChange"
       @blur="handleBlur"
-    >
-      {{ inputValue }}
-    </textarea>
+    />
   </form-field>
 </template>
 

@@ -1,9 +1,8 @@
 import { z } from "zod";
-import { RoomSchema } from "../schemas/RoomSchema";
+import { RoomListSchema } from "../schemas/RoomSchema";
 import { getTagsByType } from "../utils/getTagsByType";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   slug: z.string(),
@@ -30,7 +29,7 @@ export default defineEventHandler(async (event) => {
 
   const response = await $fetch(url);
 
-  const parsed = parseData(response, RoomSchema);
+  const parsed = parseData(response, RoomListSchema);
 
   if (!parsed.length) {
     throw createError({

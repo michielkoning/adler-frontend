@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2024-08-20",
+  compatibilityDate: "2025-05-27",
   telemetry: false,
   css: ["~/assets/css/base.css"],
 
@@ -27,6 +27,7 @@ export default defineNuxtConfig({
     // "~/components/Highlights",
     "~/components/Home",
     // "~/components/Images",
+    "~/components/LastMinutes",
     "~/components/Layout",
     "~/components/Menu",
     "~/components/Menu/MainNavigation",

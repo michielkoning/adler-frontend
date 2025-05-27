@@ -72,5 +72,7 @@
   "relatedArrangements": "More offers",
   "usefulLinks": "Useful links",
   "location": "in {city}, {province}",
-  "viewAllPhotos": "View all photos"
+  "viewAllPhotos": "View all photos",
+  "lastMinutesTitle": "Our last minutes",
+  "lastMinutesNoResults": "There are currently no last minute offers"
 }

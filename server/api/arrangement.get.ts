@@ -4,7 +4,6 @@ import type { Arrangement } from "~/types/Arangement";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { LocaleSchema } from "../schemas/LocaleSchema";
-import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   locale: LocaleSchema,

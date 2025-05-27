@@ -1,20 +1,14 @@
 <script lang="ts" setup>
-import type { Content } from '~/types/Content';
+import type { Content } from "~/types/Content";
 
-defineProps<Content>()
+defineProps<Content>();
 </script>
 
 <template>
   <div>
     <center-wrapper>
       <div class="page">
-
-
-        <gallery-list
-          v-if="gallery"
-          class="gallery"
-          :images="gallery""
-        />
+        <gallery-list v-if="gallery" class="gallery" :images="gallery" />
         <app-image
           v-else-if="image"
           :lazy="false"
@@ -50,7 +44,7 @@ defineProps<Content>()
 </template>
 
 <style lang="postcss" scoped>
-@import '~/assets/css/media-queries/media-queries.css';
+@import "~/assets/css/media-queries/media-queries.css";
 
 .page {
   display: grid;

@@ -1,4 +1,3 @@
-import { parseData } from "~/utils/parseData";
 import { openingHoursSchema } from "../schemas/OpeningHoursSchema";
 
 export default defineEventHandler(async () => {

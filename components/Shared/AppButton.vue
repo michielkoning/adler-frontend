@@ -4,7 +4,6 @@ import type { NuxtLinkProps } from "#app";
 const props = withDefaults(
   defineProps<
     NuxtLinkProps & {
-      buttonTag?: string;
       type?: "submit" | "button";
       variant?: "primary" | "ghost";
       size?: "small" | "medium" | "large";
