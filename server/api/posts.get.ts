@@ -4,6 +4,7 @@ import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { z } from "zod";
 import { LocaleSchema } from "../schemas/LocaleSchema";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   locale: LocaleSchema,
@@ -33,21 +34,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   const response = await $fetch(url);
 
-  const parsed = PostsSchema.safeParse(response);
+  const parsed = parseData(response, PostsSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  if (!parsed.data.length) {
-    throw createError({
-      statusMessage: "Page not found",
-    });
-  }
-
-  return parsed.data.map((item) => {
+  return parsed.map((item) => {
     return {
       id: item.id,
       title: item.title.rendered,

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { MenuListSchema } from "../schemas/MenuSchema";
 import { getUrl } from "../utils/getUrl";
 import { LocaleSchema } from "../schemas/LocaleSchema";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   locale: LocaleSchema,
@@ -31,15 +32,9 @@ export default defineEventHandler(async (event) => {
   const contactPageId = pageIds.contactPageId[query.data.locale];
 
   const validateResponse = (response: z.infer<typeof MenuListSchema>) => {
-    const parsed = MenuListSchema.safeParse(response);
+    const parsed = parseData(response, MenuListSchema);
 
-    if (!parsed.success) {
-      throw createError({
-        data: parsed.error.format(),
-      });
-    }
-
-    return parsed.data.map((item) => {
+    return parsed.map((item) => {
       return {
         id: item.id,
         title: item.title.rendered,

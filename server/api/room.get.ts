@@ -3,6 +3,7 @@ import { RoomSchema } from "../schemas/RoomSchema";
 import { getTagsByType } from "../utils/getTagsByType";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   slug: z.string(),
@@ -29,21 +30,15 @@ export default defineEventHandler(async (event) => {
 
   const response = await $fetch(url);
 
-  const parsed = RoomSchema.safeParse(response);
+  const parsed = parseData(response, RoomSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  if (!parsed.data.length) {
+  if (!parsed.length) {
     throw createError({
       statusMessage: "Page not found",
     });
   }
 
-  const item = parsed.data[0];
+  const item = parsed[0];
 
   const relatedRooms = await $fetch("/api/rooms", {
     params: {

@@ -3,6 +3,7 @@ import { RelatedPageSchema } from "../schemas/RelatedPageSchema";
 import type { Archive } from "~/types/Archive";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   parentId: z.string().transform((val) => Number(val)),
@@ -30,15 +31,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   const response = await $fetch(url);
 
-  const parsed = RelatedPageSchema.safeParse(response);
+  const parsed = parseData(response, RelatedPageSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  return parsed.data.map((item) => {
+  return parsed.map((item) => {
     return {
       id: item.id,
       title: item.title.rendered,

@@ -1,15 +1,15 @@
-import type { Archive } from "~/types/Archive";
 import { z } from "zod";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { getUrl } from "../utils/getUrl";
 import { LocaleSchema } from "../schemas/LocaleSchema";
 import { LastMinutesSchema } from "../schemas/LastMinutesSchema";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   locale: LocaleSchema,
 });
 
-export default defineEventHandler(async (event): Promise<Archive[]> => {
+export default defineEventHandler(async (event) => {
   const query = await getValidatedQuery(event, (body) =>
     querySchema.safeParse(body),
   );
@@ -32,23 +32,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   const response = await $fetch(url);
 
-  const parsed = LastMinutesSchema.safeParse(response);
+  const parsed = parseData(response, LastMinutesSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  if (!parsed.data.length) {
-    throw createError({
-      statusMessage: "Page not found",
-    });
-  }
-
-  return response;
-
-  return parsed.data.map((item) => {
+  return parsed.map((item) => {
     return {
       id: item.id,
       link: item.slug,

@@ -4,6 +4,7 @@ import type { Arrangement } from "~/types/Arangement";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { LocaleSchema } from "../schemas/LocaleSchema";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   locale: LocaleSchema,
@@ -30,21 +31,15 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
 
   const response = await $fetch(url);
 
-  const parsed = ArrangementSchema.safeParse(response);
+  const parsed = parseData(response, ArrangementSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  if (!parsed.data.length) {
+  if (!parsed.length) {
     throw createError({
       statusMessage: "Page not found",
     });
   }
 
-  const item = parsed.data[0];
+  const item = parsed[0];
 
   const relatedArrangements = await $fetch("/api/arrangements", {
     params: {

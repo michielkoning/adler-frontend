@@ -1,3 +1,4 @@
+import { parseData } from "~/utils/parseData";
 import { openingHoursSchema } from "../schemas/OpeningHoursSchema";
 
 export default defineEventHandler(async () => {
@@ -5,13 +6,7 @@ export default defineEventHandler(async () => {
 
   const response = await $fetch(`${apiUrl}adler/v1/settings`);
 
-  const parsed = openingHoursSchema.safeParse(response);
+  const parsed = parseData(response, openingHoursSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  return parsed.data;
+  return parsed;
 });

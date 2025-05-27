@@ -2,6 +2,7 @@ import { z } from "zod";
 import { PostSchema } from "../schemas/PostSchema";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   slug: z.string(),
@@ -27,21 +28,15 @@ export default defineEventHandler(async (event) => {
 
   const response = await $fetch(url);
 
-  const parsed = PostSchema.safeParse(response);
+  const parsed = parseData(response, PostSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  if (!parsed.data.length) {
+  if (!parsed.length) {
     throw createError({
       statusMessage: "Post not found",
     });
   }
 
-  const item = parsed.data[0];
+  const item = parsed[0];
 
   const relatedPosts = await $fetch("/api/posts", {
     params: {

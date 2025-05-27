@@ -3,6 +3,7 @@ import { PageSchema } from "../schemas/PageSchema";
 import type { Page } from "~/types/Page";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { parseData } from "~/utils/parseData";
 
 const querySchema = z.object({
   slug: z.string().optional(),
@@ -30,21 +31,15 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   const response = await $fetch(url);
 
-  const parsed = PageSchema.safeParse(response);
+  const parsed = parseData(response, PageSchema);
 
-  if (!parsed.success) {
-    throw createError({
-      data: parsed.error.format(),
-    });
-  }
-
-  if (!parsed.data) {
+  if (!parsed) {
     throw createError({
       statusMessage: "Page not found",
     });
   }
 
-  const item = parsed.data;
+  const item = parsed;
 
   return {
     id: item.id,
