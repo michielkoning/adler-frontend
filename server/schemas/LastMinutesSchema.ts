@@ -16,28 +16,8 @@ export const LastMinutesSchema = z.array(
         ID: z.number(),
       }),
       dates: z.object({
-        date_from: z.string().transform((val) => {
-          const date = val.split("/");
-          if (date.length === 3) {
-            return new Date(
-              Number(date[2]),
-              Number(date[1]) - 1,
-              Number(date[0]),
-            );
-          }
-          return undefined;
-        }),
-        date_untill: z.string().transform((val) => {
-          const date = val.split("/");
-          if (date.length === 3) {
-            return new Date(
-              Number(date[2]),
-              Number(date[1]) - 1,
-              Number(date[0]),
-            );
-          }
-          return undefined;
-        }),
+        date_from: z.string().transform((val) => convertToDate(val)),
+        date_untill: z.string().transform((val) => convertToDate(val)),
       }),
       prices: z.array(
         z.object({
