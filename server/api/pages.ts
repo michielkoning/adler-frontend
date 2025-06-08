@@ -3,9 +3,15 @@ import { RelatedPageSchema } from "../schemas/RelatedPageSchema";
 import type { Archive } from "~/types/Archive";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { LocaleSchema } from "../schemas/LocaleSchema";
 
 const querySchema = z.object({
   parentId: z.string().transform((val) => Number(val)),
+  exclude: z
+    .string()
+    .optional()
+    .transform((val) => Number(val)),
+  locale: LocaleSchema,
 });
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
@@ -21,7 +27,9 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   }
   const url = getUrl({
     image: true,
+    lang: query.data.locale,
     parent: query.data.parentId,
+    exclude: query.data.exclude,
     type: "pages",
     fields: ["title", "slug", "excerpt", "acf", "link"],
     orderby: "menu_order",

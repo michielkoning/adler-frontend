@@ -31,6 +31,7 @@ export default defineNuxtConfig({
     "~/components/Menu",
     "~/components/Menu/MainNavigation",
     "~/components/Posts",
+    "~/components/Pages",
     "~/components/RelatedList",
     "~/components/Rooms/Details",
     "~/components/Rooms/Prices",

@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <ul class="list">
+  <ul v-if="items.length" class="list">
     <archive-item v-for="item in items" :key="item.id" v-bind="item" />
   </ul>
 </template>

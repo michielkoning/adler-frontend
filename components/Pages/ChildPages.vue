@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  parentId: number;
+  id: number;
 }>();
 
 const { locale } = useI18n();
 
-const { data, error } = await useFetch("/api/relatedPages", {
+const { data, error } = await useFetch("/api/pages", {
   params: {
-    parentId: props.parentId,
+    parentId: props.id,
     locale,
   },
 });
@@ -18,5 +18,5 @@ if (error.value) {
 </script>
 
 <template>
-  <archive-list v-if="data?.length" :items="data" />
+  <archive-list v-if="data" :items="data" />
 </template>

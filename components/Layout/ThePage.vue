@@ -42,7 +42,7 @@ withDefaults(
       </div>
     </center-wrapper>
 
-    <arrangements-highlights-section />
+    <!-- <arrangements-highlights-section /> -->
   </div>
 </template>
 

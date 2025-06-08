@@ -13,6 +13,7 @@ export const PageSchema = z.object({
   _embedded: z.object({
     "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
   }),
+  parent: z.number(),
   acf: z.object({
     gallery: z
       .array(

@@ -25,7 +25,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
     slug: query.data.slug,
     id: query.data.id,
     type: "pages",
-    fields: ["slug", "title", "content", "parent", "acf", "excerpt"],
+    fields: ["slug", "title", "content", "parent", "acf", "excerpt", "parent"],
   });
 
   const response = await $fetch(url);
@@ -43,6 +43,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
   return {
     id: item.id,
     slug: item.slug,
+    parentId: item.parent,
     content: {
       title: item.title.rendered,
       text: item.content.rendered,

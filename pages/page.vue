@@ -18,7 +18,7 @@ const slug = computed(() => {
   }
 });
 
-const { data, error } = await useFetch("/api/pages", {
+const { data, error } = await useFetch("/api/page", {
   params: {
     slug,
   },
@@ -31,6 +31,13 @@ if (error.value) {
 
 <template>
   <the-page v-if="data" v-bind="data.content">
-    <related-pages :parent-id="data.id" />
+    <child-pages :id="data.id" />
+    <template #sidebar>
+      <related-pages
+        v-if="data.parentId"
+        :parent-id="data.parentId"
+        :exclude="data.id"
+      />
+    </template>
   </the-page>
 </template>
