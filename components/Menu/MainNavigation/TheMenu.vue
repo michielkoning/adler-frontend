@@ -16,7 +16,7 @@ if (error.value) {
   <center-wrapper>
     <nav v-if="data" aria-labelledby="menu" class="nav">
       <h2 id="menu" class="sr-only" tabindex="-1">
-        {{ $t("title") }}
+        {{ "title" }}
       </h2>
       <div ref="menu">
         <ul v-if="data" class="menu">

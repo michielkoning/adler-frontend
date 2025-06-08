@@ -17,7 +17,12 @@ withDefaults(
   <div>
     <center-wrapper>
       <div class="page">
-        <gallery-list v-if="gallery" class="gallery" :images="gallery" />
+        <gallery-list
+          v-if="gallery"
+          class="gallery"
+          :images="gallery"
+          :title="title"
+        />
         <app-image
           v-else-if="image"
           :lazy="false"

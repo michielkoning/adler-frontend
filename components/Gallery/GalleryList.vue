@@ -3,7 +3,11 @@ import type { Image } from "~/types/Image";
 
 const props = defineProps<{
   images: Image[];
+  title: string;
 }>();
+
+const slide = ref(0);
+const showModal = ref(false);
 
 const previewImages = computed(() => {
   const list = props.images.slice(0, 5);
@@ -20,24 +24,44 @@ const previewImages = computed(() => {
     };
   });
 });
+
+const selectSlide = (index: number) => {
+  slide.value = index;
+  showModal.value = true;
+};
+
+const closeeModal = () => {
+  showModal.value = false;
+};
 </script>
 
 <template>
-  <ul class="list">
-    <li
-      v-for="(image, index) in previewImages"
-      :key="image.src"
-      class="item"
-      :class="`item-${index}`"
+  <div>
+    <app-modal
+      v-if="showModal"
+      :large="true"
+      :title="title"
+      @close="closeeModal"
     >
-      <app-image v-bind="image" />
-    </li>
-    <li class="item-btn">
-      <button class="btn" type="button">
-        {{ $t("viewAllPhotos") }}
-      </button>
-    </li>
-  </ul>
+      <gallery-carousel :images="images" :slide="slide" />
+    </app-modal>
+    <ul class="list">
+      <li
+        v-for="(image, index) in previewImages"
+        :key="image.src"
+        class="item"
+        :class="`item-${index}`"
+        @click="selectSlide(index)"
+      >
+        <app-image v-bind="image" />
+      </li>
+      <li class="item-btn">
+        <button class="btn" type="button" @click="selectSlide(0)">
+          {{ $t("viewAllPhotos") }}
+        </button>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="postcss" scoped>
