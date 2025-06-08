@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { FeaturedImageSchema } from "./FeaturedImageSchema";
 import { TermsListSchema } from "./TermsSchema";
+import { GallerySchema } from "./GallerySchema";
 
 export const RoomSchema = z.object({
   id: z.number(),
@@ -16,6 +17,7 @@ export const RoomSchema = z.object({
     "wp:term": TermsListSchema,
   }),
   acf: z.object({
+    gallery: GallerySchema,
     full_board_high_season: z
       .string()
       .optional()

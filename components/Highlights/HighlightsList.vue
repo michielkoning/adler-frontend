@@ -23,7 +23,7 @@ if (error.value) {
 </script>
 
 <template>
-  <ul v-if="data.length" class="list">
+  <ul v-if="data" class="list">
     <highlights-list-item v-for="item in data" :key="item.id" :item="item" />
   </ul>
 </template>

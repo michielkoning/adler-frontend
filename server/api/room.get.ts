@@ -53,6 +53,14 @@ export default defineEventHandler(async (event) => {
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      gallery: item.acf.gallery?.map((image) => {
+        return {
+          src: image.url,
+          width: image.width,
+          height: image.height,
+          alt: image.alt,
+        };
+      }),
     },
     services: getTagsByType(item._embedded["wp:term"]),
   };
