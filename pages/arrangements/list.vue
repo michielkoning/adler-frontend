@@ -23,7 +23,7 @@ if (error.value) {
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content">
+  <the-page v-if="data" v-bind="data.content" :show-resmio="false">
     <arrangments-list />
   </the-page>
 </template>

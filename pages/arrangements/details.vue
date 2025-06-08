@@ -23,15 +23,16 @@ if (error.value) {
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content">
+  <the-page v-if="data" v-bind="data.content" :show-resmio="false">
     <arrangement-prices :prices="data.prices" />
 
     <template #sidebar>
-      <related-list-section
+      <related-arrangement-section :exclude="data.id" />
+      <!-- <related-list-section
         v-if="data.relatedArrangements.length"
         :items="data.relatedArrangements"
         :title="$t('relatedArrangements')"
-      />
+      /> -->
     </template>
   </the-page>
 </template>

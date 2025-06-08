@@ -1,7 +1,16 @@
 <script lang="ts" setup>
 import type { Content } from "~/types/Content";
 
-defineProps<Content>();
+withDefaults(
+  defineProps<
+    Content & {
+      showResmio?: boolean;
+    }
+  >(),
+  {
+    showResmio: true,
+  },
+);
 </script>
 
 <template>
@@ -28,15 +37,9 @@ defineProps<Content>();
 
         <aside class="sidebar">
           <slot name="sidebar" />
-          <!-- <resmio-widget v-if="showResmio" /> -->
+          <resmio-widget v-if="showResmio" />
         </aside>
       </div>
-      <!-- <client-only>
-        <giggle-widget
-          v-if="page.Giggle && page.Giggle.giggleWidget"
-          :stream="page.Giggle.giggleWidget"
-        />
-      </client-only> -->
     </center-wrapper>
 
     <arrangements-highlights-section />

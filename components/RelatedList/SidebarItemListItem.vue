@@ -28,15 +28,13 @@ defineProps<Archive>();
   grid-gap: var(--spacing-s);
   align-items: center;
 
-  &:focus-within,
-  &:hover {
-    & .link {
-      text-decoration: underline;
-      text-decoration-style: solid;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-      text-decoration-color: var(--color-primary);
-    }
+  &:focus-within .link,
+  &:hover .link {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-primary);
   }
 }
 

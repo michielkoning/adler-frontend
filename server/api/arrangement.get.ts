@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { ArrangementSchema } from "../schemas/ArrangementSchema";
-import type { Arrangement } from "~/types/Arangement";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
 import { LocaleSchema } from "../schemas/LocaleSchema";
@@ -10,7 +9,7 @@ const querySchema = z.object({
   slug: z.string(),
 });
 
-export default defineEventHandler(async (event): Promise<Arrangement> => {
+export default defineEventHandler(async (event) => {
   const query = await getValidatedQuery(event, (body) =>
     querySchema.safeParse(body),
   );
@@ -40,13 +39,6 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
 
   const item = parsed[0];
 
-  const relatedArrangements = await $fetch("/api/arrangements", {
-    params: {
-      exclude: item.id,
-      locale: query.data.locale,
-    },
-  });
-
   return {
     id: item.id,
     slug: item.slug,
@@ -56,6 +48,5 @@ export default defineEventHandler(async (event): Promise<Arrangement> => {
       text: item.content.rendered,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
-    relatedArrangements,
   };
 });
