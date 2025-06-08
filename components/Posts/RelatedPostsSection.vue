@@ -1,10 +1,16 @@
 <script lang="ts" setup>
+const props = defineProps<{
+  exclude: number;
+}>();
+
 const localePath = useLocalePath();
 const { locale } = useI18n();
 
 const { data, error } = await useFetch("/api/posts", {
   params: {
     locale,
+    exclude: props.exclude,
+    pageSize: 5,
   },
   transform: (response) => {
     return response.map((item) => {
@@ -27,5 +33,5 @@ if (error.value) {
 </script>
 
 <template>
-  <archive-list v-if="data" :items="data" />
+  <related-list-section v-if="data" :items="data" :title="$t('relatedPosts')" />
 </template>

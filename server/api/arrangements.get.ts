@@ -30,7 +30,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
   }
   const url = getUrl({
     image: true,
-    lang: "nl",
+    lang: query.data.locale,
     type: "arrangement",
     fields: ["slug", "title", "acf", "excerpt"],
     pageSize: query.data.pageSize,

@@ -23,11 +23,7 @@ if (error.value) {
 <template>
   <the-page v-if="data" v-bind="data.content">
     <template #sidebar>
-      <related-list-section
-        v-if="data.relatedPosts.length"
-        :items="data.relatedPosts"
-        :title="$t('relatedPosts')"
-      />
+      <related-posts-section :exclude="data.id" />
     </template>
   </the-page>
 </template>

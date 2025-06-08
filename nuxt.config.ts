@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     "~/components/Layout",
     "~/components/Menu",
     "~/components/Menu/MainNavigation",
-    // "~/components/Posts/Related",
+    "~/components/Posts",
     "~/components/RelatedList",
     "~/components/Rooms/Details",
     "~/components/Rooms/Prices",

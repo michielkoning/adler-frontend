@@ -37,12 +37,6 @@ export default defineEventHandler(async (event) => {
 
   const item = parsed[0];
 
-  const relatedPosts = await $fetch("/api/posts", {
-    params: {
-      exclude: item.id,
-    },
-  });
-
   return {
     id: item.id,
     slug: item.slug,
@@ -52,6 +46,5 @@ export default defineEventHandler(async (event) => {
       date: item.date,
       image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
     },
-    relatedPosts,
   };
 });

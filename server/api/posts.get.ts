@@ -11,6 +11,10 @@ const querySchema = z.object({
     .string()
     .optional()
     .transform((val) => Number(val)),
+  pageSize: z
+    .string()
+    .optional()
+    .transform((val) => Number(val)),
 });
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
@@ -25,10 +29,12 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
     });
   }
   const url = getUrl({
+    lang: query.data.locale,
     image: true,
     type: "posts",
     fields: ["title", "slug", "excerpt", "date"],
     exclude: query.data.exclude,
+    pageSize: query.data.pageSize,
   });
 
   const response = await $fetch(url);
