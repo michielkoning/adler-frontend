@@ -116,5 +116,7 @@
   "location": "in {city}, {province}",
   "viewAllPhotos": "Bekijk alle foto's",
   "lastMinutesTitle": "Onze last minute aanbiedingen",
-  "lastMinutesNoResults": "Er zijn momenteel geen last minute aanbiedingen"
+  "lastMinutesNoResults": "Er zijn momenteel geen last minute aanbiedingen",
+  "ourRestaurant": "Ons restaurant",
+  "reserveForOurRestaurant": "Reserveer voor ons restaurant"
 }

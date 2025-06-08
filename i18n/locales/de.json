@@ -74,5 +74,7 @@
   "location": "in {city} im {province}",
   "viewAllPhotos": "Mehr Fotos",
   "lastMinutesTitle": "Unsere Last minutes",
-  "lastMinutesNoResults": "Derzeit gibt es keine Last-Minute-Angebote"
+  "lastMinutesNoResults": "Derzeit gibt es keine Last-Minute-Angebote",
+  "ourRestaurant": "Unser Restaurant",
+  "reserveForOurRestaurant": "Reservieren Sie in unserem Restaurant"
 }
