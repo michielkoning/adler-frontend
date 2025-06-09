@@ -32,7 +32,7 @@ useHead({
         />
       </Head>
       <Body>
-        <nuxt-pwa-manifest />
+        <nuxt-pwa-assets />
         <nuxt-route-announcer />
         <div class="page">
           <!-- <header-top class="page-header-top sa-hidden" /> -->
