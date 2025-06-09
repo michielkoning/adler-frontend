@@ -1,9 +1,15 @@
-export const title = "Familienhotel Adler ***S";
-export const baseUrl = "https://www.adler-lingenau.com/";
-export const themeColor = "#98012e";
-export const categories = ["travel"];
-export const facebook = "https://www.facebook.com/adler.hotel";
-export const twitter = "@Adler_Hotel";
+const settings = {
+  title: "Familienhotel Adler ***S",
+  baseUrl: "https://www.adler-lingenau.com/",
+  themeColor: "#98012e",
+  backgroundColor: "#98012e",
+  categories: ["travel"],
+  facebook: "https://www.facebook.com/adler.hotel",
+  twitter: "@Adler_Hotel",
+  description:
+    'Urlaub mit Kindern im Bregenzerwald. Machen Sie Urlaub mit Kindern in unserem Familienhotel in Vorarlberg im Bregenzerwald. Buchen Sie Ihren Familienurlaub mit Kindern im Hotel im Bregenzerwald, Vorarlberg, Österreich online"',
+  locale: "de",
+};
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-27",
@@ -75,6 +81,7 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
     "@nuxt/fonts",
     "@nuxt/icon",
+    "@vite-pwa/nuxt",
   ],
   icon: {
     componentName: "NuxtIcon",
@@ -92,7 +99,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: "prefix",
     defaultLocale: "de",
-    baseUrl,
+    baseUrl: settings.baseUrl,
     locales: [
       {
         name: "Deutsch",
@@ -129,7 +136,7 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "og:publisher",
-          content: facebook,
+          content: settings.facebook,
         },
         {
           name: "viewport",
@@ -142,23 +149,50 @@ export default defineNuxtConfig({
           name: "apple-mobile-web-app-status-bar-style",
           content: "black",
         },
-        { name: "apple-mobile-web-app-title", content: title },
-        { name: "theme-color", content: themeColor },
-        { property: "og:site_name", content: title },
+        { name: "apple-mobile-web-app-title", content: settings.title },
+        { property: "og:site_name", content: settings.title },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:site", content: twitter },
-        { name: "twitter:creator", content: twitter },
+        { name: "twitter:site", content: settings.twitter },
+        { name: "twitter:creator", content: settings.twitter },
       ],
-      link: [
+    },
+  },
+  pwa: {
+    strategies: "generateSW",
+    registerWebManifestInRouteRules: true,
+    registerType: "autoUpdate",
+    manifest: {
+      background_color: settings.backgroundColor,
+      theme_color: settings.themeColor,
+      categories: settings.categories,
+      lang: settings.locale,
+      name: settings.title,
+      orientation: "portrait-primary",
+      description: settings.description,
+      short_name: settings.title,
+      edge_side_panel: {},
+      dir: "ltr",
+      icons: [
         {
-          rel: "apple-touch-icon",
-          href: "/icons/manifest-icon-512.maskable.png",
-          sizes: "512x512",
+          src: "/images/pwa-64x64.png",
+          sizes: "64x64",
+          type: "image/png",
         },
         {
-          rel: "icon",
-          href: "/favicon.svg",
-          type: "image/svg+xml",
+          src: "/images/pwa-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "/images/pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+        {
+          src: "/images/maskable-icon-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable",
         },
       ],
     },
