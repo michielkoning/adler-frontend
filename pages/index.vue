@@ -26,7 +26,7 @@ if (error.value) {
     <div class="wrapper">
       <highlights-list :items="data" :page-size="4" />
       <aside class="sidebar">
-        <related-posts-list />
+        <latest-posts-list />
         <resmio-widget class="resmio" />
       </aside>
     </div>

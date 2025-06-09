@@ -30,7 +30,7 @@ const selectSlide = (index: number) => {
   showModal.value = true;
 };
 
-const closeeModal = () => {
+const closeModal = () => {
   showModal.value = false;
 };
 </script>
@@ -41,7 +41,7 @@ const closeeModal = () => {
       v-if="showModal"
       :large="true"
       :title="title"
-      @close="closeeModal"
+      @close="closeModal"
     >
       <gallery-carousel :images="images" :slide="slide" />
     </app-modal>

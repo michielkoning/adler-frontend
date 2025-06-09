@@ -1,3 +1,4 @@
+import type { Image } from "./Image";
 import type { Room } from "./Room";
 
 export type LastMinute = {
@@ -5,6 +6,7 @@ export type LastMinute = {
   link: string;
   title: string;
   room: Room;
+  image?: Image;
   isSold: boolean;
   prices: {
     kids: number;

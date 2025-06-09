@@ -7,11 +7,17 @@ import {
 export default defineConfig({
   headLinkOptions: {
     preset: "2023",
+    basePath: "/images/",
   },
-  preset: combinePresetAndAppleSplashScreens(preset, {
-    resizeOptions: {
-      background: "#98012e",
-    },
-  }),
-  images: ["public/images/icon.png"],
+  // preset: {
+  // linkMediaOptions: {
+  //   basePath: "/images/",
+  // },
+
+  // resizeOptions: {
+  //   background: "#98012e",
+  // },
+  // },
+  preset,
+  images: ["public/images/icon.svg"],
 });

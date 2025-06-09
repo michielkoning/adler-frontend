@@ -6,38 +6,40 @@ defineProps<LastMinute>();
 
 <template>
   <li class="item">
-    <app-badge
-      v-if="isSold"
-      :text="$t('sold')"
-      class="badge"
-      :small-text="true"
-    />
+    <div class="image-wrapper">
+      <app-badge
+        v-if="isSold"
+        :text="$t('sold')"
+        class="badge"
+        :small-text="true"
+      />
+      <app-image v-if="image" v-bind="image" class="image" />
+    </div>
 
-    <div class="content">
-      <dl>
-        <template v-if="dates.from && dates.until">
-          <dt>
-            <app-icon icon="fa6-solid:calendar" class="icon" />
-            <span class="sr-only">{{ $t("date") }}</span>
-          </dt>
-          <dd>
-            {{ $d(dates.from, "short") }}
-            &dash;
-            {{ $d(dates.until, "short") }}
-          </dd>
-        </template>
+    <dl class="meta-wrapper">
+      <template v-if="dates.from && dates.until">
         <dt>
-          <app-icon icon="fa6-solid:bed" class="icon" />
-          <span class="sr-only">{{ $t("room") }}</span>
+          <app-icon icon="fa6-solid:calendar" class="icon" />
+          <span class="sr-only">{{ $t("date") }}</span>
         </dt>
-
         <dd>
-          <nuxt-link :to="room.slug">
-            {{ room.content.title }}
-          </nuxt-link>
+          {{ $d(dates.from, "short") }}
+          &dash;
+          {{ $d(dates.until, "short") }}
         </dd>
-      </dl>
+      </template>
+      <dt>
+        <app-icon icon="fa6-solid:bed" class="icon" />
+        <span class="sr-only">{{ $t("room") }}</span>
+      </dt>
 
+      <dd>
+        <nuxt-link :to="room.slug">
+          {{ room.content.title }}
+        </nuxt-link>
+      </dd>
+    </dl>
+    <div class="prices-wrapper">
       <div v-if="prices.length" class="prices">
         <h3>{{ $t("prices") }}</h3>
         <ul class="prices-list">
@@ -60,6 +62,8 @@ defineProps<LastMinute>();
           </li>
         </ul>
       </div>
+    </div>
+    <div class="services-wrapper">
       <div v-if="room.services.length" class="services">
         <h3>{{ $t("services") }}</h3>
         <ul>
@@ -68,35 +72,34 @@ defineProps<LastMinute>();
           </li>
         </ul>
       </div>
-      <!--<book-lastminute v-if="!isSold" :last-minute="item" class="btn" /> -->
     </div>
-    <app-image
-      v-if="room.content.image"
-      v-bind="room.content.image"
-      class="image"
-    />
+    <div class="btn-wrapper">
+      <app-button v-if="!isSold" :title="$t('bookNow')" class="btn" />
+    </div>
   </li>
 </template>
 
 <style lang="postcss" scoped>
 .item {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid transparent;
+  display: grid;
+  gap: 1em;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  background: var(--color-white);
+  padding-bottom: var(--spacing-m);
 
   &:focus-within,
   &:hover {
-    border-color: var(--color-primary);
+    outline: 2px solid var(--color-primary);
   }
 }
 
-.content {
-  background: var(--color-white);
-  padding: var(--spacing-m);
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
+.meta-wrapper,
+.services-wrapper,
+.prices-wrapper,
+.btn-wrapper {
+  padding-inline: var(--spacing-m);
 }
 
 .link {
@@ -105,7 +108,6 @@ defineProps<LastMinute>();
 
 .image {
   height: 14em;
-  order: -1;
 }
 
 .badge {
@@ -122,7 +124,6 @@ defineProps<LastMinute>();
 dl {
   display: grid;
   gap: 0.25em;
-  margin-bottom: 1em;
   grid-template-columns: 1.75em auto;
 }
 
@@ -147,11 +148,9 @@ dt {
 
 .prices-list {
   @mixin list-reset;
-
-  margin-bottom: 1.5em;
 }
 
 .btn {
-  margin-top: auto;
+  width: 100%;
 }
 </style>
