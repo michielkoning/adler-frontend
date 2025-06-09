@@ -34,6 +34,7 @@ useHead({
       <Body>
         <nuxt-pwa-assets />
         <nuxt-route-announcer />
+        <nuxt-loading-indicator color="var(--color-primary)" />
         <div class="page">
           <!-- <header-top class="page-header-top sa-hidden" /> -->
           <the-header class="page-header sa-hidden" />
