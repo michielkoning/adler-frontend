@@ -1,3 +1,10 @@
+export const title = "Familienhotel Adler ***S";
+export const baseUrl = "https://www.adler-lingenau.com/";
+export const themeColor = "#98012e";
+export const categories = ["travel"];
+export const facebook = "https://www.facebook.com/adler.hotel";
+export const twitter = "@Adler_Hotel";
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-27",
   telemetry: false,
@@ -13,7 +20,6 @@ export default defineNuxtConfig({
 
   components: [
     "~/components/Animations",
-    // "~/components/LastMinutes",
     "~/components/Archive",
     "~/components/Arrangements/Prices",
     "~/components/Arrangements",
@@ -21,11 +27,9 @@ export default defineNuxtConfig({
     "~/components/Facilitites",
     "~/components/Forms/Elements",
     "~/components/Forms",
-    // "~/components/Gallery/Images",
     "~/components/Gallery",
     "~/components/Highlights",
     "~/components/Home",
-    // "~/components/Images",
     "~/components/LastMinutes",
     "~/components/Layout",
     "~/components/Menu",
@@ -88,8 +92,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: "prefix",
     defaultLocale: "de",
-    lazy: true,
-    baseUrl: "https://www.adler-lingenau.com/",
+    baseUrl,
     locales: [
       {
         name: "Deutsch",
@@ -120,5 +123,44 @@ export default defineNuxtConfig({
         weights: [500],
       },
     ],
+  },
+  app: {
+    head: {
+      meta: [
+        {
+          name: "og:publisher",
+          content: facebook,
+        },
+        {
+          name: "viewport",
+          content: "width=device-width,initial-scale=1,viewport-fit=cover",
+        },
+
+        { name: "mobile-web-app-capable", content: "yes" },
+        { name: "apple-mobile-web-app-capable", content: "yes" },
+        {
+          name: "apple-mobile-web-app-status-bar-style",
+          content: "black",
+        },
+        { name: "apple-mobile-web-app-title", content: title },
+        { name: "theme-color", content: themeColor },
+        { property: "og:site_name", content: title },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: twitter },
+        { name: "twitter:creator", content: twitter },
+      ],
+      link: [
+        {
+          rel: "apple-touch-icon",
+          href: "/icons/manifest-icon-512.maskable.png",
+          sizes: "512x512",
+        },
+        {
+          rel: "icon",
+          href: "/favicon.svg",
+          type: "image/svg+xml",
+        },
+      ],
+    },
   },
 });
