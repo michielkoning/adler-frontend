@@ -9,7 +9,6 @@
     <the-footer />
     <error-handler />
     <cookie-wall />
-    <notification-modal />
   </div>
 </template>
 
