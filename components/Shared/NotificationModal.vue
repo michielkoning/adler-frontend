@@ -2,7 +2,7 @@
   <div v-if="content">
     <app-modal :show="showModal" :title="content.title" @close="toggleModal">
       <div class="content">
-        <img :src="content.image.sizes.medium" alt="" />
+        <img :src="content.image.sizes.large" alt="" />
         <div>
           <p v-if="content.text">
             {{ content.text }}
@@ -51,10 +51,20 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
+@import '~/styles/media-queries/media-queries.css';
+
 .content:has(img) {
   display: grid;
   gap: 1em;
-  grid-template-columns: 15em auto;
+
+  @media (--viewport-sm) {
+    grid-template-columns: 15em auto;
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
 }
 </style>
