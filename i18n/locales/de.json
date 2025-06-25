@@ -80,5 +80,10 @@
   "latestPosts": "Neueste Beiträge",
   "relatedPages": "Verwandte Seiten",
   "previousImage": "Vorheriges Bild",
-  "nextImage": "Nächstes Bild"
+  "nextImage": "Nächstes Bild",
+  "confirm": "Akzeptieren",
+  "cookieWall": {
+    "part1": "Durch die Verwendung dieser Seite erklären Sie sich einverstanden, dass diese Website Cookies verwendet. Mehr Info dazu in unserer",
+    "part2": "Datenschutzerklärung"
+  }
 }

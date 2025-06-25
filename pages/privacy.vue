@@ -11,7 +11,7 @@ const { pageIds } = useAppConfig();
 
 const { data, error } = await useFetch("/api/pageById", {
   params: {
-    id: getPageId(pageIds.contactPageId),
+    id: getPageId(pageIds.privacyPageId),
   },
 });
 

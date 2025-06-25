@@ -80,5 +80,10 @@
   "latestPosts": "Latest posts",
   "relatedPages": "Related pages",
   "previousImage": "Previous image",
-  "nextImage": "Next image"
+  "nextImage": "Next image",
+  "confirm": "Accept",
+  "cookieWall": {
+    "part1": "By continuing to visit this website, you agree to the placement of cookies. For more information, see our",
+    "part2": "privacy policy"
+  }
 }

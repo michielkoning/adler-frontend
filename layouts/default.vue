@@ -42,6 +42,7 @@ useHead({
           </main>
           <the-footer class="page-footer sa-hidden" />
         </div>
+        <cookie-wall />
       </Body>
     </Html>
   </div>

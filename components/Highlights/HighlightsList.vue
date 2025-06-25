@@ -29,14 +29,12 @@ if (error.value) {
 </template>
 
 <style lang="postcss" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .list {
   @mixin list-reset;
 
   margin-bottom: var(--spacing-m);
   display: grid;
   gap: var(--spacing-l);
-  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
 }
 </style>

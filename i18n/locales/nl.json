@@ -122,5 +122,10 @@
   "latestPosts": "Laatste berichten",
   "relatedPages": "Gerelateerde pagina's",
   "previousImage": "Vorige afbeelding",
-  "nextImage": "Volgende afbeelding"
+  "nextImage": "Volgende afbeelding",
+  "confirm": "Akkoord",
+  "cookieWall": {
+    "part1": "Door deze website verder te bezoeken, gaat u akkoord met het plaatsen van cookies. Bekijk voor meer informatie onze",
+    "part2": "privacybeleid"
+  }
 }
