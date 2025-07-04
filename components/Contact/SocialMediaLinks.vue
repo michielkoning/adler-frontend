@@ -7,8 +7,8 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
     <h2>{{ $t("followUsOn") }}</h2>
     <ul class="list">
       <li class="list-item">
-        <a class="link" :href="facebookUrl" target="_blank">
-          <app-icon icon="adler:facebook" />
+        <nuxt-link class="link" :to="facebookUrl" target="_blank">
+          <app-icon icon="adler:facebook" class="icon" />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {
@@ -17,11 +17,11 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
             }}
             <span lang="en">Facebook</span>
           </span>
-        </a>
+        </nuxt-link>
       </li>
       <li class="list-item">
-        <a class="link" :href="instagramUrl" target="_blank">
-          <app-icon icon="adler:instagram" />
+        <nuxt-link class="link" :to="instagramUrl" target="_blank">
+          <app-icon icon="adler:instagram" class="icon" />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {
@@ -30,7 +30,7 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
             }}
             <span lang="en">Instagram</span>
           </span>
-        </a>
+        </nuxt-link>
       </li>
     </ul>
   </div>
@@ -46,5 +46,9 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
 
 .link {
   @mixin link-reset;
+}
+
+.icon {
+  width: 2em;
 }
 </style>

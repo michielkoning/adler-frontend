@@ -26,8 +26,8 @@ const localePath = useLocalePath();
               {{ $t("cookieWall.part2") }} </nuxt-link
             >.
           </div>
+          <app-button size="small" :title="$t('confirm')" @click="confirm" />
         </div>
-        <app-button size="small" :title="$t('confirm')" @click="confirm" />
       </center-wrapper>
     </div>
   </fade-in-animation>

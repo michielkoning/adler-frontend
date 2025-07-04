@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 defineProps<{
-  // icon: 'phone' | 'envelope',
+  icon: "phone" | "envelope";
   title: string;
   url: string;
 }>();
@@ -8,8 +8,7 @@ defineProps<{
 
 <template>
   <nuxt-link :href="url" external class="contact-item">
-    <!-- <app-icon :icon="icon" class="icon" /> -->
-    <!-- <icon name="fa6-solid:phone" class="icon" /> -->
+    <app-icon :icon="`fa6-solid:${icon}`" class="icon" />
     <span class="title">
       {{ title }}
     </span>
@@ -18,17 +17,13 @@ defineProps<{
 
 <style scoped>
 .contact-item {
-  display: inline-flex;
+  display: flex;
   margin-bottom: var(--spacing-xxs);
-  gap: var(--spacing-xs);
+  gap: var(--spacing-s);
 }
 
 .icon {
-  flex: 0 0 1.5em;
-  transform: translateY(0.15em);
-}
-
-.link {
-  flex: 0 0 auto;
+  flex: 0 0 1em;
+  translate: 0 0.1em;
 }
 </style>

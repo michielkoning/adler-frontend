@@ -44,10 +44,9 @@ const url = localePath({
 <style scoped>
 .item {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-m);
-  grid-template-rows: subgrid;
-  grid-row: span 4;
   background: var(--color-white);
   padding-bottom: var(--spacing-m);
 
@@ -71,11 +70,12 @@ const url = localePath({
   @mixin link-reset;
 }
 
-.image {
+.image:deep(img) {
   height: 14em;
 }
 
 .btn-wrapper {
+  margin-top: auto;
   display: flex;
   justify-content: center;
 }
