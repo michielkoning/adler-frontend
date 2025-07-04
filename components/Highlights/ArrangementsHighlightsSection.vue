@@ -18,7 +18,7 @@
   </section>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .highlights {
   @mixin block-padding;
 

@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity var(--transition);

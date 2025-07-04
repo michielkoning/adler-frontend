@@ -36,7 +36,7 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .list {
   @mixin list-reset;
 

@@ -48,7 +48,7 @@ useHead({
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .page {
   display: flex;
   flex-direction: column;

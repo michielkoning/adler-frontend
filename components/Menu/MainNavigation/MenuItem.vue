@@ -58,7 +58,7 @@ const controlId = `menu-${props.id}`;
   </li>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .menu-item {
@@ -106,7 +106,7 @@ const controlId = `menu-${props.id}`;
   @media (--navigation-md) {
     border-bottom: 0;
     padding-left: 0;
-    filter: drop-shadow(0 0 0.1em rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
     background: var(--color-background);
     position: absolute;
     left: calc(-1 * var(--spacing-xs));

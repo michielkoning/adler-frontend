@@ -15,7 +15,7 @@ const { resmioWidget } = useAppConfig();
   </sidebar-item-section>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .resmio {
   min-height: 24em;
   height: calc(100% - 3em);

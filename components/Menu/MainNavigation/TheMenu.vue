@@ -28,7 +28,7 @@ if (error.value) {
   </center-wrapper>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .nav {

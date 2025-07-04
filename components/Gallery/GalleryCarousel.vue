@@ -99,7 +99,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .wrapper {
   position: relative;
 }

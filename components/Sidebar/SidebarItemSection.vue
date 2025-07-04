@@ -11,7 +11,7 @@ defineProps<{
   </section>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .item {
   background: var(--color-background-alternative);
   padding: var(--spacing-m);

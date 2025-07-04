@@ -19,7 +19,7 @@ defineProps<Archive>();
   </clickable-list-item>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .link {

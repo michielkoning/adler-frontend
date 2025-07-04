@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { useForm, type TypedSchema } from "vee-validate";
+import { useForm } from "vee-validate";
+import type { TypedSchema } from "vee-validate";
 
 const props = defineProps<{
   name: string;
@@ -62,7 +63,7 @@ const onSubmit = handleSubmit(() => {
   </form>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .bot-field {
   display: none;
 }

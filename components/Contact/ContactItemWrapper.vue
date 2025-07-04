@@ -16,7 +16,7 @@ defineProps<{
   </nuxt-link>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .contact-item {
   display: inline-flex;
   margin-bottom: var(--spacing-xxs);

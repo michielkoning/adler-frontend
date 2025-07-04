@@ -32,7 +32,7 @@ const label = computed(() => {
   </tr>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .price {
   font-weight: var(--font-weight-bold);
   text-align: right;

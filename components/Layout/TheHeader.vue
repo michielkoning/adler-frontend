@@ -26,7 +26,7 @@ const { title } = useAppConfig();
   </header>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .header {
@@ -102,8 +102,7 @@ const { title } = useAppConfig();
 }
 
 .meta-navigation {
-  align-self: start;
-  justify-self: end;
+  place-self: start end;
 }
 
 .main-navigation {

@@ -13,7 +13,7 @@ defineProps<{
   </fieldset>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .fieldset {
   border: 0;
   padding: 0;

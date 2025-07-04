@@ -26,7 +26,7 @@ const changePage = () => {};
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .wrapper {
@@ -44,11 +44,11 @@ const changePage = () => {};
 }
 
 .title {
-  box-shadow: 0 1px 0 0 currentColor;
+  box-shadow: 0 1px 0 0 currentcolor;
 
   .link:hover &,
   .link:focus & {
-    box-shadow: 0 2px 0 0 currentColor;
+    box-shadow: 0 2px 0 0 currentcolor;
   }
 
   @media (--navigation-md) {

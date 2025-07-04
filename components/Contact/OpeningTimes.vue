@@ -29,7 +29,7 @@ if (error.value) {
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .list {
   display: grid;
   grid-template-columns: 2.5em auto;

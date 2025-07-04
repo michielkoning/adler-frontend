@@ -13,7 +13,7 @@ defineProps<Archive>();
   </clickable-list-item>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .link {
   @mixin link-reset;
 

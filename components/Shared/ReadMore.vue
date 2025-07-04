@@ -4,7 +4,7 @@
   </span>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .read-more {
   @mixin btn;
   @mixin btn-primary;

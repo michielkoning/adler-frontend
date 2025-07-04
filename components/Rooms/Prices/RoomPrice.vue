@@ -15,7 +15,7 @@ defineProps<{
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .price {
   background: var(--color-gray);
   border-radius: 0.25em;

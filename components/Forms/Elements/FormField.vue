@@ -15,7 +15,7 @@ defineProps<{
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .label {
   display: block;
   margin-bottom: var(--spacing-xxs);

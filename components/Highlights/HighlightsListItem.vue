@@ -41,7 +41,7 @@ const url = localePath({
   </clickable-list-item>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .item {
   position: relative;
   display: grid;

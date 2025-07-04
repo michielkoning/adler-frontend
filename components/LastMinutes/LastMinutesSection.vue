@@ -25,7 +25,7 @@ const { data } = await useFetch("/api/lastMinutes", {
   </section>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .wrapper {
   @mixin block-padding;
 

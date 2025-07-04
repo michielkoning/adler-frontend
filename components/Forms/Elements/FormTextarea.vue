@@ -37,7 +37,7 @@ const {
   </form-field>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .field {
   @mixin form-field;
 }

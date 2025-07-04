@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .slide-in-enter-active,
 .slide-in-leave-active {
   transition: translate var(--transition);

@@ -48,7 +48,7 @@ const cssClasses = computed(() => {
   </component>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .btn {
   @mixin btn;
 }

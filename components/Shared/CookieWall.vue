@@ -33,7 +33,7 @@ const localePath = useLocalePath();
   </fade-in-animation>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .cookie-wall {
   color: var(--color-white);
   background: var(--color-gray-dark);

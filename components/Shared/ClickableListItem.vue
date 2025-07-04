@@ -41,7 +41,7 @@ const mouseUp = async () => {
   </li>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .list-item {
   cursor: pointer;
 

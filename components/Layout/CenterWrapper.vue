@@ -19,7 +19,7 @@ withDefaults(
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .notch {
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 

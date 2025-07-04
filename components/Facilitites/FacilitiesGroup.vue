@@ -22,7 +22,7 @@ defineProps<{
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .group {
   display: flex;
   gap: 1em;

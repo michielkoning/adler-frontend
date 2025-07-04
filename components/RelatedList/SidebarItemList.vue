@@ -16,7 +16,7 @@ defineProps<{
   </ul>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .list {
   @mixin list-reset;
 

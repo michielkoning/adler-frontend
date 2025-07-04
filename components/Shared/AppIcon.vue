@@ -8,7 +8,7 @@ defineProps<{
   <nuxt-icon class="icon" :name="icon" />
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .icon {
   height: auto;
   aspect-ratio: 1;

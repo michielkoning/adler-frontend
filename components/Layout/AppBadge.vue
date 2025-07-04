@@ -28,7 +28,7 @@ export default {
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 .badge {
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
