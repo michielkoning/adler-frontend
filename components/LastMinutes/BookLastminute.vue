@@ -5,15 +5,19 @@ defineProps<LastMinute>();
 
 const showModal = ref(false);
 
-const toggleModal = () => {
-  showModal.value = !showModal.value;
+const toggleModal = (state: boolean) => {
+  showModal.value = state;
 };
 </script>
 
 <template>
-  <book-now :title="$t('requestNow')" @trigger="toggleModal">
-    <app-modal v-if="showModal" :title="$t('requestNow')" @close="toggleModal">
-      <!-- <form-last-minute v-if="lastMinute" :last-minute="lastMinute" /> -->
-    </app-modal>
-  </book-now>
+  <book-now :title="$t('requestNow')" @trigger="toggleModal(true)" />
+
+  <app-modal
+    v-if="showModal"
+    :title="$t('requestNow')"
+    @close="toggleModal(false)"
+  >
+    <!-- <form-last-minute v-if="lastMinute" :last-minute="lastMinute" /> -->
+  </app-modal>
 </template>

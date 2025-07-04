@@ -37,12 +37,7 @@ const closeModal = () => {
 
 <template>
   <div>
-    <app-modal
-      v-if="showModal"
-      :large="true"
-      :title="title"
-      @close="closeModal"
-    >
+    <app-modal v-if="showModal" size="large" :title="title" @close="closeModal">
       <gallery-carousel :images="images" :slide="slide" />
     </app-modal>
     <ul class="list">

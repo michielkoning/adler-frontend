@@ -32,7 +32,7 @@ const {
 </script>
 
 <template>
-  <form-field :id="id" :title="title" :name="name">
+  <form-field :id="id" :title="title" :name="name" :class="class">
     <input
       :id="id"
       :name="name"

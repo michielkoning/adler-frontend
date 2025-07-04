@@ -2,6 +2,10 @@
 import { toTypedSchema } from "@vee-validate/zod";
 import z from "zod";
 
+defineProps<{
+  title: string;
+}>();
+
 const validationSchema = toTypedSchema(
   z.object({
     name: z.string().min(1, "test"),
@@ -24,6 +28,8 @@ const validationSchema = toTypedSchema(
 
 <template>
   <app-form :validation-schema="validationSchema" name="contact">
+    <input type="hidden" :value="title" name="arrangement" />
+
     <form-fieldset :title="$t('form.formContact')" class="personal">
       <form-input-text
         name="name"
@@ -147,14 +153,8 @@ const validationSchema = toTypedSchema(
 }
 
 @media (--viewport-xs) {
-  .address {
-    grid-column: span 3;
-  }
-
-  .zipcode {
-    grid-column: span 1;
-  }
-
+  .address,
+  .zipcode,
   .email,
   .phone-number,
   .city,

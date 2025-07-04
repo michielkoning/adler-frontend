@@ -27,6 +27,7 @@ if (error.value) {
     <arrangement-prices :prices="data.prices" />
 
     <template #sidebar>
+      <btn-book-arrangement :title="data.content.title" />
       <related-arrangement-section :exclude="data.id" />
       <!-- <related-list-section
         v-if="data.relatedArrangements.length"

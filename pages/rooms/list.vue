@@ -23,5 +23,8 @@ if (error.value) {
 <template>
   <the-page v-if="data" v-bind="data.content" :show-resmio="false">
     <rooms-list />
+    <template #sidebar>
+      <btn-book-room :title="$t('bookNow')" />
+    </template>
   </the-page>
 </template>

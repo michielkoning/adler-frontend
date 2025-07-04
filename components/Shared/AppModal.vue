@@ -3,11 +3,11 @@ withDefaults(
   defineProps<{
     show?: boolean;
     title: string;
-    large?: boolean;
+    size?: "small" | "large";
   }>(),
   {
     show: false,
-    large: false,
+    size: "small",
   },
 );
 
@@ -40,7 +40,7 @@ const afterClosing = () => {
   <dialog
     ref="dialog"
     class="dialog"
-    :class="{ large, 'is-hidden': isHidden }"
+    :class="{ large: size === 'large', 'is-hidden': isHidden }"
     @animationend="afterClosing"
   >
     <header class="header">

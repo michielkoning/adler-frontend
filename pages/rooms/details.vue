@@ -27,8 +27,8 @@ if (error.value) {
     <room-prices :prices="data.prices" />
     <room-services v-if="data.services.length" :items="data.services" />
     <template #sidebar>
+      <btn-book-room :title="data.content.title" :url="data.bookUrl" />
       <related-rooms-section :exclude="data.id" />
     </template>
-    <!-- <btn-book-room :url="data.bookUrl" /> -->
   </the-page>
 </template>

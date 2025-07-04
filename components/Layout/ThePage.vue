@@ -79,6 +79,11 @@ withDefaults(
   }
 }
 
+.image {
+  height: 30vw;
+  max-height: 20rem;
+}
+
 .sidebar {
   display: grid;
   grid-gap: var(--gutter);
