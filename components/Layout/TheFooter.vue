@@ -41,7 +41,7 @@
 
 .quick-links,
 .address {
-  & a:not(:global(.btn)) {
+  & :deep(a:not(.btn)) {
     @mixin link-sm;
   }
 }

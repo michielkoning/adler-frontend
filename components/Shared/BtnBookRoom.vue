@@ -1,8 +1,16 @@
 <script lang="ts" setup>
-defineProps<{
-  url?: string;
-  title: string;
-}>();
+withDefaults(
+  defineProps<{
+    url?: string;
+    title?: string;
+    size?: "small" | "large";
+  }>(),
+  {
+    url: undefined,
+    title: undefined,
+    size: "large",
+  },
+);
 
 const showModal = ref(false);
 
@@ -12,16 +20,11 @@ const toggleModal = (state: boolean) => {
 </script>
 
 <template>
-  <app-button
-    :title="$t('bookNow')"
-    size="large"
-    class="btn-book-now"
-    @click="toggleModal(true)"
-  />
+  <app-button :title="$t('bookNow')" :size="size" @click="toggleModal(true)" />
 
   <app-modal
     v-if="showModal"
-    :title="title"
+    :title="title ?? $t('bookNow')"
     size="large"
     @close="toggleModal(false)"
   >

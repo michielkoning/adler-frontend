@@ -30,7 +30,7 @@
         external
       />
 
-      <btn-book-now />
+      <btn-book-room size="small" />
     </div>
   </nav>
 </template>

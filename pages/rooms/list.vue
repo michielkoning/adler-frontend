@@ -24,7 +24,7 @@ if (error.value) {
   <the-page v-if="data" v-bind="data.content" :show-resmio="false">
     <rooms-list />
     <template #sidebar>
-      <btn-book-room :title="$t('bookNow')" />
+      <btn-book-room />
     </template>
   </the-page>
 </template>

@@ -29,11 +29,6 @@ if (error.value) {
     <template #sidebar>
       <btn-book-arrangement :title="data.content.title" />
       <related-arrangement-section :exclude="data.id" />
-      <!-- <related-list-section
-        v-if="data.relatedArrangements.length"
-        :items="data.relatedArrangements"
-        :title="$t('relatedArrangements')"
-      /> -->
     </template>
   </the-page>
 </template>
