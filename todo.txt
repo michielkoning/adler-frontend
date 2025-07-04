@@ -1,6 +1,3 @@
 logo hero (tekxt)
-book arrangement
-book kamers widget
-seo
+form validatie
 menu
-form

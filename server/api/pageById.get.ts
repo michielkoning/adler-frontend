@@ -25,7 +25,15 @@ export default defineEventHandler(async (event): Promise<Page> => {
     slug: query.data.slug,
     id: query.data.id,
     type: "pages",
-    fields: ["slug", "title", "content", "parent", "acf", "excerpt"],
+    fields: [
+      "slug",
+      "title",
+      "content",
+      "parent",
+      "acf",
+      "excerpt",
+      "yoast_head_json",
+    ],
   });
 
   const response = await $fetch(url);
@@ -43,6 +51,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
   return {
     id: item.id,
     slug: item.slug,
+    parentId: 0,
     content: {
       title: item.title.rendered,
       text: item.content.rendered,

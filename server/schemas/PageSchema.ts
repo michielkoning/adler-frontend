@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { FeaturedImageSchema } from "./FeaturedImageSchema";
 import { GallerySchema } from "./GallerySchema";
+import { SeoSchema } from "./SeoSchema";
 
 export const PageSchema = z.object({
   id: z.number(),
@@ -18,6 +19,7 @@ export const PageSchema = z.object({
   acf: z.object({
     gallery: GallerySchema,
   }),
+  yoast_head_json: SeoSchema,
 });
 
 export const PageListSchema = z.array(PageSchema);
