@@ -1,8 +1,16 @@
-import type { Content } from "./Content";
+type SeoImage = {
+  width: number;
+  height: number;
+  url: string;
+  type?: "image/jpeg" | "image/gif" | "image/png";
+};
 
-export type Page = {
-  id: number;
-  slug: string;
-  parentId: number;
-  content: Content;
+export type Seo = {
+  title: string;
+  ogTitle: string;
+  description: string;
+  ogDescription: string;
+  ogImage: SeoImage[];
+  twitterImage: SeoImage[];
+  articleModifiedTime?: string;
 };

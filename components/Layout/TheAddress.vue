@@ -6,25 +6,18 @@ const { address, title } = useAppConfig();
   <address itemscope itemtype="http://schema.org/Organization">
     <h2>{{ $t("address") }}</h2>
     <div class="address">
-      {{ title }}
-      <div
-        itemprop="address"
-        itemscope
-        itemtype="http://schema.org/PostalAddress"
-      >
-        <span itemprop="streetAddress">{{ address.street }}</span> -
-        <span itemprop="postal-code">{{ address.postalCode }}</span>
-        <span itemprop="locality">{{ address.city }}</span>
-        <br />
-      </div>
+      {{ title }}<br />
+      {{ address.street }} - {{ address.postalCode }}
+      {{ address.city }}
+      <br />
 
-      <span itemprop="addressCountry">{{ $t(address.country) }}</span> -
-      <span itemprop="addressRegion">{{ address.region }}</span>
+      {{ $t(address.country) }} -
+      {{ address.region }}
     </div>
 
     <div class="contact">
-      <contact-phone-number itemprop="telephone" />
-      <contact-emailaddress itemprop="email" />
+      <contact-phone-number />
+      <contact-emailaddress />
     </div>
 
     <app-button

@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
 
   if (!parsed.length) {
     throw createError({
-      statusMessage: "Page not found",
+      statusMessage: "Room not found",
     });
   }
 

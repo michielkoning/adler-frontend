@@ -3,6 +3,7 @@ import { PageListSchema } from "../schemas/PageSchema";
 import type { Page } from "~/types/Page";
 import { getUrl } from "../utils/getUrl";
 import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { createSeo } from "../utils/createSeo";
 
 const querySchema = z.object({
   slug: z.string().optional(),
@@ -66,5 +67,6 @@ export default defineEventHandler(async (event): Promise<Page> => {
         };
       }),
     },
+    seo: createSeo(item.yoast_head_json),
   };
 });
