@@ -19,5 +19,5 @@ export default defineConfig({
   // },
   // },
   preset,
-  images: ["public/images/icon.svg"],
+  images: ["public/icon.svg"],
 });

@@ -12,7 +12,7 @@ const settings = {
 };
 
 export default defineNuxtConfig({
-  compatibilityDate: "2025-05-27",
+  compatibilityDate: "2025-08-03",
   telemetry: false,
   css: ["~/assets/css/base.css"],
 
@@ -52,7 +52,7 @@ export default defineNuxtConfig({
   ],
 
   nitro: {
-    preset: "netlify",
+    // preset: "netlify",
   },
 
   postcss: {
@@ -179,22 +179,22 @@ export default defineNuxtConfig({
       dir: "ltr",
       icons: [
         {
-          src: "/images/pwa-64x64.png",
+          src: "/pwa-64x64.png",
           sizes: "64x64",
           type: "image/png",
         },
         {
-          src: "/images/pwa-192x192.png",
+          src: "/pwa-192x192.png",
           sizes: "192x192",
           type: "image/png",
         },
         {
-          src: "/images/pwa-512x512.png",
+          src: "/pwa-512x512.png",
           sizes: "512x512",
           type: "image/png",
         },
         {
-          src: "/images/maskable-icon-512x512.png",
+          src: "/maskable-icon-512x512.png",
           sizes: "512x512",
           type: "image/png",
           purpose: "maskable",
