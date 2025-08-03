@@ -83,7 +83,7 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
     "@nuxt/fonts",
     "@nuxt/icon",
-    // "@vite-pwa/nuxt",
+    "@vite-pwa/nuxt",
   ],
   icon: {
     componentName: "NuxtIcon",
