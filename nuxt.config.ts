@@ -53,6 +53,9 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "netlify",
+    prerender: {
+      crawlLinks: false,
+    },
   },
 
   postcss: {

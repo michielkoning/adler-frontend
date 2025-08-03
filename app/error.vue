@@ -8,9 +8,9 @@ defineProps<{
 
 <template>
   <nuxt-layout>
-    <the-page title="sad" text="ad">
+    <the-page :title="error.statusMessage">
       <dev-only>
-        <pre>{{ JSON.parse(error.data) }}</pre>
+        <pre>{{ error.data }}</pre>
       </dev-only>
     </the-page>
   </nuxt-layout>

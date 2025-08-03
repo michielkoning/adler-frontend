@@ -1,23 +1,29 @@
-const numberFormats = {
-  currency: {
-    style: "currency",
-    currency: "EUR",
-    currencyDisplay: "symbol",
-    trailingZeroDisplay: "stripIfInteger",
-  },
-};
-
 export default defineI18nConfig(() => ({
   legacy: false,
   numberFormats: {
     nl: {
-      currency: numberFormats.currency,
+      currency: {
+        style: "currency",
+        currency: "EUR",
+        currencyDisplay: "symbol",
+        trailingZeroDisplay: "stripIfInteger",
+      },
     },
     en: {
-      currency: numberFormats.currency,
+      currency: {
+        style: "currency",
+        currency: "EUR",
+        currencyDisplay: "symbol",
+        trailingZeroDisplay: "stripIfInteger",
+      },
     },
     de: {
-      currency: numberFormats.currency,
+      currency: {
+        style: "currency",
+        currency: "EUR",
+        currencyDisplay: "symbol",
+        trailingZeroDisplay: "stripIfInteger",
+      },
     },
   },
   datetimeFormats: {
