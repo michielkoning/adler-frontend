@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-defineI18nRoute({
-  paths: {
-    de: "/arrangements/[slug]",
-    en: "/arrangements/[slug]",
-    nl: "/arrangementen/[slug]",
+definePageMeta({
+  i18n: {
+    paths: {
+      de: "/arrangements/[slug]",
+      en: "/arrangements/[slug]",
+      nl: "/arrangementen/[slug]",
+    },
   },
 });
 

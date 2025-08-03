@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { title, facebookUrl, twitterUrl, instagramUrl, address } =
   useAppConfig();
-const head = useLocaleHead();
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -41,40 +40,17 @@ useSchemaOrg([
 
 <template>
   <div>
-    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir">
-      <Head>
-        <Title>{{ title }}</Title>
-        <Link
-          v-for="link in head.link"
-          :id="link.hid"
-          :key="link.hid"
-          :rel="link.rel"
-          :href="link.href"
-          :hreflang="link.hreflang"
-        />
-
-        <Meta
-          v-for="meta in head.meta"
-          :id="meta.hid"
-          :key="meta.hid"
-          :property="meta.property"
-          :content="meta.content"
-        />
-      </Head>
-      <Body>
-        <nuxt-pwa-assets />
-        <nuxt-route-announcer />
-        <nuxt-loading-indicator color="var(--color-primary)" />
-        <div class="page">
-          <the-header class="page-header sa-hidden" />
-          <main id="content" class="main" tabindex="-1">
-            <slot />
-          </main>
-          <the-footer class="page-footer sa-hidden" />
-        </div>
-        <cookie-wall />
-      </Body>
-    </Html>
+    <nuxt-pwa-assets />
+    <nuxt-route-announcer />
+    <nuxt-loading-indicator color="var(--color-primary)" />
+    <div class="page">
+      <the-header class="page-header sa-hidden" />
+      <main id="content" class="main" tabindex="-1">
+        <slot />
+      </main>
+      <the-footer class="page-footer sa-hidden" />
+    </div>
+    <cookie-wall />
   </div>
 </template>
 

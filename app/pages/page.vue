@@ -1,13 +1,16 @@
 <script lang="ts" setup>
-defineI18nRoute({
-  paths: {
-    de: "/[...slug]",
-    en: "/[...slug]",
-    nl: "/[...slug]",
+definePageMeta({
+  i18n: {
+    paths: {
+      de: "/[...slug]",
+      en: "/[...slug]",
+      nl: "/[...slug]",
+    },
   },
 });
 
 const route = useRoute();
+const setI18nParams = useSetI18nParams();
 
 const slug = computed(() => {
   if (Array.isArray(route.params.slug)) {
@@ -29,6 +32,12 @@ if (error.value) {
 }
 
 useSeo(data.value?.seo);
+
+setI18nParams({
+  en: { slug: "rode-mok" },
+  nl: { slug: "rode-mok" },
+  de: undefined,
+});
 </script>
 
 <template>

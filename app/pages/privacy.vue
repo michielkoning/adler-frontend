@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-defineI18nRoute({
-  paths: {
-    de: "/privacy-policy",
-    en: "/privacy-policy",
-    nl: "/privacy-policy",
+definePageMeta({
+  i18n: {
+    paths: {
+      de: "/privacy-policy",
+      en: "/privacy-policy",
+      nl: "/privacy-policy",
+    },
   },
 });
 

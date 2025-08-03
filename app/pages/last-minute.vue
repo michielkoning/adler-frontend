@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import { LastMinutesSection } from "#components";
 
-defineI18nRoute({
-  paths: {
-    de: "/last-minute",
-    en: "/last-minute",
-    nl: "/last-minute",
+definePageMeta({
+  i18n: {
+    paths: {
+      de: "/last-minute",
+      en: "/last-minute",
+      nl: "/last-minute",
+    },
   },
 });
 

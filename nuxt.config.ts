@@ -52,7 +52,7 @@ export default defineNuxtConfig({
   ],
 
   nitro: {
-    // preset: "netlify",
+    preset: "netlify",
   },
 
   postcss: {
@@ -100,8 +100,12 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: "prefix",
+    experimental: {
+      strictSeo: true,
+    },
     defaultLocale: "de",
     baseUrl: settings.baseUrl,
+    customRoutes: "meta",
     locales: [
       {
         name: "Deutsch",
