@@ -14,7 +14,7 @@ const settings = {
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-27",
   telemetry: false,
-  // css: ["~/assets/css/base.css"],
+  css: ["~/assets/css/base.css"],
 
   devtools: {
     enabled: true,
@@ -25,30 +25,30 @@ export default defineNuxtConfig({
   },
 
   components: [
-    // "~/components/Animations",
-    // "~/components/Archive",
-    // "~/components/Arrangements/Prices",
-    // "~/components/Arrangements",
-    // "~/components/Contact",
-    // "~/components/Facilitites",
-    // "~/components/Forms/Elements",
-    // "~/components/Forms",
-    // "~/components/Gallery",
-    // "~/components/Highlights",
-    // "~/components/Home",
-    // "~/components/LastMinutes",
-    // "~/components/Layout",
-    // "~/components/Menu",
-    // "~/components/Menu/MainNavigation",
-    // "~/components/Posts",
-    // "~/components/Pages",
-    // "~/components/RelatedList",
-    // "~/components/Rooms/Details",
-    // "~/components/Rooms/Prices",
-    // "~/components/Rooms",
-    // "~/components/Shared",
-    // "~/components/Sidebar",
-    // "~/components",
+    "~/components/Animations",
+    "~/components/Archive",
+    "~/components/Arrangements/Prices",
+    "~/components/Arrangements",
+    "~/components/Contact",
+    "~/components/Facilitites",
+    "~/components/Forms/Elements",
+    "~/components/Forms",
+    "~/components/Gallery",
+    "~/components/Highlights",
+    "~/components/Home",
+    "~/components/LastMinutes",
+    "~/components/Layout",
+    "~/components/Menu",
+    "~/components/Menu/MainNavigation",
+    "~/components/Posts",
+    "~/components/Pages",
+    "~/components/RelatedList",
+    "~/components/Rooms/Details",
+    "~/components/Rooms/Prices",
+    "~/components/Rooms",
+    "~/components/Shared",
+    "~/components/Sidebar",
+    "~/components",
   ],
 
   nitro: {
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       "postcss-mixins": {
-        mixinsDir: "./assets/css/mixins/",
+        mixinsDir: "./app/assets/css/mixins/",
       },
 
       "postcss-preset-env": {
@@ -71,12 +71,14 @@ export default defineNuxtConfig({
           "media-query-ranges": true,
         },
       },
+      autoprefixer: {},
+      cssnano: {},
     },
   },
   modules: [
     "@nuxtjs/i18n",
     "@nuxt/eslint",
-    "@nuxtjs/stylelint-module",
+    // "@nuxtjs/stylelint-module",
     "@nuxt/image",
     "nuxt-schema-org",
     "@nuxt/fonts",
@@ -89,7 +91,7 @@ export default defineNuxtConfig({
     customCollections: [
       {
         prefix: "adler",
-        dir: "./assets/icons",
+        dir: "./app/assets/icons",
       },
     ],
   },

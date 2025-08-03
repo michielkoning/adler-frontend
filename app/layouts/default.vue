@@ -62,7 +62,7 @@ useSchemaOrg([
         />
       </Head>
       <Body>
-        <nuxt-pwa-assets />
+        <!-- <nuxt-pwa-assets /> -->
         <nuxt-route-announcer />
         <nuxt-loading-indicator color="var(--color-primary)" />
         <div class="page">
