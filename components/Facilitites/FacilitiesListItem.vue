@@ -52,7 +52,7 @@ export default {
     "singleRooms": "Einzelzimmer",
     "doubleRooms": "Doppelzimmer",
     "familyRooms": "Familienzimmer mit seperaten Räumen",
-    "areaCard": "Bregenzerwaldcard ab 3 Tage Mai - Oktober",
+    "areaCard": "Bregenzerwaldcard ab 3 Nächte von Mai - Oktober",
     "freeTransport": "Gratis Bergbahnen, Busse, Freischwimmbäder",
     "valleyPass": "3-Täler Pass für alle Skigebiete bei uns erhältlich",
     "skiPackages": "Skiarrangements in der Zwischensaison",
