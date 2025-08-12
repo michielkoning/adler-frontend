@@ -1,14 +1,20 @@
 <script lang="ts" setup>
-import { toTypedSchema } from "@vee-validate/zod";
-import z from "zod";
+  import { toTypedSchema } from "@vee-validate/zod";
+  import z from "zod";
 
-const validationSchema = toTypedSchema(
-  z.object({
-    email: z.string().min(1).email(),
-    phone: z.string().default(""),
-    message: z.string().default(""),
-  }),
-);
+  const { t } = useI18n();
+
+  const validationSchema = toTypedSchema(
+    z.object({
+      email: z.email({ message: t("form.error.email.incorrect") }),
+      phone: z
+        .string({ message: t("form.error.required") })
+        .min(1, { message: t("form.error.required") }),
+      message: z
+        .string({ message: t("form.error.required") })
+        .min(1, { message: t("form.error.required") }),
+    })
+  );
 </script>
 
 <template>

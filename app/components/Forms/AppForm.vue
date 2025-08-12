@@ -1,39 +1,39 @@
 <script lang="ts" setup>
-import { useForm } from "vee-validate";
-import type { TypedSchema } from "vee-validate";
+  import { useForm } from "vee-validate";
+  import type { TypedSchema } from "vee-validate";
 
-const props = defineProps<{
-  name: string;
-  btnText?: string;
-  validationSchema: TypedSchema;
-}>();
+  const props = defineProps<{
+    name: string;
+    btnText?: string;
+    validationSchema: TypedSchema;
+  }>();
 
-const { start, finish } = useLoadingIndicator();
-const route = useRoute();
-const appConfig = useAppConfig();
+  const { start, finish } = useLoadingIndicator();
+  const route = useRoute();
+  const appConfig = useAppConfig();
 
-const action = route.fullPath;
-const currentPage = `${appConfig.baseUrl}${route.fullPath}`;
+  const action = route.fullPath;
+  const currentPage = `${appConfig.baseUrl}${route.fullPath}`;
 
-const { values, handleSubmit } = useForm({
-  name: props.name,
-  validationSchema: props.validationSchema,
-});
+  const { values, handleSubmit } = useForm({
+    name: props.name,
+    validationSchema: props.validationSchema,
+  });
 
-const { execute, status } = useFetch("/api/form", {
-  method: "POST",
-  watch: false,
-  immediate: false,
-  body: {
-    values,
-  },
-  onRequest: start,
-  onResponse: finish,
-});
+  const { execute, status } = useFetch("/api/form", {
+    method: "POST",
+    watch: false,
+    immediate: false,
+    body: {
+      values,
+    },
+    onRequest: start,
+    onResponse: finish,
+  });
 
-const onSubmit = handleSubmit(() => {
-  execute();
-});
+  const onSubmit = handleSubmit(() => {
+    execute();
+  });
 </script>
 
 <template>
@@ -64,7 +64,7 @@ const onSubmit = handleSubmit(() => {
 </template>
 
 <style scoped>
-.bot-field {
-  display: none;
-}
+  .bot-field {
+    display: none;
+  }
 </style>
