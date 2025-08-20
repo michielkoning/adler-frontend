@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { title, facebookUrl, instagramUrl } = useAppConfig();
+  const { title, facebookUrl, instagramUrl } = useAppConfig();
 </script>
 
 <template>
@@ -37,18 +37,18 @@ const { title, facebookUrl, instagramUrl } = useAppConfig();
 </template>
 
 <style scoped>
-.list {
-  @mixin list-reset;
+  .list {
+    @mixin list-reset;
 
-  display: flex;
-  gap: 1em;
-}
+    display: flex;
+    gap: 1em;
+  }
 
-.link {
-  @mixin link-reset;
-}
+  .link {
+    @mixin link-reset;
+  }
 
-.icon {
-  width: 2em;
-}
+  .icon {
+    width: 2em;
+  }
 </style>

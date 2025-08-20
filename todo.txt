@@ -1,3 +1,4 @@
 logo hero (tekxt)
 form validatie
 menu
+locales

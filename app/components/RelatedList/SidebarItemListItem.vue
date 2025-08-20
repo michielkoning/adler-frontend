@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <clickable-list-item :to="link" class="item">
+  <clickable-list-item :to="link" class="list-item">
     <div class="link-wrapper">
       <nuxt-link :to="link" class="link"><span v-html="title" /></nuxt-link>
     </div>
@@ -14,15 +14,7 @@
 </template>
 
 <style scoped>
-  .link {
-    @mixin link-reset;
-
-    font-family: var(--font-family-headings);
-    font-weight: var(--font-weight-headings);
-    font-size: var(--font-size-l);
-  }
-
-  .item {
+  .list-item {
     display: grid;
     grid-template-columns: 5em auto;
     grid-gap: var(--spacing-s);
@@ -36,6 +28,14 @@
       text-underline-offset: 3px;
       text-decoration-color: var(--color-primary);
     }
+  }
+
+  .link {
+    @mixin link-reset;
+
+    font-family: var(--font-family-headings);
+    font-weight: var(--font-weight-headings);
+    font-size: var(--font-size-l);
   }
 
   .image {
