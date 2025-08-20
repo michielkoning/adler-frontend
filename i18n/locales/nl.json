@@ -126,6 +126,7 @@
     "rooms": "Kamers",
     "posts": "Blog",
     "contact": "Contact",
-    "privacy": "Privacybeleid"
+    "privacy": "Privacybeleid",
+    "lastMinutes": "Last minutes"
   }
 }

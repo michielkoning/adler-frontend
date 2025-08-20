@@ -1,15 +1,17 @@
 <script lang="ts" setup>
-const { locale } = useI18n();
+  const { locale } = useI18n();
 
-const { data, error } = await useFetch("/api/menu", {
-  params: {
-    locale,
-  },
-});
+  const { data, error } = await useFetch("/api/menu", {
+    params: {
+      locale,
+    },
+  });
 
-if (error.value) {
-  throw createError(error.value);
-}
+  if (error.value) {
+    throw createError(error.value);
+  }
+
+  const localePath = useLocalePath();
 </script>
 
 <template>
@@ -21,6 +23,16 @@ if (error.value) {
       <div ref="menu">
         <ul v-if="data" class="menu">
           <menu-item v-for="item in data" v-bind="item" :key="item.id" />
+          <menu-item
+            :id="1"
+            :title="$t('pages.contact')"
+            :link="localePath('contact')"
+          />
+          <menu-item
+            :id="2"
+            :title="$t('pages.lastMinutes')"
+            :link="localePath('last-minutes')"
+          />
         </ul>
         <div class="arrow" />
       </div>
@@ -29,44 +41,44 @@ if (error.value) {
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.nav {
-  position: relative;
-  margin-bottom: var(--spacing-m);
+  .nav {
+    position: relative;
+    margin-bottom: var(--spacing-m);
 
-  @media (--navigation-md) {
-    margin-bottom: 0;
-  }
-}
-
-.menu {
-  @mixin list-reset;
-
-  @media (--navigation-md) {
-    display: flex;
-    border-top: 0;
-    justify-content: space-between;
+    @media (--navigation-md) {
+      margin-bottom: 0;
+    }
   }
 
-  @media (--navigation-lg) {
-    margin-left: var(--spacing-l);
-  }
-}
+  .menu {
+    @mixin list-reset;
 
-.arrow {
-  height: 3px;
-  background: var(--color-primary);
-  display: none;
-  position: absolute;
-  bottom: 0;
+    @media (--navigation-md) {
+      display: flex;
+      border-top: 0;
+      justify-content: space-between;
+    }
 
-  @media (--navigation-md) {
-    display: block;
+    @media (--navigation-lg) {
+      margin-left: var(--spacing-l);
+    }
   }
 
-  &.active {
-    transition: all var(--transition);
+  .arrow {
+    height: 3px;
+    background: var(--color-primary);
+    display: none;
+    position: absolute;
+    bottom: 0;
+
+    @media (--navigation-md) {
+      display: block;
+    }
+
+    &.active {
+      transition: all var(--transition);
+    }
   }
-}
 </style>

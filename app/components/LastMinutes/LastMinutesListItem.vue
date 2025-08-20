@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { LastMinute } from "~/types/LastMinute";
+  import type { LastMinute } from "~/types/LastMinute";
 
-defineProps<LastMinute>();
+  defineProps<LastMinute>();
 </script>
 
 <template>
@@ -13,7 +13,12 @@ defineProps<LastMinute>();
         class="badge"
         :small-text="true"
       />
-      <app-image v-if="image" v-bind="image" class="image" />
+      <app-image
+        v-if="image"
+        v-bind="image"
+        class="image"
+        sizes="100vw md:33vw xl:400px"
+      />
     </div>
 
     <dl class="meta-wrapper">
@@ -80,77 +85,77 @@ defineProps<LastMinute>();
 </template>
 
 <style scoped>
-.item {
-  position: relative;
-  display: grid;
-  gap: 1em;
-  grid-template-rows: subgrid;
-  grid-row: span 5;
-  background: var(--color-white);
-  padding-bottom: var(--spacing-m);
+  .item {
+    position: relative;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+    background: var(--color-white);
+    padding-bottom: var(--spacing-m);
 
-  &:focus-within,
-  &:hover {
-    outline: 2px solid var(--color-primary);
+    &:focus-within,
+    &:hover {
+      outline: 2px solid var(--color-primary);
+    }
   }
-}
 
-.meta-wrapper,
-.services-wrapper,
-.prices-wrapper,
-.btn-wrapper {
-  padding-inline: var(--spacing-m);
-}
+  .meta-wrapper,
+  .services-wrapper,
+  .prices-wrapper,
+  .btn-wrapper {
+    padding-inline: var(--spacing-m);
+  }
 
-.link {
-  @mixin link-reset;
-}
+  .link {
+    @mixin link-reset;
+  }
 
-.image {
-  height: 14em;
-}
+  .image {
+    height: 14em;
+  }
 
-.badge {
-  position: absolute;
-  top: 3em;
-  right: calc(var(--spacing-s) * -1);
-}
+  .badge {
+    position: absolute;
+    top: 3em;
+    right: calc(var(--spacing-s) * -1);
+  }
 
-.persons {
-  margin-bottom: 1em;
-  font-weight: var(--font-weight-bold);
-}
+  .persons {
+    margin-bottom: 1em;
+    font-weight: var(--font-weight-bold);
+  }
 
-dl {
-  display: grid;
-  gap: 0.25em;
-  grid-template-columns: 1.75em auto;
-}
+  dl {
+    display: grid;
+    gap: 0.25em;
+    grid-template-columns: 1.75em auto;
+  }
 
-.prices-definitions {
-  margin-bottom: 0;
-}
+  .prices-definitions {
+    margin-bottom: 0;
+  }
 
-dt {
-  overflow: hidden;
-}
+  dt {
+    overflow: hidden;
+  }
 
-.icon {
-  width: 1.25em;
-  translate: 0 0.1em;
-}
+  .icon {
+    width: 1.25em;
+    translate: 0 0.1em;
+  }
 
-.price-details:not(:last-child) {
-  padding-bottom: 0.5em;
-  margin-bottom: 0.5em;
-  border-bottom: 1px solid var(--color-gray-light);
-}
+  .price-details:not(:last-child) {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--color-gray-light);
+  }
 
-.prices-list {
-  @mixin list-reset;
-}
+  .prices-list {
+    @mixin list-reset;
+  }
 
-.btn {
-  width: 100%;
-}
+  .btn {
+    width: 100%;
+  }
 </style>

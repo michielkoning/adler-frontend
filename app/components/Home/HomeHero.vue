@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { Image } from "~/types/Image";
+  import type { Image } from "~/types/Image";
 
-defineProps<{
-  image: Image;
-}>();
+  defineProps<{
+    image: Image;
+  }>();
 
-const { title, address } = useAppConfig();
+  const { title, address } = useAppConfig();
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const { title, address } = useAppConfig();
       :lazy="false"
       class="image"
       v-bind="image"
-      sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
+      sizes="100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
     />
 
     <div class="content">
@@ -83,44 +83,44 @@ const { title, address } = useAppConfig();
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.hero {
-  height: 30rem;
-  position: relative;
-  color: var(--color-white);
-  -webkit-text-stroke: 1px var(--color-gray-darker);
-  -webkit-text-fill-color: var(--color-white);
-  max-height: 60vw;
-}
-
-.content {
-  position: absolute;
-  inset: 0 0 var(--spacing-l);
-  justify-content: flex-end;
-  display: flex;
-  flex-direction: column;
-
-  @media (--viewport-sm) {
-    top: 5em;
+  .hero {
+    height: 30rem;
+    position: relative;
+    color: var(--color-white);
+    -webkit-text-stroke: 1px var(--color-gray-darker);
+    -webkit-text-fill-color: var(--color-white);
+    max-height: 60vw;
   }
-}
 
-.icon {
-  stroke: var(--color-gray-darker);
-  width: 100%;
-  max-width: 50rem;
-  height: 11vw;
-  max-height: 6em;
-  fill: var(--color-white);
-}
+  .content {
+    position: absolute;
+    inset: 0 0 var(--spacing-l);
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
 
-.subtitle {
-  transform: translateY(calc(var(--spacing-xxs) * -1));
-  font-size: var(--font-size-xl);
-
-  @media (--viewport-sm) {
-    font-size: var(--font-size-xxl);
+    @media (--viewport-sm) {
+      top: 5em;
+    }
   }
-}
+
+  .icon {
+    stroke: var(--color-gray-darker);
+    width: 100%;
+    max-width: 50rem;
+    height: 11vw;
+    max-height: 6em;
+    fill: var(--color-white);
+  }
+
+  .subtitle {
+    transform: translateY(calc(var(--spacing-xxs) * -1));
+    font-size: var(--font-size-xl);
+
+    @media (--viewport-sm) {
+      font-size: var(--font-size-xxl);
+    }
+  }
 </style>

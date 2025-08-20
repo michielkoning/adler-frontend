@@ -1,22 +1,27 @@
 <script lang="ts" setup>
-const props = defineProps<{
-  title: string;
-  id: number;
-  link: string;
-  children: {
-    title: string;
-    id: number;
-    link: string;
-  }[];
-}>();
+  const props = withDefaults(
+    defineProps<{
+      title: string;
+      id: number;
+      link: string;
+      children?: {
+        title: string;
+        id: number;
+        link: string;
+      }[];
+    }>(),
+    {
+      children: [],
+    }
+  );
 
-const isOpen = ref(false);
+  const isOpen = ref(false);
 
-const toggleMenu = () => {
-  isOpen.value = !isOpen.value;
-};
+  const toggleMenu = () => {
+    isOpen.value = !isOpen.value;
+  };
 
-const controlId = `menu-${props.id}`;
+  const controlId = `menu-${props.id}`;
 </script>
 
 <template>
@@ -59,60 +64,60 @@ const controlId = `menu-${props.id}`;
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.menu-item {
-  position: relative;
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-headings);
-  display: flex;
-  gap: var(--spacing-s);
-}
-
-.submenu-link,
-.menu-link {
-  @mixin link-reset;
-
-  font-size: var(--font-size-xl);
-  border-bottom-width: 2px;
-
-  &[aria-haspopup="true"] {
-    padding-right: var(--spacing-m);
+  .menu-item {
+    position: relative;
+    font-family: var(--font-family-headings);
+    font-weight: var(--font-weight-headings);
+    display: flex;
+    gap: var(--spacing-s);
   }
-}
 
-.icon {
-  transition: transform var(--transition);
-}
+  .submenu-link,
+  .menu-link {
+    @mixin link-reset;
 
-.btn-show-submenu {
-  &[aria-expanded="true"] {
-    .icon {
-      transform: rotate(-180deg);
+    font-size: var(--font-size-xl);
+    border-bottom-width: 2px;
 
-      @media (--navigation-md) {
-        transform: rotate(0deg);
+    &[aria-haspopup="true"] {
+      padding-right: var(--spacing-m);
+    }
+  }
+
+  .icon {
+    transition: transform var(--transition);
+  }
+
+  .btn-show-submenu {
+    &[aria-expanded="true"] {
+      .icon {
+        transform: rotate(-180deg);
+
+        @media (--navigation-md) {
+          transform: rotate(0deg);
+        }
       }
     }
   }
-}
 
-.submenu {
-  @mixin list-reset;
+  .submenu {
+    @mixin list-reset;
 
-  padding-left: var(--spacing-m);
-  border-bottom: 2px solid var(--color-black);
+    padding-left: var(--spacing-m);
+    border-bottom: 2px solid var(--color-black);
 
-  @media (--navigation-md) {
-    border-bottom: 0;
-    padding-left: 0;
-    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-    background: var(--color-background);
-    position: absolute;
-    left: calc(-1 * var(--spacing-xs));
-    top: 100%;
-    white-space: nowrap;
-    z-index: var(--z-main-navigation);
+    @media (--navigation-md) {
+      border-bottom: 0;
+      padding-left: 0;
+      filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
+      background: var(--color-background);
+      position: absolute;
+      left: calc(-1 * var(--spacing-xs));
+      top: 100%;
+      white-space: nowrap;
+      z-index: var(--z-main-navigation);
+    }
   }
-}
 </style>

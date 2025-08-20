@@ -126,6 +126,7 @@
     "rooms": "Zimmer",
     "posts": "Blog",
     "contact": "Kontakt",
-    "privacy": "Datenschutzerklärung"
+    "privacy": "Datenschutzerklärung",
+    "lastMinutes": "Last minutes"
   }
 }

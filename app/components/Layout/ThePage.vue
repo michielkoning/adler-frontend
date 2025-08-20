@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import type { Content } from "~/types/Content";
+  import type { Content } from "~/types/Content";
 
-withDefaults(
-  defineProps<
-    Content & {
-      showResmio?: boolean;
+  withDefaults(
+    defineProps<
+      Content & {
+        showResmio?: boolean;
+      }
+    >(),
+    {
+      showResmio: true,
     }
-  >(),
-  {
-    showResmio: true,
-  },
-);
+  );
 </script>
 
 <template>
@@ -52,44 +52,44 @@ withDefaults(
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.page {
-  display: grid;
-  align-items: start;
-  gap: var(--gutter);
-  margin-bottom: var(--spacing-xl);
-  padding-top: var(--spacing-m);
+  .page {
+    display: grid;
+    align-items: start;
+    gap: var(--gutter);
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-m);
 
-  @media (--viewport-md) {
-    padding-top: 0;
+    @media (--viewport-md) {
+      padding-top: 0;
+    }
+
+    @media (--viewport-lg) {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
   }
 
-  @media (--viewport-lg) {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  .gallery,
+  .image {
+    grid-row: 1 / 2;
+
+    @media (--viewport-lg) {
+      grid-column: 1 / 3;
+    }
   }
-}
 
-.gallery,
-.image {
-  grid-row: 1 / 2;
-
-  @media (--viewport-lg) {
-    grid-column: 1 / 3;
+  .image {
+    height: 30vw;
+    max-height: 20rem;
   }
-}
 
-.image {
-  height: 30vw;
-  max-height: 20rem;
-}
+  .sidebar {
+    display: grid;
+    grid-gap: var(--gutter);
 
-.sidebar {
-  display: grid;
-  grid-gap: var(--gutter);
-
-  @media (--viewport-sm) {
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    @media (--viewport-sm) {
+      grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    }
   }
-}
 </style>

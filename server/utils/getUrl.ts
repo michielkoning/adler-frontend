@@ -39,7 +39,7 @@ export const getUrl = ({
   dateBefore?: string;
   dateAfter?: string;
   lang?: string;
-  orderby?: "menu_order";
+  orderby?: "menu_order" | "title";
   order?: "asc" | "desc";
   locale?: string;
 }) => {
