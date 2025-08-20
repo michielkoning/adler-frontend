@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/icon",
     "@vite-pwa/nuxt",
+    "@vee-validate/nuxt",
   ],
   icon: {
     componentName: "NuxtIcon",

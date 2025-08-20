@@ -11,9 +11,7 @@ export const ArrangementSchema = z.array(
     content: z.object({
       rendered: z.string(),
     }),
-    _embedded: z.object({
-      "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-    }),
+    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
     acf: z.object({
       prices: z
         .array(

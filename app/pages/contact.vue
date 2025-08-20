@@ -44,7 +44,6 @@ if (error.value) {
 .wrapper {
   display: grid;
   grid-gap: var(--gutter);
-
   @media (--viewport-sm) {
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   }

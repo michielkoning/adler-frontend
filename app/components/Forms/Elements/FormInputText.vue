@@ -1,34 +1,28 @@
 <script lang="ts" setup>
-import { useField } from "vee-validate";
+  const props = withDefaults(
+    defineProps<{
+      title: string;
+      name: string;
+      type?: "text" | "email" | "tel" | "date" | "number";
+      class?: string;
+    }>(),
+    {
+      type: "text",
+      class: "",
+    }
+  );
 
-const props = withDefaults(
-  defineProps<{
-    title: string;
-    name: string;
-    type?: "text" | "email" | "tel" | "date" | "number";
-    class?: string;
-  }>(),
-  {
-    type: "text",
-    class: "",
-  },
-);
+  defineOptions({
+    inheritAttrs: false,
+  });
 
-defineOptions({
-  inheritAttrs: false,
-});
+  const id = useId();
 
-const id = useId();
+  const name = toRef(props, "name");
 
-const name = toRef(props, "name");
-
-// we don't provide any rules here because we are using form-level validation
-// https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-const {
-  value: inputValue,
-  handleBlur,
-  handleChange,
-} = useField(name, undefined);
+  // we don't provide any rules here because we are using form-level validation
+  // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
+  const { value: inputValue, handleBlur, handleChange } = useField(name);
 </script>
 
 <template>
@@ -47,7 +41,7 @@ const {
 </template>
 
 <style scoped>
-.field {
-  @mixin form-field;
-}
+  .field {
+    @mixin form-field;
+  }
 </style>

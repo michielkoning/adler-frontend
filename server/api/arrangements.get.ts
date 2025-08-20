@@ -51,7 +51,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
       title: item.title.rendered,
       text: item.excerpt.rendered,
       price: item.acf.price_from,
-      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      image: getFeaturedImage(item["wp:featuredmedia"]),
     };
   });
 });

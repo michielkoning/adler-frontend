@@ -10,7 +10,5 @@ export const ArchiveSchema = z.object({
   excerpt: z.object({
     rendered: z.string(),
   }),
-  _embedded: z.object({
-    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-  }),
+  "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
 });

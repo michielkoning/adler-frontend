@@ -49,7 +49,7 @@ export default defineEventHandler(async (event): Promise<LastMinute[]> => {
       id: item.id,
       link: item.slug,
       title: item.title.rendered,
-      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      image: getFeaturedImage(item["wp:featuredmedia"]),
       room: await getRoom(item.acf.room.ID),
       prices: item.acf.prices,
       isSold: item.acf.sold,

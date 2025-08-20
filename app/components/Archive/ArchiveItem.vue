@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { Archive } from "~/types/Archive";
+  import type { Archive } from "~/types/Archive";
 
-defineProps<Archive>();
+  defineProps<Archive>();
 </script>
 
 <template>
@@ -14,71 +14,76 @@ defineProps<Archive>();
       <div v-html="text" />
       <read-more class="read-more" />
     </div>
-    <app-image v-if="image" v-bind="image" class="image" />
+    <app-image
+      v-if="image"
+      v-bind="image"
+      class="image"
+      sizes="100vw sm:240px"
+    />
     <price-badge v-if="price" :price="price" class="price-badge" />
   </clickable-list-item>
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.link {
-  @mixin link-reset;
-}
-
-.item {
-  display: grid;
-  grid-gap: var(--spacing-s);
-  position: relative;
-  grid-row: 1 / 2;
-  padding: calc(var(--gutter) / 2);
-  margin-bottom: var(--spacing-s);
-
-  @media (--viewport-sm) {
-    grid-template-columns: 15em auto;
+  .link {
+    @mixin link-reset;
   }
 
-  &:focus-within,
-  &:hover {
-    & .link {
-      text-decoration: underline;
-      text-decoration-style: solid;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-      text-decoration-color: var(--color-primary);
+  .item {
+    display: grid;
+    grid-gap: var(--spacing-s);
+    position: relative;
+    grid-row: 1 / 2;
+    padding: calc(var(--gutter) / 2);
+    margin-bottom: var(--spacing-s);
+
+    @media (--viewport-sm) {
+      grid-template-columns: 15em auto;
+    }
+
+    &:focus-within,
+    &:hover {
+      & .link {
+        text-decoration: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--color-primary);
+      }
+    }
+
+    &:nth-child(2n) {
+      background: var(--color-gray-light);
     }
   }
 
-  &:nth-child(2n) {
-    background: var(--color-gray-light);
+  .content {
+    grid-row-start: 2;
+
+    @media (--viewport-sm) {
+      grid-column-start: 2;
+      grid-row-start: 1;
+    }
   }
-}
 
-.content {
-  grid-row-start: 2;
-
-  @media (--viewport-sm) {
-    grid-column-start: 2;
-    grid-row-start: 1;
+  .image {
+    height: 8em;
   }
-}
 
-.image {
-  height: 8em;
-}
+  .price-badge {
+    top: calc(var(--spacing-xs) * -1);
+    right: calc(var(--spacing-xxs) * -1);
+    position: absolute;
 
-.price-badge {
-  top: calc(var(--spacing-xs) * -1);
-  right: calc(var(--spacing-xxs) * -1);
-  position: absolute;
-
-  @media (--viewport-sm) {
-    top: 0;
-    left: calc(var(--spacing-xxs) * -1);
+    @media (--viewport-sm) {
+      top: 0;
+      left: calc(var(--spacing-xxs) * -1);
+    }
   }
-}
 
-.read-more {
-  flex: 0 0 auto;
-}
+  .read-more {
+    flex: 0 0 auto;
+  }
 </style>

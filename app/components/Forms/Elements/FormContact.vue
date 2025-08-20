@@ -6,7 +6,7 @@
 
   const validationSchema = toTypedSchema(
     z.object({
-      email: z.email({ message: t("form.error.email.incorrect") }),
+      email: z.email(),
       phone: z
         .string({ message: t("form.error.required") })
         .min(1, { message: t("form.error.required") }),

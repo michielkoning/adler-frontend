@@ -11,9 +11,7 @@ export const RoomsSchema = z.array(
     excerpt: z.object({
       rendered: z.string(),
     }),
-    _embedded: z.object({
-      "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-    }),
+    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
     acf: z.object({
       price_from: z.string().transform((val) => Number(val)),
     }),

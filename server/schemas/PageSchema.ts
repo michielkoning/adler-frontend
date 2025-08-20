@@ -12,9 +12,7 @@ export const PageSchema = z.object({
   content: z.object({
     rendered: z.string(),
   }),
-  _embedded: z.object({
-    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-  }),
+  "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
   parent: z.number(),
   acf: z.object({
     gallery: GallerySchema,

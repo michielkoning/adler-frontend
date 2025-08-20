@@ -44,7 +44,7 @@ export default defineEventHandler(async (event) => {
       title: item.title.rendered,
       text: item.content.rendered,
       date: item.date,
-      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      image: getFeaturedImage(item["wp:featuredmedia"]),
     },
   };
 });

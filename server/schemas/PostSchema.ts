@@ -12,8 +12,6 @@ export const PostSchema = z.array(
     content: z.object({
       rendered: z.string(),
     }),
-    _embedded: z.object({
-      "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-    }),
+    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
   }),
 );

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { title } = useAppConfig();
+  const { title } = useAppConfig();
 </script>
 
 <template>
@@ -27,100 +27,100 @@ const { title } = useAppConfig();
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.header {
-  background: var(--color-primary);
-  margin-bottom: var(--menu-height);
+  .header {
+    background: var(--color-primary);
+    margin-bottom: var(--menu-height);
 
-  @media (--navigation-md) {
-    background: transparent;
-    margin: 0;
+    @media (--navigation-md) {
+      background: transparent;
+      margin: 0;
+    }
   }
-}
 
-.background {
-  height: 100vh;
-  overflow: hidden;
-  z-index: var(--z-main-navigation);
-  padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
-  background: var(--color-background);
+  .background {
+    height: 100vh;
+    overflow: hidden;
+    z-index: var(--z-main-navigation);
+    padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
+    background: var(--color-background);
 
-  @media (--navigation-md) {
+    @media (--navigation-md) {
+      height: auto;
+      position: static;
+      padding: 0;
+      overflow: visible;
+      display: block !important;
+    }
+  }
+
+  .content {
+    padding: 5em var(--gutter) var(--gutter);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    @media (--navigation-md) {
+      padding: 0;
+      overflow: visible;
+      transform: none;
+      display: grid !important;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: var(--gutter);
+      max-height: none;
+      align-items: end;
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+
+  .logo-wrapper {
+    @mixin link-reset;
+
+    display: none;
+
+    @media (--navigation-md) {
+      display: block;
+      margin-top: var(--spacing-xs);
+      width: 5em;
+    }
+
+    @media (--navigation-lg) {
+      grid-row: span 2;
+      margin-bottom: var(--spacing-s);
+      width: 7em;
+    }
+  }
+
+  .logo {
+    width: 100%;
     height: auto;
-    position: static;
-    padding: 0;
-    overflow: visible;
-    display: block !important;
+    display: block;
   }
-}
 
-.content {
-  padding: 5em var(--gutter) var(--gutter);
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  .meta-navigation {
+    place-self: start end;
+  }
 
-  @media (--navigation-md) {
-    padding: 0;
-    overflow: visible;
-    transform: none;
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    grid-column-gap: var(--gutter);
-    max-height: none;
-    align-items: end;
-    flex: 0 0 auto;
+  .main-navigation {
+    order: -1;
+
+    @media (--navigation-md) {
+      grid-column: span 2;
+      order: 1;
+      align-self: end;
+    }
+
+    @media (--navigation-lg) {
+      grid-column: span 1;
+    }
+  }
+
+  .image {
+    display: block;
     width: 100%;
   }
-}
-
-.logo-wrapper {
-  @mixin link-reset;
-
-  display: none;
-
-  @media (--navigation-md) {
-    display: block;
-    margin-top: var(--spacing-xs);
-    width: 5em;
-  }
-
-  @media (--navigation-lg) {
-    grid-row: span 2;
-    margin-bottom: var(--spacing-s);
-    width: 7em;
-  }
-}
-
-.logo {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.meta-navigation {
-  place-self: start end;
-}
-
-.main-navigation {
-  order: -1;
-
-  @media (--navigation-md) {
-    grid-column: span 2;
-    order: 1;
-    align-self: end;
-  }
-
-  @media (--navigation-lg) {
-    grid-column: span 1;
-  }
-}
-
-.image {
-  display: block;
-  width: 100%;
-}
 </style>

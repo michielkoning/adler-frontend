@@ -56,7 +56,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
-      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      image: getFeaturedImage(item["wp:featuredmedia"]),
     },
     seo: createSeo(item.yoast_head_json),
   };

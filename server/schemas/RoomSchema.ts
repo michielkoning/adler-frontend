@@ -12,8 +12,8 @@ export const RoomSchema = z.object({
   content: z.object({
     rendered: z.string(),
   }),
+  "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
   _embedded: z.object({
-    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
     "wp:term": TermsListSchema,
   }),
   acf: z.object({

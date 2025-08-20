@@ -47,7 +47,7 @@ export default defineEventHandler(async (event): Promise<Room> => {
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
-      image: getFeaturedImage(item._embedded["wp:featuredmedia"]),
+      image: getFeaturedImage(item["wp:featuredmedia"]),
     },
     services: getTagsByType(item._embedded["wp:term"]),
   };
