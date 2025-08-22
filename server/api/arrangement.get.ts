@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     image: true,
     slug: query.data.slug,
     type: "arrangement",
-    fields: ["slug", "title", "content", "acf"],
+    fields: ["slug", "title", "content", "acf", "locales"],
   });
 
   const response = await $fetch(url);
@@ -48,5 +48,6 @@ export default defineEventHandler(async (event) => {
       text: item.content.rendered,
       image: getFeaturedImage(item["wp:featuredmedia"]),
     },
+    locales: item.locales,
   };
 });

@@ -7,4 +7,9 @@ export type Page = {
   parentId: number;
   content: Content;
   seo: Seo;
+  locales: {
+    de?: string;
+    nl?: string;
+    en?: string;
+  };
 };

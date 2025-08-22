@@ -14,4 +14,9 @@ export type Room = {
   bookUrl: string;
   content: Content;
   services: string[];
+  locales: {
+    de?: string;
+    nl?: string;
+    en?: string;
+  };
 };

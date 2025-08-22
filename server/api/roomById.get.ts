@@ -24,7 +24,7 @@ export default defineEventHandler(async (event): Promise<Room> => {
   const url = getUrl({
     image: true,
     type: "room",
-    fields: ["title", "slug", "content", "acf"],
+    fields: ["title", "slug", "content", "acf", "locales"],
     id: query.data.id,
   });
 
@@ -50,5 +50,6 @@ export default defineEventHandler(async (event): Promise<Room> => {
       image: getFeaturedImage(item["wp:featuredmedia"]),
     },
     services: getTagsByType(item._embedded["wp:term"]),
+    locales: item.locales,
   };
 });

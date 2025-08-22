@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
   const url = getUrl({
     image: true,
     type: "posts",
-    fields: ["title", "slug", "content", "date"],
+    fields: ["title", "slug", "content", "date", "locales"],
     slug: query.data.slug,
   });
 
@@ -46,5 +46,6 @@ export default defineEventHandler(async (event) => {
       date: item.date,
       image: getFeaturedImage(item["wp:featuredmedia"]),
     },
+    locales: item.locales,
   };
 });

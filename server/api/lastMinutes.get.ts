@@ -26,7 +26,7 @@ export default defineEventHandler(async (event): Promise<LastMinute[]> => {
     image: true,
     lang: query.data.locale,
     type: "last_minute",
-    fields: ["slug", "title", "acf"],
+    fields: ["slug", "title", "acf", "locales"],
     locale: query.data.locale,
     orderby: "menu_order",
     order: "asc",

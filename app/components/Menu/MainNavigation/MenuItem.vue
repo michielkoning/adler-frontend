@@ -51,7 +51,7 @@
       </button>
 
       <slide-in-animation>
-        <ul v-show="isOpen" :id="controlId" class="submenu">
+        <ul v-if="isOpen" :id="controlId" class="submenu">
           <li v-for="subItem in children" :key="subItem.id" class="menu-item">
             <nuxt-link :to="subItem.link" class="menu-link">
               <span v-html="subItem.title" />

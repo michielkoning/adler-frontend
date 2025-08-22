@@ -1,27 +1,27 @@
 <script lang="ts" setup>
-definePageMeta({
-  i18n: {
-    paths: {
-      de: "/",
-      en: "/",
-      nl: "/",
+  definePageMeta({
+    i18n: {
+      paths: {
+        de: "/",
+        en: "/",
+        nl: "/",
+      },
     },
-  },
-});
+  });
 
-const { pageIds } = useAppConfig();
+  const { pageIds } = useAppConfig();
 
-const { data, error } = await useFetch("/api/pageById", {
-  params: {
-    id: getPageId(pageIds.homePageId),
-  },
-});
+  const { data, error } = await useFetch("/api/pageById", {
+    params: {
+      id: getPageId(pageIds.homePageId),
+    },
+  });
 
-if (error.value) {
-  throw createError(error.value);
-}
+  if (error.value) {
+    throw createError(error.value);
+  }
 
-useSeo(data.value?.seo);
+  useSeo(data.value?.seo);
 </script>
 
 <template>
@@ -39,37 +39,37 @@ useSeo(data.value?.seo);
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.wrapper {
-  @mixin block-padding;
+  .wrapper {
+    @mixin block-padding;
 
-  grid-gap: var(--spacing-l);
-  display: grid;
+    grid-gap: var(--spacing-l);
+    display: grid;
 
-  @media (--viewport-lg) {
-    grid-template-columns: 2fr 1fr;
+    @media (--viewport-lg) {
+      grid-template-columns: 2fr 1fr;
+    }
   }
-}
 
-.highlights {
-  grid-gap: var(--spacing-l);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
-}
-
-.sidebar {
-  display: grid;
-  gap: var(--spacing-l);
-  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
-
-  @media (--viewport-lg) {
-    display: flex;
-    flex-direction: column;
+  .highlights {
+    grid-gap: var(--spacing-l);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
   }
-}
 
-.resmio {
-  flex: 1 1 auto;
-}
+  .sidebar {
+    display: grid;
+    gap: var(--spacing-l);
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+
+    @media (--viewport-lg) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .resmio {
+    flex: 1 1 auto;
+  }
 </style>

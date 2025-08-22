@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { FeaturedImageSchema } from "./FeaturedImageSchema";
+import { LocalesSchema } from "./LocalesSchema";
 
 export const PostSchema = z.array(
   z.object({
@@ -13,5 +14,6 @@ export const PostSchema = z.array(
       rendered: z.string(),
     }),
     "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
+    locales: LocalesSchema,
   }),
 );

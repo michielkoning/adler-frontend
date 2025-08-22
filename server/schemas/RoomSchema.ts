@@ -2,6 +2,7 @@ import { z } from "zod";
 import { FeaturedImageSchema } from "./FeaturedImageSchema";
 import { TermsListSchema } from "./TermsSchema";
 import { GallerySchema } from "./GallerySchema";
+import { LocalesSchema } from "./LocalesSchema";
 
 export const RoomSchema = z.object({
   id: z.number(),
@@ -36,6 +37,7 @@ export const RoomSchema = z.object({
       .transform((val) => Number(val)),
     book_url: z.string(),
   }),
+  locales: LocalesSchema,
 });
 
 export const RoomListSchema = z.array(RoomSchema);

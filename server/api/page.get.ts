@@ -35,6 +35,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
       "excerpt",
       "parent",
       "yoast_head_json",
+      "locales",
     ],
   });
 
@@ -68,5 +69,6 @@ export default defineEventHandler(async (event): Promise<Page> => {
       }),
     },
     seo: createSeo(item.yoast_head_json),
+    locales: item.locales,
   };
 });

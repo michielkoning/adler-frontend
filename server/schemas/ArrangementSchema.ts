@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { FeaturedImageSchema } from "./FeaturedImageSchema";
+import { LocalesSchema } from "./LocalesSchema";
 
 export const ArrangementSchema = z.array(
   z.object({
@@ -27,5 +28,6 @@ export const ArrangementSchema = z.array(
         )
         .default([]),
     }),
+    locales: LocalesSchema,
   }),
 );

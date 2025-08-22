@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   const url = getUrl({
     image: true,
     type: "room",
-    fields: ["title", "slug", "content", "acf"],
+    fields: ["title", "slug", "content", "acf", "locales"],
     slug: query.data.slug,
   });
 
@@ -63,5 +63,6 @@ export default defineEventHandler(async (event) => {
       }),
     },
     services: getTagsByType(item._embedded["wp:term"]),
+    locales: item.locales,
   };
 });

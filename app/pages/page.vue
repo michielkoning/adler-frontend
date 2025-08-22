@@ -1,43 +1,44 @@
 <script lang="ts" setup>
-definePageMeta({
-  i18n: {
-    paths: {
-      de: "/[...slug]",
-      en: "/[...slug]",
-      nl: "/[...slug]",
+  definePageMeta({
+    i18n: {
+      paths: {
+        de: "/[...slug]",
+        en: "/[...slug]",
+        nl: "/[...slug]",
+      },
     },
-  },
-});
+  });
 
-const route = useRoute();
-const setI18nParams = useSetI18nParams();
+  const route = useRoute();
 
-const slug = computed(() => {
-  if (Array.isArray(route.params.slug)) {
-    const slugs = route.params.slug.filter((slug) => slug !== "");
-    return slugs.at(-1) ?? "";
-  } else {
-    return route.params.slug;
+  const setI18nParams = useSetI18nParams();
+
+  const slug = computed(() => {
+    if (Array.isArray(route.params.slug)) {
+      const slugs = route.params.slug.filter((slug) => slug !== "");
+      return slugs.at(-1) ?? "";
+    } else {
+      return route.params.slug;
+    }
+  });
+
+  const { data, error } = await useFetch("/api/page", {
+    params: {
+      slug,
+    },
+  });
+
+  if (error.value) {
+    throw createError(error.value);
   }
-});
 
-const { data, error } = await useFetch("/api/page", {
-  params: {
-    slug,
-  },
-});
+  useSeo(data.value?.seo);
 
-if (error.value) {
-  throw createError(error.value);
-}
-
-useSeo(data.value?.seo);
-
-setI18nParams({
-  en: { slug: "rode-mok" },
-  nl: { slug: "rode-mok" },
-  de: undefined,
-});
+  setI18nParams({
+    de: data.value?.locales.de ? { slug: data.value?.locales.de } : undefined,
+    nl: data.value?.locales.nl ? { slug: data.value?.locales.nl } : undefined,
+    en: data.value?.locales.en ? { slug: data.value?.locales.en } : undefined,
+  });
 </script>
 
 <template>

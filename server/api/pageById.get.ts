@@ -34,6 +34,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
       "acf",
       "excerpt",
       "yoast_head_json",
+      "locales",
     ],
   });
 
@@ -59,5 +60,6 @@ export default defineEventHandler(async (event): Promise<Page> => {
       image: getFeaturedImage(item["wp:featuredmedia"]),
     },
     seo: createSeo(item.yoast_head_json),
+    locales: item.locales,
   };
 });
