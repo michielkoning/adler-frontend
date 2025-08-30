@@ -63,7 +63,7 @@ export default defineNuxtConfig({
   ],
 
   nitro: {
-    // preset: "netlify",
+    preset: "netlify",
   },
   scripts: {
     registry: {
