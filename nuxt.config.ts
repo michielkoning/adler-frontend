@@ -15,7 +15,18 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-08-03",
   telemetry: false,
   css: ["~/assets/css/base.css"],
-
+  runtimeConfig: {
+    public: {
+      scripts: {
+        metaPixel: {
+          id: "",
+        },
+        googleAnalytics: {
+          id: "",
+        },
+      },
+    },
+  },
   devtools: {
     enabled: true,
   },
@@ -81,7 +92,12 @@ export default defineNuxtConfig({
       ],
     },
   },
-
+  scripts: {
+    registry: {
+      metaPixel: true,
+      googleAnalytics: true,
+    },
+  },
   postcss: {
     plugins: {
       "postcss-mixins": {
@@ -104,14 +120,14 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxtjs/i18n",
-    "@nuxt/eslint",
-    // "@nuxtjs/stylelint-module",
+    "@nuxt/eslint", // "@nuxtjs/stylelint-module",
     "@nuxt/image",
     "nuxt-schema-org",
     "@nuxt/fonts",
     "@nuxt/icon",
     "@vite-pwa/nuxt",
     "@vee-validate/nuxt",
+    "@nuxt/scripts",
   ],
   icon: {
     componentName: "NuxtIcon",
