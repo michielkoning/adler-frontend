@@ -22,9 +22,14 @@
       </h2>
       <div ref="menu">
         <ul v-if="data" class="menu">
-          <menu-item v-for="item in data" v-bind="item" :key="item.id" />
           <menu-item
             :id="1"
+            :title="$t('pages.home')"
+            :link="localePath('index')"
+          />
+          <menu-item v-for="item in data" v-bind="item" :key="item.id" />
+          <menu-item
+            :id="3"
             :title="$t('pages.contact')"
             :link="localePath('contact')"
           />

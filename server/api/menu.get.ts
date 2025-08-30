@@ -23,7 +23,6 @@ export default defineEventHandler(async (event) => {
     fields: ["title", "link", "parent"],
   };
 
-  const homePageId = pageIds.homePageId[query.data.locale];
   const environmentPageId = pageIds.environmentPageId[query.data.locale];
   const hotelPageId = pageIds.hotelPageId[query.data.locale];
   const kidsPageId = pageIds.kidsPageId[query.data.locale];
@@ -50,7 +49,6 @@ export default defineEventHandler(async (event) => {
       type: "pages",
       locale: query.data.locale,
       include: [
-        homePageId,
         environmentPageId,
         hotelPageId,
         kidsPageId,
@@ -148,7 +146,6 @@ export default defineEventHandler(async (event) => {
   };
 
   const menu = [
-    getMenuById(homePageId),
     getMenuById(hotelPageId),
     getMenuById(environmentPageId),
     getMenuById(kidsPageId),

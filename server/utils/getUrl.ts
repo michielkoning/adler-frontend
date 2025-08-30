@@ -27,7 +27,7 @@ export const getUrl = ({
   slug?: string;
   page?: number;
   image?: boolean;
-  include?: [number];
+  include?: number[];
   exclude?: number;
   subjectIds?: string;
   sourceIds?: string;
@@ -85,7 +85,7 @@ export const getUrl = ({
     url.searchParams.set("exclude", exclude.toString());
   }
   if (include) {
-    url.searchParams.set("include", include);
+    url.searchParams.set("include", include.join(","));
   }
   if (page) {
     url.searchParams.set("page", page.toString());

@@ -15,10 +15,26 @@
     }
   );
 
-  const isOpen = ref(false);
+  const isOpen = computed(() => {
+    return props.id === activeMenuId.value;
+  });
+
+  const { activeMenuId, setActiveMenuId } = useMenu();
+
+  const showSubmenu = () => {
+    setActiveMenuId(props.id);
+  };
+
+  const closeSubmenu = () => {
+    setActiveMenuId(undefined);
+  };
 
   const toggleMenu = () => {
-    isOpen.value = !isOpen.value;
+    if (isOpen.value) {
+      closeSubmenu();
+    } else {
+      showSubmenu();
+    }
   };
 
   const controlId = `menu-${props.id}`;
@@ -26,7 +42,12 @@
 
 <template>
   <li class="menu-item">
-    <nuxt-link :to="link" :aria-haspopup="children.length" class="menu-link">
+    <nuxt-link
+      :to="link"
+      :aria-haspopup="children.length"
+      class="menu-link"
+      @mouseover="showSubmenu"
+    >
       <span v-html="title" />
     </nuxt-link>
     <template v-if="children.length">
@@ -51,7 +72,7 @@
       </button>
 
       <slide-in-animation>
-        <ul v-if="isOpen" :id="controlId" class="submenu">
+        <ul v-show="isOpen" :id="controlId" class="submenu">
           <li v-for="subItem in children" :key="subItem.id" class="menu-item">
             <nuxt-link :to="subItem.link" class="menu-link">
               <span v-html="subItem.title" />

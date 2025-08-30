@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+  const localePath = useLocalePath();
+</script>
+
 <template>
   <nav :aria-label="$t('metaNavigationTitle')" class="meta-navigation">
     <h2 id="secondary-menu-title" class="sr-only">
@@ -12,15 +16,11 @@
     <language-switcher class="language-switcher" />
     <div class="buttons">
       <app-button
-        :title="$t('lastMinutes')"
-        :to="{
-          name: 'last-minute',
-        }"
+        :title="$t('pages.lastMinutes')"
+        :link="localePath('last-minutes')"
         size="small"
         variant="ghost"
-      >
-        {{ $t("lastMinutes") }}
-      </app-button>
+      />
       <app-button
         v-if="$i18n.locale === 'de'"
         :title="$t('vouchers')"
@@ -36,59 +36,59 @@
 </template>
 
 <style scoped>
-@import "~/assets/css/media-queries/media-queries.css";
+  @import "~/assets/css/media-queries/media-queries.css";
 
-.meta-navigation {
-  padding-bottom: 8em;
-  display: flex;
-  gap: 1em;
-  flex-direction: column;
-
-  @media (--navigation-md) {
-    gap: 1.5em;
-    flex-direction: row;
-    align-items: center;
-    padding: var(--spacing-s) var(--spacing-m);
-    background: var(--color-background-alternative);
-  }
-}
-
-.contact {
-  display: flex;
-  flex-direction: column;
-
-  @media (--navigation-md) {
+  .meta-navigation {
+    padding-bottom: 8em;
+    display: flex;
     gap: 1em;
-    flex-direction: row;
-  }
-}
+    flex-direction: column;
 
-.buttons {
-  display: flex;
-  gap: 0.5em;
-}
-
-.language-switcher {
-  @media (--navigation-md) {
-    transform: translateY(0.15em);
-  }
-}
-
-.btn-book-now {
-  display: none;
-
-  @media (--navigation-lg) {
-    display: block;
-  }
-}
-
-.contact-item {
-  @media (--navigation-md) {
-    transform: translateY(0.15em);
+    @media (--navigation-md) {
+      gap: 1.5em;
+      flex-direction: row;
+      align-items: center;
+      padding: var(--spacing-s) var(--spacing-m);
+      background: var(--color-background-alternative);
+    }
   }
 
-  & a {
-    @mixin link-sm;
+  .contact {
+    display: flex;
+    flex-direction: column;
+
+    @media (--navigation-md) {
+      gap: 1em;
+      flex-direction: row;
+    }
   }
-}
+
+  .buttons {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .language-switcher {
+    @media (--navigation-md) {
+      transform: translateY(0.15em);
+    }
+  }
+
+  .btn-book-now {
+    display: none;
+
+    @media (--navigation-lg) {
+      display: block;
+    }
+  }
+
+  .contact-item {
+    @media (--navigation-md) {
+      transform: translateY(0.15em);
+    }
+
+    & a {
+      @mixin link-sm;
+    }
+  }
 </style>
