@@ -24,7 +24,7 @@
 
 <template>
   <the-page v-if="data" v-bind="data.content">
-    <block-map />
+    <!-- <block-map /> -->
     <div class="wrapper">
       <the-address />
       <opening-times />
