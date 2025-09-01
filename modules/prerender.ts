@@ -65,10 +65,10 @@ export default defineNuxtModule({
           const urls = response._data.map((r: { link: string }) => {
             let link = r.link.replace("https://www.adler-lingenau.com/", "/");
             if (type === "room") {
-              link = link.replaceAll("/de/rooms/", "/de/zimmer/");
-              link = link.replaceAll("/nl/rooms/", "/nl/kamers/");
+              link = link.replace("/de/rooms/", "/de/zimmer/");
+              link = link.replace("/nl/rooms/", "/nl/kamers/");
             } else if (type === "arrangement") {
-              link = link.replaceAll("/nl/arrangements/", "/nl/arrangementen/");
+              link = link.replace("/nl/arrangements/", "/nl/arrangementen/");
             }
             return link;
           });
