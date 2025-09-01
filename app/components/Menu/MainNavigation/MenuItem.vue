@@ -44,7 +44,7 @@
   <li class="menu-item">
     <nuxt-link
       :to="link"
-      :aria-haspopup="children.length"
+      :aria-haspopup="children.length > 0"
       class="menu-link"
       @mouseover="showSubmenu"
     >
