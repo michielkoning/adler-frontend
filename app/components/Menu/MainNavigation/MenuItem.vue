@@ -92,7 +92,8 @@
     font-family: var(--font-family-headings);
     font-weight: var(--font-weight-headings);
     display: flex;
-    gap: var(--spacing-s);
+    gap: var(--spacing-xs);
+    align-items: center;
   }
 
   .submenu-link,
@@ -101,10 +102,6 @@
 
     font-size: var(--font-size-xl);
     border-bottom-width: 2px;
-
-    &[aria-haspopup="true"] {
-      padding-right: var(--spacing-m);
-    }
   }
 
   .icon {
