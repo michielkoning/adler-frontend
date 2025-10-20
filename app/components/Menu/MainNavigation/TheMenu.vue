@@ -15,34 +15,32 @@
 </script>
 
 <template>
-  <center-wrapper>
-    <nav v-if="data" aria-labelledby="menu" class="nav">
-      <h2 id="menu" class="sr-only" tabindex="-1">
-        {{ "title" }}
-      </h2>
-      <div ref="menu">
-        <ul v-if="data" class="menu">
-          <menu-item
-            :id="1"
-            :title="$t('pages.home')"
-            :link="localePath('index')"
-          />
-          <menu-item v-for="item in data" v-bind="item" :key="item.id" />
-          <menu-item
-            :id="3"
-            :title="$t('pages.contact')"
-            :link="localePath('contact')"
-          />
-          <menu-item
-            :id="2"
-            :title="$t('pages.lastMinutes')"
-            :link="localePath('last-minutes')"
-          />
-        </ul>
-        <div class="arrow" />
-      </div>
-    </nav>
-  </center-wrapper>
+  <nav v-if="data" aria-labelledby="menu" class="nav">
+    <h2 id="menu" class="sr-only" tabindex="-1">
+      {{ "title" }}
+    </h2>
+    <div ref="menu">
+      <ul v-if="data" class="menu">
+        <menu-item
+          :id="1"
+          :title="$t('pages.home')"
+          :link="localePath('index')"
+        />
+        <menu-item v-for="item in data" v-bind="item" :key="item.id" />
+        <menu-item
+          :id="3"
+          :title="$t('pages.contact')"
+          :link="localePath('contact')"
+        />
+        <menu-item
+          :id="2"
+          :title="$t('pages.lastMinutes')"
+          :link="localePath('last-minutes')"
+        />
+      </ul>
+      <div class="arrow" />
+    </div>
+  </nav>
 </template>
 
 <style scoped>
@@ -60,6 +58,7 @@
   .menu {
     @mixin list-reset;
 
+    border-top: 2px solid var(--color-black);
     @media (--navigation-md) {
       display: flex;
       border-top: 0;

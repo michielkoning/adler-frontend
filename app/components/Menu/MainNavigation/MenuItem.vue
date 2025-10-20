@@ -46,7 +46,6 @@
       :to="link"
       :aria-haspopup="children.length > 0"
       class="menu-link"
-      @mouseover="showSubmenu"
     >
       <span v-html="title" />
     </nuxt-link>
@@ -73,8 +72,12 @@
 
       <slide-in-animation>
         <ul v-show="isOpen" :id="controlId" class="submenu">
-          <li v-for="subItem in children" :key="subItem.id" class="menu-item">
-            <nuxt-link :to="subItem.link" class="menu-link">
+          <li
+            v-for="subItem in children"
+            :key="subItem.id"
+            class="submenu-item"
+          >
+            <nuxt-link :to="subItem.link" class="submenu-link">
               <span v-html="subItem.title" />
             </nuxt-link>
           </li>
@@ -91,17 +94,53 @@
     position: relative;
     font-family: var(--font-family-headings);
     font-weight: var(--font-weight-headings);
-    display: flex;
-    gap: var(--spacing-xs);
-    align-items: center;
+
+    @media (--navigation-md) {
+      display: flex;
+      gap: var(--spacing-xs);
+      align-items: center;
+    }
+  }
+
+  .menu-link {
+    border-bottom: 2px solid var(--color-black);
+  }
+
+  .submenu-item:not(:last-child) {
+    border-bottom: 1px solid var(--color-black);
+  }
+
+  .btn-show-submenu {
+    display: block;
+    position: absolute;
+    width: var(--spacing-l);
+    height: var(--spacing-l);
+    right: calc(var(--spacing-xs) * -1);
+    top: 0.75em;
+
+    @media (--navigation-md) {
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: translateY(-2px);
+    }
   }
 
   .submenu-link,
   .menu-link {
     @mixin link-reset;
 
+    transition: border var(--animation);
+    display: block;
+    padding-block: var(--spacing-xs);
+  }
+
+  .menu-link {
     font-size: var(--font-size-xl);
-    border-bottom-width: 2px;
+  }
+
+  .submenu-link {
+    font-size: var(--font-size-l);
   }
 
   .icon {

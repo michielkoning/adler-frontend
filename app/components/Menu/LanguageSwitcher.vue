@@ -37,7 +37,13 @@
 
   .wrapper {
     display: flex;
-    gap: 0.5em;
+    gap: 0.25em;
+    flex-direction: column;
+
+    @media (--navigation-md) {
+      flex-direction: row;
+      gap: 0.5em;
+    }
   }
 
   .link {

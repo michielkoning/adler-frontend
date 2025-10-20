@@ -1,33 +1,59 @@
 <script lang="ts" setup>
   const { title } = useAppConfig();
+  const menuIsExpanded = ref(false);
+
+  const toggleMenu = () => {};
 </script>
 
 <template>
   <header class="header">
+    <mobile-navigation v-model="menuIsExpanded" />
     <center-wrapper>
-      <div class="background">
-        <div class="content">
-          <div class="logo-wrapper">
-            <nuxt-link-locale class="logo" :to="{ name: 'index' }">
-              <app-icon
-                icon="adler:logo"
-                class="image"
-                aria-hidden="true"
-                width="100"
-              />
-              <span class="sr-only">{{ title }}</span>
-            </nuxt-link-locale>
+      <transition name="slide">
+        <div class="background" v-show="menuIsExpanded">
+          <div class="content">
+            <div class="logo-wrapper">
+              <nuxt-link-locale class="logo" :to="{ name: 'index' }">
+                <app-icon
+                  icon="adler:logo"
+                  class="image"
+                  aria-hidden="true"
+                  width="100"
+                />
+                <span class="sr-only">{{ title }}</span>
+              </nuxt-link-locale>
+            </div>
+            <meta-navigation class="meta-navigation" />
+            <the-menu class="main-navigation" />
           </div>
-          <meta-navigation class="meta-navigation" />
-          <the-menu class="main-navigation" />
         </div>
-      </div>
+      </transition>
     </center-wrapper>
   </header>
 </template>
 
 <style scoped>
   @import "~/assets/css/media-queries/media-queries.css";
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: translate 0.3s;
+
+    .content {
+      transition-property: translate, opacity;
+      transition: 0.3s 0.2s;
+    }
+  }
+
+  .slide-enter-from,
+  .slide-leave-to {
+    translate: 0 -100vh;
+
+    .content {
+      translate: 0 -2em;
+      opacity: 0;
+    }
+  }
 
   .header {
     background: var(--color-primary);
@@ -40,7 +66,8 @@
   }
 
   .background {
-    height: 100vh;
+    position: fixed;
+    inset: 0;
     overflow: hidden;
     z-index: var(--z-main-navigation);
     padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);

@@ -2,4 +2,5 @@ svg {
   display: inline-block;
   fill: currentcolor;
   position: relative;
+  height: auto;
 }
