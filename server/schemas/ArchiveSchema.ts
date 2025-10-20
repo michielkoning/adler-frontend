@@ -1,14 +1,14 @@
-import { z } from "zod";
-import { FeaturedImageSchema } from "./FeaturedImageSchema";
+import { z } from 'zod'
+import { FeaturedImageSchema } from './FeaturedImageSchema'
 
 export const ArchiveSchema = z.object({
-  id: z.number(),
-  slug: z.string(),
-  title: z.object({
+  'id': z.number(),
+  'slug': z.string(),
+  'title': z.object({
     rendered: z.string(),
   }),
-  excerpt: z.object({
+  'excerpt': z.object({
     rendered: z.string(),
   }),
-  "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-});
+  'wp:featuredmedia': z.array(FeaturedImageSchema).default([]),
+})

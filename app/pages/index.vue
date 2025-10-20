@@ -1,34 +1,40 @@
 <script lang="ts" setup>
-  definePageMeta({
-    i18n: {
-      paths: {
-        de: "/",
-        en: "/",
-        nl: "/",
-      },
+definePageMeta({
+  i18n: {
+    paths: {
+      de: '/',
+      en: '/',
+      nl: '/',
     },
-  });
+  },
+})
 
-  const { pageIds } = useAppConfig();
+const { pageIds } = useAppConfig()
 
-  const { data, error } = await useFetch("/api/pageById", {
-    params: {
-      id: getPageId(pageIds.homePageId),
-    },
-  });
+const { data, error } = await useFetch('/api/pageById', {
+  params: {
+    id: getPageId(pageIds.homePageId),
+  },
+})
 
-  if (error.value) {
-    throw createError(error.value);
-  }
+if (error.value) {
+  throw createError(error.value)
+}
 
-  useSeo(data.value?.seo);
+useSeo(data.value?.seo)
 </script>
 
 <template>
-  <home-hero v-if="data && data.content.image" :image="data.content.image" />
+  <home-hero
+    v-if="data && data.content.image"
+    :image="data.content.image"
+  />
   <center-wrapper>
     <div class="wrapper">
-      <highlights-list :items="data" :page-size="4" />
+      <highlights-list
+        :items="data"
+        :page-size="4"
+      />
       <aside class="sidebar">
         <latest-posts-list />
         <resmio-widget class="resmio" />

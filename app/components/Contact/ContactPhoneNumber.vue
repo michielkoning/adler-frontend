@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-const { address } = useAppConfig();
+const { address } = useAppConfig()
 
 const phoneNumberLink = computed(() => {
-  return `tel:${encodeURIComponent(address.phoneNumber)}`;
-});
+  return `tel:${encodeURIComponent(address.phoneNumber)}`
+})
 </script>
 
 <template>

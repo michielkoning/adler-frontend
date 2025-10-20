@@ -1,30 +1,37 @@
 <script lang="ts" setup>
-const { locale } = useI18n();
+const { locale } = useI18n()
 
 const props = withDefaults(
   defineProps<{
-    pageSize?: number;
+    pageSize?: number
   }>(),
   {
     pageSize: 3,
   },
-);
+)
 
-const { data, error } = await useFetch("/api/arrangements", {
+const { data, error } = await useFetch('/api/arrangements', {
   params: {
     pageSize: props.pageSize,
     locale,
   },
-});
+})
 
 if (error.value) {
-  throw createError(error.value);
+  throw createError(error.value)
 }
 </script>
 
 <template>
-  <ul v-if="data" class="list">
-    <highlights-list-item v-for="item in data" :key="item.id" :item="item" />
+  <ul
+    v-if="data"
+    class="list"
+  >
+    <highlights-list-item
+      v-for="item in data"
+      :key="item.id"
+      :item="item"
+    />
   </ul>
 </template>
 

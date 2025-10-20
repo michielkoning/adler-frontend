@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod'
 
 export const GallerySchema = z
   .array(
@@ -13,7 +13,7 @@ export const GallerySchema = z
   .or(z.boolean())
   .transform((val) => {
     if (val === false) {
-      return undefined;
+      return undefined
     }
-    return val;
-  });
+    return val
+  })

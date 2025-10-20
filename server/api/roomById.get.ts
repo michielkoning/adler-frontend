@@ -1,38 +1,38 @@
-import { z } from "zod";
-import { RoomSchema } from "../schemas/RoomSchema";
-import { getTagsByType } from "../utils/getTagsByType";
-import { getUrl } from "../utils/getUrl";
-import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { z } from 'zod'
+import { RoomSchema } from '../schemas/RoomSchema'
+import { getTagsByType } from '../utils/getTagsByType'
+import { getUrl } from '../utils/getUrl'
+import { getFeaturedImage } from '../utils/getFeaturedImage'
 
-import type { Room } from "~/types/Room";
+import type { Room } from '~/types/Room'
 
 const querySchema = z.object({
   id: z.string(),
-});
+})
 
 export default defineEventHandler(async (event): Promise<Room> => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
   const url = getUrl({
     image: true,
-    type: "room",
-    fields: ["title", "slug", "content", "acf", "locales"],
+    type: 'room',
+    fields: ['title', 'slug', 'content', 'acf', 'locales'],
     id: query.data.id,
-  });
+  })
 
-  const response = await $fetch(url);
+  const response = await $fetch(url)
 
-  const parsed = parseData(response, RoomSchema);
+  const parsed = parseData(response, RoomSchema)
 
-  const item = parsed;
+  const item = parsed
 
   return {
     id: item.id,
@@ -47,9 +47,9 @@ export default defineEventHandler(async (event): Promise<Room> => {
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
-      image: getFeaturedImage(item["wp:featuredmedia"]),
+      image: getFeaturedImage(item['wp:featuredmedia']),
     },
-    services: getTagsByType(item._embedded["wp:term"]),
+    services: getTagsByType(item._embedded['wp:term']),
     locales: item.locales,
-  };
-});
+  }
+})

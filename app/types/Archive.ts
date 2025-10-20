@@ -1,11 +1,11 @@
-import type { Image } from "./Image";
+import type { Image } from './Image'
 
 export type Archive = {
-  id: number;
-  title: string;
-  link: string;
-  text: string;
-  image?: Image;
-  date?: string;
-  price?: number;
-};
+  id: number
+  title: string
+  link: string
+  text: string
+  image?: Image
+  date?: string
+  price?: number
+}

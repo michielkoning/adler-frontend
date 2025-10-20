@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { LastMinute } from "~/types/LastMinute";
+import type { LastMinute } from '~/types/LastMinute'
 
 defineProps<{
-  items: LastMinute[];
-}>();
+  items: LastMinute[]
+}>()
 </script>
 
 <template>

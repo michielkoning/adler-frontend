@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod'
 
 const daySchema = z
   .array(
@@ -7,7 +7,7 @@ const daySchema = z
       end: z.string(),
     }),
   )
-  .default([]);
+  .default([])
 
 export const openingHoursSchema = z.object({
   monday: daySchema,
@@ -17,4 +17,4 @@ export const openingHoursSchema = z.object({
   friday: daySchema,
   saturday: daySchema,
   sunday: daySchema,
-});
+})

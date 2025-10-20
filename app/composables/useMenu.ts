@@ -1,18 +1,18 @@
 export const useMenu = () => {
-  const activeMenuId = useState<number | undefined>(() => undefined);
+  const activeMenuId = useState<number | undefined>(() => undefined)
 
-  const router = useRouter();
+  const router = useRouter()
 
   router.afterEach(() => {
-    setActiveMenuId(undefined);
-  });
+    setActiveMenuId(undefined)
+  })
 
   const setActiveMenuId = (id?: number) => {
-    activeMenuId.value = id;
-  };
+    activeMenuId.value = id
+  }
 
   return {
     activeMenuId,
     setActiveMenuId,
-  };
-};
+  }
+}

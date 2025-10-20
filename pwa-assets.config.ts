@@ -2,12 +2,12 @@ import {
   defineConfig,
   combinePresetAndAppleSplashScreens,
   minimal2023Preset as preset,
-} from "@vite-pwa/assets-generator/config";
+} from '@vite-pwa/assets-generator/config'
 
 export default defineConfig({
   headLinkOptions: {
-    preset: "2023",
-    basePath: "/images/",
+    preset: '2023',
+    basePath: '/images/',
   },
   // preset: {
   // linkMediaOptions: {
@@ -19,5 +19,5 @@ export default defineConfig({
   // },
   // },
   preset,
-  images: ["public/icon.svg"],
-});
+  images: ['public/icon.svg'],
+})

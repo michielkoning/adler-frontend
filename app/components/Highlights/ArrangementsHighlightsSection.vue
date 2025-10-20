@@ -1,5 +1,8 @@
 <template>
-  <section :aria-label="$t('ourHighlightedArrangements')" class="highlights">
+  <section
+    :aria-label="$t('ourHighlightedArrangements')"
+    class="highlights"
+  >
     <center-wrapper>
       <h1 class="title">
         {{ $t("ourHighlightedArrangements") }}

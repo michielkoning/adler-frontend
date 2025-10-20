@@ -1,15 +1,18 @@
 <script lang="ts" setup>
-const { address, title } = useAppConfig();
+const { address, title } = useAppConfig()
 </script>
 
 <template>
-  <address itemscope itemtype="http://schema.org/Organization">
+  <address
+    itemscope
+    itemtype="http://schema.org/Organization"
+  >
     <h2>{{ $t("address") }}</h2>
     <div class="address">
-      {{ title }}<br />
+      {{ title }}<br>
       {{ address.street }} - {{ address.postalCode }}
       {{ address.city }}
-      <br />
+      <br>
 
       {{ $t(address.country) }} -
       {{ address.region }}

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-const { address } = useAppConfig();
+const { address } = useAppConfig()
 
 const emailLink = computed(() => {
-  return `mailto:${encodeURIComponent(address.emailAddress)}`;
-});
+  return `mailto:${encodeURIComponent(address.emailAddress)}`
+})
 </script>
 
 <template>

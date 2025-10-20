@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 </script>
 
 <template>
   <fieldset class="fieldset">
-    <legend class="sr-only">{{ title }}</legend>
+    <legend class="sr-only">
+      {{ title }}
+    </legend>
     <div class="fields">
       <slot />
     </div>

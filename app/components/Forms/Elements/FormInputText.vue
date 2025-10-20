@@ -1,32 +1,37 @@
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      title: string;
-      name: string;
-      type?: "text" | "email" | "tel" | "date" | "number";
-      class?: string;
-    }>(),
-    {
-      type: "text",
-      class: "",
-    }
-  );
+const props = withDefaults(
+  defineProps<{
+    title: string
+    name: string
+    type?: 'text' | 'email' | 'tel' | 'date' | 'number'
+    class?: string
+  }>(),
+  {
+    type: 'text',
+    class: '',
+  },
+)
 
-  defineOptions({
-    inheritAttrs: false,
-  });
+defineOptions({
+  inheritAttrs: false,
+})
 
-  const id = useId();
+const id = useId()
 
-  const name = toRef(props, "name");
+const name = toRef(props, 'name')
 
-  // we don't provide any rules here because we are using form-level validation
-  // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-  const { value: inputValue, handleBlur, handleChange } = useField(name);
+// we don't provide any rules here because we are using form-level validation
+// https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
+const { value: inputValue, handleBlur, handleChange } = useField(name)
 </script>
 
 <template>
-  <form-field :id="id" :title="title" :name="name" :class="class">
+  <form-field
+    :id="id"
+    :title="title"
+    :name="name"
+    :class="class"
+  >
     <input
       :id="id"
       :name="name"
@@ -36,7 +41,7 @@
       class="field"
       @input="handleChange"
       @blur="handleBlur"
-    />
+    >
   </form-field>
 </template>
 

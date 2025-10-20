@@ -1,22 +1,22 @@
 <script lang="ts" setup>
-  withDefaults(
-    defineProps<{
-      url?: string;
-      title?: string;
-      size?: "small" | "large";
-    }>(),
-    {
-      url: undefined,
-      title: undefined,
-      size: "large",
-    }
-  );
+withDefaults(
+  defineProps<{
+    url?: string
+    title?: string
+    size?: 'small' | 'large'
+  }>(),
+  {
+    url: undefined,
+    title: undefined,
+    size: 'large',
+  },
+)
 
-  const showModal = ref(false);
+const showModal = ref(false)
 
-  const toggleModal = (state: boolean) => {
-    showModal.value = state;
-  };
+const toggleModal = (state: boolean) => {
+  showModal.value = state
+}
 </script>
 
 <template>

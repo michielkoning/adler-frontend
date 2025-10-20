@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  import type { Image } from "~/types/Image";
+import type { Image } from '~/types/Image'
 
-  defineProps<{
-    image: Image;
-  }>();
+defineProps<{
+  image: Image
+}>()
 
-  const { title, address } = useAppConfig();
+const { title, address } = useAppConfig()
 </script>
 
 <template>
@@ -66,7 +66,11 @@
           />
         </svg>
 
-        <h1 id="content" tabindex="-1" class="sr-only">
+        <h1
+          id="content"
+          tabindex="-1"
+          class="sr-only"
+        >
           {{ title }}
         </h1>
         <h2 class="subtitle">

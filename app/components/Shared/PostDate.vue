@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  date: string;
-}>();
+  date: string
+}>()
 
 const dateTime = computed(() => {
-  const date = new Date(props.date);
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-});
+  const date = new Date(props.date)
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+})
 </script>
 
 <template>

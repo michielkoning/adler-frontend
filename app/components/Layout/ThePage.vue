@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-  import type { Content } from "~/types/Content";
+import type { Content } from '~/types/Content'
 
-  withDefaults(
-    defineProps<
-      Content & {
-        showResmio?: boolean;
-      }
-    >(),
-    {
-      showResmio: true,
+withDefaults(
+  defineProps<
+    Content & {
+      showResmio?: boolean
     }
-  );
+    >(),
+  {
+    showResmio: true,
+  },
+)
 </script>
 
 <template>
@@ -33,8 +33,15 @@
 
         <div>
           <article class="body">
-            <h1 id="content" tabindex="-1" v-html="title" />
-            <post-date v-if="date" :date="date" />
+            <h1
+              id="content"
+              tabindex="-1"
+              v-html="title"
+            />
+            <post-date
+              v-if="date"
+              :date="date"
+            />
             <div v-html="text" />
           </article>
           <slot />

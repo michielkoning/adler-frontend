@@ -1,32 +1,47 @@
 <script lang="ts" setup>
-  const { locale } = useI18n();
+const { locale } = useI18n()
 
-  const { data, error } = await useFetch("/api/menu", {
-    params: {
-      locale,
-    },
-  });
+const { data, error } = await useFetch('/api/menu', {
+  params: {
+    locale,
+  },
+})
 
-  if (error.value) {
-    throw createError(error.value);
-  }
+if (error.value) {
+  throw createError(error.value)
+}
 
-  const localePath = useLocalePath();
+const localePath = useLocalePath()
 </script>
 
 <template>
-  <nav v-if="data" aria-labelledby="menu" class="nav">
-    <h2 id="menu" class="sr-only" tabindex="-1">
+  <nav
+    v-if="data"
+    aria-labelledby="menu"
+    class="nav"
+  >
+    <h2
+      id="menu"
+      class="sr-only"
+      tabindex="-1"
+    >
       {{ "title" }}
     </h2>
     <div ref="menu">
-      <ul v-if="data" class="menu">
+      <ul
+        v-if="data"
+        class="menu"
+      >
         <menu-item
           :id="1"
           :title="$t('pages.home')"
           :link="localePath('index')"
         />
-        <menu-item v-for="item in data" v-bind="item" :key="item.id" />
+        <menu-item
+          v-for="item in data"
+          v-bind="item"
+          :key="item.id"
+        />
         <menu-item
           :id="3"
           :title="$t('pages.contact')"

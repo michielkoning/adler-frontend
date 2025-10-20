@@ -14,7 +14,7 @@ export default {
       default: false,
     },
   },
-};
+}
 </script>
 
 <template>
@@ -22,7 +22,10 @@ export default {
     <div class="label">
       {{ prefix }}
     </div>
-    <div class="value" :class="{ 'has-small-text': smallText }">
+    <div
+      class="value"
+      :class="{ 'has-small-text': smallText }"
+    >
       {{ text }}
     </div>
   </div>

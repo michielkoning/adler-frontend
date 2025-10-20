@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-  const { title } = useAppConfig();
+const { title } = useAppConfig()
 
-  const model = defineModel<boolean>();
+const model = defineModel<boolean>()
 
-  const menuIsExpanded = ref(false);
+const menuIsExpanded = ref(false)
 
-  const toggleMenu = () => {
-    menuIsExpanded.value = !menuIsExpanded.value;
-  };
+const toggleMenu = () => {
+  menuIsExpanded.value = !menuIsExpanded.value
+}
 </script>
 
 <template>
@@ -19,16 +19,24 @@
           :to="{ name: 'index' }"
           @click="$emit('update:modelValue', false)"
         >
-          <app-icon icon="adler:logo-sm" class="logo" aria-hidden="true" />
+          <app-icon
+            icon="adler:logo-sm"
+            class="logo"
+            aria-hidden="true"
+          />
           <span class="sr-only">{{ title }}</span>
         </nuxt-link-locale>
         <button
-          @click="$emit('update:modelValue', !model)"
           :aria-expanded="model ? 'true' : 'false'"
           class="btn"
           type="button"
+          @click="$emit('update:modelValue', !model)"
         >
-          <app-icon icon="fa6-solid:bars" aria-hidden="true" class="bars" />
+          <app-icon
+            icon="fa6-solid:bars"
+            aria-hidden="true"
+            class="bars"
+          />
           {{ $t("menu") }}
         </button>
       </div>

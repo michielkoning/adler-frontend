@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { Archive } from "~/types/Archive";
+import type { Archive } from '~/types/Archive'
 
 defineProps<{
-  title: string;
-  items: Archive[];
-}>();
+  title: string
+  items: Archive[]
+}>()
 </script>
 
 <template>

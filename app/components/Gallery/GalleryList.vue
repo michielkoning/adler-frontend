@@ -1,44 +1,53 @@
 <script lang="ts" setup>
-import type { Image } from "~/types/Image";
+import type { Image } from '~/types/Image'
 
 const props = defineProps<{
-  images: Image[];
-  title: string;
-}>();
+  images: Image[]
+  title: string
+}>()
 
-const slide = ref(0);
-const showModal = ref(false);
+const slide = ref(0)
+const showModal = ref(false)
 
 const previewImages = computed(() => {
-  const list = props.images.slice(0, 5);
+  const list = props.images.slice(0, 5)
   return list.map((image, index) => {
-    let sizes = "xs:50vw sm:300px md:300px lg:300px xl:300px xxl:300px";
+    let sizes = 'xs:50vw sm:300px md:300px lg:300px xl:300px xxl:300px'
     if (index === 0) {
-      sizes = "xs:100vw sm:100vw md:100vw lg:1140px xl:1140px xxl:1140px";
-    } else if (index === 1) {
-      sizes = "xs:50vw sm:300px md:300px lg:600px xl:600px xxl:600px";
+      sizes = 'xs:100vw sm:100vw md:100vw lg:1140px xl:1140px xxl:1140px'
+    }
+    else if (index === 1) {
+      sizes = 'xs:50vw sm:300px md:300px lg:600px xl:600px xxl:600px'
     }
     return {
       ...image,
       sizes,
-    };
-  });
-});
+    }
+  })
+})
 
 const selectSlide = (index: number) => {
-  slide.value = index;
-  showModal.value = true;
-};
+  slide.value = index
+  showModal.value = true
+}
 
 const closeModal = () => {
-  showModal.value = false;
-};
+  showModal.value = false
+}
 </script>
 
 <template>
   <div>
-    <app-modal v-if="showModal" size="large" :title="title" @close="closeModal">
-      <gallery-carousel :images="images" :slide="slide" />
+    <app-modal
+      v-if="showModal"
+      size="large"
+      :title="title"
+      @close="closeModal"
+    >
+      <gallery-carousel
+        :images="images"
+        :slide="slide"
+      />
     </app-modal>
     <ul class="list">
       <li
@@ -51,7 +60,11 @@ const closeModal = () => {
         <app-image v-bind="image" />
       </li>
       <li class="item-btn">
-        <button class="btn" type="button" @click="selectSlide(0)">
+        <button
+          class="btn"
+          type="button"
+          @click="selectSlide(0)"
+        >
           {{ $t("viewAllPhotos") }}
         </button>
       </li>

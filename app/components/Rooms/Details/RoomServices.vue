@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 defineProps<{
-  items: string[];
-}>();
+  items: string[]
+}>()
 </script>
 
 <template>
   <div>
     <h2>{{ $t("thisRoomIncludes") }}:</h2>
     <ul class="list">
-      <li v-for="item in items" :key="item">
+      <li
+        v-for="item in items"
+        :key="item"
+      >
         {{ item }}
       </li>
     </ul>

@@ -1,14 +1,21 @@
 <script lang="ts" setup>
-import type { Archive } from "~/types/Archive";
+import type { Archive } from '~/types/Archive'
 
 defineProps<{
-  items: Archive[];
-}>();
+  items: Archive[]
+}>()
 </script>
 
 <template>
-  <ul v-if="items.length" class="list">
-    <archive-item v-for="item in items" :key="item.id" v-bind="item" />
+  <ul
+    v-if="items.length"
+    class="list"
+  >
+    <archive-item
+      v-for="item in items"
+      :key="item.id"
+      v-bind="item"
+    />
   </ul>
 </template>
 

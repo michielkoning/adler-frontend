@@ -1,25 +1,39 @@
 <script lang="ts" setup>
-import LastMinutesList from "./LastMinutesList.vue";
+import LastMinutesList from './LastMinutesList.vue'
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 
-const { data } = await useFetch("/api/lastMinutes", {
+const { data } = await useFetch('/api/lastMinutes', {
   params: {
     locale,
   },
   // server: false,
-});
+})
 </script>
 
 <template>
-  <section aria-labelledby="arrangements-highlights-title" class="wrapper">
+  <section
+    aria-labelledby="arrangements-highlights-title"
+    class="wrapper"
+  >
     <center-wrapper>
-      <h1 id="arrangements-highlights-title" class="title">
+      <h1
+        id="arrangements-highlights-title"
+        class="title"
+      >
         {{ $t("lastMinutesTitle") }}
       </h1>
       <template v-if="data">
-        <last-minutes-list v-if="data.length" :items="data" />
-        <p v-else class="text">{{ $t("lastMinutesNoResults") }}</p>
+        <last-minutes-list
+          v-if="data.length"
+          :items="data"
+        />
+        <p
+          v-else
+          class="text"
+        >
+          {{ $t("lastMinutesNoResults") }}
+        </p>
       </template>
     </center-wrapper>
   </section>

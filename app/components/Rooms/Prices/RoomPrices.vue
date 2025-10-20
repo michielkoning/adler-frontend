@@ -1,18 +1,20 @@
 <script lang="ts" setup>
 defineProps<{
   prices: {
-    fullBoardHighSeason?: number;
-    halfBoardHighSeason?: number;
-    fullBoardLowSeason?: number;
-    halfBoardLowSeason?: number;
-  };
-}>();
+    fullBoardHighSeason?: number
+    halfBoardHighSeason?: number
+    fullBoardLowSeason?: number
+    halfBoardLowSeason?: number
+  }
+}>()
 </script>
 
 <template>
   <div class="prices">
     <div class="group">
-      <h2 class="title">{{ $t("highSeason") }}</h2>
+      <h2 class="title">
+        {{ $t("highSeason") }}
+      </h2>
       <room-price
         v-if="prices.fullBoardHighSeason"
         class="price"
@@ -27,7 +29,9 @@ defineProps<{
       />
     </div>
     <div class="group">
-      <h2 class="title">{{ $t("lowSeason") }}</h2>
+      <h2 class="title">
+        {{ $t("lowSeason") }}
+      </h2>
       <room-price
         v-if="prices.fullBoardLowSeason"
         class="price"

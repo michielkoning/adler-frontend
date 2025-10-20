@@ -1,40 +1,41 @@
 <script lang="ts" setup>
-import type { NuxtLinkProps } from "#app";
+import type { NuxtLinkProps } from '#app'
 
 const props = withDefaults(
   defineProps<
     NuxtLinkProps & {
-      type?: "submit" | "button";
-      variant?: "primary" | "ghost";
-      size?: "small" | "medium" | "large";
-      isFullWidth?: boolean;
-      title: string;
+      type?: 'submit' | 'button'
+      variant?: 'primary' | 'ghost'
+      size?: 'small' | 'medium' | 'large'
+      isFullWidth?: boolean
+      title: string
     }
   >(),
   {
-    variant: "primary",
-    size: "medium",
-    type: "button",
+    variant: 'primary',
+    size: 'medium',
+    type: 'button',
     isFullWidth: false,
   },
-);
+)
 
 const component = computed(() => {
   if (props.to) {
-    return resolveComponent("NuxtLinkLocale");
-  } else {
-    return "button";
+    return resolveComponent('NuxtLinkLocale')
   }
-});
+  else {
+    return 'button'
+  }
+})
 
 const cssClasses = computed(() => {
-  const classes = ["btn"];
-  classes.push(`btn-${props.variant}`);
-  if (props.isFullWidth) classes.push("btn-full");
-  if (props.size === "small") classes.push("btn-small");
-  if (props.size === "large") classes.push("btn-large");
-  return classes;
-});
+  const classes = ['btn']
+  classes.push(`btn-${props.variant}`)
+  if (props.isFullWidth) classes.push('btn-full')
+  if (props.size === 'small') classes.push('btn-small')
+  if (props.size === 'large') classes.push('btn-large')
+  return classes
+})
 </script>
 
 <template>

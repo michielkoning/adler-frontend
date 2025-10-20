@@ -1,43 +1,44 @@
 <script lang="ts" setup>
-  const props = withDefaults(
-    defineProps<{
-      title: string;
-      id: number;
-      link: string;
-      children?: {
-        title: string;
-        id: number;
-        link: string;
-      }[];
-    }>(),
-    {
-      children: [],
-    }
-  );
+const props = withDefaults(
+  defineProps<{
+    title: string
+    id: number
+    link: string
+    children?: {
+      title: string
+      id: number
+      link: string
+    }[]
+  }>(),
+  {
+    children: [],
+  },
+)
 
-  const isOpen = computed(() => {
-    return props.id === activeMenuId.value;
-  });
+const isOpen = computed(() => {
+  return props.id === activeMenuId.value
+})
 
-  const { activeMenuId, setActiveMenuId } = useMenu();
+const { activeMenuId, setActiveMenuId } = useMenu()
 
-  const showSubmenu = () => {
-    setActiveMenuId(props.id);
-  };
+const showSubmenu = () => {
+  setActiveMenuId(props.id)
+}
 
-  const closeSubmenu = () => {
-    setActiveMenuId(undefined);
-  };
+const closeSubmenu = () => {
+  setActiveMenuId(undefined)
+}
 
-  const toggleMenu = () => {
-    if (isOpen.value) {
-      closeSubmenu();
-    } else {
-      showSubmenu();
-    }
-  };
+const toggleMenu = () => {
+  if (isOpen.value) {
+    closeSubmenu()
+  }
+  else {
+    showSubmenu()
+  }
+}
 
-  const controlId = `menu-${props.id}`;
+const controlId = `menu-${props.id}`
 </script>
 
 <template>
@@ -71,13 +72,20 @@
       </button>
 
       <slide-in-animation>
-        <ul v-show="isOpen" :id="controlId" class="submenu">
+        <ul
+          v-show="isOpen"
+          :id="controlId"
+          class="submenu"
+        >
           <li
             v-for="subItem in children"
             :key="subItem.id"
             class="submenu-item"
           >
-            <nuxt-link :to="subItem.link" class="submenu-link">
+            <nuxt-link
+              :to="subItem.link"
+              class="submenu-link"
+            >
               <span v-html="subItem.title" />
             </nuxt-link>
           </li>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-const { data, error } = await useFetch("/api/openingHours");
+const { data, error } = await useFetch('/api/openingHours')
 
 if (error.value) {
-  throw createError(error.value);
+  throw createError(error.value)
 }
 </script>
 
@@ -10,7 +10,10 @@ if (error.value) {
   <div v-if="data">
     <h2>{{ $t("openingHours") }}</h2>
     <dl class="list">
-      <template v-for="(openingDay, index) in data" :key="`day-${index}`">
+      <template
+        v-for="(openingDay, index) in data"
+        :key="`day-${index}`"
+      >
         <dt class="label">
           {{ $t(`openingTimes.${index}`) }}
         </dt>

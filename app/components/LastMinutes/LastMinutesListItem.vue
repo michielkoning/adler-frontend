@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  import type { LastMinute } from "~/types/LastMinute";
+import type { LastMinute } from '~/types/LastMinute'
 
-  defineProps<LastMinute>();
+defineProps<LastMinute>()
 </script>
 
 <template>
@@ -24,7 +24,10 @@
     <dl class="meta-wrapper">
       <template v-if="dates.from && dates.until">
         <dt>
-          <app-icon icon="fa6-solid:calendar" class="icon" />
+          <app-icon
+            icon="fa6-solid:calendar"
+            class="icon"
+          />
           <span class="sr-only">{{ $t("date") }}</span>
         </dt>
         <dd>
@@ -34,7 +37,10 @@
         </dd>
       </template>
       <dt>
-        <app-icon icon="fa6-solid:bed" class="icon" />
+        <app-icon
+          icon="fa6-solid:bed"
+          class="icon"
+        />
         <span class="sr-only">{{ $t("room") }}</span>
       </dt>
 
@@ -45,13 +51,23 @@
       </dd>
     </dl>
     <div class="prices-wrapper">
-      <div v-if="prices.length" class="prices">
+      <div
+        v-if="prices.length"
+        class="prices"
+      >
         <h3>{{ $t("prices") }}</h3>
         <ul class="prices-list">
-          <li v-for="price in prices" :key="price.price" class="price-details">
+          <li
+            v-for="price in prices"
+            :key="price.price"
+            class="price-details"
+          >
             <dl class="prices-definitions">
               <dt>
-                <app-icon icon="adler:family" class="icon" />
+                <app-icon
+                  icon="adler:family"
+                  class="icon"
+                />
                 <span class="sr-only">{{ $t("totalPersons") }}</span>
               </dt>
               <dd>
@@ -59,7 +75,10 @@
                 {{ $t("kids", price.kids) }}
               </dd>
               <dt>
-                <app-icon icon="fa6-solid:euro-sign" class="icon" />
+                <app-icon
+                  icon="fa6-solid:euro-sign"
+                  class="icon"
+                />
                 <span class="sr-only">{{ $t("totalPersons") }}</span>
               </dt>
               <dd>{{ price.price }}</dd>
@@ -69,17 +88,27 @@
       </div>
     </div>
     <div class="services-wrapper">
-      <div v-if="room.services.length" class="services">
+      <div
+        v-if="room.services.length"
+        class="services"
+      >
         <h3>{{ $t("services") }}</h3>
         <ul>
-          <li v-for="service in room.services" :key="service">
+          <li
+            v-for="service in room.services"
+            :key="service"
+          >
             {{ service }}
           </li>
         </ul>
       </div>
     </div>
     <div class="btn-wrapper">
-      <app-button v-if="!isSold" :title="$t('bookNow')" class="btn" />
+      <app-button
+        v-if="!isSold"
+        :title="$t('bookNow')"
+        class="btn"
+      />
     </div>
   </li>
 </template>

@@ -2,28 +2,31 @@
 definePageMeta({
   i18n: {
     paths: {
-      de: "/blog",
-      en: "/blog",
-      nl: "/blog",
+      de: '/blog',
+      en: '/blog',
+      nl: '/blog',
     },
   },
-});
+})
 
-const { pageIds } = useAppConfig();
+const { pageIds } = useAppConfig()
 
-const { data, error } = await useFetch("/api/pageById", {
+const { data, error } = await useFetch('/api/pageById', {
   params: {
     id: getPageId(pageIds.postsPageId),
   },
-});
+})
 
 if (error.value) {
-  throw createError(error.value);
+  throw createError(error.value)
 }
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content">
+  <the-page
+    v-if="data"
+    v-bind="data.content"
+  >
     <posts-list />
   </the-page>
 </template>

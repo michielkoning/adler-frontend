@@ -1,5 +1,8 @@
 <template>
-  <span class="read-more" aria-hidden="true">
+  <span
+    class="read-more"
+    aria-hidden="true"
+  >
     {{ $t("readMore") }}
   </span>
 </template>

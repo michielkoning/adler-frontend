@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { ArrangementPrices } from "~/types/Arangement";
+import type { ArrangementPrices } from '~/types/Arangement'
 
 defineProps<{
-  prices: ArrangementPrices;
-}>();
+  prices: ArrangementPrices
+}>()
 </script>
 
 <template>

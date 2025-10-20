@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-  defineProps<{
-    icon: string;
-  }>();
+defineProps<{
+  icon: string
+}>()
 </script>
 
 <template>
-  <nuxt-icon class="icon" :name="icon" />
+  <nuxt-icon
+    class="icon"
+    :name="icon"
+  />
 </template>

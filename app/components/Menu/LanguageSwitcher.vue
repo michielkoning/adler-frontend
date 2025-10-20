@@ -1,19 +1,20 @@
 <script lang="ts" setup>
-  const { locale, locales } = useI18n();
-  const switchLocalePath = useSwitchLocalePath();
-  const localePath = useLocalePath();
+const { locale, locales } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+const localePath = useLocalePath()
 
-  const availableLocales = computed(() => {
-    return locales.value.filter((i) => i.code !== locale.value);
-  });
+const availableLocales = computed(() => {
+  return locales.value.filter(i => i.code !== locale.value)
+})
 
-  const getUrl = (code: "en" | "de" | "nl") => {
-    if (switchLocalePath(code)) {
-      return switchLocalePath(code);
-    } else {
-      return localePath("index", code);
-    }
-  };
+const getUrl = (code: 'en' | 'de' | 'nl') => {
+  if (switchLocalePath(code)) {
+    return switchLocalePath(code)
+  }
+  else {
+    return localePath('index', code)
+  }
+}
 </script>
 
 <template>
@@ -24,7 +25,10 @@
       class="link"
       :to="getUrl(item.code)"
     >
-      <app-icon :icon="`adler:flag-${item.code}`" class="icon" />
+      <app-icon
+        :icon="`adler:flag-${item.code}`"
+        class="icon"
+      />
       <span class="title">
         {{ item.name }}
       </span>

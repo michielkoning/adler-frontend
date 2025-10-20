@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-const { resmioWidget } = useAppConfig();
+const { resmioWidget } = useAppConfig()
 </script>
 
 <template>
-  <sidebar-item-section id="related-arrangements" :title="$t('ourRestaurant')">
+  <sidebar-item-section
+    id="related-arrangements"
+    :title="$t('ourRestaurant')"
+  >
     <iframe
       :src="resmioWidget"
       class="resmio"

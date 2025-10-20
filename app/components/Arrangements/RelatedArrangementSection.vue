@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  exclude: number;
-}>();
+  exclude: number
+}>()
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 
-const { data, error } = await useFetch("/api/arrangements", {
+const { data, error } = await useFetch('/api/arrangements', {
   params: {
     locale,
     exclude: props.exclude,
   },
-});
+})
 
 if (error.value) {
-  throw createError(error.value);
+  throw createError(error.value)
 }
 </script>
 

@@ -1,6 +1,6 @@
-import type z from "zod";
-import type { SeoSchema } from "../schemas/SeoSchema";
-import type { Seo } from "~/types/Seo";
+import type z from 'zod'
+import type { SeoSchema } from '../schemas/SeoSchema'
+import type { Seo } from '~/types/Seo'
 
 export const createSeo = (seo: z.infer<typeof SeoSchema>): Seo => {
   return {
@@ -11,5 +11,5 @@ export const createSeo = (seo: z.infer<typeof SeoSchema>): Seo => {
     twitterImage: seo.og_image,
     ogDescription: seo.og_description ?? seo.description,
     articleModifiedTime: seo.article_modified_time,
-  };
-};
+  }
+}

@@ -1,15 +1,26 @@
 <script lang="ts" setup>
-  import type { Archive } from "~/types/Archive";
+import type { Archive } from '~/types/Archive'
 
-  defineProps<Archive>();
+defineProps<Archive>()
 </script>
 
 <template>
-  <clickable-list-item :to="link" class="list-item">
+  <clickable-list-item
+    :to="link"
+    class="list-item"
+  >
     <div class="link-wrapper">
-      <nuxt-link :to="link" class="link"><span v-html="title" /></nuxt-link>
+      <nuxt-link
+        :to="link"
+        class="link"
+      ><span v-html="title" /></nuxt-link>
     </div>
-    <app-image v-if="image" v-bind="image" class="image" sizes="80px" />
+    <app-image
+      v-if="image"
+      v-bind="image"
+      class="image"
+      sizes="80px"
+    />
   </clickable-list-item>
 </template>
 

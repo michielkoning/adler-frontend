@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  const { title } = useAppConfig();
-  const menuIsExpanded = ref(false);
+const { title } = useAppConfig()
+const menuIsExpanded = ref(false)
 
-  const toggleMenu = () => {};
+const toggleMenu = () => {}
 </script>
 
 <template>
@@ -10,10 +10,16 @@
     <mobile-navigation v-model="menuIsExpanded" />
     <center-wrapper>
       <transition name="slide">
-        <div class="background" v-show="menuIsExpanded">
+        <div
+          v-show="menuIsExpanded"
+          class="background"
+        >
           <div class="content">
             <div class="logo-wrapper">
-              <nuxt-link-locale class="logo" :to="{ name: 'index' }">
+              <nuxt-link-locale
+                class="logo"
+                :to="{ name: 'index' }"
+              >
                 <app-icon
                   icon="adler:logo"
                   class="image"

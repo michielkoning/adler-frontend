@@ -1,55 +1,55 @@
-import { z } from "zod";
-import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { getUrl } from "../utils/getUrl";
-import { LocaleSchema } from "../schemas/LocaleSchema";
-import { LastMinutesSchema } from "../schemas/LastMinutesSchema";
+import { z } from 'zod'
+import { getFeaturedImage } from '../utils/getFeaturedImage'
+import { getUrl } from '../utils/getUrl'
+import { LocaleSchema } from '../schemas/LocaleSchema'
+import { LastMinutesSchema } from '../schemas/LastMinutesSchema'
 
-import type { LastMinute } from "~/types/LastMinute";
+import type { LastMinute } from '~/types/LastMinute'
 
 const querySchema = z.object({
   locale: LocaleSchema,
-});
+})
 
 export default defineEventHandler(async (event): Promise<LastMinute[]> => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
 
   const url = getUrl({
     image: true,
     lang: query.data.locale,
-    type: "last_minute",
-    fields: ["slug", "title", "acf", "locales"],
+    type: 'last_minute',
+    fields: ['slug', 'title', 'acf', 'locales'],
     locale: query.data.locale,
-    orderby: "menu_order",
-    order: "asc",
-  });
+    orderby: 'menu_order',
+    order: 'asc',
+  })
 
-  const response = await $fetch(url);
+  const response = await $fetch(url)
 
-  const parsed = parseData(response, LastMinutesSchema);
+  const parsed = parseData(response, LastMinutesSchema)
 
   const getRoom = async (id: number) => {
-    return await $fetch("/api/roomById", {
+    return await $fetch('/api/roomById', {
       params: {
         id,
       },
-    });
-  };
+    })
+  }
 
   const items = await parsed.map(async (item) => {
     return {
       id: item.id,
       link: item.slug,
       title: item.title.rendered,
-      image: getFeaturedImage(item["wp:featuredmedia"]),
+      image: getFeaturedImage(item['wp:featuredmedia']),
       room: await getRoom(item.acf.room.ID),
       prices: item.acf.prices,
       isSold: item.acf.sold,
@@ -57,8 +57,8 @@ export default defineEventHandler(async (event): Promise<LastMinute[]> => {
         from: item.acf.dates.date_from,
         until: item.acf.dates.date_untill,
       },
-    };
-  });
+    }
+  })
 
-  return await Promise.all(items);
-});
+  return await Promise.all(items)
+})

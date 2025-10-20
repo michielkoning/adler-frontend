@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 </script>
 
 <template>
-  <section :aria-label="title" class="item">
+  <section
+    :aria-label="title"
+    class="item"
+  >
     <h2>{{ title }}</h2>
     <slot />
   </section>

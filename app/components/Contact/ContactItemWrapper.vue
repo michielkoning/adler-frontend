@@ -1,14 +1,21 @@
 <script lang="ts" setup>
 defineProps<{
-  icon: "phone" | "envelope";
-  title: string;
-  url: string;
-}>();
+  icon: 'phone' | 'envelope'
+  title: string
+  url: string
+}>()
 </script>
 
 <template>
-  <nuxt-link :href="url" external class="contact-item">
-    <app-icon :icon="`fa6-solid:${icon}`" class="icon" />
+  <nuxt-link
+    :href="url"
+    external
+    class="contact-item"
+  >
+    <app-icon
+      :icon="`fa6-solid:${icon}`"
+      class="icon"
+    />
     <span class="title">
       {{ title }}
     </span>

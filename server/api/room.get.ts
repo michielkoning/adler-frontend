@@ -1,43 +1,43 @@
-import { z } from "zod";
-import { RoomListSchema } from "../schemas/RoomSchema";
-import { getTagsByType } from "../utils/getTagsByType";
-import { getUrl } from "../utils/getUrl";
-import { getFeaturedImage } from "../utils/getFeaturedImage";
+import { z } from 'zod'
+import { RoomListSchema } from '../schemas/RoomSchema'
+import { getTagsByType } from '../utils/getTagsByType'
+import { getUrl } from '../utils/getUrl'
+import { getFeaturedImage } from '../utils/getFeaturedImage'
 
 const querySchema = z.object({
   slug: z.string(),
   locale: z.string(),
-});
+})
 
 export default defineEventHandler(async (event) => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
   const url = getUrl({
     image: true,
-    type: "room",
-    fields: ["title", "slug", "content", "acf", "locales"],
+    type: 'room',
+    fields: ['title', 'slug', 'content', 'acf', 'locales'],
     slug: query.data.slug,
-  });
+  })
 
-  const response = await $fetch(url);
+  const response = await $fetch(url)
 
-  const parsed = parseData(response, RoomListSchema);
+  const parsed = parseData(response, RoomListSchema)
 
   if (!parsed.length) {
     throw createError({
-      statusMessage: "Room not found",
-    });
+      statusMessage: 'Room not found',
+    })
   }
 
-  const item = parsed[0];
+  const item = parsed[0]
 
   return {
     id: item.id,
@@ -52,17 +52,17 @@ export default defineEventHandler(async (event) => {
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
-      image: getFeaturedImage(item["wp:featuredmedia"]),
+      image: getFeaturedImage(item['wp:featuredmedia']),
       gallery: item.acf.gallery?.map((image) => {
         return {
           src: image.url,
           width: image.width,
           height: image.height,
           alt: image.alt,
-        };
+        }
       }),
     },
-    services: getTagsByType(item._embedded["wp:term"]),
+    services: getTagsByType(item._embedded['wp:term']),
     locales: item.locales,
-  };
-});
+  }
+})

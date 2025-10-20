@@ -1,22 +1,22 @@
-import type { Content } from "./Content";
+import type { Content } from './Content'
 
 export type RoomPrices = {
-  fullBoardHighSeason?: number;
-  halfBoardHighSeason?: number;
-  fullBoardLowSeason?: number;
-  halfBoardLowSeason?: number;
-};
+  fullBoardHighSeason?: number
+  halfBoardHighSeason?: number
+  fullBoardLowSeason?: number
+  halfBoardLowSeason?: number
+}
 
 export type Room = {
-  id: number;
-  slug: string;
-  prices: RoomPrices;
-  bookUrl: string;
-  content: Content;
-  services: string[];
+  id: number
+  slug: string
+  prices: RoomPrices
+  bookUrl: string
+  content: Content
+  services: string[]
   locales: {
-    de?: string;
-    nl?: string;
-    en?: string;
-  };
-};
+    de?: string
+    nl?: string
+    en?: string
+  }
+}

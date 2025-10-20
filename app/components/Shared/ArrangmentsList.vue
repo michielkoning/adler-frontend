@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-const { locale } = useI18n();
+const { locale } = useI18n()
 
-const localePath = useLocalePath();
+const localePath = useLocalePath()
 
-const { data, error } = await useFetch("/api/arrangements", {
+const { data, error } = await useFetch('/api/arrangements', {
   params: {
     locale,
   },
@@ -12,21 +12,24 @@ const { data, error } = await useFetch("/api/arrangements", {
       return {
         ...item,
         link: localePath({
-          name: "arrangements-details",
+          name: 'arrangements-details',
           params: {
             slug: item.link,
           },
         }),
-      };
-    });
+      }
+    })
   },
-});
+})
 
 if (error.value) {
-  throw createError(error.value);
+  throw createError(error.value)
 }
 </script>
 
 <template>
-  <archive-list v-if="data" :items="data" />
+  <archive-list
+    v-if="data"
+    :items="data"
+  />
 </template>

@@ -1,18 +1,18 @@
-import { z } from "zod";
-import { FeaturedImageSchema } from "./FeaturedImageSchema";
+import { z } from 'zod'
+import { FeaturedImageSchema } from './FeaturedImageSchema'
 
 export const RelatedPageSchema = z.array(
   z.object({
-    id: z.number(),
-    link: z
+    'id': z.number(),
+    'link': z
       .string()
-      .transform((val) => val.replace("https://www.adler-lingenau.com", "")),
-    title: z.object({
+      .transform(val => val.replace('https://www.adler-lingenau.com', '')),
+    'title': z.object({
       rendered: z.string(),
     }),
-    excerpt: z.object({
+    'excerpt': z.object({
       rendered: z.string(),
     }),
-    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
+    'wp:featuredmedia': z.array(FeaturedImageSchema).default([]),
   }),
-);
+)

@@ -1,42 +1,42 @@
-import type { Archive } from "~/types/Archive";
-import { RoomsSchema } from "../schemas/RoomsSchema";
-import { getUrl } from "../utils/getUrl";
-import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { z } from "zod";
-import { LocaleSchema } from "../schemas/LocaleSchema";
+import type { Archive } from '~/types/Archive'
+import { RoomsSchema } from '../schemas/RoomsSchema'
+import { getUrl } from '../utils/getUrl'
+import { getFeaturedImage } from '../utils/getFeaturedImage'
+import { z } from 'zod'
+import { LocaleSchema } from '../schemas/LocaleSchema'
 
 const querySchema = z.object({
   locale: LocaleSchema,
   exclude: z
     .string()
     .optional()
-    .transform((val) => Number(val)),
-});
+    .transform(val => Number(val)),
+})
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
   const url = getUrl({
     image: true,
-    type: "room",
-    fields: ["title", "slug", "excerpt", "acf"],
+    type: 'room',
+    fields: ['title', 'slug', 'excerpt', 'acf'],
     exclude: query.data.exclude,
     locale: query.data.locale,
-    orderby: "menu_order",
-    order: "asc",
-  });
+    orderby: 'menu_order',
+    order: 'asc',
+  })
 
-  const response = await $fetch(url);
+  const response = await $fetch(url)
 
-  const parsed = parseData(response, RoomsSchema);
+  const parsed = parseData(response, RoomsSchema)
 
   return parsed.map((item) => {
     return {
@@ -44,8 +44,8 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
       title: item.title.rendered,
       link: item.slug,
       text: item.excerpt.rendered,
-      image: getFeaturedImage(item["wp:featuredmedia"]),
+      image: getFeaturedImage(item['wp:featuredmedia']),
       price: item.acf.price_from,
-    };
-  });
-});
+    }
+  })
+})

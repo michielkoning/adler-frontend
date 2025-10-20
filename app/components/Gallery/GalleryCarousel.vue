@@ -1,78 +1,87 @@
 <script lang="ts" setup>
-import type { Image } from "~/types/Image";
+import type { Image } from '~/types/Image'
 
 const props = withDefaults(
   defineProps<{
-    images: Image[];
-    slide?: number;
+    images: Image[]
+    slide?: number
   }>(),
   {
     slide: 0,
   },
-);
+)
 
-const currentSlide = ref(props.slide);
-const isActive = ref(false);
+const currentSlide = ref(props.slide)
+const isActive = ref(false)
 
-const items = useTemplateRef("items");
-const list = useTemplateRef("list");
+const items = useTemplateRef('items')
+const list = useTemplateRef('list')
 
 const slideNextEnabled = computed(() => {
-  return currentSlide.value < props.images.length - 1;
-});
+  return currentSlide.value < props.images.length - 1
+})
 
 const slidePreviousEnabled = computed(() => {
-  return currentSlide.value > 0;
-});
+  return currentSlide.value > 0
+})
 
 const goToSlide = () => {
   if (currentSlide.value <= props.images.length && currentSlide.value >= 0) {
-    list.value.scrollLeft = items.value[currentSlide.value].offsetLeft;
+    list.value.scrollLeft = items.value[currentSlide.value].offsetLeft
   }
-};
+}
 
 const goToNextSlide = () => {
   if (currentSlide.value < props.images.length - 1) {
-    currentSlide.value = currentSlide.value + 1;
-    goToSlide();
+    currentSlide.value = currentSlide.value + 1
+    goToSlide()
   }
-};
+}
 
 const goToPreviousSlide = () => {
   if (currentSlide.value > 0) {
-    currentSlide.value = currentSlide.value - 1;
-    goToSlide();
+    currentSlide.value = currentSlide.value - 1
+    goToSlide()
   }
-};
+}
 
 const scrollByKeys = (event: Event) => {
-  const { key } = event;
-  if (key === "ArrowRight") {
-    goToNextSlide();
+  const { key } = event
+  if (key === 'ArrowRight') {
+    goToNextSlide()
   }
-  if (key === "ArrowLeft") {
-    goToPreviousSlide();
+  if (key === 'ArrowLeft') {
+    goToPreviousSlide()
   }
-};
+}
 
 onMounted(() => {
-  document.addEventListener("keydown", scrollByKeys);
+  document.addEventListener('keydown', scrollByKeys)
 
   nextTick(() => {
-    goToSlide();
-    isActive.value = true;
-  });
-});
+    goToSlide()
+    isActive.value = true
+  })
+})
 
 onUnmounted(() => {
-  document.removeEventListener("keydown", scrollByKeys);
-});
+  document.removeEventListener('keydown', scrollByKeys)
+})
 </script>
 
 <template>
   <div class="wrapper">
-    <ul ref="list" class="list" :class="{ active: isActive }">
-      <li v-for="item in images" :key="item.id" ref="items" class="item">
+    <ul
+      ref="list"
+      class="list"
+      :class="{ active: isActive }"
+    >
+      <li
+        v-for="item in images"
+        :key="item.id"
+        ref="items"
+        class="item"
+      >
         <app-image v-bind="item" />
       </li>
     </ul>
@@ -84,7 +93,10 @@ onUnmounted(() => {
         @click="goToPreviousSlide"
       >
         <span class="sr-only">{{ $t("previousImage") }}</span>
-        <app-icon icon="fa6-solid:chevron-left" class="icon" />
+        <app-icon
+          icon="fa6-solid:chevron-left"
+          class="icon"
+        />
       </button>
       <button
         class="btn btn-next"
@@ -93,7 +105,10 @@ onUnmounted(() => {
         @click="goToNextSlide"
       >
         <span class="sr-only">{{ $t("nextImage") }}</span>
-        <app-icon icon="fa6-solid:chevron-right" class="icon" />
+        <app-icon
+          icon="fa6-solid:chevron-right"
+          class="icon"
+        />
       </button>
     </div>
   </div>

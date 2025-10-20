@@ -1,16 +1,19 @@
 <script lang="ts" setup>
-const cookie = useCookie("privacy");
+const cookie = useCookie('privacy')
 
 const confirm = () => {
-  cookie.value = "true";
-};
+  cookie.value = 'true'
+}
 
-const localePath = useLocalePath();
+const localePath = useLocalePath()
 </script>
 
 <template>
   <fade-in-animation>
-    <div v-if="!cookie" class="cookie-wall">
+    <div
+      v-if="!cookie"
+      class="cookie-wall"
+    >
       <center-wrapper>
         <div class="wrapper">
           <div class="text">
@@ -23,10 +26,13 @@ const localePath = useLocalePath();
               "
               class="link"
             >
-              {{ $t("cookieWall.part2") }} </nuxt-link
-            >.
+              {{ $t("cookieWall.part2") }} </nuxt-link>.
           </div>
-          <app-button size="small" :title="$t('confirm')" @click="confirm" />
+          <app-button
+            size="small"
+            :title="$t('confirm')"
+            @click="confirm"
+          />
         </div>
       </center-wrapper>
     </div>

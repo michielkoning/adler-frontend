@@ -1,53 +1,63 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
-    show?: boolean;
-    title: string;
-    size?: "small" | "large";
+    show?: boolean
+    title: string
+    size?: 'small' | 'large'
   }>(),
   {
     show: false,
-    size: "small",
+    size: 'small',
   },
-);
+)
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits(['close'])
 
-const isHidden = ref(false);
+const isHidden = ref(false)
 
-const dialog = useTemplateRef("dialog");
+const dialog = useTemplateRef('dialog')
 
 onMounted(() => {
   if (dialog.value) {
-    dialog.value.showModal();
+    dialog.value.showModal()
   }
-});
+})
 
 const close = () => {
-  isHidden.value = true;
-};
+  isHidden.value = true
+}
 
 const afterClosing = () => {
   if (isHidden.value && dialog.value) {
-    isHidden.value = false;
-    dialog.value.close();
-    emit("close");
+    isHidden.value = false
+    dialog.value.close()
+    emit('close')
   }
-};
+}
 </script>
 
 <template>
   <dialog
     ref="dialog"
     class="dialog"
-    :class="{ large: size === 'large', 'is-hidden': isHidden }"
+    :class="{ 'large': size === 'large', 'is-hidden': isHidden }"
     @animationend="afterClosing"
   >
     <header class="header">
-      <h1 class="title" v-html="title" />
-      <button class="close" type="button" @click="close">
+      <h1
+        class="title"
+        v-html="title"
+      />
+      <button
+        class="close"
+        type="button"
+        @click="close"
+      >
         <span class="sr-only">{{ $t("close") }}</span>
-        <app-icon icon="fa6-solid:xmark" class="icon" />
+        <app-icon
+          icon="fa6-solid:xmark"
+          class="icon"
+        />
       </button>
     </header>
     <div class="content">

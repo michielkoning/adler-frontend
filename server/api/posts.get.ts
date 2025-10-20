@@ -1,45 +1,45 @@
-import type { Archive } from "~/types/Archive";
-import { PostsSchema } from "../schemas/PostsSchema";
-import { getUrl } from "../utils/getUrl";
-import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { z } from "zod";
-import { LocaleSchema } from "../schemas/LocaleSchema";
+import type { Archive } from '~/types/Archive'
+import { PostsSchema } from '../schemas/PostsSchema'
+import { getUrl } from '../utils/getUrl'
+import { getFeaturedImage } from '../utils/getFeaturedImage'
+import { z } from 'zod'
+import { LocaleSchema } from '../schemas/LocaleSchema'
 
 const querySchema = z.object({
   locale: LocaleSchema,
   exclude: z
     .string()
     .optional()
-    .transform((val) => Number(val)),
+    .transform(val => Number(val)),
   pageSize: z
     .string()
     .optional()
-    .transform((val) => Number(val)),
-});
+    .transform(val => Number(val)),
+})
 
 export default defineEventHandler(async (event): Promise<Archive[]> => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
   const url = getUrl({
     lang: query.data.locale,
     image: true,
-    type: "posts",
-    fields: ["title", "slug", "excerpt", "date"],
+    type: 'posts',
+    fields: ['title', 'slug', 'excerpt', 'date'],
     exclude: query.data.exclude,
     pageSize: query.data.pageSize,
-  });
+  })
 
-  const response = await $fetch(url);
+  const response = await $fetch(url)
 
-  const parsed = parseData(response, PostsSchema);
+  const parsed = parseData(response, PostsSchema)
 
   return parsed.map((item) => {
     return {
@@ -48,7 +48,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
       link: item.slug,
       date: item.date,
       text: item.excerpt.rendered,
-      image: getFeaturedImage(item["wp:featuredmedia"]),
-    };
-  });
-});
+      image: getFeaturedImage(item['wp:featuredmedia']),
+    }
+  })
+})

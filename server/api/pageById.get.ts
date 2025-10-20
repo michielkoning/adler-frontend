@@ -1,54 +1,54 @@
-import { z } from "zod";
-import { PageSchema } from "../schemas/PageSchema";
-import type { Page } from "~/types/Page";
-import { getUrl } from "../utils/getUrl";
-import { getFeaturedImage } from "../utils/getFeaturedImage";
-import { createSeo } from "../utils/createSeo";
+import { z } from 'zod'
+import { PageSchema } from '../schemas/PageSchema'
+import type { Page } from '~/types/Page'
+import { getUrl } from '../utils/getUrl'
+import { getFeaturedImage } from '../utils/getFeaturedImage'
+import { createSeo } from '../utils/createSeo'
 
 const querySchema = z.object({
   slug: z.string().optional(),
   id: z.string().optional(),
-});
+})
 
 export default defineEventHandler(async (event): Promise<Page> => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
   const url = getUrl({
     image: true,
     slug: query.data.slug,
     id: query.data.id,
-    type: "pages",
+    type: 'pages',
     fields: [
-      "slug",
-      "title",
-      "content",
-      "parent",
-      "acf",
-      "excerpt",
-      "yoast_head_json",
-      "locales",
+      'slug',
+      'title',
+      'content',
+      'parent',
+      'acf',
+      'excerpt',
+      'yoast_head_json',
+      'locales',
     ],
-  });
+  })
 
-  const response = await $fetch(url);
+  const response = await $fetch(url)
 
-  const parsed = parseData(response, PageSchema);
+  const parsed = parseData(response, PageSchema)
 
   if (!parsed) {
     throw createError({
-      statusMessage: "Page not found",
-    });
+      statusMessage: 'Page not found',
+    })
   }
 
-  const item = parsed;
+  const item = parsed
 
   return {
     id: item.id,
@@ -57,9 +57,9 @@ export default defineEventHandler(async (event): Promise<Page> => {
     content: {
       title: item.title.rendered,
       text: item.content.rendered,
-      image: getFeaturedImage(item["wp:featuredmedia"]),
+      image: getFeaturedImage(item['wp:featuredmedia']),
     },
     seo: createSeo(item.yoast_head_json),
     locales: item.locales,
-  };
-});
+  }
+})

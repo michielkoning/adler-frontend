@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  const { title, facebookUrl, instagramUrl } = useAppConfig();
+const { title, facebookUrl, instagramUrl } = useAppConfig()
 </script>
 
 <template>
@@ -7,8 +7,15 @@
     <h2>{{ $t("followUsOn") }}</h2>
     <ul class="list">
       <li class="list-item">
-        <nuxt-link class="link" :to="facebookUrl" target="_blank">
-          <app-icon icon="adler:facebook" class="icon" />
+        <nuxt-link
+          class="link"
+          :to="facebookUrl"
+          target="_blank"
+        >
+          <app-icon
+            icon="adler:facebook"
+            class="icon"
+          />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {
@@ -20,8 +27,15 @@
         </nuxt-link>
       </li>
       <li class="list-item">
-        <nuxt-link class="link" :to="instagramUrl" target="_blank">
-          <app-icon icon="adler:instagram" class="icon" />
+        <nuxt-link
+          class="link"
+          :to="instagramUrl"
+          target="_blank"
+        >
+          <app-icon
+            icon="adler:instagram"
+            class="icon"
+          />
           <span class="sr-only">
             {{
               $t("followUsOnNetwork", {

@@ -1,37 +1,37 @@
-import { z } from "zod";
-import { MenuListSchema } from "../schemas/MenuSchema";
-import { getUrl } from "../utils/getUrl";
-import { LocaleSchema } from "../schemas/LocaleSchema";
+import { z } from 'zod'
+import { MenuListSchema } from '../schemas/MenuSchema'
+import { getUrl } from '../utils/getUrl'
+import { LocaleSchema } from '../schemas/LocaleSchema'
 
 const querySchema = z.object({
   locale: LocaleSchema,
-});
+})
 
 export default defineEventHandler(async (event) => {
-  const query = await getValidatedQuery(event, (body) =>
+  const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
-  );
+  )
 
   if (!query.success) {
     throw createError({
-      statusMessage: "Invalid arguments",
+      statusMessage: 'Invalid arguments',
       data: query.error.format(),
-    });
+    })
   }
-  const { pageIds } = useAppConfig();
+  const { pageIds } = useAppConfig()
   const baseUrl = {
-    fields: ["title", "link", "parent"],
-  };
+    fields: ['title', 'link', 'parent'],
+  }
 
-  const environmentPageId = pageIds.environmentPageId[query.data.locale];
-  const hotelPageId = pageIds.hotelPageId[query.data.locale];
-  const kidsPageId = pageIds.kidsPageId[query.data.locale];
-  const arrangementsPageId = pageIds.arrangementsPageId[query.data.locale];
-  const roomsPageId = pageIds.roomsPageId[query.data.locale];
-  const contactPageId = pageIds.contactPageId[query.data.locale];
+  const environmentPageId = pageIds.environmentPageId[query.data.locale]
+  const hotelPageId = pageIds.hotelPageId[query.data.locale]
+  const kidsPageId = pageIds.kidsPageId[query.data.locale]
+  const arrangementsPageId = pageIds.arrangementsPageId[query.data.locale]
+  const roomsPageId = pageIds.roomsPageId[query.data.locale]
+  const contactPageId = pageIds.contactPageId[query.data.locale]
 
   const validateResponse = (response: z.infer<typeof MenuListSchema>) => {
-    const parsed = parseData(response, MenuListSchema);
+    const parsed = parseData(response, MenuListSchema)
 
     return parsed.map((item) => {
       return {
@@ -39,14 +39,14 @@ export default defineEventHandler(async (event) => {
         title: item.title.rendered,
         link: item.link,
         parent: item.parent,
-      };
-    });
-  };
+      }
+    })
+  }
 
   const getMainPages = new Promise((resolve) => {
     const url = getUrl({
       ...baseUrl,
-      type: "pages",
+      type: 'pages',
       locale: query.data.locale,
       include: [
         environmentPageId,
@@ -56,25 +56,25 @@ export default defineEventHandler(async (event) => {
         roomsPageId,
         contactPageId,
       ],
-    });
-    $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
+    })
+    $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
       resolve(validateResponse(response)),
-    );
-  });
+    )
+  })
 
   const getChildPagesByParent = (parent: number) =>
     new Promise((resolve) => {
       const url = getUrl({
         ...baseUrl,
-        type: "pages",
-        orderby: "menu_order",
+        type: 'pages',
+        orderby: 'menu_order',
         parent,
         locale: query.data.locale,
-      });
-      $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
+      })
+      $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
         resolve(validateResponse(response)),
-      );
-    });
+      )
+    })
 
   const getChildPages = new Promise((resolve) => {
     return Promise.all([
@@ -86,28 +86,28 @@ export default defineEventHandler(async (event) => {
         ...hotelChildPages,
         ...environmentChildPages,
         ...kidsChildPages,
-      ]);
-    });
-  });
+      ])
+    })
+  })
 
-  const getChildPagesByType = (type: "room" | "arrangement") =>
+  const getChildPagesByType = (type: 'room' | 'arrangement') =>
     new Promise((resolve) => {
       const url = getUrl({
         ...baseUrl,
-        orderby: "title",
+        orderby: 'title',
         type,
         locale: query.data.locale,
-      });
-      $fetch<z.infer<typeof MenuListSchema>>(url).then((response) =>
+      })
+      $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
         resolve(validateResponse(response)),
-      );
-    });
+      )
+    })
 
   const pages = await Promise.all([
     getMainPages,
     getChildPages,
-    getChildPagesByType("room"),
-    getChildPagesByType("arrangement"),
+    getChildPagesByType('room'),
+    getChildPagesByType('arrangement'),
   ]).then(([mainPages, childPages, rooms, arrangements]) => {
     return [
       ...mainPages,
@@ -116,21 +116,21 @@ export default defineEventHandler(async (event) => {
         return {
           ...item,
           parent: roomsPageId,
-        };
+        }
       }),
       ...arrangements.map((item) => {
         return {
           ...item,
           parent: arrangementsPageId,
-        };
+        }
       }),
-    ];
-  });
+    ]
+  })
 
   const getMenuById = (id: number) => {
-    const item = pages.find((item) => item.id === id);
+    const item = pages.find(item => item.id === id)
 
-    const subMenu = pages.filter((subItem) => subItem.parent === item.id);
+    const subMenu = pages.filter(subItem => subItem.parent === item.id)
     return {
       id: item.id,
       title: item.title,
@@ -140,10 +140,10 @@ export default defineEventHandler(async (event) => {
           id: subItem.id,
           title: subItem.title,
           link: subItem.link,
-        };
+        }
       }),
-    };
-  };
+    }
+  }
 
   const menu = [
     getMenuById(hotelPageId),
@@ -151,7 +151,7 @@ export default defineEventHandler(async (event) => {
     getMenuById(kidsPageId),
     getMenuById(arrangementsPageId),
     getMenuById(roomsPageId),
-  ];
+  ]
 
-  return menu;
-});
+  return menu
+})

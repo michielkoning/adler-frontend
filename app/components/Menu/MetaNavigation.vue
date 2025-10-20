@@ -1,10 +1,16 @@
 <script lang="ts" setup>
-  const localePath = useLocalePath();
+const localePath = useLocalePath()
 </script>
 
 <template>
-  <nav :aria-label="$t('metaNavigationTitle')" class="meta-navigation">
-    <h2 id="secondary-menu-title" class="sr-only">
+  <nav
+    :aria-label="$t('metaNavigationTitle')"
+    class="meta-navigation"
+  >
+    <h2
+      id="secondary-menu-title"
+      class="sr-only"
+    >
       {{ $t("metaNavigationTitle") }}
     </h2>
 
@@ -30,7 +36,10 @@
         external
       />
 
-      <btn-book-room size="small" class="btn-book-now" />
+      <btn-book-room
+        size="small"
+        class="btn-book-now"
+      />
     </div>
   </nav>
 </template>

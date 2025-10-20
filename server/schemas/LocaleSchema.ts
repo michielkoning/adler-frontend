@@ -1,3 +1,3 @@
-import { z } from "zod";
+import { z } from 'zod'
 
-export const LocaleSchema = z.enum(["de", "nl", "en"]);
+export const LocaleSchema = z.enum(['de', 'nl', 'en'])

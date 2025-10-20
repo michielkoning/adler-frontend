@@ -1,20 +1,20 @@
-import type { Image } from "./Image";
-import type { Room } from "./Room";
+import type { Image } from './Image'
+import type { Room } from './Room'
 
 export type LastMinute = {
-  id: number;
-  link: string;
-  title: string;
-  room: Room;
-  image?: Image;
-  isSold: boolean;
+  id: number
+  link: string
+  title: string
+  room: Room
+  image?: Image
+  isSold: boolean
   prices: {
-    kids: number;
-    adults: number;
-    price: string;
-  }[];
+    kids: number
+    adults: number
+    price: string
+  }[]
   dates: {
-    from?: Date;
-    until?: Date;
-  };
-};
+    from?: Date
+    until?: Date
+  }
+}

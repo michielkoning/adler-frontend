@@ -1,17 +1,21 @@
 <script lang="ts" setup>
 defineProps<{
-  title: string;
-  price: number;
-}>();
+  title: string
+  price: number
+}>()
 </script>
 
 <template>
   <div class="price">
-    <div class="label">{{ title }}</div>
+    <div class="label">
+      {{ title }}
+    </div>
     <div class="value">
       {{ $n(price, "currency") }}
     </div>
-    <div class="suffix">{{ $t("perPersonAndNight") }}</div>
+    <div class="suffix">
+      {{ $t("perPersonAndNight") }}
+    </div>
   </div>
 </template>
 

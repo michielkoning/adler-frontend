@@ -1,19 +1,25 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
-    size?: "xlg" | "full" | "md" | "lg" | "sm";
-    top?: boolean;
+    size?: 'xlg' | 'full' | 'md' | 'lg' | 'sm'
+    top?: boolean
   }>(),
   {
     top: false,
-    size: "xlg",
+    size: 'xlg',
   },
-);
+)
 </script>
 
 <template>
-  <div class="notch" :class="{ top }">
-    <div class="wrapper" :class="`wrapper-${size}`">
+  <div
+    class="notch"
+    :class="{ top }"
+  >
+    <div
+      class="wrapper"
+      :class="`wrapper-${size}`"
+    >
       <slot />
     </div>
   </div>

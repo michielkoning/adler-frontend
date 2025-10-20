@@ -1,28 +1,32 @@
 <script lang="ts" setup>
-  const props = defineProps<{
-    title: string;
-    name: string;
-  }>();
+const props = defineProps<{
+  title: string
+  name: string
+}>()
 
-  defineOptions({
-    inheritAttrs: false,
-  });
+defineOptions({
+  inheritAttrs: false,
+})
 
-  const id = useId();
+const id = useId()
 
-  const name = toRef(props, "name");
+const name = toRef(props, 'name')
 
-  // we don't provide any rules here because we are using form-level validation
-  // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-  const {
-    value: inputValue,
-    handleBlur,
-    handleChange,
-  } = useField(name, undefined);
+// we don't provide any rules here because we are using form-level validation
+// https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
+const {
+  value: inputValue,
+  handleBlur,
+  handleChange,
+} = useField(name, undefined)
 </script>
 
 <template>
-  <form-field :id="id" :title="title" :name="name">
+  <form-field
+    :id="id"
+    :title="title"
+    :name="name"
+  >
     <textarea
       :id="id"
       v-bind="$attrs"

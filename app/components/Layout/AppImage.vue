@@ -1,24 +1,24 @@
 <script lang="ts" setup>
-import type { Image } from "~/types/Image";
+import type { Image } from '~/types/Image'
 
 const props = withDefaults(
   defineProps<
     Image & {
-      sizes?: string;
-      lazy?: boolean;
+      sizes?: string
+      lazy?: boolean
     }
   >(),
   {
     sizes: undefined,
     lazy: true,
   },
-);
+)
 const loading = computed(() => {
   if (props.lazy) {
-    return "lazy";
+    return 'lazy'
   }
-  return "eager";
-});
+  return 'eager'
+})
 </script>
 
 <template>

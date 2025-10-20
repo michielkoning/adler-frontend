@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  const props = defineProps<{
-    name: string;
-  }>();
+const props = defineProps<{
+  name: string
+}>()
 
-  const name = toRef(props, "name");
+const name = toRef(props, 'name')
 
-  const { errorMessage } = useField(name, undefined);
+const { errorMessage } = useField(name, undefined)
 </script>
 
 <template>

@@ -1,29 +1,32 @@
 <script lang="ts" setup>
-  definePageMeta({
-    i18n: {
-      paths: {
-        de: "/kontakt",
-        en: "/contact",
-        nl: "/contact",
-      },
+definePageMeta({
+  i18n: {
+    paths: {
+      de: '/kontakt',
+      en: '/contact',
+      nl: '/contact',
     },
-  });
+  },
+})
 
-  const { pageIds } = useAppConfig();
+const { pageIds } = useAppConfig()
 
-  const { data, error } = await useFetch("/api/pageById", {
-    params: {
-      id: getPageId(pageIds.contactPageId),
-    },
-  });
+const { data, error } = await useFetch('/api/pageById', {
+  params: {
+    id: getPageId(pageIds.contactPageId),
+  },
+})
 
-  if (error.value) {
-    throw createError(error.value);
-  }
+if (error.value) {
+  throw createError(error.value)
+}
 </script>
 
 <template>
-  <the-page v-if="data" v-bind="data.content">
+  <the-page
+    v-if="data"
+    v-bind="data.content"
+  >
     <!-- <block-map /> -->
     <div class="wrapper">
       <the-address />

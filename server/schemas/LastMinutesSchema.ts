@@ -1,21 +1,21 @@
-import { z } from "zod";
-import { FeaturedImageSchema } from "./FeaturedImageSchema";
+import { z } from 'zod'
+import { FeaturedImageSchema } from './FeaturedImageSchema'
 
 export const LastMinutesSchema = z.array(
   z.object({
-    id: z.number(),
-    slug: z.string(),
-    title: z.object({
+    'id': z.number(),
+    'slug': z.string(),
+    'title': z.object({
       rendered: z.string(),
     }),
-    "wp:featuredmedia": z.array(FeaturedImageSchema).default([]),
-    acf: z.object({
+    'wp:featuredmedia': z.array(FeaturedImageSchema).default([]),
+    'acf': z.object({
       room: z.object({
         ID: z.number(),
       }),
       dates: z.object({
-        date_from: z.string().transform((val) => convertToDate(val)),
-        date_untill: z.string().transform((val) => convertToDate(val)),
+        date_from: z.string().transform(val => convertToDate(val)),
+        date_untill: z.string().transform(val => convertToDate(val)),
       }),
       prices: z.array(
         z.object({
@@ -27,4 +27,4 @@ export const LastMinutesSchema = z.array(
       sold: z.boolean(),
     }),
   }),
-);
+)

@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-const { facilities } = useAppConfig();
+const { facilities } = useAppConfig()
 </script>
 
 <template>
-  <section class="facilities" :aria-label="$t('ourFacilities')">
+  <section
+    class="facilities"
+    :aria-label="$t('ourFacilities')"
+  >
     <center-wrapper>
       <h1 class="title">
         {{ $t("ourFacilities") }}

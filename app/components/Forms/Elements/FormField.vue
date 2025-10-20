@@ -1,17 +1,23 @@
 <script lang="ts" setup>
 defineProps<{
-  id: string;
-  title: string;
-  name: string;
-  errorMessage?: string;
-}>();
+  id: string
+  title: string
+  name: string
+  errorMessage?: string
+}>()
 </script>
 
 <template>
   <div>
-    <label :for="id" class="label">{{ title }}</label>
+    <label
+      :for="id"
+      class="label"
+    >{{ title }}</label>
     <slot />
-    <form-error-message :name="name" class="error-message" />
+    <form-error-message
+      :name="name"
+      class="error-message"
+    />
   </div>
 </template>
 
