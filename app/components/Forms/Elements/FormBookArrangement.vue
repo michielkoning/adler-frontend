@@ -8,19 +8,19 @@ defineProps<{
 
 const validationSchema = toTypedSchema(
   z.object({
-    name: z.string().min(1, 'test'),
-    address: z.string().min(1),
-    zipcode: z.string().min(1),
-    city: z.string().min(1),
-    country: z.string().min(1),
-    phone: z.string().default(''),
-    email: z.string().email(),
-    totalRooms: z.number().min(1),
-    totalAdults: z.number().min(1),
-    totalChildren: z.number().min(1),
-    ageChildren: z.string().default(''),
-    dateArrival: z.string().min(1),
-    dateDeparture: z.string().min(1),
+    name: z.string().min(1, 'test').default(''),
+    address: z.string().min(1).default(''),
+    zipcode: z.string().min(1).default(''),
+    city: z.string().min(1).default(''),
+    country: z.string().min(1).default(''),
+    phone: z.string().default('').default(''),
+    email: z.email().default(''),
+    totalRooms: z.number().min(1).default(1),
+    totalAdults: z.number().min(1).default(1),
+    totalChildren: z.number().min(1).default(1),
+    ageChildren: z.string().default('').default(''),
+    dateArrival: z.string().min(1).default(''),
+    dateDeparture: z.string().min(1).default(''),
     remarks: z.string().default(''),
   }),
 )
@@ -30,6 +30,7 @@ const validationSchema = toTypedSchema(
   <app-form
     :validation-schema="validationSchema"
     name="contact"
+    :btn-text="$t('request')"
   >
     <input
       type="hidden"

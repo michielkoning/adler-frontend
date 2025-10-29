@@ -97,7 +97,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'netlify',
   },
-
+  // typescript: {
+  //   typeCheck: true,
+  // },
   postcss: {
     plugins: {
       'postcss-mixins': {

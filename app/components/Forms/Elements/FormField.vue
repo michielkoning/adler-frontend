@@ -15,7 +15,7 @@ defineProps<{
     >{{ title }}</label>
     <slot />
     <form-error-message
-      :name="name"
+      :error-message="errorMessage"
       class="error-message"
     />
   </div>
@@ -30,7 +30,6 @@ defineProps<{
 }
 
 .error-message {
-  display: block;
   margin-top: var(--spacing-xxs);
 }
 </style>

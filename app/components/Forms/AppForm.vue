@@ -51,6 +51,7 @@ const onSubmit = handleSubmit(() => {
 </script>
 
 <template>
+  <pre>{{ values }}</pre>
   <p v-if="status === 'success'">
     {{ $t("form.success") }}
   </p>

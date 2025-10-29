@@ -1,13 +1,18 @@
 <script lang="ts" setup>
-const props = defineProps<{
-  name: string
+defineProps<{
+  errorMessage?: string
 }>()
-
-const name = toRef(props, 'name')
-
-const { errorMessage } = useField(name, undefined)
 </script>
 
 <template>
-  <span aria-live="assertive">{{ errorMessage }}</span>
+  <span
+    aria-live="assertive"
+    class="error-message"
+  >{{ errorMessage }}</span>
 </template>
+
+<style scoped>
+.error-message {
+  display: block;
+}
+</style>

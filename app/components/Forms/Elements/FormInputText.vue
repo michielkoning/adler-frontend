@@ -17,12 +17,19 @@ defineOptions({
 })
 
 const id = useId()
-
-const name = toRef(props, 'name')
+const { name } = toRefs(props)
 
 // we don't provide any rules here because we are using form-level validation
 // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-const { value: inputValue, handleBlur, handleChange } = useField(name)
+const { value: inputValue, handleBlur, handleChange, errorMessage } = useField(name, undefined, {
+  validateOnValueUpdate: false,
+})
+
+const validationListeners = {
+  blur: (evt: Event) => handleBlur(evt, true),
+  change: handleChange,
+  input: (evt: Event) => handleChange(evt, !!errorMessage.value),
+}
 </script>
 
 <template>
@@ -31,6 +38,7 @@ const { value: inputValue, handleBlur, handleChange } = useField(name)
     :title="title"
     :name="name"
     :class="class"
+    :error-message="errorMessage"
   >
     <input
       :id="id"
@@ -39,8 +47,7 @@ const { value: inputValue, handleBlur, handleChange } = useField(name)
       :value="inputValue"
       :type="type"
       class="field"
-      @input="handleChange"
-      @blur="handleBlur"
+      v-on="validationListeners"
     >
   </form-field>
 </template>

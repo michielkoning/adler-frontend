@@ -1,24 +1,35 @@
 <script lang="ts" setup>
-const props = defineProps<{
-  title: string
-  name: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    title: string
+    name: string
+    type?: 'text' | 'email' | 'tel' | 'date' | 'number'
+    class?: string
+  }>(),
+  {
+    type: 'text',
+    class: '',
+  },
+)
 
 defineOptions({
   inheritAttrs: false,
 })
 
 const id = useId()
-
-const name = toRef(props, 'name')
+const { name } = toRefs(props)
 
 // we don't provide any rules here because we are using form-level validation
 // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-const {
-  value: inputValue,
-  handleBlur,
-  handleChange,
-} = useField(name, undefined)
+const { value: inputValue, handleBlur, handleChange, errorMessage } = useField(name, undefined, {
+  validateOnValueUpdate: false,
+})
+
+const validationListeners = {
+  blur: (evt: Event) => handleBlur(evt, true),
+  change: handleChange,
+  input: (evt: Event) => handleChange(evt, !!errorMessage.value),
+}
 </script>
 
 <template>
@@ -26,6 +37,8 @@ const {
     :id="id"
     :title="title"
     :name="name"
+    :class="class"
+    :error-message="errorMessage"
   >
     <textarea
       :id="id"
@@ -33,8 +46,7 @@ const {
       :value="inputValue"
       :name="name"
       class="field"
-      @input="handleChange"
-      @blur="handleBlur"
+      v-on="validationListeners"
     />
   </form-field>
 </template>
