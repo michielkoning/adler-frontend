@@ -53,7 +53,7 @@ const localePath = useLocalePath()
     gap: 1em;
     flex-direction: column;
 
-    @media (--navigation-md) {
+    @media (--show-full-navigation) {
       gap: 1.5em;
       flex-direction: row;
       align-items: center;

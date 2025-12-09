@@ -11,44 +11,83 @@ const props = withDefaults(
     }[]
   }>(),
   {
-    children: [],
+    children: () => [],
   },
 )
 
-const isOpen = computed(() => {
-  return props.id === activeMenuId.value
-})
+const { clear, openMenus, add, remove } = useLayout()
+const menuIsOpen = useMenu()
+let timer = null as number | null
+const linkRef = ref<ComponentPublicInstance<HTMLAnchorElement> | null>(null)
 
-const { activeMenuId, setActiveMenuId } = useMenu()
-
-const showSubmenu = () => {
-  setActiveMenuId(props.id)
-}
-
-const closeSubmenu = () => {
-  setActiveMenuId(undefined)
-}
+const isOpen = computed(() => openMenus.value.includes(props.title))
 
 const toggleMenu = () => {
   if (isOpen.value) {
-    closeSubmenu()
+    remove(props.title)
   }
   else {
-    showSubmenu()
+    add(props.title)
   }
+}
+
+const setActiveSubmenu = () => {
+  if (!isSmallScreen()) return
+  if (!linkRef.value) return
+  if (!linkRef.value.$el.classList.contains('nuxt-link-active')) {
+    return
+  }
+  add(props.title)
+}
+
+watch(menuIsOpen, () => {
+  if (menuIsOpen.value) {
+    setActiveSubmenu()
+  }
+})
+
+const hasChildren = computed(() => {
+  return props.children?.length ? true : false
+})
+
+const mouseover = () => {
+  if (isSmallScreen()) return
+  if (!hasChildren.value) return
+  if (!timer) return
+  add(props.title)
+  clearTimeout(timer)
+}
+
+const mouseout = () => {
+  if (isSmallScreen()) return
+  timer = window.setTimeout(() => {
+    remove(props.title)
+  }, 150)
+}
+const isSmallScreen = () => {
+  return window.innerWidth < 768
 }
 
 const controlId = `menu-${props.id}`
 </script>
 
 <template>
-  <li class="menu-item">
+  <li
+    class="menu-item"
+    @mouseover="mouseover"
+    @mouseout="mouseout"
+  >
     <nuxt-link
+      ref="linkRef"
       :to="link"
       :aria-haspopup="children.length > 0"
       class="menu-link"
+      @click="clear"
     >
-      <span v-html="title" />
+      <span
+        class="title"
+        v-html="title"
+      />
     </nuxt-link>
     <template v-if="children.length">
       <button
@@ -73,7 +112,7 @@ const controlId = `menu-${props.id}`
 
       <slide-in-animation>
         <ul
-          v-show="isOpen"
+          v-if="isOpen"
           :id="controlId"
           class="submenu"
         >
@@ -85,6 +124,7 @@ const controlId = `menu-${props.id}`
             <nuxt-link
               :to="subItem.link"
               class="submenu-link"
+              @click="clear"
             >
               <span v-html="subItem.title" />
             </nuxt-link>
@@ -112,6 +152,9 @@ const controlId = `menu-${props.id}`
 
   .menu-link {
     border-bottom: 2px solid var(--color-black);
+    @media (--navigation-md) {
+      border-bottom-width: 0;
+    }
   }
 
   .submenu-item:not(:last-child) {

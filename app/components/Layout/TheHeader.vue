@@ -1,17 +1,43 @@
 <script lang="ts" setup>
-const { title } = useAppConfig()
-const menuIsExpanded = ref(false)
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
-const toggleMenu = () => {}
+const { title } = useAppConfig()
+
+const menuIsOpen = useMenu()
+
+const content: Ref<HTMLDivElement | null> = ref(null)
+
+const afterEnter = () => {
+  lockBodyScoll(true)
+}
+
+const afterLeave = () => {
+  lockBodyScoll(false)
+}
+const lockBodyScoll = (isOpen: boolean) => {
+  if (!content.value) {
+    return
+  }
+  if (isOpen) {
+    disableBodyScroll(content.value)
+  }
+  else {
+    enableBodyScroll(content.value)
+  }
+}
 </script>
 
 <template>
   <header class="header">
-    <mobile-navigation v-model="menuIsExpanded" />
+    <mobile-navigation />
     <center-wrapper>
-      <transition name="slide">
+      <transition
+        name="slide"
+        @after-enter="afterEnter"
+        @after-leave="afterLeave"
+      >
         <div
-          v-show="menuIsExpanded"
+          v-show="menuIsOpen"
           class="background"
         >
           <div class="content">

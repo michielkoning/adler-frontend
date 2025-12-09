@@ -8,3 +8,4 @@
 @custom-media --landscape (orientation: landscape);
 @custom-media --navigation-md (width >= 768px);
 @custom-media --navigation-lg (width >= 1024px);
+@custom-media --show-full-navigation (width >= 768px);
