@@ -77,7 +77,19 @@ export default defineNuxtConfig({
         { name: 'twitter:site', content: settings.twitter },
         { name: 'twitter:creator', content: settings.twitter },
       ],
+      link: [
+        {
+          rel: 'apple-touch-icon',
+          href: '/icons/apple-touch-icon-180x180.png',
+        },
+        {
+          rel: 'icon',
+          href: '/favicon.svg',
+          type: 'image/svg+xml',
+        },
+      ],
     },
+
   },
   css: ['~/assets/css/base.css'],
   runtimeConfig: {
@@ -202,22 +214,22 @@ export default defineNuxtConfig({
       dir: 'ltr',
       icons: [
         {
-          src: '/pwa-64x64.png',
+          src: '/icons/pwa-64x64.png',
           sizes: '64x64',
           type: 'image/png',
         },
         {
-          src: '/pwa-192x192.png',
+          src: '/icons/pwa-192x192.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: '/pwa-512x512.png',
+          src: '/icons/pwa-512x512.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: '/maskable-icon-512x512.png',
+          src: '/icons/maskable-icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
           purpose: 'maskable',
