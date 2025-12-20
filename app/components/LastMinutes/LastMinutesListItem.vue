@@ -2,6 +2,12 @@
 import type { LastMinute } from '~/types/LastMinute'
 
 defineProps<LastMinute>()
+
+const showModal = ref(false)
+
+const toggleModal = (state: boolean) => {
+  showModal.value = state
+}
 </script>
 
 <template>
@@ -106,10 +112,19 @@ defineProps<LastMinute>()
     <div class="btn-wrapper">
       <app-button
         v-if="!isSold"
-        :title="$t('bookNow')"
+        :title="$t('requestNow')"
         class="btn"
+        @click="toggleModal"
       />
     </div>
+
+    <app-modal
+      v-if="showModal"
+      :title="$t('requestNow')"
+      @close="toggleModal(false)"
+    >
+      <form-last-minute :title="title" />
+    </app-modal>
   </li>
 </template>
 

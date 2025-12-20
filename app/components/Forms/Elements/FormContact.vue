@@ -11,8 +11,7 @@ const validationSchema = toTypedSchema(
       .string().default(''),
     message: z
       .string()
-      .min(1, {
-        error: t('form.error.required') }).default(''),
+      .min(1, { error: t('form.error.required') }).default(''),
   }),
 )
 </script>

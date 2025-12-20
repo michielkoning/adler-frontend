@@ -21,8 +21,6 @@ const validationSchema = toTypedSchema(
     totalAdults: z.number().min(1).default(1),
     totalChildren: z.number().min(1).default(1),
     ageChildren: z.string().default(''),
-    dateArrival: z.string().min(1, { error: t('form.error.required') }).default(''),
-    dateDeparture: z.string().min(1, { error: t('form.error.required') }).default(''),
     remarks: z.string().default(''),
     title: z.literal(props.title).default(props.title),
   }),
@@ -32,7 +30,7 @@ const validationSchema = toTypedSchema(
 <template>
   <app-form
     :validation-schema="validationSchema"
-    name="arrangement"
+    name="lastMinutes"
     :btn-text="$t('request')"
   >
     <form-fieldset
@@ -117,22 +115,6 @@ const validationSchema = toTypedSchema(
       <form-input-text
         name="ageChildren"
         :title="$t('form.ageChildren')"
-      />
-    </form-fieldset>
-    <form-fieldset
-      :title="$t('dates')"
-      class="dates"
-    >
-      <form-input-text
-        name="dateArrival"
-        type="date"
-        :title="$t('form.dateArrival')"
-      />
-
-      <form-input-text
-        name="dateDeparture"
-        type="date"
-        :title="$t('form.dateDeparture')"
       />
     </form-fieldset>
 
