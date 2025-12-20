@@ -6,13 +6,13 @@ const { t } = useI18n()
 
 const validationSchema = toTypedSchema(
   z.object({
-    email: z.email({ error: t('form.error.email.incorrect') }).default(''),
+    email: z.email({ error: t('form.error.email.incorrect') }).default('mail@nic.com'),
     phone: z
       .string().default(''),
     message: z
       .string()
       .min(1, {
-        error: t('form.error.required') }).default(''),
+        error: t('form.error.required') }).default('test'),
   }),
 )
 </script>

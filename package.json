@@ -16,19 +16,19 @@
   },
   "devDependencies": {
     "@iconify-json/fa6-solid": "^1.2.4",
-    "@nuxt/eslint": "^1.11.0",
+    "@nuxt/eslint": "^1.12.1",
     "@nuxt/fonts": "^0.12.1",
-    "@nuxt/icon": "^2.1.0",
-    "@nuxt/scripts": "0.13.0",
+    "@nuxt/icon": "^2.1.1",
+    "@nuxt/scripts": "0.13.2",
     "@nuxtjs/i18n": "^10.2.1",
     "@nuxtjs/stylelint-module": "^5.2.1",
     "@types/body-scroll-lock": "^3.1.2",
     "@unhead/vue": "^2.0.19",
     "@vite-pwa/assets-generator": "^1.0.2",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-vue": "^10.6.2",
-    "nuxt": "^4.2.1",
-    "nuxt-schema-org": "^5.0.9",
+    "nuxt": "^4.2.2",
+    "nuxt-schema-org": "^5.0.10",
     "nuxt-svgo": "^4.2.6",
     "postcss-html": "^1.8.0",
     "postcss-import": "^16.1.1",
@@ -39,8 +39,8 @@
     "stylelint-config-standard": "^39.0.1",
     "stylelint-config-standard-vue": "^1.0.0",
     "typescript": "^5.9.3",
-    "vue-tsc": "^3.1.7",
-    "zod": "^4.1.13"
+    "vue-tsc": "^3.2.0",
+    "zod": "^4.2.1"
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
@@ -49,8 +49,8 @@
     "@vee-validate/zod": "^4.15.1",
     "@vite-pwa/nuxt": "^1.1.0",
     "body-scroll-lock": "^3.1.5",
-    "vue": "^3.5.25",
-    "vue-router": "^4.6.3"
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.4"
   },
   "packageManager": "pnpm@10.11.0"
 }

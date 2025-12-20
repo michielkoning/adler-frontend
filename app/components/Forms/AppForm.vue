@@ -1,20 +1,5 @@
 <script lang="ts" setup>
 import type { TypedSchema } from 'vee-validate'
-import { setLocale, localize } from '@vee-validate/i18n'
-import { configure } from 'vee-validate'
-import en from '@vee-validate/i18n/dist/locale/en.json'
-import nl from '@vee-validate/i18n/dist/locale/nl.json'
-import de from '@vee-validate/i18n/dist/locale/de.json'
-
-configure({
-  generateMessage: localize({
-    en,
-    de,
-    nl,
-  }),
-})
-
-setLocale('nl')
 
 const props = defineProps<{
   name: string
@@ -23,23 +8,22 @@ const props = defineProps<{
 }>()
 
 const { start, finish } = useLoadingIndicator()
-const route = useRoute()
-const appConfig = useAppConfig()
-
-const action = route.fullPath
-const currentPage = `${appConfig.baseUrl}${route.fullPath}`
 
 const { values, handleSubmit } = useForm({
   name: props.name,
   validationSchema: props.validationSchema,
 })
 
+const url = useRequestURL()
+
 const { execute, status } = useFetch('/api/form', {
   method: 'POST',
   watch: false,
   immediate: false,
   body: {
-    values,
+    ...values,
+    'form-name': props.name,
+    'page': url,
   },
   onRequest: start,
   onResponse: finish,
@@ -56,7 +40,7 @@ const onSubmit = handleSubmit(() => {
   </p>
   <form
     v-else
-    :action="action"
+    :action="url.href"
     data-netlify="true"
     netlify-honeypot="bot-field"
     method="POST"
@@ -65,16 +49,6 @@ const onSubmit = handleSubmit(() => {
     @submit="onSubmit"
   >
     <p>{{ $t("form.intro") }}</p>
-    <input
-      type="hidden"
-      name="form-name"
-      :value="name"
-    >
-    <input
-      type="hidden"
-      name="page"
-      :value="currentPage"
-    >
     <slot />
     <input
       id="bot-field"
