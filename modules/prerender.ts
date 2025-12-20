@@ -81,10 +81,10 @@ export default defineNuxtModule({
           pauseFetching()
         }
       }
-      // await fetchPagesByType('posts')
-      // await fetchPagesByType('arrangement')
-      // await fetchPagesByType('room')
-      // await fetchPagesByType('pages')
+      await fetchPagesByType('posts')
+      await fetchPagesByType('arrangement')
+      await fetchPagesByType('room')
+      await fetchPagesByType('pages')
     },
 
     'close': (nuxt) => {
