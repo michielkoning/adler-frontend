@@ -1,7 +1,7 @@
 export const useMenu = () => {
-  const activeMenuId = useState<number | undefined>(() => undefined)
-
   const router = useRouter()
+
+  const activeMenuId = useActiveMenuId()
 
   router.afterEach(() => {
     setActiveMenuId(undefined)
@@ -12,7 +12,6 @@ export const useMenu = () => {
   }
 
   return {
-    activeMenuId,
     setActiveMenuId,
   }
 }

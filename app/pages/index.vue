@@ -44,13 +44,13 @@ useSeo(data.value?.seo)
   <facilities-section />
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .wrapper {
     @mixin block-padding;
 
-    grid-gap: var(--spacing-l);
+    gap: var(--spacing-l);
     display: grid;
 
     @media (--viewport-lg) {
@@ -59,7 +59,7 @@ useSeo(data.value?.seo)
   }
 
   .highlights {
-    grid-gap: var(--spacing-l);
+    gap: var(--spacing-l);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
   }

@@ -13,7 +13,7 @@
 
 @define-mixin link-sm {
   text-decoration-thickness: 1px;
- 
+
   &:hover,
   &:focus {
     text-decoration-thickness: 2px;

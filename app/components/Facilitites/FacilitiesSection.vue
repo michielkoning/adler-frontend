@@ -24,7 +24,7 @@ const { facilities } = useAppConfig()
   </section>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .facilities {
@@ -39,7 +39,7 @@ const { facilities } = useAppConfig()
 
 .row {
   display: grid;
-  grid-gap: var(--gutter);
+  gap: var(--gutter);
 
   @media (--viewport-sm) {
     grid-template-columns: repeat(3, 1fr);

@@ -51,7 +51,7 @@ const validationListeners = {
   </form-field>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .field {
     @mixin form-field;
   }

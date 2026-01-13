@@ -25,7 +25,7 @@ withDefaults(
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .notch {
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 

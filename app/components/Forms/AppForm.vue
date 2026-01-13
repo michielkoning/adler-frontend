@@ -65,7 +65,7 @@ const onSubmit = handleSubmit(() => {
   </form>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .bot-field {
     display: none;
   }

@@ -135,7 +135,7 @@ onBeforeUnmount(() => {
   </nav>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .nav {
@@ -151,6 +151,7 @@ onBeforeUnmount(() => {
     @mixin list-reset;
 
     border-top: 2px solid var(--color-black);
+
     @media (--show-full-navigation) {
       display: flex;
       border-top: 0;
@@ -173,6 +174,5 @@ onBeforeUnmount(() => {
     @media (--show-full-navigation) {
       display: block;
     }
-
   }
 </style>

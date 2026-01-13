@@ -16,7 +16,7 @@ const props = withDefaults(
 )
 
 const { clear, openMenus, add, remove } = useLayout()
-const menuIsOpen = useMenu()
+const menuIsOpen = useMenuIsOpen()
 let timer = null as number | null
 const linkRef = ref<ComponentPublicInstance<HTMLAnchorElement> | null>(null)
 
@@ -135,97 +135,93 @@ const controlId = `menu-${props.id}`
   </li>
 </template>
 
-<style scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
+<style lang="css" scoped>
+@import "~/assets/css/media-queries/media-queries.css";
 
-  .menu-item {
+.menu-item {
+  position: relative;
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
+
+  @media (--navigation-md) {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+  }
+}
+
+.menu-link {
+  font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--color-black);
+
+  @media (--navigation-md) {
+    border-bottom-width: 0;
+  }
+}
+
+.submenu-item:not(:last-child) {
+  border-bottom: 1px solid var(--color-black);
+}
+
+.icon {
+  transition: transform var(--transition);
+}
+
+.btn-show-submenu {
+  display: block;
+  position: absolute;
+  width: var(--spacing-l);
+  height: var(--spacing-l);
+  right: calc(var(--spacing-xs) * -1);
+  top: 0.75em;
+
+  @media (--navigation-md) {
     position: relative;
-    font-family: var(--font-family-headings);
-    font-weight: var(--font-weight-headings);
-
-    @media (--navigation-md) {
-      display: flex;
-      gap: var(--spacing-xs);
-      align-items: center;
-    }
+    top: auto;
+    right: auto;
+    transform: translateY(-2px);
   }
 
-  .menu-link {
-    border-bottom: 2px solid var(--color-black);
-    @media (--navigation-md) {
-      border-bottom-width: 0;
-    }
-  }
+  &[aria-expanded="true"] {
+    .icon {
+      transform: rotate(-180deg);
 
-  .submenu-item:not(:last-child) {
-    border-bottom: 1px solid var(--color-black);
-  }
-
-  .btn-show-submenu {
-    display: block;
-    position: absolute;
-    width: var(--spacing-l);
-    height: var(--spacing-l);
-    right: calc(var(--spacing-xs) * -1);
-    top: 0.75em;
-
-    @media (--navigation-md) {
-      position: relative;
-      top: auto;
-      right: auto;
-      transform: translateY(-2px);
-    }
-  }
-
-  .submenu-link,
-  .menu-link {
-    @mixin link-reset;
-
-    transition: border var(--animation);
-    display: block;
-    padding-block: var(--spacing-xs);
-  }
-
-  .menu-link {
-    font-size: var(--font-size-xl);
-  }
-
-  .submenu-link {
-    font-size: var(--font-size-l);
-  }
-
-  .icon {
-    transition: transform var(--transition);
-  }
-
-  .btn-show-submenu {
-    &[aria-expanded="true"] {
-      .icon {
-        transform: rotate(-180deg);
-
-        @media (--navigation-md) {
-          transform: rotate(0deg);
-        }
+      @media (--navigation-md) {
+        transform: rotate(0deg);
       }
     }
   }
+}
 
-  .submenu {
-    @mixin list-reset;
+.submenu-link,
+.menu-link {
+  @mixin link-reset;
 
-    padding-left: var(--spacing-m);
-    border-bottom: 2px solid var(--color-black);
+  transition: border var(--animation);
+  display: block;
+  padding-block: var(--spacing-xs);
+}
 
-    @media (--navigation-md) {
-      border-bottom: 0;
-      padding-left: 0;
-      filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-      background: var(--color-background);
-      position: absolute;
-      left: calc(-1 * var(--spacing-xs));
-      top: 100%;
-      white-space: nowrap;
-      z-index: var(--z-main-navigation);
-    }
+.submenu-link {
+  font-size: var(--font-size-l);
+}
+
+.submenu {
+  @mixin list-reset;
+
+  padding-left: var(--spacing-m);
+  border-bottom: 2px solid var(--color-black);
+
+  @media (--navigation-md) {
+    border-bottom: 0;
+    padding-left: 0;
+    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
+    background: var(--color-background);
+    position: absolute;
+    left: calc(-1 * var(--spacing-xs));
+    top: 100%;
+    white-space: nowrap;
+    z-index: var(--z-main-navigation);
   }
+}
 </style>

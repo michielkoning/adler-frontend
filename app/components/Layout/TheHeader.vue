@@ -3,7 +3,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 const { title } = useAppConfig()
 
-const menuIsOpen = useMenu()
+const menuIsOpen = useMenuIsOpen()
 
 const content: Ref<HTMLDivElement | null> = ref(null)
 
@@ -64,28 +64,8 @@ const lockBodyScoll = (isOpen: boolean) => {
   </header>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
-
-  .slide-enter-active,
-  .slide-leave-active {
-    transition: translate 0.3s;
-
-    .content {
-      transition-property: translate, opacity;
-      transition: 0.3s 0.2s;
-    }
-  }
-
-  .slide-enter-from,
-  .slide-leave-to {
-    translate: 0 -100vh;
-
-    .content {
-      translate: 0 -2em;
-      opacity: 0;
-    }
-  }
 
   .header {
     background: var(--color-primary);
@@ -128,7 +108,7 @@ const lockBodyScoll = (isOpen: boolean) => {
       transform: none;
       display: grid !important;
       grid-template-columns: auto 1fr;
-      grid-column-gap: var(--gutter);
+      column-gap: var(--gutter);
       max-height: none;
       align-items: end;
       flex: 0 0 auto;
@@ -181,5 +161,25 @@ const lockBodyScoll = (isOpen: boolean) => {
   .image {
     display: block;
     width: 100%;
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: translate 0.3s;
+
+    .content {
+      transition: 0.3s 0.2s;
+      transition-property: translate, opacity;
+    }
+  }
+
+  .slide-enter-from,
+  .slide-leave-to {
+    translate: 0 -100vh;
+
+    .content {
+      translate: 0 -2em;
+      opacity: 0;
+    }
   }
 </style>

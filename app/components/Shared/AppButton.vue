@@ -49,7 +49,7 @@ const cssClasses = computed(() => {
   </component>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .btn {
   @mixin btn;
 }

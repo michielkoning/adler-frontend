@@ -34,7 +34,7 @@ const label = computed(() => {
   </tr>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .price {
   font-weight: var(--font-weight-bold);
   text-align: right;

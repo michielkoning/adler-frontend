@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { title, facebookUrl, twitterUrl, instagramUrl, address }
-    = useAppConfig()
+  = useAppConfig()
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -59,7 +59,7 @@ useSchemaOrg([
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .page {
     display: flex;
     flex-direction: column;

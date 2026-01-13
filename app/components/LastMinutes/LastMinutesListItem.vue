@@ -128,7 +128,7 @@ const toggleModal = (state: boolean) => {
   </li>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .item {
     position: relative;
     display: grid;

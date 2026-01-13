@@ -24,37 +24,37 @@ defineProps<Archive>()
   </clickable-list-item>
 </template>
 
-<style scoped>
-  .list-item {
-    display: grid;
-    grid-template-columns: 5em auto;
-    grid-gap: var(--spacing-s);
-    align-items: center;
+<style lang="css" scoped>
+.link {
+  @mixin link-reset;
 
-    &:focus-within .link,
-    &:hover .link {
-      text-decoration: underline;
-      text-decoration-style: solid;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-      text-decoration-color: var(--color-primary);
-    }
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
+  font-size: var(--font-size-l);
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 5em auto;
+  gap: var(--spacing-s);
+  align-items: center;
+
+  &:focus-within .link,
+  &:hover .link {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-primary);
   }
+}
 
-  .link {
-    @mixin link-reset;
+.image {
+  grid-row-start: 1;
+  height: 3em;
+}
 
-    font-family: var(--font-family-headings);
-    font-weight: var(--font-weight-headings);
-    font-size: var(--font-size-l);
-  }
-
-  .image {
-    grid-row-start: 1;
-    height: 3em;
-  }
-
-  .link-wrapper {
-    grid-column-start: 2;
-  }
+.link-wrapper {
+  grid-column-start: 2;
+}
 </style>

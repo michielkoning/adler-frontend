@@ -11,7 +11,7 @@ defineProps<{
   >{{ errorMessage }}</span>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .error-message {
   display: block;
 }

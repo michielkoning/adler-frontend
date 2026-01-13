@@ -32,7 +32,7 @@ if (error.value) {
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .list {
   display: grid;
   grid-template-columns: 2.5em auto;

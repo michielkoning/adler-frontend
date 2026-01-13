@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity var(--transition);

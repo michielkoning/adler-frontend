@@ -32,7 +32,7 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .group {
   display: flex;
   gap: 1em;

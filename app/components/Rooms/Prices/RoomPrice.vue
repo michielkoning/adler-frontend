@@ -19,7 +19,7 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .price {
   background: var(--color-gray);
   border-radius: 0.25em;

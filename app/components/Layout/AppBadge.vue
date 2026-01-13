@@ -31,7 +31,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .badge {
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);

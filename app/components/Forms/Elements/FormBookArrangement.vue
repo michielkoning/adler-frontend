@@ -146,7 +146,7 @@ const validationSchema = toTypedSchema(
   </app-form>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 @media (--viewport-xs) {

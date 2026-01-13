@@ -32,7 +32,7 @@ const { address, title } = useAppConfig()
   </address>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .address {
   margin-bottom: var(--spacing-xs);
 }

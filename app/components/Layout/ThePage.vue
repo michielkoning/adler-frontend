@@ -6,7 +6,7 @@ withDefaults(
     Content & {
       showResmio?: boolean
     }
-    >(),
+  >(),
   {
     showResmio: true,
   },
@@ -58,7 +58,7 @@ withDefaults(
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .page {
@@ -93,7 +93,7 @@ withDefaults(
 
   .sidebar {
     display: grid;
-    grid-gap: var(--gutter);
+    gap: var(--gutter);
 
     @media (--viewport-sm) {
       grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));

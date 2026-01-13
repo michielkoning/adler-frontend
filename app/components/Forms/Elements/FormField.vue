@@ -21,7 +21,7 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .label {
   display: block;
   margin-bottom: var(--spacing-xxs);

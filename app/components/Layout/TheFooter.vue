@@ -11,7 +11,7 @@
   </footer>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 :global(a) {
@@ -27,7 +27,7 @@
 
 .wrapper {
   display: grid;
-  grid-gap: var(--spacing-l) var(--gutter);
+  gap: var(--spacing-l) var(--gutter);
   align-items: start;
 
   @media (--viewport-sm) {

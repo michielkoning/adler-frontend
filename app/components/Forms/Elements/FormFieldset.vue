@@ -15,7 +15,7 @@ defineProps<{
   </fieldset>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .fieldset {
   border: 0;
   padding: 0;
@@ -30,7 +30,7 @@ defineProps<{
 
 .fields {
   display: grid;
-  grid-gap: var(--gutter);
+  gap: var(--gutter);
   grid-template-columns: repeat(var(--columns, 1), 1fr);
 }
 </style>

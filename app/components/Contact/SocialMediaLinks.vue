@@ -50,7 +50,7 @@ const { title, facebookUrl, instagramUrl } = useAppConfig()
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   .list {
     @mixin list-reset;
 

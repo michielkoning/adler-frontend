@@ -48,12 +48,12 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .prices {
   display: grid;
-  grid-gap: var(--gutter);
+  gap: var(--gutter);
   margin-bottom: var(--spacing-m);
 
   @media (--viewport-sm) {

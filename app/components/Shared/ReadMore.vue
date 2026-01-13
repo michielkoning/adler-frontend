@@ -7,7 +7,7 @@
   </span>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .read-more {
   @mixin btn;
   @mixin btn-primary;

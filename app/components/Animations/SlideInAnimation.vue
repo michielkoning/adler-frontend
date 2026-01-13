@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .slide-in-enter-active,
 .slide-in-leave-active {
   transition: translate var(--transition);

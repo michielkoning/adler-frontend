@@ -21,7 +21,7 @@
   </section>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .highlights {
   @mixin block-padding;
 

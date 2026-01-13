@@ -36,7 +36,7 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .wrapper {

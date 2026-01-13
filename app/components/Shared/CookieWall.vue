@@ -39,7 +39,7 @@ const localePath = useLocalePath()
   </fade-in-animation>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .cookie-wall {
   color: var(--color-white);
   background: var(--color-gray-dark);

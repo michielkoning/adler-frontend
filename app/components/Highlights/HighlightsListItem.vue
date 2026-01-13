@@ -51,7 +51,7 @@ const url = localePath({
   </clickable-list-item>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .item {
   position: relative;
   display: flex;

@@ -2,7 +2,7 @@
 const { title } = useAppConfig()
 
 const { togleMobileMenu } = useLayout()
-const menuIsOpen = useMenu()
+const menuIsOpen = useMenuIsOpen()
 </script>
 
 <template>
@@ -38,7 +38,7 @@ const menuIsOpen = useMenu()
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .wrapper {
@@ -74,7 +74,7 @@ const menuIsOpen = useMenu()
     @mixin btn;
 
     gap: var(--spacing-s);
-    color: currentColor;
+    color: currentcolor;
     font-size: var(--font-size-xs);
     border-color: var(--color-white);
     display: flex;

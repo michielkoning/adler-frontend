@@ -22,7 +22,7 @@ defineProps<{
   </nuxt-link>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .contact-item {
   display: flex;
   margin-bottom: var(--spacing-xxs);

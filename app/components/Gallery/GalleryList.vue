@@ -72,7 +72,7 @@ const closeModal = () => {
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
 .list {
@@ -81,7 +81,7 @@ const closeModal = () => {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: 36vw 24vw;
   display: grid;
-  grid-gap: var(--gutter);
+  gap: var(--gutter);
 }
 
 .item {

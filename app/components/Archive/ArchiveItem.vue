@@ -37,7 +37,7 @@ defineProps<Archive>()
   </clickable-list-item>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .link {
@@ -46,7 +46,7 @@ defineProps<Archive>()
 
   .item {
     display: grid;
-    grid-gap: var(--spacing-s);
+    gap: var(--spacing-s);
     position: relative;
     grid-row: 1 / 2;
     padding: calc(var(--gutter) / 2);

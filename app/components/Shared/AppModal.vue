@@ -66,7 +66,7 @@ const afterClosing = () => {
   </dialog>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .dialog {
   margin-top: 3em;
   background: var(--color-white);

@@ -14,7 +14,8 @@ const settings = {
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
-    '@nuxt/eslint', // "@nuxtjs/stylelint-module",
+    '@nuxt/eslint',
+    '@nuxtjs/stylelint-module',
     '@nuxt/image',
     'nuxt-schema-org',
     '@nuxt/fonts',
@@ -148,9 +149,6 @@ export default defineNuxtConfig({
       },
     ],
   },
-  // stylelint: {
-  //   lintOnStart: false,
-  // },
   i18n: {
     strategy: 'prefix',
     experimental: {

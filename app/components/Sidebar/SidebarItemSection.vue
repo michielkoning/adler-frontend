@@ -14,7 +14,7 @@ defineProps<{
   </section>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .item {
   background: var(--color-background-alternative);
   padding: var(--spacing-m);

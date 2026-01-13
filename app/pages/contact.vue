@@ -41,12 +41,13 @@ if (error.value) {
   </the-page>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
   @import "~/assets/css/media-queries/media-queries.css";
 
   .wrapper {
     display: grid;
-    grid-gap: var(--gutter);
+    gap: var(--gutter);
+
     @media (--viewport-sm) {
       grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     }
