@@ -25,8 +25,8 @@ defineProps<{
 <style lang="css" scoped>
 .contact-item {
   display: flex;
-  margin-bottom: var(--spacing-xxs);
   gap: var(--spacing-s);
+  margin-bottom: var(--spacing-xxs);
 }
 
 .icon {

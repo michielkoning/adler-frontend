@@ -57,8 +57,8 @@ const url = localePath({
   display: flex;
   flex-direction: column;
   gap: var(--spacing-m);
-  background: var(--color-white);
   padding-bottom: var(--spacing-m);
+  background: var(--color-white);
 
   &:focus-within,
   &:hover {
@@ -85,9 +85,9 @@ const url = localePath({
 }
 
 .btn-wrapper {
-  margin-top: auto;
   display: flex;
   justify-content: center;
+  margin-top: auto;
 }
 
 .price-badge {

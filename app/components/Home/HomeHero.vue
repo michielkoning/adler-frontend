@@ -90,20 +90,20 @@ const { title, address } = useAppConfig()
   @import "~/assets/css/media-queries/media-queries.css";
 
   .hero {
-    height: 30rem;
     position: relative;
+    height: 30rem;
+    max-height: 60vw;
     color: var(--color-white);
     -webkit-text-stroke: 1px var(--color-gray-darker);
     -webkit-text-fill-color: var(--color-white);
-    max-height: 60vw;
   }
 
   .content {
     position: absolute;
     inset: 0 0 var(--spacing-l);
-    justify-content: flex-end;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
 
     @media (--viewport-sm) {
       top: 5em;
@@ -111,17 +111,17 @@ const { title, address } = useAppConfig()
   }
 
   .icon {
-    stroke: var(--color-gray-darker);
     width: 100%;
     max-width: 50rem;
     height: 11vw;
     max-height: 6em;
     fill: var(--color-white);
+    stroke: var(--color-gray-darker);
   }
 
   .subtitle {
-    transform: translateY(calc(var(--spacing-xxs) * -1));
     font-size: var(--font-size-xl);
+    transform: translateY(calc(var(--spacing-xxs) * -1));
 
     @media (--viewport-sm) {
       font-size: var(--font-size-xxl);

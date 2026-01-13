@@ -1,21 +1,21 @@
 @define-mixin btn {
   @mixin link-reset;
 
-  cursor: pointer;
-  text-align: center;
-  width: auto;
-  border-radius: 0.25em;
   display: inline-block;
+  width: auto;
   padding: var(--spacing-xxs) var(--spacing-m);
   font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-buttons);
-  transition: background-color var(--transition);
-  border: 2px solid transparent;
   font-size: var(--font-size-l);
+  font-weight: var(--font-weight-buttons);
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 0.25em;
+  transition: background-color var(--transition);
 
   &:disabled {
-    background: transparent;
     color: var(--color-white);
+    background: transparent;
     border: 2px dashed var(--color-white);
 
     &.active,
@@ -26,8 +26,8 @@
 }
 
 @define-mixin btn-small {
-  font-size: var(--font-size-m);
   padding: var(--spacing-xxs) var(--spacing-xs);
+  font-size: var(--font-size-m);
 }
 
 @define-mixin btn-large {
@@ -36,13 +36,13 @@
 }
 
 @define-mixin btn-full {
-  max-width: none;
   width: 100%;
+  max-width: none;
 }
 
 @define-mixin btn-primary {
-  background: var(--color-primary);
   color: var(--color-white);
+  background: var(--color-primary);
 }
 
 @define-mixin btn-primary-hover {
@@ -50,12 +50,12 @@
 }
 
 @define-mixin btn-ghost {
-  background: var(--color-white);
   color: var(--color-primary);
+  background: var(--color-white);
   border-color: var(--color-primary);
 }
 
 @define-mixin btn-ghost-hover {
-  background: var(--color-primary);
   color: var(--color-white);
+  background: var(--color-primary);
 }

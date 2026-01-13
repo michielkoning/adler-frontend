@@ -68,12 +68,12 @@ const afterClosing = () => {
 
 <style lang="css" scoped>
 .dialog {
-  margin-top: 3em;
-  background: var(--color-white);
   width: calc(100% - (var(--gutter) * 2));
   max-width: var(--container-width-md);
-  border: 0;
   padding: 0;
+  margin-top: 3em;
+  background: var(--color-white);
+  border: 0;
 
   &::backdrop {
     background-color: rgb(0 0 0 / 50%);
@@ -107,8 +107,8 @@ const afterClosing = () => {
 .header {
   display: flex;
   align-items: self-start;
-  border-bottom: 1px solid var(--color-gray);
   padding: var(--spacing-s) var(--gutter);
+  border-bottom: 1px solid var(--color-gray);
 }
 
 .close {
@@ -136,20 +136,20 @@ const afterClosing = () => {
 
 @keyframes show-dialog {
   from {
-    translate: 0 -0.5em;
     opacity: 0;
+    translate: 0 -0.5em;
   }
 
   to {
-    translate: 0 0;
     opacity: 1;
+    translate: 0 0;
   }
 }
 
 @keyframes hide-dialog {
   to {
-    translate: 0 -0.5em;
     opacity: 0;
+    translate: 0 -0.5em;
   }
 }
 

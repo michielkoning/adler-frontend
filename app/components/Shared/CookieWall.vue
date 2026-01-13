@@ -41,11 +41,11 @@ const localePath = useLocalePath()
 
 <style lang="css" scoped>
 .cookie-wall {
-  color: var(--color-white);
-  background: var(--color-gray-dark);
-  padding-block: var(--spacing-s);
   position: fixed;
   inset: auto 0 0;
+  padding-block: var(--spacing-s);
+  color: var(--color-white);
+  background: var(--color-gray-dark);
   border-top: 1px solid var(--color-white);
 }
 

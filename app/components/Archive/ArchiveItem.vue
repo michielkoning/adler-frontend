@@ -45,10 +45,10 @@ defineProps<Archive>()
   }
 
   .item {
-    display: grid;
-    gap: var(--spacing-s);
     position: relative;
+    display: grid;
     grid-row: 1 / 2;
+    gap: var(--spacing-s);
     padding: calc(var(--gutter) / 2);
     margin-bottom: var(--spacing-s);
 
@@ -60,10 +60,10 @@ defineProps<Archive>()
     &:hover {
       & .link {
         text-decoration: underline;
-        text-decoration-style: solid;
         text-decoration-thickness: 2px;
-        text-underline-offset: 3px;
+        text-decoration-style: solid;
         text-decoration-color: var(--color-primary);
+        text-underline-offset: 3px;
       }
     }
 
@@ -76,8 +76,8 @@ defineProps<Archive>()
     grid-row-start: 2;
 
     @media (--viewport-sm) {
-      grid-column-start: 2;
       grid-row-start: 1;
+      grid-column-start: 2;
     }
   }
 
@@ -86,9 +86,9 @@ defineProps<Archive>()
   }
 
   .price-badge {
+    position: absolute;
     top: calc(var(--spacing-xs) * -1);
     right: calc(var(--spacing-xxs) * -1);
-    position: absolute;
 
     @media (--viewport-sm) {
       top: 0;

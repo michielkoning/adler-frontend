@@ -40,8 +40,8 @@ defineProps<{
 }
 
 .icon {
-  margin-top: 0.1em;
   flex: 0 0 2em;
+  margin-top: 0.1em;
 }
 
 .list {

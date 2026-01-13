@@ -21,8 +21,8 @@
 .footer {
   @mixin block-padding;
 
-  background: var(--color-gray-dark);
   color: var(--color-white);
+  background: var(--color-gray-dark);
 }
 
 .wrapper {

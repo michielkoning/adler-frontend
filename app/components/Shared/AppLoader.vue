@@ -16,10 +16,10 @@
 
 <style scoped lang="postcss">
 .loader {
-  margin: 0 auto;
   position: relative;
   width: 64px;
   height: 64px;
+  margin: 0 auto;
 }
 
 .dot {
@@ -27,8 +27,8 @@
   top: 27px;
   width: 11px;
   height: 11px;
-  border-radius: 50%;
   background: var(--color-primary);
+  border-radius: 50%;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 

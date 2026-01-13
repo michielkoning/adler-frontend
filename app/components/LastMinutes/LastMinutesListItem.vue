@@ -132,11 +132,11 @@ const toggleModal = (state: boolean) => {
   .item {
     position: relative;
     display: grid;
-    gap: 1em;
     grid-template-rows: subgrid;
     grid-row: span 5;
-    background: var(--color-white);
+    gap: 1em;
     padding-bottom: var(--spacing-m);
+    background: var(--color-white);
 
     &:focus-within,
     &:hover {
@@ -172,8 +172,8 @@ const toggleModal = (state: boolean) => {
 
   dl {
     display: grid;
-    gap: 0.25em;
     grid-template-columns: 1.75em auto;
+    gap: 0.25em;
   }
 
   .prices-definitions {

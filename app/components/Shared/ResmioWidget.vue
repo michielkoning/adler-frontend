@@ -20,7 +20,7 @@ const { resmioWidget } = useAppConfig()
 
 <style lang="css" scoped>
 .resmio {
-  min-height: 24em;
   height: calc(100% - 3em);
+  min-height: 24em;
 }
 </style>

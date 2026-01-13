@@ -63,10 +63,10 @@ withDefaults(
 
   .page {
     display: grid;
-    align-items: start;
     gap: var(--gutter);
-    margin-bottom: var(--spacing-xl);
+    align-items: start;
     padding-top: var(--spacing-m);
+    margin-bottom: var(--spacing-xl);
 
     @media (--viewport-md) {
       padding-top: 0;

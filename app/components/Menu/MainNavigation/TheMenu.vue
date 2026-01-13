@@ -154,8 +154,8 @@ onBeforeUnmount(() => {
 
     @media (--show-full-navigation) {
       display: flex;
-      border-top: 0;
       justify-content: space-between;
+      border-top: 0;
     }
 
     @media (--navigation-lg) {
@@ -164,11 +164,11 @@ onBeforeUnmount(() => {
   }
 
   .arrow {
-    height: 3px;
-    background: var(--color-primary);
-    display: none;
     position: absolute;
     bottom: 0;
+    display: none;
+    height: 3px;
+    background: var(--color-primary);
     transition: all var(--transition);
 
     @media (--show-full-navigation) {

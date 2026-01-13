@@ -48,14 +48,14 @@ const localePath = useLocalePath()
   @import "~/assets/css/media-queries/media-queries.css";
 
   .meta-navigation {
-    padding-bottom: 8em;
     display: flex;
-    gap: 1em;
     flex-direction: column;
+    gap: 1em;
+    padding-bottom: 8em;
 
     @media (--show-full-navigation) {
-      gap: 1.5em;
       flex-direction: row;
+      gap: 1.5em;
       align-items: center;
       padding: var(--spacing-s) var(--spacing-m);
       background: var(--color-background-alternative);
@@ -67,8 +67,8 @@ const localePath = useLocalePath()
     flex-direction: column;
 
     @media (--navigation-md) {
-      gap: 1em;
       flex-direction: row;
+      gap: 1em;
     }
   }
 

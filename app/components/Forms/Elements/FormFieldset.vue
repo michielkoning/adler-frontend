@@ -17,20 +17,20 @@ defineProps<{
 
 <style lang="css" scoped>
 .fieldset {
-  border: 0;
+  min-width: 0;
   padding: 0;
   margin: 0 0 var(--spacing-m);
-  min-width: 0;
+  border: 0;
 }
 
 .fieldset + .fieldset {
-  border-top: 1px solid var(--color-gray);
   padding-top: var(--spacing-m);
+  border-top: 1px solid var(--color-gray);
 }
 
 .fields {
   display: grid;
-  gap: var(--gutter);
   grid-template-columns: repeat(var(--columns, 1), 1fr);
+  gap: var(--gutter);
 }
 </style>

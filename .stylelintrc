@@ -2,7 +2,8 @@
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-standard-vue",
-		"@stylistic/stylelint-config"
+		"@stylistic/stylelint-config",
+    "stylelint-config-recess-order"
   ],
   "rules": {
     "import-notation": null,
@@ -19,7 +20,6 @@
       }
     ],
     "nesting-selector-no-missing-scoping-root": null,
-    "property-no-deprecated": [true, { "ignoreProperties": ["clip"] }],
-
+    "property-no-deprecated": [true, { "ignoreProperties": ["clip"] }]
   }
 }

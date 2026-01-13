@@ -168,12 +168,12 @@ const controlId = `menu-${props.id}`
 }
 
 .btn-show-submenu {
-  display: block;
   position: absolute;
+  top: 0.75em;
+  right: calc(var(--spacing-xs) * -1);
+  display: block;
   width: var(--spacing-l);
   height: var(--spacing-l);
-  right: calc(var(--spacing-xs) * -1);
-  top: 0.75em;
 
   @media (--navigation-md) {
     position: relative;
@@ -197,9 +197,9 @@ const controlId = `menu-${props.id}`
 .menu-link {
   @mixin link-reset;
 
-  transition: border var(--animation);
   display: block;
   padding-block: var(--spacing-xs);
+  transition: border var(--animation);
 }
 
 .submenu-link {
@@ -213,15 +213,15 @@ const controlId = `menu-${props.id}`
   border-bottom: 2px solid var(--color-black);
 
   @media (--navigation-md) {
-    border-bottom: 0;
-    padding-left: 0;
-    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-    background: var(--color-background);
     position: absolute;
-    left: calc(-1 * var(--spacing-xs));
     top: 100%;
-    white-space: nowrap;
+    left: calc(-1 * var(--spacing-xs));
     z-index: var(--z-main-navigation);
+    padding-left: 0;
+    white-space: nowrap;
+    background: var(--color-background);
+    border-bottom: 0;
+    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
   }
 }
 </style>

@@ -39,9 +39,9 @@ if (error.value) {
 .list {
   @mixin list-reset;
 
-  margin-bottom: var(--spacing-m);
   display: grid;
-  gap: var(--spacing-l);
   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  gap: var(--spacing-l);
+  margin-bottom: var(--spacing-m);
 }
 </style>

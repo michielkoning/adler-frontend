@@ -4,11 +4,9 @@ const props = withDefaults(
     title: string
     name: string
     type?: 'text' | 'email' | 'tel' | 'date' | 'number'
-    class?: string
   }>(),
   {
     type: 'text',
-    class: '',
   },
 )
 
@@ -21,7 +19,7 @@ const { name } = toRefs(props)
 
 // we don't provide any rules here because we are using form-level validation
 // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-const { value: inputValue, handleBlur, handleChange, errorMessage } = useField(name, undefined, {
+const { value: inputValue, handleBlur, handleChange, errorMessage } = useField<string>(name, undefined, {
   validateOnValueUpdate: false,
 })
 
@@ -37,7 +35,6 @@ const validationListeners = {
     :id="id"
     :title="title"
     :name="name"
-    :class="class"
     :error-message="errorMessage"
   >
     <input

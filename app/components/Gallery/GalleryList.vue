@@ -78,9 +78,9 @@ const closeModal = () => {
 .list {
   @mixin list-reset;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: 36vw 24vw;
   display: grid;
+  grid-template-rows: 36vw 24vw;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--gutter);
 }
 
@@ -103,8 +103,8 @@ const closeModal = () => {
 
 @media (--viewport-sm) {
   .list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: 36vw 12vw;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .item-0 {
@@ -127,8 +127,8 @@ const closeModal = () => {
   }
 
   .item-0 {
-    grid-column: span 2;
     grid-row: span 3;
+    grid-column: span 2;
   }
 
   .item-3 {
@@ -138,18 +138,18 @@ const closeModal = () => {
 
 @media (--viewport-xlg) {
   .list {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: repeat(4, 9em);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .item-0 {
-    grid-column: span 4;
     grid-row: span 4;
+    grid-column: span 4;
   }
 
   .item-1 {
-    grid-column: span 2;
     grid-row: span 2;
+    grid-column: span 2;
   }
 
   .item-3,
@@ -161,11 +161,11 @@ const closeModal = () => {
 .btn {
   @mixin btn;
 
-  background: var(--color-gray);
-  border-radius: 0;
-  color: var(--color-white);
   width: 100%;
   height: 100%;
+  color: var(--color-white);
+  background: var(--color-gray);
+  border-radius: 0;
 
   &:hover,
   &:focus {

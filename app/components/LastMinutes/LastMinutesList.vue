@@ -22,9 +22,9 @@ defineProps<{
 .list {
   @mixin list-reset;
 
-  margin-bottom: var(--spacing-m);
   display: grid;
   gap: var(--spacing-l);
+  margin-bottom: var(--spacing-m);
 
   @media (--viewport-md) {
     grid-template-columns: repeat(3, 1fr);

@@ -33,19 +33,19 @@ export default {
 
 <style lang="css" scoped>
 .badge {
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-headings);
-  background-color: var(--color-gray-darker);
-  border-radius: 50%;
-  color: var(--color-white);
-  line-height: var(--line-height-headings);
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 6rem;
   height: 6rem;
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
+  line-height: var(--line-height-headings);
+  color: var(--color-white);
+  text-align: center;
+  background-color: var(--color-gray-darker);
+  border-radius: 50%;
 }
 
 .value {

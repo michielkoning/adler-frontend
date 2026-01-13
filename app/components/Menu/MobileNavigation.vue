@@ -42,12 +42,12 @@ const menuIsOpen = useMenuIsOpen()
   @import "~/assets/css/media-queries/media-queries.css";
 
   .wrapper {
-    color: var(--color-white);
     position: fixed;
-    padding-block: var(--spacing-s);
     inset: 0 0 auto;
-    background: var(--color-primary);
     z-index: var(--z-mobile-navigation);
+    padding-block: var(--spacing-s);
+    color: var(--color-white);
+    background: var(--color-primary);
     border-bottom: 1px solid var(--color-white);
 
     @media (--navigation-md) {
@@ -57,8 +57,8 @@ const menuIsOpen = useMenuIsOpen()
 
   .buttons {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
   .logo-wrapper {
@@ -73,16 +73,16 @@ const menuIsOpen = useMenuIsOpen()
   .btn {
     @mixin btn;
 
-    gap: var(--spacing-s);
-    color: currentcolor;
-    font-size: var(--font-size-xs);
-    border-color: var(--color-white);
     display: flex;
+    gap: var(--spacing-s);
     align-items: center;
+    font-size: var(--font-size-xs);
+    color: currentcolor;
+    border-color: var(--color-white);
 
     &[aria-expanded="true"] {
-      background: var(--color-white);
       color: var(--color-primary);
+      background: var(--color-white);
     }
   }
 

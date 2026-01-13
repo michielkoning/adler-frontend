@@ -43,8 +43,8 @@ if (error.value) {
 }
 
 .value {
-  margin: 0;
   display: flex;
   gap: 1ch;
+  margin: 0;
 }
 </style>

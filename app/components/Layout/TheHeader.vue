@@ -68,51 +68,51 @@ const lockBodyScoll = (isOpen: boolean) => {
   @import "~/assets/css/media-queries/media-queries.css";
 
   .header {
-    background: var(--color-primary);
     margin-bottom: var(--menu-height);
+    background: var(--color-primary);
 
     @media (--navigation-md) {
-      background: transparent;
       margin: 0;
+      background: transparent;
     }
   }
 
   .background {
     position: fixed;
     inset: 0;
-    overflow: hidden;
     z-index: var(--z-main-navigation);
     padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
+    overflow: hidden;
     background: var(--color-background);
 
     @media (--navigation-md) {
-      height: auto;
       position: static;
+      display: block !important;
+      height: auto;
       padding: 0;
       overflow: visible;
-      display: block !important;
     }
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
     padding: 5em var(--gutter) var(--gutter);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
 
     @media (--navigation-md) {
+      display: grid !important;
+      flex: 0 0 auto;
+      grid-template-columns: auto 1fr;
+      column-gap: var(--gutter);
+      align-items: end;
+      width: 100%;
+      max-height: none;
       padding: 0;
       overflow: visible;
       transform: none;
-      display: grid !important;
-      grid-template-columns: auto 1fr;
-      column-gap: var(--gutter);
-      max-height: none;
-      align-items: end;
-      flex: 0 0 auto;
-      width: 100%;
     }
   }
 
@@ -123,21 +123,21 @@ const lockBodyScoll = (isOpen: boolean) => {
 
     @media (--navigation-md) {
       display: block;
-      margin-top: var(--spacing-xs);
       width: 5em;
+      margin-top: var(--spacing-xs);
     }
 
     @media (--navigation-lg) {
       grid-row: span 2;
-      margin-bottom: var(--spacing-s);
       width: 7em;
+      margin-bottom: var(--spacing-s);
     }
   }
 
   .logo {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
   }
 
   .meta-navigation {
@@ -149,8 +149,8 @@ const lockBodyScoll = (isOpen: boolean) => {
 
     @media (--navigation-md) {
       grid-column: span 2;
-      order: 1;
       align-self: end;
+      order: 1;
     }
 
     @media (--navigation-lg) {
@@ -178,8 +178,8 @@ const lockBodyScoll = (isOpen: boolean) => {
     translate: 0 -100vh;
 
     .content {
-      translate: 0 -2em;
       opacity: 0;
+      translate: 0 -2em;
     }
   }
 </style>

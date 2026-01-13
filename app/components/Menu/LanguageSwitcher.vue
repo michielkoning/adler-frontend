@@ -41,8 +41,8 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
 
   .wrapper {
     display: flex;
-    gap: 0.25em;
     flex-direction: column;
+    gap: 0.25em;
 
     @media (--navigation-md) {
       flex-direction: row;
@@ -53,10 +53,10 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
   .link {
     @mixin link-reset;
 
-    margin-bottom: var(--spacing-xxs);
     display: flex;
     gap: var(--spacing-xs);
     align-items: center;
+    margin-bottom: var(--spacing-xxs);
   }
 
   .title {

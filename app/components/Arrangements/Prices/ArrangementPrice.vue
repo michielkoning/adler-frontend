@@ -36,8 +36,8 @@ const label = computed(() => {
 
 <style lang="css" scoped>
 .price {
+  width: 5em;
   font-weight: var(--font-weight-bold);
   text-align: right;
-  width: 5em;
 }
 </style>

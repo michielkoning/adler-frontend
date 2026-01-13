@@ -29,8 +29,8 @@ defineProps<Archive>()
   @mixin link-reset;
 
   font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-headings);
   font-size: var(--font-size-l);
+  font-weight: var(--font-weight-headings);
 }
 
 .list-item {
@@ -42,10 +42,10 @@ defineProps<Archive>()
   &:focus-within .link,
   &:hover .link {
     text-decoration: underline;
-    text-decoration-style: solid;
     text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
+    text-decoration-style: solid;
     text-decoration-color: var(--color-primary);
+    text-underline-offset: 3px;
   }
 }
 

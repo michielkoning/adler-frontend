@@ -1,8 +1,8 @@
 table {
   width: 100%;
   margin: 0 0 var(--spacing-m);
-  border-collapse: collapse;
   margin-bottom: 1rem;
+  border-collapse: collapse;
 }
 
 th {

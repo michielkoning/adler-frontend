@@ -50,8 +50,8 @@ useSeo(data.value?.seo)
   .wrapper {
     @mixin block-padding;
 
-    gap: var(--spacing-l);
     display: grid;
+    gap: var(--spacing-l);
 
     @media (--viewport-lg) {
       grid-template-columns: 2fr 1fr;
@@ -59,15 +59,15 @@ useSeo(data.value?.seo)
   }
 
   .highlights {
-    gap: var(--spacing-l);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+    gap: var(--spacing-l);
   }
 
   .sidebar {
     display: grid;
-    gap: var(--spacing-l);
     grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+    gap: var(--spacing-l);
 
     @media (--viewport-lg) {
       display: flex;

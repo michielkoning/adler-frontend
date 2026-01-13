@@ -123,29 +123,29 @@ onUnmounted(() => {
   @mixin list-reset;
 
   display: flex;
-  overflow: hidden;
-  max-height: 40em;
   height: 60vw;
+  max-height: 40em;
+  overflow: hidden;
 
   &.active {
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
 .item {
-  scroll-snap-align: start;
   flex: 0 0 100%;
   width: 100%;
+  scroll-snap-align: start;
 }
 
 .btn {
-  touch-action: manipulation;
   position: absolute;
   top: 50%;
   margin-top: calc(var(--spacing-l) * -1);
+  touch-action: manipulation;
 }
 
 .btn-previous {

@@ -21,14 +21,14 @@ defineProps<{
 
 <style lang="css" scoped>
 .price {
-  background: var(--color-gray);
-  border-radius: 0.25em;
-  color: var(--color-white);
-  text-align: center;
-  padding: var(--spacing-s) var(--spacing-xs);
   display: flex;
   flex-direction: column;
+  padding: var(--spacing-s) var(--spacing-xs);
   margin-bottom: var(--spacing-xs);
+  color: var(--color-white);
+  text-align: center;
+  background: var(--color-gray);
+  border-radius: 0.25em;
 }
 
 .label {

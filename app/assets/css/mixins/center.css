@@ -1,5 +1,5 @@
 @define-mixin center {
-  padding-left: var(--gutter);
   padding-right: var(--gutter);
+  padding-left: var(--gutter);
   margin: 0 auto;
 }

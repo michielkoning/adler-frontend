@@ -1,8 +1,8 @@
 .center {
   max-width: 74rem;
-  margin: 0 auto;
-  padding-left: var(--gutter);
   padding-right: var(--gutter);
+  padding-left: var(--gutter);
+  margin: 0 auto;
 }
 
 .center-md {
