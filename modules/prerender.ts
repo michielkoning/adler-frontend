@@ -57,7 +57,7 @@ export default defineNuxtModule({
         while (hasNextPage) {
           const apiUrl = `${baseUrl}wp/v2/${type}/?_fields[]=link&per_page=${PAGESIZE}&page=${[
             page,
-          ]}&status=publish`
+          ]}&status=publish&exclude=22,3098,3100`
           const response = await ofetch
             .raw(apiUrl)
             .catch(error => error.data)
@@ -72,7 +72,8 @@ export default defineNuxtModule({
               link = link.replace('/nl/arrangements/', '/nl/arrangementen/')
             }
             return link
-          })
+          }) as string[]
+
           addPrerenderRoutes(urls)
           if (page >= totalPages) {
             hasNextPage = false

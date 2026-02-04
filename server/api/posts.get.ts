@@ -24,7 +24,7 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: 'Invalid arguments',
+      statusText: 'Invalid arguments',
       data: query.error.format(),
     })
   }

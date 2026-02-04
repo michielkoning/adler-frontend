@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: 'Invalid arguments',
+      statusText: 'Invalid arguments',
       data: query.error.format(),
     })
   }

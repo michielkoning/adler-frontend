@@ -17,7 +17,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: 'Invalid arguments',
+      statusText: 'Invalid arguments',
       data: query.error.format(),
     })
   }
@@ -44,7 +44,7 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   if (!parsed) {
     throw createError({
-      statusMessage: 'Page not found',
+      statusText: 'Page not found',
     })
   }
 

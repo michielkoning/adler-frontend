@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
 
   if (!query.success) {
     throw createError({
-      statusMessage: 'Invalid arguments',
+      statusText: 'Invalid arguments',
       data: query.error.format(),
     })
   }
@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
 
   if (!parsed.length) {
     throw createError({
-      statusMessage: 'Room not found',
+      statusText: 'Room not found',
     })
   }
 
