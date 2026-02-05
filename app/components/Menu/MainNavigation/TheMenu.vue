@@ -154,6 +154,7 @@ onBeforeUnmount(() => {
 
     @media (--show-full-navigation) {
       display: flex;
+      gap: var(--spacing-s);
       justify-content: space-between;
       border-top: 0;
     }

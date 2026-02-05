@@ -16,9 +16,10 @@ const props = withDefaults(
 )
 
 const { clear, openMenus, add, remove } = useLayout()
+
+const route = useRoute()
 const menuIsOpen = useMenuIsOpen()
 let timer = null as number | null
-const linkRef = ref<ComponentPublicInstance<HTMLAnchorElement> | null>(null)
 
 const isOpen = computed(() => openMenus.value.includes(props.title))
 
@@ -33,21 +34,29 @@ const toggleMenu = () => {
 
 const setActiveSubmenu = () => {
   if (!isSmallScreen()) return
-  if (!linkRef.value) return
-  if (!linkRef.value.$el.classList.contains('nuxt-link-active')) {
+  if (route.fullPath === props.link) {
+    add(props.title)
     return
   }
-  add(props.title)
+  const selectedChild = props.children.find(child => child.link === route.fullPath)
+
+  if (selectedChild) {
+    add(props.title)
+    return
+  }
 }
 
 watch(menuIsOpen, () => {
   if (menuIsOpen.value) {
     setActiveSubmenu()
   }
+  else {
+    clear()
+  }
 })
 
 const hasChildren = computed(() => {
-  return props.children?.length ? true : false
+  return props.children.length > 0
 })
 
 const mouseover = () => {
@@ -73,25 +82,26 @@ const controlId = `menu-${props.id}`
 
 <template>
   <li
-    class="menu-item"
+
     @mouseover="mouseover"
     @mouseout="mouseout"
   >
-    <nuxt-link
-      ref="linkRef"
-      :to="link"
-      :aria-haspopup="children.length > 0"
-      class="menu-link"
-      @click="clear"
-    >
-      <span
-        class="title"
-        v-html="title"
-      />
-    </nuxt-link>
-    <template v-if="children.length">
+    <div class="menu-item">
+      <nuxt-link
+        :to="link"
+        :aria-haspopup="hasChildren"
+        class="menu-link"
+      >
+        <span
+          class="title"
+          v-html="title"
+        />
+
+      </nuxt-link>
       <button
+        v-if="hasChildren"
         :aria-expanded="isOpen"
+        type="button"
         :aria-controls="controlId"
         class="btn-show-submenu"
         @click="toggleMenu"
@@ -109,10 +119,11 @@ const controlId = `menu-${props.id}`
           }}
         </span>
       </button>
-
+    </div>
+    <template v-if="hasChildren">
       <slide-in-animation>
         <ul
-          v-if="isOpen"
+          v-show="isOpen"
           :id="controlId"
           class="submenu"
         >
@@ -138,19 +149,20 @@ const controlId = `menu-${props.id}`
 <style lang="css" scoped>
 @import "~/assets/css/media-queries/media-queries.css";
 
-.menu-item {
+li {
   position: relative;
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
+}
 
-  @media (--navigation-md) {
-    display: flex;
-    gap: var(--spacing-xs);
-    align-items: center;
-  }
+.menu-item {
+  display: flex;
+  gap: var(--spacing-xxs);
+  align-items: center;
 }
 
 .menu-link {
+  flex: 1 0 auto;
   font-size: var(--font-size-xl);
   border-bottom: 2px solid var(--color-black);
 
@@ -164,16 +176,17 @@ const controlId = `menu-${props.id}`
 }
 
 .icon {
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  aspect-ratio: 1;
   transition: transform var(--transition);
 }
 
 .btn-show-submenu {
   position: absolute;
-  top: 0.75em;
+  top: 0.5em;
   right: calc(var(--spacing-xs) * -1);
   display: block;
-  width: var(--spacing-l);
-  height: var(--spacing-l);
 
   @media (--navigation-md) {
     position: relative;
@@ -198,11 +211,12 @@ const controlId = `menu-${props.id}`
   @mixin link-reset;
 
   display: block;
-  padding-block: var(--spacing-xs);
+  padding-block: var(--spacing-xxs);
   transition: border var(--animation);
 }
 
 .submenu-link {
+  padding-inline: var(--spacing-s);
   font-size: var(--font-size-l);
 }
 
@@ -223,5 +237,12 @@ const controlId = `menu-${props.id}`
     border-bottom: 0;
     filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
   }
+}
+
+a:hover,
+li:has(.router-link-active) .menu-link,
+li:has(a:hover) .menu-link,
+.router-link-active {
+  color: var(--color-primary);
 }
 </style>

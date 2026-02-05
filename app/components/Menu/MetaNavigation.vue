@@ -65,10 +65,8 @@ const localePath = useLocalePath()
   }
 
   .contact {
-    display: flex;
-    flex-direction: column;
-
     @media (--navigation-md) {
+      display: flex;
       flex-direction: row;
       gap: 1em;
     }

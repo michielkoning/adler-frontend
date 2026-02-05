@@ -72,11 +72,11 @@ const menuIsOpen = useMenuIsOpen()
 
   .btn {
     @mixin btn;
+    @mixin btn-small;
 
     display: flex;
     gap: var(--spacing-s);
     align-items: center;
-    font-size: var(--font-size-xs);
     color: currentcolor;
     border-color: var(--color-white);
 
@@ -87,6 +87,6 @@ const menuIsOpen = useMenuIsOpen()
   }
 
   .bars {
-    width: 1.5em;
+    width: 1em;
   }
 </style>

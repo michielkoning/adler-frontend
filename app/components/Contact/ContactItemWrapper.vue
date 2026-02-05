@@ -30,7 +30,7 @@ defineProps<{
 }
 
 .icon {
-  flex: 0 0 1em;
+  flex: 0 0 1.25em;
   translate: 0 0.1em;
 }
 </style>

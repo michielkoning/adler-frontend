@@ -141,7 +141,9 @@ const lockBodyScoll = (isOpen: boolean) => {
   }
 
   .meta-navigation {
-    place-self: start end;
+    @media (--show-full-navigation) {
+      place-self: start end;
+    }
   }
 
   .main-navigation {
