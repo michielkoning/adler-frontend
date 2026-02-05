@@ -7,6 +7,7 @@
   font-family: var(--font-family-headings);
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-buttons);
+  line-height: var(--line-height-headings);
   text-align: center;
   cursor: pointer;
   border: 2px solid transparent;

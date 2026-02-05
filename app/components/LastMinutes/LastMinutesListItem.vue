@@ -186,6 +186,7 @@ const toggleModal = (state: boolean) => {
 
   .icon {
     width: 1.25em;
+    aspect-ratio: 1;
     translate: 0 0.1em;
   }
 

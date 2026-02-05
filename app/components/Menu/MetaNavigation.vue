@@ -23,7 +23,9 @@ const localePath = useLocalePath()
     <div class="buttons">
       <app-button
         :title="$t('pages.lastMinutes')"
-        :link="localePath('last-minutes')"
+        :to="{
+          name: 'last-minutes',
+        }"
         size="small"
         variant="ghost"
       />
