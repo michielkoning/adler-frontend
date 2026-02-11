@@ -3,12 +3,27 @@ const props = defineProps<{
   exclude: number
 }>()
 
+const localePath = useLocalePath()
+
 const { locale } = useI18n()
 
 const { data, error } = await useFetch('/api/posts', {
   query: {
     locale,
     exclude: props.exclude,
+  },
+  transform: (response) => {
+    return response.map((item) => {
+      return {
+        ...item,
+        link: localePath({
+          name: 'posts-details',
+          params: {
+            slug: item.link,
+          },
+        }),
+      }
+    })
   },
 })
 

@@ -5,10 +5,25 @@ const props = defineProps<{
 
 const { locale } = useI18n()
 
+const localePath = useLocalePath()
+
 const { data, error } = await useFetch('/api/rooms', {
   query: {
     locale,
     exclude: props.exclude,
+  },
+  transform: (response) => {
+    return response.map((item) => {
+      return {
+        ...item,
+        link: localePath({
+          name: 'rooms-details',
+          params: {
+            slug: item.link,
+          },
+        }),
+      }
+    })
   },
 })
 

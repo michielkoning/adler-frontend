@@ -1,8 +1,6 @@
 <script lang="ts" setup>
-import LastMinutesList from './LastMinutesList.vue'
 
 const { locale } = useI18n()
-
 const { data } = await useFetch('/api/lastMinutes', {
  query: {
     locale,

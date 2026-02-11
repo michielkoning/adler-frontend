@@ -6,11 +6,21 @@ const props = defineProps<{
 
 const { locale } = useI18n()
 
+const localePath = useLocalePath()
+
 const { data, error } = await useFetch('/api/pages', {
   query: {
     exclude: props.exclude,
     parentId: props.parentId,
     locale,
+  },
+  transform: (response) => {
+    return response.map((item) => {
+      return {
+        ...item,
+        link: localePath(item.link),
+      }
+    })
   },
 })
 
