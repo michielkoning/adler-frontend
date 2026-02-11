@@ -1,7 +1,3 @@
-<script lang="ts" setup>
-const localePath = useLocalePath()
-</script>
-
 <template>
   <nav
     :aria-label="$t('metaNavigationTitle')"
@@ -68,7 +64,7 @@ const localePath = useLocalePath()
     @media (--navigation-md) {
       display: flex;
       flex-direction: row;
-      gap: 1em;
+      gap: 1.5em;
     }
   }
 

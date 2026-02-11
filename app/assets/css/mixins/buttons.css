@@ -27,7 +27,7 @@
 }
 
 @define-mixin btn-small {
-  padding: var(--spacing-xs) var(--spacing-xs);
+  padding: var(--spacing-xxs) var(--spacing-xs);
   font-size: var(--font-size-m);
 }
 

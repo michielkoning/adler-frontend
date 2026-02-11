@@ -6,7 +6,7 @@ const props = defineProps<{
 const { locale } = useI18n()
 
 const { data, error } = await useFetch('/api/rooms', {
-  params: {
+  query: {
     locale,
     exclude: props.exclude,
   },

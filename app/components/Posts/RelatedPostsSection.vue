@@ -6,7 +6,7 @@ const props = defineProps<{
 const { locale } = useI18n()
 
 const { data, error } = await useFetch('/api/posts', {
-  params: {
+  query: {
     locale,
     exclude: props.exclude,
   },
@@ -21,6 +21,6 @@ if (error.value) {
   <related-list-section
     v-if="data"
     :items="data"
-    :title="$t('relatedRooms')"
+    :title="$t('relatedPosts')"
   />
 </template>

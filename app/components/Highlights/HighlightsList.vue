@@ -11,7 +11,7 @@ const props = withDefaults(
 )
 
 const { data, error } = await useFetch('/api/arrangements', {
-  params: {
+  query: {
     pageSize: props.pageSize,
     locale,
   },

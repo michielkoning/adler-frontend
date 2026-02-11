@@ -3,7 +3,7 @@ const localePath = useLocalePath()
 const { locale } = useI18n()
 
 const { data, error } = await useFetch('/api/posts', {
-  params: {
+  query: {
     locale,
   },
   transform: (response) => {

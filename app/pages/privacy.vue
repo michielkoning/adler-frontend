@@ -12,7 +12,7 @@ definePageMeta({
 const { pageIds } = useAppConfig()
 
 const { data, error } = await useFetch('/api/pageById', {
-  params: {
+  query: {
     id: getPageId(pageIds.privacyPageId),
   },
 })

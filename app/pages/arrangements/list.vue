@@ -13,7 +13,7 @@ const { pageIds } = useAppConfig()
 const { locale } = useI18n()
 
 const { data, error } = await useFetch('/api/pageById', {
-  params: {
+  query: {
     id: getPageId(pageIds.arrangementsPageId),
     locale,
   },

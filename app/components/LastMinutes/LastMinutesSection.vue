@@ -4,7 +4,7 @@ import LastMinutesList from './LastMinutesList.vue'
 const { locale } = useI18n()
 
 const { data } = await useFetch('/api/lastMinutes', {
-  params: {
+ query: {
     locale,
   },
   // server: false,

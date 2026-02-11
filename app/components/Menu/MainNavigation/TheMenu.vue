@@ -6,8 +6,8 @@ const menu: Ref<HTMLAnchorElement | null> = ref(null)
 const arrowPosition: Ref<string | undefined> = ref(undefined)
 const arrowWidth = ref(`0`)
 
-const { data } = await useFetch('/api/menu', {
-  params: {
+const { data } = useFetch('/api/menu', {
+  query: {
     locale,
   },
 })
@@ -89,6 +89,7 @@ onBeforeUnmount(() => {
     aria-labelledby="menu"
     class="nav"
   >
+  
     <h2
       id="menu"
       class="sr-only"

@@ -13,7 +13,7 @@ const route = useRoute()
 const setI18nParams = useSetI18nParams()
 
 const { data, error } = await useFetch('/api/post', {
-  params: {
+  query: {
     slug: route.params.slug,
   },
 })

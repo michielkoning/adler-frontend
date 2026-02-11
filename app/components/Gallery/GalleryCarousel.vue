@@ -129,8 +129,8 @@ onUnmounted(() => {
 
   &.active {
     overflow-x: scroll;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 }
