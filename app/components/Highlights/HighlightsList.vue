@@ -10,7 +10,7 @@ const props = withDefaults(
   },
 )
 
-const { data, error } = await useFetch('/api/arrangements', {
+const { data, error } = useFetch('/api/arrangements', {
   query: {
     pageSize: props.pageSize,
     locale,

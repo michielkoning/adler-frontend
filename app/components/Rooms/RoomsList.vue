@@ -2,7 +2,7 @@
 const { locale } = useI18n()
 const localePath = useLocalePath()
 
-const { data, error } = await useFetch('/api/rooms', {
+const { data, error } = useFetch('/api/rooms', {
   query: {
     locale,
   },

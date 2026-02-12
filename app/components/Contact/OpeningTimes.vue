@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data, error } = await useFetch('/api/openingHours')
+const { data, error } = useFetch('/api/openingHours')
 
 if (error.value) {
   throw createError(error.value)

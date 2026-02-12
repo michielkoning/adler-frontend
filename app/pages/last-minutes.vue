@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { LastMinutesSection } from '#components'
-
 definePageMeta({
   i18n: {
     paths: {
@@ -13,7 +11,7 @@ definePageMeta({
 
 const { pageIds } = useAppConfig()
 
-const { error } = await useFetch('/api/pageById', {
+const { error } = useFetch('/api/pageById', {
   query: {
     id: getPageId(pageIds.lastMinutePageId),
   },
@@ -25,5 +23,6 @@ if (error.value) {
 </script>
 
 <template>
-  <last-minutes-section />
+  <div />
+  <!-- <last-minutes-section /> -->
 </template>

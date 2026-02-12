@@ -13,7 +13,7 @@ const route = useRoute()
 const { locale } = useI18n()
 const setI18nParams = useSetI18nParams()
 
-const { data, error } = await useFetch('/api/room', {
+const { data, error } = useFetch('/api/room', {
   query: {
     slug: route.params.slug,
     locale,

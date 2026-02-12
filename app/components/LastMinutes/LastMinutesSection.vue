@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 const { locale } = useI18n()
-const { data } = await useFetch('/api/lastMinutes', {
+const { data } = useFetch('/api/lastMinutes', {
  query: {
     locale,
   },

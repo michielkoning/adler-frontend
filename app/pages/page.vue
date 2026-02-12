@@ -23,7 +23,7 @@ const slug = computed(() => {
   }
 })
 
-const { data, error } = await useFetch('/api/page', {
+const { data, error } = useFetch('/api/page', {
   query: {
     slug,
   },
