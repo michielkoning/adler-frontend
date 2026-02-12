@@ -190,7 +190,7 @@ export default defineNuxtConfig({
   },
   image: {
     densities: [1, 2],
-    provider: 'netlify',
+    provider: 'netlifyImageCdn',
     domains: ['api.adler-lingenau.com'],
   },
   pwa: {
