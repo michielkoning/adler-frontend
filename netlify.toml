@@ -2,6 +2,10 @@
   command = "pnpm run generate"
   publish = "dist"
 
+
+[images]
+  remote_images = ["https://api.adler-lingenau.com/.*"]
+
 [[headers]]
   for = "/images/*"
   [headers.values]
@@ -32,6 +36,7 @@
   for = "/*.xml"
   [headers.values]
     Content-Type = "text/xml"
+
 
 [[headers]]
   for = "/*"
