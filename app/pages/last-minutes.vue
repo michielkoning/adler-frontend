@@ -23,5 +23,6 @@ if (error.value) {
 </script>
 
 <template>
-  <last-minutes-section />
+  <div />
+  <!-- <last-minutes-section /> -->
 </template>
