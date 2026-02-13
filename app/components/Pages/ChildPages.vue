@@ -5,7 +5,7 @@ const props = defineProps<{
 
 const { locale } = useI18n()
 
-const { data, error } = useFetch('/api/pages', {
+const { data, error } = await useFetch('/api/pages', {
   query: {
     parentId: props.id,
     locale,

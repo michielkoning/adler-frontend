@@ -6,7 +6,7 @@ const menu: Ref<HTMLAnchorElement | null> = ref(null)
 const arrowPosition: Ref<string | undefined> = ref(undefined)
 const arrowWidth = ref(`0`)
 
-const { data } = useFetch('/api/menu', {
+const { data } = await useFetch('/api/menu', {
   query: {
     locale,
   },

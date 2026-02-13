@@ -12,7 +12,7 @@ definePageMeta({
 const route = useRoute()
 const setI18nParams = useSetI18nParams()
 
-const { data, error } = useFetch('/api/post', {
+const { data, error } = await useFetch('/api/post', {
   query: {
     slug: route.params.slug,
   },

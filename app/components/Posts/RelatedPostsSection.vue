@@ -7,7 +7,7 @@ const localePath = useLocalePath()
 
 const { locale } = useI18n()
 
-const { data, error } = useFetch('/api/posts', {
+const { data, error } = await useFetch('/api/posts', {
   query: {
     locale,
     exclude: props.exclude,

@@ -16,7 +16,7 @@ const { values, handleSubmit } = useForm({
 
 const url = useRequestURL()
 
-const { execute, status } = useFetch('/api/form', {
+const { execute, status } = await useFetch('/api/form', {
   method: 'POST',
   watch: false,
   immediate: false,

@@ -105,6 +105,15 @@ export default defineNuxtConfig({
       },
     },
   },
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        trailingSlash: 'append',
+      },
+    },
+    payloadExtraction: true,
+    sharedPrerenderData: true,
+  },
   compatibilityDate: '2025-08-03',
 
   nitro: {
@@ -190,7 +199,6 @@ export default defineNuxtConfig({
   },
   image: {
     densities: [1, 2],
-    provider: 'netlifyImageCdn',
     domains: ['api.adler-lingenau.com'],
   },
   pwa: {

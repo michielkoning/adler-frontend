@@ -11,7 +11,7 @@ definePageMeta({
 
 const { pageIds } = useAppConfig()
 
-const { data, error } = useFetch('/api/pageById', {
+const { data, error } = await useFetch('/api/pageById', {
   query: {
     id: getPageId(pageIds.homePageId),
   },

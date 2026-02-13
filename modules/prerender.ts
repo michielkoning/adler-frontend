@@ -37,6 +37,7 @@ const defaultRoutes = [
 export default defineNuxtModule({
   hooks: {
     'build:before': async () => {
+      return false
       if (process.env.NODE_ENV === 'development') {
         return
       }
@@ -82,9 +83,9 @@ export default defineNuxtModule({
           pauseFetching()
         }
       }
-      await fetchPagesByType('posts')
-      await fetchPagesByType('arrangement')
-      await fetchPagesByType('room')
+      // await fetchPagesByType('posts')
+      // await fetchPagesByType('arrangement')
+      // await fetchPagesByType('room')
       await fetchPagesByType('pages')
     },
 

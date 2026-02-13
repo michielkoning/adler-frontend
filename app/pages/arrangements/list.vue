@@ -12,7 +12,7 @@ definePageMeta({
 const { pageIds } = useAppConfig()
 const { locale } = useI18n()
 
-const { data, error } = useFetch('/api/pageById', {
+const { data, error } = await useFetch('/api/pageById', {
   query: {
     id: getPageId(pageIds.arrangementsPageId),
     locale,
