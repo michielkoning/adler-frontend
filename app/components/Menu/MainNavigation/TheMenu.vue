@@ -11,76 +11,6 @@ const { data } = await useFetch('/api/menu', {
     locale,
   },
 })
-
-let observer: ResizeObserver | undefined
-
-const router = useRouter()
-router.afterEach(() => {
-  nextTick(() => {
-    setArrowPosition()
-  })
-})
-
-const updateArrowAfterResize = () => {
-  setArrowPosition()
-}
-
-const getMainLink = () => {
-  if (!menu.value) {
-    return null
-  }
-
-  const activeLink: HTMLAnchorElement | null = menu.value.querySelector(
-    '.router-link-active',
-  )
-  if (!activeLink) {
-    return null
-  }
-
-  const parent: HTMLLIElement | null = activeLink.closest('.menu-item-page')
-  if (!parent) {
-    return null
-  }
-  return parent
-}
-
-const setArrowPosition = () => {
-  if (!menu.value) {
-    return
-  }
-  const activeLink = getMainLink()
-  if (!activeLink) {
-    arrowWidth.value = '0'
-    return
-  }
-  const title: HTMLSpanElement | null = activeLink.querySelector('.title')
-  if (!title) {
-    arrowWidth.value = '0'
-    return
-  }
-  arrowPosition.value = `translateX(${activeLink.offsetLeft}px)`
-  arrowWidth.value = `${title.offsetWidth}px`
-}
-
-onMounted(() => {
-  setArrowPosition()
-
-  observer = new ResizeObserver((entries) => {
-    if (entries.length) {
-      updateArrowAfterResize()
-    }
-  })
-
-  if (menu.value) {
-    observer.observe(menu.value)
-  }
-})
-
-onBeforeUnmount(() => {
-  if (menu.value) {
-    observer?.unobserve(menu.value)
-  }
-})
 </script>
 
 <template>
@@ -89,7 +19,6 @@ onBeforeUnmount(() => {
     aria-labelledby="menu"
     class="nav"
   >
-  
     <h2
       id="menu"
       class="sr-only"
@@ -102,36 +31,15 @@ onBeforeUnmount(() => {
         v-if="data"
         class="menu"
       >
-        <menu-item
-          :id="1"
-          class="menu-item-page"
-          :title="$t('pages.home')"
-          :link="localePath('index')"
-        />
-        <menu-item
+        <nuxt-link
           v-for="item in data"
           v-bind="item"
           :key="item.id"
+          :to="item.link"
           class="menu-item-page"
-        />
-        <menu-item
-          :id="3"
-          class="menu-item-page"
-          :title="$t('pages.contact')"
-          :link="localePath('contact')"
-        />
-        <menu-item
-          :id="2"
-          class="menu-item-page"
-          :title="$t('pages.lastMinutes')"
-          :link="localePath('last-minutes')"
-        />
+        >{{ item.title }}
+        </nuxt-link>
       </ul>
-      <div
-        v-if="arrowPosition"
-        :style="{ transform: arrowPosition, width: arrowWidth }"
-        class="arrow"
-      />
     </div>
   </nav>
 </template>
