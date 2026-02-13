@@ -37,7 +37,6 @@ const defaultRoutes = [
 export default defineNuxtModule({
   hooks: {
     'build:before': async () => {
-      return false
       if (process.env.NODE_ENV === 'development') {
         return
       }
