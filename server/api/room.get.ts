@@ -9,7 +9,7 @@ const querySchema = z.object({
   locale: z.string(),
 })
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -39,6 +39,12 @@ export default defineEventHandler(async (event) => {
 
   const item = parsed[0]
 
+  if (!item) {
+    throw createError({
+      statusText: 'Room not found',
+    })
+  }
+
   return {
     id: item.id,
     slug: item.slug,
@@ -50,19 +56,15 @@ export default defineEventHandler(async (event) => {
     },
     bookUrl: item.acf.book_url,
     content: {
+      id: item.id,
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item['wp:featuredmedia']),
-      gallery: item.acf.gallery?.map((image) => {
-        return {
-          src: image.url,
-          width: image.width,
-          height: image.height,
-          alt: image.alt,
-        }
-      }),
+      gallery: item.acf.gallery,
     },
     services: getTagsByType(item._embedded['wp:term']),
     locales: item.locales,
   }
+}, {
+  maxAge: 60 * 60,
 })

@@ -23,6 +23,7 @@ const loading = computed(() => {
 
 <template>
   <nuxt-picture
+    class="image"
     :sizes="sizes"
     :alt="alt ? alt : ''"
     :loading="loading"
@@ -31,7 +32,6 @@ const loading = computed(() => {
     :width="width"
     :quality="100"
     :height="height"
-    class="image"
     format="avif,webp"
   />
 </template>

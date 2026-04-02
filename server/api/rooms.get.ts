@@ -13,7 +13,7 @@ const querySchema = z.object({
     .transform(val => Number(val)),
 })
 
-export default defineEventHandler(async (event): Promise<Archive[]> => {
+export default defineCachedEventHandler(async (event): Promise<Archive[]> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -48,4 +48,6 @@ export default defineEventHandler(async (event): Promise<Archive[]> => {
       price: item.acf.price_from,
     }
   })
+}, {
+  maxAge: 60 * 60,
 })

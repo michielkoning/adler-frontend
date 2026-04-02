@@ -2,12 +2,12 @@
 import type { Image } from '~/types/Image'
 
 const props = defineProps<{
+  id: number
   images: Image[]
   title: string
 }>()
 
 const slide = ref(0)
-const showModal = ref(false)
 
 const previewImages = computed(() => {
   const list = props.images.slice(0, 5)
@@ -26,23 +26,15 @@ const previewImages = computed(() => {
   })
 })
 
-const selectSlide = (index: number) => {
-  slide.value = index
-  showModal.value = true
-}
-
-const closeModal = () => {
-  showModal.value = false
-}
+const transitionName = computed(() => `image-${props.id}`)
 </script>
 
 <template>
   <div>
     <app-modal
-      v-if="showModal"
+      id="gallery"
       size="large"
       :title="title"
-      @close="closeModal"
     >
       <gallery-carousel
         :images="images"
@@ -55,15 +47,14 @@ const closeModal = () => {
         :key="image.src"
         class="item"
         :class="`item-${index}`"
-        @click="selectSlide(index)"
       >
         <app-image v-bind="image" />
       </li>
       <li class="item-btn">
         <button
           class="btn"
-          type="button"
-          @click="selectSlide(0)"
+          commandfor="gallery"
+          command="show-modal"
         >
           {{ $t("viewAllPhotos") }}
         </button>
@@ -90,6 +81,7 @@ const closeModal = () => {
 
 .item-0 {
   grid-column: span 2;
+  view-transition-name: v-bind(transitionName);
 }
 
 .item-3,

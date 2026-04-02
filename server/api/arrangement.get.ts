@@ -9,7 +9,7 @@ const querySchema = z.object({
   slug: z.string(),
 })
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -39,15 +39,24 @@ export default defineEventHandler(async (event) => {
 
   const item = parsed[0]
 
+  if (!item) {
+    throw createError({
+      statusText: 'Page not found',
+    })
+  }
+
   return {
     id: item.id,
     slug: item.slug,
     prices: item.acf.prices,
     content: {
+      item: item.id,
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item['wp:featuredmedia']),
     },
     locales: item.locales,
   }
+}, {
+  maxAge: 60 * 60,
 })

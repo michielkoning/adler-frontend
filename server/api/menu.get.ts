@@ -7,7 +7,7 @@ const querySchema = z.object({
   locale: LocaleSchema,
 })
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -154,4 +154,6 @@ export default defineEventHandler(async (event) => {
   ]
 
   return menu
+}, {
+  maxAge: 60 * 60,
 })

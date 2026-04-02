@@ -1,6 +1,6 @@
 import { openingHoursSchema } from '../schemas/OpeningHoursSchema'
 
-export default defineEventHandler(async () => {
+export default defineCachedEventHandler(async () => {
   const { apiUrl } = useAppConfig()
 
   const response = await $fetch(`${apiUrl}adler/v1/settings`)
@@ -8,4 +8,6 @@ export default defineEventHandler(async () => {
   const parsed = parseData(response, openingHoursSchema)
 
   return parsed
+}, {
+  maxAge: 60 * 60,
 })

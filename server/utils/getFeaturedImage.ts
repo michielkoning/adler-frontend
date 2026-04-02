@@ -10,7 +10,12 @@ export const getFeaturedImage = (
   }
   const image = featuredImage[0]
 
+  if (!image) {
+    return undefined
+  }
+
   const result: Image = {
+    id: image.id,
     alt: image.alt_text,
     width: image.media_details.width,
     height: image.media_details.height,

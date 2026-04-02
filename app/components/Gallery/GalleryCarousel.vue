@@ -3,6 +3,7 @@ import type { Image } from '~/types/Image'
 
 const props = withDefaults(
   defineProps<{
+
     images: Image[]
     slide?: number
   }>(),

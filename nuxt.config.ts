@@ -106,18 +106,37 @@ export default defineNuxtConfig({
     },
   },
   experimental: {
-    defaults: {
-      nuxtLink: {
-        trailingSlash: 'append',
-      },
-    },
     payloadExtraction: true,
+    viewTransition: true,
     sharedPrerenderData: true,
   },
   compatibilityDate: '2025-08-03',
 
   nitro: {
-    preset: 'netlify',
+    // preset: 'netlify',
+    storage: {
+      cache: {
+        driver: 'fs',
+        base: './.nuxt/cache',
+      },
+
+    },
+    devStorage: {
+      cache: {
+        driver: 'fs',
+        base: './.nuxt/cache',
+      },
+    },
+  },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vee-validate/i18n',
+        '@vee-validate/zod',
+        'body-scroll-lock',
+        'zod',
+      ],
+    },
   },
   // typescript: {
   //   typeCheck: true,
@@ -166,6 +185,8 @@ export default defineNuxtConfig({
     defaultLocale: 'de',
     baseUrl: settings.baseUrl,
     customRoutes: 'meta',
+    trailingSlash: true,
+
     locales: [
       {
         name: 'Deutsch',

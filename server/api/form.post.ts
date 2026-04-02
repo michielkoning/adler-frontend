@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const body = await readBody(event)
 
   return await $fetch(body.page, {
@@ -8,4 +8,6 @@ export default defineEventHandler(async (event) => {
     },
     body: new URLSearchParams(body).toString(),
   })
+}, {
+  maxAge: 60 * 60,
 })

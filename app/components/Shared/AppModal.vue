@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
+    id: string
     show?: boolean
     title: string
     size?: 'small' | 'large'
@@ -11,37 +12,25 @@ withDefaults(
   },
 )
 
-const emit = defineEmits(['close'])
-
-const isHidden = ref(false)
-
+const emit = defineEmits(['open'])
 const dialog = useTemplateRef('dialog')
 
-onMounted(() => {
-  if (dialog.value) {
-    dialog.value.showModal()
+const afterOpen = () => {
+  if (!dialog.value) {
+    return
   }
-})
-
-const close = () => {
-  isHidden.value = true
-}
-
-const afterClosing = () => {
-  if (isHidden.value && dialog.value) {
-    isHidden.value = false
-    dialog.value.close()
-    emit('close')
-  }
+  emit('open')
 }
 </script>
 
 <template>
   <dialog
+    :id="id"
     ref="dialog"
-    class="dialog"
-    :class="{ 'large': size === 'large', 'is-hidden': isHidden }"
-    @animationend="afterClosing"
+    :class="size"
+    class="gallery-dialog"
+    closedby="any"
+    @toggle="afterOpen"
   >
     <header class="header">
       <h1
@@ -50,8 +39,8 @@ const afterClosing = () => {
       />
       <button
         class="close"
-        type="button"
-        @click="close"
+        :commandfor="id"
+        command="close"
       >
         <span class="sr-only">{{ $t("close") }}</span>
         <app-icon
@@ -67,77 +56,65 @@ const afterClosing = () => {
 </template>
 
 <style lang="css" scoped>
-.dialog {
-  width: calc(100% - (var(--gutter) * 2));
-  max-width: var(--container-width-md);
+dialog {
+  inline-size: calc(100vw - (var(--spacing-m) * 2));
+  max-inline-size: 1280px;
   padding: 0;
-  margin-top: 3em;
-  background: var(--color-white);
+  background-color: var(--color-background);
   border: 0;
-
-  &::backdrop {
-    background-color: rgb(0 0 0 / 50%);
-  }
-
-  &.large {
-    max-width: var(--container-width-lg);
-  }
+  transition: display var(--transition) allow-discrete, overlay var(--transition) allow-discrete;
+  animation: dialog-hide var(--transition);
 
   &[open] {
-    animation: show-dialog var(--transition);
+    animation: dialog-show var(--transition);
 
     &::backdrop {
-      animation: show-backdrop var(--transition);
-    }
-  }
-
-  &.is-hidden {
-    animation: hide-dialog var(--transition);
-
-    &::backdrop {
-      animation: hide-backdrop var(--transition);
+      animation: backdrop-show var(--transition);
     }
   }
 }
 
-.notch {
-  padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
+.btn-close {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+  backdrop-filter: blur(0.25em);
+  animation: backdrop-hide var(--transition);
 }
 
 .header {
+  inset-block-start: 0;
   display: flex;
-  align-items: self-start;
-  padding: var(--spacing-s) var(--gutter);
+  gap: var(--spacing-s);
+  align-items: start;
+  justify-content: space-between;
+  padding: var(--spacing-s) var(--spacing-m) 0;
   border-bottom: 1px solid var(--color-gray);
 }
 
-.close {
-  margin-top: var(--spacing-xxs);
+.content {
+  padding: var(--spacing-m);
+}
 
-  &:hover,
-  &:focus {
-    background: var(--color-gray-light);
+@keyframes dialog-hide {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  to {
+    opacity: 0;
+    translate: 0 -1em;
   }
 }
 
-.icon {
-  width: 1.5em;
-}
-
-.content {
-  padding: var(--spacing-s) var(--gutter) var(--gutter);
-}
-
-.title {
-  flex: 1 1 auto;
-  padding-right: var(--spacing-xxs);
-  margin-bottom: 0;
-}
-
-@keyframes show-dialog {
+@keyframes dialog-show {
   from {
     opacity: 0;
-    translate: 0 -0.5em;
+    translate: 0 -1em;
   }
 
   to {
@@ -146,26 +123,27 @@ const afterClosing = () => {
   }
 }
 
-@keyframes hide-dialog {
-  to {
-    opacity: 0;
-    translate: 0 -0.5em;
-  }
-}
-
-@keyframes show-backdrop {
+@keyframes backdrop-show {
   from {
     opacity: 0;
+    backdrop-filter: blur(0);
   }
 
   to {
     opacity: 1;
+    backdrop-filter: blur(0.25em);
   }
 }
 
-@keyframes hide-backdrop {
+@keyframes backdrop-hide {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(0.25em);
+  }
+
   to {
     opacity: 0;
+    backdrop-filter: blur(0);
   }
 }
 </style>

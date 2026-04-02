@@ -7,7 +7,7 @@ const querySchema = z.object({
   slug: z.string(),
 })
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -37,10 +37,17 @@ export default defineEventHandler(async (event) => {
 
   const item = parsed[0]
 
+  if (!item) {
+    throw createError({
+      statusText: 'Post not found',
+    })
+  }
+
   return {
     id: item.id,
     slug: item.slug,
     content: {
+      id: item.id,
       title: item.title.rendered,
       text: item.content.rendered,
       date: item.date,
@@ -48,4 +55,6 @@ export default defineEventHandler(async (event) => {
     },
     locales: item.locales,
   }
+}, {
+  maxAge: 60 * 60,
 })

@@ -1,0 +1,11 @@
+::view-transition-old(root),
+::view-transition-new(root) {
+  /* Prevent the default animation */
+  animation-duration: 0s;
+}
+
+::view-transition-old(image-2045),
+::view-transition-new(image-2045) {
+  animation-duration: 0.4s;
+  animation-timing-function: var(--transition-timing-function);
+}

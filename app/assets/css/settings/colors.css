@@ -1,15 +1,16 @@
+/* stylelint-disable color-hex-length */
 :root {
-  --color-black: #000;
-  --color-white: #fff;
-  --color-gray-darker: #333;
-  --color-gray-dark: #424242;
-  --color-gray: #999;
-  --color-gray-light: #eee;
-  --color-gray-lighter: #f9f9f9;
-  --color-gray-lighterest: #f1f4f5;
-  --color-text: #424242;
-  --color-primary: #98012e;
-  --color-primary-dark: #7f0126;
+  --color-black: oklch(0% 0 0deg);
+  --color-white: oklch(100% 0 0deg);
+  --color-gray-darker: oklch(32.11% 0 0deg);
+  --color-gray-dark: oklch(37.91% 0 0deg);
+  --color-gray: oklch(68.3% 0 0deg);
+  --color-gray-light: oklch(94.91% 0 0deg);
+  --color-gray-lighter: oklch(98.21% 0 0deg);
+  --color-gray-lighterest: oklch(96.52% 0.0035 219.53deg);
+  --color-text: oklch(37.91% 0 0deg);
+  --color-primary: oklch(43.2% 0.1722 16.03deg);
+  --color-primary-dark: oklch(from var(--color-primary) calc(l - 0.1) c h);
   --color-background: var(--color-gray-lighter);
-  --color-background-alternative: #f6f1ec;
+  --color-background-alternative: oklch(96.06% 0.0086 67.72deg);
 }

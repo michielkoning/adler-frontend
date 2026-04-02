@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Content } from '~/types/Content'
 
-withDefaults(
+const props = withDefaults(
   defineProps<
     Content & {
       showResmio?: boolean
@@ -11,6 +11,8 @@ withDefaults(
     showResmio: true,
   },
 )
+
+const transitionName = computed(() => `image-${props.id}`)
 </script>
 
 <template>
@@ -18,7 +20,8 @@ withDefaults(
     <center-wrapper>
       <div class="page">
         <gallery-list
-          v-if="gallery"
+          v-if="gallery.length"
+          :id="id"
           class="gallery"
           :images="gallery"
           :title="title"
@@ -89,6 +92,7 @@ withDefaults(
   .image {
     height: 30vw;
     max-height: 20rem;
+    view-transition-name: v-bind(transitionName);
   }
 
   .sidebar {

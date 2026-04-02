@@ -19,6 +19,7 @@ const { data } = await useFetch('/api/menu', {
     aria-labelledby="menu"
     class="nav"
   >
+    {{ locale }}
     <h2
       id="menu"
       class="sr-only"

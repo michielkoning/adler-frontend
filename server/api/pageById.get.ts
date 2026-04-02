@@ -10,7 +10,7 @@ const querySchema = z.object({
   id: z.string().optional(),
 })
 
-export default defineEventHandler(async (event): Promise<Page> => {
+export default defineCachedEventHandler(async (event): Promise<Page> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -55,11 +55,15 @@ export default defineEventHandler(async (event): Promise<Page> => {
     slug: item.slug,
     parentId: 0,
     content: {
+      id: item.id,
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item['wp:featuredmedia']),
+      gallery: [],
     },
     seo: createSeo(item.yoast_head_json),
     locales: item.locales,
   }
+}, {
+  maxAge: 60 * 60,
 })

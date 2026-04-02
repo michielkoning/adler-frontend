@@ -10,7 +10,7 @@ const querySchema = z.object({
   id: z.string().optional(),
 })
 
-export default defineEventHandler(async (event): Promise<Page> => {
+export default defineCachedEventHandler(async (event): Promise<Page> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -51,24 +51,26 @@ export default defineEventHandler(async (event): Promise<Page> => {
 
   const item = parsed[0]
 
+  if (!item) {
+    throw createError({
+      statusText: 'Page not found',
+    })
+  }
+
   return {
     id: item.id,
     slug: item.slug,
     parentId: item.parent,
     content: {
+      id: item.id,
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item['wp:featuredmedia']),
-      gallery: item.acf.gallery?.map((image) => {
-        return {
-          src: image.url,
-          width: image.width,
-          height: image.height,
-          alt: image.alt,
-        }
-      }),
+      gallery: item.acf.gallery,
     },
     seo: createSeo(item.yoast_head_json),
     locales: item.locales,
   }
+}, {
+  maxAge: 60 * 60,
 })

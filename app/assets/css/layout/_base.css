@@ -1,3 +1,4 @@
-@import "./accessibility.css";
-@import "./center.css";
-@import "./scaffolding.css";
+@import "./accessibility";
+@import "./center";
+@import "./scaffolding";
+@import "./page-transitions";

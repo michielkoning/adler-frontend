@@ -10,7 +10,7 @@ const querySchema = z.object({
   id: z.string(),
 })
 
-export default defineEventHandler(async (event): Promise<Room> => {
+export default defineCachedEventHandler(async (event): Promise<Room> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -45,11 +45,15 @@ export default defineEventHandler(async (event): Promise<Room> => {
     },
     bookUrl: item.acf.book_url,
     content: {
+      id: item.id,
       title: item.title.rendered,
       text: item.content.rendered,
       image: getFeaturedImage(item['wp:featuredmedia']),
+      gallery: [],
     },
     services: getTagsByType(item._embedded['wp:term']),
     locales: item.locales,
   }
+}, {
+  maxAge: 60 * 60,
 })

@@ -44,17 +44,7 @@ useSchemaOrg([
     <nuxt-pwa-assets />
     <nuxt-route-announcer />
     <nuxt-loading-indicator color="var(--color-primary)" />
-    <div class="page">
-      <the-header class="page-header sa-hidden" />
-      <main
-        id="content"
-        class="main"
-        tabindex="-1"
-      >
-        <slot />
-      </main>
-      <the-footer class="page-footer sa-hidden" />
-    </div>
+    <slot />
     <cookie-wall />
   </div>
 </template>
