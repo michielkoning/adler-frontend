@@ -13,7 +13,9 @@ defineProps<Archive>()
       <nuxt-link
         :to="link"
         class="link"
-      ><span v-html="title" /></nuxt-link>
+      >
+        <span v-html="title" />
+      </nuxt-link>
     </div>
     <app-image
       v-if="image"

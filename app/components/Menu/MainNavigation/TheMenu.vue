@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 const { locale } = useI18n()
-const localePath = useLocalePath()
+// const localePath = useLocalePath()
 
 const menu: Ref<HTMLAnchorElement | null> = ref(null)
-const arrowPosition: Ref<string | undefined> = ref(undefined)
-const arrowWidth = ref(`0`)
+// const arrowPosition: Ref<string | undefined> = ref(undefined)
+// const arrowWidth = ref(`0`)
 
 const { data } = await useFetch('/api/menu', {
   query: {
