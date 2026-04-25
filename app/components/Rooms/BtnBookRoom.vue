@@ -11,12 +11,6 @@ withDefaults(
     size: 'large',
   },
 )
-
-const showModal = ref(false)
-
-const toggleModal = (state: boolean) => {
-  showModal.value = state
-}
 </script>
 
 <template>
@@ -24,15 +18,14 @@ const toggleModal = (state: boolean) => {
     <app-button
       :title="$t('bookNow')"
       :size="size"
-      @click="toggleModal(true)"
+      commandfor="room"
+      command="show-modal"
     />
 
     <app-modal
-      v-if="showModal"
       id="room"
       :title="title ?? $t('bookNow')"
       size="large"
-      @close="toggleModal(false)"
     >
       <easy-booking-frame :url="url" />
     </app-modal>

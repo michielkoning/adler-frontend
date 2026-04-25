@@ -2,25 +2,19 @@
 defineProps<{
   title: string
 }>()
-
-const showModal = ref(false)
-
-const toggleModal = (state: boolean) => {
-  showModal.value = state
-}
 </script>
 
 <template>
   <app-button
     :title="$t('bookNow')"
     size="large"
-    @click="toggleModal(true)"
+    commandfor="arrangement"
+    command="show-modal"
   />
 
   <app-modal
-    v-if="showModal"
+    id="arrangement"
     :title="title"
-    @close="toggleModal(false)"
   >
     <form-book-arrangement :title="title" />
   </app-modal>

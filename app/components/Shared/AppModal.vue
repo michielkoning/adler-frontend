@@ -7,30 +7,17 @@ withDefaults(
     size?: 'small' | 'large'
   }>(),
   {
-    show: false,
     size: 'small',
   },
 )
-
-const emit = defineEmits(['open'])
-const dialog = useTemplateRef('dialog')
-
-const afterOpen = () => {
-  if (!dialog.value) {
-    return
-  }
-  emit('open')
-}
 </script>
 
 <template>
   <dialog
-    :id="id"
-    ref="dialog"
+    :id
     :class="size"
     class="gallery-dialog"
     closedby="any"
-    @toggle="afterOpen"
   >
     <header class="header">
       <h1

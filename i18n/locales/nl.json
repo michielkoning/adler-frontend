@@ -66,6 +66,7 @@
   "relatedRooms": "Onze andere kamers",
   "remarks": "Opmerkingen",
   "requestNow": "Nu aanvragen",
+  "requestNowFor": "Nu aanvragen voor {room}",
   "reserveForOurRestaurant": "Reserveer voor ons restaurant",
   "request": "Aanvragen",
   "room": "Kamer",

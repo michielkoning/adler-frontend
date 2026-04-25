@@ -3,11 +3,7 @@ import type { LastMinute } from '~~/shared/types/LastMinute'
 
 defineProps<LastMinute>()
 
-const showModal = ref(false)
-
-const toggleModal = (state: boolean) => {
-  showModal.value = state
-}
+const id = useId()
 </script>
 
 <template>
@@ -51,9 +47,16 @@ const toggleModal = (state: boolean) => {
       </dt>
 
       <dd>
-        <nuxt-link :to="room.slug">
+        <nuxt-link-locale
+          :to="{
+            name: 'rooms-details',
+            params: {
+              slug: room.slug,
+            },
+          }"
+        >
           {{ room.content.title }}
-        </nuxt-link>
+        </nuxt-link-locale>
       </dd>
     </dl>
     <div class="prices-wrapper">
@@ -112,16 +115,18 @@ const toggleModal = (state: boolean) => {
     <div class="btn-wrapper">
       <app-button
         v-if="!isSold"
+        :commandfor="id"
+        command="show-modal"
         :title="$t('requestNow')"
         class="btn"
-        @click="toggleModal"
       />
     </div>
 
     <app-modal
-      v-if="showModal"
-      :title="$t('requestNow')"
-      @close="toggleModal(false)"
+      :id
+      :title="$t('requestNowFor', {
+        room: room.content.title,
+      })"
     >
       <form-last-minute :title="title" />
     </app-modal>
