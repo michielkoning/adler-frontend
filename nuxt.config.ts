@@ -133,7 +133,6 @@ export default defineNuxtConfig({
       include: [
         '@vee-validate/i18n',
         '@vee-validate/zod',
-        'body-scroll-lock',
         'zod',
       ],
     },

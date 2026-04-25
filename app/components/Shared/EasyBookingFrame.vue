@@ -22,9 +22,8 @@ const langId = computed(() => {
 const easyBookingUrlI18n = computed(() => {
   const url = props.url || easyBookingUrl
   return url
-    .replace(/\d\/category/, `${langId.value}/category`)
-    .replace(/\d\/stepOne/, `${langId.value}/stepOne`)
-    .replace('clientWeb001', 'bookingengine2')
+    .replace(/#7731\/\d\//, `#7731/${langId.value}/8531-6749-1187/`)
+    .replace('clientWeb001', 'bookingengine2/?embedded&backgroundColor=%2398012e&fontColor=%23000000&')
 })
 </script>
 

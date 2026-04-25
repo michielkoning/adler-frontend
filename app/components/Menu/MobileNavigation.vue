@@ -1,8 +1,5 @@
 <script lang="ts" setup>
 const { title } = useAppConfig()
-
-const { togleMobileMenu } = useLayout()
-const menuIsOpen = useMenuIsOpen()
 </script>
 
 <template>
@@ -21,10 +18,9 @@ const menuIsOpen = useMenuIsOpen()
           <span class="sr-only">{{ title }}</span>
         </nuxt-link-locale>
         <button
-          :aria-expanded="menuIsOpen"
-          class="btn"
+          commandfor="menu"
+          command="show-modal"
           type="button"
-          @click="togleMobileMenu"
         >
           <app-icon
             icon="fa6-solid:bars"

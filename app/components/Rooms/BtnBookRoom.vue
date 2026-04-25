@@ -29,6 +29,7 @@ const toggleModal = (state: boolean) => {
 
     <app-modal
       v-if="showModal"
+      id="room"
       :title="title ?? $t('bookNow')"
       size="large"
       @close="toggleModal(false)"

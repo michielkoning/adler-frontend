@@ -3,6 +3,7 @@ import { ArrangementSchema } from '../schemas/ArrangementSchema'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
 import { LocaleSchema } from '../schemas/LocaleSchema'
+import type { Content } from '~/types/Content'
 
 const querySchema = z.object({
   locale: LocaleSchema,
@@ -45,16 +46,20 @@ export default defineCachedEventHandler(async (event) => {
     })
   }
 
+  const content: Content = {
+    id: item.id,
+    title: item.title.rendered,
+    text: item.content.rendered,
+    image: getFeaturedImage(item['wp:featuredmedia']),
+    gallery: [],
+
+  }
+
   return {
     id: item.id,
     slug: item.slug,
     prices: item.acf.prices,
-    content: {
-      item: item.id,
-      title: item.title.rendered,
-      text: item.content.rendered,
-      image: getFeaturedImage(item['wp:featuredmedia']),
-    },
+    content,
     locales: item.locales,
   }
 }, {
