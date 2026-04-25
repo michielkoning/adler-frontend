@@ -24,7 +24,7 @@ export default defineCachedEventHandler(async (event): Promise<Room> => {
   const url = getUrl({
     image: true,
     type: 'room',
-    fields: ['title', 'slug', 'content', 'acf', 'locales'],
+    fields: ['title', 'slug', 'content', 'acf', 'yoast_head_json', 'locales'],
     id: query.data.id,
   })
 

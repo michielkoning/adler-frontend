@@ -11,7 +11,7 @@ definePageMeta({
 
 const { pageIds } = useAppConfig()
 
-const { error } = await useFetch('/api/pageById', {
+const { data, error } = await useFetch('/api/pageById', {
   query: {
     id: getPageId(pageIds.lastMinutePageId),
   },
@@ -20,9 +20,10 @@ const { error } = await useFetch('/api/pageById', {
 if (error.value) {
   throw createError(error.value)
 }
+
+useSeo(data.value?.seo)
 </script>
 
 <template>
-  <div />
-  <!-- <last-minutes-section /> -->
+  <last-minutes-section />
 </template>

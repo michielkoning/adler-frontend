@@ -26,7 +26,7 @@ export default defineCachedEventHandler(async (event): Promise<Arrangement> => {
     image: true,
     slug: query.data.slug,
     type: 'arrangement',
-    fields: ['slug', 'title', 'content', 'acf', 'locales'],
+    fields: ['slug', 'title', 'content', 'acf', 'yoast_head_json', 'locales'],
   })
 
   const response = await $fetch(url)

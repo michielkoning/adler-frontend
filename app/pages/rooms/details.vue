@@ -29,6 +29,8 @@ setI18nParams({
   nl: data.value?.locales.nl ? { slug: data.value?.locales.nl } : undefined,
   en: data.value?.locales.en ? { slug: data.value?.locales.en } : undefined,
 })
+
+useSeo(data.value?.seo)
 </script>
 
 <template>

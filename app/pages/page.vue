@@ -33,13 +33,13 @@ if (error.value) {
   throw createError(error.value)
 }
 
-useSeo(data.value?.seo)
-
 setI18nParams({
   de: data.value?.locales.de ? { slug: data.value?.locales.de } : undefined,
   nl: data.value?.locales.nl ? { slug: data.value?.locales.nl } : undefined,
   en: data.value?.locales.en ? { slug: data.value?.locales.en } : undefined,
 })
+
+useSeo(data.value?.seo)
 </script>
 
 <template>

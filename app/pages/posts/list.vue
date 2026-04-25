@@ -20,6 +20,8 @@ const { data, error } = await useFetch('/api/pageById', {
 if (error.value) {
   throw createError(error.value)
 }
+
+useSeo(data.value?.seo)
 </script>
 
 <template>
