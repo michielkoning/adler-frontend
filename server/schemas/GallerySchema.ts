@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Image } from '~/types/Image'
+import type { Image } from '~~/shared/types/Image'
 
 export const GallerySchema = z
   .array(z.object({

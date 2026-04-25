@@ -3,6 +3,7 @@ import { FeaturedImageSchema } from './FeaturedImageSchema'
 import { TermsListSchema } from './TermsSchema'
 import { GallerySchema } from './GallerySchema'
 import { LocalesSchema } from './LocalesSchema'
+import { SeoSchema } from './SeoSchema'
 
 export const RoomSchema = z.object({
   'id': z.number(),
@@ -38,6 +39,7 @@ export const RoomSchema = z.object({
     book_url: z.string(),
   }),
   'locales': LocalesSchema,
+  'yoast_head_json': SeoSchema,
 })
 
 export const RoomListSchema = z.array(RoomSchema)

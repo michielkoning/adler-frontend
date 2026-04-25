@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { PageListSchema } from '../schemas/PageSchema'
-import type { Page } from '~/types/Page'
+import type { Page } from '~~/shared/types/Page'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
 import { createSeo } from '../utils/createSeo'

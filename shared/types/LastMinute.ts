@@ -1,5 +1,5 @@
-import type { Image } from './Image'
-import type { Room } from './Room'
+import type { Image } from '~~/shared/types/Image'
+import type { Room } from '~~/shared/types/Room'
 
 export type LastMinute = {
   id: number

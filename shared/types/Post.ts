@@ -1,10 +1,9 @@
 import type { Content } from '~~/shared/types/Content'
 import type { Seo } from '~~/shared/types/Seo'
 
-export type Page = {
+export type Post = {
   id: number
   slug: string
-  parentId: number
   content: Content
   seo: Seo
   locales: {

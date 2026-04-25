@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { RelatedPageSchema } from '../schemas/RelatedPageSchema'
-import type { Archive } from '~/types/Archive'
+import type { Archive } from '~~/shared/types/Archive'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
 import { LocaleSchema } from '../schemas/LocaleSchema'

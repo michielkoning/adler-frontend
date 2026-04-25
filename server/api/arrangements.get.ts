@@ -1,4 +1,4 @@
-import type { Archive } from '~/types/Archive'
+import type { Archive } from '~~/shared/types/Archive'
 import { ArrangementsSchema } from '../schemas/ArrangementsSchema'
 import { z } from 'zod'
 import { getFeaturedImage } from '../utils/getFeaturedImage'

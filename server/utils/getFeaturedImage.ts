@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import type { Image } from '~/types/Image'
+import type { Image } from '~~/shared/types/Image'
 import type { FeaturedImageSchema } from '../schemas/FeaturedImageSchema'
 
 export const getFeaturedImage = (

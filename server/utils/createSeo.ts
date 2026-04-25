@@ -1,6 +1,6 @@
 import type z from 'zod'
 import type { SeoSchema } from '../schemas/SeoSchema'
-import type { Seo } from '~/types/Seo'
+import type { Seo } from '~~/shared/types/Seo'
 
 export const createSeo = (seo: z.infer<typeof SeoSchema>): Seo => {
   return {

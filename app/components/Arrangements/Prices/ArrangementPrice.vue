@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ArrangementPrice } from '~/types/Arangement'
+import type { ArrangementPrice } from '~~/shared/types/Arangement'
 
 const props = defineProps<{
   price: ArrangementPrice

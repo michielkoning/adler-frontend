@@ -4,7 +4,7 @@ import { getTagsByType } from '../utils/getTagsByType'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
 
-import type { Room } from '~/types/Room'
+import type { Room } from '~~/shared/types/Room'
 
 const querySchema = z.object({
   id: z.string(),
@@ -53,6 +53,8 @@ export default defineCachedEventHandler(async (event): Promise<Room> => {
     },
     services: getTagsByType(item._embedded['wp:term']),
     locales: item.locales,
+    seo: createSeo(item.yoast_head_json),
+
   }
 }, {
   maxAge: 60 * 60,

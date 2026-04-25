@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { FeaturedImageSchema } from './FeaturedImageSchema'
 import { LocalesSchema } from './LocalesSchema'
+import { SeoSchema } from './SeoSchema'
 
 export const ArrangementSchema = z.array(
   z.object({
@@ -29,5 +30,6 @@ export const ArrangementSchema = z.array(
         .default([]),
     }),
     'locales': LocalesSchema,
+    'yoast_head_json': SeoSchema,
   }),
 )

@@ -3,13 +3,14 @@ import { RoomListSchema } from '../schemas/RoomSchema'
 import { getTagsByType } from '../utils/getTagsByType'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
+import type { Room } from '~~/shared/types/Room'
 
 const querySchema = z.object({
   slug: z.string(),
   locale: z.string(),
 })
 
-export default defineCachedEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event): Promise<Room> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -64,6 +65,8 @@ export default defineCachedEventHandler(async (event) => {
     },
     services: getTagsByType(item._embedded['wp:term']),
     locales: item.locales,
+    seo: createSeo(item.yoast_head_json),
+
   }
 }, {
   maxAge: 60 * 60,

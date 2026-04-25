@@ -3,14 +3,15 @@ import { ArrangementSchema } from '../schemas/ArrangementSchema'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
 import { LocaleSchema } from '../schemas/LocaleSchema'
-import type { Content } from '~/types/Content'
+import type { Content } from '~~/shared/types/Content'
+import type { Arrangement } from '~~/shared/types/Arangement'
 
 const querySchema = z.object({
   locale: LocaleSchema,
   slug: z.string(),
 })
 
-export default defineCachedEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event): Promise<Arrangement> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )
@@ -61,6 +62,7 @@ export default defineCachedEventHandler(async (event) => {
     prices: item.acf.prices,
     content,
     locales: item.locales,
+    seo: createSeo(item.yoast_head_json),
   }
 }, {
   maxAge: 60 * 60,

@@ -1,4 +1,5 @@
-import type { Content } from './Content'
+import type { Content } from '~~/shared/types/Content'
+import type { Seo } from '~~/shared/types/Seo'
 
 export type RoomPrices = {
   fullBoardHighSeason?: number
@@ -9,11 +10,12 @@ export type RoomPrices = {
 
 export type Room = {
   id: number
+  content: Content
   slug: string
   prices: RoomPrices
   bookUrl: string
-  content: Content
   services: string[]
+  seo: Seo
   locales: {
     de?: string
     nl?: string

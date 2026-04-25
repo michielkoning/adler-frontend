@@ -4,7 +4,7 @@ import { getUrl } from '../utils/getUrl'
 import { LocaleSchema } from '../schemas/LocaleSchema'
 import { LastMinutesSchema } from '../schemas/LastMinutesSchema'
 
-import type { LastMinute } from '~/types/LastMinute'
+import type { LastMinute } from '~~/shared/types/LastMinute'
 
 const querySchema = z.object({
   locale: LocaleSchema,

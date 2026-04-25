@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Image } from '~/types/Image'
+import type { Image } from '~~/shared/types/Image'
 
 const props = withDefaults(
   defineProps<

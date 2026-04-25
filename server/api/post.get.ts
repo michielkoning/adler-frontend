@@ -2,12 +2,13 @@ import { z } from 'zod'
 import { PostSchema } from '../schemas/PostSchema'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
+import type { Post } from '~~/shared/types/Post'
 
 const querySchema = z.object({
   slug: z.string(),
 })
 
-export default defineCachedEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event): Promise<Post> => {
   const query = await getValidatedQuery(event, body =>
     querySchema.safeParse(body),
   )

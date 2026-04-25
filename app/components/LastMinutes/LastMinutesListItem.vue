@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { LastMinute } from '~/types/LastMinute'
+import type { LastMinute } from '~~/shared/types/LastMinute'
 
 defineProps<LastMinute>()
 

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Content } from '~/types/Content'
+import type { Content } from '~~/shared/types/Content'
 
 const props = withDefaults(
   defineProps<

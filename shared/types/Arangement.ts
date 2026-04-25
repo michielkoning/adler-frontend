@@ -1,5 +1,6 @@
-import type { Archive } from './Archive'
-import type { Page } from './Page'
+import type { Content } from '~~/shared/types/Content'
+import type { Seo } from '~~/shared/types/Seo'
+import type { Archive } from '~~/shared/types/Archive'
 
 export type ArrangementPrice = {
   label: string
@@ -13,7 +14,16 @@ export type ArrangementPrice = {
 
 export type ArrangementPrices = ArrangementPrice[]
 
-export type Arrangement = Page & {
+export type Arrangement = {
+  id: number
+  content: Content
+  slug: string
   prices: ArrangementPrices
-  relatedArrangements: Archive[]
+  // relatedArrangements: Archive[]
+  seo: Seo
+  locales: {
+    de?: string
+    nl?: string
+    en?: string
+  }
 }

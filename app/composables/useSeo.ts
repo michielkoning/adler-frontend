@@ -1,4 +1,4 @@
-import type { Seo } from '~/types/Seo'
+import type { Seo } from '~~/shared/types/Seo'
 
 export const useSeo = (seo?: Seo) => {
   if (!seo) {
