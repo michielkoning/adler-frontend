@@ -1,117 +1,23 @@
 <script lang="ts" setup>
 import type { Image } from '~~/shared/types/Image'
 
-const props = withDefaults(
-  defineProps<{
+const props = defineProps<{
+  images: Image[]
+}>()
 
-    images: Image[]
-    slide?: number
-  }>(),
-  {
-    slide: 0,
-  },
-)
-
-const currentSlide = ref(props.slide)
-const isActive = ref(false)
-
-const items = useTemplateRef('items')
-const list = useTemplateRef('list')
-
-const slideNextEnabled = computed(() => {
-  return currentSlide.value < props.images.length - 1
-})
-
-const slidePreviousEnabled = computed(() => {
-  return currentSlide.value > 0
-})
-
-const goToSlide = () => {
-  if (currentSlide.value <= props.images.length && currentSlide.value >= 0) {
-    list.value.scrollLeft = items.value[currentSlide.value].offsetLeft
-  }
-}
-
-const goToNextSlide = () => {
-  if (currentSlide.value < props.images.length - 1) {
-    currentSlide.value = currentSlide.value + 1
-    goToSlide()
-  }
-}
-
-const goToPreviousSlide = () => {
-  if (currentSlide.value > 0) {
-    currentSlide.value = currentSlide.value - 1
-    goToSlide()
-  }
-}
-
-const scrollByKeys = (event: Event) => {
-  const { key } = event
-  if (key === 'ArrowRight') {
-    goToNextSlide()
-  }
-  if (key === 'ArrowLeft') {
-    goToPreviousSlide()
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('keydown', scrollByKeys)
-
-  nextTick(() => {
-    goToSlide()
-    isActive.value = true
-  })
-})
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', scrollByKeys)
-})
+const totalImages = computed(() => props.images.length)
 </script>
 
 <template>
   <div class="wrapper">
-    <ul
-      ref="list"
-      class="list"
-      :class="{ active: isActive }"
-    >
+    <ul>
       <li
         v-for="item in images"
         :key="item.id"
-        ref="items"
-        class="item"
       >
         <app-image v-bind="item" />
       </li>
     </ul>
-    <div class="button-wrapper">
-      <button
-        class="btn btn-previous"
-        type="button"
-        :disabled="!slidePreviousEnabled"
-        @click="goToPreviousSlide"
-      >
-        <span class="sr-only">{{ $t("previousImage") }}</span>
-        <app-icon
-          icon="fa6-solid:chevron-left"
-          class="icon"
-        />
-      </button>
-      <button
-        class="btn btn-next"
-        type="button"
-        :disabled="!slideNextEnabled"
-        @click="goToNextSlide"
-      >
-        <span class="sr-only">{{ $t("nextImage") }}</span>
-        <app-icon
-          icon="fa6-solid:chevron-right"
-          class="icon"
-        />
-      </button>
-    </div>
   </div>
 </template>
 
@@ -120,44 +26,75 @@ onUnmounted(() => {
   position: relative;
 }
 
-.list {
+ul {
   @mixin list-reset;
 
-  display: flex;
-  height: 60vw;
-  max-height: 40em;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(v-bind(totalImages), 100%);
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--color-primary) transparent;
+  scrollbar-width: thin;
+  scroll-marker-group: after;
 
-  &.active {
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  &::scroll-button(right),
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  &::scroll-button(left) {
+    position: absolute;
+    top: 50%;
+    width: 2em;
+    aspect-ratio: 0.571;
+    margin-top: calc(var(--spacing-l) * -1);
+    cursor: pointer;
+    content: "" / "Scroll right";
+    background-color: currentcolor;
+    /* stylelint-disable-next-line */
+    clip-path: shape(from 3.66% 44.96%, curve by 0% 10.11% with -4.88% 2.79%/-4.88% 7.32%, line by 74.99% 42.84%, curve by 17.69% 0% with 4.88% 2.79%/12.81% 2.79%, smooth by 0% -10.11% with 4.88% -7.32%, line to 30.18% 50%, line to 96.3% 12.2%, curve by 0% -10.11% with 4.88% -2.79%/4.88% -7.32%, smooth by -17.69% 0% with -12.81% -2.79%, line by -74.99% 42.84%, close);
+
+    &::after {
+      display: block;
+      content: "adsad";
+    }
+  }
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  &::scroll-button(left) {
+    left: 1em;
+  }
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  &::scroll-button(right) {
+    right: 1em;
+    rotate: 180deg;
+  }
+
+  &::scroll-marker-group {
+    position: absolute;
+    inset: auto 0 var(--spacing-m);
+    display: flex;
+    gap: var(--spacing-xxs);
+    place-content: center;
   }
 }
 
-.item {
-  flex: 0 0 100%;
-  width: 100%;
-  scroll-snap-align: start;
-}
+li {
+  scroll-snap-align: center;
 
-.btn {
-  position: absolute;
-  top: 50%;
-  margin-top: calc(var(--spacing-l) * -1);
-  touch-action: manipulation;
-}
+  &::scroll-marker {
+    display: block;
+    width: 0.5em;
+    aspect-ratio: 1;
+    content: "";
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+  }
 
-.btn-previous {
-  left: 0.25em;
-}
-
-.btn-next {
-  right: 0.25em;
-}
-
-.icon {
-  width: 2.5em;
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  &::scroll-marker:target-current {
+    background: var(--color-primary);
+  }
 }
 </style>

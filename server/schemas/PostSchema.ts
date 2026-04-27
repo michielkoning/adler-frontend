@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { FeaturedImageSchema } from './FeaturedImageSchema'
 import { LocalesSchema } from './LocalesSchema'
+import { SeoSchema } from './SeoSchema'
 
 export const PostSchema = z.array(
   z.object({
@@ -15,5 +16,7 @@ export const PostSchema = z.array(
     }),
     'wp:featuredmedia': z.array(FeaturedImageSchema).default([]),
     'locales': LocalesSchema,
+    'yoast_head_json': SeoSchema,
+
   }),
 )

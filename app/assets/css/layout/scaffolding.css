@@ -6,6 +6,10 @@
   }
 }
 
+:root {
+  interpolate-size: allow-keywords;
+}
+
 ::selection {
   color: var(--color-white);
   background: var(--color-primary);

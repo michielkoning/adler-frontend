@@ -22,7 +22,7 @@ export default defineCachedEventHandler(async (event): Promise<Post> => {
   const url = getUrl({
     image: true,
     type: 'posts',
-    fields: ['title', 'slug', 'content', 'date', 'locales'],
+    fields: ['title', 'slug', 'content', 'date', 'yoast_head_json', 'locales'],
     slug: query.data.slug,
   })
 
@@ -53,8 +53,11 @@ export default defineCachedEventHandler(async (event): Promise<Post> => {
       text: item.content.rendered,
       date: item.date,
       image: getFeaturedImage(item['wp:featuredmedia']),
+      gallery: [],
     },
     locales: item.locales,
+    seo: createSeo(item.yoast_head_json),
+
   }
 }, {
   maxAge: 60 * 60,

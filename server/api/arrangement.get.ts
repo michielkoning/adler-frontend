@@ -47,20 +47,17 @@ export default defineCachedEventHandler(async (event): Promise<Arrangement> => {
     })
   }
 
-  const content: Content = {
-    id: item.id,
-    title: item.title.rendered,
-    text: item.content.rendered,
-    image: getFeaturedImage(item['wp:featuredmedia']),
-    gallery: [],
-
-  }
-
   return {
     id: item.id,
     slug: item.slug,
     prices: item.acf.prices,
-    content,
+    content: {
+      id: item.id,
+      title: item.title.rendered,
+      text: item.content.rendered,
+      image: getFeaturedImage(item['wp:featuredmedia']),
+      gallery: [],
+    },
     locales: item.locales,
     seo: createSeo(item.yoast_head_json),
   }

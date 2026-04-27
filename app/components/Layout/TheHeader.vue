@@ -1,10 +1,14 @@
 <script lang="ts" setup>
+import TheMenu from '../Menu/MainNavigation/TheMenu.vue'
+
 // const { title } = useAppConfig()
 </script>
 
 <template>
   <header class="header">
     <mobile-navigation />
+    <meta-navigation />
+    <the-menu />
     <dialog
       id="menu"
       popover
