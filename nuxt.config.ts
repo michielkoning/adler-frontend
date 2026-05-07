@@ -258,10 +258,10 @@ export default defineNuxtConfig({
         id: '1232005826842948',
         trigger: 'onNuxtReady',
       },
-      googleAnalytics: {
-        id: 'UA-1359501-2',
-        trigger: 'onNuxtReady',
-      },
+      // googleAnalytics: {
+      //   id: 'UA-1359501-2',
+      //   trigger: 'onNuxtReady',
+      // },
       googleMaps: {
         trigger: 'onNuxtReady',
       },

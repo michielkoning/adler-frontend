@@ -15,6 +15,7 @@ defineProps<{
   <app-modal
     id="arrangement"
     :title="title"
+    size="small"
   >
     <form-book-arrangement :title="title" />
   </app-modal>

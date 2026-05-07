@@ -33,6 +33,7 @@ const validationListeners = {
 <template>
   <form-field
     :id="id"
+    :class="$attrs.class"
     :title="title"
     :name="name"
     :error-message="errorMessage"

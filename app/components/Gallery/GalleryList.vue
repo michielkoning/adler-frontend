@@ -75,10 +75,6 @@ const transitionName = computed(() => `image-${props.id}`)
   gap: var(--gutter);
 }
 
-.item {
-  cursor: pointer;
-}
-
 .item-0 {
   grid-column: span 2;
   view-transition-name: v-bind(transitionName);

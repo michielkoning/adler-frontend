@@ -35,6 +35,7 @@ const validationListeners = {
     :id="id"
     :title="title"
     :name="name"
+    :class="$attrs.class"
     :error-message="errorMessage"
   >
     <textarea

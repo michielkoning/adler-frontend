@@ -100,11 +100,9 @@ const validationSchema = toTypedSchema(
         class="date"
         :title="$t('form.totalRooms')"
       />
-
       <form-input-text
         type="number"
         name="totalAdults"
-        class="date"
         :title="$t('form.totalAdults')"
       />
 

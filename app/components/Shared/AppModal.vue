@@ -25,7 +25,7 @@ withDefaults(
         v-html="title"
       />
       <button
-        class="close"
+        class="btn-close"
         :commandfor="id"
         command="close"
       >
@@ -45,7 +45,7 @@ withDefaults(
 <style lang="css" scoped>
 dialog {
   inline-size: calc(100vw - (var(--spacing-m) * 2));
-  max-inline-size: 1280px;
+  max-inline-size: var(--container-width-lg);
   padding: 0;
   background-color: var(--color-background);
   border: 0;
@@ -58,6 +58,10 @@ dialog {
     &::backdrop {
       animation: backdrop-show var(--transition);
     }
+  }
+
+  &.small {
+    max-inline-size: var(--container-width-md);
   }
 }
 
