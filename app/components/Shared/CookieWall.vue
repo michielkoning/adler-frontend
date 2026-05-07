@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-const cookie = useCookie('privacy')
+const cookie = useCookie<string>('privacy')
+
+const { accept } = useScriptTriggerConsent()
 
 const confirm = () => {
   cookie.value = 'true'
+  accept()
 }
 
 const localePath = useLocalePath()

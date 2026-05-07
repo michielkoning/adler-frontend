@@ -12,18 +12,7 @@ const settings = {
 }
 
 export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/i18n',
-    '@nuxt/eslint',
-    '@nuxtjs/stylelint-module',
-    '@nuxt/image',
-    'nuxt-schema-org',
-    '@nuxt/fonts',
-    '@nuxt/icon',
-    '@vite-pwa/nuxt',
-    '@vee-validate/nuxt',
-    '@nuxt/scripts',
-  ],
+  modules: ['@nuxtjs/i18n', '@nuxt/eslint', '@nuxtjs/stylelint-module', '@nuxt/image', 'nuxt-schema-org', '@nuxt/fonts', '@nuxt/icon', '@vite-pwa/nuxt', '@vee-validate/nuxt', '@nuxt/scripts', '@nuxtjs/partytown'],
 
   components: [
     '~/components/Animations',
@@ -96,11 +85,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       scripts: {
-        metaPixel: {
-          id: '',
-        },
-        googleAnalytics: {
-          id: '',
+        googleMaps: {
+          apiKey: '', // NUXT_PUBLIC_SCRIPTS_GOOGLE_MAPS_API_KEY
         },
       },
     },
@@ -264,10 +250,21 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   scripts: {
+    privacy: true,
     registry: {
-      metaPixel: true,
-      googleAnalytics: true,
+      metaPixel: {
+        id: '1232005826842948',
+        trigger: 'onNuxtReady',
+      },
+      googleAnalytics: {
+        id: 'UA-1359501-2',
+        trigger: 'onNuxtReady',
+      },
+      googleMaps: {
+        trigger: 'onNuxtReady',
+      },
     },
   },
 })
