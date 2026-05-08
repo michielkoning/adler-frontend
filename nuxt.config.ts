@@ -12,8 +12,19 @@ const settings = {
 }
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/i18n', '@nuxt/eslint', '@nuxtjs/stylelint-module', '@nuxt/image', 'nuxt-schema-org', '@nuxt/fonts', '@nuxt/icon', '@vite-pwa/nuxt', '@vee-validate/nuxt', '@nuxt/scripts', '@nuxtjs/partytown'],
-
+  modules: [
+    '@nuxtjs/i18n',
+    '@nuxt/eslint',
+    '@nuxtjs/stylelint-module',
+    '@nuxt/image',
+    'nuxt-schema-org',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    '@vite-pwa/nuxt',
+    '@vee-validate/nuxt',
+    '@nuxt/scripts',
+    '@nuxtjs/partytown',
+  ],
   components: [
     '~/components/Animations',
     '~/components/Archive',
