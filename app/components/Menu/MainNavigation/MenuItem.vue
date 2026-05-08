@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-const props = withDefaults(
+import type { RouteLocationRaw } from 'vue-router'
+
+withDefaults(
   defineProps<{
     title: string
-    id: number
-    link: string
+    to: RouteLocationRaw
     children?: {
       title: string
-      id: number
-      link: string
+      to: RouteLocationRaw
     }[]
   }>(),
   {
@@ -15,162 +15,71 @@ const props = withDefaults(
   },
 )
 
-const { clear, openMenus, add, remove } = useLayout()
+const id = useId()
 
-const route = useRoute()
-const menuIsOpen = useMenuIsOpen()
-let timer = null as number | null
-
-const isOpen = computed(() => openMenus.value.includes(props.title))
-
-const toggleMenu = () => {
-  if (isOpen.value) {
-    remove(props.title)
-  }
-  else {
-    add(props.title)
-  }
-}
-
-const setActiveSubmenu = () => {
-  if (!isSmallScreen()) return
-  if (route.fullPath === props.link) {
-    add(props.title)
-    return
-  }
-  const selectedChild = props.children.find(child => child.link === route.fullPath)
-
-  if (selectedChild) {
-    add(props.title)
-    return
-  }
-}
-
-watch(menuIsOpen, () => {
-  if (menuIsOpen.value) {
-    setActiveSubmenu()
-  }
-  else {
-    clear()
-  }
+const anchor = computed(() => {
+  return `--${id}`
 })
-
-const hasChildren = computed(() => {
-  return props.children.length > 0
-})
-
-const mouseover = () => {
-  if (isSmallScreen()) return
-  if (!hasChildren.value) return
-  if (!timer) return
-  add(props.title)
-  clearTimeout(timer)
-}
-
-const mouseout = () => {
-  if (isSmallScreen()) return
-  timer = window.setTimeout(() => {
-    remove(props.title)
-  }, 150)
-}
-const isSmallScreen = () => {
-  return window.innerWidth < 768
-}
-
-const controlId = `menu-${props.id}`
 </script>
 
 <template>
-  <li
-
-    @mouseover="mouseover"
-    @mouseout="mouseout"
-  >
-    <div class="menu-item">
-      <nuxt-link
-        :to="link"
-        :aria-haspopup="hasChildren"
-        class="menu-link"
+  <li>
+    <nuxt-link
+      :to="to"
+      class="menu-link"
+    >
+      {{ title }}
+    </nuxt-link>
+    <button
+      v-if="children.length"
+      :popovertarget="id"
+      type="button"
+    >
+      <app-icon
+        icon="fa-solid:chevron-down"
+        class="icon"
+      />
+      <span class="sr-only">
+        {{
+          $t("showSubmenuFor", {
+            title,
+          })
+        }}
+      </span>
+    </button>
+    <ul
+      v-if="children.length"
+      :id="id"
+      popover="hint"
+    >
+      <li
+        v-for="link in children"
+        :key="link.title"
       >
-        <span
-          class="title"
-          v-html="title"
-        />
-
-      </nuxt-link>
-      <button
-        v-if="hasChildren"
-        :aria-expanded="isOpen"
-        type="button"
-        :aria-controls="controlId"
-        class="btn-show-submenu"
-        @click="toggleMenu"
-      >
-        <app-icon
-          icon="fa-solid:chevron-down"
-          aria-hidden="true"
-          class="icon"
-        />
-        <span class="sr-only">
-          {{
-            $t("showSubmenuFor", {
-              title: title,
-            })
-          }}
-        </span>
-      </button>
-    </div>
-    <template v-if="hasChildren">
-      <slide-in-animation>
-        <ul
-          v-show="isOpen"
-          :id="controlId"
-          class="submenu"
+        <nuxt-link
+          :to="link.to"
+          class="submenu-link"
         >
-          <li
-            v-for="subItem in children"
-            :key="subItem.id"
-            class="submenu-item"
-          >
-            <nuxt-link
-              :to="subItem.link"
-              class="submenu-link"
-              @click="clear"
-            >
-              <span v-html="subItem.title" />
-            </nuxt-link>
-          </li>
-        </ul>
-      </slide-in-animation>
-    </template>
+          {{ link.title }}
+        </nuxt-link>
+      </li>
+    </ul>
   </li>
 </template>
 
 <style lang="css" scoped>
 li {
-  position: relative;
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-headings);
-}
-
-.menu-item {
   display: flex;
   gap: var(--spacing-xxs);
   align-items: center;
+  anchor-name: v-bind(anchor);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
 }
 
 .menu-link {
   flex: 1 0 auto;
   font-size: var(--font-size-xl);
-  border-bottom: 2px solid var(--color-black);
-
-  @media (--navigation-md) {
-    border-bottom-width: 0;
-  }
-}
-
-.submenu-item:not(:last-child) {
-  border-bottom: 1px solid var(--color-black);
 }
 
 .icon {
@@ -180,19 +89,7 @@ li {
   transition: transform var(--transition);
 }
 
-.btn-show-submenu {
-  position: absolute;
-  top: 0.5em;
-  right: calc(var(--spacing-xs) * -1);
-  display: block;
-
-  @media (--navigation-md) {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: translateY(-2px);
-  }
-
+button {
   &[aria-expanded="true"] {
     .icon {
       transform: rotate(-180deg);
@@ -202,6 +99,17 @@ li {
       }
     }
   }
+}
+
+ul {
+  @mixin list-reset;
+
+  top: anchor(bottom);
+  left: anchor(left);
+  position-anchor: v-bind(anchor);
+  background: var(--color-background);
+  border: 0;
+  filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
 }
 
 .submenu-link,

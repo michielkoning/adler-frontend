@@ -5,24 +5,25 @@ import TheMenu from '../Menu/MainNavigation/TheMenu.vue'
 </script>
 
 <template>
-  <header class="header">
-    <mobile-navigation />
-    <meta-navigation />
-    <the-menu />
-    <dialog
-      id="menu"
-      popover
-      closedby="any"
-    >
-      <center-wrapper>
-        <h1>trest</h1>
-      </center-wrapper>
-    </dialog>
+  <header>
+    <!-- <mobile-navigation /> -->
+    <center-wrapper>
+      <div class="content">
+        <div class="logo-wrapper">
+          <app-icon
+            icon="adler:logo"
+            class="logo"
+          />
+        </div>
+        <meta-navigation />
+        <the-menu />
+      </div>
+    </center-wrapper>
   </header>
 </template>
 
 <style lang="css" scoped>
-.header {
+header {
   margin-bottom: var(--menu-height);
   background: var(--color-primary);
 
@@ -76,7 +77,7 @@ dialog {
   padding: 5em var(--gutter) var(--gutter);
 
   @media (--navigation-md) {
-    display: grid !important;
+    display: grid;
     flex: 0 0 auto;
     grid-template-columns: auto 1fr;
     column-gap: var(--gutter);
@@ -136,51 +137,5 @@ dialog {
 .image {
   display: block;
   width: 100%;
-}
-
-@keyframes dialog-hide {
-  from {
-    opacity: 1;
-    translate: 0 0;
-  }
-
-  to {
-    opacity: 0;
-    translate: 0 -1em;
-  }
-}
-
-@keyframes dialog-show {
-  from {
-    opacity: 0;
-    translate: 0 -1em;
-  }
-
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-
-@keyframes backdrop-show {
-  from {
-    translate: 0 -100dvh;
-  }
-
-  to {
-    translate: 0 0;
-  }
-}
-
-@keyframes backdrop-hide {
-  from {
-    opacity: 1;
-    backdrop-filter: blur(0.25em);
-  }
-
-  to {
-    opacity: 0;
-    backdrop-filter: blur(0);
-  }
 }
 </style>

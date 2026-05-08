@@ -19,7 +19,6 @@ const { data } = await useFetch('/api/menu', {
     aria-labelledby="menu"
     class="nav"
   >
-    {{ locale }}
     <h2
       id="menu"
       class="sr-only"
@@ -27,19 +26,50 @@ const { data } = await useFetch('/api/menu', {
     >
       {{ "title" }}
     </h2>
-    <div v-if="data">
-      <ul
-        v-if="data"
-        class="menu"
-      >
-        <nuxt-link
-          v-for="item in data"
-          v-bind="item"
-          :key="item.id"
-          :to="item.link"
+    <div>
+      <ul>
+        <menu-item
+          :title="$t('pages.home')"
           class="menu-item-page"
-        >{{ item.title }}
-        </nuxt-link>
+          :to="{
+            name: 'index',
+          }"
+          :children="[
+            {
+              title: 'test',
+              to: {
+                name: 'index',
+              },
+            },
+          ]"
+        />
+        <li
+          v-for="item in data"
+          :key="item.id"
+        >
+          <nuxt-link
+            v-bind="item"
+            :to="item.link"
+            class="menu-item-page"
+          >
+            {{ item.title }}
+          </nuxt-link>
+        </li>
+
+        <menu-item
+          :title="$t('pages.contact')"
+          class="menu-item-page"
+          :to="$localeRoute({
+            name: 'contact',
+          })"
+        />
+        <menu-item
+          :title="$t('pages.lastMinutes')"
+          class="menu-item-page"
+          :to="$localeRoute({
+            name: 'last-minutes',
+          })"
+        />
       </ul>
     </div>
   </nav>
@@ -55,7 +85,7 @@ const { data } = await useFetch('/api/menu', {
     }
   }
 
-  .menu {
+  ul {
     @mixin list-reset;
 
     border-top: 2px solid var(--color-black);
