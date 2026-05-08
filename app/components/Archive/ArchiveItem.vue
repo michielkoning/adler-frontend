@@ -39,8 +39,6 @@ const transitionName = computed(() => `image-${props.id}`)
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .link {
     @mixin link-reset;
   }
@@ -53,7 +51,7 @@ const transitionName = computed(() => `image-${props.id}`)
     padding: calc(var(--gutter) / 2);
     margin-bottom: var(--spacing-s);
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       grid-template-columns: 15em auto;
     }
 
@@ -76,7 +74,7 @@ const transitionName = computed(() => `image-${props.id}`)
   .content {
     grid-row-start: 2;
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       grid-row-start: 1;
       grid-column-start: 2;
     }
@@ -92,7 +90,7 @@ const transitionName = computed(() => `image-${props.id}`)
     top: calc(var(--spacing-xs) * -1);
     right: calc(var(--spacing-xxs) * -1);
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       top: 0;
       left: calc(var(--spacing-xxs) * -1);
     }

@@ -22,8 +22,6 @@ import TheMenu from '../Menu/MainNavigation/TheMenu.vue'
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .header {
   margin-bottom: var(--menu-height);
   background: var(--color-primary);

@@ -147,8 +147,6 @@ const controlId = `menu-${props.id}`
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 li {
   position: relative;
   font-family: var(--font-family-headings);

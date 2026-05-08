@@ -46,8 +46,6 @@ const { data } = await useFetch('/api/menu', {
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .nav {
     position: relative;
     margin-bottom: var(--spacing-m);

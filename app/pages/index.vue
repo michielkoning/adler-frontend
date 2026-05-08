@@ -45,15 +45,13 @@ useSeo(data.value?.seo)
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .wrapper {
     @mixin block-padding;
 
     display: grid;
     gap: var(--spacing-l);
 
-    @media (--viewport-lg) {
+    @media (--lg) {
       grid-template-columns: 2fr 1fr;
     }
   }
@@ -69,7 +67,7 @@ useSeo(data.value?.seo)
     grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
     gap: var(--spacing-l);
 
-    @media (--viewport-lg) {
+    @media (--lg) {
       display: flex;
       flex-direction: column;
     }

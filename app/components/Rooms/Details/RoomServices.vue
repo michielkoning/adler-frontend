@@ -19,13 +19,11 @@ defineProps<{
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .list {
   display: grid;
   column-gap: var(--gutter);
 
-  @media (--viewport-sm) {
+  @media (--sm) {
     grid-template-columns: repeat(2, 1fr);
   }
 }

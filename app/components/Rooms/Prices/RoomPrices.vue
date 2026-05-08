@@ -49,14 +49,12 @@ defineProps<{
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .prices {
   display: grid;
   gap: var(--gutter);
   margin-bottom: var(--spacing-m);
 
-  @media (--viewport-sm) {
+  @media (--sm) {
     grid-template-columns: repeat(2, 1fr);
   }
 }

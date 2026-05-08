@@ -44,8 +44,6 @@
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .list {
   @mixin list-reset;
 

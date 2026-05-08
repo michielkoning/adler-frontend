@@ -35,8 +35,6 @@ const { title } = useAppConfig()
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .wrapper {
     position: fixed;
     inset: 0 0 auto;

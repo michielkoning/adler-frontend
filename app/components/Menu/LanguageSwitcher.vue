@@ -37,8 +37,6 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .wrapper {
     display: flex;
     flex-direction: column;

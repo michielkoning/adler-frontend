@@ -17,8 +17,6 @@ defineProps<{
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .list {
   @mixin list-reset;
 
@@ -26,7 +24,7 @@ defineProps<{
   gap: var(--spacing-l);
   margin-bottom: var(--spacing-m);
 
-  @media (--viewport-md) {
+  @media (--md) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

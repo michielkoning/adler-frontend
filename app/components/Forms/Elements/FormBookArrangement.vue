@@ -145,9 +145,7 @@ const validationSchema = toTypedSchema(
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
-@media (--viewport-xs) {
+@media (--xs) {
   .dates {
     --columns: 2;
   }
@@ -171,7 +169,7 @@ const validationSchema = toTypedSchema(
   grid-column: span 4;
 }
 
-@media (--viewport-xs) {
+@media (--xs) {
   .address,
   .zipcode,
   .email,

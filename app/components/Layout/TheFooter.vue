@@ -12,8 +12,6 @@
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 :global(a) {
   text-decoration-color: currentcolor;
 }
@@ -30,11 +28,11 @@
   gap: var(--spacing-l) var(--gutter);
   align-items: start;
 
-  @media (--viewport-sm) {
+  @media (--sm) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (--viewport-lg) {
+  @media (--lg) {
     grid-template-columns: repeat(4, 1fr);
   }
 }

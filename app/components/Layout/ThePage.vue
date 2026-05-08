@@ -62,8 +62,6 @@ const transitionName = computed(() => `image-${props.id}`)
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .page {
     display: grid;
     gap: var(--gutter);
@@ -71,11 +69,11 @@ const transitionName = computed(() => `image-${props.id}`)
     padding-top: var(--spacing-m);
     margin-bottom: var(--spacing-xl);
 
-    @media (--viewport-md) {
+    @media (--md) {
       padding-top: 0;
     }
 
-    @media (--viewport-lg) {
+    @media (--lg) {
       grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     }
   }
@@ -84,7 +82,7 @@ const transitionName = computed(() => `image-${props.id}`)
   .image {
     grid-row: 1 / 2;
 
-    @media (--viewport-lg) {
+    @media (--lg) {
       grid-column: 1 / 3;
     }
   }
@@ -99,7 +97,7 @@ const transitionName = computed(() => `image-${props.id}`)
     display: grid;
     gap: var(--gutter);
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     }
   }

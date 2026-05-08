@@ -64,8 +64,6 @@ const transitionName = computed(() => `image-${props.id}`)
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .list {
   @mixin list-reset;
 
@@ -89,7 +87,7 @@ const transitionName = computed(() => `image-${props.id}`)
   grid-column: span 2;
 }
 
-@media (--viewport-sm) {
+@media (--sm) {
   .list {
     grid-template-rows: 36vw 12vw;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -108,7 +106,7 @@ const transitionName = computed(() => `image-${props.id}`)
   }
 }
 
-@media (--viewport-lg) {
+@media (--lg) {
   .list {
     grid-template-rows: 12em 12em 4em;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -124,7 +122,7 @@ const transitionName = computed(() => `image-${props.id}`)
   }
 }
 
-@media (--viewport-xlg) {
+@media (--xlg) {
   .list {
     grid-template-rows: repeat(4, 9em);
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -160,7 +158,7 @@ const transitionName = computed(() => `image-${props.id}`)
     background: var(--color-gray-dark);
   }
 
-  @media (--viewport-sm) {
+  @media (--sm) {
     font-size: var(--font-size-xl);
   }
 }

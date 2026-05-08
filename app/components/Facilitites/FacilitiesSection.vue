@@ -25,8 +25,6 @@ const { facilities } = useAppConfig()
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .facilities {
   @mixin block-padding;
 
@@ -41,7 +39,7 @@ const { facilities } = useAppConfig()
   display: grid;
   gap: var(--gutter);
 
-  @media (--viewport-sm) {
+  @media (--sm) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -20,14 +20,12 @@ defineProps<{
 </template>
 
 <style lang="css" scoped>
-@import "~/assets/css/media-queries/media-queries.css";
-
 .list {
   @mixin list-reset;
 
   margin: 0 calc(var(--gutter) / -2);
 
-  @media (--viewport-md) {
+  @media (--md) {
     margin-right: 0;
   }
 

@@ -44,13 +44,11 @@ useSeo(data.value?.seo)
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .wrapper {
     display: grid;
     gap: var(--gutter);
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     }
   }

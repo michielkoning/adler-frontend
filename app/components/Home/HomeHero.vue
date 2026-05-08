@@ -87,8 +87,6 @@ const { title, address } = useAppConfig()
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .hero {
     position: relative;
     height: 30rem;
@@ -105,7 +103,7 @@ const { title, address } = useAppConfig()
     flex-direction: column;
     justify-content: flex-end;
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       top: 5em;
     }
   }
@@ -123,7 +121,7 @@ const { title, address } = useAppConfig()
     font-size: var(--font-size-xl);
     transform: translateY(calc(var(--spacing-xxs) * -1));
 
-    @media (--viewport-sm) {
+    @media (--sm) {
       font-size: var(--font-size-xxl);
     }
   }

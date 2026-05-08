@@ -43,8 +43,6 @@
 </template>
 
 <style lang="css" scoped>
-  @import "~/assets/css/media-queries/media-queries.css";
-
   .meta-navigation {
     display: flex;
     flex-direction: column;

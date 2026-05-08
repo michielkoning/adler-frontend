@@ -128,21 +128,26 @@ export default defineNuxtConfig({
   // },
   postcss: {
     plugins: {
+      'postcss-custom-media-generator': {
+        'xs': 480,
+        'sm': 640,
+        'md': 768,
+        'lg': 1024,
+        '--navigation-md': '(width >= 768px)',
+        '--navigation-lg': '(width >= 1024px)',
+        '--show-full-navigation': '(width >= 768px)',
+      },
       'postcss-mixins': {
         mixinsDir: './app/assets/css/mixins/',
       },
-
       'postcss-preset-env': {
         browsers: 'last 2 versions',
-        stage: 4,
-
         features: {
           'nesting-rules': true,
           'custom-media-queries': true,
           'media-query-ranges': true,
         },
       },
-      'autoprefixer': {},
       'cssnano': {},
     },
   },

@@ -31,6 +31,7 @@
     "nuxt": "^4.4.4",
     "nuxt-schema-org": "^6.0.4",
     "nuxt-svgo": "^4.2.6",
+    "postcss-custom-media-generator": "^1.1.0",
     "postcss-html": "^1.8.1",
     "postcss-import": "^16.1.1",
     "postcss-mixins": "^12.1.2",
