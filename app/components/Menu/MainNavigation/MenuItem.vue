@@ -4,10 +4,10 @@ import type { RouteLocationRaw } from 'vue-router'
 withDefaults(
   defineProps<{
     title: string
-    to: RouteLocationRaw
+    link: RouteLocationRaw
     children?: {
       title: string
-      to: RouteLocationRaw
+      link: RouteLocationRaw
     }[]
   }>(),
   {
@@ -25,8 +25,7 @@ const anchor = computed(() => {
 <template>
   <li>
     <nuxt-link
-      :to="to"
-      class="menu-link"
+      :to="link"
     >
       {{ title }}
     </nuxt-link>
@@ -47,23 +46,12 @@ const anchor = computed(() => {
         }}
       </span>
     </button>
-    <ul
+    <submenu-list
       v-if="children.length"
       :id="id"
-      popover="hint"
-    >
-      <li
-        v-for="link in children"
-        :key="link.title"
-      >
-        <nuxt-link
-          :to="link.to"
-          class="submenu-link"
-        >
-          {{ link.title }}
-        </nuxt-link>
-      </li>
-    </ul>
+      class="submenu"
+      :items="children"
+    />
   </li>
 </template>
 
@@ -77,9 +65,19 @@ li {
   font-weight: var(--font-weight-headings);
 }
 
-.menu-link {
+a {
+  @mixin link-reset;
+
+  display: block;
   flex: 1 0 auto;
+  padding-block: var(--spacing-xxs);
   font-size: var(--font-size-xl);
+  transition: border var(--animation);
+
+  &:hover,
+  &.router-link-active {
+    color: var(--color-primary);
+  }
 }
 
 .icon {
@@ -101,54 +99,7 @@ button {
   }
 }
 
-ul {
-  @mixin list-reset;
-
-  top: anchor(bottom);
-  left: anchor(left);
-  position-anchor: v-bind(anchor);
-  background: var(--color-background);
-  border: 0;
-  filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-}
-
-.submenu-link,
-.menu-link {
-  @mixin link-reset;
-
-  display: block;
-  padding-block: var(--spacing-xxs);
-  transition: border var(--animation);
-}
-
-.submenu-link {
-  padding-inline: var(--spacing-s);
-  font-size: var(--font-size-l);
-}
-
 .submenu {
-  @mixin list-reset;
-
-  padding-left: var(--spacing-m);
-  border-bottom: 2px solid var(--color-black);
-
-  @media (--navigation-md) {
-    position: absolute;
-    top: 100%;
-    left: calc(-1 * var(--spacing-xs));
-    z-index: var(--z-main-navigation);
-    padding-left: 0;
-    white-space: nowrap;
-    background: var(--color-background);
-    border-bottom: 0;
-    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-  }
-}
-
-a:hover,
-li:has(.router-link-active) .menu-link,
-li:has(a:hover) .menu-link,
-.router-link-active {
-  color: var(--color-primary);
+  position-anchor: v-bind(anchor);
 }
 </style>

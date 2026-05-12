@@ -31,42 +31,27 @@ const { data } = await useFetch('/api/menu', {
         <menu-item
           :title="$t('pages.home')"
           class="menu-item-page"
-          :to="{
+          :link="{
             name: 'index',
           }"
-          :children="[
-            {
-              title: 'test',
-              to: {
-                name: 'index',
-              },
-            },
-          ]"
         />
-        <li
+        <menu-item
           v-for="item in data"
           :key="item.id"
-        >
-          <nuxt-link
-            v-bind="item"
-            :to="item.link"
-            class="menu-item-page"
-          >
-            {{ item.title }}
-          </nuxt-link>
-        </li>
-
+          v-bind="item"
+          class="menu-item-page"
+        />
         <menu-item
           :title="$t('pages.contact')"
           class="menu-item-page"
-          :to="$localeRoute({
+          :link="$localeRoute({
             name: 'contact',
           })"
         />
         <menu-item
           :title="$t('pages.lastMinutes')"
           class="menu-item-page"
-          :to="$localeRoute({
+          :link="$localeRoute({
             name: 'last-minutes',
           })"
         />

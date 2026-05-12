@@ -9,12 +9,17 @@ import TheMenu from '../Menu/MainNavigation/TheMenu.vue'
     <!-- <mobile-navigation /> -->
     <center-wrapper>
       <div class="content">
-        <div class="logo-wrapper">
+        <nuxt-link-locale
+          :to="{
+            name: 'index',
+          }"
+          class="logo-wrapper"
+        >
           <app-icon
             icon="adler:logo"
             class="logo"
           />
-        </div>
+        </nuxt-link-locale>
         <meta-navigation />
         <the-menu />
       </div>
