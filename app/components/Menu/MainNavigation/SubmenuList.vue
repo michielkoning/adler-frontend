@@ -8,27 +8,16 @@ defineProps<{
   }[]
 }>()
 
-defineEmits<{
-  (e: 'clicked'): void
-}>()
-
 const popover = useTemplateRef('popover')
 
 const close = () => {
   popover.value?.hidePopover()
 }
-
-const open = () => {
-  popover.value?.showPopover()
-}
-
-defineExpose({ open })
 </script>
 
 <template>
   <ul
     ref="popover"
-    popover="hint"
   >
     <li
       v-for="link in items"
@@ -36,7 +25,6 @@ defineExpose({ open })
     >
       <nuxt-link
         aria-current-value="true"
-
         :to="link.link"
         @click="close"
       >
@@ -67,13 +55,11 @@ ul {
   &:popover-open {
     opacity: 1;
     translate: 0;
-  }
-}
 
-@starting-style {
-  ul:popover-open {
-    opacity: 0;
-    translate: 0 -1em;
+    @starting-style {
+      opacity: 0;
+      translate: 0 -1em;
+    }
   }
 }
 
@@ -92,9 +78,6 @@ a {
   &:hover,
   &.router-link-active {
     color: var(--color-primary);
-  }
-
-  &.router-link-active {
     border-left-color: currentcolor;
   }
 }

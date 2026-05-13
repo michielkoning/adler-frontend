@@ -25,6 +25,7 @@ const anchor = computed(() => {
 <template>
   <li>
     <nuxt-link
+      :interestfor="id"
       :to="link"
     >
       {{ title }}
@@ -32,11 +33,9 @@ const anchor = computed(() => {
     <button
       v-if="children.length"
       :popovertarget="id"
-      type="button"
     >
       <app-icon
         icon="fa-solid:chevron-down"
-        class="icon"
       />
       <span class="sr-only">
         {{
@@ -49,6 +48,8 @@ const anchor = computed(() => {
     <submenu-list
       v-if="children.length"
       :id="id"
+      ref="popover"
+      popover="hint"
       class="submenu"
       :items="children"
     />
@@ -56,18 +57,10 @@ const anchor = computed(() => {
 </template>
 
 <style lang="css" scoped>
-li {
-  display: flex;
-  gap: var(--spacing-xxs);
-  align-items: center;
-  anchor-name: v-bind(anchor);
-  font-family: var(--font-family-headings);
-  font-weight: var(--font-weight-headings);
-}
-
 a {
   @mixin link-reset;
 
+  interest-delay: 0s 0.25s;
   display: block;
   flex: 1 0 auto;
   padding-block: var(--spacing-xxs);
@@ -80,23 +73,28 @@ a {
   }
 }
 
-.icon {
+li {
+  display: flex;
+  gap: var(--spacing-xxs);
+  align-items: center;
+  anchor-name: v-bind(anchor);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
+
+  &:has(:popover-open) {
+    transform: rotate(0deg);
+  }
+
+  &:has(.router-link-active) a {
+    color: var(--color-primary);
+  }
+}
+
+svg {
   width: var(--spacing-m);
   height: var(--spacing-m);
   aspect-ratio: 1;
   transition: transform var(--transition);
-}
-
-button {
-  &[aria-expanded="true"] {
-    .icon {
-      transform: rotate(-180deg);
-
-      @media (--navigation-md) {
-        transform: rotate(0deg);
-      }
-    }
-  }
 }
 
 .submenu {
