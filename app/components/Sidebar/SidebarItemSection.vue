@@ -16,7 +16,7 @@ defineProps<{
 
 <style lang="css" scoped>
 .item {
-  padding: var(--spacing-m);
+  padding: var(--spacing-4);
   background: var(--color-background-alternative);
 }
 </style>

@@ -21,8 +21,8 @@ defineProps<{
   @mixin list-reset;
 
   display: grid;
-  gap: var(--spacing-l);
-  margin-bottom: var(--spacing-m);
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-4);
 
   @media (--md) {
     grid-template-columns: repeat(3, 1fr);

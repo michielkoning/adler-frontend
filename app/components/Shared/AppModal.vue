@@ -44,7 +44,7 @@ withDefaults(
 
 <style lang="css" scoped>
 dialog {
-  inline-size: calc(100vw - (var(--spacing-m) * 2));
+  inline-size: calc(100vw - (var(--spacing-4) * 2));
   max-inline-size: var(--container-width-lg);
   padding: 0;
   background-color: var(--color-background);
@@ -79,15 +79,15 @@ dialog {
 .header {
   inset-block-start: 0;
   display: flex;
-  gap: var(--spacing-s);
+  gap: var(--spacing-3);
   align-items: start;
   justify-content: space-between;
-  padding: var(--spacing-s) var(--spacing-m) 0;
+  padding: var(--spacing-3) var(--spacing-4) 0;
   border-bottom: 1px solid var(--color-gray);
 }
 
 .content {
-  padding: var(--spacing-m);
+  padding: var(--spacing-4);
 }
 
 @keyframes dialog-hide {

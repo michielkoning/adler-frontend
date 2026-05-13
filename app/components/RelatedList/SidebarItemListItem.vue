@@ -38,7 +38,7 @@ defineProps<Archive>()
 .list-item {
   display: grid;
   grid-template-columns: 5em auto;
-  gap: var(--spacing-s);
+  gap: var(--spacing-3);
   align-items: center;
 
   &:focus-within .link,

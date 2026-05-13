@@ -41,7 +41,7 @@ if (error.value) {
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  gap: var(--spacing-l);
-  margin-bottom: var(--spacing-m);
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-4);
 }
 </style>

@@ -103,13 +103,13 @@ dialog {
   @media (--navigation-md) {
     display: block;
     width: 5em;
-    margin-top: var(--spacing-xs);
+    margin-top: var(--spacing-2);
   }
 
   @media (--navigation-lg) {
     grid-row: span 2;
     width: 7em;
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-3);
   }
 }
 

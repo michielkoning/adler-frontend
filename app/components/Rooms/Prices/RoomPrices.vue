@@ -52,7 +52,7 @@ defineProps<{
 .prices {
   display: grid;
   gap: var(--gutter);
-  margin-bottom: var(--spacing-m);
+  margin-bottom: var(--spacing-4);
 
   @media (--sm) {
     grid-template-columns: repeat(2, 1fr);
@@ -65,7 +65,7 @@ defineProps<{
 }
 
 .price {
-  margin-right: var(--spacing-s);
+  margin-right: var(--spacing-3);
 }
 
 .title {

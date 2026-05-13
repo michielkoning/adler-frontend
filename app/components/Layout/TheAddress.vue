@@ -34,10 +34,10 @@ const { address, title } = useAppConfig()
 
 <style lang="css" scoped>
 .address {
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-2);
 }
 
 .contact {
-  margin-bottom: var(--spacing-m);
+  margin-bottom: var(--spacing-4);
 }
 </style>

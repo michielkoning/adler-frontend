@@ -67,9 +67,9 @@ a {
   @mixin link-reset;
 
   display: block;
-  padding: var(--spacing-xs) var(--spacing-xs);
-  padding-block: var(--spacing-xxs);
-  padding-inline: var(--spacing-s);
+  padding: var(--spacing-2) var(--spacing-2);
+  padding-block: var(--spacing-1);
+  padding-inline: var(--spacing-3);
   font-size: var(--font-size-l);
   border-bottom: 1px solid var(--color-gray);
   border-left: 2px solid transparent;

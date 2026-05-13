@@ -63,7 +63,7 @@ const { data } = await useFetch('/api/menu', {
 <style lang="css" scoped>
   .nav {
     position: relative;
-    margin-bottom: var(--spacing-m);
+    margin-bottom: var(--spacing-4);
 
     @media (--show-full-navigation) {
       margin-bottom: 0;
@@ -77,13 +77,13 @@ const { data } = await useFetch('/api/menu', {
 
     @media (--show-full-navigation) {
       display: flex;
-      gap: var(--spacing-s);
+      gap: var(--spacing-3);
       justify-content: space-between;
       border-top: 0;
     }
 
     @media (--navigation-lg) {
-      margin-left: var(--spacing-l);
+      margin-left: var(--spacing-8);
     }
   }
 

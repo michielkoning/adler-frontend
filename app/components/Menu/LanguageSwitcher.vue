@@ -52,9 +52,9 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
     @mixin link-reset;
 
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-2);
     align-items: center;
-    margin-bottom: var(--spacing-xxs);
+    margin-bottom: var(--spacing-1);
   }
 
   .title {

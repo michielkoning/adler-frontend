@@ -1,6 +1,6 @@
 table {
   width: 100%;
-  margin: 0 0 var(--spacing-m);
+  margin: 0 0 var(--spacing-4);
   margin-bottom: 1rem;
   border-collapse: collapse;
 }
@@ -15,7 +15,7 @@ td {
 
 th,
 td {
-  padding: var(--spacing-xs);
+  padding: var(--spacing-2);
   text-align: left;
 
   /* @nest thead & {

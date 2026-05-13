@@ -49,7 +49,7 @@ useSeo(data.value?.seo)
     @mixin block-padding;
 
     display: grid;
-    gap: var(--spacing-l);
+    gap: var(--spacing-8);
 
     @media (--lg) {
       grid-template-columns: 2fr 1fr;
@@ -59,13 +59,13 @@ useSeo(data.value?.seo)
   .highlights {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
-    gap: var(--spacing-l);
+    gap: var(--spacing-8);
   }
 
   .sidebar {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
-    gap: var(--spacing-l);
+    gap: var(--spacing-8);
 
     @media (--lg) {
       display: flex;

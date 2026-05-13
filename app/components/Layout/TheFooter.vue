@@ -25,7 +25,7 @@
 
 .wrapper {
   display: grid;
-  gap: var(--spacing-l) var(--gutter);
+  gap: var(--spacing-8) var(--gutter);
   align-items: start;
 
   @media (--sm) {

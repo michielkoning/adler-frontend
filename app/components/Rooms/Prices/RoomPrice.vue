@@ -23,8 +23,8 @@ defineProps<{
 .price {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-s) var(--spacing-xs);
-  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-3) var(--spacing-2);
+  margin-bottom: var(--spacing-2);
   color: var(--color-white);
   text-align: center;
   background: var(--color-gray);

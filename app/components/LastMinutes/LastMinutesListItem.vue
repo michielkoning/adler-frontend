@@ -140,7 +140,7 @@ const id = useId()
     grid-template-rows: subgrid;
     grid-row: span 5;
     gap: 1em;
-    padding-bottom: var(--spacing-m);
+    padding-bottom: var(--spacing-4);
     background: var(--color-white);
 
     &:focus-within,
@@ -153,7 +153,7 @@ const id = useId()
   .services-wrapper,
   .prices-wrapper,
   .btn-wrapper {
-    padding-inline: var(--spacing-m);
+    padding-inline: var(--spacing-4);
   }
 
   .link {
@@ -167,7 +167,7 @@ const id = useId()
   .badge {
     position: absolute;
     top: 3em;
-    right: calc(var(--spacing-s) * -1);
+    right: calc(var(--spacing-3) * -1);
   }
 
   .persons {

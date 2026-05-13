@@ -47,10 +47,10 @@ defineProps<{
 .list {
   @mixin list-reset;
 
-  margin-bottom: var(--spacing-l);
+  margin-bottom: var(--spacing-8);
 }
 
 .list-item {
-  margin-bottom: var(--spacing-xxs);
+  margin-bottom: var(--spacing-1);
 }
 </style>

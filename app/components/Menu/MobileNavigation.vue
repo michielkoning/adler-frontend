@@ -39,7 +39,7 @@ const { title } = useAppConfig()
     position: fixed;
     inset: 0 0 auto;
     z-index: var(--z-mobile-navigation);
-    padding-block: var(--spacing-s);
+    padding-block: var(--spacing-3);
     color: var(--color-white);
     background: var(--color-primary);
     border-bottom: 1px solid var(--color-white);
@@ -69,7 +69,7 @@ const { title } = useAppConfig()
     @mixin btn-small;
 
     display: flex;
-    gap: var(--spacing-s);
+    gap: var(--spacing-3);
     align-items: center;
     color: currentcolor;
     border-color: var(--color-white);

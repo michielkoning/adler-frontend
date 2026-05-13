@@ -5,5 +5,5 @@
   --container-width-lg: 64rem;
   --container-width-xlg: 80rem;
   --height-navigation-sm: 2em;
-  --gutter: var(--spacing-m);
+  --gutter: var(--spacing-4);
 }

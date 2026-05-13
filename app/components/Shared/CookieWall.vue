@@ -46,7 +46,7 @@ const localePath = useLocalePath()
 .cookie-wall {
   position: fixed;
   inset: auto 0 0;
-  padding-block: var(--spacing-s);
+  padding-block: var(--spacing-3);
   color: var(--color-white);
   background: var(--color-gray-dark);
   border-top: 1px solid var(--color-white);
@@ -55,11 +55,11 @@ const localePath = useLocalePath()
 .wrapper {
   display: flex;
   align-items: self-start;
-  padding: var(--spacing-xs) 0 var(--spacing-l);
+  padding: var(--spacing-2) 0 var(--spacing-8);
 }
 
 .text {
   flex: 1 1 auto;
-  padding: 0 var(--spacing-xxs) 0 0;
+  padding: 0 var(--spacing-1) 0 0;
 }
 </style>

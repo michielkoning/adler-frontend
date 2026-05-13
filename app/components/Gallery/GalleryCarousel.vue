@@ -46,7 +46,7 @@ ul {
     top: 50%;
     width: 2em;
     aspect-ratio: 0.571;
-    margin-top: calc(var(--spacing-l) * -1);
+    margin-top: calc(var(--spacing-8) * -1);
     cursor: pointer;
     content: "" / "Scroll right";
     background-color: currentcolor;
@@ -72,9 +72,9 @@ ul {
 
   &::scroll-marker-group {
     position: absolute;
-    inset: auto 0 var(--spacing-m);
+    inset: auto 0 var(--spacing-4);
     display: flex;
-    gap: var(--spacing-xxs);
+    gap: var(--spacing-1);
     place-content: center;
   }
 }

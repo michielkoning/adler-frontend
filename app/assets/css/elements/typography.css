@@ -14,7 +14,7 @@ body {
 
 p {
   hanging-punctuation: first;
-  margin: 0 0 var(--spacing-m);
+  margin: 0 0 var(--spacing-4);
 }
 
 h1,
@@ -34,17 +34,17 @@ h3 {
 }
 
 h1 {
-  margin: 0 0 var(--spacing-xs);
+  margin: 0 0 var(--spacing-2);
   font-size: var(--font-size-xxxl);
 }
 
 h2 {
-  margin: 0 0 var(--spacing-xs);
+  margin: 0 0 var(--spacing-2);
   font-size: var(--font-size-xxl);
 }
 
 h3 {
-  margin: 0 0 var(--spacing-xs);
+  margin: 0 0 var(--spacing-2);
   font-size: var(--font-size-xl);
 }
 

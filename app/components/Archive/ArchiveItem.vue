@@ -47,9 +47,9 @@ const transitionName = computed(() => `image-${props.id}`)
     position: relative;
     display: grid;
     grid-row: 1 / 2;
-    gap: var(--spacing-s);
+    gap: var(--spacing-3);
     padding: calc(var(--gutter) / 2);
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-3);
 
     @media (--sm) {
       grid-template-columns: 15em auto;
@@ -87,12 +87,12 @@ const transitionName = computed(() => `image-${props.id}`)
 
   .price-badge {
     position: absolute;
-    top: calc(var(--spacing-xs) * -1);
-    right: calc(var(--spacing-xxs) * -1);
+    top: calc(var(--spacing-2) * -1);
+    right: calc(var(--spacing-1) * -1);
 
     @media (--sm) {
       top: 0;
-      left: calc(var(--spacing-xxs) * -1);
+      left: calc(var(--spacing-1) * -1);
     }
   }
 

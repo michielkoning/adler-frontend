@@ -21,7 +21,7 @@ defineProps<{
   @mixin list-reset;
 
   & > li {
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--spacing-3);
   }
 }
 </style>

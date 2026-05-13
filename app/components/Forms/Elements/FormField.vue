@@ -24,12 +24,12 @@ defineProps<{
 <style lang="css" scoped>
 .label {
   display: block;
-  margin-bottom: var(--spacing-xxs);
+  margin-bottom: var(--spacing-1);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 }
 
 .error-message {
-  margin-top: var(--spacing-xxs);
+  margin-top: var(--spacing-1);
 }
 </style>

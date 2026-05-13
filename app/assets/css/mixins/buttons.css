@@ -3,7 +3,7 @@
 
   display: inline-block;
   width: auto;
-  padding: var(--spacing-xxs) var(--spacing-m);
+  padding: var(--spacing-1) var(--spacing-4);
   font-family: var(--font-family-headings);
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-buttons);
@@ -27,12 +27,12 @@
 }
 
 @define-mixin btn-small {
-  padding: var(--spacing-xxs) var(--spacing-xs);
+  padding: var(--spacing-1) var(--spacing-2);
   font-size: var(--font-size-m);
 }
 
 @define-mixin btn-large {
-  padding: var(--spacing-xs) var(--spacing-m);
+  padding: var(--spacing-2) var(--spacing-4);
   font-size: var(--font-size-l);
 }
 

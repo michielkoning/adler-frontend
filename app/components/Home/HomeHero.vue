@@ -98,7 +98,7 @@ const { title, address } = useAppConfig()
 
   .content {
     position: absolute;
-    inset: 0 0 var(--spacing-l);
+    inset: 0 0 var(--spacing-8);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -119,7 +119,7 @@ const { title, address } = useAppConfig()
 
   .subtitle {
     font-size: var(--font-size-xl);
-    transform: translateY(calc(var(--spacing-xxs) * -1));
+    transform: translateY(calc(var(--spacing-1) * -1));
 
     @media (--sm) {
       font-size: var(--font-size-xxl);

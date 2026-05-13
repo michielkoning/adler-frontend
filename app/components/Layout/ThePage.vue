@@ -66,8 +66,8 @@ const transitionName = computed(() => `image-${props.id}`)
     display: grid;
     gap: var(--gutter);
     align-items: start;
-    padding-top: var(--spacing-m);
-    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-4);
+    margin-bottom: var(--spacing-16);
 
     @media (--md) {
       padding-top: 0;

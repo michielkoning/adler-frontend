@@ -1,8 +1,8 @@
 :root {
-  --spacing-xxs: 0.25em;
-  --spacing-xs: 0.5em;
-  --spacing-s: 0.75em;
-  --spacing-m: 1em;
-  --spacing-l: 2em;
-  --spacing-xl: 4em;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-8: 2rem;
+  --spacing-16: 4rem;
 }

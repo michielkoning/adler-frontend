@@ -62,10 +62,8 @@ a {
 
   interest-delay: 0s 0.25s;
   display: block;
-  flex: 1 0 auto;
-  padding-block: var(--spacing-xxs);
+  padding-block: var(--spacing-1);
   font-size: var(--font-size-xl);
-  transition: border var(--animation);
 
   &:hover,
   &.router-link-active {
@@ -75,15 +73,11 @@ a {
 
 li {
   display: flex;
-  gap: var(--spacing-xxs);
+  gap: var(--spacing-1);
   align-items: center;
   anchor-name: v-bind(anchor);
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
-
-  &:has(:popover-open) {
-    transform: rotate(0deg);
-  }
 
   &:has(.router-link-active) a {
     color: var(--color-primary);
@@ -91,8 +85,8 @@ li {
 }
 
 svg {
-  width: var(--spacing-m);
-  height: var(--spacing-m);
+  width: var(--spacing-4);
+  height: var(--spacing-4);
   aspect-ratio: 1;
   transition: transform var(--transition);
 }

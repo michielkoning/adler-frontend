@@ -53,7 +53,7 @@
       flex-direction: row;
       gap: 1.5em;
       align-items: center;
-      padding: var(--spacing-s) var(--spacing-m);
+      padding: var(--spacing-3) var(--spacing-4);
       background: var(--color-background-alternative);
     }
   }
