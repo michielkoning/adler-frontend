@@ -38,9 +38,9 @@ const close = () => {
 ul {
   @mixin list-reset;
 
-  top: anchor(bottom);
-  left: anchor(left);
   padding: 0;
+  position-area: bottom span-right;
+  position-try-fallbacks: flip-inline;
   background: var(--color-background);
   border: 0;
   opacity: 0;
@@ -63,15 +63,16 @@ ul {
   }
 }
 
+li:not(:last-child) {
+  border-bottom: 1px solid var(--color-gray);
+}
+
 a {
   @mixin link-reset;
 
   display: block;
-  padding: var(--spacing-2) var(--spacing-2);
-  padding-block: var(--spacing-1);
-  padding-inline: var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-3);
   font-size: var(--font-size-l);
-  border-bottom: 1px solid var(--color-gray);
   border-left: 2px solid transparent;
   transition: border var(--transition);
 

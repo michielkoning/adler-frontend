@@ -83,7 +83,7 @@ const { data } = await useFetch('/api/menu', {
     }
 
     @media (--navigation-lg) {
-      margin-left: var(--spacing-8);
+      margin-left: var(--spacing-l);
     }
   }
 
