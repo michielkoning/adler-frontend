@@ -13,9 +13,13 @@ const totalImages = computed(() => props.images.length)
     <ul>
       <li
         v-for="item in images"
+        :id="`image-${item.id}`"
         :key="item.id"
       >
-        <app-image v-bind="item" />
+        {{ item.id }}
+        <app-image
+          v-bind="item"
+        />
       </li>
     </ul>
   </div>
@@ -38,36 +42,34 @@ ul {
   scrollbar-width: thin;
   scroll-marker-group: after;
 
-  /* stylelint-disable-next-line selector-type-no-unknown */
   &::scroll-button(right),
-  /* stylelint-disable-next-line selector-type-no-unknown */
   &::scroll-button(left) {
     position: absolute;
     top: 50%;
     width: 2em;
-    aspect-ratio: 0.571;
+    aspect-ratio: 320 / 512;
     margin-top: calc(var(--spacing-8) * -1);
+    color: green;
     cursor: pointer;
-    content: "" / "Scroll right";
-    background-color: currentcolor;
-    /* stylelint-disable-next-line */
-    clip-path: shape(from 3.66% 44.96%, curve by 0% 10.11% with -4.88% 2.79%/-4.88% 7.32%, line by 74.99% 42.84%, curve by 17.69% 0% with 4.88% 2.79%/12.81% 2.79%, smooth by 0% -10.11% with 4.88% -7.32%, line to 30.18% 50%, line to 96.3% 12.2%, curve by 0% -10.11% with 4.88% -2.79%/4.88% -7.32%, smooth by -17.69% 0% with -12.81% -2.79%, line by -74.99% 42.84%, close);
-
-    &::after {
-      display: block;
-      content: "adsad";
-    }
+    content: "";
+    background-color: transparent;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256L73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>');
+    border: 0;
+    transition: opacity var(--transition);
   }
 
-  /* stylelint-disable-next-line selector-type-no-unknown */
   &::scroll-button(left) {
     left: 1em;
+    rotate: 180deg;
   }
 
-  /* stylelint-disable-next-line selector-type-no-unknown */
   &::scroll-button(right) {
     right: 1em;
-    rotate: 180deg;
+  }
+
+  &::scroll-button(left):disabled,
+  &::scroll-button(right):disabled {
+    opacity: 0.25;
   }
 
   &::scroll-marker-group {
@@ -92,7 +94,6 @@ li {
     border-radius: 50%;
   }
 
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   &::scroll-marker:target-current {
     background: var(--color-primary);
   }

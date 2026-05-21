@@ -65,7 +65,7 @@ const { data } = await useFetch('/api/menu', {
     position: relative;
     margin-bottom: var(--spacing-4);
 
-    @media (--show-full-navigation) {
+    @media (--navigation-md) {
       margin-bottom: 0;
     }
   }
@@ -75,7 +75,7 @@ const { data } = await useFetch('/api/menu', {
 
     border-top: 2px solid var(--color-black);
 
-    @media (--show-full-navigation) {
+    @media (--navigation-md) {
       display: flex;
       gap: var(--spacing-3);
       justify-content: space-between;
@@ -95,7 +95,7 @@ const { data } = await useFetch('/api/menu', {
     background: var(--color-primary);
     transition: all var(--transition);
 
-    @media (--show-full-navigation) {
+    @media (--navigation-md) {
       display: block;
     }
   }

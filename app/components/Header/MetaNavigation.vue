@@ -49,7 +49,7 @@
     gap: 1em;
     padding-bottom: 8em;
 
-    @media (--show-full-navigation) {
+    @media (--navigation-md) {
       flex-direction: row;
       gap: 1.5em;
       align-items: center;

@@ -1,12 +1,5 @@
-<script lang="ts" setup>
-import TheMenu from '../Menu/MainNavigation/TheMenu.vue'
-
-// const { title } = useAppConfig()
-</script>
-
 <template>
   <header>
-    <!-- <mobile-navigation /> -->
     <center-wrapper>
       <div class="content">
         <nuxt-link-locale
@@ -20,8 +13,8 @@ import TheMenu from '../Menu/MainNavigation/TheMenu.vue'
             class="logo"
           />
         </nuxt-link-locale>
-        <meta-navigation />
-        <the-menu />
+        <meta-navigation class="meta-navigation" />
+        <the-menu class="main-navigation" />
       </div>
     </center-wrapper>
   </header>
@@ -120,7 +113,7 @@ dialog {
 }
 
 .meta-navigation {
-  @media (--show-full-navigation) {
+  @media (--navigation-md) {
     place-self: start end;
   }
 }

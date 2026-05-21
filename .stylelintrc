@@ -16,9 +16,11 @@
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": ["global", "readonly", "deep"]
+        "ignorePseudoClasses": ["global", "readonly", "deep", "scroll-button", "scroll-marker", "target-current"]
       }
     ],
+
+    "selector-type-no-unknown": [true, { "ignoreTypes": ["left", "right"] }],
     "nesting-selector-no-missing-scoping-root": null,
     "property-no-deprecated": [true, { "ignoreProperties": ["clip"] }]
   }

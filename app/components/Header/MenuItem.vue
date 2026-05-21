@@ -50,7 +50,6 @@ const anchor = computed(() => {
       :id="id"
       ref="popover"
       popover="hint"
-      class="submenu"
       :items="children"
     />
   </li>
@@ -91,7 +90,7 @@ svg {
   transition: transform var(--transition);
 }
 
-.submenu {
+[popover] {
   position-anchor: v-bind(anchor);
 }
 </style>
