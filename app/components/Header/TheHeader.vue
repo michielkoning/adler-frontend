@@ -1,7 +1,7 @@
 <template>
   <header>
     <center-wrapper>
-      <div class="content">
+      <div class="wrapper">
         <nuxt-link-locale
           :to="{
             name: 'index',
@@ -14,7 +14,7 @@
           />
         </nuxt-link-locale>
         <meta-navigation class="meta-navigation" />
-        <the-menu class="main-navigation" />
+        <main-navigation class="main-navigation" />
       </div>
     </center-wrapper>
   </header>
@@ -69,7 +69,7 @@ dialog {
   }
 }
 
-.content {
+.wrapper {
   display: flex;
   flex-direction: column;
   padding: 5em var(--gutter) var(--gutter);
@@ -78,13 +78,17 @@ dialog {
     display: grid;
     flex: 0 0 auto;
     grid-template-columns: auto 1fr;
-    column-gap: var(--gutter);
+    column-gap: var(--spacing-4);
     align-items: end;
     width: 100%;
     max-height: none;
     padding: 0;
     overflow: visible;
     transform: none;
+  }
+
+  @media (--navigation-lg) {
+    column-gap: var(--spacing-8);
   }
 }
 

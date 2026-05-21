@@ -87,6 +87,7 @@ svg {
   width: var(--spacing-4);
   height: var(--spacing-4);
   aspect-ratio: 1;
+  translate: 0 var(--spacing-1);
   transition: transform var(--transition);
 }
 
