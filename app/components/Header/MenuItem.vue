@@ -72,14 +72,18 @@ a {
 
 li {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-1);
   align-items: center;
+  justify-content: space-between;
   anchor-name: v-bind(anchor);
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
 
-  &:has(.router-link-active) a {
-    color: var(--color-primary);
+  @media (--navigation-lg) {
+    &:has(.router-link-active) a {
+      color: var(--color-primary);
+    }
   }
 }
 

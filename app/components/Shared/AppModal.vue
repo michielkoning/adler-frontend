@@ -19,13 +19,11 @@ withDefaults(
     class="gallery-dialog"
     closedby="any"
   >
-    <header class="header">
+    <header>
       <h1
-        class="title"
         v-html="title"
       />
       <button
-        class="btn-close"
         :commandfor="id"
         command="close"
       >
@@ -65,7 +63,7 @@ dialog {
   }
 }
 
-.btn-close {
+button {
   font-size: 2em;
   cursor: pointer;
 }
@@ -76,7 +74,7 @@ dialog {
   animation: backdrop-hide var(--transition);
 }
 
-.header {
+header {
   inset-block-start: 0;
   display: flex;
   gap: var(--spacing-3);

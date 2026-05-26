@@ -23,7 +23,7 @@ const updateArrow = async () => {
   }
 
   await nextTick()
-  const activeMenu = menu.value.querySelector<HTMLLIElement>('.menu-item-page:has(.router-link-active) > a')
+  const activeMenu = menu.value.querySelector<HTMLAnchorElement>('.menu-item-page:has(.router-link-active) > a')
   if (!activeMenu) {
     return
   }

@@ -38,27 +38,35 @@ const close = () => {
 ul {
   @mixin list-reset;
 
+  width: 100%;
   padding: 0;
   position-area: bottom span-right;
   position-try-fallbacks: flip-inline;
-  background: var(--color-background);
+  color: currentcolor;
+  background-color: var(--color-primary);
   border: 0;
-  opacity: 0;
-  filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-  translate: 0 -1em;
   transition:
+
     opacity var(--transition),
     translate var(--transition),
     overlay var(--transition) allow-discrete,
     display var(--transition) allow-discrete;
 
-  &:popover-open {
-    opacity: 1;
-    translate: 0;
+  @media (--navigation-lg) {
+    width: auto;
+    background: var(--color-background);
+    opacity: 0;
+    filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
+    translate: 0 -1em;
 
-    @starting-style {
-      opacity: 0;
-      translate: 0 -1em;
+    &:popover-open {
+      opacity: 1;
+      translate: 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 -1em;
+      }
     }
   }
 }

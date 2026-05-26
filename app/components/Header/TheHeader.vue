@@ -23,10 +23,12 @@
 <style lang="css" scoped>
 header {
   margin-bottom: var(--menu-height);
+  color: var(--color-white);
   background: var(--color-primary);
 
   @media (--navigation-md) {
     margin: 0;
+    color: var(--color-text);
     background: transparent;
   }
 }
