@@ -1,43 +1,110 @@
+<script lang="ts" setup>
+const menu = useTemplateRef('menu')
+
+const closePopover = () => {
+  if (!menu.value) {
+    return
+  }
+  if (menu.value.hasAttribute('popover')) {
+    menu.value.hidePopover()
+  }
+}
+
+let observer: ResizeObserver | undefined
+
+onMounted(() => {
+  if (!menu.value) return
+
+  observer = new ResizeObserver(
+    (entries) => {
+      if (!entries.length || !menu.value) {
+        return
+      }
+
+      const entry = entries[0]
+      if (!entry) {
+        return
+      }
+
+      if (entry.contentRect.width >= 960) {
+        if (menu.value.hasAttribute('popover')) {
+          menu.value.removeAttribute('popover')
+        }
+      }
+      else {
+        if (!menu.value.hasAttribute('popover')) {
+          menu.value.setAttribute('popover', '')
+        }
+      }
+    },
+  )
+
+  if (observer) {
+    observer.observe(document.body)
+  }
+})
+
+onUnmounted(() => {
+  if (!menu.value || !observer) return
+  observer.unobserve(menu.value)
+})
+</script>
+
 <template>
   <header>
-    <center-wrapper>
-      <div class="wrapper">
-        <nuxt-link-locale
-          :to="{
-            name: 'index',
-          }"
-          class="logo-wrapper"
-        >
-          <app-icon
-            icon="adler:logo"
-            class="logo"
-          />
-        </nuxt-link-locale>
-        <meta-navigation class="meta-navigation" />
-        <main-navigation class="main-navigation" />
-      </div>
-    </center-wrapper>
+    <button
+      class="btn-open"
+      popovertarget="menu"
+    >
+      <app-icon
+        class="icon"
+        icon="solar:hamburger-menu-linear"
+      />
+      Menu
+    </button>
+    <div
+      id="menu"
+      ref="menu"
+      popover
+      class="menu"
+    >
+      <center-wrapper>
+        <div class="menu-wrapper">
+          <nuxt-link-locale
+            :to="{
+              name: 'index',
+            }"
+            class="logo-wrapper"
+          >
+            <app-icon
+              icon="adler:logo"
+              class="logo"
+            />
+          </nuxt-link-locale>
+          <meta-navigation class="meta-navigation" />
+          <main-navigation class="main-navigation" />
+        </div>
+      </center-wrapper>
+    </div>
   </header>
 </template>
 
 <style lang="css" scoped>
 header {
   margin-bottom: var(--menu-height);
-  color: var(--color-white);
-  background: var(--color-primary);
+  color: var(--color-text);
+  background: var(--color-white);
 
   @media (--navigation-md) {
     margin: 0;
-    color: var(--color-text);
-    background: transparent;
+    background-color: transparent;
   }
 }
 
-dialog {
+.menu {
   --header-height: 4em;
 
   top: auto;
-  z-index: var(--z-main-navigation);
   width: 100dvw;
   max-width: none;
   height: calc(100dvh - var(--header-height));
@@ -45,36 +112,38 @@ dialog {
   padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
   margin: 0;
   border: 0;
-  transition: display var(--transition) allow-discrete, overlay var(--transition) allow-discrete;
-  animation: dialog-hide var(--transition);
+  opacity: 0;
+  translate: 0 -1em;
+  transition:
+    opacity var(--transition),
+    translate var(--transition),
+    overlay var(--transition) allow-discrete,
+    display var(--transition) allow-discrete;
 
-  &[open] {
-    animation: dialog-show var(--transition);
-    animation-delay: var(--transition-duration);
+  &:popover-open {
+    opacity: 1;
+    translate: 0;
 
-    &::backdrop {
-      animation: backdrop-show var(--transition);
+    @starting-style {
+      opacity: 0;
+      translate: 0 -1em;
     }
   }
 
-  &::backdrop {
-    top: var(--header-height);
-    background: var(--color-background);
-    animation: backdrop-hide var(--transition);
+  @media (--navigation-md) {
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    translate: 0;
+    transition-duration: 0.01s;
   }
 }
 
-@starting-style {
-  dialog[open] {
-    opacity: 0;
-    translate: 0 -1em;
-  }
-}
-
-.wrapper {
+.menu-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 5em var(--gutter) var(--gutter);
 
   @media (--navigation-md) {
     display: grid;
@@ -141,5 +210,11 @@ dialog {
 .image {
   display: block;
   width: 100%;
+}
+
+.btn-open {
+  @media (--navigation-md) {
+    display: none;
+  }
 }
 </style>

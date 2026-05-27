@@ -39,22 +39,21 @@ ul {
   @mixin list-reset;
 
   width: 100%;
-  padding: 0;
+  padding: 0 0 0 var(--spacing-4);
   position-area: bottom span-right;
   position-try-fallbacks: flip-inline;
   color: currentcolor;
-  background-color: var(--color-primary);
+  background: var(--color-white);
   border: 0;
   transition:
-
     opacity var(--transition),
     translate var(--transition),
     overlay var(--transition) allow-discrete,
     display var(--transition) allow-discrete;
 
-  @media (--navigation-lg) {
+  @media (--navigation-md) {
     width: auto;
-    background: var(--color-background);
+    padding-left: 0;
     opacity: 0;
     filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
     translate: 0 -1em;
@@ -71,23 +70,27 @@ ul {
   }
 }
 
-li:not(:last-child) {
-  border-bottom: 1px solid var(--color-gray);
+li {
+  border-top: 1px solid var(--color-gray);
 }
 
 a {
   @mixin link-reset;
 
   display: block;
-  padding: var(--spacing-1) var(--spacing-3);
+  padding-block: var(--spacing-1);
   font-size: var(--font-size-l);
   border-left: 2px solid transparent;
   transition: border var(--transition);
 
-  &:hover,
-  &.router-link-active {
-    color: var(--color-primary);
-    border-left-color: currentcolor;
+  @media (--navigation-md) {
+    padding-inline: var(--spacing-3);
+
+    &:hover,
+    &.router-link-active {
+      color: var(--color-primary);
+      border-left-color: currentcolor;
+    }
   }
 }
 </style>

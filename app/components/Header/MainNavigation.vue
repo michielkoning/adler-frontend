@@ -110,43 +110,51 @@ onUnmounted(() => {
 </template>
 
 <style lang="css" scoped>
-  nav {
-    position: relative;
-    margin-bottom: var(--spacing-4);
+nav {
+  position: relative;
+  margin-bottom: var(--spacing-4);
 
-    @media (--navigation-md) {
-      margin-bottom: 0;
-    }
-
-    &::after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: none;
-      width: v-bind(arrowWidth);
-      height: 3px;
-      content: "";
-      background: var(--color-primary);
-      translate: v-bind(arrowOffsetLeft) 0;
-      transition: translate var(--transition-timing-function);
-      transition-duration: v-bind(arrowTransitionDuration);
-
-      @media (--navigation-md) {
-        display: block;
-      }
-    }
+  @media (--navigation-md) {
+    margin-bottom: 0;
   }
 
-  ul {
-    @mixin list-reset;
-
-    border-top: 2px solid var(--color-black);
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: v-bind(arrowWidth);
+    height: 3px;
+    content: "";
+    background: var(--color-primary);
+    translate: v-bind(arrowOffsetLeft) 0;
+    transition: translate var(--transition-timing-function);
+    transition-duration: v-bind(arrowTransitionDuration);
 
     @media (--navigation-md) {
-      display: flex;
-      gap: var(--spacing-1);
-      justify-content: space-between;
-      border-top: 0;
+      display: block;
     }
   }
+}
+
+ul {
+  @mixin list-reset;
+
+  border-top: 2px solid var(--color-black);
+
+  @media (--navigation-md) {
+    display: flex;
+    gap: var(--spacing-1);
+    justify-content: space-between;
+    border-top: 0;
+  }
+}
+
+.menu-item-page {
+  border-bottom: 2px solid var(--color-black);
+
+  @media (--navigation-md) {
+    border-bottom: 0;
+  }
+}
 </style>

@@ -64,9 +64,11 @@ a {
   padding-block: var(--spacing-1);
   font-size: var(--font-size-xl);
 
-  &:hover,
-  &.router-link-active {
-    color: var(--color-primary);
+  @media (--navigation-md) {
+    &:hover,
+    &.router-link-active {
+      color: var(--color-primary);
+    }
   }
 }
 
@@ -80,7 +82,7 @@ li {
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
 
-  @media (--navigation-lg) {
+  @media (--navigation-md) {
     &:has(.router-link-active) a {
       color: var(--color-primary);
     }
