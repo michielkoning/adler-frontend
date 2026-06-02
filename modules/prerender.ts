@@ -3,7 +3,7 @@ import { defineNuxtModule, addPrerenderRoutes } from 'nuxt/kit'
 
 const PAGESIZE = 20
 // const PAGESIZE = 99
-const FETCH_TIMEOUT = 0
+const FETCH_TIMEOUT = 5000
 
 const pauseFetching = () => {
   return new Promise((resolve) => {
