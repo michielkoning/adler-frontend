@@ -113,7 +113,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-08-03',
 
   nitro: {
-    // preset: 'netlify',
+    preset: 'netlify',
     storage: {
       cache: {
         driver: 'fs',
