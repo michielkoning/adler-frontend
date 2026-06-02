@@ -1,3 +1,5 @@
+import { createResolver } from 'nuxt/kit'
+
 const settings = {
   title: 'Familienhotel Adler ***S',
   baseUrl: 'https://www.adler-lingenau.com/',
@@ -10,6 +12,8 @@ const settings = {
     'Urlaub mit Kindern im Bregenzerwald. Machen Sie Urlaub mit Kindern in unserem Familienhotel in Vorarlberg im Bregenzerwald. Buchen Sie Ihren Familienurlaub mit Kindern im Hotel im Bregenzerwald, Vorarlberg, Österreich online"',
   locale: 'de',
 }
+
+const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   modules: [
@@ -213,7 +217,7 @@ export default defineNuxtConfig({
     customCollections: [
       {
         prefix: 'adler',
-        dir: './app/assets/icons',
+        dir: resolve('./app/assets/icons'),
       },
     ],
   },
