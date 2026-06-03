@@ -29,7 +29,7 @@ export default {
       `https://api.adler-lingenau.com/wp-json/adler/v1/popup`,
     )
 
-    if (response.activate || !response[this.$i18n.locale].title) {
+    if (!response.activate || !response[this.$i18n.locale].title) {
       return
     }
 
