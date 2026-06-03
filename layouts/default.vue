@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.page">
+    <notification-modal />
     <vue-announcer />
     <the-header />
     <main>
