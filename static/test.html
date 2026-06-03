@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+</head>
+<body>
+  <div id="ebFrontEndFrame"></div>
+  <script src="https://www.easy-booking.at/bookingengine2/js/jquery.easybooking.frontend.js" crossorigin="anonymous"></script>
+  <script>
+  function ebFrontendLoadedCheck() {
+    if (typeof jQuery != 'undefined') {
+      if (jQuery.fn.ebFrontEnd) {
+        jQuery('#ebFrontEndFrame').ebFrontEnd({
+          customerId: 7731,
+          serialNo: '8531-6749-1187',
+          localeId: 2,
+          frameId: 'ebFrontEndPlugin',
+          encapsulated: true,
+          backgroundColor: '#fe9200',
+          fontColor: '#000000',
+        })
+      }
+      else {
+        setTimeout(ebFrontendLoadedCheck, 200)
+      }
+    }
+    else {
+      setTimeout(ebFrontendLoadedCheck, 200)
+    }
+  }
+  ebFrontendLoadedCheck()
+
+  </script>
+
+
+</body>
+</html>
