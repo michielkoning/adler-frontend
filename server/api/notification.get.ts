@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { LocaleSchema } from '../schemas/LocaleSchema'
-import { PopupSchema } from '../schemas/PopupSchema'
+import { NotificationSchema } from '../schemas/NotificationSchema'
 
 const querySchema = z.object({
   locale: LocaleSchema,
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
   const response = await $fetch(`${apiUrl}adler/v1/popup`)
 
-  const parsed = parseData(response, PopupSchema)
+  const parsed = parseData(response, NotificationSchema)
 
   if (!parsed[query.locale] || !parsed.activate) {
     setResponseStatus(event, 204)

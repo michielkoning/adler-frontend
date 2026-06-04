@@ -2,7 +2,6 @@
 withDefaults(
   defineProps<{
     id: string
-    show?: boolean
     title: string
     size?: 'small' | 'large'
   }>(),
@@ -10,14 +9,41 @@ withDefaults(
     size: 'small',
   },
 )
+
+const dialog = useTemplateRef('dialog')
+
+const isOpen = defineModel<boolean>('isOpen', {
+  default: false,
+})
+
+onMounted(() => {
+  watch(
+    isOpen,
+    (value) => {
+      if (!dialog.value) {
+        throw new Error('Dialog element does not exist')
+      }
+      if (value) {
+        dialog.value.showModal()
+      }
+      else if (dialog.value.open) {
+        dialog.value.close()
+      }
+    },
+    {
+      immediate: true,
+    },
+  )
+})
 </script>
 
 <template>
   <dialog
     :id
+    ref="dialog"
     :class="size"
-    class="gallery-dialog"
     closedby="any"
+    @close="isOpen = false"
   >
     <header>
       <h1

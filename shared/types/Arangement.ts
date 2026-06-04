@@ -1,6 +1,5 @@
 import type { Content } from '~~/shared/types/Content'
 import type { Seo } from '~~/shared/types/Seo'
-import type { Archive } from '~~/shared/types/Archive'
 
 export type ArrangementPrice = {
   label: string

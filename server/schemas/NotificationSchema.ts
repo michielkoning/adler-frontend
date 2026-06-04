@@ -1,18 +1,31 @@
 import { z } from 'zod'
 
-const PopupTextSchema = z.object({
+const NotificationTextSchema = z.object({
   title: z.string().optional().transform(val => val !== '' ? val : undefined),
   text: z.string().optional().transform(val => val !== '' ? val : undefined),
   link: z.string().optional().transform(val => val !== '' ? val : undefined),
   link_label: z.string().optional().transform(val => val !== '' ? val : undefined),
-}).transform(val => {
+}).transform((val) => {
   if (val.title) {
-    return val
+    const getLink = () => {
+      if (val.link && val.link_label) {
+        return {
+          to: val.link,
+          title: val.link_label,
+        }
+      }
+      return undefined
+    }
+    return {
+      title: val.title,
+      content: val.text,
+      link: getLink(),
+    }
   }
   return undefined
 })
 
-export const PopupSchema = z.object({
+export const NotificationSchema = z.object({
   activate: z.boolean().default(false),
   image: z.object({
     id: z.number(),
@@ -29,9 +42,7 @@ export const PopupSchema = z.object({
       alt: val.alt,
     }
   }),
-  de: PopupTextSchema,
-  en: PopupTextSchema,
-  nl: PopupTextSchema,
+  de: NotificationTextSchema,
+  en: NotificationTextSchema,
+  nl: NotificationTextSchema,
 })
-
-export const PageListSchema = z.array(PopupSchema)
