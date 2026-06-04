@@ -52,10 +52,12 @@ export const getUrl = ({
 
   const url = new URL(baseUrl)
   if (image) {
-    url.searchParams.set('_embed', 'true')
     fields.push('_links')
     fields.push('_embedded')
     fields.push('wp:featuredmedia')
+  }
+  if (type === 'room') {
+    url.searchParams.set('_embed', 'true')
   }
   const allFields = ['id', ...fields]
   url.searchParams.set('status', 'publish')
