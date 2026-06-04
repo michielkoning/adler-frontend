@@ -9,21 +9,13 @@ const querySchema = z.object({
 })
 
 export default defineCachedEventHandler(async (event): Promise<Post> => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
   const url = getUrl({
     image: true,
     type: 'posts',
     fields: ['title', 'slug', 'content', 'date', 'yoast_head_json', 'locales'],
-    slug: query.data.slug,
+    slug: query.slug,
   })
 
   const response = await $fetch(url)

@@ -11,23 +11,14 @@ const querySchema = z.object({
 })
 
 export default defineCachedEventHandler(async (event): Promise<LastMinute[]> => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
-
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
   const url = getUrl({
     image: true,
-    lang: query.data.locale,
+    lang: query.locale,
     type: 'last_minute',
     fields: ['slug', 'title', 'acf', 'locales'],
-    locale: query.data.locale,
+    locale: query.locale,
     orderby: 'menu_order',
     order: 'asc',
   })

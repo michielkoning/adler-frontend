@@ -8,27 +8,19 @@ const querySchema = z.object({
 })
 
 export default defineCachedEventHandler(async (event) => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
   const { pageIds } = useAppConfig()
   const baseUrl = {
     fields: ['title', 'link', 'parent'],
   }
 
-  const environmentPageId = pageIds.environmentPageId[query.data.locale]
-  const hotelPageId = pageIds.hotelPageId[query.data.locale]
-  const kidsPageId = pageIds.kidsPageId[query.data.locale]
-  const arrangementsPageId = pageIds.arrangementsPageId[query.data.locale]
-  const roomsPageId = pageIds.roomsPageId[query.data.locale]
-  const contactPageId = pageIds.contactPageId[query.data.locale]
+  const environmentPageId = pageIds.environmentPageId[query.locale]
+  const hotelPageId = pageIds.hotelPageId[query.locale]
+  const kidsPageId = pageIds.kidsPageId[query.locale]
+  const arrangementsPageId = pageIds.arrangementsPageId[query.locale]
+  const roomsPageId = pageIds.roomsPageId[query.locale]
+  const contactPageId = pageIds.contactPageId[query.locale]
 
   const validateResponse = (response: z.infer<typeof MenuListSchema>) => {
     const parsed = parseData(response, MenuListSchema)
@@ -47,7 +39,7 @@ export default defineCachedEventHandler(async (event) => {
     const url = getUrl({
       ...baseUrl,
       type: 'pages',
-      locale: query.data.locale,
+      locale: query.locale,
       include: [
         environmentPageId,
         hotelPageId,
@@ -69,7 +61,7 @@ export default defineCachedEventHandler(async (event) => {
         type: 'pages',
         orderby: 'menu_order',
         parent,
-        locale: query.data.locale,
+        locale: query.locale,
       })
       $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
         resolve(validateResponse(response)),
@@ -96,7 +88,7 @@ export default defineCachedEventHandler(async (event) => {
         ...baseUrl,
         orderby: 'title',
         type,
-        locale: query.data.locale,
+        locale: query.locale,
       })
       $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
         resolve(validateResponse(response)),

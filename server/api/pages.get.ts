@@ -15,21 +15,13 @@ const querySchema = z.object({
 })
 
 export default defineCachedEventHandler(async (event): Promise<Archive[]> => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
   const url = getUrl({
     image: true,
-    lang: query.data.locale,
-    parent: query.data.parentId,
-    exclude: query.data.exclude,
+    lang: query.locale,
+    parent: query.parentId,
+    exclude: query.exclude,
     type: 'pages',
     fields: ['title', 'slug', 'excerpt', 'acf', 'link'],
     orderby: 'menu_order',

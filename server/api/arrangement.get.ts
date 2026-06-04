@@ -3,7 +3,6 @@ import { ArrangementSchema } from '../schemas/ArrangementSchema'
 import { getUrl } from '../utils/getUrl'
 import { getFeaturedImage } from '../utils/getFeaturedImage'
 import { LocaleSchema } from '../schemas/LocaleSchema'
-import type { Content } from '~~/shared/types/Content'
 import type { Arrangement } from '~~/shared/types/Arangement'
 
 const querySchema = z.object({
@@ -12,19 +11,11 @@ const querySchema = z.object({
 })
 
 export default defineCachedEventHandler(async (event): Promise<Arrangement> => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
   const url = getUrl({
     image: true,
-    slug: query.data.slug,
+    slug: query.slug,
     type: 'arrangement',
     fields: ['slug', 'title', 'content', 'acf', 'yoast_head_json', 'locales'],
   })

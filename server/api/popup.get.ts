@@ -7,16 +7,7 @@ const querySchema = z.object({
 })
 
 export default defineEventHandler(async (event) => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
-
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
   const { apiUrl } = useAppConfig()
 
@@ -24,11 +15,11 @@ export default defineEventHandler(async (event) => {
 
   const parsed = parseData(response, PopupSchema)
 
-  if (!parsed[query.data.locale] || !parsed.activate) {
+  if (!parsed[query.locale] || !parsed.activate) {
     setResponseStatus(event, 204)
   }
   return {
-    ...parsed[query.data.locale],
+    ...parsed[query.locale],
     image: parsed.image,
   }
 })

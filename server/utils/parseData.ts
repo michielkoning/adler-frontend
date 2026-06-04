@@ -5,7 +5,7 @@ export const parseData = <T extends z.ZodTypeAny>(data: unknown, schema: T) => {
 
   if (!parsed.success) {
     throw createError({
-      message: z.prettifyError(parsed.error),
+      statusText: z.prettifyError(parsed.error),
     })
   }
 

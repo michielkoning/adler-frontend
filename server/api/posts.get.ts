@@ -18,23 +18,15 @@ const querySchema = z.object({
 })
 
 export default defineCachedEventHandler(async (event): Promise<Archive[]> => {
-  const query = await getValidatedQuery(event, body =>
-    querySchema.safeParse(body),
-  )
+  const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
-  if (!query.success) {
-    throw createError({
-      statusText: 'Invalid arguments',
-      data: query.error.format(),
-    })
-  }
   const url = getUrl({
-    lang: query.data.locale,
+    lang: query.locale,
     image: true,
     type: 'posts',
     fields: ['title', 'slug', 'excerpt', 'date'],
-    exclude: query.data.exclude,
-    pageSize: query.data.pageSize,
+    exclude: query.exclude,
+    pageSize: query.pageSize,
   })
 
   const response = await $fetch(url)
