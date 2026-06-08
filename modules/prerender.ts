@@ -3,7 +3,7 @@ import { defineNuxtModule, addPrerenderRoutes } from 'nuxt/kit'
 
 const PAGESIZE = 20
 // const PAGESIZE = 99
-const FETCH_TIMEOUT = 5000
+const FETCH_TIMEOUT = 1000
 
 const pauseFetching = () => {
   return new Promise((resolve) => {
@@ -36,7 +36,7 @@ const defaultRoutes = [
 ]
 export default defineNuxtModule({
   hooks: {
-    'build:before': async () => {
+    'prerender:routes': async (ctx: { routes: Set<string> }) => {
       if (process.env.NODE_ENV === 'development') {
         return
       }
@@ -74,7 +74,8 @@ export default defineNuxtModule({
             return link
           }) as string[]
 
-          addPrerenderRoutes(urls)
+          urls.forEach(url => ctx.routes.add(url))
+
           if (page >= totalPages) {
             hasNextPage = false
           }
