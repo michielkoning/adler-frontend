@@ -18,6 +18,20 @@
           </template>
         </dd>
       </template>
+      <dt :class="[$style.label, $style.holidays]">
+        {{ $t('holidays') }}
+      </dt>
+      <dd :class="[$style.value, $style.holidays]">
+        <template v-for="hours in days[6]">
+          <span :key="hours.start">
+            {{ hours.start }}
+          </span>
+          –
+          <span :key="hours.end">
+            {{ hours.end }}
+          </span>
+        </template>
+      </dd>
     </dl>
   </div>
 </template>
