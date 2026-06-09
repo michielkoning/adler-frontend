@@ -1,8 +1,15 @@
 <template>
   <div>
     <home-hero :page="page" />
+    <center-wrapper v-if="page.content" :class="$style.article">
+      <article>
+        <!-- eslint-disable-next-line -->
+        <h1 v-html="page.title" id="content" tabindex="-1" />
+        <!-- eslint-disable-next-line -->
+        <div v-html="page.content" />
+      </article>
+    </center-wrapper>
     <home-content :posts="relatedPosts" />
-
     <facilities-wrapper />
   </div>
 </template>
@@ -43,3 +50,9 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" module>
+.article {
+  padding-block: var(--spacing-m) var(--spacing-s);
+}
+</style>
