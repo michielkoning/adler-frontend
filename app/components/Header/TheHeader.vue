@@ -12,6 +12,10 @@ const closePopover = () => {
 
 let observer: ResizeObserver | undefined
 
+const route = useRoute()
+
+watch((() => route.fullPath), closePopover)
+
 onMounted(() => {
   if (!menu.value) return
 

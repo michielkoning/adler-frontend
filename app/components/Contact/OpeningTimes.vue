@@ -9,15 +9,15 @@ if (error.value) {
 <template>
   <div v-if="data">
     <h2>{{ $t("openingHours") }}</h2>
-    <dl class="list">
+    <dl>
       <template
         v-for="(openingDay, index) in data"
         :key="`day-${index}`"
       >
-        <dt class="label">
+        <dt>
           {{ $t(`openingTimes.${index}`) }}
         </dt>
-        <dd class="value">
+        <dd>
           <span
             v-for="hours in openingDay"
             :key="`from-${index}-${hours.start}`"
@@ -28,23 +28,47 @@ if (error.value) {
           </span>
         </dd>
       </template>
+      <dt class="public-holidays">
+        Feestdagen
+      </dt>
+      <dd
+        class="value public-holidays"
+      >
+        <span
+          v-for="hours in data.sunday"
+          :key="`from-${hours.start}`"
+        >
+          {{ hours.start }}
+          –
+          {{ hours.end }}
+        </span>
+      </dd>
     </dl>
   </div>
 </template>
 
 <style lang="css" scoped>
-.list {
+dl {
   display: grid;
   grid-template-columns: 2.5em auto;
 }
 
-.label {
+dt {
   font-weight: var(--font-weight-bold);
+
+  &.public-holidays {
+    grid-column: span 2;
+    margin-top: var(--spacing-2);
+  }
 }
 
-.value {
+dd {
   display: flex;
   gap: 1ch;
   margin: 0;
+
+  &.public-holidays {
+    grid-column: span 2;
+  }
 }
 </style>

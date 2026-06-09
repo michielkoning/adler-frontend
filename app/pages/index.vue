@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import ThePage from '~/components/Layout/ThePage.vue'
+
 definePageMeta({
   i18n: {
     paths: {
@@ -29,6 +31,17 @@ useSeo(data.value?.seo)
     v-if="data && data.content.image"
     :image="data.content.image"
   />
+
+  <center-wrapper size="md">
+    <article v-if="data && data.content.text">
+      <h1
+        id="content"
+        tabindex="-1"
+        v-html="data.content.title"
+      />
+      <div v-html="data.content.title" />
+    </article>
+  </center-wrapper>
   <center-wrapper>
     <div class="wrapper">
       <highlights-list
@@ -75,5 +88,9 @@ useSeo(data.value?.seo)
 
   .resmio {
     flex: 1 1 auto;
+  }
+
+  article {
+    padding-block: var(--spacing-4);
   }
 </style>

@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/eslint',
     '@nuxtjs/stylelint-module',
-    // '@nuxt/image',
+    '@nuxt/image',
     'nuxt-schema-org',
     '@nuxt/fonts',
     '@nuxt/icon',
