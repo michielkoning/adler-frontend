@@ -1,71 +1,15 @@
 <script lang="ts" setup>
 const { locale } = useI18n()
 
-const menu = useTemplateRef('menu')
-
 const { data } = await useFetch('/api/menu', {
   query: {
     locale,
   },
 })
-
-const route = useRoute()
-
-const arrowWidth = ref('0px')
-const arrowOffsetLeft = ref('0px')
-const arrowTransitionDuration = ref('0s')
-
-const observer: Ref<ResizeObserver | undefined> = ref(undefined)
-
-const updateArrow = async () => {
-  if (!menu.value) {
-    return
-  }
-
-  await nextTick()
-  const activeMenu = menu.value.querySelector<HTMLAnchorElement>('.menu-item-page:has(.router-link-active) > a')
-  if (!activeMenu) {
-    return
-  }
-  arrowWidth.value = `${activeMenu.offsetWidth}px`
-  arrowOffsetLeft.value = `${activeMenu.offsetLeft}px`
-
-  setTimeout(() => {
-    arrowTransitionDuration.value = 'var(--transition-duration)'
-  }, 200)
-}
-
-onMounted(() => {
-  watch(() => route.path, () => {
-    updateArrow()
-  }, {
-    immediate: true,
-  })
-
-  if (menu.value) {
-    observer.value = new ResizeObserver(
-      () => {
-        arrowTransitionDuration.value = '0s'
-        updateArrow()
-      },
-    )
-
-    if (observer.value) {
-      observer.value.observe(menu.value)
-    }
-  }
-})
-
-onUnmounted(() => {
-  if (menu.value && observer.value) {
-    observer.value.unobserve(menu.value)
-  }
-})
 </script>
 
 <template>
   <nav
-    ref="menu"
     aria-labelledby="menu"
   >
     <h2
@@ -119,17 +63,14 @@ nav {
   }
 
   &::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    inset: auto anchor(inside) 0;
     display: none;
-    width: v-bind(arrowWidth);
     height: 3px;
+    position-anchor: --active-menu;
     content: "";
     background: var(--color-primary);
-    translate: v-bind(arrowOffsetLeft) 0;
-    transition: translate var(--transition-timing-function);
-    transition-duration: v-bind(arrowTransitionDuration);
+    transition: inset-inline var(--transition);
 
     @media (--navigation-md) {
       display: block;
@@ -155,6 +96,12 @@ ul {
 
   @media (--navigation-md) {
     border-bottom: 0;
+  }
+
+  &:has(.router-link-active) {
+    &:deep(> a) {
+      anchor-name: --active-menu;
+    }
   }
 }
 </style>
