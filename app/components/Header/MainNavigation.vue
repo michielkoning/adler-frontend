@@ -70,7 +70,7 @@ nav {
     position-anchor: --active-menu;
     content: "";
     background: var(--color-primary);
-    transition: inset-inline var(--transition);
+    transition: inset var(--transition);
 
     @media (--navigation-md) {
       display: block;
