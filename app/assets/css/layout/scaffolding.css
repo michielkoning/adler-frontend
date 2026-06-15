@@ -17,6 +17,7 @@
 
 html {
   -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+  container-type: scroll-state;
 }
 
 body {
