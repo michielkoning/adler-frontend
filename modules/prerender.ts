@@ -12,27 +12,27 @@ const pauseFetching = () => {
 }
 
 const defaultRoutes = [
-  '/de',
-  '/en',
-  '/nl',
-  '/de/blog',
-  '/en/blog',
-  '/nl/blog',
-  '/de/kontakt',
-  '/en/contact',
-  '/nl/contact',
-  '/de/arrangements',
-  '/en/arrangements',
-  '/nl/arrangementen',
-  '/de/last-minutes',
-  '/en/last-minutes',
-  '/nl/last-minutes',
-  '/de/privacy-policy',
-  '/en/privacy-policy',
-  '/nl/privacy-policy',
-  '/de/zimmer',
-  '/en/rooms',
-  '/nl/kamers',
+  '/de/',
+  '/en/',
+  '/nl/',
+  '/de/blog/',
+  '/en/blog/',
+  '/nl/blog/',
+  '/de/kontakt/',
+  '/en/contact/',
+  '/nl/contact/',
+  '/de/arrangements/',
+  '/en/arrangements/',
+  '/nl/arrangementen/',
+  '/de/last-minutes/',
+  '/en/last-minutes/',
+  '/nl/last-minutes/',
+  '/de/privacy-policy/',
+  '/en/privacy-policy/',
+  '/nl/privacy-policy/',
+  '/de/zimmer/',
+  '/en/rooms/',
+  '/nl/kamers/',
 ]
 export default defineNuxtModule({
   hooks: {
@@ -47,7 +47,7 @@ export default defineNuxtModule({
 
       const baseUrl = 'https://api.adler-lingenau.com/wp-json/'
 
-      addPrerenderRoutes(defaultRoutes)
+      defaultRoutes.forEach(url => ctx.routes.add(url))
 
       const fetchPagesByType = async (
         type: 'posts' | 'room' | 'pages' | 'arrangement',
@@ -83,14 +83,11 @@ export default defineNuxtModule({
           pauseFetching()
         }
       }
-      // await fetchPagesByType('posts')
-      // await fetchPagesByType('arrangement')
-      // await fetchPagesByType('room')
+      await fetchPagesByType('posts')
+      await fetchPagesByType('arrangement')
+      await fetchPagesByType('room')
       await fetchPagesByType('pages')
     },
 
-    'close': (nuxt) => {
-      if (!nuxt.options._prepare) process.exit()
-    },
   },
 })

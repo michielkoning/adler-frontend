@@ -107,19 +107,19 @@ export default defineNuxtConfig({
   },
   experimental: {
     payloadExtraction: true,
-    viewTransition: true,
     sharedPrerenderData: true,
   },
   compatibilityDate: '2025-08-03',
 
   nitro: {
     preset: 'netlify',
+    prerender: {
+      crawlLinks: false,
+    },
     storage: {
       cache: {
-        driver: 'fs',
-        base: './.nuxt/cache',
+        driver: 'null',
       },
-
     },
     devStorage: {
       cache: {
