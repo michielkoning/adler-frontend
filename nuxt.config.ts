@@ -153,10 +153,11 @@ export default defineNuxtConfig({
       'postcss-mixins': {
         mixinsDir: './app/assets/css/mixins/',
       },
+      'autoprefixer': false,
       'postcss-preset-env': {
-        browsers: 'last 2 versions',
+        stage: false,
         features: {
-          'nesting-rules': true,
+          'nesting-rules': false,
           'custom-media-queries': true,
           'media-query-ranges': true,
         },

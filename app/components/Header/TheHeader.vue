@@ -14,7 +14,7 @@ let observer: ResizeObserver | undefined
 
 const route = useRoute()
 
-watch((() => route.fullPath), closePopover)
+watch(() => route.fullPath, closePopover)
 
 onMounted(() => {
   if (!menu.value) return
@@ -117,6 +117,7 @@ header {
 
   @media (--navigation-md) {
     position: relative;
+    padding-block: 0;
     margin: 0;
     background-color: transparent;
   }

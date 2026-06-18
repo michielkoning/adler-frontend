@@ -16,7 +16,6 @@ const totalImages = computed(() => props.images.length)
         :id="`image-${item.id}`"
         :key="item.id"
       >
-        {{ item.id }}
         <app-image
           v-bind="item"
         />

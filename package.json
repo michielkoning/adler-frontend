@@ -2,6 +2,9 @@
   "name": "adler",
   "private": true,
   "type": "module",
+  "browserslist": [
+    "baseline widely available"
+  ],
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
