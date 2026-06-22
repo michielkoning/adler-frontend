@@ -55,7 +55,7 @@ useSchemaOrg([
     </main>
     <the-footer class="page-footer sa-hidden" />
     <cookie-wall />
-    <notification-modal />
+    <!-- <notification-modal /> -->
   </div>
 </template>
 
