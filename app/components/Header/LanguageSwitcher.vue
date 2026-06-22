@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { locale, locales } = useI18n()
+const { locale, locales, setLocale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const localePath = useLocalePath()
 
@@ -20,17 +20,18 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
 <template>
   <div class="wrapper">
     <a
-      v-for="item in availableLocales"
-      :key="item.code"
+      v-for="locale in availableLocales"
+      :key="locale.code"
       class="link"
-      :href="getUrl(item.code)"
+      :href="getUrl(locale.code)"
+      @click.prevent.stop="setLocale(locale.code)"
     >
       <app-icon
-        :icon="`adler:flag-${item.code}`"
+        :icon="`adler:flag-${locale.code}`"
         class="icon"
       />
       <span class="title">
-        {{ item.name }}
+        {{ locale.name }}
       </span>
     </a>
   </div>
