@@ -13,7 +13,7 @@ const { data } = await useFetch('/api/notification', {
     v-if="data"
     id="notification"
     :is-open="true"
-    :title="data.title"
+    :title="data.title ?? ''"
   >
     <div class="content">
       <app-image

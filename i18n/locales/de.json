@@ -68,6 +68,7 @@
   "remarks": "Bemerkungen",
   "request": "Anfragen",
   "requestNow": "Jetzt anfragen",
+  "requestNowFor": "Nu aanvragen voor {room}",
   "reserveForOurRestaurant": "Reservieren Sie in unserem Restaurant",
   "room": "Zimmer",
   "services": "Inklusiv",

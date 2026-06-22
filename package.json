@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "browserslist": [
-    "baseline widely available"
+    "defaults"
   ],
   "scripts": {
     "build": "nuxt build",

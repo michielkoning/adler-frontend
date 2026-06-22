@@ -1,10 +1,9 @@
-export type MenuItem = {
+type Link = {
   title: string
   id: number
   link: string
-  children: {
-    title: string
-    id: number
-    link: string
-  }[]
+}
+
+export type MenuItem = Link & {
+  children: Link[]
 }

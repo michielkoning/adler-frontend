@@ -68,6 +68,7 @@
   "remarks": "Remarkt",
   "request": "Book",
   "requestNow": "Book now",
+ "requestNowFor": "Nu aanvragen voor {room}",
   "reserveForOurRestaurant": "Make a reservation in our restaurant",
   "room": "Room",
   "services": "Services",

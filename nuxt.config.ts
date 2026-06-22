@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@vite-pwa/nuxt',
+    // '@vite-pwa/nuxt',
     '@vee-validate/nuxt',
     '@nuxt/scripts',
     '@nuxtjs/partytown',
@@ -112,7 +112,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-08-03',
 
   nitro: {
-    preset: 'netlify',
+    // preset: 'netlify',
+    
     prerender: {
       crawlLinks: false,
     },
@@ -184,30 +185,30 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'prefix',
     experimental: {
-      strictSeo: true,
+      // strictSeo: true,
+      nitroContextDetection: false
     },
     defaultLocale: 'de',
     baseUrl: settings.baseUrl,
     customRoutes: 'meta',
-    trailingSlash: true,
 
     locales: [
       {
         name: 'Deutsch',
         code: 'de',
-        language: 'de',
+        language: 'de-DE',
         file: 'de.json',
       },
       {
         name: 'Nederlands',
         code: 'nl',
-        language: 'nl',
+        language: 'nl-NL',
         file: 'nl.json',
       },
       {
         name: 'English',
         code: 'en',
-        language: 'en',
+        language: 'en-US',
         file: 'en.json',
       },
     ],
@@ -225,50 +226,51 @@ export default defineNuxtConfig({
   image: {
     densities: [1, 2],
     domains: ['api.adler-lingenau.com'],
+    provider: 'none',
   },
-  pwa: {
-    pwaAssets: {
-      config: true,
-    },
-    strategies: 'generateSW',
-    registerWebManifestInRouteRules: true,
-    registerType: 'autoUpdate',
-    manifest: {
-      background_color: settings.backgroundColor,
-      theme_color: settings.themeColor,
-      categories: settings.categories,
-      lang: settings.locale,
-      name: settings.title,
-      orientation: 'portrait-primary',
-      description: settings.description,
-      short_name: settings.title,
-      edge_side_panel: {},
-      dir: 'ltr',
-      icons: [
-        {
-          src: '/icons/pwa-64x64.png',
-          sizes: '64x64',
-          type: 'image/png',
-        },
-        {
-          src: '/icons/pwa-192x192.png',
-          sizes: '192x192',
-          type: 'image/png',
-        },
-        {
-          src: '/icons/pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-        },
-        {
-          src: '/icons/maskable-icon-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-          purpose: 'maskable',
-        },
-      ],
-    },
-  },
+  // pwa: {
+  //   pwaAssets: {
+  //     config: true,
+  //   },
+  //   strategies: 'generateSW',
+  //   registerWebManifestInRouteRules: true,
+  //   registerType: 'autoUpdate',
+  //   manifest: {
+  //     background_color: settings.backgroundColor,
+  //     theme_color: settings.themeColor,
+  //     categories: settings.categories,
+  //     lang: settings.locale,
+  //     name: settings.title,
+  //     orientation: 'portrait-primary',
+  //     description: settings.description,
+  //     short_name: settings.title,
+  //     edge_side_panel: {},
+  //     dir: 'ltr',
+  //     icons: [
+  //       {
+  //         src: '/icons/pwa-64x64.png',
+  //         sizes: '64x64',
+  //         type: 'image/png',
+  //       },
+  //       {
+  //         src: '/icons/pwa-192x192.png',
+  //         sizes: '192x192',
+  //         type: 'image/png',
+  //       },
+  //       {
+  //         src: '/icons/pwa-512x512.png',
+  //         sizes: '512x512',
+  //         type: 'image/png',
+  //       },
+  //       {
+  //         src: '/icons/maskable-icon-512x512.png',
+  //         sizes: '512x512',
+  //         type: 'image/png',
+  //         purpose: 'maskable',
+  //       },
+  //     ],
+  //   },
+  // },
 
   scripts: {
     privacy: true,

@@ -2,12 +2,13 @@ import { z } from 'zod'
 import { MenuListSchema } from '../schemas/MenuSchema'
 import { getUrl } from '../utils/getUrl'
 import { LocaleSchema } from '../schemas/LocaleSchema'
+import { MenuItem } from '~~/shared/types/Menu'
 
 const querySchema = z.object({
   locale: LocaleSchema,
 })
 
-export default defineCachedEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
   const { pageIds } = useAppConfig()
@@ -22,20 +23,7 @@ export default defineCachedEventHandler(async (event) => {
   const roomsPageId = pageIds.roomsPageId[query.locale]
   const contactPageId = pageIds.contactPageId[query.locale]
 
-  const validateResponse = (response: z.infer<typeof MenuListSchema>) => {
-    const parsed = parseData(response, MenuListSchema)
-
-    return parsed.map((item) => {
-      return {
-        id: item.id,
-        title: item.title.rendered,
-        link: item.link,
-        parent: item.parent,
-      }
-    })
-  }
-
-  const getMainPages = new Promise((resolve) => {
+  const getMainPages: Promise<z.infer<typeof MenuListSchema>> = new Promise(async(resolve) => {
     const url = getUrl({
       ...baseUrl,
       type: 'pages',
@@ -49,13 +37,13 @@ export default defineCachedEventHandler(async (event) => {
         contactPageId,
       ],
     })
-    $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
-      resolve(validateResponse(response)),
-    )
+    const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
+    const data = parseData(response, MenuListSchema)
+    resolve(data)
   })
 
-  const getChildPagesByParent = (parent: number) =>
-    new Promise((resolve) => {
+  const getChildPagesByParent = (parent: number): Promise<z.infer<typeof MenuListSchema>> =>
+    new Promise(async(resolve) => {
       const url = getUrl({
         ...baseUrl,
         type: 'pages',
@@ -63,12 +51,12 @@ export default defineCachedEventHandler(async (event) => {
         parent,
         locale: query.locale,
       })
-      $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
-        resolve(validateResponse(response)),
-      )
+    const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
+    const data = parseData(response, MenuListSchema)
+    resolve(data)
     })
 
-  const getChildPages = new Promise((resolve) => {
+  const getChildPages: Promise<z.infer<typeof MenuListSchema>> = new Promise((resolve) => {
     return Promise.all([
       getChildPagesByParent(hotelPageId),
       getChildPagesByParent(environmentPageId),
@@ -82,17 +70,17 @@ export default defineCachedEventHandler(async (event) => {
     })
   })
 
-  const getChildPagesByType = (type: 'room' | 'arrangement') =>
-    new Promise((resolve) => {
+  const getChildPagesByType = (type: 'room' | 'arrangement'): Promise<z.infer<typeof MenuListSchema>> =>
+    new Promise(async(resolve) => {
       const url = getUrl({
         ...baseUrl,
         orderby: 'title',
         type,
         locale: query.locale,
       })
-      $fetch<z.infer<typeof MenuListSchema>>(url).then(response =>
-        resolve(validateResponse(response)),
-      )
+      const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
+      const data = parseData(response, MenuListSchema)
+      resolve(data)
     })
 
   const pages = await Promise.all([
@@ -122,16 +110,20 @@ export default defineCachedEventHandler(async (event) => {
   const getMenuById = (id: number) => {
     const item = pages.find(item => item.id === id)
 
+    if (!item) {
+      return undefined
+    }
+
     const subMenu = pages.filter(subItem => subItem.parent === item.id)
     return {
       id: item.id,
       title: item.title,
-      link: item.link,
+      link: item.link.replace(/\/$/, ""),
       children: subMenu.map((subItem) => {
         return {
           id: subItem.id,
           title: subItem.title,
-          link: subItem.link,
+          link: subItem.link.replace(/\/$/, ""),
         }
       }),
     }
@@ -145,7 +137,7 @@ export default defineCachedEventHandler(async (event) => {
     getMenuById(roomsPageId),
   ]
 
-  return menu
+  return menu.filter(item => item !== undefined)
 }, {
   maxAge: 60 * 60,
 })
