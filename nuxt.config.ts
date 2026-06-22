@@ -245,6 +245,62 @@ export default defineNuxtConfig({
     strategies: 'generateSW',
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
+    workbox: {
+      cleanupOutdatedCaches: true,
+      navigateFallback: null,
+      globPatterns: ['**/*.{js,css,woff2}', 'index.html'],
+      globIgnores: ['**/_payload.json'],
+      runtimeCaching: [
+        {
+          urlPattern: ({ request }) => request.destination === 'image',
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+            },
+          },
+        },
+        {
+          urlPattern: ({ request }) => request.destination === 'document',
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'document',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24,
+            },
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.includes('_payload.json'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'json',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+            },
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.endsWith('messages.json'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'i18n',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+            },
+          },
+        },
+      ],
+    },
     manifest: {
       background_color: settings.backgroundColor,
       theme_color: settings.themeColor,
