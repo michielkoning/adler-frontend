@@ -9,7 +9,7 @@ const availableLocales = computed(() => {
 
 const getUrl = (code: 'en' | 'de' | 'nl') => {
   if (switchLocalePath(code)) {
-    return switchLocalePath(code)
+    return `${switchLocalePath(code)}/`
   }
   else {
     return localePath('index', code)
@@ -19,11 +19,11 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
 
 <template>
   <div class="wrapper">
-    <nuxt-link
+    <a
       v-for="item in availableLocales"
       :key="item.code"
       class="link"
-      :to="getUrl(item.code)"
+      :href="getUrl(item.code)"
     >
       <app-icon
         :icon="`adler:flag-${item.code}`"
@@ -32,7 +32,7 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
       <span class="title">
         {{ item.name }}
       </span>
-    </nuxt-link>
+    </a>
   </div>
 </template>
 

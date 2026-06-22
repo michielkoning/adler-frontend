@@ -118,12 +118,12 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
     return {
       id: item.id,
       title: item.title,
-      link: item.link.replace(/\/$/, ""),
+      link: item.link,
       children: subMenu.map((subItem) => {
         return {
           id: subItem.id,
           title: subItem.title,
-          link: subItem.link.replace(/\/$/, ""),
+          link: subItem.link,
         }
       }),
     }
