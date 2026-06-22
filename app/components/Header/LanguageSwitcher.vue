@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { locale, locales, setLocale } = useI18n()
+const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const localePath = useLocalePath()
 
@@ -24,7 +24,6 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
       :key="locale.code"
       class="link"
       :href="getUrl(locale.code)"
-      @click.prevent.stop="setLocale(locale.code)"
     >
       <app-icon
         :icon="`adler:flag-${locale.code}`"
