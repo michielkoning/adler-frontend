@@ -108,6 +108,11 @@ export default defineNuxtConfig({
   experimental: {
     payloadExtraction: true,
     sharedPrerenderData: true,
+    defaults: {
+      nuxtLink: {
+        trailingSlash: 'append'
+      }
+    }
   },
   compatibilityDate: '2025-08-03',
 
