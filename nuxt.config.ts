@@ -272,6 +272,7 @@ export default defineNuxtConfig({
     },
   },
 
+
   scripts: {
     privacy: true,
     registry: {
