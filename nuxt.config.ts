@@ -133,9 +133,9 @@ export default defineNuxtConfig({
       ],
     },
   },
-  // typescript: {
-  //   typeCheck: true,
-  // },
+  typescript: {
+    typeCheck: true,
+  },
   postcss: {
     plugins: {
       'postcss-custom-media-generator': {

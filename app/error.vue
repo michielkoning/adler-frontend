@@ -8,10 +8,11 @@ defineProps<{
 
 <template>
   <nuxt-layout>
-    <the-page :title="error.statusMessage">
-      <dev-only>
-        <pre>{{ error.data }}</pre>
-      </dev-only>
-    </the-page>
+    <center-wrapper>
+      <h1>{{ error.statusText }}</h1>
+    </center-wrapper>
+    <dev-only>
+      <pre>{{ error.data }}</pre>
+    </dev-only>
   </nuxt-layout>
 </template>

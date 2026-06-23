@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { MenuListSchema } from '../schemas/MenuSchema'
 import { getUrl } from '../utils/getUrl'
 import { LocaleSchema } from '../schemas/LocaleSchema'
-import { MenuItem } from '~~/shared/types/Menu'
+import { type MenuItem } from '~~/shared/types/Menu'
 
 const querySchema = z.object({
   locale: LocaleSchema,

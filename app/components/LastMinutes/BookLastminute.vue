@@ -3,23 +3,18 @@ import type { LastMinute } from '~~/shared/types/LastMinute'
 
 defineProps<LastMinute>()
 
-const showModal = ref(false)
-
-const toggleModal = (state: boolean) => {
-  showModal.value = state
-}
 </script>
 
 <template>
   <book-now
     :title="$t('requestNow')"
-    @trigger="toggleModal(true)"
+    commandfor="book-now"
+    command="show-modal"
   />
 
   <app-modal
-    v-if="showModal"
+  id="book-now"
     :title="$t('requestNow')"
-    @close="toggleModal(false)"
   >
     <!-- <form-last-minute v-if="lastMinute" :last-minute="lastMinute" /> -->
   </app-modal>

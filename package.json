@@ -12,9 +12,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint . --fix && stylelint . --fix",
-    "lint:js": "eslint . --fix",
+    "lint:js": "eslint .",
     "lint:css": "stylelint \"**/*.{css,vue}\" --fix",
-    "typecheck": "vue-tsc --noEmit",
+    "typecheck": "nuxt typecheck",
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "devDependencies": {
