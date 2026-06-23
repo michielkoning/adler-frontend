@@ -238,7 +238,7 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
       navigateFallback: null,
       globPatterns: ['**/*.{js,css,woff2}', 'index.html'],
-      // globIgnores: ['**/_payload.json'],
+      globIgnores: ['**/_payload.json'],
       runtimeCaching: [
         {
           urlPattern: ({ request }) => request.destination === 'image',
@@ -264,18 +264,18 @@ export default defineNuxtConfig({
             },
           },
         },
-        // {
-        //   urlPattern: ({ url }) => url.href.includes('_payload.json'),
-        //   handler: 'CacheFirst',
-        //   options: {
-        //     cacheName: 'json',
-        //     expiration: {
-        //       maxEntries: 50,
-        //       purgeOnQuotaError: true,
-        //       maxAgeSeconds: 60 * 60 * 24 * 7,
-        //     },
-        //   },
-        // },
+        {
+          urlPattern: ({ url }) => url.href.includes('_payload.json'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'json',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+            },
+          },
+        },
         {
           urlPattern: ({ url }) => url.href.endsWith('messages.json'),
           handler: 'CacheFirst',
