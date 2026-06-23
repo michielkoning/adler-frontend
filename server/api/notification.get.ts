@@ -15,7 +15,6 @@ export default defineEventHandler(async (event) => {
 
   const parsed = parseData(response, NotificationSchema)
 
-  
   return {
     ...parsed[query.locale],
     activate: parsed.activate,

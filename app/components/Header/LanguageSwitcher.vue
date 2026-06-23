@@ -20,17 +20,17 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
 <template>
   <div class="wrapper">
     <a
-      v-for="locale in availableLocales"
-      :key="locale.code"
+      v-for="item in availableLocales"
+      :key="item.code"
       class="link"
-      :href="getUrl(locale.code)"
+      :href="getUrl(item.code)"
     >
       <app-icon
-        :icon="`adler:flag-${locale.code}`"
+        :icon="`adler:flag-${item.code}`"
         class="icon"
       />
       <span class="title">
-        {{ locale.name }}
+        {{ item.name }}
       </span>
     </a>
   </div>

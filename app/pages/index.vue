@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import ThePage from '~/components/Layout/ThePage.vue'
-
 definePageMeta({
   i18n: {
     paths: {

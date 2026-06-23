@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { MenuListSchema } from '../schemas/MenuSchema'
 import { getUrl } from '../utils/getUrl'
 import { LocaleSchema } from '../schemas/LocaleSchema'
-import { MenuItem } from '~~/shared/types/Menu'
+import type { MenuItem } from '~~/shared/types/Menu'
 
 const querySchema = z.object({
   locale: LocaleSchema,
@@ -23,7 +23,7 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   const roomsPageId = pageIds.roomsPageId[query.locale]
   const contactPageId = pageIds.contactPageId[query.locale]
 
-  const getMainPages: Promise<z.infer<typeof MenuListSchema>> = new Promise(async(resolve) => {
+  const getMainPages: Promise<z.infer<typeof MenuListSchema>> = new Promise(async (resolve) => {
     const url = getUrl({
       ...baseUrl,
       type: 'pages',
@@ -43,7 +43,7 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   })
 
   const getChildPagesByParent = (parent: number): Promise<z.infer<typeof MenuListSchema>> =>
-    new Promise(async(resolve) => {
+    new Promise(async (resolve) => {
       const url = getUrl({
         ...baseUrl,
         type: 'pages',
@@ -51,9 +51,9 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
         parent,
         locale: query.locale,
       })
-    const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
-    const data = parseData(response, MenuListSchema)
-    resolve(data)
+      const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
+      const data = parseData(response, MenuListSchema)
+      resolve(data)
     })
 
   const getChildPages: Promise<z.infer<typeof MenuListSchema>> = new Promise((resolve) => {
@@ -71,7 +71,7 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   })
 
   const getChildPagesByType = (type: 'room' | 'arrangement'): Promise<z.infer<typeof MenuListSchema>> =>
-    new Promise(async(resolve) => {
+    new Promise(async (resolve) => {
       const url = getUrl({
         ...baseUrl,
         orderby: 'title',

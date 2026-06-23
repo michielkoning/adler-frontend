@@ -15,13 +15,13 @@ export const MenuSchema = z.object({
     rendered: z.string(),
   }),
   parent: z.number().optional(),
-}).transform(val => {
-return {
-  id: val.id,
-  title: val.title.rendered,
-  link: val.link,
-  parent: val.parent,
-}  
+}).transform((val) => {
+  return {
+    id: val.id,
+    title: val.title.rendered,
+    link: val.link,
+    parent: val.parent,
+  }
 })
 
 export const MenuListSchema = z.array(MenuSchema)
