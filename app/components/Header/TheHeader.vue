@@ -120,6 +120,7 @@ header {
     padding-block: 0;
     margin: 0;
     background-color: transparent;
+    translate: 0 0;
   }
 }
 

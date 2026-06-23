@@ -1,5 +1,5 @@
 import { ofetch } from 'ofetch'
-import { defineNuxtModule, addPrerenderRoutes } from 'nuxt/kit'
+import { defineNuxtModule } from 'nuxt/kit'
 
 const PAGESIZE = 20
 // const PAGESIZE = 99
