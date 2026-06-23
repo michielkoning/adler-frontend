@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 const { title } = useAppConfig()
+
+const model = defineModel<boolean>({
+  default: false,
+})
 </script>
 
 <template>
@@ -18,8 +22,10 @@ const { title } = useAppConfig()
           <span class="sr-only">{{ title }}</span>
         </nuxt-link-locale>
         <button
-          popovertarget="menu"
           type="button"
+          :aria-expanded="model"
+          aria-controls="menu"
+          @click="$emit('update:modelValue', !model)"
         >
           <app-icon
             icon="fa6-solid:bars"
@@ -34,6 +40,10 @@ const { title } = useAppConfig()
 </template>
 
 <style lang="css" scoped>
+:focus {
+  outline-color: var(--color-white);
+}
+
 .wrapper {
   position: sticky;
   top: 0;
@@ -55,10 +65,15 @@ const { title } = useAppConfig()
   @media (--navigation-md) {
     display: none;
   }
+
+  &:has([aria-expanded="true"]) {
+    translate: 0 0;
+  }
 }
 
 .buttons {
   display: flex;
+  gap: var(--spacing-4);
   align-items: center;
   justify-content: space-between;
 }

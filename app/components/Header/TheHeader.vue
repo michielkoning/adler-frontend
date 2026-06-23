@@ -1,100 +1,46 @@
 <script lang="ts" setup>
-const menu = useTemplateRef('menu')
-
-const closePopover = () => {
-  if (!menu.value) {
-    return
-  }
-  if (menu.value.hasAttribute('popover')) {
-    menu.value.hidePopover()
-  }
-}
-
-let observer: ResizeObserver | undefined
-
 const route = useRoute()
 
-watch(() => route.fullPath, closePopover)
-
-onMounted(() => {
-  if (!menu.value) return
-
-  observer = new ResizeObserver(
-    (entries) => {
-      if (!entries.length || !menu.value) {
-        return
-      }
-
-      const entry = entries[0]
-      if (!entry) {
-        return
-      }
-
-      if (entry.contentRect.width >= 960) {
-        if (menu.value.hasAttribute('popover')) {
-          menu.value.removeAttribute('popover')
-        }
-      }
-      else {
-        if (!menu.value.hasAttribute('popover')) {
-          menu.value.setAttribute('popover', '')
-        }
-      }
-    },
-  )
-
-  if (observer) {
-    observer.observe(document.body)
-  }
+const model = defineModel<boolean>({
+  default: false,
 })
 
-onUnmounted(() => {
-  if (!menu.value || !observer) return
-  observer.unobserve(menu.value)
-})
+watch(() => route.fullPath, () => model.value = false)
 </script>
 
 <template>
-  <header>
-    <div
-      id="menu"
-      ref="menu"
-      popover
-      class="menu"
-    >
-      <center-wrapper>
-        <div class="menu-wrapper">
-          <nuxt-link-locale
-            :to="{
-              name: 'index',
-            }"
-            class="logo-wrapper"
-          >
-            <app-icon
-              icon="adler:logo"
-              class="logo"
-            />
-          </nuxt-link-locale>
-          <meta-navigation class="meta-navigation" />
-          <main-navigation class="main-navigation" />
-        </div>
-      </center-wrapper>
-    </div>
+  <header
+    id="menu"
+    :class="{ open: model === true }"
+  >
+    <center-wrapper>
+      <div class="menu-wrapper">
+        <nuxt-link-locale
+          :to="{
+            name: 'index',
+          }"
+          class="logo-wrapper"
+        >
+          <app-icon
+            icon="adler:logo"
+            class="logo"
+          />
+        </nuxt-link-locale>
+        <meta-navigation class="meta-navigation" />
+        <main-navigation class="main-navigation" />
+      </div>
+    </center-wrapper>
   </header>
 </template>
 
 <style lang="css" scoped>
-.menu {
-  --header-height: 4em;
-
-  top: auto;
-  width: 100dvw;
-  max-width: none;
-  height: calc(100dvh - var(--header-height));
-  max-height: none;
-  padding: var(--notch-top) var(--notch-right) 0 var(--notch-left);
-  margin: 0;
-  border: 0;
+header {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-header);
+  display: none;
+  padding: 5em var(--notch-right) 0 var(--notch-left);
+  background: var(--color-white);
   opacity: 0;
   translate: 0 -1em;
   transition:
@@ -103,7 +49,8 @@ onUnmounted(() => {
     overlay var(--transition) allow-discrete,
     display var(--transition) allow-discrete;
 
-  &:popover-open {
+  &.open {
+    display: block;
     opacity: 1;
     translate: 0;
 
@@ -115,9 +62,9 @@ onUnmounted(() => {
 
   @media (--navigation-md) {
     position: relative;
+    inset: auto;
     display: block;
-    width: auto;
-    height: auto;
+    padding: 0;
     opacity: 1;
     translate: 0;
     transition-duration: 0.01s;
@@ -130,15 +77,9 @@ onUnmounted(() => {
 
   @media (--navigation-md) {
     display: grid;
-    flex: 0 0 auto;
     grid-template-columns: auto 1fr;
     column-gap: var(--spacing-4);
     align-items: end;
-    width: 100%;
-    max-height: none;
-    padding: 0;
-    overflow: visible;
-    transform: none;
   }
 
   @media (--navigation-lg) {
@@ -187,17 +128,6 @@ onUnmounted(() => {
 
   @media (--navigation-lg) {
     grid-column: span 1;
-  }
-}
-
-.image {
-  display: block;
-  width: 100%;
-}
-
-.btn-open {
-  @media (--navigation-md) {
-    display: none;
   }
 }
 </style>

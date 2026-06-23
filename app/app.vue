@@ -37,6 +37,8 @@ useSchemaOrg([
     name: title,
   }),
 ])
+
+const isOpen = ref(false)
 </script>
 
 <template>
@@ -44,19 +46,19 @@ useSchemaOrg([
     <nuxt-pwa-assets />
     <nuxt-route-announcer />
     <nuxt-loading-indicator color="var(--color-primary)" />
-    <mobile-navigation />
-
-    <the-header class="page-header sa-hidden" />
+    <mobile-navigation v-model="isOpen" />
+    <the-header v-model="isOpen" />
     <main
       id="content"
       class="main"
       tabindex="-1"
+      :inert="isOpen"
     >
       <nuxt-page />
     </main>
-    <the-footer class="page-footer sa-hidden" />
-    <cookie-wall />
-    <notification-modal />
+    <the-footer :inert="isOpen" />
+    <cookie-wall :inert="isOpen" />
+    <notification-modal :inert="isOpen" />
   </div>
 </template>
 

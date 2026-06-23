@@ -10,6 +10,10 @@
   interpolate-size: allow-keywords;
 }
 
+:focus {
+  outline: 2px dotted var(--color-primary);
+}
+
 ::selection {
   color: var(--color-white);
   background: var(--color-primary);
