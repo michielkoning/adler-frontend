@@ -2,7 +2,6 @@
 import type { LastMinute } from '~~/shared/types/LastMinute'
 
 defineProps<LastMinute>()
-
 </script>
 
 <template>
@@ -13,7 +12,7 @@ defineProps<LastMinute>()
   />
 
   <app-modal
-  id="book-now"
+    id="book-now"
     :title="$t('requestNow')"
   >
     <!-- <form-last-minute v-if="lastMinute" :last-minute="lastMinute" /> -->
