@@ -10,7 +10,7 @@ const { data } = await useFetch('/api/notification', {
 
 <template>
   <app-modal
-    v-if="data"
+    v-if="data?.activate"
     id="notification"
     :is-open="true"
     :title="data.title ?? ''"
