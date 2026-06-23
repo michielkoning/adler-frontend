@@ -23,7 +23,7 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   const roomsPageId = pageIds.roomsPageId[query.locale]
   const contactPageId = pageIds.contactPageId[query.locale]
 
-  const getMainPages: Promise<z.infer<typeof MenuListSchema>> = new Promise(async (resolve) => {
+  const getMainPages: Promise<z.infer<typeof MenuListSchema>> = new Promise((resolve) => {
     const url = getUrl({
       ...baseUrl,
       type: 'pages',
@@ -37,13 +37,14 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
         contactPageId,
       ],
     })
-    const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
-    const data = parseData(response, MenuListSchema)
-    resolve(data)
+    $fetch(url).then((response) => {
+      const data = parseData(response, MenuListSchema)
+      resolve(data)
+    })
   })
 
   const getChildPagesByParent = (parent: number): Promise<z.infer<typeof MenuListSchema>> =>
-    new Promise(async (resolve) => {
+    new Promise((resolve) => {
       const url = getUrl({
         ...baseUrl,
         type: 'pages',
@@ -51,9 +52,10 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
         parent,
         locale: query.locale,
       })
-      const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
-      const data = parseData(response, MenuListSchema)
-      resolve(data)
+      $fetch(url).then((response) => {
+        const data = parseData(response, MenuListSchema)
+        resolve(data)
+      })
     })
 
   const getChildPages: Promise<z.infer<typeof MenuListSchema>> = new Promise((resolve) => {
@@ -71,16 +73,17 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   })
 
   const getChildPagesByType = (type: 'room' | 'arrangement'): Promise<z.infer<typeof MenuListSchema>> =>
-    new Promise(async (resolve) => {
+    new Promise((resolve) => {
       const url = getUrl({
         ...baseUrl,
         orderby: 'title',
         type,
         locale: query.locale,
       })
-      const response = await $fetch<z.infer<typeof MenuListSchema>>(url)
-      const data = parseData(response, MenuListSchema)
-      resolve(data)
+      $fetch(url).then((response) => {
+        const data = parseData(response, MenuListSchema)
+        resolve(data)
+      })
     })
 
   const pages = await Promise.all([
