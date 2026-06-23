@@ -19,7 +19,8 @@ const { data } = await useFetch('/api/notification', {
       <app-image
         v-if="data.image"
         v-bind="data.image"
-      />
+        sizes="100vw sm:270px md:270px lg:270px xl:270px 2xl:270px"
+        />
       <div>
         <p>{{ data.content }}</p>
         <app-button

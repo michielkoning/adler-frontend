@@ -18,6 +18,7 @@ const totalImages = computed(() => props.images.length)
       >
         <app-image
           v-bind="item"
+          sizes="100vw sm:100vw md:100vw lg:100vw xl:1280px 2xl:1280px"
         />
       </li>
     </ul>

@@ -21,7 +21,7 @@ defineProps<Archive>()
       v-if="image"
       v-bind="image"
       class="image"
-      sizes="80px"
+      sizes="80px xs:80px sm:80px md:80px lg:80px xl:80px xxl:80px"
     />
   </clickable-list-item>
 </template>

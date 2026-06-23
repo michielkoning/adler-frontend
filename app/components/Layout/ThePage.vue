@@ -31,7 +31,7 @@ const transitionName = computed(() => `image-${props.id}`)
           :lazy="false"
           class="image"
           v-bind="image"
-          sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:1280px xxl:1280"
+          sizes="100vw xs:100vw sm:100vw md:100vw lg:100vw xl:1280px xxl:1280px"
         />
 
         <div>

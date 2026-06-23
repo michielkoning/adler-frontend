@@ -28,7 +28,7 @@ const transitionName = computed(() => `image-${props.id}`)
       v-if="image"
       v-bind="image"
       class="image"
-      sizes="100vw sm:240px"
+      sizes="100vw sm:240px md:240px lg:240px xl:240px 2xl:240px"
     />
     <price-badge
       v-if="price"
@@ -55,8 +55,7 @@ const transitionName = computed(() => `image-${props.id}`)
       grid-template-columns: 15em auto;
     }
 
-    &:focus-within,
-    &:hover {
+    &:focus-within &:hover {
       & .link {
         text-decoration: underline;
         text-decoration-thickness: 2px;

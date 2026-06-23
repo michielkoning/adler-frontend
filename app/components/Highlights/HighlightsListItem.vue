@@ -24,7 +24,7 @@ const url = localePath({
         v-if="item.image"
         v-bind="item.image"
         class="image"
-        sizes="100vw md:33vw xl:400px"
+        sizes="100vw sm:100vw md:33vw lg:33vw xl:400px 2xl:400px"
       />
       <price-badge
         v-if="item.price"

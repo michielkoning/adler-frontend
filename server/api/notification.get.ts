@@ -15,11 +15,10 @@ export default defineEventHandler(async (event) => {
 
   const parsed = parseData(response, NotificationSchema)
 
-  if (!parsed[query.locale] || !parsed.activate) {
-    return null
-  }
+  
   return {
     ...parsed[query.locale],
+    activate: parsed.activate,
     image: parsed.image,
   }
 })

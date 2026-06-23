@@ -52,7 +52,6 @@ export default defineNuxtConfig({
     '~/components/Rooms',
     '~/components/Shared',
     '~/components/Sidebar',
-    '~/components',
   ],
   devtools: {
     enabled: true,
@@ -104,15 +103,6 @@ export default defineNuxtConfig({
         },
       },
     },
-  },
-  experimental: {
-    payloadExtraction: true,
-    sharedPrerenderData: true,
-    defaults: {
-      nuxtLink: {
-        trailingSlash: 'append'
-      }
-    }
   },
   compatibilityDate: '2025-08-03',
 
@@ -195,8 +185,7 @@ export default defineNuxtConfig({
     },
     strategy: 'prefix',
     experimental: {
-      // strictSeo: true,
-      nitroContextDetection: false
+      strictSeo: true,
     },
     defaultLocale: 'de',
     baseUrl: settings.baseUrl,
