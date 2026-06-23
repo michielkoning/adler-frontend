@@ -56,16 +56,6 @@ onUnmounted(() => {
 
 <template>
   <header>
-    <button
-      class="btn-open"
-      popovertarget="menu"
-    >
-      <app-icon
-        class="icon"
-        icon="solar:hamburger-menu-linear"
-      />
-      Menu
-    </button>
     <div
       id="menu"
       ref="menu"
@@ -94,36 +84,6 @@ onUnmounted(() => {
 </template>
 
 <style lang="css" scoped>
-header {
-  z-index: 99;
-  padding-block: var(--spacing-2);
-  margin-bottom: var(--menu-height);
-  color: var(--color-text);
-  background: var(--color-primary);
-
-  @container (not scroll-state(scrolled: none)) {
-    position: sticky;
-    top: 0;
-    transition: translate var(--transition);
-  }
-
-  @container scroll-state(scrolled: bottom) {
-    translate: 0 -100%;
-  }
-
-  @container scroll-state(scrolled: top) {
-    translate: 0 0;
-  }
-
-  @media (--navigation-md) {
-    position: relative;
-    padding-block: 0;
-    margin: 0;
-    background-color: transparent;
-    translate: 0 0;
-  }
-}
-
 .menu {
   --header-height: 4em;
 

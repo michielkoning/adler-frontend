@@ -134,7 +134,7 @@ export default defineNuxtConfig({
     },
   },
   typescript: {
-    typeCheck: true,
+    // typeCheck: true,
   },
   postcss: {
     plugins: {

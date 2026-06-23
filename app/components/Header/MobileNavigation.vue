@@ -18,8 +18,7 @@ const { title } = useAppConfig()
           <span class="sr-only">{{ title }}</span>
         </nuxt-link-locale>
         <button
-          commandfor="menu"
-          command="show-modal"
+          popovertarget="menu"
           type="button"
         >
           <app-icon
@@ -35,52 +34,61 @@ const { title } = useAppConfig()
 </template>
 
 <style lang="css" scoped>
-  .wrapper {
-    position: fixed;
-    inset: 0 0 auto;
-    z-index: var(--z-mobile-navigation);
-    padding-block: var(--spacing-3);
-    color: var(--color-white);
-    background: var(--color-primary);
-    border-bottom: 1px solid var(--color-white);
+.wrapper {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-mobile-navigation);
+  padding-block: var(--spacing-2);
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-bottom: 1px solid currentcolor;
+  transition: translate var(--transition);
 
-    @media (--navigation-md) {
-      display: none;
-    }
+  @container scroll-state(scrolled: bottom) {
+    translate: 0 -100%;
   }
 
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  @container scroll-state(scrolled: top) {
+    translate: 0 0;
   }
 
-  .logo-wrapper {
-    display: flex;
-    align-items: center;
+  @media (--navigation-md) {
+    display: none;
   }
+}
 
-  .logo {
-    width: 10em;
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 10em;
+}
+
+button {
+  @mixin btn;
+  @mixin btn-small;
+
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+  color: currentcolor;
+  border-color: var(--color-white);
+
+  &[aria-expanded="true"] {
+    color: var(--color-primary);
+    background: var(--color-white);
   }
+}
 
-  .btn {
-    @mixin btn;
-    @mixin btn-small;
-
-    display: flex;
-    gap: var(--spacing-3);
-    align-items: center;
-    color: currentcolor;
-    border-color: var(--color-white);
-
-    &[aria-expanded="true"] {
-      color: var(--color-primary);
-      background: var(--color-white);
-    }
-  }
-
-  .bars {
-    width: 1em;
-  }
+.bars {
+  width: 1em;
+}
 </style>

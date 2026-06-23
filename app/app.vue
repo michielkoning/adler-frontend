@@ -44,6 +44,7 @@ useSchemaOrg([
     <nuxt-pwa-assets />
     <nuxt-route-announcer />
     <nuxt-loading-indicator color="var(--color-primary)" />
+    <mobile-navigation />
 
     <the-header class="page-header sa-hidden" />
     <main
