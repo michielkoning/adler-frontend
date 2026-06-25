@@ -53,7 +53,7 @@ defineProps<Archive>()
 
 .image {
   grid-row-start: 1;
-  height: 3em;
+  block-size: 3em;
 }
 
 .link-wrapper {

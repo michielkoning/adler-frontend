@@ -37,8 +37,8 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 6rem;
-  height: 6rem;
+  inline-size: 6rem;
+  block-size: 6rem;
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
   line-height: var(--line-height-headings);

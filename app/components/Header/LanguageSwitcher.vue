@@ -54,7 +54,7 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
     display: flex;
     gap: var(--spacing-2);
     align-items: center;
-    margin-bottom: var(--spacing-1);
+    margin-block-end: var(--spacing-1);
   }
 
   .title {

@@ -49,7 +49,7 @@ const transitionName = computed(() => `image-${props.id}`)
     grid-row: 1 / 2;
     gap: var(--spacing-3);
     padding: calc(var(--gutter) / 2);
-    margin-bottom: var(--spacing-3);
+    margin-block-end: var(--spacing-3);
 
     @media (--sm) {
       grid-template-columns: 15em auto;
@@ -80,18 +80,18 @@ const transitionName = computed(() => `image-${props.id}`)
   }
 
   .image {
-    height: 8em;
+    block-size: 8em;
     view-transition-name: v-bind(transitionName);
   }
 
   .price-badge {
     position: absolute;
-    top: calc(var(--spacing-2) * -1);
-    right: calc(var(--spacing-1) * -1);
+    inset-block-start: calc(var(--spacing-2) * -1);
+    inset-inline-end: calc(var(--spacing-1) * -1);
 
     @media (--sm) {
-      top: 0;
-      left: calc(var(--spacing-1) * -1);
+      inset-block-start: 0;
+      inset-inline-start: calc(var(--spacing-1) * -1);
     }
   }
 

@@ -22,7 +22,7 @@ defineProps<{
 
   display: grid;
   gap: var(--spacing-8);
-  margin-bottom: var(--spacing-4);
+  margin-block-end: var(--spacing-4);
 
   @media (--md) {
     grid-template-columns: repeat(3, 1fr);

@@ -58,7 +58,7 @@ dt {
 
   &.public-holidays {
     grid-column: span 2;
-    margin-top: var(--spacing-2);
+    margin-block-start: var(--spacing-2);
   }
 }
 

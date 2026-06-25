@@ -17,38 +17,38 @@
 <style scoped lang="postcss">
 .loader {
   position: relative;
-  width: 64px;
-  height: 64px;
+  inline-size: 64px;
+  block-size: 64px;
   margin: 0 auto;
 }
 
 .dot {
   position: absolute;
-  top: 27px;
-  width: 11px;
-  height: 11px;
+  inset-block-start: 27px;
+  inline-size: 11px;
+  block-size: 11px;
   background: var(--color-primary);
   border-radius: 50%;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
 .dot-1 {
-  left: 6px;
+  inset-inline-start: 6px;
   animation: loader1 0.6s infinite;
 }
 
 .dot-2 {
-  left: 6px;
+  inset-inline-start: 6px;
   animation: loader2 0.6s infinite;
 }
 
 .dot-3 {
-  left: 26px;
+  inset-inline-start: 26px;
   animation: loader2 0.6s infinite;
 }
 
 .dot-4 {
-  left: 45px;
+  inset-inline-start: 45px;
   animation: loader3 0.6s infinite;
 }
 

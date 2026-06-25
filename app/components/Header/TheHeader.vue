@@ -94,21 +94,21 @@ header {
 
   @media (--navigation-md) {
     display: block;
-    width: 5em;
-    margin-top: var(--spacing-2);
+    inline-size: 5em;
+    margin-block-start: var(--spacing-2);
   }
 
   @media (--navigation-lg) {
     grid-row: span 2;
-    width: 7em;
-    margin-bottom: var(--spacing-3);
+    inline-size: 7em;
+    margin-block-end: var(--spacing-3);
   }
 }
 
 .logo {
   display: block;
-  width: 100%;
-  height: auto;
+  inline-size: 100%;
+  block-size: auto;
 }
 
 .meta-navigation {

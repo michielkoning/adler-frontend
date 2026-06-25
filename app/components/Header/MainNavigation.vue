@@ -56,18 +56,19 @@ const { data } = await useFetch('/api/menu', {
 <style lang="css" scoped>
 nav {
   position: relative;
-  margin-bottom: var(--spacing-4);
+  margin-block-end: var(--spacing-4);
 
   @media (--navigation-md) {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   &::after {
     position: fixed;
     inset: auto anchor(inside) 0;
     display: none;
-    height: 3px;
+    block-size: 3px;
     position-anchor: --active-menu;
+    pointer-events: none;
     content: "";
     background: var(--color-primary);
     transition: inset var(--transition);
@@ -81,21 +82,21 @@ nav {
 ul {
   @mixin list-reset;
 
-  border-top: 2px solid var(--color-black);
+  border-block-start: 2px solid var(--color-black);
 
   @media (--navigation-md) {
     display: flex;
     gap: var(--spacing-1);
     justify-content: space-between;
-    border-top: 0;
+    border-block-start: 0;
   }
 }
 
 .menu-item-page {
-  border-bottom: 2px solid var(--color-black);
+  border-block-end: 2px solid var(--color-black);
 
   @media (--navigation-md) {
-    border-bottom: 0;
+    border-block-end: 0;
   }
 
   &:has(.router-link-active) {

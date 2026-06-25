@@ -1,7 +1,7 @@
 @define-mixin form-field {
-  width: 100%;
-  height: auto;
-  min-height: 2.25em;
+  inline-size: 100%;
+  block-size: auto;
+  min-block-size: 2.25em;
   padding: 0.5rem 0.75rem;
   font-family: inherit;
   font-size: var(--font-size-m);

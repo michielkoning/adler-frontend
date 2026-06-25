@@ -57,7 +57,7 @@ const url = localePath({
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
-  padding-bottom: var(--spacing-4);
+  padding-block-end: var(--spacing-4);
   background: var(--color-white);
 
   &:focus-within,
@@ -67,7 +67,7 @@ const url = localePath({
 }
 
 .title {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 .title-wrapper,
@@ -81,18 +81,18 @@ const url = localePath({
 }
 
 .image:deep(img) {
-  height: 14em;
+  block-size: 14em;
 }
 
 .btn-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: auto;
+  margin-block-start: auto;
 }
 
 .price-badge {
   position: absolute;
-  top: 3em;
-  right: calc(var(--spacing-3) * -1);
+  inset-block-start: 3em;
+  inset-inline-end: calc(var(--spacing-3) * -1);
 }
 </style>

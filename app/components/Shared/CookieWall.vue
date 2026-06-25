@@ -49,7 +49,7 @@ const localePath = useLocalePath()
   padding-block: var(--spacing-3);
   color: var(--color-white);
   background: var(--color-gray-dark);
-  border-top: 1px solid var(--color-white);
+  border-block-start: 1px solid var(--color-white);
 }
 
 .wrapper {

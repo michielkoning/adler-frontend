@@ -1,14 +1,13 @@
 .center {
-  max-width: 74rem;
-  padding-right: var(--gutter);
-  padding-left: var(--gutter);
+  max-inline-size: 74rem;
+  padding-inline: var(--gutter);
   margin: 0 auto;
 }
 
 .center-md {
-  max-width: 60rem;
+  max-inline-size: 60rem;
 }
 
 .center-sm {
-  max-width: 50rem;
+  max-inline-size: 50rem;
 }

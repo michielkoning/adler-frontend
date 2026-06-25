@@ -66,11 +66,11 @@ const transitionName = computed(() => `image-${props.id}`)
     display: grid;
     gap: var(--gutter);
     align-items: start;
-    padding-top: var(--spacing-4);
-    margin-bottom: var(--spacing-16);
+    padding-block-start: var(--spacing-4);
+    margin-block-end: var(--spacing-16);
 
     @media (--md) {
-      padding-top: 0;
+      padding-block-start: 0;
     }
 
     @media (--lg) {
@@ -88,8 +88,8 @@ const transitionName = computed(() => `image-${props.id}`)
   }
 
   .image {
-    height: 30vw;
-    max-height: 20rem;
+    block-size: 30vw;
+    max-block-size: 20rem;
     view-transition-name: v-bind(transitionName);
   }
 

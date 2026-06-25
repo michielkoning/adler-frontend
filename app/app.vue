@@ -104,7 +104,7 @@ onUnmounted(() => {
   .page {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
+    min-block-size: 100dvh;
   }
 
   .main {

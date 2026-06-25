@@ -41,16 +41,16 @@ defineProps<{
 
 .icon {
   flex: 0 0 2em;
-  margin-top: 0.1em;
+  margin-block-start: 0.1em;
 }
 
 .list {
   @mixin list-reset;
 
-  margin-bottom: var(--spacing-8);
+  margin-block-end: var(--spacing-8);
 }
 
 .list-item {
-  margin-bottom: var(--spacing-1);
+  margin-block-end: var(--spacing-1);
 }
 </style>

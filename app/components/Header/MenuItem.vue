@@ -132,8 +132,8 @@ a {
 }
 
 svg {
-  width: var(--spacing-4);
-  height: var(--spacing-4);
+  inline-size: var(--spacing-4);
+  block-size: var(--spacing-4);
   aspect-ratio: 1;
   translate: 0 var(--spacing-1);
   transition: rotate var(--transition);
@@ -143,7 +143,7 @@ ul {
   @mixin list-reset;
 
   display: none;
-  width: 100%;
+  inline-size: 100%;
   padding-inline-start: var(--spacing-4);
   opacity: 0;
   translate: 0 -1em;
@@ -155,10 +155,10 @@ ul {
 
   @media (--navigation-md) {
     position: fixed;
-    top: anchor(bottom);
-    left: calc(anchor(left) - var(--gutter));
-    width: auto;
-    padding-left: 0;
+    inset-block-start: anchor(bottom);
+    inset-inline-start: calc(anchor(left) - var(--gutter));
+    inline-size: auto;
+    padding-inline-start: 0;
     margin-inline: var(--gutter);
     position-anchor: v-bind(anchor);
     background-color: var(--color-white);
@@ -208,14 +208,14 @@ button[aria-expanded="true"] {
 }
 
 .subitem {
-  border-top: 1px solid var(--color-gray);
+  border-block-start: 1px solid var(--color-gray);
 }
 
 .sublink {
   padding-block: var(--spacing-1);
   font-size: var(--font-size-l);
   color: currentcolor;
-  border-left: 2px solid transparent;
+  border-inline-start: 2px solid transparent;
   transition: border var(--transition);
 
   @media (--navigation-md) {
@@ -224,7 +224,7 @@ button[aria-expanded="true"] {
     &:hover,
     &.router-link-active {
       color: var(--color-primary);
-      border-left-color: currentcolor;
+      border-inline-start-color: currentcolor;
     }
   }
 }

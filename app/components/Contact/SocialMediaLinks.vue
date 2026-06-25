@@ -63,6 +63,6 @@ const { title, facebookUrl, instagramUrl } = useAppConfig()
   }
 
   .icon {
-    width: 2em;
+    inline-size: 2em;
   }
 </style>

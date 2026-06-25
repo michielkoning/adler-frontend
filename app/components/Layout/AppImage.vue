@@ -39,8 +39,8 @@ const loading = computed(() => {
 <style lang="css" scoped>
 .image :deep(img) {
   display: block;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
 }
 </style>

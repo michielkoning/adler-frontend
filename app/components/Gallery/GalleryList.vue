@@ -147,8 +147,8 @@ const transitionName = computed(() => `image-${props.id}`)
 .btn {
   @mixin btn;
 
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   color: var(--color-white);
   background: var(--color-gray);
   border-radius: 0;

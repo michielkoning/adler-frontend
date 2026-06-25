@@ -26,7 +26,7 @@ defineProps<{
 .contact-item {
   display: flex;
   gap: var(--spacing-2);
-  margin-bottom: var(--spacing-1);
+  margin-block-end: var(--spacing-1);
 }
 
 .icon {

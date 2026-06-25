@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
-    padding-bottom: 8em;
+    padding-block-end: 8em;
 
     @media (--navigation-md) {
       flex-direction: row;

@@ -1,6 +1,6 @@
 svg {
   position: relative;
   display: inline-block;
-  height: auto;
+  block-size: auto;
   fill: currentcolor;
 }

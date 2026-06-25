@@ -89,8 +89,8 @@ const { title, address } = useAppConfig()
 <style lang="css" scoped>
   .hero {
     position: relative;
-    height: 30rem;
-    max-height: 60vw;
+    block-size: 30rem;
+    max-block-size: 60vw;
     color: var(--color-white);
     -webkit-text-stroke: 1px var(--color-gray-darker);
     -webkit-text-fill-color: var(--color-white);
@@ -104,15 +104,15 @@ const { title, address } = useAppConfig()
     justify-content: flex-end;
 
     @media (--sm) {
-      top: 5em;
+      inset-block-start: 5em;
     }
   }
 
   .icon {
-    width: 100%;
-    max-width: 50rem;
-    height: 11vw;
-    max-height: 6em;
+    inline-size: 100%;
+    max-inline-size: 50rem;
+    block-size: 11vw;
+    max-block-size: 6em;
     fill: var(--color-white);
     stroke: var(--color-gray-darker);
   }

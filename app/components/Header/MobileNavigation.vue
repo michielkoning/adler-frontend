@@ -46,12 +46,12 @@ const model = defineModel<boolean>({
 
 .wrapper {
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   z-index: var(--z-mobile-navigation);
   padding-block: var(--spacing-2);
   color: var(--color-white);
   background: var(--color-primary);
-  border-bottom: 1px solid currentcolor;
+  border-block-end: 1px solid currentcolor;
   transition: translate var(--transition);
 
   @container scroll-state(scrolled: bottom) {
@@ -84,7 +84,7 @@ const model = defineModel<boolean>({
 }
 
 .logo {
-  width: 10em;
+  inline-size: 10em;
 }
 
 button {
@@ -104,6 +104,6 @@ button {
 }
 
 .bars {
-  width: 1em;
+  inline-size: 1em;
 }
 </style>

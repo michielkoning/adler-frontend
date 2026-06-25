@@ -140,7 +140,7 @@ const id = useId()
     grid-template-rows: subgrid;
     grid-row: span 5;
     gap: 1em;
-    padding-bottom: var(--spacing-4);
+    padding-block-end: var(--spacing-4);
     background: var(--color-white);
 
     &:focus-within,
@@ -161,17 +161,17 @@ const id = useId()
   }
 
   .image {
-    height: 14em;
+    block-size: 14em;
   }
 
   .badge {
     position: absolute;
-    top: 3em;
-    right: calc(var(--spacing-3) * -1);
+    inset-block-start: 3em;
+    inset-inline-end: calc(var(--spacing-3) * -1);
   }
 
   .persons {
-    margin-bottom: 1em;
+    margin-block-end: 1em;
     font-weight: var(--font-weight-bold);
   }
 
@@ -182,7 +182,7 @@ const id = useId()
   }
 
   .prices-definitions {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   dt {
@@ -190,15 +190,15 @@ const id = useId()
   }
 
   .icon {
-    width: 1.25em;
+    inline-size: 1.25em;
     aspect-ratio: 1;
     translate: 0 0.1em;
   }
 
   .price-details:not(:last-child) {
-    padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid var(--color-gray-light);
+    padding-block-end: 0.5em;
+    margin-block-end: 0.5em;
+    border-block-end: 1px solid var(--color-gray-light);
   }
 
   .prices-list {
@@ -206,6 +206,6 @@ const id = useId()
   }
 
   .btn {
-    width: 100%;
+    inline-size: 100%;
   }
 </style>

@@ -45,10 +45,10 @@ ul {
   &::scroll-button(right),
   &::scroll-button(left) {
     position: absolute;
-    top: 50%;
-    width: 2em;
+    inset-block-start: 50%;
+    inline-size: 2em;
     aspect-ratio: 320 / 512;
-    margin-top: calc(var(--spacing-8) * -1);
+    margin-block-start: calc(var(--spacing-8) * -1);
     color: green;
     cursor: pointer;
     content: "";
@@ -59,12 +59,12 @@ ul {
   }
 
   &::scroll-button(left) {
-    left: 1em;
+    inset-inline-start: 1em;
     rotate: 180deg;
   }
 
   &::scroll-button(right) {
-    right: 1em;
+    inset-inline-end: 1em;
   }
 
   &::scroll-button(left):disabled,
@@ -86,7 +86,7 @@ li {
 
   &::scroll-marker {
     display: block;
-    width: 0.5em;
+    inline-size: 0.5em;
     aspect-ratio: 1;
     content: "";
     background-color: var(--color-white);

@@ -107,7 +107,7 @@ header {
   align-items: start;
   justify-content: space-between;
   padding: var(--spacing-3) var(--spacing-4) 0;
-  border-bottom: 1px solid var(--color-gray);
+  border-block-end: 1px solid var(--color-gray);
 }
 
 .content {

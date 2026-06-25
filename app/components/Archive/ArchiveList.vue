@@ -26,11 +26,11 @@ defineProps<{
   margin: 0 calc(var(--gutter) / -2);
 
   @media (--md) {
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 
   & > li {
-    margin-bottom: var(--spacing-3);
+    margin-block-end: var(--spacing-3);
   }
 }
 </style>

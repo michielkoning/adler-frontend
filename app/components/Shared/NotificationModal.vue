@@ -44,6 +44,6 @@ const { data } = await useFetch('/api/notification', {
 
 img {
   display: block;
-  width: 100%;
+  inline-size: 100%;
 }
 </style>

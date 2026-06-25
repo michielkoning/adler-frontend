@@ -1,7 +1,7 @@
 table {
-  width: 100%;
+  inline-size: 100%;
   margin: 0 0 var(--spacing-4);
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   border-collapse: collapse;
 }
 
@@ -16,7 +16,7 @@ td {
 th,
 td {
   padding: var(--spacing-2);
-  text-align: left;
+  text-align: start;
 
   /* @nest thead & {
     vertical-align: bottom;

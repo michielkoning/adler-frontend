@@ -48,7 +48,7 @@
   @mixin list-reset;
 
   & > .list-item {
-    margin-bottom: var(--spacing-1);
+    margin-block-end: var(--spacing-1);
   }
 }
 </style>
