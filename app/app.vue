@@ -40,15 +40,15 @@ useSchemaOrg([
 
 const isOpen = ref(false)
 
-const menu = useTemplateRef('page')
+const page = useTemplateRef('page')
 let observer: ResizeObserver | undefined
 
 onMounted(() => {
-  if (!menu.value) return
+  if (!page.value) return
 
   observer = new ResizeObserver(
     (entries) => {
-      if (!entries.length || !menu.value) {
+      if (!entries.length || !page.value) {
         return
       }
 
@@ -58,24 +58,21 @@ onMounted(() => {
       }
 
       if (entry.contentRect.width >= 768) {
-        if (menu.value.checkVisibility()) {
+        if (isOpen.value) {
           isOpen.value = false
         }
-      }
-      else {
-        menu.value.setAttribute('popover', '')
       }
     },
   )
 
   if (observer) {
-    observer.observe(document.body)
+    observer.observe(page.value)
   }
 })
 
 onUnmounted(() => {
-  if (!menu.value || !observer) return
-  observer.unobserve(menu.value)
+  if (!page.value || !observer) return
+  observer.unobserve(page.value)
 })
 </script>
 

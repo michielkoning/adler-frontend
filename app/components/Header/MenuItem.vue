@@ -197,10 +197,13 @@ button[aria-expanded="true"] + ul {
   }
 }
 
-.item:hover,
 button[aria-expanded="true"] {
   svg {
     rotate: -180deg;
+
+    @media (--navigation-md) {
+      rotate: 0deg;
+    }
   }
 }
 
