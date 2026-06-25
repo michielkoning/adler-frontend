@@ -39,10 +39,51 @@ useSchemaOrg([
 ])
 
 const isOpen = ref(false)
+
+const menu = useTemplateRef('page')
+let observer: ResizeObserver | undefined
+
+onMounted(() => {
+  if (!menu.value) return
+
+  observer = new ResizeObserver(
+    (entries) => {
+      if (!entries.length || !menu.value) {
+        return
+      }
+
+      const entry = entries[0]
+      if (!entry) {
+        return
+      }
+
+      if (entry.contentRect.width >= 768) {
+        if (menu.value.checkVisibility()) {
+          isOpen.value = false
+        }
+      }
+      else {
+        menu.value.setAttribute('popover', '')
+      }
+    },
+  )
+
+  if (observer) {
+    observer.observe(document.body)
+  }
+})
+
+onUnmounted(() => {
+  if (!menu.value || !observer) return
+  observer.unobserve(menu.value)
+})
 </script>
 
 <template>
-  <div class="page">
+  <div
+    ref="page"
+    class="page"
+  >
     <nuxt-pwa-assets />
     <nuxt-route-announcer />
     <nuxt-loading-indicator color="var(--color-primary)" />
