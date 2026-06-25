@@ -71,16 +71,16 @@ onMounted(() => {
       :id="id"
     >
       <li
-        v-for="link in children"
-        :key="link.title"
+        v-for="sublink in children"
+        :key="sublink.title"
         class="subitem"
       >
         <nuxt-link
           class="sublink"
           aria-current-value="true"
-          :to="link.link"
+          :to="sublink.link"
         >
-          <span v-html="link.title" />
+          <span v-html="sublink.title" />
         </nuxt-link>
       </li>
     </ul>
