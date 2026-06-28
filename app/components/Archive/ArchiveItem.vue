@@ -50,19 +50,16 @@ const transitionName = computed(() => `image-${props.id}`)
     gap: var(--spacing-3);
     padding: calc(var(--gutter) / 2);
     margin-block-end: var(--spacing-3);
+    outline: 2px solid transparent;
+    transition: outline var(--transition);
 
     @media (--sm) {
       grid-template-columns: 15em auto;
     }
 
-    &:focus-within &:hover {
-      & .link {
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-        text-decoration-style: solid;
-        text-decoration-color: var(--color-primary);
-        text-underline-offset: 3px;
-      }
+    &:focus-within,
+    &:hover {
+      outline: 2px solid var(--color-primary);
     }
 
     &:nth-child(2n) {

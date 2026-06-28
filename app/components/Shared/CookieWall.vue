@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-const cookie = useCookie<string>('privacy')
+const cookie = useCookie<string>('privacy', {
+  maxAge: 31536000,
+})
 
 const { accept } = useScriptTriggerConsent()
 

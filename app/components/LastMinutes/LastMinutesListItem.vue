@@ -142,11 +142,6 @@ const id = useId()
     gap: 1em;
     padding-block-end: var(--spacing-4);
     background: var(--color-white);
-
-    &:focus-within,
-    &:hover {
-      outline: 2px solid var(--color-primary);
-    }
   }
 
   .meta-wrapper,

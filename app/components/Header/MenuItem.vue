@@ -176,12 +176,6 @@ button[aria-expanded="true"] + ul {
     opacity: 0;
     translate: 0 -1em;
   }
-
-  @media (--navigation-md) {
-    display: none;
-    opacity: 0;
-    translate: 0 -1em;
-  }
 }
 
 @media (--navigation-md) {

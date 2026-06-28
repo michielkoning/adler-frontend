@@ -58,7 +58,9 @@ const url = localePath({
   flex-direction: column;
   gap: var(--spacing-4);
   padding-block-end: var(--spacing-4);
+  outline: 2px solid transparent;
   background: var(--color-white);
+  transition: outline var(--transition);
 
   &:focus-within,
   &:hover {
