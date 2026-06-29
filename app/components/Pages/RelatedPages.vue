@@ -14,14 +14,6 @@ const { data, error } = await useFetch('/api/pages', {
     parentId: props.parentId,
     locale,
   },
-  transform: (response) => {
-    return response.map((item) => {
-      return {
-        ...item,
-        link: localePath(item.link),
-      }
-    })
-  },
 })
 
 if (error.value) {

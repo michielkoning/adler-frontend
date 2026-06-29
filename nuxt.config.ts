@@ -332,14 +332,14 @@ export default defineNuxtConfig({
     registry: {
       metaPixel: {
         id: '1232005826842948',
-        trigger: 'onNuxtReady',
+        partytown: true,
       },
-      // googleAnalytics: {
-      //   id: 'UA-1359501-2',
-      //   trigger: 'onNuxtReady',
-      // },
+      googleAnalytics: {
+        id: 'UA-1359501-2',
+        partytown: true,
+      },
       googleMaps: {
-        trigger: 'onNuxtReady',
+        partytown: true,
       },
     },
   },

@@ -1,10 +1,8 @@
 <template>
-  <iframe
-    width="450"
-    height="250"
-    frameborder="0"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed/v1/MAP_MODE?key="
-    allowfullscreen
+  <script-google-maps
+    :map-options="{
+      zoom: 12,
+      center: { lat: -33.8688, lng: 151.2093 },
+    }"
   />
 </template>
