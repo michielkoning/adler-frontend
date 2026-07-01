@@ -15,7 +15,7 @@
   text-decoration-thickness: 1px;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     text-decoration-thickness: 2px;
   }
 }

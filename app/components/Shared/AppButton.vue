@@ -71,7 +71,7 @@ const cssClasses = computed(() => {
 
   &.active,
   &:hover,
-  &:focus {
+  &:focus-visible {
     @mixin btn-primary-hover;
   }
 }
@@ -81,7 +81,7 @@ const cssClasses = computed(() => {
 
   &.active,
   &:hover,
-  &:focus {
+  &:focus-visible {
     @mixin btn-ghost-hover;
   }
 }

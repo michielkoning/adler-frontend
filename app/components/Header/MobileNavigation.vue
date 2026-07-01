@@ -40,7 +40,7 @@ const model = defineModel<boolean>({
 </template>
 
 <style lang="css" scoped>
-:focus {
+:focus-visible {
   outline-color: var(--color-white);
 }
 

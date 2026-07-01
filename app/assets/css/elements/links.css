@@ -1,6 +1,7 @@
 a {
   @mixin link;
 
+  &:focus-visible,
   &:hover {
     @mixin link-hover;
   }

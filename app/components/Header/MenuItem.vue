@@ -123,6 +123,7 @@ a {
   font-size: var(--font-size-xl);
 
   @media (--navigation-md) {
+    &:focus-visible,
     &:hover,
     &.router-link-active {
       color: var(--color-primary);
@@ -209,9 +210,10 @@ button[aria-expanded="true"] {
   transition: border var(--transition);
 
   @media (--navigation-md) {
-    padding-inline: var(--spacing-3);
+    padding-inline: var(--spacing-2);
 
     &:hover,
+    &:focus-visible,
     &.router-link-active {
       color: var(--color-primary);
       border-inline-start-color: currentcolor;

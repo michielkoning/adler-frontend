@@ -1,7 +1,7 @@
 @define-mixin link-reset {
   &,
   &:hover,
-  &:focus {
+  &:focus-visible {
     text-decoration: none;
   }
 }

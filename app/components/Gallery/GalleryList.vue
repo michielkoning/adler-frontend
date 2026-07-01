@@ -170,7 +170,7 @@ button {
   border-radius: 0;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     background: var(--color-gray-dark);
   }
 

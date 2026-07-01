@@ -61,7 +61,7 @@ const getUrl = (code: 'en' | 'de' | 'nl') => {
     box-shadow: 0 1px 0 0 currentcolor;
 
     .link:hover &,
-    .link:focus & {
+    .link:focus-visible & {
       box-shadow: 0 2px 0 0 currentcolor;
     }
 
