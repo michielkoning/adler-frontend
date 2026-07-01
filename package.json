@@ -18,6 +18,7 @@
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "devDependencies": {
+    "@iconify-json/fa-solid": "^1.2.2",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@nuxt/eslint": "^1.16.0",
     "@nuxt/fonts": "^0.14.0",

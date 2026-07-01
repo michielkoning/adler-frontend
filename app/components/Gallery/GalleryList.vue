@@ -25,8 +25,6 @@ const previewImages = computed(() => {
     }
   })
 })
-
-const transitionName = computed(() => `image-${props.id}`)
 </script>
 
 <template>
@@ -43,16 +41,13 @@ const transitionName = computed(() => `image-${props.id}`)
     </app-modal>
     <ul class="list">
       <li
-        v-for="(image, index) in previewImages"
+        v-for="image in previewImages"
         :key="image.src"
-        class="item"
-        :class="`item-${index}`"
       >
         <app-image v-bind="image" />
       </li>
-      <li class="item-btn">
+      <li class="btn-wrapper">
         <button
-          class="btn"
           commandfor="gallery"
           command="show-modal"
         >
@@ -64,7 +59,7 @@ const transitionName = computed(() => `image-${props.id}`)
 </template>
 
 <style lang="css" scoped>
-.list {
+ul {
   @mixin list-reset;
 
   display: grid;
@@ -73,78 +68,99 @@ const transitionName = computed(() => `image-${props.id}`)
   gap: var(--gutter);
 }
 
-.item-0 {
-  grid-column: span 2;
-  view-transition-name: v-bind(transitionName);
+li {
+  &:has(img) {
+    display: none;
+  }
+
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3) {
+    &:has(img) {
+      display: block;
+    }
+  }
+
+  &:nth-child(1):has(img) {
+    grid-column: span 2;
+  }
 }
 
-.item-3,
-.item-4 {
-  display: none;
-}
-
-.item-btn {
+.btn-wrapper {
+  display: block;
   grid-column: span 2;
 }
 
 @media (--sm) {
-  .list {
+  ul {
     grid-template-rows: 36vw 12vw;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .item-0 {
-    grid-column: span 4;
+  li {
+    &:nth-child(4) {
+      &:has(img) {
+        display: block;
+      }
+    }
+
+    &:nth-child(1):has(img) {
+      grid-column: span 4;
+    }
   }
 
-  .item-3 {
-    display: block;
-  }
-
-  .item-btn {
+  .btn-wrapper {
     grid-column: span 1;
   }
 }
 
 @media (--lg) {
-  .list {
+  ul {
     grid-template-rows: 12em 12em 4em;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .item-0 {
-    grid-row: span 3;
-    grid-column: span 2;
-  }
+  li {
+    &:nth-child(4) {
+      &:has(img) {
+        display: none;
+      }
+    }
 
-  .item-3 {
-    display: none;
+    &:nth-child(1):has(img) {
+      grid-row: span 3;
+      grid-column: span 2;
+    }
   }
 }
 
 @media (--xlg) {
-  .list {
+  ul {
     grid-template-rows: repeat(4, 9em);
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
-  .item-0 {
-    grid-row: span 4;
-    grid-column: span 4;
-  }
+  li {
+    &:nth-child(4),
+    &:nth-child(5) {
+      &:has(img) {
+        display: block;
+      }
+    }
 
-  .item-1 {
-    grid-row: span 2;
-    grid-column: span 2;
-  }
+    &:nth-child(1):has(img) {
+      grid-row: span 4;
+      grid-column: span 4;
+    }
 
-  .item-3,
-  .item-4 {
-    display: block;
+    &:nth-child(2):has(img) {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
   }
 }
 
-.btn {
+button {
   @mixin btn;
 
   inline-size: 100%;

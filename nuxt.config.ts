@@ -143,6 +143,7 @@ export default defineNuxtConfig({
         'sm': 640,
         'md': 768,
         'lg': 1024,
+        'xlg': 1240,
         '--navigation-md': '(width >= 960px)',
         '--navigation-lg': '(width >= 1024px)',
       },

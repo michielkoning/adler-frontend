@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import type { Archive } from '~~/shared/types/Archive'
 
-const props = defineProps<Archive>()
-const transitionName = computed(() => `image-${props.id}`)
+defineProps<Archive>()
 </script>
 
 <template>
@@ -78,7 +77,6 @@ const transitionName = computed(() => `image-${props.id}`)
 
   .image {
     block-size: 8em;
-    view-transition-name: v-bind(transitionName);
   }
 
   .price-badge {

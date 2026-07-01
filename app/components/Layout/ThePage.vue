@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Content } from '~~/shared/types/Content'
 
-const props = withDefaults(
+withDefaults(
   defineProps<
     Content & {
       showResmio?: boolean
@@ -11,8 +11,6 @@ const props = withDefaults(
     showResmio: true,
   },
 )
-
-const transitionName = computed(() => `image-${props.id}`)
 </script>
 
 <template>
@@ -90,7 +88,6 @@ const transitionName = computed(() => `image-${props.id}`)
   .image {
     block-size: 30vw;
     max-block-size: 20rem;
-    view-transition-name: v-bind(transitionName);
   }
 
   .sidebar {
