@@ -14,7 +14,9 @@ defineProps<Archive>()
         <nuxt-link
           :to="link"
           class="link"
-        ><span v-html="title" /></nuxt-link>
+        >
+          <span v-html="title" />
+        </nuxt-link>
       </h2>
       <post-date
         v-if="date"

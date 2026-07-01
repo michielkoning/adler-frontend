@@ -73,7 +73,6 @@ onMounted(() => {
       <li
         v-for="sublink in children"
         :key="sublink.title"
-        class="subitem"
       >
         <nuxt-link
           class="sublink"
@@ -201,14 +200,11 @@ button[aria-expanded="true"] {
   }
 }
 
-.subitem {
-  border-block-start: 1px solid var(--color-gray);
-}
-
 .sublink {
   padding-block: var(--spacing-1);
   font-size: var(--font-size-l);
   color: currentcolor;
+  border-block-start: 1px solid var(--color-gray);
   border-inline-start: 2px solid transparent;
   transition: border var(--transition);
 
