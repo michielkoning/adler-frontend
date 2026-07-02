@@ -30,7 +30,11 @@ const { data, error } = await useFetch('/api/page', {
 })
 
 if (error.value) {
-  throw createError(error.value)
+  throw createError({ status: 404, statusText: 'Page Not Found' })
+}
+
+if (!data.value) {
+  throw createError({ status: 404, statusText: 'Page Not Found' })
 }
 
 setI18nParams({
