@@ -9,7 +9,7 @@ useHead({
 })
 
 useSchemaOrg([
-  defineOrganization({
+  defineLocalBusiness({
     name: title,
     logo: {
       '@type': 'ImageObject',

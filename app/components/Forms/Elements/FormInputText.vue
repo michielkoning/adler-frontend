@@ -15,11 +15,10 @@ defineOptions({
 })
 
 const id = useId()
-const { name } = toRefs(props)
 
 // we don't provide any rules here because we are using form-level validation
 // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-const { value: inputValue, handleBlur, handleChange, errorMessage } = useField<string>(name, undefined, {
+const { value: inputValue, handleBlur, handleChange, errorMessage } = useField<string>(() => props.name, undefined, {
   validateOnValueUpdate: false,
 })
 
