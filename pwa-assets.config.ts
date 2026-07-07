@@ -7,15 +7,22 @@ import {
 export default defineConfig({
   headLinkOptions: {
     preset: '2023',
-    basePath: '/icons/',
+    basePath: '/',
   },
-  preset:
 
+  preset:
     combinePresetAndAppleSplashScreens(minimal2023Preset, {
       resizeOptions: {
         background: '#98012e',
+        width: 300,
+
+      },
+      linkMediaOptions: {
+        basePath: '/',
+      },
+      name: (landscape, size) => {
+        return `apple-splash-${landscape ? 'landscape' : 'portrait'}-${size.width}x${size.height}.png`
       },
     }),
-
-  images: 'public/icons/logo.svg',
+  images: 'public/logo.svg',
 })

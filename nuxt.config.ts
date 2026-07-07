@@ -135,6 +135,13 @@ export default defineNuxtConfig({
   },
   typescript: {
     // typeCheck: true,
+    tsConfig: {
+      compilerOptions: {
+        types: [
+          'vite-plugin-pwa/pwa-assets',
+        ],
+      },
+    },
   },
   postcss: {
     plugins: {
@@ -163,6 +170,7 @@ export default defineNuxtConfig({
     },
   },
   telemetry: false,
+
   eslint: {
     config: {
       stylistic: true,
