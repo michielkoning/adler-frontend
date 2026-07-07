@@ -86,10 +86,6 @@ onUnmounted(() => {
     <nuxt-loading-indicator color="var(--color-primary)" />
     <mobile-navigation v-model="isOpen" />
     <the-header v-model="isOpen" />
-    <pre>
-        {{ $pwaIcons }}
-    </pre>
-
     <main
       id="content"
       class="main"
