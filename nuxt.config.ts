@@ -80,17 +80,17 @@ export default defineNuxtConfig({
         { name: 'twitter:site', content: settings.twitter },
         { name: 'twitter:creator', content: settings.twitter },
       ],
-      link: [
-        {
-          rel: 'apple-touch-icon',
-          href: '/icons/apple-touch-icon-180x180.png',
-        },
-        {
-          rel: 'icon',
-          href: '/icons/favicon.svg',
-          type: 'image/svg+xml',
-        },
-      ],
+      // link: [
+      //   {
+      //     rel: 'apple-touch-icon',
+      //     href: '/icons/apple-touch-icon-180x180.png',
+      //   },
+      //   {
+      //     rel: 'icon',
+      //     href: '/icons/favicon.svg',
+      //     type: 'image/svg+xml',
+      //   },
+      // ],
     },
 
   },
@@ -308,7 +308,9 @@ export default defineNuxtConfig({
       orientation: 'portrait-primary',
       description: settings.description,
       short_name: settings.title,
-      edge_side_panel: {},
+      edge_side_panel: {
+        preferred_width: 320,
+      },
       dir: 'ltr',
       start_url: '/de',
       icons: [
