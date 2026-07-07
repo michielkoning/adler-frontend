@@ -310,6 +310,7 @@ export default defineNuxtConfig({
       short_name: settings.title,
       edge_side_panel: {},
       dir: 'ltr',
+      start_url: '/de',
       icons: [
         {
           src: '/icons/pwa-64x64.png',
