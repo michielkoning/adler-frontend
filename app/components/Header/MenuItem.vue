@@ -17,42 +17,69 @@ const props = withDefaults(
 
 const id = useId()
 
+const { fullNavigation } = useAppConfig()
+
+const { addActiveMenuItem, isActiveMenuItem, removeActiveMenuItem, toggleActiveMenuItem } = useMenu()
+
 const anchor = computed(() => {
   return `--${id}`
 })
 
 const route = useRoute()
 
-const isOpen = ref(false)
-
 onMounted(() => {
   if (props.link === route.path) {
-    isOpen.value = true
+    addActiveMenuItem(id)
   }
   else {
     const hasActiveChild = props.children.some(item => item.link === route.path)
     if (hasActiveChild) {
-      isOpen.value = true
+      addActiveMenuItem(id)
     }
   }
 })
+
+let timer: NodeJS.Timeout | undefined
+
+const onMouseover = () => {
+  if (window.innerWidth < fullNavigation) return
+  addActiveMenuItem(id)
+  clearTimeout(timer)
+}
+
+const onMouseleave = () => {
+  if (window.innerWidth < fullNavigation) return
+  timer = setTimeout(() => {
+    removeActiveMenuItem(id)
+  }, 250)
+}
+
+const closeMenuItem = () => {
+  if (window.innerWidth < fullNavigation) return
+  removeActiveMenuItem(id)
+}
 </script>
 
 <template>
-  <li class="item">
+  <li
+    class="item"
+    @mouseover="onMouseover"
+    @mouseleave="onMouseleave"
+  >
     <nuxt-link
       class="link"
       :interestfor="id"
       :to="link"
+      @click="closeMenuItem"
     >
       {{ title }}
     </nuxt-link>
     <button
       v-if="children.length"
       type="button"
-      :aria-expanded="isOpen"
+      :aria-expanded="isActiveMenuItem(id)"
       :aria-controls="id"
-      @click="isOpen = !isOpen"
+      @click="toggleActiveMenuItem(id)"
     >
       <app-icon
         icon="fa-solid:chevron-down"
@@ -78,6 +105,7 @@ onMounted(() => {
           class="sublink"
           aria-current-value="true"
           :to="sublink.link"
+          @click="closeMenuItem"
         >
           <span v-html="sublink.title" />
         </nuxt-link>
@@ -161,33 +189,9 @@ ul {
     padding-inline-start: 0;
     margin-inline: var(--gutter);
     position-anchor: v-bind(anchor);
+    pointer-events: none;
     background-color: var(--color-white);
     filter: drop-shadow(0 0 0.1em rgb(0 0 0 / 20%));
-    translate: 0;
-  }
-}
-
-button[aria-expanded="true"] + ul {
-  display: block;
-  opacity: 1;
-  translate: 0 0;
-
-  @starting-style {
-    opacity: 0;
-    translate: 0 -1em;
-  }
-}
-
-@media (--navigation-md) {
-  .item:hover ul {
-    display: block;
-    opacity: 1;
-    translate: 0 0;
-
-    @starting-style {
-      opacity: 0;
-      translate: 0 -1em;
-    }
   }
 }
 
@@ -197,6 +201,18 @@ button[aria-expanded="true"] {
 
     @media (--navigation-md) {
       rotate: 0deg;
+    }
+  }
+
+  + ul {
+    display: block;
+    pointer-events: auto;
+    opacity: 1;
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: 0 -1em;
     }
   }
 }

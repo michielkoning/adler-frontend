@@ -24,9 +24,9 @@ onMounted(() => {
         return
       }
 
-      if (entry.contentRect.width >= fullNavigation) {
+      if (entry.contentRect.width >= fullNavigation + 30) {
         if (menuIsOpen.value) {
-          closeMobileMenu()
+          // closeMobileMenu()
         }
       }
     },

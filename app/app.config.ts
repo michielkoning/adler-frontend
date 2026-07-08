@@ -2,7 +2,7 @@ export default defineAppConfig({
   apiUrl: 'https://api.adler-lingenau.com/wp-json/',
   baseUrl: 'https://adler-lingenau.com',
   title: 'Familienhotel Adler ***S',
-  fullNavigation: 768,
+  fullNavigation: 960,
   address: {
     street: 'Hof 43',
     postalCode: '6951',

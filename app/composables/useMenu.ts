@@ -1,24 +1,37 @@
 export const useMenu = () => {
-  const openMenus: Ref<string[]> = ref([])
+  const activeMenuIds = useActiveMenuIds()
   const menuIsOpen = useMenuIsOpen()
 
-  const add = (menuId: string) => {
-    if (openMenus.value.includes(menuId)) {
+  const isActiveMenuItem = (menuId: string) => {
+    return activeMenuIds.value.includes(menuId)
+  }
+
+  const addActiveMenuItem = (menuId: string) => {
+    if (isActiveMenuItem(menuId)) {
       return
     }
-    openMenus.value.push(menuId)
+    activeMenuIds.value.push(menuId)
+  }
+
+  const removeActiveMenuItem = (menuId: string) => {
+    activeMenuIds.value = activeMenuIds.value.filter(id => id !== menuId)
+  }
+
+  const toggleActiveMenuItem = (menuId: string) => {
+    if (isActiveMenuItem(menuId)) {
+      removeActiveMenuItem(menuId)
+    }
+    else {
+      addActiveMenuItem(menuId)
+    }
   }
 
   const closeMobileMenu = () => {
     menuIsOpen.value = false
   }
 
-  const remove = (menuId: string) => {
-    openMenus.value = openMenus.value.filter(menu => menu !== menuId)
-  }
-
   const clear = () => {
-    openMenus.value = []
+    activeMenuIds.value = []
     closeMobileMenu()
   }
 
@@ -36,9 +49,10 @@ export const useMenu = () => {
   }
 
   return {
-    openMenus,
-    add,
-    remove,
+    addActiveMenuItem,
+    removeActiveMenuItem,
+    toggleActiveMenuItem,
+    isActiveMenuItem,
     clear,
     openMobileMenu,
     closeMobileMenu,
