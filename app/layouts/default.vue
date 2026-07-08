@@ -38,65 +38,30 @@ useSchemaOrg([
   }),
 ])
 
-const isOpen = ref(false)
-
-const page = useTemplateRef('page')
-let observer: ResizeObserver | undefined
-
-onMounted(() => {
-  if (!page.value) return
-
-  observer = new ResizeObserver(
-    (entries) => {
-      if (!entries.length || !page.value) {
-        return
-      }
-
-      const entry = entries[0]
-      if (!entry) {
-        return
-      }
-
-      if (entry.contentRect.width >= 768) {
-        if (isOpen.value) {
-          isOpen.value = false
-        }
-      }
-    },
-  )
-
-  if (observer) {
-    observer.observe(page.value)
-  }
-})
-
-onUnmounted(() => {
-  if (!page.value || !observer) return
-  observer.unobserve(page.value)
-})
+const menuIsOpen = useMenuIsOpen()
 </script>
 
 <template>
   <div
-    ref="page"
+
     class="page"
   >
     <nuxt-pwa-assets />
     <nuxt-route-announcer />
     <nuxt-loading-indicator color="var(--color-primary)" />
-    <mobile-navigation v-model="isOpen" />
-    <the-header v-model="isOpen" />
+    <mobile-navigation />
+    <the-header />
     <main
       id="content"
       class="main"
       tabindex="-1"
-      :inert="isOpen"
+      :inert="menuIsOpen"
     >
       <nuxt-page />
     </main>
-    <the-footer :inert="isOpen" />
-    <cookie-wall :inert="isOpen" />
-    <notification-modal :inert="isOpen" />
+    <the-footer :inert="menuIsOpen" />
+    <cookie-wall :inert="menuIsOpen" />
+    <!-- <notification-modal :inert="isOpen" /> -->
   </div>
 </template>
 

@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 const { title } = useAppConfig()
 
-const model = defineModel<boolean>({
-  default: false,
-})
+const { togleMobileMenu } = useMenu()
+const menuIsOpen = useMenuIsOpen()
 </script>
 
 <template>
@@ -23,9 +22,9 @@ const model = defineModel<boolean>({
         </nuxt-link-locale>
         <button
           type="button"
-          :aria-expanded="model"
+          :aria-expanded="menuIsOpen"
           aria-controls="menu"
-          @click="$emit('update:modelValue', !model)"
+          @click="togleMobileMenu"
         >
           <app-icon
             icon="fa6-solid:bars"

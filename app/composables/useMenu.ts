@@ -1,17 +1,47 @@
 export const useMenu = () => {
-  const router = useRouter()
+  const openMenus: Ref<string[]> = ref([])
+  const menuIsOpen = useMenuIsOpen()
 
-  const activeMenuId = useActiveMenuId()
+  const add = (menuId: string) => {
+    if (openMenus.value.includes(menuId)) {
+      return
+    }
+    openMenus.value.push(menuId)
+  }
 
-  router.afterEach(() => {
-    setActiveMenuId(undefined)
-  })
+  const closeMobileMenu = () => {
+    menuIsOpen.value = false
+  }
 
-  const setActiveMenuId = (id?: number) => {
-    activeMenuId.value = id
+  const remove = (menuId: string) => {
+    openMenus.value = openMenus.value.filter(menu => menu !== menuId)
+  }
+
+  const clear = () => {
+    openMenus.value = []
+    closeMobileMenu()
+  }
+
+  const openMobileMenu = () => {
+    menuIsOpen.value = true
+  }
+
+  const togleMobileMenu = () => {
+    if (menuIsOpen.value) {
+      closeMobileMenu()
+    }
+    else {
+      openMobileMenu()
+    }
   }
 
   return {
-    setActiveMenuId,
+    openMenus,
+    add,
+    remove,
+    clear,
+    openMobileMenu,
+    closeMobileMenu,
+    togleMobileMenu,
   }
 }

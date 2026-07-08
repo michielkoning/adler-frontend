@@ -1,17 +1,53 @@
 <script lang="ts" setup>
 const route = useRoute()
 
-const model = defineModel<boolean>({
-  default: false,
+const { closeMobileMenu } = useMenu()
+const menuIsOpen = useMenuIsOpen()
+const { fullNavigation }
+  = useAppConfig()
+watch(() => route.fullPath, () => closeMobileMenu())
+
+const header = useTemplateRef('header')
+let observer: ResizeObserver | undefined
+
+onMounted(() => {
+  if (!header.value) return
+
+  observer = new ResizeObserver(
+    (entries) => {
+      if (!entries.length || !header.value) {
+        return
+      }
+
+      const entry = entries[0]
+      if (!entry) {
+        return
+      }
+
+      if (entry.contentRect.width >= fullNavigation) {
+        if (menuIsOpen.value) {
+          closeMobileMenu()
+        }
+      }
+    },
+  )
+
+  if (observer) {
+    observer.observe(header.value)
+  }
 })
 
-watch(() => route.fullPath, () => model.value = false)
+onUnmounted(() => {
+  if (!header.value || !observer) return
+  observer.unobserve(header.value)
+})
 </script>
 
 <template>
   <header
     id="menu"
-    :class="{ open: model === true }"
+    ref="header"
+    :class="{ open: menuIsOpen }"
   >
     <center-wrapper>
       <div class="menu-wrapper">
