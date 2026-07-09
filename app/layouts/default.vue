@@ -39,6 +39,9 @@ useSchemaOrg([
 ])
 
 const menuIsOpen = useMenuIsOpen()
+
+const { closeMobileMenu } = useMenu()
+
 const { fullNavigation }
   = useAppConfig()
 

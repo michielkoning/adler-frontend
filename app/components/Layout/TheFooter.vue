@@ -12,15 +12,19 @@
 </template>
 
 <style lang="css" scoped>
-:global(a) {
-  text-decoration-color: currentcolor;
-}
-
 .footer {
   @mixin block-padding;
 
   color: var(--color-white);
   background: var(--color-gray-dark);
+
+  :deep(:focus-visible) {
+    outline-color: var(--color-white);
+  }
+
+  :deep(a) {
+    text-decoration-color: currentcolor;
+  }
 }
 
 .wrapper {

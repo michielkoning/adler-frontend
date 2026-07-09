@@ -20,8 +20,8 @@ const menuIsOpen = useMenuIsOpen()
             class="logo"
           />
         </nuxt-link-locale>
-        <meta-navigation class="meta-navigation" />
         <main-navigation class="main-navigation" />
+        <meta-navigation class="meta-navigation" />
       </div>
     </center-wrapper>
   </header>
@@ -71,6 +71,7 @@ header {
 
   @media (--navigation-md) {
     display: grid;
+    reading-flow: grid-rows;
     grid-template-columns: auto 1fr;
     column-gap: var(--spacing-4);
     align-items: end;

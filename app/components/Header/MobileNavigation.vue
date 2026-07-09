@@ -50,10 +50,6 @@ watch(menuIsOpen, (value) => {
 </template>
 
 <style lang="css" scoped>
-:focus-visible {
-  outline-color: var(--color-white);
-}
-
 .wrapper {
   position: sticky;
   inset-block-start: 0;
@@ -78,6 +74,10 @@ watch(menuIsOpen, (value) => {
 
   &:has([aria-expanded="true"]) {
     translate: 0 0;
+  }
+
+  :deep(:focus-visible) {
+    outline-color: var(--color-white);
   }
 }
 
