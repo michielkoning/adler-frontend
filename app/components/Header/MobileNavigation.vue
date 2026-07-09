@@ -1,8 +1,17 @@
 <script lang="ts" setup>
 const { title } = useAppConfig()
 
-const { togleMobileMenu } = useMenu()
+const { closeMobileMenu, togleMobileMenu } = useMenu()
+
 const menuIsOpen = useMenuIsOpen()
+
+const button = useTemplateRef('button')
+
+watch(menuIsOpen, (value) => {
+  if (!value) {
+    button.value?.focus()
+  }
+})
 </script>
 
 <template>
@@ -12,6 +21,7 @@ const menuIsOpen = useMenuIsOpen()
         <nuxt-link-locale
           class="logo-wrapper"
           :to="{ name: 'index' }"
+          @click="closeMobileMenu"
         >
           <app-icon
             icon="adler:logo-sm"
@@ -21,6 +31,7 @@ const menuIsOpen = useMenuIsOpen()
           <span class="sr-only">{{ title }}</span>
         </nuxt-link-locale>
         <button
+          ref="button"
           type="button"
           :aria-expanded="menuIsOpen"
           aria-controls="menu"

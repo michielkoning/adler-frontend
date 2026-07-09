@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const { closeMobileMenu } = useMenu()
+</script>
+
 <template>
   <nav
     :aria-label="$t('metaNavigationTitle')"
@@ -24,6 +28,7 @@
         }"
         size="small"
         variant="ghost"
+        @click="closeMobileMenu"
       />
       <app-button
         v-if="$i18n.locale === 'de'"

@@ -19,7 +19,13 @@ const id = useId()
 
 const { fullNavigation } = useAppConfig()
 
-const { addActiveMenuItem, isActiveMenuItem, removeActiveMenuItem, toggleActiveMenuItem } = useMenu()
+const {
+  addActiveMenuItem,
+  isActiveMenuItem,
+  removeActiveMenuItem,
+  toggleActiveMenuItem,
+  closeMobileMenu,
+} = useMenu()
 
 const anchor = computed(() => {
   return `--${id}`
@@ -55,8 +61,12 @@ const onMouseleave = () => {
 }
 
 const closeMenuItem = () => {
-  if (window.innerWidth < fullNavigation) return
-  removeActiveMenuItem(id)
+  if (window.innerWidth < fullNavigation) {
+    closeMobileMenu()
+  }
+  else {
+    removeActiveMenuItem(id)
+  }
 }
 </script>
 
@@ -68,7 +78,6 @@ const closeMenuItem = () => {
   >
     <nuxt-link
       class="link"
-      :interestfor="id"
       :to="link"
       @click="closeMenuItem"
     >

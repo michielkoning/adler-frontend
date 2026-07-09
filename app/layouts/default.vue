@@ -38,13 +38,9 @@ useSchemaOrg([
   }),
 ])
 
-const route = useRoute()
-
-const { closeMobileMenu } = useMenu()
 const menuIsOpen = useMenuIsOpen()
 const { fullNavigation }
   = useAppConfig()
-watch(() => route.fullPath, () => closeMobileMenu())
 
 const page = useTemplateRef('page')
 let observer: ResizeObserver | undefined
