@@ -1,52 +1,10 @@
 <script lang="ts" setup>
-const route = useRoute()
-
-const { closeMobileMenu } = useMenu()
 const menuIsOpen = useMenuIsOpen()
-const { fullNavigation }
-  = useAppConfig()
-watch(() => route.fullPath, () => closeMobileMenu())
-
-const header = useTemplateRef('header')
-let observer: ResizeObserver | undefined
-
-onMounted(() => {
-  if (!header.value) return
-
-  observer = new ResizeObserver(
-    (entries) => {
-      if (!entries.length || !header.value) {
-        return
-      }
-
-      const entry = entries[0]
-      if (!entry) {
-        return
-      }
-
-      if (entry.contentRect.width >= fullNavigation + 30) {
-        if (menuIsOpen.value) {
-          // closeMobileMenu()
-        }
-      }
-    },
-  )
-
-  if (observer) {
-    observer.observe(header.value)
-  }
-})
-
-onUnmounted(() => {
-  if (!header.value || !observer) return
-  observer.unobserve(header.value)
-})
 </script>
 
 <template>
   <header
     id="menu"
-    ref="header"
     :class="{ open: menuIsOpen }"
   >
     <center-wrapper>
