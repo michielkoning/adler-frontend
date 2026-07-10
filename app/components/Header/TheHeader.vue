@@ -4,7 +4,6 @@ const menuIsOpen = useMenuIsOpen()
 
 <template>
   <header
-    id="menu"
     :class="{ open: menuIsOpen }"
   >
     <center-wrapper>

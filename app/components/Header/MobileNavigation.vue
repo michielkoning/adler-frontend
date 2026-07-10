@@ -6,9 +6,10 @@ const { closeMobileMenu, togleMobileMenu } = useMenu()
 const menuIsOpen = useMenuIsOpen()
 
 const button = useTemplateRef('button')
+const { fullNavigation } = useAppConfig()
 
 watch(menuIsOpen, (value) => {
-  if (!value) {
+  if (!value && window.innerWidth < fullNavigation) {
     button.value?.focus()
   }
 })

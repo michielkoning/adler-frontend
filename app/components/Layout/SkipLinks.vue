@@ -1,26 +1,25 @@
 <template>
   <div class="skip-links">
-    <app-button
+    <a
       class="btn"
-      variant="ghost"
-      :to="{
-        hash: '#content',
-      }"
-      :title="$t('content')"
-    />
-    <app-button
+      href="#content"
+    >
+      {{ $t('skipToContent') }}
+    </a>
+    <a
       class="btn"
-      variant="ghost"
-      :to="{
-        hash: '#menu',
-      }"
-      :title="$t('menu')"
-    />
+      href="#menu"
+    >
+      {{ $t('skipToMenu') }}
+    </a>
   </div>
 </template>
 
 <style lang="css" scoped>
 .btn {
+  @mixin btn;
+  @mixin btn-ghost;
+
   &:not(:focus-within) {
     @mixin sr-only;
   }
@@ -33,20 +32,3 @@
   }
 }
 </style>
-
-<i18n>
-{
-  "nl": {
-    "content": "Naar hoofdinhoud",
-    "menu": "Naar hoofdnavigatie"
-  },
-  "de": {
-    "content": "Zum Hauptinhalt",
-    "menu": "Zur Hauptnavigation"
-  },
-  "en": {
-    "content": "To main content",
-    "menu": "To main navigation"
-  }
-}
-</i18n>

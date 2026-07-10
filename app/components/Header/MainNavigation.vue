@@ -10,12 +10,11 @@ const { data } = await useFetch('/api/menu', {
 
 <template>
   <nav
+    id="menu"
     aria-labelledby="menu"
   >
     <h2
-      id="menu"
       class="sr-only"
-      tabindex="-1"
     >
       {{ "title" }}
     </h2>
