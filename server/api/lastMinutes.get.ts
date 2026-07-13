@@ -10,7 +10,7 @@ const querySchema = z.object({
   locale: LocaleSchema,
 })
 
-export default defineEventHandler(async (event): Promise<LastMinute[]> => {
+export default defineCachedEventHandler(async (event): Promise<LastMinute[]> => {
   const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
   const url = getUrl({
@@ -52,4 +52,6 @@ export default defineEventHandler(async (event): Promise<LastMinute[]> => {
   })
 
   return await Promise.all(items)
+}, {
+  maxAge: 60 * 60,
 })

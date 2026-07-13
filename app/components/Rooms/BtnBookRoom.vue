@@ -18,7 +18,7 @@ withDefaults(
     <app-button
       :title="$t('bookNow')"
       :size="size"
-      :isFullWidth="true"
+      :is-full-width="true"
       commandfor="room"
       command="show-modal"
     />
