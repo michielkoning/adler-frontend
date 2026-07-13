@@ -134,14 +134,8 @@ export default defineNuxtConfig({
     },
   },
   typescript: {
-    // typeCheck: true,
-    tsConfig: {
-      compilerOptions: {
-        types: [
-          'vite-plugin-pwa/pwa-assets',
-        ],
-      },
-    },
+    typeCheck: true,
+
   },
   postcss: {
     plugins: {
@@ -237,9 +231,9 @@ export default defineNuxtConfig({
     // provider: 'none',
   },
   pwa: {
-    pwaAssets: {
-      config: true,
-    },
+    // pwaAssets: {
+    //   config: true,
+    // },
     strategies: 'generateSW',
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',

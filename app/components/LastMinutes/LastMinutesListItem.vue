@@ -33,9 +33,9 @@ const id = useId()
           <span class="sr-only">{{ $t("date") }}</span>
         </dt>
         <dd>
-          {{ $d(dates.from, "short") }}
+          {{ $d(new Date(dates.from), "short") }}
           &dash;
-          {{ $d(dates.until, "short") }}
+          {{ $d(new Date(dates.until), "short") }}
         </dd>
       </template>
       <dt>

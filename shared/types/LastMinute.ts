@@ -14,7 +14,7 @@ export type LastMinute = {
     price: string
   }[]
   dates: {
-    from?: Date
-    until?: Date
+    from?: string
+    until?: string
   }
 }

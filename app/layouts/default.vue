@@ -86,7 +86,7 @@ onUnmounted(() => {
     ref="page"
     class="page"
   >
-    <nuxt-pwa-assets />
+    <!-- <nuxt-pwa-assets /> -->
     <nuxt-route-announcer />
     <nuxt-loading-indicator color="var(--color-primary)" />
     <skip-links />
