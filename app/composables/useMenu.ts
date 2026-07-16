@@ -28,6 +28,10 @@ export const useMenu = () => {
 
   const closeMobileMenu = () => {
     menuIsOpen.value = false
+
+    if (import.meta.client) {
+      document.body.classList.remove('locked')
+    }
   }
 
   const clear = () => {
@@ -37,6 +41,10 @@ export const useMenu = () => {
 
   const openMobileMenu = () => {
     menuIsOpen.value = true
+
+    if (import.meta.client) {
+      document.body.classList.add('locked')
+    }
   }
 
   const togleMobileMenu = () => {
