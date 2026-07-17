@@ -30,7 +30,6 @@ export default defineNuxtConfig({
     '@nuxtjs/partytown',
   ],
   components: [
-    '~/components/Animations',
     '~/components/Archive',
     '~/components/Arrangements/Prices',
     '~/components/Arrangements',

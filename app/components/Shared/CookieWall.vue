@@ -14,34 +14,32 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <fade-in-animation>
-    <div
-      v-if="!cookie"
-      class="cookie-wall"
-    >
-      <center-wrapper>
-        <div class="wrapper">
-          <div class="text">
-            {{ $t("cookieWall.part1") }}
-            <nuxt-link
-              :to="
-                localePath({
-                  name: 'privacy',
-                })
-              "
-              class="link"
-            >
-              {{ $t("cookieWall.part2") }} </nuxt-link>.
-          </div>
-          <app-button
-            size="small"
-            :title="$t('confirm')"
-            @click="confirm"
-          />
+  <div
+    v-if="!cookie"
+    class="cookie-wall"
+  >
+    <center-wrapper>
+      <div class="wrapper">
+        <div class="text">
+          {{ $t("cookieWall.part1") }}
+          <nuxt-link
+            :to="
+              localePath({
+                name: 'privacy',
+              })
+            "
+            class="link"
+          >
+            {{ $t("cookieWall.part2") }} </nuxt-link>.
         </div>
-      </center-wrapper>
-    </div>
-  </fade-in-animation>
+        <app-button
+          size="small"
+          :title="$t('confirm')"
+          @click="confirm"
+        />
+      </div>
+    </center-wrapper>
+  </div>
 </template>
 
 <style lang="css" scoped>
