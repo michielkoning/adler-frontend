@@ -63,14 +63,18 @@ nav {
 
   &::after {
     position: fixed;
-    inset: auto anchor(inside) 0;
+    inset-block-end: anchor(bottom);
+    inset-inline-start: anchor(left);
     display: none;
+    inline-size: anchor-size(inline);
     block-size: 3px;
     position-anchor: --active-menu;
     pointer-events: none;
     content: "";
     background: var(--color-primary);
-    transition: inset var(--transition);
+    transition:
+      left var(--transition),
+      width var(--transition);
 
     @media (--navigation-md) {
       display: block;

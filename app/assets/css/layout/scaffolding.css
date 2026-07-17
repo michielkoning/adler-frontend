@@ -31,3 +31,7 @@ body {
 p:empty {
   display: none;
 }
+
+.locked {
+  overflow: hidden;
+}
