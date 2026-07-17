@@ -72,9 +72,7 @@ header {
   padding: 5em var(--notch-right) 0 var(--notch-left);
   overflow: scroll;
   background: var(--color-white);
-  opacity: 0;
   transition:
-    opacity var(--transition),
     height var(--transition),
     overlay var(--transition) allow-discrete,
     display var(--transition) allow-discrete;
@@ -83,7 +81,6 @@ header {
   &.open {
     display: block;
     block-size: 100vh;
-    opacity: 1;
     transition-delay: 0s;
 
     .menu-wrapper {
@@ -99,7 +96,6 @@ header {
 
     @starting-style {
       block-size: 0;
-      opacity: 0;
     }
   }
 
@@ -109,6 +105,7 @@ header {
     display: block;
     block-size: auto;
     padding: 0;
+    overflow: visible;
     opacity: 1;
     translate: 0;
     transition: none;
