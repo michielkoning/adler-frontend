@@ -79,17 +79,18 @@ export default defineNuxtConfig({
         { name: 'twitter:site', content: settings.twitter },
         { name: 'twitter:creator', content: settings.twitter },
       ],
-      // link: [
-      //   {
-      //     rel: 'apple-touch-icon',
-      //     href: '/icons/apple-touch-icon-180x180.png',
-      //   },
-      //   {
-      //     rel: 'icon',
-      //     href: '/icons/favicon.svg',
-      //     type: 'image/svg+xml',
-      //   },
-      // ],
+      link: [
+        {
+          rel: 'apple-touch-icon',
+          href: '/icons/touch-icon.png',
+          sizes: '180x180'
+        },
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico',
+        },
+      ],
     },
 
   },
@@ -308,23 +309,46 @@ export default defineNuxtConfig({
       start_url: '/de',
       icons: [
         {
-          src: '/pwa-64x64.png',
-          sizes: '64x64',
-          type: 'image/png',
-        },
-        {
-          src: '/pwa-192x192.png',
+          src: 'icons/192.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: '/pwa-512x512.png',
+          src: '/icons/384.png',
+          sizes: '384x384',
+          type: 'image/png',
+        },
+        {
+          src: 'icons/512.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: '/maskable-icon-512x512.png',
+          src: 'icons/1024.png',
+          sizes: '1024x1024',
+          type: 'image/png',
+        },
+        {
+          src: 'icons/192-maskable.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+        {
+          src: '/icons/384-maskable.png',
+          sizes: '384x384',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+        {
+          src: 'icons/512-maskable.png',
           sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+        {
+          src: 'icons/1024-maskable.png',
+          sizes: '1024x1024',
           type: 'image/png',
           purpose: 'maskable',
         },
