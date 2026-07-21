@@ -18,6 +18,7 @@ const props = withDefaults(
 const id = useId()
 
 const { fullNavigation } = useAppConfig()
+const menuIsOpen = useMenuIsOpen()
 
 const {
   addActiveMenuItem,
@@ -25,6 +26,7 @@ const {
   removeActiveMenuItem,
   toggleActiveMenuItem,
   closeMobileMenu,
+  setActiveMenuItem,
 } = useMenu()
 
 const anchor = computed(() => {
@@ -33,16 +35,23 @@ const anchor = computed(() => {
 
 const route = useRoute()
 
-onMounted(() => {
-  if (props.link === route.path) {
-    addActiveMenuItem(id)
-  }
-  else {
-    const hasActiveChild = props.children.some(item => item.link === route.path)
-    if (hasActiveChild) {
-      addActiveMenuItem(id)
+watch(menuIsOpen, (value) => {
+  if (value) {
+    if (props.link === route.path) {
+      setActiveMenuItem(id)
+    }
+    else {
+      const hasActiveChild = props.children.some(item => item.link === route.path)
+      if (hasActiveChild) {
+        setActiveMenuItem(id)
+      }
     }
   }
+  else {
+    setActiveMenuItem()
+  }
+}, {
+  immediate: true,
 })
 
 let timer: NodeJS.Timeout | undefined
@@ -81,7 +90,7 @@ const closeMenuItem = () => {
       :to="link"
       @click="closeMenuItem"
     >
-      {{ title }}
+      <span v-html="title" />
     </nuxt-link>
     <button
       v-if="children.length"
@@ -128,7 +137,6 @@ const closeMenuItem = () => {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-1);
   align-items: center;
   justify-content: space-between;
   anchor-name: v-bind(anchor);
@@ -170,10 +178,12 @@ a {
 
 svg {
   inline-size: var(--spacing-4);
-  block-size: var(--spacing-4);
   aspect-ratio: 1;
-  translate: 0 var(--spacing-1);
   transition: rotate var(--transition);
+
+  @media (--navigation-md) {
+    translate: 0 0.25em;
+  }
 }
 
 ul {
@@ -204,24 +214,36 @@ ul {
   }
 }
 
-button[aria-expanded="true"] {
-  svg {
-    rotate: -180deg;
+button {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  inline-size: 2em;
+  aspect-ratio: 1;
 
-    @media (--navigation-md) {
-      rotate: 0deg;
-    }
+  @media (--navigation-md) {
+    inline-size: 1.25em;
   }
 
-  + ul {
-    display: block;
-    pointer-events: auto;
-    opacity: 1;
-    translate: 0 0;
+  &[aria-expanded="true"] {
+    svg {
+      rotate: -180deg;
 
-    @starting-style {
-      opacity: 0;
-      translate: 0 -1em;
+      @media (--navigation-md) {
+        rotate: 0deg;
+      }
+    }
+
+    + ul {
+      display: block;
+      pointer-events: auto;
+      opacity: 1;
+      translate: 0 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 -1em;
+      }
     }
   }
 }

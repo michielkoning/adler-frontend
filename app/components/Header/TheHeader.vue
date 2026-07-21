@@ -16,7 +16,7 @@ watch(menuIsOpen, (value) => {
 
 <template>
   <header
-  ref="header"
+    ref="header"
     :class="{ open: menuIsOpen }"
   >
     <center-wrapper>

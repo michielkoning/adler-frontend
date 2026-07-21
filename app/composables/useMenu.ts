@@ -17,6 +17,15 @@ export const useMenu = () => {
     activeMenuIds.value = activeMenuIds.value.filter(id => id !== menuId)
   }
 
+  const setActiveMenuItem = (menuId?: string) => {
+    if (menuId) {
+      activeMenuIds.value = [menuId]
+    }
+    else {
+      activeMenuIds.value = []
+    }
+  }
+
   const toggleActiveMenuItem = (menuId: string) => {
     if (isActiveMenuItem(menuId)) {
       removeActiveMenuItem(menuId)
@@ -65,5 +74,6 @@ export const useMenu = () => {
     openMobileMenu,
     closeMobileMenu,
     togleMobileMenu,
+    setActiveMenuItem,
   }
 }
