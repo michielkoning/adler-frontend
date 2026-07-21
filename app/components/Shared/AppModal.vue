@@ -101,12 +101,14 @@ button {
 }
 
 header {
+  position: sticky;
   inset-block-start: 0;
   display: flex;
   gap: var(--spacing-3);
   align-items: start;
   justify-content: space-between;
   padding: var(--spacing-3) var(--spacing-4) 0;
+  background-color: var(--color-background);
   border-block-end: 1px solid var(--color-gray);
 }
 

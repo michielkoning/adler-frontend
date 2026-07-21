@@ -6,13 +6,15 @@ const { data } = await useFetch('/api/notification', {
     locale,
   },
 })
+
+const isOpen = ref(true)
 </script>
 
 <template>
   <app-modal
     v-if="data?.activate"
     id="notification"
-    :is-open="true"
+    v-model:is-open="isOpen"
     :title="data.title ?? ''"
   >
     <div class="content">
@@ -26,6 +28,7 @@ const { data } = await useFetch('/api/notification', {
         <app-button
           v-if="data.link"
           v-bind="data.link"
+          @click="isOpen = false"
         />
       </div>
     </div>

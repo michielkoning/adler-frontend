@@ -101,7 +101,7 @@ onUnmounted(() => {
     </main>
     <the-footer :inert="menuIsOpen" />
     <cookie-wall :inert="menuIsOpen" />
-    <!-- <notification-modal :inert="isOpen" /> -->
+    <notification-modal :inert="menuIsOpen" />
   </div>
 </template>
 
