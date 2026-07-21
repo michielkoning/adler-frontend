@@ -83,12 +83,12 @@ export default defineNuxtConfig({
         {
           rel: 'apple-touch-icon',
           href: '/icons/touch-icon.png',
-          sizes: '180x180'
+          sizes: '180x180',
         },
         {
           rel: 'icon',
           type: 'image/x-icon',
-          href: '/favicon.ico',
+          href: '/icons/favicon.ico',
         },
       ],
     },
@@ -305,6 +305,7 @@ export default defineNuxtConfig({
       edge_side_panel: {
         preferred_width: 320,
       },
+      display_override: ['window-controls-overlay'],
       dir: 'ltr',
       start_url: '/de',
       icons: [
