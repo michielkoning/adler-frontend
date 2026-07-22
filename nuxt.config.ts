@@ -231,9 +231,6 @@ export default defineNuxtConfig({
     // provider: 'none',
   },
   pwa: {
-    // pwaAssets: {
-    //   config: true,
-    // },
     strategies: 'generateSW',
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
@@ -305,7 +302,6 @@ export default defineNuxtConfig({
       edge_side_panel: {
         preferred_width: 320,
       },
-      display_override: ['window-controls-overlay'],
       dir: 'ltr',
       start_url: '/de',
       icons: [
@@ -313,21 +309,25 @@ export default defineNuxtConfig({
           src: 'icons/192.png',
           sizes: '192x192',
           type: 'image/png',
+          purpose: 'any',
         },
         {
           src: '/icons/384.png',
           sizes: '384x384',
           type: 'image/png',
+          purpose: 'any',
         },
         {
           src: 'icons/512.png',
           sizes: '512x512',
           type: 'image/png',
+          purpose: 'any',
         },
         {
           src: 'icons/1024.png',
           sizes: '1024x1024',
           type: 'image/png',
+          purpose: 'any',
         },
         {
           src: 'icons/192-maskable.png',
