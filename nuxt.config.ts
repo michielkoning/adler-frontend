@@ -124,6 +124,17 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    // tmp fix
+    plugins: [
+      {
+        name: 'vite-plugin-checker-runtime-base-fix',
+        resolveId(id: string) {
+          if (id.endsWith('/@vite-plugin-checker-runtime')) {
+            return 'virtual:@vite-plugin-checker-runtime'
+          }
+        },
+      },
+    ],
     optimizeDeps: {
       include: [
         '@unhead/schema-org/vue',

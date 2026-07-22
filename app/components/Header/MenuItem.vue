@@ -4,13 +4,14 @@ import type { RouteLocationRaw } from 'vue-router'
 const props = withDefaults(
   defineProps<{
     title: string
-    link: RouteLocationRaw
+    link?: RouteLocationRaw
     children?: {
       title: string
-      link: RouteLocationRaw
+      link?: RouteLocationRaw
     }[]
   }>(),
   {
+    link: undefined,
     children: () => [],
   },
 )
