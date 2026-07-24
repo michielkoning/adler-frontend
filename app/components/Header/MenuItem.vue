@@ -19,7 +19,6 @@ const props = withDefaults(
 const id = useId()
 
 const { fullNavigation } = useAppConfig()
-const menuIsOpen = useMenuIsOpen()
 
 const {
   addActiveMenuItem,
@@ -27,46 +26,24 @@ const {
   removeActiveMenuItem,
   toggleActiveMenuItem,
   closeMobileMenu,
-  setActiveMenuItem,
 } = useMenu()
 
 const anchor = computed(() => {
   return `--${id}`
 })
 
-const route = useRoute()
-
-watch(menuIsOpen, (value) => {
-  if (value) {
-    if (props.link === route.path) {
-      setActiveMenuItem(id)
-    }
-    else {
-      const hasActiveChild = props.children.some(item => item.link === route.path)
-      if (hasActiveChild) {
-        setActiveMenuItem(id)
-      }
-    }
-  }
-  else {
-    setActiveMenuItem()
-  }
-}, {
-  immediate: true,
-})
-
 let timer: NodeJS.Timeout | undefined
 
 const onMouseover = () => {
   if (window.innerWidth < fullNavigation) return
-  addActiveMenuItem(id)
+  addActiveMenuItem(props.title)
   clearTimeout(timer)
 }
 
 const onMouseleave = () => {
   if (window.innerWidth < fullNavigation) return
   timer = setTimeout(() => {
-    removeActiveMenuItem(id)
+    removeActiveMenuItem(props.title)
   }, 250)
 }
 
@@ -75,7 +52,7 @@ const closeMenuItem = () => {
     closeMobileMenu()
   }
   else {
-    removeActiveMenuItem(id)
+    removeActiveMenuItem(props.title)
   }
 }
 </script>
@@ -96,9 +73,9 @@ const closeMenuItem = () => {
     <button
       v-if="children.length"
       type="button"
-      :aria-expanded="isActiveMenuItem(id)"
+      :aria-expanded="isActiveMenuItem(title)"
       :aria-controls="id"
-      @click="toggleActiveMenuItem(id)"
+      @click="toggleActiveMenuItem(title)"
     >
       <app-icon
         icon="fa-solid:chevron-down"

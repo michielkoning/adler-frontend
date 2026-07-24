@@ -6,6 +6,38 @@ const { data } = await useFetch('/api/menu', {
     locale,
   },
 })
+const menuIsOpen = useMenuIsOpen()
+
+const route = useRoute()
+
+const {
+  setActiveMenuItem,
+} = useMenu()
+
+watch(menuIsOpen, (value) => {
+  if (!data.value) {
+    return
+  }
+  if (value) {
+    const mainItem = data.value.find(item => item.link === route.path)
+    if (mainItem) {
+      setActiveMenuItem(mainItem.title)
+    }
+    else {
+      const mainItem = data.value.find((item) => {
+        return item.children.some(subItem => subItem.link === route.path)
+      })
+      if (mainItem) {
+        setActiveMenuItem(mainItem.title)
+      }
+    }
+  }
+  else {
+    setActiveMenuItem()
+  }
+}, {
+  immediate: true,
+})
 </script>
 
 <template>
@@ -21,6 +53,7 @@ const { data } = await useFetch('/api/menu', {
     <div>
       <ul>
         <menu-item
+          :id="1"
           :title="$t('pages.home')"
           class="menu-item-page"
           :link="$localeRoute({
@@ -34,14 +67,18 @@ const { data } = await useFetch('/api/menu', {
           class="menu-item-page"
         />
         <menu-item
+          :id="2"
           :title="$t('pages.contact')"
           class="menu-item-page"
+
           :link="$localeRoute({
             name: 'contact',
           })"
         />
         <menu-item
+          :id="3"
           :title="$t('pages.lastMinutes')"
+
           class="menu-item-page"
           :link="$localeRoute({
             name: 'last-minutes',
