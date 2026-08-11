@@ -7,7 +7,7 @@
   remote_images = ["https://api.adler-lingenau.com/.*"]
 
 [[headers]]
-  for = "/_ipx/*"
+  for = "/.netlify/images*"
   [headers.values]
     cache-control = '''
     max-age=31536000,
