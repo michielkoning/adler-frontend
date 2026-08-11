@@ -7,7 +7,7 @@
   remote_images = ["https://api.adler-lingenau.com/.*"]
 
 [[headers]]
-  for = "/images/*"
+  for = "/_ipx/*"
   [headers.values]
     cache-control = '''
     max-age=31536000,
