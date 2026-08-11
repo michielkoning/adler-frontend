@@ -9,17 +9,23 @@
 [[headers]]
   for = "/.netlify/images*"
   [headers.values]
-    Cache-Control = "max-age=31536000,immutable"
+    cache-control = '''
+    max-age=31536000,
+    immutable'''
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "max-age=31536000,immutable"
+    cache-control = '''
+    max-age=31536000,
+    immutable'''
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "max-age=31536000,immutable"
+    cache-control = '''
+    max-age=31536000,
+    immutable'''
 
 [[headers]]
   for = "/manifest.webmanifest"
