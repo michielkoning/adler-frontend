@@ -2,30 +2,20 @@
   command = "pnpm generate"
   publish = "dist"
 
-
-[images]
-  remote_images = ["https://api.adler-lingenau.com/.*"]
-
 [[headers]]
   for = "/.netlify/images*"
   [headers.values]
-    cache-control = '''
-    max-age=31536000,
-    immutable'''
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    cache-control = '''
-    max-age=31536000,
-    immutable'''
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    cache-control = '''
-    max-age=31536000,
-    immutable'''
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/manifest.webmanifest"
