@@ -20,6 +20,7 @@ minimumReleaseAgeExclude:
   - '@unhead/bundler@3.2.2'
   - '@unhead/vue@3.2.2'
   - unhead@3.2.2
+  - vue-router@5.3.1
 onlyBuiltDependencies:
   - vue-demi
 onlybuiltdependencies:
