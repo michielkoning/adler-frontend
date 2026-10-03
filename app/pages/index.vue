@@ -30,14 +30,14 @@ useSeo(data.value?.seo)
     :image="data.content.image"
   />
 
-  <center-wrapper size="md">
+  <center-wrapper>
     <article v-if="data && data.content.text">
       <h1
         id="content"
         tabindex="-1"
         v-html="data.content.title"
       />
-      <div v-html="data.content.title" />
+      <div v-html="data.content.text" />
     </article>
   </center-wrapper>
   <center-wrapper>

@@ -32,7 +32,6 @@
     "eslint": "^10.13.0",
     "eslint-plugin-vue": "^10.11.1",
     "nuxt": "^4.6.2",
-    "nuxt-schema-org": "^6.3.1",
     "nuxt-svgo": "^5.3.0",
     "postcss-custom-media-generator": "^1.1.0",
     "postcss-html": "^2.0.0",
@@ -56,6 +55,7 @@
     "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/zod": "^4.15.1",
     "@vite-pwa/nuxt": "^1.1.1",
+    "nuxt-schema-org": "^7.0.1",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0"
   }
