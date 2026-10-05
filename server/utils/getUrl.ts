@@ -115,5 +115,9 @@ export const getUrl = ({
   if (productCategory) {
     url.searchParams.set('category', productCategory.toString())
   }
+
+  if (import.meta.dev) {
+    console.log(url.href)
+  }
   return url.toString()
 }
