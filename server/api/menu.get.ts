@@ -8,7 +8,7 @@ const querySchema = z.object({
   locale: LocaleSchema,
 })
 
-export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
+export default defineEventHandler(async (event): Promise<MenuItem[]> => {
   const query = await getValidatedQuery(event, body => parseData(body, querySchema))
 
   const { pageIds } = useAppConfig()
@@ -76,7 +76,7 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
     new Promise((resolve) => {
       const url = getUrl({
         ...baseUrl,
-        orderby: 'title',
+        orderby: 'menu_order',
         type,
         locale: query.locale,
       })
@@ -141,6 +141,7 @@ export default defineCachedEventHandler(async (event): Promise<MenuItem[]> => {
   ]
 
   return menu.filter(item => item !== undefined)
-}, {
-  maxAge: 60 * 60,
+// }
+// , {
+  // maxAge: 60 * 60,
 })
