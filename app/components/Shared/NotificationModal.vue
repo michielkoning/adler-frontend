@@ -24,7 +24,7 @@ const isOpen = ref(true)
         sizes="100vw sm:270px md:270px lg:270px xl:270px 2xl:270px"
       />
       <div>
-        <p>{{ data.content }}</p>
+        <div v-html="data.content" />
         <app-button
           v-if="data.link"
           v-bind="data.link"

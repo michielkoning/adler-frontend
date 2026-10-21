@@ -2,7 +2,12 @@ import { z } from 'zod'
 
 const NotificationTextSchema = z.object({
   title: z.string().optional().transform(val => val !== '' ? val : undefined),
-  text: z.string().optional().transform(val => val !== '' ? val : undefined),
+  text: z.string().optional().transform(val => {
+    if (val === '' || val === undefined) {
+      return undefined
+    }
+    return val.replace(/\r\n/g, "<br />")
+  }),
   link: z.string().optional().transform(val => val !== '' ? val : undefined),
   link_label: z.string().optional().transform(val => val !== '' ? val : undefined),
 }).transform((val) => {
