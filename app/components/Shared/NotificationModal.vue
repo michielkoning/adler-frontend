@@ -24,7 +24,7 @@ const isOpen = ref(true)
         sizes="100vw sm:270px md:270px lg:270px xl:270px 2xl:270px"
       />
       <div>
-        <div v-html="data.content" />
+        <div v-html="data.content" class="text" />
         <app-button
           v-if="data.link"
           v-bind="data.link"
@@ -43,6 +43,10 @@ const isOpen = ref(true)
   @media (--sm) {
     grid-template-columns: 15em auto;
   }
+}
+
+.text {
+  margin-block-end: var(--spacing-4);
 }
 
 img {
