@@ -177,6 +177,7 @@ export default defineNuxtConfig({
   telemetry: false,
 
   eslint: {
+    checker: true,
     config: {
       stylistic: true,
     },

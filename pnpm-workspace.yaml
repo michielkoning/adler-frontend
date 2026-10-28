@@ -1,17 +1,3 @@
 allowBuilds:
-  "@parcel/watcher": true
   esbuild: true
-  sharp: true
   unrs-resolver: true
-  vue-demi: true
-
-onlyBuiltDependencies:
-  - esbuild
-  - unrs-resolver
-  - vue-demi
-
-onlybuiltdependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
-  - unrs-resolver;
