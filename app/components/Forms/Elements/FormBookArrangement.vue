@@ -62,7 +62,7 @@ const validationSchema = toTypedSchema(
       <form-input-text
         name="city"
         class="city"
-        autocomplete="locality"
+        autocomplete="address-level2"
         :title="$t('form.city')"
       />
 

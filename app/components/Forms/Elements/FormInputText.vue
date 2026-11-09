@@ -4,9 +4,11 @@ const props = withDefaults(
     title: string
     name: string
     type?: 'text' | 'email' | 'tel' | 'date' | 'number'
+    autocomplete?: AutoFillField
   }>(),
   {
     type: 'text',
+    autocomplete: undefined
   },
 )
 
@@ -42,6 +44,7 @@ const validationListeners = {
       :name="name"
       v-bind="$attrs"
       :value="inputValue"
+      :autocomplete
       :type="type"
       class="field"
       v-on="validationListeners"

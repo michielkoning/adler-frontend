@@ -31,7 +31,7 @@ const onSubmit = handleSubmit(async () => {
   await $fetch(url.pathname, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: {
       ...values,

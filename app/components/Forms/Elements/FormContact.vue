@@ -23,6 +23,12 @@ const validationSchema = toTypedSchema(
   >
     <form-fieldset :title="$t('form.formContact')">
       <form-input-text
+        name="name"
+        :title="$t('form.name')"
+        autocomplete="name"
+      />
+
+      <form-input-text
         name="email"
         :title="$t('form.email')"
         type="email"
