@@ -32,10 +32,13 @@ const onSubmit = handleSubmit(async () => {
     method: 'POST',
     watch: false,
     immediate: false,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
     body: {
       ...values,
       'form-name': props.name,
-      'page': url,
+      'page': url.href,
     },
   }).then(() => {
     status.value = 'success'
