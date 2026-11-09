@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { TypedSchema } from 'vee-validate'
+import type { AsyncDataRequestStatus } from '#app'
 
 const props = defineProps<{
   name: string
@@ -9,28 +10,38 @@ const props = defineProps<{
 
 const { start, finish } = useLoadingIndicator()
 
-const { values, handleSubmit } = useForm({
+const { values, handleSubmit, setValues } = useForm({
   name: props.name,
   validationSchema: props.validationSchema,
 })
 
 const url = useRequestURL()
 
-const { execute, status } = await useFetch(url.pathname, {
-  method: 'POST',
-  watch: false,
-  immediate: false,
-  body: {
-    ...values,
-    'form-name': props.name,
-    'page': url,
-  },
-  onRequest: start,
-  onResponse: finish,
+const status: Ref<AsyncDataRequestStatus> = ref('idle')
+
+setValues({
+  email: 'mail@michielkoning.nl',
+  phone: '061223456678',
+  message: 'test van michiel',
 })
 
-const onSubmit = handleSubmit(() => {
-  execute()
+const onSubmit = handleSubmit(async () => {
+  start()
+  status.value = 'pending'
+  $fetch(url.pathname, {
+    method: 'POST',
+    watch: false,
+    immediate: false,
+    body: {
+      ...values,
+      'form-name': props.name,
+      'page': url,
+    },
+  }).then(() => {
+    status.value = 'success'
+  }).catch(() => {
+    status.value = 'error'
+  }).finally(finish)
 })
 </script>
 
@@ -39,7 +50,6 @@ const onSubmit = handleSubmit(() => {
     {{ $t("form.success") }}
   </p>
   <form
-    v-else
     :action="url.href"
     data-netlify="true"
     netlify-honeypot="bot-field"
