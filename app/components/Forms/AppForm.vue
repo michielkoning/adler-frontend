@@ -28,10 +28,8 @@ setValues({
 const onSubmit = handleSubmit(async () => {
   start()
   status.value = 'pending'
-  $fetch(url.pathname, {
+  await $fetch(url.pathname, {
     method: 'POST',
-    watch: false,
-    immediate: false,
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
@@ -59,7 +57,7 @@ const onSubmit = handleSubmit(async () => {
     method="POST"
     :name="name"
     novalidate
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
   >
     <p>{{ $t("form.intro") }}</p>
     <slot />
