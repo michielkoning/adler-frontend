@@ -10,7 +10,7 @@ const props = defineProps<{
 
 const { start, finish } = useLoadingIndicator()
 
-const { values, handleSubmit, setValues } = useForm({
+const { values, handleSubmit } = useForm({
   name: props.name,
   validationSchema: props.validationSchema,
 })
@@ -18,12 +18,6 @@ const { values, handleSubmit, setValues } = useForm({
 const url = useRequestURL()
 
 const status: Ref<AsyncDataRequestStatus> = ref('idle')
-
-setValues({
-  email: 'mail@michielkoning.nl',
-  phone: '061223456678',
-  message: 'test van michiel',
-})
 
 const onSubmit = handleSubmit(async () => {
   start()
