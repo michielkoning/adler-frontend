@@ -45,6 +45,7 @@ const onSubmit = handleSubmit(async () => {
     {{ $t("form.success") }}
   </p>
   <form
+    v-else
     :action="url.href"
     data-netlify="true"
     netlify-honeypot="bot-field"
