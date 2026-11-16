@@ -28,7 +28,7 @@ useSchemaOrg([
     address: {
       postalCode: address.postalCode,
       streetAddress: address.street,
-      locality: address.city,
+      addressLocality: address.city,
       addressCountry: address.country,
       addressRegion: address.region,
     },

@@ -3,10 +3,10 @@ const props = withDefaults(
   defineProps<{
     title: string
     name: string
-    type?: 'text' | 'email' | 'tel' | 'date' | 'number'
+    toolparamdescription?: string
   }>(),
   {
-    type: 'text',
+    toolparamdescription: undefined,
   },
 )
 
@@ -40,6 +40,7 @@ const validationListeners = {
     <textarea
       :id="id"
       v-bind="$attrs"
+      :toolparamdescription
       :value="inputValue"
       :name="name"
       class="field"
