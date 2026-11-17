@@ -8,6 +8,7 @@ const settings = {
   categories: ['travel'],
   facebook: 'https://www.facebook.com/adler.hotel',
   twitter: '@Adler_Hotel',
+  instagram: 'https://www.instagram.com/adlerlingenau/',
   description:
     'Urlaub mit Kindern im Bregenzerwald. Machen Sie Urlaub mit Kindern in unserem Familienhotel in Vorarlberg im Bregenzerwald. Buchen Sie Ihren Familienurlaub mit Kindern im Hotel im Bregenzerwald, Vorarlberg, Österreich online"',
   locale: 'de',
@@ -371,6 +372,16 @@ export default defineNuxtConfig({
           purpose: 'maskable',
         },
       ],
+    },
+  },
+  schemaOrg: {
+    identity: {
+      type: 'LocalBusiness',
+      name: settings.title,
+      logo: '/icons/512.png',
+      url: settings.baseUrl,
+      description: settings.description,
+      sameAs: [settings.twitter, settings.facebook, settings.instagram],
     },
   },
 

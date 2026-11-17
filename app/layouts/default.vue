@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Hotel } from 'schema-dts'
+
 const { title, facebookUrl, twitterUrl, instagramUrl, address }
   = useAppConfig()
 
@@ -8,7 +10,20 @@ useHead({
   },
 })
 
+const hotel: Hotel = {
+  '@type': 'Hotel',
+
+}
+
 useSchemaOrg([
+
+  defineAddress({
+    postalCode: address.postalCode,
+    streetAddress: address.street,
+    addressLocality: address.city,
+    addressCountry: address.country,
+    addressRegion: address.region,
+  }),
   defineLocalBusiness({
     name: title,
     logo: {
@@ -36,6 +51,9 @@ useSchemaOrg([
   defineWebSite({
     name: title,
   }),
+  {
+    ...hotel,
+  },
 ])
 
 const menuIsOpen = useMenuIsOpen()
