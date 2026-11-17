@@ -1,9 +1,25 @@
 <script lang="ts" setup>
 import type { LastMinute } from '~~/shared/types/LastMinute'
 
-defineProps<LastMinute>()
+const props = defineProps<LastMinute>()
 
 const id = useId()
+
+const { d } = useI18n()
+
+const formTitle = computed(() => {
+  if (props.dates.from && props.dates.until) {
+    return `${props.room.content.title} 
+    ${d(new Date(props.dates.from), {
+      locale: 'en',
+    })}-${d(new Date(props.dates.until), {
+      locale: 'en',
+    })} (${props.title})`
+  }
+  else {
+    return `${props.room.content.title} (${props.title})`
+  }
+})
 </script>
 
 <template>
@@ -128,7 +144,7 @@ const id = useId()
         room: room.content.title,
       })"
     >
-      <form-last-minute :title="title" />
+      <form-last-minute :title="formTitle" />
     </app-modal>
   </li>
 </template>
