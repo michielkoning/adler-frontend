@@ -44,26 +44,6 @@ export default defineNuxtConfig({
     '@nuxtjs/partytown',
   ],
 
-  $production: {
-    scripts: {
-      privacy: true,
-      registry: {
-        metaPixel: {
-          id: '1232005826842948',
-          partytown: true,
-          trigger: 'onNuxtReady',
-        },
-        googleAnalytics: {
-          id: 'UA-1359501-2',
-          partytown: true,
-          trigger: 'onNuxtReady',
-        },
-        googleMaps: {
-          partytown: true,
-        },
-      },
-    },
-  },
   components: [
     '~/components/Archive',
     '~/components/Arrangements/Prices',
@@ -431,6 +411,20 @@ export default defineNuxtConfig({
         addressLocality: settings.address.city,
         addressCountry: settings.address.country,
         addressRegion: settings.address.region,
+      },
+    },
+
+  },
+  scripts: {
+    privacy: true,
+    registry: {
+      metaPixel: {
+        id: '1232005826842948',
+        trigger: 'onNuxtReady',
+      },
+      googleAnalytics: {
+        id: 'UA-1359501-2',
+        trigger: 'onNuxtReady',
       },
 
     },
