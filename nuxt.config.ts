@@ -386,19 +386,23 @@ export default defineNuxtConfig({
     },
   },
 
-  scripts: {
-    privacy: true,
-    registry: {
-      metaPixel: {
-        id: '1232005826842948',
-        partytown: true,
-      },
-      googleAnalytics: {
-        id: 'UA-1359501-2',
-        partytown: true,
-      },
-      googleMaps: {
-        partytown: true,
+  $production: {
+    scripts: {
+      privacy: true,
+      registry: {
+        metaPixel: {
+          id: '1232005826842948',
+          partytown: true,
+          trigger: 'onNuxtReady',
+        },
+        googleAnalytics: {
+          id: 'UA-1359501-2',
+          partytown: true,
+          trigger: 'onNuxtReady',
+        },
+        googleMaps: {
+          partytown: true,
+        },
       },
     },
   },

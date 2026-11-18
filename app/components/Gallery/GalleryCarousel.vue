@@ -98,4 +98,9 @@ li {
     background: var(--color-primary);
   }
 }
+
+:deep(img) {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 </style>
