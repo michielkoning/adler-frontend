@@ -1,14 +1,9 @@
 <script lang="ts" setup>
-const props = withDefaults(
-  defineProps<{
-    title: string
-    name: string
-    toolparamdescription?: string
-  }>(),
-  {
-    toolparamdescription: undefined,
-  },
-)
+const props = defineProps<{
+  title: string
+  name: string
+  toolparamdescription: string
+}>()
 
 defineOptions({
   inheritAttrs: false,

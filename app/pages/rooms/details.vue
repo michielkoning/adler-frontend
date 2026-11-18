@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { HotelRoom, WithContext } from 'schema-dts'
+import type { HotelRoom } from 'schema-dts'
 
 definePageMeta({
   i18n: {

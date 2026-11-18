@@ -5,12 +5,11 @@ const props = withDefaults(
     name: string
     type?: 'text' | 'email' | 'tel' | 'date' | 'number'
     autocomplete?: AutoFillField
-    toolparamdescription?: string
+    toolparamdescription: string
   }>(),
   {
     type: 'text',
     autocomplete: undefined,
-    toolparamdescription: undefined,
   },
 )
 
