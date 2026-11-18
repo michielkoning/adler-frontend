@@ -6,6 +6,8 @@ const props = defineProps<{
   name: string
   btnText?: string
   validationSchema: TypedSchema
+  toolname: string
+  tooldescription: string
 }>()
 
 const { start, finish } = useLoadingIndicator()
@@ -50,7 +52,9 @@ const onSubmit = handleSubmit(async () => {
     data-netlify="true"
     netlify-honeypot="bot-field"
     method="POST"
-    :name="name"
+    :name
+    :toolname
+    :tooldescription
     novalidate
     @submit.prevent="onSubmit"
   >

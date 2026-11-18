@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { HotelRoom } from 'schema-dts'
+
 definePageMeta({
   i18n: {
     paths: {
@@ -31,6 +33,26 @@ setI18nParams({
 })
 
 useSeo(data.value?.seo)
+
+const url = useRequestURL()
+
+const seo: HotelRoom = {
+  '@type': 'HotelRoom',
+  'name': data.value?.content.title,
+  'url': url.href,
+  'amenityFeature': data.value?.services.map((item) => {
+    return {
+      '@type': 'LocationFeatureSpecification',
+      'name': item,
+    }
+  }),
+}
+
+useSchemaOrg([
+  {
+    ...seo,
+  },
+])
 </script>
 
 <template>

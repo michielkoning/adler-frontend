@@ -8,9 +8,23 @@ const settings = {
   categories: ['travel'],
   facebook: 'https://www.facebook.com/adler.hotel',
   twitter: '@Adler_Hotel',
+  instagram: 'https://www.instagram.com/adlerlingenau/',
   description:
     'Urlaub mit Kindern im Bregenzerwald. Machen Sie Urlaub mit Kindern in unserem Familienhotel in Vorarlberg im Bregenzerwald. Buchen Sie Ihren Familienurlaub mit Kindern im Hotel im Bregenzerwald, Vorarlberg, Österreich online"',
   locale: 'de',
+  address: {
+    street: 'Hof 43',
+    postalCode: '6951',
+    city: 'Lingenau',
+    country: 'austria',
+    region: 'Vorarlberg',
+    province: 'Bregenzerwald',
+    phoneNumber: '+43-(0)5513-63670',
+    emailAddress: 'info@adler-lingenau.com',
+    longitude: 47.450565,
+    latitude: 9.922004,
+    directionsUrl: 'https://www.google.com/maps?daddr=Hof%2043%20Lingenau',
+  },
 }
 
 const { resolve } = createResolver(import.meta.url)
@@ -29,6 +43,27 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxtjs/partytown',
   ],
+
+  $production: {
+    scripts: {
+      privacy: true,
+      registry: {
+        metaPixel: {
+          id: '1232005826842948',
+          partytown: true,
+          trigger: 'onNuxtReady',
+        },
+        googleAnalytics: {
+          id: 'UA-1359501-2',
+          partytown: true,
+          trigger: 'onNuxtReady',
+        },
+        googleMaps: {
+          partytown: true,
+        },
+      },
+    },
+  },
   components: [
     '~/components/Archive',
     '~/components/Arrangements/Prices',
@@ -94,6 +129,12 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/base.css'],
+  site: {
+    url: settings.baseUrl,
+    name: settings.title,
+    description: settings.description,
+
+  },
   runtimeConfig: {
     public: {
       scripts: {
@@ -374,25 +415,24 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  $production: {
-    scripts: {
-      privacy: true,
-      registry: {
-        metaPixel: {
-          id: '1232005826842948',
-          partytown: true,
-          trigger: 'onNuxtReady',
-        },
-        googleAnalytics: {
-          id: 'UA-1359501-2',
-          partytown: true,
-          trigger: 'onNuxtReady',
-        },
-        googleMaps: {
-          partytown: true,
-        },
+  schemaOrg: {
+    identity: {
+      type: 'LocalBusiness',
+      name: settings.title,
+      logo: '/icons/512.png',
+      url: settings.baseUrl,
+      description: settings.description,
+      sameAs: [settings.twitter, settings.facebook, settings.instagram],
+      telephone: settings.address.phoneNumber,
+      email: settings.address.emailAddress,
+      address: {
+        postalCode: settings.address.postalCode,
+        streetAddress: settings.address.street,
+        addressLocality: settings.address.city,
+        addressCountry: settings.address.country,
+        addressRegion: settings.address.region,
       },
+
     },
   },
 })

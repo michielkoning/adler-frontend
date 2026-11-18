@@ -25,12 +25,16 @@ const validationSchema = toTypedSchema(
     title: z.literal(props.title).default(props.title),
   }),
 )
+
+const id = useId()
 </script>
 
 <template>
   <app-form
     :validation-schema="validationSchema"
     name="lastMinutes"
+    :toolname="`lastMinutes-${id}`"
+    :tooldescription="`Request a last minute booking for ${title}.`"
     :btn-text="$t('request')"
   >
     <form-fieldset
@@ -42,12 +46,14 @@ const validationSchema = toTypedSchema(
         class="name"
         autocomplete="name"
         :title="$t('form.name')"
+        toolparamdescription="Name"
       />
       <form-input-text
         name="address"
         class="address"
         autocomplete="street-address"
         :title="$t('form.address')"
+        toolparamdescription="Address"
       />
 
       <form-input-text
@@ -55,6 +61,7 @@ const validationSchema = toTypedSchema(
         class="zipcode"
         autocomplete="postal-code"
         :title="$t('form.zipcode')"
+        toolparamdescription="Zipcode"
       />
 
       <form-input-text
@@ -62,6 +69,7 @@ const validationSchema = toTypedSchema(
         class="city"
         autocomplete="address-level2"
         :title="$t('form.city')"
+        toolparamdescription="City"
       />
 
       <form-input-text
@@ -69,6 +77,7 @@ const validationSchema = toTypedSchema(
         class="country"
         autocomplete="country"
         :title="$t('form.country')"
+        toolparamdescription="Country"
       />
 
       <form-input-text
@@ -77,6 +86,7 @@ const validationSchema = toTypedSchema(
         class="phone-number"
         autocomplete="tel"
         :title="$t('form.phoneNumber')"
+        toolparamdescription="Phone number"
       />
 
       <form-input-text
@@ -85,6 +95,7 @@ const validationSchema = toTypedSchema(
         class="email"
         autocomplete="email"
         :title="$t('form.email')"
+        toolparamdescription="Email address"
       />
     </form-fieldset>
 
@@ -97,6 +108,7 @@ const validationSchema = toTypedSchema(
         name="totalRooms"
         class="date"
         :title="$t('form.totalRooms')"
+        toolparamdescription="Number of rooms"
       />
 
       <form-input-text
@@ -104,17 +116,20 @@ const validationSchema = toTypedSchema(
         name="totalAdults"
         class="date"
         :title="$t('form.totalAdults')"
+        toolparamdescription="Number of adults"
       />
 
       <form-input-text
         type="number"
         name="totalChildren"
         :title="$t('form.totalChildren')"
+        toolparamdescription="Number of kids"
       />
 
       <form-input-text
         name="ageChildren"
         :title="$t('form.ageChildren')"
+        toolparamdescription="Age of kids"
       />
     </form-fieldset>
 
@@ -122,6 +137,7 @@ const validationSchema = toTypedSchema(
       <form-textarea
         name="remarks"
         :title="$t('form.remarks')"
+        toolparamdescription="Remarkt"
         rows="4"
       />
     </form-fieldset>

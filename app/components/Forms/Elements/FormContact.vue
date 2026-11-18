@@ -20,10 +20,13 @@ const validationSchema = toTypedSchema(
   <app-form
     :validation-schema="validationSchema"
     name="contact"
+    toolname="contact"
+    tooldescription="Submit a question"
   >
     <form-fieldset :title="$t('form.formContact')">
       <form-input-text
         name="name"
+        toolparamdescription="Name"
         :title="$t('form.name')"
         autocomplete="name"
       />
@@ -32,15 +35,18 @@ const validationSchema = toTypedSchema(
         name="email"
         :title="$t('form.email')"
         type="email"
+        toolparamdescription="Email address"
         autocomplete="email"
       />
       <form-input-text
         name="phone"
+        toolparamdescription="Phone number"
         :title="$t('form.phoneNumber')"
         type="tel"
         autocomplete="tel"
       />
       <form-textarea
+        toolparamdescription="Message"
         name="message"
         :title="$t('form.message')"
         rows="4"

@@ -1,14 +1,9 @@
 <script lang="ts" setup>
-const props = withDefaults(
-  defineProps<{
-    title: string
-    name: string
-    type?: 'text' | 'email' | 'tel' | 'date' | 'number'
-  }>(),
-  {
-    type: 'text',
-  },
-)
+const props = defineProps<{
+  title: string
+  name: string
+  toolparamdescription: string
+}>()
 
 defineOptions({
   inheritAttrs: false,
@@ -40,6 +35,7 @@ const validationListeners = {
     <textarea
       :id="id"
       v-bind="$attrs"
+      :toolparamdescription
       :value="inputValue"
       :name="name"
       class="field"

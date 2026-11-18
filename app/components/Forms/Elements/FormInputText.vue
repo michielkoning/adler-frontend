@@ -5,10 +5,11 @@ const props = withDefaults(
     name: string
     type?: 'text' | 'email' | 'tel' | 'date' | 'number'
     autocomplete?: AutoFillField
+    toolparamdescription: string
   }>(),
   {
     type: 'text',
-    autocomplete: undefined
+    autocomplete: undefined,
   },
 )
 
@@ -46,6 +47,7 @@ const validationListeners = {
       :value="inputValue"
       :autocomplete
       :type="type"
+      :toolparamdescription
       class="field"
       v-on="validationListeners"
     >
