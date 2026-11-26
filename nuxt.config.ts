@@ -124,6 +124,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  experimental: {
+    webmcp: true,
+  },
   compatibilityDate: '2025-08-03',
 
   nitro: {
