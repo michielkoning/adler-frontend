@@ -21,6 +21,10 @@ const { address, title } = useAppConfig()
     <div class="contact">
       <contact-phone-number />
       <contact-emailaddress />
+      <contact-whatsapp-1 class="btn" />
+      <contact-whatsapp-2 class="btn" /><br>
+      <contact-whatsapp-3 class="btn" /><br>
+      <contact-whatsapp-4 class="btn" /><br>
     </div>
 
     <app-button
@@ -33,6 +37,10 @@ const { address, title } = useAppConfig()
 </template>
 
 <style lang="css" scoped>
+.btn {
+  margin-block-end: var(--spacing-2);
+}
+
 .address {
   margin-block-end: var(--spacing-2);
 }

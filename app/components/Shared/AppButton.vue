@@ -9,6 +9,7 @@ const props = withDefaults(
       size?: 'small' | 'medium' | 'large'
       isFullWidth?: boolean
       title: string
+      icon?: string
     }
   >(),
   {
@@ -16,6 +17,7 @@ const props = withDefaults(
     size: 'medium',
     type: 'button',
     isFullWidth: false,
+    icon: undefined,
   },
 )
 
@@ -45,6 +47,11 @@ const cssClasses = computed(() => {
     :class="cssClasses"
     :type="component === 'button' ? type : undefined"
   >
+    <app-icon
+      v-if="icon"
+      :icon
+      class="icon"
+    />
     {{ title }}
   </component>
 </template>
@@ -52,6 +59,10 @@ const cssClasses = computed(() => {
 <style lang="css" scoped>
 .btn {
   @mixin btn;
+
+  display: inline-flex;
+  gap: var(--spacing-1);
+  align-items: center;
 }
 
 .btn-small {

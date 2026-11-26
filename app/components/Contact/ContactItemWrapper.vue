@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 defineProps<{
-  icon: 'phone' | 'envelope'
+  icon: 'phone' | 'envelope' | 'adler:whatsapp'
   title: string
   url: string
 }>()
@@ -13,6 +13,12 @@ defineProps<{
     class="contact-item"
   >
     <app-icon
+      v-if="icon === 'adler:whatsapp'"
+      :icon
+      class="icon"
+    />
+    <app-icon
+      v-else
       :icon="`fa6-solid:${icon}`"
       class="icon"
     />
