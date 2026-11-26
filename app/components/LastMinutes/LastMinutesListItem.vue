@@ -114,13 +114,13 @@ const formTitle = computed(() => {
     </div>
     <div class="services-wrapper">
       <div
-        v-if="room.services.length"
+        v-if="services.length"
         class="services"
       >
         <h3>{{ $t("services") }}</h3>
         <ul>
           <li
-            v-for="service in room.services"
+            v-for="service in services"
             :key="service"
           >
             {{ service }}

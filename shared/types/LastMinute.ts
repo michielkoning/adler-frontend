@@ -7,6 +7,7 @@ export type LastMinute = {
   title: string
   room: Room
   image?: Image
+  services: string[]
   isSold: boolean
   prices: {
     kids: number

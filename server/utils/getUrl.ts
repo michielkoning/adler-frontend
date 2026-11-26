@@ -20,6 +20,7 @@ export const getUrl = ({
   orderby,
   order,
   locale,
+  embedded,
 }: {
   fields: string[]
   type: string
@@ -42,6 +43,7 @@ export const getUrl = ({
   orderby?: 'menu_order' | 'title'
   order?: 'asc' | 'desc'
   locale?: string
+  embedded?: boolean
 }) => {
   const { apiUrl } = useAppConfig()
 
@@ -52,11 +54,11 @@ export const getUrl = ({
 
   const url = new URL(baseUrl)
   if (image) {
-    fields.push('_links')
-    fields.push('_embedded')
     fields.push('wp:featuredmedia')
   }
-  if (type === 'room') {
+  if (embedded) {
+    fields.push('_links')
+    fields.push('_embedded')
     url.searchParams.set('_embed', 'true')
   }
   const allFields = ['id', ...fields]

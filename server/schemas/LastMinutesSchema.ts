@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { FeaturedImageSchema } from './FeaturedImageSchema'
+import { TermsListSchema } from './TermsSchema'
 
 export const LastMinutesSchema = z.array(
   z.object({
@@ -9,6 +10,10 @@ export const LastMinutesSchema = z.array(
       rendered: z.string(),
     }),
     'wp:featuredmedia': z.array(FeaturedImageSchema).default([]),
+    '_embedded': z.object({
+      'wp:term': TermsListSchema,
+    }),
+
     'acf': z.object({
       room: z.object({
         ID: z.number(),

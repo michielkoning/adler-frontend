@@ -18,6 +18,7 @@ export default defineCachedEventHandler(async (event): Promise<Room> => {
     type: 'room',
     fields: ['title', 'slug', 'content', 'acf', 'yoast_head_json', 'locales'],
     id: query.id,
+    embedded: true,
   })
 
   const response = await $fetch(url)
@@ -43,7 +44,7 @@ export default defineCachedEventHandler(async (event): Promise<Room> => {
       image: getFeaturedImage(item['wp:featuredmedia']),
       gallery: [],
     },
-    services: getTagsByType(item._embedded['wp:term']),
+    services: getTagsByType(item._embedded['wp:term'], 'service'),
     locales: item.locales,
     seo: createSeo(item.yoast_head_json),
 

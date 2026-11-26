@@ -17,10 +17,11 @@ export default defineCachedEventHandler(async (event): Promise<LastMinute[]> => 
     image: true,
     lang: query.locale,
     type: 'last_minute',
-    fields: ['slug', 'title', 'acf', 'locales'],
+    fields: ['slug', 'title', 'acf', 'locales', 'service_last_minute'],
     locale: query.locale,
     orderby: 'menu_order',
     order: 'asc',
+    embedded: true,
   })
 
   const response = await $fetch(url)
@@ -41,6 +42,7 @@ export default defineCachedEventHandler(async (event): Promise<LastMinute[]> => 
       link: item.slug,
       title: item.title.rendered,
       image: getFeaturedImage(item['wp:featuredmedia']),
+      services: getTagsByType(item._embedded['wp:term'], 'service_last_minute'),
       room: await getRoom(item.acf.room.ID),
       prices: item.acf.prices,
       isSold: item.acf.sold,
